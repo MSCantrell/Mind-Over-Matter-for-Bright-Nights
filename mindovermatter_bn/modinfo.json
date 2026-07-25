@@ -4,6 +4,7 @@
     "id": "mindovermatter_bn",
     "name": "Mind Over Matter (BN)",
     "authors": [ "Standing-Storm (original)", "Mike Cantrell (BN port)" ],
+    "version": "2026.07.25",
     "description": "Psionics: seven psychic power paths.  A Lua-based port of the Mind Over Matter mod from Cataclysm: DDA.  Pinned upstream: CDDA master 69df2e4 (2026-07-04).",
     "category": "content",
     "lua_api_version": 2,

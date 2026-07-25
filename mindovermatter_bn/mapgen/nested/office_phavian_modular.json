@@ -2075,35 +2075,8 @@
           "item": "pen",
           "x": 2,
           "y": 5,
-          "chance": 60
-        },
-        {
-          "item": "blue_pen",
-          "x": 2,
-          "y": 5,
-          "chance": 60
-        },
-        {
-          "item": "green_pen",
-          "x": 2,
-          "y": 5,
-          "chance": 60
-        },
-        {
-          "item": "red_pen",
-          "x": 2,
-          "y": 5,
-          "chance": 60
-        },
-        {
-          "item": "envelope",
-          "x": 2,
-          "y": 5,
           "chance": 60,
-          "repeat": [
-            1,
-            4
-          ]
+          "repeat": 4
         },
         {
           "item": "paper",
@@ -2238,35 +2211,8 @@
           "item": "pen",
           "x": 5,
           "y": 2,
-          "chance": 60
-        },
-        {
-          "item": "blue_pen",
-          "x": 5,
-          "y": 2,
-          "chance": 60
-        },
-        {
-          "item": "green_pen",
-          "x": 5,
-          "y": 2,
-          "chance": 60
-        },
-        {
-          "item": "red_pen",
-          "x": 5,
-          "y": 2,
-          "chance": 60
-        },
-        {
-          "item": "envelope",
-          "x": 5,
-          "y": 2,
           "chance": 60,
-          "repeat": [
-            1,
-            4
-          ]
+          "repeat": 4
         },
         {
           "item": "paper",

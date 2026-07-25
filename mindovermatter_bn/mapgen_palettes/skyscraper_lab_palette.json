@@ -189,22 +189,10 @@
       }
     },
     "vendingmachines": {
-      "8": {
-        "item_group": "vending_drink",
-        "lootable": true
-      },
-      "9": {
-        "item_group": "vending_food",
-        "lootable": true
-      },
-      "\u0110": {
-        "item_group": "vending_drink",
-        "lootable": true
-      },
-      "\u0191": {
-        "item_group": "vending_food",
-        "lootable": true
-      }
+      "8": { "item_group": "vending_drink" },
+      "9": { "item_group": "vending_food" },
+      "\u0110": { "item_group": "vending_drink" },
+      "\u0191": { "item_group": "vending_food" }
     },
     "toilets": {
       "T": {}

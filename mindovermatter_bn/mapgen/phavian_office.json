@@ -64,9 +64,7 @@
         "t": "f_table"
       },
       "vendingmachines": {
-        "V": {
-          "lootable": true
-        }
+        "V": { }
       },
       "toilets": {
         "T": {}
@@ -302,9 +300,7 @@
         "s": "t_dirt"
       },
       "vendingmachines": {
-        "V": {
-          "lootable": true
-        }
+        "V": { }
       },
       "items": {
         "T": {

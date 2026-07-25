@@ -23,8 +23,8 @@
       "str_max": 80,
       "sound": "ker-rash!",
       "sound_fail": "plunk.",
-      "sound_vol": 16,
-      "sound_fail_vol": 12,
+      "sound_vol": "100 dB",
+      "sound_fail_vol": "80 dB",
       "ter_set": "t_linoleum_white",
       "items": [
         {
@@ -99,8 +99,8 @@
       "str_max": 80,
       "sound": "ker-rash!",
       "sound_fail": "plunk.",
-      "sound_vol": 16,
-      "sound_fail_vol": 12,
+      "sound_vol": "100 dB",
+      "sound_fail_vol": "80 dB",
       "ter_set": "t_linoleum_white",
       "items": [
         {
@@ -175,8 +175,8 @@
       "str_max": 80,
       "sound": "ker-rash!",
       "sound_fail": "plunk.",
-      "sound_vol": 16,
-      "sound_fail_vol": 12,
+      "sound_vol": "100 dB",
+      "sound_fail_vol": "80 dB",
       "ter_set": "t_linoleum_white",
       "items": [
         {
@@ -251,8 +251,8 @@
       "str_max": 80,
       "sound": "ker-rash!",
       "sound_fail": "plunk.",
-      "sound_vol": 16,
-      "sound_fail_vol": 12,
+      "sound_vol": "100 dB",
+      "sound_fail_vol": "80 dB",
       "ter_set": "t_linoleum_white",
       "items": [
         {
@@ -327,8 +327,8 @@
       "str_max": 80,
       "sound": "ker-rash!",
       "sound_fail": "plunk.",
-      "sound_vol": 16,
-      "sound_fail_vol": 12,
+      "sound_vol": "100 dB",
+      "sound_fail_vol": "80 dB",
       "ter_set": "t_linoleum_white",
       "items": [
         {

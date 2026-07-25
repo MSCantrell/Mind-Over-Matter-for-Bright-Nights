@@ -8,7 +8,7 @@
       "str": "Ch47 Fusion Pistol"
     },
     "description": "The standard-issue officer's sidearm for the Imperial Navy, guaranteed manufactured on Tlalticpactli itself by scions of the Huey Calpulli, the Ch47 replaced the earlier Ch41 and is widely renowned for its accuracy and ease of maintenance.  This particular Ch47 even bears an eagle and snake on the grip, indicating it was produced in a factory in An\u00e1huac.  Hopefully it'll make a good melee weapon as well.",
-    "reload_noise_volume": 5,
+    "reload_noise_volume": "33 dB",
     "weight": "800 g",
     "volume": "1 L",
     "symbol": "(",
@@ -102,7 +102,7 @@
       "str": "M12 \"Cochmamauhtia\" Pistol"
     },
     "description": "The M12 was designed as a less-than-lethal alternative to more dangerous forms of crowd pacification, able to disable a target for up to a minute with a single shot and few to no permanent effects.  While it cannot be said to be nonlethal because it is not safe to use on targets with heart conditions or epilepsy, it is a great improvement over the previous X04 \"Tecuacuilli\" which, on unfortunately not-rare-enough occasions, could cause permanent paralysis.  On this world, though, you don't think the M12's lethality or lack thereof is going to be much of a concern.",
-    "reload_noise_volume": 5,
+    "reload_noise_volume": "33 dB",
     "weight": "680 g",
     "volume": "1 L",
     "symbol": "(",
@@ -188,7 +188,7 @@
     "id": "mom_lightning_rifle",
     "looks_like": "laser_rifle",
     "type": "GUN",
-    "reload_noise_volume": 0,
+    "reload_noise_volume": "20 dB",
     "name": {
       "str": "G-Tz77 \"Tlapetlaniliztli\" battle rifle"
     },

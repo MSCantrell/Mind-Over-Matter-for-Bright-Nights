@@ -300,7 +300,7 @@
     "id": "mom_pulse_rifle",
     "looks_like": "laser_rifle",
     "type": "GUN",
-    "reload_noise_volume": 10,
+    "reload_noise_volume": "40 dB",
     "name": {
       "str": "LV429 Pulse Rifle"
     },
@@ -410,7 +410,7 @@
       "str": "On\u0161ut \u00a7A"
     },
     "description": "The world where this crowd-control weapon came from made great use of psionic technology, but it wasn't enough to save them from their own Cataclysm.  The Exodii left most devices they found in the ruins, assuming that they would be too difficult to maintain, but took some of the simpler weapons with them.  The On\u0161ut \u00a7A overloads the target's mind, trapping them in a hallucinatory waking dream.  This renders them almost completely harmless while in effect, with the unfortunate disadvantage of not affecting zombies.",
-    "reload_noise_volume": 5,
+    "reload_noise_volume": "33 dB",
     "weight": "566 g",
     "volume": "79 ml",
     "symbol": "(",

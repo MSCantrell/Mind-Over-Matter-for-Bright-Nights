@@ -19,7 +19,6 @@ runtime. See [Architecture](#architecture-for-the-curious) if you want to know h
 
 - **Cataclysm: Bright Nights**, a recent **nightly** with Lua support
   (`lua_api_version 2`). Developed and tested against the **2026-07-22** nightly.
-  Stable 0.6/0.7 releases will **not** work.
 - No other mods are required. Depends only on the base `bn` content.
 
 ## Install
@@ -57,14 +56,15 @@ please file an issue and attach `debug.log`.
 
 ## Getting powers
 
-- **Easiest:** pick one of the psionic **professions** at character creation (52 are
-  included). Each path has a themed starting profession — Star Athlete (biokinetic),
+- **Easiest:** pick one of the psionic **professions** at character creation.
+-  Each path has a themed starting profession — Star Athlete (biokinetic),
   Doomseer (clairsentient), Firestarter (pyrokinetic), Faith Healer (vitakinetic), and so
   on. **Awakening Psion** rolls a random path.
 - **In world:** strange crystals found in Nether-touched places or carried by psychic
-  ferals can awaken a latent path. So can walking into a portal storm unprotected.
-- Powers run on **Stamina** and are gated by **Focus**. Heavy use causes **Drain**, which
-  temporarily cuts max Stamina, Strength, Dexterity, and Perception. Rest clears it.
+  ferals can awaken a latent path.
+- Powers run on **Stamina**. Heavy use causes **Nether Attunement**, which
+  come with negative effects like damage and vomiting. Clear it with time or the "Grounding meditation"
+  crafting recipe.
 
 ### Powers unlock by using powers
 
@@ -77,7 +77,7 @@ surface on its own:
 
 Pacing is driven by **Intelligence** and the **metaphysics** skill. Every power's
 description also lists what unlocks it, so you can plan a build without a wiki.
-
+Also see the pretty mermaid chart, Psionic Discipline Atlas, linked below. 
 *(This differs from DDA, which requires a 16-hour meditation activity per power. That
 grind is removed here — see [Fork changes](#fork-changes-deliberate-differences-from-dda).)*
 
@@ -96,8 +96,8 @@ grind is removed here — see [Fork changes](#fork-changes-deliberate-difference
 | **Vitakinesis** | 20 | 4 | Health and injury — wound-binding, accelerated healing, limb repair |
 
 **160 powers** in total: 28 are foundations you get the moment you take up a school, and
-the remaining **132** unlock through play. Plus **psychic knacks** — small always-on
-talents — and a couple of path-independent powers.
+the remaining **132** unlock through play. Plus **psychic knacks** — talents that start at level 6 and
+don't advance any further. 
 
 ### Reference documents
 
@@ -138,8 +138,8 @@ Please check here first — these are known and do not need new reports.
 - **Displacement / Reactive Displacement** don't teleport the target monster.
 - **Beast Tamer** can't extend an already-friendly animal's duration (BN's charm only
   applies to non-friendly monsters).
-- **Maintained-power costs are too lenient.** Only 3 of ~64 maintained powers count toward
-  concentration-break odds and calorie drain, so holding many at once is undercharged.
+- **Maintained-power costs are probably too lenient.** Only 3 of ~64 maintained powers count toward
+  concentration-break odds and calorie drain, so holding many at once is underpenalized.
 - Some feral-psychic monster attacks are stubs (their Banish, Electrokinetic Revive).
 
 **Content wiring**
@@ -148,7 +148,7 @@ Please check here first — these are known and do not need new reports.
 - Phavian city buildings are present but never placed.
 
 **Want playtest confirmation especially on:**
-- **Nether Attunement** and per-cast costs — do they actually bite?
+- **Nether Attunement** and per-cast costs — do they actually hurt?
 - **Auto-learn pacing** — do powers arrive too fast, too slow, or about right?
 - **Mass Hydrothermosis** — does LOS-wide reach feel fair, does the Stamina cost hurt enough?
 - **Duration powers** — any that last a suspiciously wrong amount of time.

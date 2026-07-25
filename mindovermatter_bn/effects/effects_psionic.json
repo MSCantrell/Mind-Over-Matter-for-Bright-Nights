@@ -1,0 +1,165 @@
+[
+  {
+    "//": "Hand-ported (Phase 2 pilot), then fork-retuned. Upstream: effects/effects_psionic.json.",
+    "//2": "FORK 'Personal Enhancement': all four stats (STR/DEX/INT/PER), not just STR/DEX. BN has no enchantment math, so mom_eoc's initiate EOC sets intensity = clamp(round((level + INT - 7)/2), 1, 10) and each intensity step adds +1 to every stat here (base 1 + scaling 1 per step => stat bonus == intensity, +1 up to +10).",
+    "//3": "Upstream 'removes_effects: venom_weaken' dropped \u2014 no such effect in BN.",
+    "type": "effect_type",
+    "id": "effect_biokin_physical",
+    "name": [
+      "Personal Enhancement"
+    ],
+    "desc": [
+      "Psionic energy floods your body, raising all four of your attributes."
+    ],
+    "remove_message": "The surge of power fades away.",
+    "rating": "good",
+    "max_intensity": 10,
+    "base_mods": {
+      "str_mod": [
+        1
+      ],
+      "dex_mod": [
+        1
+      ],
+      "int_mod": [
+        1
+      ],
+      "per_mod": [
+        1
+      ]
+    },
+    "scaling_mods": {
+      "str_mod": [
+        1
+      ],
+      "dex_mod": [
+        1
+      ],
+      "int_mod": [
+        1
+      ],
+      "per_mod": [
+        1
+      ]
+    }
+  },
+  {
+    "//": "Hand-ported (Phase 2 pilot). Upstream: effects/effects_nether_attunement.json.",
+    "//2": "Nether Attunement display band (spec Rev 3, amended QA round 3): the real meter is a vitamin-scale char var (mom_math.lua); this effect's intensity 0-12 is derived from it on every write. No native int_decay \u2014 the Lua 5-minute decay tick in mom_eoc.lua owns the clock and resyncs this intensity.",
+    "//3": "Upstream per-intensity apply_message array flattened to one string \u2014 BN apply_message is a plain string.",
+    "type": "effect_type",
+    "id": "effect_disease_psionic_drain",
+    "name": [
+      "Nether-Attunement"
+    ],
+    "desc": [
+      "You feel a little odd and your control over your powers isn't as sure as it was.  There might be unexpected results of you channeling psionics now."
+    ],
+    "apply_message": "You feel a little odd, like you've just awoken from a dream.  All that psionic channeling might have unexpected effects.",
+    "decay_messages": [
+      [
+        "",
+        "mixed"
+      ],
+      [
+        "",
+        "mixed"
+      ],
+      [
+        "",
+        "mixed"
+      ],
+      [
+        "The constant hum of power fades, just a little.  It's easier to think now.",
+        "mixed"
+      ],
+      [
+        "",
+        "mixed"
+      ],
+      [
+        "",
+        "mixed"
+      ],
+      [
+        "",
+        "mixed"
+      ],
+      [
+        "",
+        "mixed"
+      ],
+      [
+        "",
+        "mixed"
+      ],
+      [
+        "The roar of the Nether subsides.  You can finally hear your own thoughts again.",
+        "mixed"
+      ],
+      [
+        "",
+        "mixed"
+      ],
+      [
+        "",
+        "mixed"
+      ]
+    ],
+    "remove_message": "You take a deep breath as the strange feelings fade.  You are in full control of your powers once again.",
+    "max_intensity": 12
+  },
+  {
+    "//": "Hand-ported (QA round 4, user decision).  Clairvoyance reworked from upstream's remote fd_clairvoyant vision field (no BN equivalent) to a SELF see-through-walls buff.  The Lua hook flags let mom_eoc's TRAIT_BRIDGE grant/remove MOM_CLAIRVOYANCE (carrier trait carrying BN's CLAIRVOYANCE=radius enchantment) while this is active.  Duration comes from the cast map (EOC_MOM_CLAIRVOYANCE_TOGGLE); max_duration is a ceiling.",
+    "type": "effect_type",
+    "id": "effect_clair_voyance",
+    "name": [
+      "Clairvoyance"
+    ],
+    "desc": [
+      "Your inner eye is open; you see through nearby walls."
+    ],
+    "apply_message": "You open your inner eye.",
+    "remove_message": "Your inner eye closes.",
+    "rating": "good",
+    "max_duration": "30 minutes",
+    "flags": [
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_pyrokinetic_aura_damage",
+    "name": [
+      "Burning Air"
+    ],
+    "desc": [
+      "The air is intolerably hot."
+    ],
+    "apply_message": "",
+    "remove_message": "The air cools down.",
+    "max_duration": "2 seconds",
+    "max_intensity": 12,
+    "base_mods": {
+      "hurt_min": [
+        1
+      ],
+      "hurt_max": [
+        3
+      ],
+      "hurt_chance": [
+        2
+      ]
+    },
+    "scaling_mods": {
+      "hurt_min": [
+        0.2
+      ],
+      "hurt_max": [
+        0.4
+      ]
+    },
+    "//": "Per-tick burn from standing in fd_pyrokinetic_aura (upstream effects_psionic.json). immune_flags dropped: unsupported in BN; fire immunity is gated at the field via has_fire."
+  }
+]

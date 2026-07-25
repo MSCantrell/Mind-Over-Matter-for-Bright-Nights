@@ -1,0 +1,79 @@
+[
+  {
+    "type": "recipe",
+    "result": "psi",
+    "id_suffix": "centering_meditation_drain_reduce",
+    "nested_name": "grounding meditation",
+    "category": "CC_PSIONIC",
+    "skill_used": "metaphysics",
+    "difficulty": 2,
+    "description": "Through practice, you've learned how to calm and focus yourself during meditation.  If you meditated properly, you could channel the additional nether energy you have accumulated out into your surroundings, though doing so will be extremely tiring.  It will also help shield you from nether energies for a short time afterwards.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "time": "15 m",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ]
+  },
+  {
+    "type": "recipe",
+    "result": "psi",
+    "id_suffix": "centering_meditation_drain_reduce_heart_of_fire",
+    "nested_name": "incandescent meditation",
+    "tools": [
+      [
+        [
+          "fire",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_PSIONIC",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "By gazing into the flames, you can reduce your exposure to the energies of the Nether.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "time": "20 m",
+    "flags": [
+      "SECRET",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ]
+  },
+  {
+    "type": "recipe",
+    "result": "psi",
+    "id_suffix": "matrix_channeling_drain_reduce",
+    "nested_name": "channeling protocol PGS38",
+    "category": "CC_PSIONIC",
+    "skill_used": "metaphysics",
+    "difficulty": 7,
+    "description": "That report indicated there was a way to channel the additional nether energy from long-term psionic use into a focusing object.  All you need is a drained matrix crystal and time.",
+    "components": [
+      [
+        [
+          "matrix_crystal_drained",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "time": "1 h",
+    "book_learn": [
+      [
+        "phavian_report_psionic_drain",
+        5
+      ]
+    ],
+    "flags": [
+      "SECRET",
+      "BLIND_HARD"
+    ]
+  }
+]

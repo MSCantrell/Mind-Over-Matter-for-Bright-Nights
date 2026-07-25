@@ -1,0 +1,138 @@
+[
+  {
+    "type": "monstergroup",
+    "name": "GROUP_NETHER_BREACH",
+    "default": "mon_blank",
+    "//": "Ported by hand for the MoM->CBN port (QA round 5). Filtered to monsters that exist in base CBN; 7 DDA/MoM-only nether variants dropped. Converted to CBN monstergroup schema (name/default/freq). Weights unchanged. Breach summon group.",
+    "monsters": [
+      {
+        "monster": "mon_blank",
+        "freq": 135,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_flying_polyp",
+        "freq": 80,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_hunting_horror",
+        "freq": 150,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_gracke",
+        "freq": 150,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_yugg",
+        "freq": 50,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_gelatin",
+        "freq": 120,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_breather_hub",
+        "freq": 40,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_flaming_eye",
+        "freq": 120,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_kreck",
+        "freq": 210,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_gozu",
+        "freq": 120,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_darkman",
+        "freq": 15,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_shoggoth",
+        "freq": 5,
+        "cost_multiplier": 0
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_NETHER_LAB_DEVOURER_BREACH",
+    "default": "mon_blank",
+    "//": "Ported by hand for the MoM->CBN port (QA round 5). Filtered to monsters that exist in base CBN; 7 DDA/MoM-only nether variants dropped. Converted to CBN monstergroup schema (name/default/freq). Weights unchanged. Lab-devourer variants were not ported; aliases the regular Breach set.",
+    "monsters": [
+      {
+        "monster": "mon_blank",
+        "freq": 135,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_flying_polyp",
+        "freq": 80,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_hunting_horror",
+        "freq": 150,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_gracke",
+        "freq": 150,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_yugg",
+        "freq": 50,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_gelatin",
+        "freq": 120,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_breather_hub",
+        "freq": 40,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_flaming_eye",
+        "freq": 120,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_kreck",
+        "freq": 210,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_gozu",
+        "freq": 120,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_darkman",
+        "freq": 15,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_shoggoth",
+        "freq": 5,
+        "cost_multiplier": 0
+      }
+    ]
+  }
+]

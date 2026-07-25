@@ -1,0 +1,61 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": [
+      "phavan_office_skyscraper_lab_lower_nw",
+      "phavan_office_skyscraper_lab_lower_ne",
+      "phavan_office_skyscraper_lab_lower_sw",
+      "phavan_office_skyscraper_lab_lower_se",
+      "phavan_office_skyscraper_lab_middle_nw",
+      "phavan_office_skyscraper_lab_middle_ne",
+      "phavan_office_skyscraper_lab_middle_sw",
+      "phavan_office_skyscraper_lab_middle_se",
+      "phavan_office_skyscraper_lab_upper_nw",
+      "phavan_office_skyscraper_lab_upper_ne",
+      "phavan_office_skyscraper_lab_upper_sw",
+      "phavan_office_skyscraper_lab_upper_se"
+    ],
+    "name": "phavian research tower",
+    "sym": "L",
+    "color": "light_blue",
+    "see_cost": 5,
+    "flags": [
+      "NO_ROTATE",
+      "RISK_HIGH"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": [
+      "phavian_skyscraper_ground_nw",
+      "phavian_skyscraper_ground_ne",
+      "phavian_skyscraper_ground_sw",
+      "phavian_skyscraper_ground_se"
+    ],
+    "name": "phavian office tower",
+    "sym": "t",
+    "color": "i_light_gray",
+    "see_cost": 5,
+    "flags": [
+      "SIDEWALK",
+      "NO_ROTATE"
+    ],
+    "mondensity": 2
+  },
+  {
+    "type": "overmap_terrain",
+    "id": [
+      "phavian_skyscraper_roof_nw",
+      "phavian_skyscraper_roof_ne",
+      "phavian_skyscraper_roof_sw",
+      "phavian_skyscraper_roof_se"
+    ],
+    "name": "phavian office tower",
+    "sym": "t",
+    "color": "i_light_gray",
+    "see_cost": 5,
+    "flags": [
+      "NO_ROTATE"
+    ]
+  }
+]

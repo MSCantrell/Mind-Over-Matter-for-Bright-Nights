@@ -1,0 +1,29 @@
+[
+  {
+    "//": "BN backfill: lab_postit_portal is a DDA-CORE item (data/json/items/newspaper.json, copy-from lab_postit_bio) that MoM's itemgroups/lore.json (lab_files_psi) references but BN lacks -> 'Missing item definition' on scientist loot roll. Defined here standalone in BN schema, mirroring the ported lab_postit_psi. Snippet category defined inline here because lab_postit_portal is a DDA-CORE snippet category (not in MoM's snippets/snippets_new.json, which was ported 2026-07-20 and covers only the MoM lab_file_* + lab_postit_psi categories).",
+    "type": "GENERIC",
+    "id": "lab_postit_portal",
+    "category": "books",
+    "symbol": ",",
+    "color": "yellow",
+    "name": { "str": "orange post-it note" },
+    "snippet_category": "lab_postit_portal",
+    "description": "A bright post-it note.",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "material": [ "paper" ],
+    "flags": [ "TRADER_AVOID" ],
+    "weight": "12 mg",
+    "volume": "1 ml"
+  },
+  {
+    "type": "snippet",
+    "category": "lab_postit_portal",
+    "text": [
+      { "name": "orange post-it note", "id": "lab_postit_portal_psi_1", "text": "When you collect the crystals, use sampling tongs.  Do not touch!" },
+      { "name": "orange post-it note", "id": "lab_postit_portal_psi_2", "text": "Do not calibrate to sub-plane 305PG.  It knows" },
+      { "name": "orange post-it note", "id": "lab_postit_portal_psi_3", "text": "The \"mathematician\" from upstairs wants to watch the immersion today.  Ugh" },
+      { "name": "orange post-it note", "id": "lab_postit_portal_psi_4", "text": "Accidentally touched a sample, now my head's all fuzzy" }
+    ]
+  }
+]

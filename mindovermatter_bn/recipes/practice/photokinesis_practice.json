@@ -1,0 +1,948 @@
+[
+  {
+    "type": "nested_category",
+    "id": "photokinesis_practice",
+    "nested_name": "contemplation: photokinesis",
+    "description": "Recipes related to practicing photokinesis.",
+    "subcategory": "CSC_PRACTICE_METAPHYSICS",
+    "nested_category_data": [
+      "practice_photokinetic_light_local",
+      "practice_photokinetic_create_light",
+      "practice_photokinetic_light_up_enemy",
+      "practice_photokinetic_snuff_light",
+      "practice_photokinetic_light_dodge",
+      "practice_photokinetic_light_beam",
+      "practice_photokinetic_camouflage",
+      "practice_photokinetic_rad_immunity",
+      "practice_photokinetic_light_arms",
+      "practice_photokinetic_hide_ugly",
+      "practice_photokinetic_flash_bang",
+      "practice_photokinetic_light_image",
+      "practice_photokinetic_radio",
+      "practice_photokinetic_sterilize_food",
+      "practice_photokinetic_stun_robots",
+      "practice_photokinetic_invisibility",
+      "practice_photokinetic_light_flash",
+      "practice_photokinetic_light_blinding_glare",
+      "practice_photokinetic_light_disintegrate",
+      "practice_photokinetic_light_army"
+    ],
+    "category": "CC_PRACTICE"
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_light_local",
+    "nested_name": "contemplation: candle's glow",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to create a small amount of light.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:photokinetic_light_local>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_create_light",
+    "nested_name": "contemplation: field of light",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to create light at a distance.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:photokinetic_create_light>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_snuff_light",
+    "nested_name": "contemplation: blackout",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to snuff the light of an area.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:photokinetic_snuff_light>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_light_up_enemy",
+    "nested_name": "contemplation: illuminate",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to light up a single target.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:photokinetic_light_up_enemy>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_light_dodge",
+    "nested_name": "contemplation: trick of the light",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to create illusionary forms around yourself.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:photokinetic_light_dodge>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_light_beam",
+    "nested_name": "contemplation: photon beam",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to focus photons into a high-energy beam.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:photokinetic_light_beam>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_camouflage",
+    "nested_name": "contemplation: chameleoflage",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to hide your presence from distant observers.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:photokinetic_camouflage>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_rad_immunity",
+    "nested_name": "contemplation: lucent barrier",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to create a barrier of light around you.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:photokinetic_rad_immunity>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_light_arms",
+    "nested_name": "contemplation: refracted arms",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to create illusions of extra arms.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:photokinetic_light_arms>",
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_flash_bang",
+    "nested_name": "contemplation: flashbang",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to create a burst of light that will blind and deafen anyone nearby.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:photokinetic_flash_bang>",
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_hide_ugly",
+    "nested_name": "contemplation: mirror-mask",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to disguise your appearance behind an illusion.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:photokinetic_hide_ugly>",
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_light_image",
+    "nested_name": "contemplation: lucid shadows",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to create light clones.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:photokinetic_light_image>",
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_radio",
+    "nested_name": "contemplation: radio transception",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to see, interpret, and transmit radio waves.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:photokinetic_radio>",
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_sterilize_food",
+    "nested_name": "contemplation: gamma sterilization",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability use focused radiation to make food last longer.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:photokinetic_sterilize_food>",
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_stun_robots",
+    "nested_name": "contemplation: sensor jamming",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to overload the sensors of robots and other electronics.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:photokinetic_stun_robots>",
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_invisibility",
+    "nested_name": "contemplation: veil of light",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to refract light in a way that makes you invisible.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:photokinetic_invisibility>",
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_light_flash",
+    "nested_name": "contemplation: star flash",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to create a destructive flash of light towards a target.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:photokinetic_light_flash>",
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_light_blinding_glare",
+    "nested_name": "contemplation: blinding radiance",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to glow so brightly you can blind your enemies.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:photokinetic_blinding_glare>",
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_light_disintegrate",
+    "nested_name": "contemplation: luminous disintegration",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to disintegrate matter with light.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:photokinetic_light_disintegrate>",
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "photokinetic_light_army",
+    "nested_name": "contemplation: phantom legion",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_photokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to summon a myriad of holographic clones of yourself.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:photokinetic_light_army>",
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  }
+]

@@ -1,0 +1,413 @@
+[
+  {
+    "id": "TALK_STOLE_ITEM",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Telepathy Check] What are you talking about?  This is mine.",
+        "condition": {
+          "or": [
+            {
+              "u_has_trait": "TELEPATH"
+            },
+            {
+              "u_has_trait": "PSYCHIC_KNACK"
+            }
+          ]
+        },
+        "switch": true,
+        "trial": {
+          "type": "NONE"
+        },
+        "success": {
+          "topic": "TALK_TELEPATHY_ALLOW_KEEP_ITEM"
+        },
+        "failure": {
+          "topic": "TALK_DISALLOW_KEEP_ITEM"
+        }
+      }
+    ]
+  },
+  {
+    "id": "TALK_TELEPATHY_ALLOW_KEEP_ITEM",
+    "type": "talk_topic",
+    "dynamic_line": [
+      "Oh, I\u2026I don't know what I was thinking.  I\u2026sorry.",
+      "It is?  Oh, it\u2026it is.  Right.  Right.",
+      "I\u2026I thought that\u2026never mind.",
+      "But you\u2026no, I thought\u2026I just\u2026",
+      "What?  But that's\u2026we've had\u2026how did you\u2026"
+    ],
+    "responses": [
+      {
+        "text": "That's right.",
+        "topic": "TALK_DONE",
+        "effect": [
+          "remove_stolen_status"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "TALK_MUG_TELEKINESIS_USED",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "npc_male": [
+        "*'s weapon flies out of his hands.\n\n\"<freaking> <name_b>!  You some kind of witch?\"",
+        "*'s weapon flies out of his hands and he lets out a startled yelp."
+      ],
+      "no": [
+        "*'s weapon flies out of her hands.\n\n\"<freaking> <name_b>!  You some kind of witch?\"",
+        "*'s weapon flies out of her hands and she lets out a startled yelp."
+      ]
+    },
+    "responses": [
+      {
+        "text": "Get out of here before I do worse.",
+        "trial": {
+          "type": "INTIMIDATE",
+          "difficulty": 10,
+          "mod": [
+            [
+              "FEAR",
+              3
+            ]
+          ]
+        },
+        "success": {
+          "topic": "TALK_DONE",
+          "effect": "flee"
+        },
+        "failure": {
+          "topic": "TALK_DONE",
+          "effect": "hostile"
+        }
+      }
+    ]
+  },
+  {
+    "id": [
+      "TALK_MUG",
+      "TALK_STRANGER_AGGRESSIVE"
+    ],
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Far Hand Check] *Try to rip their weapon out of their hands*.",
+        "condition": {
+          "and": [
+            "npc_has_weapon",
+            {
+              "u_has_trait": "TELEKINETIC"
+            }
+          ]
+        },
+        "trial": {
+          "type": "NONE"
+        },
+        "success": {
+          "topic": "TALK_MUG_TELEKINESIS_USED",
+          "effect": "drop_weapon",
+          "opinion": {
+            "fear": 3
+          }
+        },
+        "failure": {
+          "topic": "TALK_DONE",
+          "effect": [
+            "hostile"
+          ]
+        }
+      },
+      {
+        "text": "[Brilliant Flash Check] *blind <npc_name>*",
+        "condition": {
+          "and": [
+            {
+              "u_has_trait": "PYROKINETIC"
+            },
+            {
+              "not": {
+                "not": {
+                  "and": []
+                }
+              }
+            }
+          ]
+        },
+        "trial": {
+          "type": "NONE"
+        },
+        "success": {
+          "topic": "TALK_DONE",
+          "effect": [
+            "hostile",
+            {
+              "npc_add_effect": "blind",
+              "duration": "10 s"
+            },
+            {
+              "npc_add_effect": "stunned",
+              "duration": "2 s"
+            }
+          ]
+        },
+        "failure": {
+          "topic": "TALK_DONE",
+          "effect": [
+            "hostile"
+          ]
+        }
+      },
+      {
+        "text": "[Mood Stablization Check] You don't want to hurt me.",
+        "condition": {
+          "and": [
+            {
+              "or": [
+                {
+                  "u_has_trait": "TELEPATH"
+                },
+                {
+                  "u_has_trait": "PSYCHIC_KNACK"
+                }
+              ]
+            },
+            {
+              "not": {
+                "npc_has_trait": "NPC_TELEPATHY_IMMUNE"
+              }
+            },
+            {
+              "not": {
+                "not": {
+                  "and": []
+                }
+              }
+            }
+          ]
+        },
+        "trial": {
+          "type": "NONE"
+        },
+        "success": {
+          "topic": "TALK_STRANGER_NEUTRAL",
+          "effect": "stranger_neutral",
+          "opinion": {
+            "trust": 3,
+            "fear": -1
+          }
+        },
+        "failure": {
+          "topic": "TALK_DONE",
+          "effect": [
+            "hostile"
+          ]
+        }
+      },
+      {
+        "text": "[Sensory Deprivation Check] *Shut off <npc_name>'s senses*.",
+        "condition": {
+          "u_has_trait": "TELEPATH"
+        },
+        "trial": {
+          "type": "NONE"
+        },
+        "success": {
+          "topic": "TALK_DONE",
+          "effect": [
+            "hostile",
+            {
+              "npc_add_effect": "blind",
+              "duration": "10 s"
+            },
+            {
+              "npc_add_effect": "deaf",
+              "duration": "10 s"
+            }
+          ]
+        },
+        "failure": {
+          "topic": "TALK_DONE",
+          "effect": [
+            "hostile"
+          ]
+        }
+      },
+      {
+        "text": "[Neural Spasms Check] *Paralyze <npc_name>*.",
+        "condition": {
+          "u_has_trait": "ELECTROKINETIC"
+        },
+        "trial": {
+          "type": "NONE"
+        },
+        "success": {
+          "topic": "TALK_DONE",
+          "effect": [
+            "hostile",
+            {
+              "npc_add_effect": "mom_dlg_paralysis",
+              "duration": "1 s"
+            }
+          ]
+        },
+        "failure": {
+          "topic": "TALK_DONE",
+          "effect": [
+            "hostile"
+          ]
+        }
+      },
+      {
+        "text": "[Synaptic Overload Check] *Attack <npc_name>'s mind*.",
+        "condition": {
+          "and": [
+            {
+              "u_has_trait": "TELEPATH"
+            },
+            {
+              "not": {
+                "not": {
+                  "and": []
+                }
+              }
+            },
+            {
+              "not": {
+                "npc_has_trait": "NPC_TELEPATHY_IMMUNE"
+              }
+            }
+          ]
+        },
+        "trial": {
+          "type": "NONE"
+        },
+        "success": {
+          "topic": "TALK_DONE",
+          "effect": [
+            "hostile",
+            {
+              "npc_add_effect": "mom_dlg_synaptic_overload",
+              "duration": "1 s"
+            },
+            {
+              "npc_add_effect": "stunned",
+              "duration": "2 s"
+            }
+          ]
+        },
+        "failure": {
+          "topic": "TALK_DONE",
+          "effect": [
+            "hostile"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "TALK_STRANGER_SCARED",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Mood Stablization Check] I'm not going to hurt you.",
+        "condition": {
+          "and": [
+            {
+              "or": [
+                {
+                  "u_has_trait": "TELEPATH"
+                },
+                {
+                  "u_has_trait": "PSYCHIC_KNACK"
+                }
+              ]
+            },
+            {
+              "not": {
+                "npc_has_trait": "NPC_TELEPATHY_IMMUNE"
+              }
+            },
+            {
+              "not": {
+                "not": {
+                  "and": []
+                }
+              }
+            }
+          ]
+        },
+        "trial": {
+          "type": "NONE"
+        },
+        "success": {
+          "topic": "TALK_STRANGER_NEUTRAL",
+          "effect": "stranger_neutral",
+          "opinion": {
+            "trust": 3,
+            "fear": -1
+          }
+        },
+        "failure": {
+          "topic": "TALK_DONE",
+          "effect": [
+            "flee"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "TALK_STRANGER_WARY",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Mood Stablization Check] I'm not going to hurt you.",
+        "condition": {
+          "and": [
+            {
+              "or": [
+                {
+                  "u_has_trait": "TELEPATH"
+                },
+                {
+                  "u_has_trait": "PSYCHIC_KNACK"
+                }
+              ]
+            },
+            {
+              "not": {
+                "npc_has_trait": "NPC_TELEPATHY_IMMUNE"
+              }
+            },
+            {
+              "not": {
+                "not": {
+                  "and": []
+                }
+              }
+            }
+          ]
+        },
+        "trial": {
+          "type": "NONE"
+        },
+        "success": {
+          "topic": "TALK_STRANGER_NEUTRAL",
+          "effect": "stranger_neutral",
+          "opinion": {
+            "trust": 3,
+            "fear": -1
+          }
+        },
+        "failure": {
+          "topic": "TALK_DONE",
+          "effect": [
+            "flee"
+          ]
+        }
+      }
+    ]
+  }
+]

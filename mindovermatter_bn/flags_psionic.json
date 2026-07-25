@@ -1,0 +1,585 @@
+[
+  {
+    "//file": "json_flag stubs for DDA item flags BN doesn't define \u2014 items_psionic.json references these. They load as inert markers; behavior notes below are what DDA's C++ does with them (Phase-4 candidates if the loss matters).",
+    "type": "json_flag",
+    "id": "SINGLE_USE",
+    "info": "This item is consumed on use.",
+    "//": "DDA: item destroyed after use_action fires. Inert in BN \u2014 the psi bandage/disinfectant pseudo-items persist after use (they're zero-weight conjurations; acceptable until Phase 4).",
+    "context": [
+      "GENERIC"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "MAGICAL",
+    "info": "This item is a manifestation of psionic power.",
+    "//": "DDA: cosmetic/marker flag. Inert.",
+    "context": [
+      "TOOL"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "RAD_DETECT",
+    "info": "While worn, you can sense ambient radiation.",
+    "//": "DDA: worn item displays radiation level. No BN C++ support \u2014 the clairsentient rad-sense power needs a Phase-4 mechanism (message-based readout via Lua already exists in the EOC chain).",
+    "context": [
+      "ARMOR"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "MATRIX_CRYSTAL_BIOKINESIS",
+    "info": "This is a matrix crystal attuned to biokinesis.",
+    "//": "MoM-native marker flag identifying a matrix crystal's school for the use-action/EOCs; never ported from MoM json_flags.json.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ],
+    "//section": "Appended 2026-07-17: json_flag defs for item-referenced flags BN reported 'undefined' in debug.log. BN requires a (unused) context field."
+  },
+  {
+    "type": "json_flag",
+    "id": "MATRIX_CRYSTAL_CLAIRSENTIENCE",
+    "info": "This is a matrix crystal attuned to clairsentience.",
+    "//": "MoM-native marker flag identifying a matrix crystal's school for the use-action/EOCs; never ported from MoM json_flags.json.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "MATRIX_CRYSTAL_ELECTROKINESIS",
+    "info": "This is a matrix crystal attuned to electrokinesis.",
+    "//": "MoM-native marker flag identifying a matrix crystal's school for the use-action/EOCs; never ported from MoM json_flags.json.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "MATRIX_CRYSTAL_PHOTOKINESIS",
+    "info": "This is a matrix crystal attuned to photokinesis.",
+    "//": "MoM-native marker flag identifying a matrix crystal's school for the use-action/EOCs; never ported from MoM json_flags.json.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "MATRIX_CRYSTAL_PYROKINESIS",
+    "info": "This is a matrix crystal attuned to pyrokinesis.",
+    "//": "MoM-native marker flag identifying a matrix crystal's school for the use-action/EOCs; never ported from MoM json_flags.json.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "MATRIX_CRYSTAL_TELEKINESIS",
+    "info": "This is a matrix crystal attuned to telekinesis.",
+    "//": "MoM-native marker flag identifying a matrix crystal's school for the use-action/EOCs; never ported from MoM json_flags.json.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "MATRIX_CRYSTAL_TELEPATHY",
+    "info": "This is a matrix crystal attuned to telepathy.",
+    "//": "MoM-native marker flag identifying a matrix crystal's school for the use-action/EOCs; never ported from MoM json_flags.json.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "MATRIX_CRYSTAL_TELEPORTATION",
+    "info": "This is a matrix crystal attuned to teleportation.",
+    "//": "MoM-native marker flag identifying a matrix crystal's school for the use-action/EOCs; never ported from MoM json_flags.json.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "MATRIX_CRYSTAL_VITAKINESIS",
+    "info": "This is a matrix crystal attuned to vitakinesis.",
+    "//": "MoM-native marker flag identifying a matrix crystal's school for the use-action/EOCs; never ported from MoM json_flags.json.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "MATRIX_CRYSTAL_CORUSCATING",
+    "info": "This is a matrix crystal with an unclear attunement.",
+    "//": "MoM-native marker flag identifying a matrix crystal's school for the use-action/EOCs; never ported from MoM json_flags.json.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "FIFTH_SUN_TECHNOLOGY",
+    "//": "DDA: XEDRA/Fifth Sun artifact classification. Inert marker.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "INTEGRATED",
+    "//": "DDA: item integrated into another (e.g. mounted/bionic). Inert marker.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "PADDED",
+    "//": "DDA: material comfort property. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "SOFT",
+    "//": "DDA: soft material (storage/comfort). Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "ELECTRONIC",
+    "//": "DDA: electronic device, EMP-vulnerable. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "MUNDANE",
+    "//": "DDA: relic classification (non-magical). Inert marker.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "RELIC_PINK",
+    "//": "DDA: relic recharge/classification. Inert marker.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "SPAWN_ACTIVE",
+    "//": "DDA: item spawns in its active (processing) state. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "PRESERVE_SPAWN_LOC",
+    "//": "DDA: keeps spawn location for relic charging. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "PORTAL_PROOF",
+    "//": "DDA: immune to portal storm damage. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "LOCATION_PRECISE_CLOSEST_CITY",
+    "//": "DDA: relic recharge-location condition. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "NO_AUTO_CONSUME",
+    "//": "DDA: excluded from auto-consume prompts. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "WATER_BREAK",
+    "//": "DDA: item breaks/shorts when wet. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "WATER_BREAK_ACTIVE",
+    "//": "DDA: active electronic breaks when wet. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "EDIBLE_FROZEN",
+    "//": "DDA: remains edible while frozen. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "COMBAT_TOGGLEABLE",
+    "//": "DDA: weapon can be toggled mid-combat without a turn cost. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "OVERHEATS",
+    "//": "DDA: weapon overheats with sustained fire. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "IRREPLACEABLE_CONSUMABLE",
+    "//": "DDA: warns before using the last one. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "CALORIES_INTAKE",
+    "//": "DDA: tracks calorie intake accounting. Inert.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "BATTERY_LIGHT",
+    "//": "DDA: light battery-size class. Inert marker.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "BATTERY_MEDIUM",
+    "//": "DDA: medium battery-size class. Inert marker.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "BATTERY_HEAVY",
+    "//": "DDA: heavy battery-size class. Inert marker.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "SCIENCE_CARD_VISITOR",
+    "//": "DDA: science keycard access tier. Inert marker.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  },
+  {
+    "type": "json_flag",
+    "id": "CREDIT_CARD_SHAPED",
+    "//": "DDA: card-shaped item (fits card readers/wallets). Inert marker.",
+    "context": [
+      "GENERIC",
+      "TOOL",
+      "ARMOR",
+      "TOOL_ARMOR",
+      "COMESTIBLE",
+      "AMMO",
+      "GUN",
+      "GUNMOD",
+      "MAGAZINE"
+    ]
+  }
+]

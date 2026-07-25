@@ -1,0 +1,972 @@
+[
+  {
+    "type": "nested_category",
+    "id": "teleportation_practice",
+    "nested_name": "contemplation: teleportation",
+    "description": "Recipes related to practicing teleportation.",
+    "subcategory": "CSC_PRACTICE_METAPHYSICS",
+    "nested_category_data": [
+      "practice_teleport_blink",
+      "practice_teleport_slow",
+      "practice_teleport_phase",
+      "practice_teleport_stride",
+      "practice_teleport_item_apport",
+      "practice_teleport_transpose",
+      "practice_teleport_displacement",
+      "practice_teleport_reactive_displacement",
+      "practice_teleport_warped_strikes",
+      "practice_teleport_farstep",
+      "practice_teleport_collapse",
+      "practice_teleport_banish",
+      "practice_teleport_loci_establishment",
+      "practice_teleport_loci_technique",
+      "practice_teleport_gateway",
+      "practice_teleport_dilated_gateway",
+      "practice_teleport_relocation",
+      "practice_teleport_breach",
+      "practice_teleport_warper_combat",
+      "practice_teleport_reality_tear"
+    ],
+    "category": "CC_PRACTICE"
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_blink",
+    "nested_name": "contemplation: blink",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to travel to a random location nearby without crossing the intervening space.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:teleport_blink>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_slow",
+    "nested_name": "contemplation: stutterstep",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to reshape space around your enemies.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:teleport_slow>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_phase",
+    "nested_name": "contemplation: phase",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to travel short distances in a controlled matter without crossing the intervening space.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:teleport_phase>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_item_apport",
+    "nested_name": "contemplation: apportation",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to teleport an item without following it to its destination.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:teleport_item_apport>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_stride",
+    "nested_name": "contemplation: extended stride",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to warp space around your movements.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:teleport_stride>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_transpose",
+    "nested_name": "contemplation: transposition",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your control of relative position exchange.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:teleport_transpose>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_displacement",
+    "nested_name": "contemplation: displacement",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to teleport your enemies away from you.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:teleport_displacement>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_reactive_displacement",
+    "nested_name": "contemplation: reactive displacement",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to automatically teleport attackers away from you.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:teleport_reactive_displacement>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_collapse",
+    "nested_name": "contemplation: spacial vortex",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to bring distant points close together.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:teleport_collapse>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_warped_strikes",
+    "nested_name": "contemplation: warped strikes",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to maintain a slight distance from reality.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:teleport_warped_strikes>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_farstep",
+    "nested_name": "contemplation: farstep",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and develop your ability to instantly travel to a new location.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:teleport_farstep>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_banish",
+    "nested_name": "contemplation: oubliette",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to banish your enemies to other dimensions.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:teleport_banish>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_loci_establishment",
+    "nested_name": "contemplation: loci establishment",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to maintain an established locus that you can teleport to.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:teleport_loci_establishment>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_loci_technique",
+    "nested_name": "contemplation: loci technique",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to travel to an established locus.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:teleport_loci_technique>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_gateway",
+    "nested_name": "contemplation: gateway",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to travel to long-distant points.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:teleport_gateway>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_dilated_gateway",
+    "nested_name": "contemplation: dilated gateway",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to teleport other creatures with you to long-distant points.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:teleport_dilated_gateway>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_relocation",
+    "nested_name": "contemplation: relocation",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to teleport held items to long-distant points.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:teleport_relocation>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_breach",
+    "nested_name": "contemplation: breach",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to open momentary portals to the Nether.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:teleport_summon>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_warper_combat",
+    "nested_name": "contemplation: flickerflash stance",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to enact the TURQUOISE KEYSTONE protocols while in combat.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:teleport_warper_combat>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "teleport_reality_tear",
+    "nested_name": "contemplation: reality tear",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation",
+          -1
+        ],
+        [
+          "matrix_crystal_teleportation_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to permanently tear open reality.\n\nPower Difficulty: 10\n\nCurrent Power Level: <u_spell_level:teleport_reality_tear>",
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  }
+]

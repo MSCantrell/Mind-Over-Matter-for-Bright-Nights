@@ -1,0 +1,987 @@
+[
+  {
+    "id": "telepathic_concentration",
+    "type": "SPELL",
+    "name": "[\u03a8]Concentration Trance (C)",
+    "description": "Focus your own mind into a trance state, increasing learning speed.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.\n\nThis power <color_red>cannot be used</color> together with the Vitakinetic power Selective Autosomnia.\n\nLevel 6 leads to Mood Stabilization with Mind Sonar 5.\nLevel 5 leads to Telepathic Shield.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telepathic_concentration",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 4000,
+    "base_casting_time": 300,
+    "energy_increment": -175.0,
+    "final_energy_cost": 1500,
+    "casting_time_increment": -12.0,
+    "final_casting_time": 150,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_shield",
+    "type": "SPELL",
+    "name": "[\u03a8]Telepathic Shield (C)",
+    "description": "You can protect your mind from the dangers of the post-Cataclysmic world.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 8 leads to Obscurity with Mood Stabilization 6 + Sensory Deprivation 8 OR Sensory Deprivation 8 + Synaptic Overload 11 OR Sensory Deprivation 8 + Telepathic Shield 8.\nLevel 5 leads to Psychic Scream with Synaptic Overload 11 + Telepathic Shield 5 OR Primal Terror 7 + Telepathic Shield 5.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telepathic_shield",
+    "difficulty": 2,
+    "max_level": 15,
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 2500,
+    "base_casting_time": 100,
+    "energy_increment": -125.0,
+    "final_energy_cost": 625,
+    "casting_time_increment": -6.5,
+    "final_casting_time": 10,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_mind_sense",
+    "type": "SPELL",
+    "name": "[\u03a8]Mind Sonar (C)",
+    "description": "You cast your mind outward like a sonar pulse, sweeping the area for the minds of others.  While maintained, you periodically sense every <color_light_green>sapient mind</color> around you \u2014 people and other thinking things \u2014 and learn their <color_light_green>direction and distance</color>, even through walls and in total darkness.  You cannot see them, but you know they are there.  The <color_light_green>range grows</color> as you master the power, and greater mastery <color_light_green>quickens the pulse</color> and lets you pick out <color_light_green>familiar minds by name</color>.\n\nThe walking dead, robots, and other <color_light_gray>mindless</color> things have no mind to sense.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 6 leads to Mesmerize.\nLevel 5 leads to Mood Stabilization with Concentration Trance 6.\nLevel 10 leads to Network Effect with Mind Sonar 10 + Mood Stabilization 12 + Psychic Scream 6 OR Mind Sonar 10 + Obscurity 6 + Psychic Scream 6.\nLevel 7 leads to Synaptic Overload with Mood Stabilization 4.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telepathic_mind_sense",
+    "difficulty": 2,
+    "max_level": 15,
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 3500,
+    "base_casting_time": 500,
+    "energy_increment": -115.0,
+    "final_energy_cost": 1775,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_mesmerize",
+    "type": "SPELL",
+    "name": "[\u03a8]Mesmerize",
+    "description": "Hypnotize a target, causing them to stand in a trance or wander around in a small area.  Any damage taken will snap the target out of their trance.  Some targets are more resistant to mesmerism than others.",
+    "message": "",
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telepathic_mesmerize",
+    "min_range": 3,
+    "max_range": 20,
+    "min_aoe": 0,
+    "base_energy_cost": 3500,
+    "final_energy_cost": 750,
+    "energy_increment": -75,
+    "base_casting_time": 100,
+    "final_casting_time": 35,
+    "casting_time_increment": -5,
+    "range_increment": 1.1,
+    "aoe_increment": 0.15,
+    "max_aoe": 2,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telepathic_mesmerize",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_mesmerize (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_mesmerize",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_mesmerize cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_mesmerize",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telepathic_morale",
+    "type": "SPELL",
+    "name": "[\u03a8]Mood Stabilization (C)",
+    "description": "With the ability to edit others' thoughts comes the ability to edit your own, removing negative moods to a degree.  You have also learned to do this more subtly on others, calming their anger or assuaging their fears.\n\nWhen used on yourself, this power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 8 leads to Beastmaster.\nLevel 12 leads to Mind Control with Mood Stabilization 12 + Primal Terror 5 OR Beastmaster 8 + Mood Stabilization 12 OR Mood Stabilization 12 + Sensory Deprivation 7 OR Obscurity 6 + Primal Terror 5 OR Beastmaster 8 + Obscurity 6 OR Obscurity 6 + Sensory Deprivation 7.\nLevel 12 leads to Network Effect with Mind Sonar 10 + Mood Stabilization 12 + Psychic Scream 6 OR Mind Sonar 10 + Obscurity 6 + Psychic Scream 6.\nLevel 6 leads to Obscurity with Mood Stabilization 6 + Sensory Deprivation 8 OR Sensory Deprivation 8 + Synaptic Overload 11 OR Sensory Deprivation 8 + Telepathic Shield 8.\nLevel 8 leads to Primal Terror with Synaptic Overload 8.\nLevel 4 leads to Sensory Deprivation.\nLevel 4 leads to Synaptic Overload with Mind Sonar 7.",
+    "message": "",
+    "valid_targets": [
+      "self",
+      "ally",
+      "hostile"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telepathic_morale",
+    "min_duration": 100,
+    "max_duration": 100,
+    "min_range": 3,
+    "max_range": 20,
+    "base_energy_cost": 5000,
+    "base_casting_time": 300,
+    "range_increment": 1.1,
+    "energy_increment": -125.0,
+    "final_energy_cost": 3125,
+    "casting_time_increment": -9.5,
+    "final_casting_time": 158,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telepathic_morale",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_morale (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_morale",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_morale cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_morale",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telepathic_blast",
+    "type": "SPELL",
+    "name": "[\u03a8]Synaptic Overload",
+    "description": "Short-circuit and overwhelm a target's brain, causing extreme damage or death.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.\n\nLevel 11 leads to Obscurity with Mood Stabilization 6 + Sensory Deprivation 8 OR Sensory Deprivation 8 + Synaptic Overload 11 OR Sensory Deprivation 8 + Telepathic Shield 8.\nLevel 8 leads to Primal Terror with Mood Stabilization 8.\nLevel 11 leads to Psychic Scream with Synaptic Overload 11 + Telepathic Shield 5 OR Primal Terror 7 + Telepathic Shield 5.",
+    "message": "You assault the mind of your target!",
+    "valid_targets": [
+      "hostile"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "damage_type": "PSI",
+    "min_damage": 5,
+    "max_damage": 50,
+    "min_range": 3,
+    "max_range": 20,
+    "base_energy_cost": 3500,
+    "final_energy_cost": 900,
+    "energy_increment": -125,
+    "base_casting_time": 75,
+    "final_casting_time": 25,
+    "casting_time_increment": -2.5,
+    "damage_increment": 1.5,
+    "range_increment": 1.1,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telepathic_blast",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_blast (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_blast",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_blast cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_blast",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telepathic_animal_mind_control",
+    "type": "SPELL",
+    "name": "[\u03a8]Beastmaster",
+    "description": "Take control of an animal's mind, forcing it to obey you.  This power will not work on insects, spiders, or similar beings.\n\nLevel 10 leads to Beast Tamer.\nLevel 8 leads to Mind Control with Mood Stabilization 12 + Primal Terror 5 OR Beastmaster 8 + Mood Stabilization 12 OR Mood Stabilization 12 + Sensory Deprivation 7 OR Obscurity 6 + Primal Terror 5 OR Beastmaster 8 + Obscurity 6 OR Obscurity 6 + Sensory Deprivation 7.",
+    "message": "You reach out to the animal's mind and twist.",
+    "valid_targets": [
+      "hostile"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "charm_monster",
+    "damage_type": "PSI",
+    "min_damage": 40,
+    "max_damage": 425,
+    "min_duration": 18000,
+    "max_duration": 89000,
+    "min_range": 3,
+    "max_range": 18,
+    "base_energy_cost": 4500,
+    "final_energy_cost": 2000,
+    "energy_increment": -155,
+    "base_casting_time": 120,
+    "final_casting_time": 75,
+    "casting_time_increment": -3.5,
+    "damage_increment": 8.0,
+    "duration_increment": 1125.0,
+    "range_increment": 1.0,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telepathic_animal_mind_control",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_animal_mind_control (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_animal_mind_control",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_animal_mind_control cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_animal_mind_control",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telepathic_confusion",
+    "type": "SPELL",
+    "name": "[\u03a8]Sensory Deprivation",
+    "description": "Disconnect a target's brain from its senses, leaving it blinded and confused.\n\nLevel 7 leads to Mind Control with Mood Stabilization 12 + Primal Terror 5 OR Beastmaster 8 + Mood Stabilization 12 OR Mood Stabilization 12 + Sensory Deprivation 7 OR Obscurity 6 + Primal Terror 5 OR Beastmaster 8 + Obscurity 6 OR Obscurity 6 + Sensory Deprivation 7.\nLevel 8 leads to Obscurity with Mood Stabilization 6 + Sensory Deprivation 8 OR Sensory Deprivation 8 + Synaptic Overload 11 OR Sensory Deprivation 8 + Telepathic Shield 8.",
+    "message": "You lock your target's mind away!",
+    "valid_targets": [
+      "hostile"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "difficulty": 5,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "psi_stunned",
+    "extra_effects": [
+      {
+        "id": "telepathic_confusion_blind",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "momfincast_telepathic_confusion",
+        "hit_self": true
+      }
+    ],
+    "min_duration": 200,
+    "max_duration": 3050,
+    "min_range": 3,
+    "max_range": 20,
+    "base_energy_cost": 3750,
+    "final_energy_cost": 1500,
+    "energy_increment": -150,
+    "base_casting_time": 90,
+    "final_casting_time": 40,
+    "casting_time_increment": -3.5,
+    "duration_increment": 50.0,
+    "range_increment": 1.1,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_confusion (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_confusion",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_confusion cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_confusion",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telepathic_confusion_blind",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Sensory Deprivation blind Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "The is the part of the Sensory Deprivation that blinds the target.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "psi_blind",
+    "damage_type": "PSI",
+    "min_duration": 400,
+    "max_duration": 2000,
+    "min_range": 3,
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_fear",
+    "type": "SPELL",
+    "name": "[\u03a8]Primal Terror",
+    "description": "Use a target's own inner fears against them, paralyzing them with overwhelming terror.  The effect will not last long, but is completely immobilizing while it does, and it leaves a lingering horror behind in the target.\n\nLevel 5 leads to Mind Control with Mood Stabilization 12 + Primal Terror 5 OR Beastmaster 8 + Mood Stabilization 12 OR Mood Stabilization 12 + Sensory Deprivation 7 OR Obscurity 6 + Primal Terror 5 OR Beastmaster 8 + Obscurity 6 OR Obscurity 6 + Sensory Deprivation 7.\nLevel 7 leads to Psychic Scream with Synaptic Overload 11 + Telepathic Shield 5 OR Primal Terror 7 + Telepathic Shield 5.",
+    "message": "You unleash your target's fears.",
+    "valid_targets": [
+      "hostile"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS"
+    ],
+    "difficulty": 6,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telepathic_fear",
+    "min_range": 3,
+    "max_range": 20,
+    "min_aoe": 0,
+    "base_energy_cost": 6000,
+    "final_energy_cost": 3500,
+    "energy_increment": -100,
+    "base_casting_time": 125,
+    "final_casting_time": 50,
+    "casting_time_increment": -5,
+    "range_increment": 1.1,
+    "aoe_increment": 0.15,
+    "max_aoe": 2,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telepathic_fear",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_fear (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_fear",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_fear cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_fear",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telepathic_invisibility",
+    "type": "SPELL",
+    "name": "[\u03a8]Obscurity",
+    "description": "Use a light touch on others' minds to hide your presence.  You will be invisible to the target(s) while the power is in effect.\n\nThis power is <color_red>canceled by engaging in combat</color> with your target.\n\nLevel 6 leads to Mind Control with Mood Stabilization 12 + Primal Terror 5 OR Beastmaster 8 + Mood Stabilization 12 OR Mood Stabilization 12 + Sensory Deprivation 7 OR Obscurity 6 + Primal Terror 5 OR Beastmaster 8 + Obscurity 6 OR Obscurity 6 + Sensory Deprivation 7.\nLevel 6 leads to Network Effect with Mind Sonar 10 + Mood Stabilization 12 + Psychic Scream 6 OR Mind Sonar 10 + Obscurity 6 + Psychic Scream 6.",
+    "message": "You hide your presence from your enemies.",
+    "valid_targets": [
+      "hostile"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "difficulty": 6,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "telepathic_ignorance",
+    "extra_effects": [
+      {
+        "id": "telepathic_invisibility_self",
+        "hit_self": true
+      },
+      {
+        "id": "momfincast_telepathic_invisibility",
+        "hit_self": true
+      }
+    ],
+    "min_duration": 12700,
+    "max_duration": 130300,
+    "min_range": 3,
+    "max_range": 26,
+    "min_aoe": 0,
+    "base_energy_cost": 4500,
+    "final_energy_cost": 2250,
+    "energy_increment": -115,
+    "base_casting_time": 100,
+    "final_casting_time": 25,
+    "casting_time_increment": -6.5,
+    "duration_increment": 1300.0,
+    "range_increment": 1.5,
+    "aoe_increment": 0.15,
+    "max_aoe": 2,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_invisibility (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_invisibility",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_invisibility cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_invisibility",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telepathic_invisibility_self",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Obscurity Self",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Puts an effect on you so anyone affected by Obscurity knows to ignore you.  It's a bug if you have this directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "telepathic_ignorance_self",
+    "min_duration": 12700,
+    "max_duration": 52300,
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_blast_radius",
+    "type": "SPELL",
+    "name": "[\u03a8]Psychic Scream",
+    "description": "Emit an uncontrolled psychic scream, attacking the mind of anyone nearby.  This power does not distinguish between friend and foe.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.\n\nLevel 6 leads to Network Effect with Mind Sonar 10 + Mood Stabilization 12 + Psychic Scream 6 OR Mind Sonar 10 + Obscurity 6 + Psychic Scream 6.",
+    "message": "You unleash a mind-piercing psionic shriek!",
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_EXPLOSION_VFX",
+      "NO_LEGS",
+      "IGNORE_WALLS"
+    ],
+    "difficulty": 7,
+    "max_level": 15,
+    "effect": "target_attack",
+    "extra_effects": [
+      {
+        "id": "telepathic_blast_radius_guaranteed",
+        "hit_self": false
+      },
+      {
+        "id": "momfincast_telepathic_blast_radius",
+        "hit_self": true
+      }
+    ],
+    "damage_type": "PSI",
+    "min_damage": 3,
+    "max_damage": 33,
+    "min_aoe": 2,
+    "base_energy_cost": 7000,
+    "final_energy_cost": 3250,
+    "energy_increment": -275,
+    "base_casting_time": 75,
+    "final_casting_time": 30,
+    "casting_time_increment": -2.5,
+    "damage_increment": 1.0,
+    "aoe_increment": 1.2,
+    "max_aoe": 20,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_blast_radius (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_blast_radius",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_blast_radius cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_blast_radius",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telepathic_blast_radius_guaranteed",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Psychic Scream Additional Damage",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "This exists to allow Psychic Scream to do minimal damage and kill small animals whose extremely low HP would otherwise be below the percentage threshold, as well as making it more likely to stun or daze.  It's a bug if you have it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_EXPLOSION_VFX",
+      "IGNORE_WALLS"
+    ],
+    "max_level": 15,
+    "effect": "target_attack",
+    "damage_type": "PSI",
+    "min_damage": 1,
+    "max_damage": 2,
+    "damage_increment": 0.1,
+    "min_aoe": 2,
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_beast_taming",
+    "type": "SPELL",
+    "name": "[\u03a8]Beast Tamer",
+    "description": "Perform mental surgery on an animal, making it friendly to you for a much longer duration.  The animal must already be friendly, either naturally or through powers such as Beastmastery, in order to be tamed.",
+    "message": "The animal sniffs at your palm.",
+    "valid_targets": [
+      "ally"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 7,
+    "max_level": 15,
+    "effect": "charm_monster",
+    "min_damage": 200,
+    "max_damage": 1025,
+    "min_duration": 241920000,
+    "max_duration": 872640000,
+    "min_range": 3,
+    "max_range": 18,
+    "base_energy_cost": 8000,
+    "final_energy_cost": 5500,
+    "energy_increment": -185,
+    "base_casting_time": 12000,
+    "damage_increment": 15.0,
+    "duration_increment": 8640000.0,
+    "range_increment": 1.0,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telepathic_beast_taming",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_beast_taming (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_beast_taming",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_beast_taming cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_beast_taming",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telepathic_mind_control",
+    "type": "SPELL",
+    "name": "[\u03a8]Mind Control",
+    "description": "Seize control of the target's mind, forcing them to do your bidding.",
+    "message": "You take control of your target's mind!",
+    "valid_targets": [
+      "hostile"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 8,
+    "max_level": 15,
+    "effect": "charm_monster",
+    "damage_type": "PSI",
+    "min_damage": 30,
+    "max_damage": 210,
+    "min_duration": 600,
+    "max_duration": 14950,
+    "min_range": 3,
+    "max_range": 18,
+    "base_energy_cost": 7500,
+    "final_energy_cost": 3500,
+    "energy_increment": -165,
+    "base_casting_time": 120,
+    "final_casting_time": 65,
+    "casting_time_increment": -3.5,
+    "damage_increment": 4.0,
+    "duration_increment": 150.0,
+    "range_increment": 1.0,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telepathic_mind_control",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_mind_control (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_mind_control",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_mind_control cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_mind_control",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telepathic_network",
+    "type": "SPELL",
+    "name": "[\u03a8]Network Effect",
+    "description": "Forge an unconscious telepathic network between you and nearby allies, allowing you all to send and receive information about nearby dangers and react more quickly in combat.  The network requires at least one ally nearby to be effective.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEPATH",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 9,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telepathic_network",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 6500,
+    "final_energy_cost": 3750,
+    "energy_increment": -135,
+    "base_casting_time": 500,
+    "final_casting_time": 250,
+    "casting_time_increment": -9,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_network_real",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Network Effect Real",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "The actual power that implements the Network Effect.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "difficulty": 9,
+    "effect": "target_attack",
+    "effect_str": "effect_telepath_network_effect",
+    "min_aoe": 60,
+    "max_aoe": 60,
+    "//": "Ideally range would scale with power level, but there would need to be a way to detect nearby allies first instead of just any ally in the bubble.",
+    "min_duration": 10000,
+    "max_duration": 30000,
+    "scale_int": true
+  }
+]

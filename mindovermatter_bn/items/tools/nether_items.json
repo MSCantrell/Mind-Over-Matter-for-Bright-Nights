@@ -1,0 +1,66 @@
+[
+  {
+    "type": "TOOL",
+    "id": "chaos_stone",
+    "name": {
+      "str_sp": "compressed chaos"
+    },
+    "color": "magenta",
+    "use_action": "MOM_EOC_ITEM",
+    "volume": "250 ml",
+    "weight": "10 g",
+    "symbol": "@",
+    "description": "This defies easy description, it feels solid but the surface is yielding.  Looking at it you are reminded of the electric tingle in the air before a portal storm.",
+    "flags": [
+      "SINGLE_USE"
+    ]
+  },
+  {
+    "type": "TOOL",
+    "id": "translation_stone",
+    "name": {
+      "str_sp": "crystallized motion"
+    },
+    "color": "magenta",
+    "use_action": "MOM_EOC_ITEM",
+    "volume": "250 ml",
+    "weight": "10 g",
+    "symbol": "@",
+    "description": "This defies easy description, it feels solid but the surface is yielding.  Its edges blur when you look at it, but it feels perfectly still when you hold it.",
+    "flags": [
+      "SINGLE_USE"
+    ]
+  },
+  {
+    "type": "TOOL",
+    "id": "abjuration_stone",
+    "name": {
+      "str_sp": "inverted barrier"
+    },
+    "color": "magenta",
+    "use_action": "MOM_EOC_ITEM",
+    "volume": "250 ml",
+    "weight": "10 g",
+    "symbol": "@",
+    "description": "This defies easy description, it feels solid but the surface is yielding.  Looking at it, static creeps in on the edges of your vision.",
+    "flags": [
+      "SINGLE_USE"
+    ]
+  },
+  {
+    "type": "TOOL",
+    "id": "cascade_stone",
+    "name": {
+      "str_sp": "energy locus"
+    },
+    "color": "magenta",
+    "use_action": "MOM_EOC_ITEM",
+    "volume": "250 ml",
+    "weight": "10 g",
+    "symbol": "@",
+    "description": "This defies easy description, it feels solid but the surface is yielding.  The skin on your entire body tingles when you touch it.",
+    "flags": [
+      "SINGLE_USE"
+    ]
+  }
+]

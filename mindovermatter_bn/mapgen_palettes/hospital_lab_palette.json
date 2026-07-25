@@ -1,0 +1,133 @@
+[
+  {
+    "type": "palette",
+    "id": "phavian_hospital_lab",
+    "terrain": {
+      "_": "t_pavement",
+      "\u02fd": "t_pavement_y",
+      ":": "t_reinforced_glass",
+      "#": "t_strconc_wall",
+      "+": "t_door_c",
+      "\u0254": "t_door_locked_interior",
+      "\u0110": [
+        [
+          "t_door_c",
+          1
+        ],
+        [
+          "t_door_locked_interior",
+          1
+        ]
+      ],
+      "|": "t_wall_w",
+      "o": "t_laminated_glass",
+      "\u00b0": "t_flat_roof",
+      "*": "t_laminated_door_glass_c",
+      "$": "t_door_metal_c",
+      "D": "t_door_glass_frosted_lab_c",
+      "&": "t_elevator_control_off",
+      "~": "t_elevator",
+      ">": "t_stairs_down",
+      "<": "t_stairs_up",
+      "`": "t_thconc_floor",
+      "(": "t_door_metal_locked",
+      ")": "t_card_reader_broken",
+      ".": "t_linoleum_white",
+      "-": "t_open_air",
+      "/": "t_secretdoor_strconcrete_c",
+      "\u00a3": "t_linoleum_white"
+    },
+    "vendingmachines": {
+      "R": {
+        "item_group": "vending_drink"
+      },
+      "S": {
+        "item_group": "vending_food"
+      }
+    },
+    "furniture": {
+      "A": "f_stool",
+      "\u00c5": "f_air_filter",
+      "B": "f_bed",
+      "C": "f_filing_cabinet",
+      "E": "f_armchair",
+      "F": "f_utility_shelf",
+      "G": "f_washer",
+      "H": "f_sofa",
+      "I": "f_dryer",
+      "J": "f_cupboard",
+      "K": "f_bookcase",
+      "L": "f_sink",
+      "\u0141": "f_locker",
+      "M": "f_oven",
+      "N": "f_lab_bench",
+      "O": "f_sample_freezer",
+      "P": "f_fridge",
+      "Q": "f_rack",
+      "U": "f_console_broken",
+      "V": "f_coffee_table",
+      "W": "f_shower",
+      "X": "f_glass_cabinet",
+      "Y": "f_counter_gate_c",
+      "Z": "f_null",
+      "1": "f_fume_hood",
+      "2": "f_shaker",
+      "3": "f_eyewash",
+      "4": "f_IV_pole",
+      "5": "f_centrifuge",
+      "6": "f_console",
+      "7": "f_HPLC",
+      "8": "f_GC",
+      "9": "f_MS",
+      "0": "f_NMR",
+      "a": "f_electron_microscope",
+      "b": "f_CTscan",
+      "c": "f_MRI",
+      "d": "f_scan_bed",
+      "e": "f_anesthetic",
+      "f": "f_dialysis",
+      "g": "f_ventilator",
+      "h": "f_chair",
+      "i": "f_bench",
+      "j": "f_curtain",
+      "k": "f_curtain_open",
+      "l": "f_autodoc",
+      "m": "f_autodoc_couch",
+      "n": "f_autoclave",
+      "p": "f_freezer",
+      "q": "f_glass_fridge",
+      "r": "f_table",
+      "s": "f_table",
+      "t": "f_counter",
+      "u": "f_counter",
+      "\u00fc": "f_table",
+      "v": "f_desk",
+      "w": "f_desk",
+      "x": "f_table",
+      "y": [
+        "f_indoor_plant_y",
+        "f_indoor_plant"
+      ],
+      "z": "f_trashcan",
+      "\u1e5a": "f_room_divider"
+    },
+    "toilets": {
+      "T": {}
+    },
+    "items": {
+      "4": [
+        {
+          "item": "softdrugs",
+          "chance": 100
+        }
+      ]
+    },
+    "vehicles": {
+      "\u0271": {
+        "vehicle": "laundry_cart",
+        "chance": 100,
+        "rotation": 90
+      }
+    }
+  }
+]

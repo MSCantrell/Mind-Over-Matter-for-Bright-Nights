@@ -1,0 +1,225 @@
+[
+  {
+    "type": "recipe",
+    "result": "prac",
+    "id_suffix": "psionics_begin",
+    "nested_name": "meditation (beginner)",
+    "tools": [],
+    "category": "CC_PRACTICE",
+    "skill_used": "metaphysics",
+    "description": "Practice calming and emptying your mind, thinking thoughts as they come and then allowing them to flow through you and onward.",
+    "subcategory": "CSC_PRACTICE_METAPHYSICS",
+    "time": "1 h",
+    "book_learn": [
+      [
+        "manual_meditation",
+        0
+      ]
+    ],
+    "flags": [
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": [
+      [
+        "metaphysics",
+        1
+      ]
+    ],
+    "difficulty": 0
+  },
+  {
+    "type": "recipe",
+    "result": "prac",
+    "id_suffix": "psionics_inter",
+    "nested_name": "meditation (intermediate)",
+    "tools": [],
+    "category": "CC_PRACTICE",
+    "skill_used": "metaphysics",
+    "description": "Clear your mind even in the midst of discomfort, maintaining your calm and poise.",
+    "subcategory": "CSC_PRACTICE_METAPHYSICS",
+    "time": "1 h",
+    "book_learn": [
+      [
+        "manual_meditation_int",
+        3
+      ]
+    ],
+    "flags": [
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "difficulty": 3
+  },
+  {
+    "type": "recipe",
+    "result": "prac",
+    "id_suffix": "psionics_advan",
+    "nested_name": "psionic cultivation",
+    "tools": [],
+    "category": "CC_PRACTICE",
+    "skill_used": "metaphysics",
+    "description": "Focus on your inner metal strength, making it easy to call forth your psionic gifts.",
+    "subcategory": "CSC_PRACTICE_METAPHYSICS",
+    "time": "1 h",
+    "book_learn": [
+      [
+        "manual_psionics_advan",
+        6
+      ]
+    ],
+    "flags": [
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "difficulty": 6
+  },
+  {
+    "type": "recipe",
+    "result": "prac",
+    "id_suffix": "psionics_prof_basic",
+    "nested_name": "psionic channeling",
+    "tools": [
+      [
+        [
+          "matrix_shard",
+          -1
+        ],
+        [
+          "matrix_crystal_drained",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_PRACTICE",
+    "skill_used": "metaphysics",
+    "description": "Practice focusing your powers through a crystalline medium.",
+    "subcategory": "CSC_PRACTICE_METAPHYSICS",
+    "time": "1 h",
+    "book_learn": [
+      [
+        "manual_psionics_advan",
+        3
+      ],
+      [
+        "schematics_matrix_channeling",
+        3
+      ],
+      [
+        "schematics_matrix_aligning",
+        3
+      ]
+    ],
+    "qualities": [
+      {
+        "id": "MATRIX_CHANNEL",
+        "level": 1
+      }
+    ],
+    "difficulty": 0
+  },
+  {
+    "type": "recipe",
+    "result": "prac",
+    "id_suffix": "psionics_prof_ritual",
+    "nested_name": "thought-form exercises",
+    "tools": [
+      [
+        [
+          "matrix_shard",
+          -1
+        ],
+        [
+          "matrix_crystal_drained",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_PRACTICE",
+    "skill_used": "metaphysics",
+    "description": "Practice holding mental images and scenes in your mind for an extended period without your mind wandering.",
+    "subcategory": "CSC_PRACTICE_METAPHYSICS",
+    "time": "1 h",
+    "book_learn": [
+      [
+        "manual_psionic_ritual",
+        4
+      ]
+    ],
+    "flags": [
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "qualities": [
+      {
+        "id": "MATRIX_CHANNEL",
+        "level": 1
+      }
+    ],
+    "difficulty": 4
+  },
+  {
+    "type": "recipe",
+    "result": "prac",
+    "id_suffix": "concentration_basic",
+    "nested_name": "concentration (beginner)",
+    "category": "CC_PRACTICE",
+    "skill_used": "metaphysics",
+    "description": "Practice emptying your mind and focusing on a specific thought, avoiding distractions.",
+    "components": [],
+    "subcategory": "CSC_PRACTICE_METAPHYSICS",
+    "time": "1 h",
+    "book_learn": [
+      [
+        "manual_meditation",
+        2
+      ]
+    ],
+    "flags": [
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "difficulty": 2
+  },
+  {
+    "type": "recipe",
+    "result": "prac",
+    "id_suffix": "concentration_intermediate",
+    "nested_name": "concentration (expert)",
+    "category": "CC_PRACTICE",
+    "skill_used": "metaphysics",
+    "description": "Practice maintaining your focus on a specific thought or image even when uncomfortable or distracted.",
+    "components": [],
+    "subcategory": "CSC_PRACTICE_METAPHYSICS",
+    "time": "1 h",
+    "book_learn": [
+      [
+        "manual_meditation_int",
+        5
+      ]
+    ],
+    "flags": [
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "difficulty": 5
+  }
+]

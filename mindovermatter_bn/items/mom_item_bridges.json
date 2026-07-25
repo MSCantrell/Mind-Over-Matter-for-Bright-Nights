@@ -1,0 +1,53 @@
+[
+  {
+    "//file": "HAND-AUTHORED item bridges (2026-07-17) for DDA items MoM content references that BN lacks. Minimal BN-valid defs.",
+    "type": "GENERIC",
+    "id": "chair_wood",
+    "name": {
+      "str": "wooden chair"
+    },
+    "description": "A simple wooden chair, with four legs, a seat, and a back.",
+    "symbol": "#",
+    "color": "brown",
+    "material": [
+      "wood"
+    ],
+    "volume": "30 L",
+    "weight": "12 kg",
+    "bashing": 6,
+    "flags": [
+      "NO_SALVAGE",
+      "FRAGILE_MELEE"
+    ]
+  },
+  {
+    "type": "GENERIC",
+    "id": "skull_human",
+    "name": {
+      "str": "human skull"
+    },
+    "description": "The skull of a human being.  Carrying this around probably isn't going to win you any friends.",
+    "symbol": "^",
+    "color": "white",
+    "material": [
+      "bone"
+    ],
+    "volume": "1 L",
+    "weight": "500 g"
+  },
+  {
+    "//": "Base for MoM's egg_pigeon self-patch override (comestible_overrides.json). BN core lacks egg_pigeon (DDA has it), so the override's copy-from egg_pigeon had no base -> circular dependency -> discarded, breaking egg_pigeon_passenger + the psychic-pigeon chain. Ported from DDA (copy-from egg_chicken, which BN has). rot_spawn intentionally omitted so the override supplies GROUP_EGG_PIGEON.",
+    "type": "COMESTIBLE",
+    "id": "egg_pigeon",
+    "copy-from": "egg_chicken",
+    "name": {
+      "str": "feral pigeon egg"
+    },
+    "spoils_in": "9 days",
+    "proportional": {
+      "volume": 0.3,
+      "weight": 0.3,
+      "calories": 0.3
+    }
+  }
+]

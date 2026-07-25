@@ -1,0 +1,1173 @@
+[
+  {
+    "id": "telekinetic_pull",
+    "//": "power ID exists for legacy reasons",
+    "type": "SPELL",
+    "name": "[\u03a8]Far Hand",
+    "description": "Pickup items at a distance or push them away from you.\n\nLevel 6 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\nLevel 8 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10.\nLevel 7 leads to Lifting Field with Lift Vehicle 3 OR Far Hand 7 + Momentum Alteration 5.\nLevel 15 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.\nLevel 5 leads to Momentum Alteration with Force Shove 5.\nLevel 10 leads to Wrecking Ball with Force Shove 10 + Knockdown 12 OR Far Hand 10 + Knockdown 12 OR Force Shove 10 + Mindhammer 7 OR Far Hand 10 + Mindhammer 7.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_pull",
+    "base_energy_cost": 1250,
+    "final_energy_cost": 500,
+    "energy_increment": -80,
+    "base_casting_time": 50,
+    "final_casting_time": 10,
+    "casting_time_increment": -4,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_item_pull_real",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Far Hand Pull Items Real",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "The actual effect that causes the far hand.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "item",
+      "ground",
+      "self",
+      "ally",
+      "hostile"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "none",
+    "min_damage": 50,
+    "max_damage": 100,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "min_range": 2,
+    "max_range": 2,
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_item_push_real",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Far Hand Push Items Real",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "The actual effect that causes the far hand.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "item",
+      "ground"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "directed_push",
+    "min_damage": 1,
+    "max_damage": 4,
+    "min_range": 2,
+    "max_range": 2,
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_push",
+    "//": "power ID exists for legacy reasons",
+    "type": "SPELL",
+    "name": "[\u03a8]Force Shove",
+    "description": "Shove a target away or pull it towards you with a burst of psionic force.  The distance the target can be moved depends on its weight versus your power level; heavier things will not go as far, and if your target is too heavy, you may not be able to move it at all.\n\nLevel 6 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\nLevel 4 leads to Knockdown with Force Shove 4 OR Noisemaker 1.\nLevel 15 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.\nLevel 8 leads to Mindhammer with Knockdown 6 + Wave of Force 4 OR Force Shove 8 + Knockdown 6.\nLevel 5 leads to Momentum Alteration with Far Hand 5.\nLevel 3 leads to No Go Zone.\nLevel 7 leads to Wave of Force with Knockdown 4.\nLevel 10 leads to Wrecking Ball with Force Shove 10 + Knockdown 12 OR Far Hand 10 + Knockdown 12 OR Force Shove 10 + Mindhammer 7 OR Far Hand 10 + Mindhammer 7.",
+    "message": "",
+    "valid_targets": [
+      "ally",
+      "hostile"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_push",
+    "min_range": 2,
+    "max_range": 16,
+    "base_energy_cost": 1750,
+    "final_energy_cost": 750,
+    "energy_increment": -80,
+    "base_casting_time": 50,
+    "final_casting_time": 10,
+    "casting_time_increment": -4,
+    "range_increment": 0.9,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telekinetic_push",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_push (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telekinetic_push",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_push cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telekinetic_push",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telekinetic_force_shove_real",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Force Shove Push Real",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "The actual effect that causes the force shove away.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "ally",
+      "hostile"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 30,
+    "effect": "directed_push",
+    "min_damage": 0,
+    "min_range": 50,
+    "max_range": 50,
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_noise",
+    "type": "SPELL",
+    "name": "[\u03a8]Noisemaker",
+    "description": "Using a focused burst of telekinesis, slam two objects together, or an object into the ground, or simply hit the ground with your powers, causing a loud noise.\n\nLevel 1 leads to Knockdown with Force Shove 4 OR Noisemaker 1.",
+    "message": "You lash out at the ground with your powers.",
+    "valid_targets": [
+      "ground"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "noise",
+    "min_damage": 3,
+    "max_damage": 30,
+    "min_range": 2,
+    "max_range": 16,
+    "base_energy_cost": 1750,
+    "final_energy_cost": 450,
+    "energy_increment": -85,
+    "base_casting_time": 65,
+    "final_casting_time": 15,
+    "casting_time_increment": -4,
+    "sound_type": "combat",
+    "sound_description": "a loud thump",
+    "damage_increment": 0.5,
+    "range_increment": 0.9,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telekinetic_noise",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_noise (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telekinetic_noise",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_noise cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telekinetic_noise",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telekinetic_slam_down",
+    "type": "SPELL",
+    "name": "[\u03a8]Knockdown",
+    "description": "Slam something to the ground with a burst of telekinetic force, doing a small amount of damage and downing them.\n\nLevel 6 leads to Mindhammer with Knockdown 6 + Wave of Force 4 OR Force Shove 8 + Knockdown 6.\nLevel 4 leads to Wave of Force with Force Shove 7.\nLevel 12 leads to Wrecking Ball with Force Shove 10 + Knockdown 12 OR Far Hand 10 + Knockdown 12 OR Force Shove 10 + Mindhammer 7 OR Far Hand 10 + Mindhammer 7.",
+    "message": "Your target is knocked to the ground.",
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "downed",
+    "damage_type": "BASH",
+    "min_damage": 5,
+    "max_damage": 33,
+    "min_duration": 100,
+    "max_duration": 1825,
+    "min_range": 2,
+    "max_range": 10,
+    "base_energy_cost": 2500,
+    "final_energy_cost": 850,
+    "energy_increment": -65,
+    "base_casting_time": 75,
+    "final_casting_time": 30,
+    "casting_time_increment": -3,
+    "damage_increment": 0.5,
+    "duration_increment": 25.0,
+    "range_increment": 0.5,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telekinetic_slam_down",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_slam_down (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telekinetic_slam_down",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_slam_down cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telekinetic_slam_down",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telekinetic_momentum",
+    "type": "SPELL",
+    "name": "[\u03a8]Momentum Alteration (C)",
+    "description": "Edit the momentum of yourself and nearby objects to your benefit, slowing damaging force and slightly increasing your speed.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 12 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\nLevel 5 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\nLevel 10 leads to Inertial Barrier with Wave of Force 8.\nLevel 5 leads to Lifting Field with Lift Vehicle 3 OR Far Hand 7 + Momentum Alteration 5.\nLevel 10 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.\nLevel 6 leads to Slowfall.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_momentum",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 3500,
+    "base_casting_time": 300,
+    "energy_increment": -125.0,
+    "final_energy_cost": 1750,
+    "casting_time_increment": -7.5,
+    "final_casting_time": 188,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_slowfall",
+    "type": "SPELL",
+    "name": "[\u03a8]Slowfall",
+    "description": "Counteract the pull of gravity with telekinetic force, greatly reducing or even eliminating damage from falling and becoming much more buoyant.\n\nLevel 9 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\nLevel 9 leads to Levitation.\nLevel 8 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10.",
+    "message": "You feel lighter.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "effect_telekinetic_slowfall",
+    "min_duration": 300,
+    "max_duration": 7500,
+    "base_energy_cost": 2250,
+    "final_energy_cost": 650,
+    "energy_increment": -85,
+    "base_casting_time": 85,
+    "final_casting_time": 25,
+    "casting_time_increment": -4.5,
+    "duration_increment": 100.0,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telekinetic_slowfall",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_slowfall (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telekinetic_slowfall",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_slowfall cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telekinetic_slowfall",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telekinetic_wave",
+    "type": "SPELL",
+    "name": "[\u03a8]Wave of Force",
+    "description": "Unleash a telekinetic wave around you that indiscriminately knocks everything back.\n\nLevel 8 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\nLevel 13 leads to Earthshaker with Megakinesis 5 + Wrecking Ball 8 OR Mindhammer 9 + Wrecking Ball 8 OR Megakinesis 5 + Wave of Force 13 OR Mindhammer 9 + Wave of Force 13.\nLevel 8 leads to Inertial Barrier with Momentum Alteration 10.\nLevel 4 leads to Mindhammer with Knockdown 6 + Wave of Force 4 OR Force Shove 8 + Knockdown 6.",
+    "message": "You knock everything nearby backwards!",
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_wave",
+    "min_aoe": 1,
+    "max_aoe": 4,
+    "base_energy_cost": 4500,
+    "final_energy_cost": 2250,
+    "energy_increment": -125,
+    "base_casting_time": 50,
+    "final_casting_time": 20,
+    "casting_time_increment": -4,
+    "aoe_increment": 0.2,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telekinetic_wave",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_wave (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telekinetic_wave",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_wave cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telekinetic_wave",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telekinetic_lifting_field",
+    "type": "SPELL",
+    "name": "[\u03a8]Lifting Field (C)",
+    "description": "Hover a single object next to you, freeing your hands for other tasks and making it easy to access.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_lifting_field",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 4500,
+    "base_casting_time": 200,
+    "energy_increment": -100.0,
+    "final_energy_cost": 3000,
+    "casting_time_increment": -6.5,
+    "final_casting_time": 102,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_strength",
+    "type": "SPELL",
+    "name": "[\u03a8]Enhance Strength (C)",
+    "description": "Focus your powers to allow you to move much heavier objects and smash through walls.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.\n\nLevel 8 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\nLevel 10 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 5,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_strength",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 5000,
+    "base_casting_time": 300,
+    "energy_increment": -150.0,
+    "final_energy_cost": 2750,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_hammer",
+    "type": "SPELL",
+    "name": "[\u03a8]Mindhammer",
+    "description": "Smash a single target or small area with a fist of telekinetic force.\n\nLevel 9 leads to Earthshaker with Megakinesis 5 + Wrecking Ball 8 OR Mindhammer 9 + Wrecking Ball 8 OR Megakinesis 5 + Wave of Force 13 OR Mindhammer 9 + Wave of Force 13.\nLevel 7 leads to Wrecking Ball with Force Shove 10 + Knockdown 12 OR Far Hand 10 + Knockdown 12 OR Force Shove 10 + Mindhammer 7 OR Far Hand 10 + Mindhammer 7.",
+    "message": "You smash your target with a fist of force.",
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 5,
+    "max_level": 15,
+    "damage_type": "BASH",
+    "effect": "target_attack",
+    "min_damage": 18,
+    "max_damage": 108,
+    "min_range": 3,
+    "max_range": 16,
+    "base_energy_cost": 3750,
+    "final_energy_cost": 1750,
+    "energy_increment": -135,
+    "base_casting_time": 50,
+    "final_casting_time": 25,
+    "casting_time_increment": -2.5,
+    "sound_type": "combat",
+    "sound_description": "a heavy thud!",
+    "damage_increment": 1.25,
+    "range_increment": 0.9,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "telekinetic_hammer_bn_bash"
+      },
+      {
+        "id": "momfincast_telekinetic_hammer",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED terrain-bash companion for telekinetic_hammer (DDA bash_scaling port).",
+    "id": "telekinetic_hammer_bn_bash",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_hammer terrain bash",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden terrain-bash companion.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "ground",
+      "hostile",
+      "ally",
+      "item"
+    ],
+    "skill": "metaphysics",
+    "effect": "bash",
+    "flags": [
+      "RANDOM_DAMAGE"
+    ],
+    "max_level": 15,
+    "min_damage": 18,
+    "damage_increment": 1.25,
+    "max_damage": 108
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_hammer (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telekinetic_hammer",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_hammer cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telekinetic_hammer",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telekinetic_vehicle_lift",
+    "type": "SPELL",
+    "name": "[\u03a8]Lift Vehicle (C)",
+    "description": "Focus your powers to raise a vehicle just enough to change a tire or perform repairs.  As your powers increase, you will be able to lift heavier vehicles.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.\n\nLevel 3 leads to Lifting Field with Lift Vehicle 3 OR Far Hand 7 + Momentum Alteration 5.\nLevel 6 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 6,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_vehicle_lift",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 6500,
+    "base_casting_time": 250,
+    "energy_increment": -200.0,
+    "final_energy_cost": 3500,
+    "casting_time_increment": -8.0,
+    "final_casting_time": 130,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_shield",
+    "type": "SPELL",
+    "name": "[\u03a8]Inertial Barrier (C)",
+    "description": "Create a telekinetic barrier around yourself to protect you from damage.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 7 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 6,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_shield",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 8000,
+    "base_casting_time": 250,
+    "energy_increment": -185.0,
+    "final_energy_cost": 5225,
+    "casting_time_increment": -8.0,
+    "final_casting_time": 130,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_explosion",
+    "type": "SPELL",
+    "name": "[\u03a8]Wrecking Ball",
+    "description": "A burst of telekinetic force shatters the terrain at the target location, as well as anything caught inside.\n\nLevel 8 leads to Earthshaker with Megakinesis 5 + Wrecking Ball 8 OR Mindhammer 9 + Wrecking Ball 8 OR Megakinesis 5 + Wave of Force 13 OR Mindhammer 9 + Wave of Force 13.",
+    "message": "You indiscriminately blast your targets!",
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "item",
+      "ground"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "LOUD",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 7,
+    "max_level": 15,
+    "effect": "target_attack",
+    "damage_type": "BASH",
+    "min_damage": 22,
+    "max_damage": 212,
+    "min_range": 4,
+    "max_range": 18,
+    "min_aoe": 2,
+    "max_aoe": 6,
+    "base_energy_cost": 8500,
+    "final_energy_cost": 4500,
+    "energy_increment": -200,
+    "base_casting_time": 200,
+    "final_casting_time": 75,
+    "casting_time_increment": -7.5,
+    "sound_type": "combat",
+    "sound_description": "a loud crash!",
+    "damage_increment": 3.0,
+    "range_increment": 0.9,
+    "aoe_increment": 0.3,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "telekinetic_explosion_bn_bash"
+      },
+      {
+        "id": "momfincast_telekinetic_explosion",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED terrain-bash companion for telekinetic_explosion (DDA bash_scaling port).",
+    "id": "telekinetic_explosion_bn_bash",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_explosion terrain bash",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden terrain-bash companion.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "ground",
+      "hostile",
+      "ally",
+      "item"
+    ],
+    "skill": "metaphysics",
+    "effect": "bash",
+    "flags": [
+      "RANDOM_DAMAGE"
+    ],
+    "max_level": 15,
+    "min_damage": 22,
+    "damage_increment": 3.0,
+    "max_damage": 212,
+    "min_aoe": 2,
+    "aoe_increment": 0.3,
+    "max_aoe": 6
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_explosion (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telekinetic_explosion",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_explosion cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telekinetic_explosion",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telekinetic_levitation",
+    "type": "SPELL",
+    "name": "[\u03a8]Levitation (C)",
+    "description": "Use your telekinesis and lift yourself up, defying gravity.  While not true flight, you can cross open air and descend safely.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.  It requires <color_yellow>even more concentration</color> than usual.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 7,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_levitation",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 7500,
+    "base_casting_time": 75,
+    "energy_increment": -165.0,
+    "final_energy_cost": 5025,
+    "casting_time_increment": -7.5,
+    "final_casting_time": 15,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_move_large_weight",
+    "type": "SPELL",
+    "name": "[\u03a8]Megakinesis",
+    "description": "Telekinesis on a grand scale, this power allows you to move truly enormous amounts of weight, hurling a human-sized target at lethal speeds or picking up and throwing something monstrously large.  The amount of weight you can move is dependent on the power level.\n\nLevel 5 leads to Earthshaker with Megakinesis 5 + Wrecking Ball 8 OR Mindhammer 9 + Wrecking Ball 8 OR Megakinesis 5 + Wave of Force 13 OR Mindhammer 9 + Wave of Force 13.",
+    "message": "",
+    "valid_targets": [
+      "ally",
+      "hostile"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 8,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_move_large_weight",
+    "min_range": 2,
+    "max_range": 16,
+    "base_energy_cost": 9500,
+    "final_energy_cost": 5000,
+    "energy_increment": -175,
+    "base_casting_time": 80,
+    "final_casting_time": 25,
+    "casting_time_increment": -5,
+    "range_increment": 0.9,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telekinetic_move_large_weight",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_move_large_weight (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telekinetic_move_large_weight",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_move_large_weight cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telekinetic_move_large_weight",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telekinetic_aegis",
+    "type": "SPELL",
+    "name": "[\u03a8]Aegis",
+    "description": "Create a shield impenetrable to physical damage around yourself.  It will <color_yellow>only last a few moments</color>.  You will be <color_red>unable to move</color> while the power is in effect.",
+    "message": "The air around you becomes as hard as adamant.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "difficulty": 9,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "effect_telekinetic_aegis",
+    "min_duration": 100,
+    "max_duration": 500,
+    "base_energy_cost": 9500,
+    "final_energy_cost": 5500,
+    "energy_increment": -225,
+    "base_casting_time": 125,
+    "final_casting_time": 55,
+    "casting_time_increment": -5,
+    "duration_increment": 20.0,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telekinetic_aegis",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_aegis (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telekinetic_aegis",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_aegis cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telekinetic_aegis",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telekinetic_earthshaker",
+    "type": "SPELL",
+    "name": "[\u03a8]Earthshaker",
+    "description": "Seize the nearby earth with your powers and *wrench* it, toppling buildings and knocking everyone nearby off their feet.",
+    "message": "The earth shakes!",
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "ally"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "LOUD",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "RANDOM_DURATION"
+    ],
+    "difficulty": 10,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "downed",
+    "extra_effects": [
+      {
+        "id": "telekinetic_earthshaker_bash_terrain",
+        "hit_self": false
+      },
+      {
+        "id": "telekinetic_earthshaker_spawn_rubble",
+        "hit_self": false
+      },
+      {
+        "id": "momfincast_telekinetic_earthshaker",
+        "hit_self": true
+      }
+    ],
+    "min_duration": 200,
+    "max_duration": 1625,
+    "min_aoe": 5,
+    "max_aoe": 17,
+    "base_energy_cost": 11500,
+    "final_energy_cost": 7000,
+    "base_casting_time": 150,
+    "final_casting_time": 45,
+    "casting_time_increment": -6,
+    "sound_description": "the ground shaking!",
+    "sound_id": "earth_spell",
+    "sound_variant": "strong",
+    "duration_increment": 45.0,
+    "aoe_increment": 0.8,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_earthshaker (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telekinetic_earthshaker",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_earthshaker cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telekinetic_earthshaker",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "telekinetic_earthshaker_bash_terrain",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Earthshaker Bash Terrain",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Destroy furniture and terrain nearby.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_VFX",
+      "IGNORE_WALLS",
+      "RANDOM_DAMAGE"
+    ],
+    "effect": "bash",
+    "min_damage": 30,
+    "max_damage": 80,
+    "min_aoe": 5,
+    "max_aoe": 35,
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_earthshaker_spawn_rubble",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Earthshaker Rubble",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Causes rubble to be spawned occasionally.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_VFX",
+      "IGNORE_WALLS"
+    ],
+    "effect": "ter_transform",
+    "effect_str": "telekinetic_earthshaker_transform",
+    "min_aoe": 5,
+    "max_aoe": 35,
+    "scale_int": true
+  }
+]

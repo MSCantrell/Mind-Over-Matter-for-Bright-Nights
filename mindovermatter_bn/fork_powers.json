@@ -1,0 +1,319 @@
+[
+  {
+    "id": "electrokinetic_circuit_sense",
+    "type": "SPELL",
+    "name": "[\u03a8]Circuit Sense (C)",
+    "description": "Extend your electrokinetic senses into the flow of current itself, feeling how electrons want to move through wire and silicon.  While maintained, you understand electronics as though far more practiced: your effective Electronics skill is raised by 3 for crafting, repair, and anything else that tests it.  It does NOT make you craft faster -- only more capable, and only at electronics.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "//": "ORIGINAL Bright Nights fork power (NOT upstream MoM). Electronics-only skill buff. Logic in lua/mom_eoc.lua (EOC_ELECTROKIN_CIRCUIT_SENSE_*) + lua/mom_hooks.lua (cast-marker handler, effect-removed handler, learner). The +3 is carried by the hidden trait MOM_CIRCUIT_SENSE (mutations/traits.json) via mut_enchantments SKILL_LEVEL_ELECTRONICS -- BN auto-registers that value from the SKILL_LEVEL suffix list, and get_skill_level() reads it (character.cpp). No speed component: BN crafting speed is global-only, cannot be scoped to one skill (user chose the pure electronics-skill version, 2026-07-13).",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "ELECTROKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_electrokinetic_circuit_sense",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 3000,
+    "energy_increment": -100.0,
+    "final_energy_cost": 1500,
+    "base_casting_time": 100,
+    "casting_time_increment": -5.0,
+    "final_casting_time": 25,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_cast_electrokinetic_circuit_sense",
+    "//": "Cast marker: applied on cast; mom_hooks' effect_added handler runs EOC_ELECTROKIN_CIRCUIT_SENSE_INITIATE.",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_electrokinetic_circuit_sense",
+    "//": "Maintained buff presence. EFFECT_LUA_ON_REMOVED -> mom_hooks strips the hidden +3 trait MOM_CIRCUIT_SENSE whenever this ends (re-cast, concentration break, or expiry).",
+    "name": [
+      "Circuit Sense"
+    ],
+    "desc": [
+      "Your electrokinetic senses are tuned to the flow of current; you read electronics with a practiced eye (+3 effective Electronics skill)."
+    ],
+    "apply_message": "",
+    "remove_message": "Your sense of the current fades; electronics look ordinary again.",
+    "rating": "good",
+    "max_duration": "7 days",
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_REMOVED"
+    ]
+  },
+  {
+    "id": "electrokinetic_lightning_strike",
+    "type": "SPELL",
+    "name": "[\u03a8]Lightning Strike",
+    "description": "Call down a focused bolt of lightning onto a single target you can see, dealing heavy electric damage at long range.  As your skill grows the strike broadens: at power level 9 and beyond it also lashes everything in the ring of tiles immediately around the point of impact.  The thunderclap is louder than a gunshot.\n\nRange, damage, and (from level 9 on) blast radius all increase with power level.",
+    "//": "ORIGINAL Bright Nights fork power (NOT in upstream MoM).  The fork's single signature Electrokinetic ranged attack, replacing the cut Static Touch + Voltaic Strikes (2026-07-12 retune).  Plain target_attack, no Lua.  aoe 0 -> 1 first at level 9: aoe = min_aoe + round(level * aoe_increment), capped at max_aoe; round(9*0.06)=1, round(8*0.06)=0.",
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "spell_class": "ELECTROKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "LOUD",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "damage_type": "ELECTRIC",
+    "min_damage": 35,
+    "max_damage": 140,
+    "damage_increment": 7.0,
+    "min_range": 5,
+    "max_range": 20,
+    "range_increment": 1.0,
+    "min_aoe": 0,
+    "max_aoe": 1,
+    "aoe_increment": 0.06,
+    "field_id": "fd_electricity",
+    "min_field_intensity": 1,
+    "max_field_intensity": 2,
+    "field_chance": 2,
+    "base_energy_cost": 3500,
+    "final_energy_cost": 1200,
+    "energy_increment": -150.0,
+    "base_casting_time": 120,
+    "final_casting_time": 40,
+    "casting_time_increment": -6.0,
+    "sound_type": "combat",
+    "sound_description": "KRAKA-THOOM!",
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_nogozone",
+    "type": "SPELL",
+    "name": "[\u03a8]No Go Zone (C)",
+    "description": "Project a telekinetic cordon that refuses to let anything crowd you.  While maintained, creatures cannot hold a tile adjacent to you -- the field shoves them back a step the instant they close.  They can still lurk one tile beyond and reach or shoot at you; they simply cannot get in your face.\n\nThis power is maintained by concentration and may fail if concentration is interrupted.",
+    "//": "ORIGINAL Bright Nights fork power (NOT in upstream MoM).  Hand-authored -- logic lives in lua/mom_eoc.lua (EOC_TELEKIN_NOGOZONE_*) and lua/mom_hooks.lua (cast-marker handler + on_every_x tick + learner).  Schema mirrors the generated maintained-power spells (see spells/teleportation.json teleport_reactive_displacement).",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_nogozone",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 3500,
+    "energy_increment": -100.0,
+    "final_energy_cost": 2000,
+    "base_casting_time": 100,
+    "casting_time_increment": -5.0,
+    "final_casting_time": 25,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_cast_telekinetic_nogozone",
+    "//": "Cast marker: applied to the caster on cast; mom_hooks' effect_added handler runs EOC_TELEKIN_NOGOZONE_INITIATE.  Same shape as the generated mom_cast_* markers.",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "effect_telekinetic_nogozone",
+    "//": "Maintained buff: while present, mom_hooks on_every_x shoves adjacent non-allied monsters out to range 2.",
+    "name": [
+      "No Go Zone"
+    ],
+    "desc": [
+      "A telekinetic exclusion field holds enemies at bay, preventing them from closing to melee range."
+    ],
+    "apply_message": "",
+    "remove_message": "The exclusion field collapses; the space around you is open again.",
+    "rating": "good",
+    "max_duration": "7 days",
+    "max_intensity": 1
+  },
+  {
+    "id": "clair_see_mechanisms",
+    "type": "SPELL",
+    "name": "[\u03a8]See Mechanisms",
+    "description": "Open your inner eye to the hidden workings of locks: the pins of a deadbolt, the wards of a padlock, the tumblers turning behind a safe's dial.  With their secret geometry laid bare, you spring them open by pure understanding -- instantly, silently, and without fail.  No picks, no tools, no telltale scratches; you even see the alarm wiring in time to leave it be.\n\nAffects nearby MECHANICAL locks: keyed and deadbolt doors, barred doors, chain gates, dial safes, mechanical gun safes, and locked display cases.  It has no purchase on electronic locks and card readers -- a circuit has no moving mechanism to see.  The reach grows with your mastery, from the lock right in front of you to everything in a small area around you.",
+    "//": "ORIGINAL Bright Nights fork power (NOT in upstream MoM).  Clairsentient utility: fast, reliable mechanical lockpicking + safecracking.  Logic in lua/mom_hooks.lua (cast-marker handler 'mom_cast_clair_see_mechanisms' -> see_mechanisms_sweep + learner).  BN can't run map terrain/furniture edits from spell JSON, and lockpick_result isn't exposed to Lua, so the locked->unlocked remap is a hardcoded table mirroring each terrain/furniture's own lockpick_result (safes use their crack/pry result f_safe_o).  Electronic locks are deliberately left to the Electrokinetic's MOM_HACK bridge -- clean path separation.  Follows the circuit_sense/nogozone fork template: target_attack applies a mom_cast_* marker (EFFECT_LUA_ON_ADDED), STAMINA cost, scale_int, no magic_type.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_see_mechanisms",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 3500,
+    "energy_increment": -120.0,
+    "final_energy_cost": 1500,
+    "base_casting_time": 150,
+    "casting_time_increment": -6.0,
+    "final_casting_time": 40,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_cast_clair_see_mechanisms",
+    "//": "Cast marker: applied to the caster on cast; mom_hooks' effect_added handler runs see_mechanisms_sweep, then consumes the marker.  Same shape as the other mom_cast_* markers.",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "id": "pyrokinetic_aoe_blast",
+    "type": "SPELL",
+    "name": "[\u03a8]Mass Hydrothermosis",
+    "description": "Reach out with your mind and, in a single instant, bring the fluids inside every creature you can see to a violent boil.  Blood, lymph, insect ichor, hydraulic fluid, coolant, machine oil -- if it flows, it flashes to steam.  Nothing burns and no ground catches fire; the heat happens entirely INSIDE your targets, all at once.\n\nThis strikes <color_yellow>every hostile creature in your line of sight</color> -- however far you can see is however far it reaches, which is what makes it a capstone.  It has no purchase only on the truly fluidless (see-through drones like eyebots are borderline) and on nether-null horrors your power cannot touch at all.  Your own companions are spared.  Damage grows with your mastery.\n\nThe cost is punishing; you will not cast this twice in a row.\n\nLevel 6 leads to Crucible with Conflagration 10 + Mass Hydrothermosis 6 + Molten Land 14 OR Conflagration 10 + Flamethrower 10 + Mass Hydrothermosis 6.",
+    "message": "You reach into every creature in sight and boil them from within!",
+    "//": "ORIGINAL Bright Nights fork capstone (NOT upstream MoM).  REPLACES DDA \"Hellfire\" (pyrokinetic_aoe_blast) -- id deliberately KEPT so it inherits Hellfire's auto-learn slot + prerequisite tree (gen_learn_map) and stays a valid prereq for Crucible (pyrokinetic_incineration); the native Hellfire spell + its self-immunity helper are cut in strip_spell_math DROP_SPELLS.  BN has no \"all monsters in LOS\" spell shape, so this is a marker+Lua bridge: a self target_attack applies mom_cast_pyrokinetic_aoe_blast (EFFECT_LUA_ON_ADDED); mom_hooks' handler runs U.mass_hydrothermosis (iterate gapi.get_all_monsters, keep hp>0 + friendly==0 + you:sees(pos) + not PSI_NULL, deal per-target rng heat via U.deal_flat_damage crediting the caster) then fires the per-cast attunement/cost events.  Follows the circuit_sense/nogozone/see_mechanisms fork template.  Cost/casting-time mirror the ported Hellfire (STAMINA, 9000->6000, scale_int).  NO fd_fire, NO self-immunity, NO fixed radius.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PYROKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 9,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_pyrokinetic_aoe_blast",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 9000,
+    "final_energy_cost": 6000,
+    "energy_increment": -220.0,
+    "base_casting_time": 175,
+    "casting_time_increment": -8.0,
+    "final_casting_time": 55,
+    "sound_type": "combat",
+    "sound_description": "the wet sizzle and burst of boiling fluids!",
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_cast_pyrokinetic_aoe_blast",
+    "//": "Cast marker: applied to the caster on cast; mom_hooks' effect_added handler runs U.mass_hydrothermosis, fires the per-cast events, then consumes the marker.  Same shape as the other mom_cast_* markers.",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "//": "FORK (2026-07-24, Quell Fire repair).  Shared cast marker for BOTH the player power and the monster variant -- mom_hooks' effect handler tables serve characters and monsters alike (on_effect_added / on_mon_effect_added, mom_hooks.lua:78-99), so one marker + one handler covers every caster.  Hand-written because the parent spells are GENERATED and their effect_str is set by strip_spell_math's _rewrite_quell_fire*, which means the usual effect_on_condition marker autogeneration never runs.",
+    "type": "effect_type",
+    "id": "mom_cast_mom_quell_fire",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "//": "FORK (2026-07-24).  Self-cast relay for the MONSTER Quell Fire.  The player power reuses its existing pyrokinetic_quell_flames_self sub-spell as the relay; the monster spell had no extra_effects, so it gets this one (hit_self -> lands the marker on the caster monster, whose on_mon_effect_added fires the same handler).  `hit_self` is the BN fake_spell key, NOT `self`.",
+    "type": "SPELL",
+    "id": "mom_quell_fire_monster_trigger",
+    "name": {
+      "str": "[\u03a8]Quell Fire Relay",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Internal relay; should never be visible.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_mom_quell_fire",
+    "min_range": 0,
+    "max_range": 0,
+    "min_duration": 100,
+    "max_duration": 100
+  }
+]

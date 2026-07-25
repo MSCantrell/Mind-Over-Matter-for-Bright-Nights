@@ -1,0 +1,44 @@
+[
+  {
+    "//": "Dialogue-effect bridge markers (Phase 5B).  BN dialogue can't run inline math or run_eocs, so port_npcs.py replaces a psi-attack response's mechanical payload with `npc_add_effect` of one of these 1-turn hidden markers.  Each carries EFFECT_LUA_ON_ADDED; when it lands on the target NPC, mom_hooks.lua's mod.effect_added_handlers[<id>] runs the real payload with the marker-bearer as the victim (alpha) and the avatar as the caster (beta, via dispatch_eoc/gapi.get_avatar).  The marker is consumed the same turn.  Keep this file and tools/port_npcs.py PAYLOAD markers in sync.",
+    "type": "effect_type",
+    "id": "mom_dlg_synaptic_overload",
+    "name": [ "synaptic overload" ],
+    "desc": [ "A telepathic assault tears at the mind." ],
+    "max_duration": "2 seconds",
+    "flags": [ "EFFECT_LUA_ON_ADDED" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_dlg_synaptic_overload_flat",
+    "name": [ "synaptic overload" ],
+    "desc": [ "A telepathic assault tears at the mind." ],
+    "max_duration": "2 seconds",
+    "flags": [ "EFFECT_LUA_ON_ADDED" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_dlg_paralysis",
+    "name": [ "neural spasms" ],
+    "desc": [ "Electrokinetic interference locks up the nervous system." ],
+    "max_duration": "2 seconds",
+    "flags": [ "EFFECT_LUA_ON_ADDED" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_dlg_traitor_banish",
+    "name": [ "banished" ],
+    "desc": [ "Cast into the spaces between worlds." ],
+    "max_duration": "2 seconds",
+    "flags": [ "EFFECT_LUA_ON_ADDED" ]
+  },
+  {
+    "//": "Player-targeted (u_add_effect): the portal-storm teleport-out choice. Upstream u_die = the character leaves their dying world (a run-ending exit); the hook kills the avatar.",
+    "type": "effect_type",
+    "id": "mom_dlg_u_die",
+    "name": [ "between worlds" ],
+    "desc": [ "You have left your dying world behind." ],
+    "max_duration": "2 seconds",
+    "flags": [ "EFFECT_LUA_ON_ADDED" ]
+  }
+]

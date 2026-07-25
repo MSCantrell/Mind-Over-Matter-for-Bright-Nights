@@ -1,0 +1,178 @@
+-- mom_math: the u_val / math-function shim (spec §5, Rev 2 scope).
+-- Every function takes the acting Character as its first argument.
+local M = {}
+
+-- u_val('intelligence') — effective stat = base + bonus in BN.
+-- BN binds the stat accessors on Character ONLY.  Since QA round 3 an EOC can
+-- run with a monster as `you` (a marker landing on a spell's monster target,
+-- e.g. Mesmerize) — monsters have no get_*_base, which crashed the hook.  The
+-- psi stat formulas describe the caster, so fall back to the avatar rather
+-- than error (same "degrade, don't throw" philosophy as magic_of below;
+-- NPC-psion misattribution accepted, per HANDOFF).
+local function stat_src(you)
+  if you ~= nil and you.get_int_base ~= nil then return you end
+  return gapi.get_avatar()
+end
+function M.int(you) local c = stat_src(you) return c:get_int_base() + c:get_int_bonus() end
+function M.str(you) local c = stat_src(you) return c:get_str_base() + c:get_str_bonus() end
+function M.dex(you) local c = stat_src(you) return c:get_dex_base() + c:get_dex_bonus() end
+function M.per(you) local c = stat_src(you) return c:get_per_base() + c:get_per_bonus() end
+
+-- Spells live on the spellbook (known_magic), not on Character directly —
+-- Character's only spell binding is get_magic() (catalua_bindings_creature.cpp:615).
+-- Monsters have no get_magic binding, and since QA round 3 EOCs can run with
+-- a monster as `you` (marker landing on a spell target) — treat "no
+-- spellbook" as "spell unknown" rather than erroring inside a hook.
+local function magic_of(you)
+  if you.get_magic == nil then return nil end
+  return you:get_magic()
+end
+
+-- u_spell_level('id') -> -1 if unknown (MoM convention).
+function M.spell_level(you, spell_id)
+  local km = magic_of(you)
+  if not km then return -1 end
+  local sid = SpellTypeId.new(spell_id)
+  if not km:knows_spell(sid) then return -1 end
+  return km:get_spell(sid):get_level()
+end
+
+-- u_spell_exp('id')
+function M.spell_exp(you, spell_id)
+  local km = magic_of(you)
+  if not km then return -1 end
+  local sid = SpellTypeId.new(spell_id)
+  if not km:knows_spell(sid) then return -1 end
+  return km:get_spell(sid):xp()
+end
+
+-- u_spell_exp('id') += n
+-- gain_exp binds void(int); sol2 rejects numbers with decimals, and the
+-- upstream drain math is fractional — round here, at the binding boundary.
+function M.gain_spell_exp(you, spell_id, amount)
+  local km = magic_of(you)
+  if not km then return end
+  local sid = SpellTypeId.new(spell_id)
+  if km:knows_spell(sid) then
+    km:get_spell(sid):gain_exp(math.floor(amount + 0.5))
+  end
+end
+
+-- u_effect_intensity('id') -> -1 if absent (MoM convention).
+function M.effect_intensity(you, effect_id, bp)
+  local eid = EffectTypeId.new(effect_id)
+  if not you:has_effect(eid, bp) then return -1 end
+  return you:get_effect_int(eid, bp)
+end
+
+function M.focus(you) return you.focus_pool end
+function M.pain(you) return you:get_pain() end
+function M.stamina(you) return you:get_stamina() end
+function M.sleep_deprivation(you) return you:get_sleep_deprivation() end
+function M.skill(you, skill_id) return you:get_skill_level(SkillId.new(skill_id)) end
+function M.morale(you) return you:get_morale_level() end
+
+-- Fork skill ceilings.  Base BN caps skills at 10 ("thorough mastery"); the
+-- MoM grants train via SkillLevel:train() with skip_scaling, which bypasses that
+-- cap, so Metaphysics was climbing unbounded (playtest reached 29).  Cap it at
+-- 15 (the intended psionic ceiling): gain_skill_exp refuses to push a capped
+-- skill past its ceiling, and enforce_skill_caps clamps any existing overage
+-- (called from the load hooks so a live over-cap character is corrected on load).
+M.SKILL_CAPS = { metaphysics = 15 }
+
+-- u_skill_exp('id', 'format': 'raw') += n
+-- SkillLevel:train(amount, skip_scaling) — DDA's 'raw' format bypasses any
+-- internal scaling (the EOC math already multiplies by
+-- game_option('SKILL_TRAINING_SPEED') itself), so skip_scaling=true here
+-- mirrors that: it adds straight to _exercise (skill.cpp:237).
+function M.gain_skill_exp(you, skill_id, amount)
+  local sid = SkillId.new(skill_id)
+  local cap = M.SKILL_CAPS[skill_id]
+  if cap and you:get_skill_level(sid) >= cap then return end   -- already at ceiling
+  you:get_skill_level_object(sid):train(math.floor(amount + 0.5), true)
+  -- A single large grant can vault multiple levels at once; clamp any overshoot
+  -- so the ceiling is exact, not "the last level before a big grant".
+  if cap and you:get_skill_level(sid) > cap then
+    you:set_skill_level(sid, cap)
+  end
+end
+
+-- Clamp any capped skill sitting above its ceiling down to the ceiling.  Run
+-- from the game load / start hooks so a character who banked levels before the
+-- cap existed (or under an older build) is corrected the next time they load.
+function M.enforce_skill_caps(you)
+  if not you then return end
+  for skill_id, cap in pairs(M.SKILL_CAPS) do
+    local sid = SkillId.new(skill_id)
+    if you:get_skill_level(sid) > cap then
+      you:set_skill_level(sid, cap)
+    end
+  end
+end
+
+-- === Nether Attunement (spec Rev 3, amended QA round 3) ====================
+
+-- The attunement meter is stored on the character in the UPSTREAM VITAMIN
+-- SCALE (0..250) via a character var; the drain effect's intensity (0..12)
+-- is a derived display band.  Every transpiled comparison and increment
+-- (thresholds 15/35/../245, "+= rand(3)", "/ 25", "* 2" durations) is
+-- vitamin-scale, and intensity alone cannot accumulate sub-band increments,
+-- so both accessors below must speak vitamin-scale.  Band mapping is
+-- upstream vitamins.json disease_excess: intensity i covers 20i-5..20i+14.
+M.ATTUNEMENT_EFFECT = "effect_disease_psionic_drain"
+M.ATTUNEMENT_VAR = "mom_nether_attunement_meter"  -- raw set_value key
+M.ATTUNEMENT_MAX = 250
+
+function M.attunement(you)
+  local v = tonumber(you:get_value(M.ATTUNEMENT_VAR))
+  if v then return v end
+  -- Migration: derive from a pre-existing effect intensity (band start).
+  local eid = EffectTypeId.new(M.ATTUNEMENT_EFFECT)
+  if not you:has_effect(eid) then return 0 end
+  local i = you:get_effect_int(eid)
+  return i <= 0 and 0 or (20 * i - 5)
+end
+
+-- Write the meter and sync the display effect's intensity to the band.
+function M.attunement_set(you, v)
+  v = math.max(0, math.min(math.floor(v + 0.5), M.ATTUNEMENT_MAX))
+  you:set_value(M.ATTUNEMENT_VAR, tostring(v))
+  local band = math.max(0, math.min(math.floor((v + 5) / 20), 12))
+  local eid = EffectTypeId.new(M.ATTUNEMENT_EFFECT)
+  if band <= 0 then
+    you:remove_effect(eid)
+  else
+    -- Long duration: the 5-minute Lua decay tick (mom_eoc) is the meter's
+    -- real clock, mirroring the upstream vitamin rate of 1 per 5 minutes.
+    you:add_effect(eid, TimeDuration.from_hours(12), nil, band)
+  end
+end
+
+-- Concentration powers currently sustained — derived, never stored.
+-- Replaces u_vitamin('vitamin_maintained_powers').  mom_eoc populates the list.
+M.maintenance_effects = {}
+function M.maintained_count(you)
+  local n = 0
+  for _, id in ipairs(M.maintenance_effects) do
+    if you:has_effect(EffectTypeId.new(id)) then n = n + 1 end
+  end
+  return n
+end
+
+-- psionic_power_modifiers() jmath: attunement / weariness product.
+-- TODO(phase3): transpile the real jmath function; 1.0 is the reference value
+-- the spell fits were computed at.
+function M.power_modifiers(you)
+  return 1.0
+end
+
+-- u_vitamin() calls that survive transpilation are a porting bug:
+-- psionic_drain -> M.attunement, maintained_powers -> M.maintained_count,
+-- psi_learning_counter -> deleted (native spell XP), base-game vitamins ->
+-- per-power Phase 4 redesign.  Fail loudly.
+function M.vitamin(you, vitamin_id)
+  error("mom_math.vitamin('" .. tostring(vitamin_id)
+    .. "'): vitamins are designed out (spec Rev 3); route this call to its replacement")
+end
+
+return M

@@ -1,0 +1,54 @@
+[
+  {
+    "id": "classless_toggleable_concentration_end",
+    "type": "SPELL",
+    "name": "[\u03a8]Stop Concentrating",
+    "description": "End your concentration on all of your maintained powers.\n\nChanneling this power <color_green>always succeeds</color>.",
+    "message": "You stop concentrating on your powers.",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "NO_FAIL",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_classless_toggleable_concentration_end",
+    "max_level": 1,
+    "energy_source": "STAMINA",
+    "base_energy_cost": 0,
+    "base_casting_time": 0,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "id": "classless_specific_concentration_end",
+    "type": "SPELL",
+    "name": "[\u03a8]Stop Concentrating (Individual)",
+    "description": "End your concentration on a specific power.\n\nChanneling this power <color_green>always succeeds</color>.",
+    "message": "You stop concentrating on one of your powers.",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "NO_FAIL",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_classless_specific_concentration_end",
+    "max_level": 1,
+    "energy_source": "STAMINA",
+    "base_energy_cost": 0,
+    "base_casting_time": 0,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  }
+]

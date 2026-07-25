@@ -1,0 +1,10 @@
+[
+  {
+    "//": "BRIDGE (hand file, not generated). emit_plasma is a CDDA-core emit source that BN's core emit.json dropped, but mon_feral_human_porter3 (ephemeral riftwalker, monsters/feral_psychics.json) still references it via emit_fields -> 'invalid emit source emit_plasma'. The target field fd_plasma DOES exist in BN (field_type.json), so this restores the DDA definition verbatim (field/qty/chance from CDDA/data/json/emit.json). If BN core ever ships emit_plasma, delete this file.",
+    "id": "emit_plasma",
+    "type": "emit",
+    "field": "fd_plasma",
+    "qty": 2,
+    "chance": 75
+  }
+]

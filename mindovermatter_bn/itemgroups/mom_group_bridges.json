@@ -1,0 +1,280 @@
+[
+  {
+    "type": "item_group",
+    "id": "biokinetic_crystal_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_biokinesis_artifact",
+        100
+      ]
+    ],
+    "//file": "HAND-AUTHORED bridge file (2026-07-17). NOT a port_copy output \u2014 do not regenerate via the porter. Defines item_groups BN reported missing in debug.log: 16 matrix-crystal artifact base groups (mirrored from MoM procgen/*.json; BN has no relic-procgen, so the wrapping _procgen groups' 'artifact' blocks are inert and these spawn plain attuned crystals), plus DDA->BN twin aliases and intentionally-empty drops."
+  },
+  {
+    "type": "item_group",
+    "id": "biokinetic_crystal_awakening_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_biokinesis",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "clairsentient_crystal_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_clairsentience_artifact",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "clairsentient_crystal_awakening_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_clairsentience",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "electrokinetic_crystal_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_electrokinesis_artifact",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "electrokinetic_crystal_awakening_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_electrokinesis",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "photokinetic_crystal_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_photokinesis_artifact",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "photokinetic_crystal_awakening_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_photokinesis",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "pyrokinetic_crystal_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_pyrokinesis_artifact",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "pyrokinetic_crystal_awakening_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_pyrokinesis",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "telekinetic_crystal_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_telekinesis_artifact",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "telekinetic_crystal_awakening_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_telekinesis",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "teleportation_crystal_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_teleportation_artifact",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "teleportation_crystal_awakening_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_teleportation",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "vitakinetic_crystal_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_vitakinesis_artifact",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "vitakinetic_crystal_awakening_artifact_item",
+    "subtype": "distribution",
+    "items": [
+      [
+        "matrix_crystal_vitakinesis",
+        100
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "everyday_gear_lab",
+    "subtype": "distribution",
+    "//": "Bridge: MoM/DDA group 'everyday_gear_lab' -> BN twin 'everyday_gear'.",
+    "entries": [
+      {
+        "group": "everyday_gear",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "tools_common_small",
+    "subtype": "distribution",
+    "//": "Bridge: MoM/DDA group 'tools_common_small' -> BN twin 'tools_common'.",
+    "entries": [
+      {
+        "group": "tools_common",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "coins",
+    "subtype": "distribution",
+    "//": "Dropped in port (money flavor); intentionally empty so references resolve.",
+    "entries": []
+  },
+  {
+    "type": "item_group",
+    "id": "banknotes",
+    "subtype": "distribution",
+    "//": "Dropped in port (money flavor); intentionally empty so references resolve.",
+    "entries": []
+  },
+  {
+    "type": "item_group",
+    "id": "discount_cards",
+    "subtype": "distribution",
+    "//": "Dropped in port (money flavor); intentionally empty so references resolve.",
+    "entries": []
+  },
+  {
+    "type": "item_group",
+    "id": "wallets",
+    "subtype": "distribution",
+    "//": "Dropped in port (money flavor); intentionally empty so references resolve.",
+    "entries": []
+  },
+  {
+    "type": "item_group",
+    "id": "default_zombie_items_bags_small",
+    "subtype": "distribution",
+    "//": "Dropped in port (no BN twin); intentionally empty so references resolve.",
+    "entries": []
+  },
+  {
+    "type": "item_group",
+    "id": "zincpowder_glass_flask_part",
+    "subtype": "distribution",
+    "//": "Bridge: DDA supplies group (glass flask of zinc powder). BN item is chem_zinc, bagged in plastic per BN convention.",
+    "entries": [
+      {
+        "item": "chem_zinc",
+        "count": [
+          2,
+          175
+        ],
+        "container-item": "bag_plastic"
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "lab_files_generic",
+    "subtype": "distribution",
+    "//": "Bridge: DDA lab-paperwork group -> BN office_paper twin.",
+    "entries": [
+      {
+        "group": "office_paper",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "adderall_bottle_plastic_pill_prescription_1_10",
+    "subtype": "distribution",
+    "//": "Bridge: DDA auto-generates pill-bottle groups named <drug>_bottle_<container>_pill_prescription_<min>_<max> from the item def; BN has no such auto-gen, so this ref (from psi_lab / psi_lab_no_recipes in matrix_technology_labs.json) was undefined. Backfill: adderall (1-10 pills = charges) in BN's standard med bottle bottle_plastic_small (BN has no bottle_plastic_pill_prescription).",
+    "entries": [
+      {
+        "item": "adderall",
+        "container-item": "bottle_plastic_small",
+        "charges-min": 1,
+        "charges-max": 10
+      }
+    ]
+  }
+]

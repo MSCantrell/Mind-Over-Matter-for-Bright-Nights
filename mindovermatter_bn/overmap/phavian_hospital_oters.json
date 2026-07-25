@@ -1,0 +1,48 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": [
+      "phavian_hospital_annex_ground_nw",
+      "phavian_hospital_annex_ground_ne",
+      "phavian_hospital_annex_ground_sw",
+      "phavian_hospital_annex_ground_se"
+    ],
+    "name": "phavian medical center",
+    "sym": "H",
+    "color": "white",
+    "see_cost": 5,
+    "flags": [
+      "SIDEWALK"
+    ],
+    "mondensity": 2
+  },
+  {
+    "type": "overmap_terrain",
+    "id": [
+      "phavian_hospital_annex_roof_nw",
+      "phavian_hospital_annex_roof_ne",
+      "phavian_hospital_annex_roof_sw",
+      "phavian_hospital_annex_roof_se"
+    ],
+    "name": "phavian medical center",
+    "sym": "H",
+    "color": "white",
+    "see_cost": 5
+  },
+  {
+    "type": "overmap_terrain",
+    "id": [
+      "phavian_hospital_basement_nw",
+      "phavian_hospital_basement_ne",
+      "phavian_hospital_basement_sw",
+      "phavian_hospital_basement_se"
+    ],
+    "name": "PHAVIAN lab",
+    "sym": "L",
+    "color": "light_red",
+    "see_cost": 5,
+    "flags": [
+      "RISK_HIGH"
+    ]
+  }
+]

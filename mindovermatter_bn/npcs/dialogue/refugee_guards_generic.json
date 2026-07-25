@@ -1,0 +1,266 @@
+[
+  {
+    "id": [
+      "TALK_GUARD"
+    ],
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Premonition] *Check for anything amiss*",
+        "topic": "TALK_GUARD_GENERIC_REFUGEE_danger_sense",
+        "condition": {
+          "or": [
+            {
+              "u_has_trait": "CLAIRSENTIENT"
+            },
+            {
+              "u_has_trait": "PSYCHIC_KNACK"
+            }
+          ]
+        }
+      },
+      {
+        "text": "[Sense Hostility] *Determine if <npc_name> is a threat*",
+        "topic": "TALK_GUARD_GENERIC_REFUGEE_sense_hostility",
+        "condition": {
+          "u_has_trait": "CLAIRSENTIENT"
+        }
+      },
+      {
+        "text": "[Telepathy] *Read <npc_name>'s mind*",
+        "topic": "TALK_GUARD_GENERIC_REFUGEE_scan",
+        "condition": {
+          "or": [
+            {
+              "u_has_trait": "TELEPATH"
+            },
+            {
+              "u_has_trait": "PSYCHIC_KNACK"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": [
+      "TALK_GUARD_GENERIC_REFUGEE_danger_sense"
+    ],
+    "type": "talk_topic",
+    "dynamic_line": "&You open your senses to any dangers.  You have a faint sense of foreboding, but that's it.",
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_GUARD"
+      }
+    ]
+  },
+  {
+    "id": [
+      "TALK_GUARD_GENERIC_REFUGEE_sense_hostility"
+    ],
+    "type": "talk_topic",
+    "dynamic_line": "&A quick check reveals nothing out of the ordinary.  To <npc_name>, you're just another face in the crowd.",
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_GUARD"
+      }
+    ]
+  },
+  {
+    "id": [
+      "TALK_GUARD_GENERIC_REFUGEE_scan"
+    ],
+    "type": "talk_topic",
+    "dynamic_line": [
+      "<telepathy_refugee_guard>",
+      "<telepathy_refugee_guard>",
+      "<telepathy_refugee_guard>",
+      "<telepathy_generic>"
+    ],
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_GUARD"
+      }
+    ]
+  },
+  {
+    "id": [
+      "TALK_EVAC_GUARD1"
+    ],
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Premonition] *Determine if <npc_name> is a threat*",
+        "topic": "TALK_EVAC_GUARD1_danger_sense",
+        "condition": {
+          "or": [
+            {
+              "u_has_trait": "CLAIRSENTIENT"
+            },
+            {
+              "u_has_trait": "PSYCHIC_KNACK"
+            }
+          ]
+        }
+      },
+      {
+        "text": "[Telepathy] *Read <npc_name>'s mind*",
+        "topic": "TALK_EVAC_GUARD1_scan",
+        "condition": {
+          "or": [
+            {
+              "u_has_trait": "TELEPATH"
+            },
+            {
+              "u_has_trait": "PSYCHIC_KNACK"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": [
+      "TALK_EVAC_GUARD1_danger_sense"
+    ],
+    "type": "talk_topic",
+    "dynamic_line": "&You open your senses, alert for danger, but don't sense anything.  <npc_name> bears you no ill will at all.",
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_EVAC_GUARD1"
+      }
+    ]
+  },
+  {
+    "id": [
+      "TALK_EVAC_GUARD1_scan"
+    ],
+    "type": "talk_topic",
+    "dynamic_line": [
+      "\u00abOh great.  Another one.\u00bb",
+      "\u00abIdle hands make a waste of time.\u00bb",
+      {
+        "is_day": [
+          "\u00abWe need to post sentries outside that'll turn some of these people away.\u00bb"
+        ],
+        "no": [
+          "\u00abWe really should start locking the doors at night so these people can't get in.\u00bb"
+        ]
+      },
+      {
+        "yes": [
+          {
+            "u_male": [
+              "\u00abWow, I'm amazed he's lived this long.\u00bb"
+            ],
+            "no": [
+              "\u00abWow, I'm amazed she's lived this long.\u00bb"
+            ]
+          }
+        ],
+        "no": [
+          {
+            "u_male": [
+              "\u00abNo point in learning his name.  He'll probably be dead soon anyway.\u00bb"
+            ],
+            "no": [
+              "\u00abNo point in learning her name.  She'll probably be dead soon anyway.\u00bb"
+            ]
+          }
+        ],
+        "days_since_cataclysm": 60
+      }
+    ],
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_EVAC_GUARD1"
+      }
+    ]
+  },
+  {
+    "id": [
+      "TALK_EVAC_GUARD2"
+    ],
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "[Premonition] *Determine if <npc_name> is a threat*",
+        "topic": "TALK_EVAC_GUARD2_danger_sense",
+        "condition": {
+          "or": [
+            {
+              "u_has_trait": "CLAIRSENTIENT"
+            },
+            {
+              "u_has_trait": "PSYCHIC_KNACK"
+            }
+          ]
+        }
+      },
+      {
+        "text": "[Telepathy] *Read <npc_name>'s mind*",
+        "topic": "TALK_EVAC_GUARD2_scan",
+        "condition": {
+          "or": [
+            {
+              "u_has_trait": "TELEPATH"
+            },
+            {
+              "u_has_trait": "PSYCHIC_KNACK"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": [
+      "TALK_EVAC_GUARD2_danger_sense"
+    ],
+    "type": "talk_topic",
+    "dynamic_line": "&You open your senses, alert for danger, but don't sense anything.  <npc_name> is sincere in their friendliness, or least isn't hiding a dagger behind their back.",
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_GUARD"
+      }
+    ]
+  },
+  {
+    "id": [
+      "TALK_EVAC_GUARD2_scan"
+    ],
+    "type": "talk_topic",
+    "dynamic_line": [
+      "\u00abNot bad playing tour guide.  Better than having to fight.\u00bb",
+      {
+        "is_day": [
+          "\u00abAnother day after <the_cataclysm>.  One foot in front of the other.\u00bb"
+        ],
+        "no": [
+          "\u00abSo tired.  That's what I get for drawing the night shift.\u00bb",
+          "\u00abAt least in here I can see them coming.  If I were out there\u2026\u00bb"
+        ]
+      },
+      {
+        "u_male": [
+          "\u00abHow much did it take to get here?  What has he lost?\u00bb"
+        ],
+        "no": [
+          "\u00abHow much did it take to get here?  What has she lost?\u00bb"
+        ]
+      }
+    ],
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_EVAC_GUARD2"
+      }
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "//": "BN-native replacement for DDA base's parametrized_carpets_nest_palette (data/json/mapgen_palettes/common_parameters.json), which BN doesn't ship. MoM's skyscraper/hospital lab break-room and rest-area nests reference both the '=' symbol AND the nest-scoped 'carpet_color_type' parameter (on symbols t/c/the a-with-hook glyph). BN supports palette parameters and scope:nest (see house_w_palette.json), so this ports DDA's definition verbatim; all four carpets are stock BN terrains. Declaring carpet_color_type here silences the 'undefined parameter' check warning and gives the intended random-carpet result instead of always falling back to t_carpet_purple.",
+    "type": "palette",
+    "id": "parametrized_carpets_nest_palette",
+    "parameters": {
+      "carpet_color_type": {
+        "type": "ter_str_id",
+        "scope": "nest",
+        "default": {
+          "distribution": [ [ "t_carpet_red", 1 ], [ "t_carpet_green", 1 ], [ "t_carpet_purple", 1 ], [ "t_carpet_yellow", 1 ] ]
+        }
+      }
+    },
+    "terrain": {
+      "=": { "param": "carpet_color_type", "fallback": "t_carpet_red" }
+    }
+  }
+]

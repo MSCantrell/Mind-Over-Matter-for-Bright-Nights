@@ -1,0 +1,727 @@
+[
+  {
+    "id": "clair_better_senses",
+    "type": "SPELL",
+    "name": "[\u03a8]Heightened Senses (C)",
+    "description": "All of your senses are heightened, allowing you to see further and hear better, and at higher levels even see in murky water or use minor vibrations and small sounds to determine moving creatures nearby.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 5 leads to Aura Sight.\nLevel 8 leads to Night Eyes.\nLevel 6 leads to Premonition.\nLevel 3 leads to See Mechanisms.\nLevel 8 leads to Sense Hostility with Premonition 6.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_better_senses",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 2000,
+    "base_casting_time": 50,
+    "energy_increment": -85.0,
+    "final_energy_cost": 750,
+    "casting_time_increment": -2.0,
+    "final_casting_time": 20,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_speed_reading",
+    "type": "SPELL",
+    "name": "[\u03a8]Speed Reader (C)",
+    "description": "Your powers make words fairly leap off the page directly into your mind, allowing you to read much faster and better absorb what you read.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.\n\nLevel 8 leads to Intuitive Artisan with Premonition 6.\nLevel 8 leads to Psychometry with Aura Sight 6 OR Speed Reader 8 OR Premonition 8.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_speed_reading",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 2500,
+    "base_casting_time": 500,
+    "energy_increment": -125.0,
+    "final_energy_cost": 1000,
+    "casting_time_increment": -12.0,
+    "final_casting_time": 320,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_danger_sense",
+    "type": "SPELL",
+    "name": "[\u03a8]Premonition (C)",
+    "description": "You can sense nearby movement and sometimes gain an advance warning of dangerous events.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 6 leads to Clairvoyance.\nLevel 10 leads to Combat Sense with Clairvoyance 6 + Premonition 10 OR Clairvoyance 6 + Sense Hostility 10.\nLevel 6 leads to Intuitive Artisan with Speed Reader 8.\nLevel 8 leads to Psychometry with Aura Sight 6 OR Speed Reader 8 OR Premonition 8.\nLevel 6 leads to Sense Hostility with Heightened Senses 8.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_danger_sense",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 2250,
+    "base_casting_time": 85,
+    "energy_increment": -85.0,
+    "final_energy_cost": 975,
+    "casting_time_increment": -7.0,
+    "final_casting_time": 25,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_night_vision",
+    "type": "SPELL",
+    "name": "[\u03a8]Night Eyes (C)",
+    "description": "You are able to sense your surroundings in areas of low light, and you can even \"see\" in pitch darkness.  Strictly speaking, this is not vision, and you cannot discern fine details or read.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 10 leads to Clarity.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_night_vision",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 3500,
+    "base_casting_time": 50,
+    "energy_increment": -75.0,
+    "final_energy_cost": 2375,
+    "casting_time_increment": -2.0,
+    "final_casting_time": 20,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_see_auras",
+    "type": "SPELL",
+    "name": "[\u03a8]Aura Sight (C)",
+    "description": "You can see people's emotions and physical state as a hazy swirl of color around their body.  This makes it much easier to get them to do what you want.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.\n\nLevel 6 leads to Psychometry with Aura Sight 6 OR Speed Reader 8 OR Premonition 8.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_see_auras",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 4000,
+    "base_casting_time": 300,
+    "energy_increment": -115.0,
+    "final_energy_cost": 2275,
+    "casting_time_increment": -8.5,
+    "final_casting_time": 172,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_sense_rads",
+    "type": "SPELL",
+    "name": "[\u03a8]Radiation Sense",
+    "description": "You can open your tenses to the tell-tale glow of radiation.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_sense_rads",
+    "base_energy_cost": 4500,
+    "final_energy_cost": 2000,
+    "energy_increment": -125,
+    "base_casting_time": 250,
+    "final_casting_time": 100,
+    "casting_time_increment": -4.5,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_sense_rads_self",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Radiation Sense on you",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Sense your personal radiation.  It's a bug if you have it directly.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_sense_rads_self",
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "id": "clair_sense_rads_outside",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Radiation Sense on your environment",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Sense your environmental radiation.  It's a bug if you have it directly.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_VFX",
+      "RANDOM_DURATION"
+    ],
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "effect_clair_sense_rads_self",
+    "min_duration": 180000,
+    "max_duration": 450000,
+    "scale_int": true
+  },
+  {
+    "id": "clair_sense_rads_outside_spawn_item",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Radiation Sense summon item",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "This is the reoccurring item summon for Radiation Sense.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_VFX",
+      "RANDOM_DURATION"
+    ],
+    "max_level": 15,
+    "effect": "spawn_item",
+    "effect_str": "clair_sense_rad_item",
+    "min_damage": 1,
+    "max_damage": 1,
+    "min_duration": 1100,
+    "max_duration": 1100,
+    "scale_int": true
+  },
+  {
+    "id": "clair_ranged_enhance",
+    "type": "SPELL",
+    "name": "[\u03a8]Marksman's Eye (C)",
+    "description": "With your enhanced senses, you can increase the effective range and accuracy of your ranged attacks.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 9 leads to One Perfect Shot.\nLevel 7 leads to Prescient Tactician with Clarity 5 + Combat Sense 8.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_ranged_enhance",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 4500,
+    "base_casting_time": 200,
+    "energy_increment": -135.0,
+    "final_energy_cost": 2475,
+    "casting_time_increment": -6.0,
+    "final_casting_time": 125,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_examine_item",
+    "type": "SPELL",
+    "name": "[\u03a8]Psychometry",
+    "description": "You can examine an item and use your enhanced senses to determine its properties that may not be obvious to the eye.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_examine_item",
+    "base_energy_cost": 5000,
+    "base_casting_time": 30000,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_sense_hostile_creatures",
+    "type": "SPELL",
+    "name": "[\u03a8]Sense Hostility (C)",
+    "description": "You can sense the presence of the things that wish to do you harm.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 10 leads to Combat Sense with Clairvoyance 6 + Premonition 10 OR Clairvoyance 6 + Sense Hostility 10.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 5,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_sense_hostile_creatures",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 6500,
+    "base_casting_time": 85,
+    "energy_increment": -120.0,
+    "final_energy_cost": 4700,
+    "casting_time_increment": -7.0,
+    "final_casting_time": 25,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_voyance",
+    "type": "SPELL",
+    "name": "[\u03a8]Clairvoyance",
+    "description": "The classic example of a clairsentient's powers, you can see through walls and reveal everything nearby.\n\nLevel 6 leads to Combat Sense with Clairvoyance 6 + Premonition 10 OR Clairvoyance 6 + Sense Hostility 10.\nLevel 14 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\nLevel 8 leads to Satellite View.",
+    "message": "You open your inner eye.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 5,
+    "max_level": 15,
+    "effect": "target_attack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 6000,
+    "final_energy_cost": 3500,
+    "energy_increment": -195,
+    "base_casting_time": 1000,
+    "final_casting_time": 500,
+    "casting_time_increment": -25,
+    "effect_str": "mom_cast_clair_voyance",
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_dodge_power",
+    "type": "SPELL",
+    "name": "[\u03a8]Combat Sense (C)",
+    "description": "By gazing just a few moments into the future, you can be wherever your enemies are not attacking.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 8 leads to Prescient Tactician with Clarity 5 + Marksman's Eye 7.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 6,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_dodge_power",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 5500,
+    "base_casting_time": 150,
+    "energy_increment": -145.0,
+    "final_energy_cost": 3325,
+    "casting_time_increment": -9.0,
+    "final_casting_time": 70,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_craft_bonus",
+    "type": "SPELL",
+    "name": "[\u03a8]Intuitive Artisan (C)",
+    "description": "Opening yourself up to the immediate future, you can see the best option to take when crafting or working on a task.  However, due to the intensity of the visions you will be <color_red>blind</color> to the outside world while crafting anything.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 6,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_craft_bonus",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 6500,
+    "base_casting_time": 500,
+    "energy_increment": -145.0,
+    "final_energy_cost": 4325,
+    "casting_time_increment": -3.0,
+    "final_casting_time": 455,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_perfect_shot",
+    "type": "SPELL",
+    "name": "[\u03a8]One Perfect Shot",
+    "description": "Gaze into the future and, taking your enemy's future movements into account, fire at the perfect moment.  This power will only last for a single attack.",
+    "message": "It's time to take the shot.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 7,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "effect_clair_perfect_shot",
+    "min_duration": 1000,
+    "max_duration": 1000,
+    "base_energy_cost": 7500,
+    "final_energy_cost": 5000,
+    "energy_increment": -160,
+    "base_casting_time": 100,
+    "final_casting_time": 35,
+    "casting_time_increment": -4.5,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_clair_perfect_shot",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for clair_perfect_shot (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_clair_perfect_shot",
+    "type": "SPELL",
+    "name": {
+      "str": "clair_perfect_shot cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_clair_perfect_shot",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "clair_see_map",
+    "type": "SPELL",
+    "name": "[\u03a8]Satellite View",
+    "description": "You can extend your senses over the landscape, becoming aware of every hill, building, and valley within a large area.\n\nLevel 8 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.",
+    "message": "You close your eyes and concentrate, and you can see the landscape spread out as though you were a bird on the wing.",
+    "valid_targets": [
+      "none"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "NO_HANDS",
+      "SILENT",
+      "NO_LEGS",
+      "RANDOM_AOE"
+    ],
+    "difficulty": 7,
+    "max_level": 15,
+    "effect": "map",
+    "min_aoe": 4,
+    "max_aoe": 26,
+    "base_energy_cost": 9000,
+    "base_casting_time": 6000,
+    "aoe_increment": 0.5,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_clair_see_map",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for clair_see_map (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_clair_see_map",
+    "type": "SPELL",
+    "name": {
+      "str": "clair_see_map cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_clair_see_map",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "clair_clear_sight",
+    "type": "SPELL",
+    "name": "[\u03a8]Clarity (C)",
+    "description": "Thanks to your powers, nothing can stop you from seeing the world as it is.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 5 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\nLevel 5 leads to Prescient Tactician with Combat Sense 8 + Marksman's Eye 7.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 8,
+    "max_level": 15,
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_clear_sight",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 8000,
+    "base_casting_time": 75,
+    "energy_increment": -150.0,
+    "final_energy_cost": 5750,
+    "casting_time_increment": -3.5,
+    "final_casting_time": 25,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_group_tactics",
+    "type": "SPELL",
+    "name": "[\u03a8]Prescient Tactician (C)",
+    "description": "Gazing into the near future, you can call out warnings to your followers so they can avoid attacks before they occur.  This will greatly increase their defensive capability, though it will be harder for you to defend yourself.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It requires <color_yellow>even more concentration</color> than usual.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 9,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_group_tactics",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 7500,
+    "base_casting_time": 200,
+    "energy_increment": -125.0,
+    "final_energy_cost": 5625,
+    "casting_time_increment": -7.5,
+    "final_casting_time": 88,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "clair_omniscience",
+    "type": "SPELL",
+    "name": "[\u03a8]Omniscence",
+    "description": "Extend your senses to a supernal degree, perceiving everything within the nearby area.  Every creature, every object, every blade of grass, everything.  <color_red>EVERYTHING</color>.",
+    "message": "You can see forever.",
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 10,
+    "max_level": 15,
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "effect": "target_attack",
+    "effect_str": "effect_clair_omniscence",
+    "min_duration": 200,
+    "max_duration": 3250,
+    "base_energy_cost": 10000,
+    "final_energy_cost": 7500,
+    "energy_increment": -115,
+    "base_casting_time": 75,
+    "final_casting_time": 25,
+    "casting_time_increment": -3.5,
+    "duration_increment": 75.0,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_clair_omniscience",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for clair_omniscience (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_clair_omniscience",
+    "type": "SPELL",
+    "name": {
+      "str": "clair_omniscience cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_clair_omniscience",
+    "min_duration": 100,
+    "max_duration": 100
+  }
+]

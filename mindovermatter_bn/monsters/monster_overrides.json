@@ -1,0 +1,729 @@
+[
+  {
+    "id": "mon_frog_giant",
+    "copy-from": "mon_frog_giant",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "CANPLAY",
+        "PET_MOUNTABLE"
+      ]
+    }
+  },
+  {
+    "id": "mon_crow",
+    "copy-from": "mon_crow",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "CANPLAY"
+      ]
+    }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_zombie_nemesis",
+    "copy-from": "mon_zombie_nemesis",
+    "name": {
+      "str": "mindhunter"
+    },
+    "description": "A hulking zombie swollen to the size of six men.  Its inky black eyes are locked on you, gleaming with malign intent.  No matter how far you run, it always seems to find you.",
+    "regeneration_modifiers": [
+      {
+        "effect": "effect_feral_regeneration",
+        "base_mod": 10
+      }
+    ],
+    "extend": {
+      "special_attacks": [
+        {
+          "id": "nemesis_hardened_skin",
+          "type": "spell",
+          "spell_data": {
+            "id": "biokinetic_hardened_skin_monster"
+          },
+          "cooldown": 600,
+          "monster_message": "%1$s's skin takes on a slightly waxen appearance."
+        },
+        {
+          "id": "nemesis_shock_touch",
+          "type": "spell",
+          "spell_data": {
+            "id": "electrokinetic_shock_touch_monster",
+            "min_level": 3
+          },
+          "cooldown": 600,
+          "monster_message": "%1$s's touches %3$s with a jolt!"
+        },
+        {
+          "id": "nemesis_telegrab",
+          "type": "spell",
+          "spell_data": {
+            "id": "telekinetic_pull_monster",
+            "min_level": 6
+          },
+          "cooldown": 600,
+          "monster_message": "%1$s stares at %3$s and %3$s is lifted up and pulled towards them!"
+        },
+        {
+          "id": "nemesis_telepathic_confusion",
+          "type": "spell",
+          "spell_data": {
+            "id": "telepathic_confusion_monster",
+            "min_level": 5
+          },
+          "cooldown": 600,
+          "monster_message": "A roar fills %3$s's mind and the world is blotted out!"
+        },
+        {
+          "id": "nemesis_momentum_alteration",
+          "type": "spell",
+          "spell_data": {
+            "id": "telekinetic_momentum_monster"
+          },
+          "cooldown": 600,
+          "monster_message": "The air around %1$s wavers."
+        },
+        {
+          "id": "nemesis_regeneration",
+          "type": "spell",
+          "spell_data": {
+            "id": "vitakinetic_regeneration_monster"
+          },
+          "cooldown": 600,
+          "allow_no_target": true,
+          "monster_message": "%1$s's wounds begin healing at a rapid pace!"
+        },
+        {
+          "type": "leap",
+          "cooldown": 600,
+          "move_cost": 50,
+          "allow_no_target": true,
+          "max_range": 8,
+          "message": "%1$s moves so quickly your eyes can barely follow it!"
+        },
+        {
+          "id": "nemesis_break_concentration",
+          "type": "spell",
+          "spell_data": {
+            "id": "null_break_concentration_spell"
+          },
+          "cooldown": 600,
+          "monster_message": "%1$s looks at %3$s and the static on the edge of your vision flickers."
+        },
+        {
+          "id": "nemesis_slow_teleport",
+          "type": "spell",
+          "spell_data": {
+            "id": "teleport_slow_monster",
+            "min_level": 6
+          },
+          "cooldown": 600,
+          "monster_message": "%1$s glances at %3$s and the world lurches."
+        },
+        {
+          "id": "nemesis_telepathic_blast",
+          "type": "spell",
+          "spell_data": {
+            "id": "telepathic_blast_monster",
+            "min_level": 2
+          },
+          "cooldown": 600,
+          "monster_message": "%1$s stares at %3$s!"
+        },
+        {
+          "id": "nemesis_inertial_barrier",
+          "type": "spell",
+          "spell_data": {
+            "id": "telekinetic_barrier_monster"
+          },
+          "cooldown": 600,
+          "monster_message": "The air around %1$s distorts."
+        },
+        {
+          "id": "nemesis_primal_fear",
+          "type": "spell",
+          "spell_data": {
+            "id": "telepathic_primal_fear_monster",
+            "min_level": 5
+          },
+          "cooldown": 600,
+          "monster_message": "%1$s stares at %3$s and they freeze like a frightened rabbit!"
+        },
+        {
+          "type": "monster_attack",
+          "attack_type": "melee",
+          "id": "telekinetic_smash_throw",
+          "move_cost": 80,
+          "cooldown": 600,
+          "damage_max_instance": [
+            {
+              "damage_type": "bash",
+              "amount": 25,
+              "armor_penetration": 10
+            }
+          ],
+          "hitsize_min": 12,
+          "range": 8,
+          "throw_strength": 50,
+          "dodgeable": false,
+          "uncanny_dodgeable": true,
+          "blockable": false,
+          "hit_dmg_u": "%1$s stares at you and a powerful force hurls you through the air!",
+          "hit_dmg_npc": "%1$s stares at <npcname> and a powerful force hurls them through the air!",
+          "miss_msg_u": "%s stares at you, and you feel a crushing pressure for a moment before the feeling vanishes!",
+          "miss_msg_npc": "%s stares at <npcname> but nothing happens!"
+        },
+        {
+          "type": "monster_attack",
+          "attack_type": "melee",
+          "id": "mon_vitakinetic_weakness_2",
+          "cooldown": 600,
+          "move_cost": 60,
+          "damage_max_instance": [
+            {
+              "damage_type": "biological",
+              "amount": 0
+            }
+          ],
+          "dodgeable": true,
+          "blockable": true,
+          "effects": [
+            {
+              "id": "effect_vitakinetic_healing_down",
+              "duration": 1520000
+            }
+          ],
+          "hit_dmg_u": "%1$s touches you and you feel weaker!",
+          "hit_dmg_npc": "%1$s touches <npcname> and they flinch!",
+          "miss_msg_u": "%1$s tries to touch you, but you dodge!",
+          "miss_msg_npc": "%1$s tries to touch <npcname>, but they dodge!",
+          "no_dmg_msg_u": "%1$s touches you but only hits your armor.",
+          "no_dmg_msg_npc": "%1$s touches <npcname> but only hits their armor."
+        },
+        [
+          "RESURRECT",
+          600
+        ]
+      ]
+    }
+  },
+  {
+    "id": "mon_shoggoth",
+    "copy-from": "mon_shoggoth",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_fleshy_shambler",
+    "copy-from": "mon_fleshy_shambler",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_jabberwock",
+    "copy-from": "mon_jabberwock",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_flesh_golem",
+    "copy-from": "mon_flesh_golem",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_amigara_horror",
+    "copy-from": "mon_amigara_horror",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_breather",
+    "copy-from": "mon_breather",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_crawler",
+    "copy-from": "mon_crawler",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_dog_thing",
+    "copy-from": "mon_dog_thing",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_flaming_eye",
+    "copy-from": "mon_flaming_eye",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_flying_polyp",
+    "copy-from": "mon_flying_polyp",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_headless_dog_thing",
+    "copy-from": "mon_headless_dog_thing",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_hound_tindalos",
+    "copy-from": "mon_hound_tindalos",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ],
+      "special_attacks": [
+        {
+          "type": "monster_attack",
+          "attack_type": "melee",
+          "id": "hound_tindalos_maintain_speed",
+          "cooldown": 600,
+          "move_cost": 1,
+          "range": 60,
+          "damage_max_instance": [
+            {
+              "damage_type": "biological",
+              "amount": 0
+            }
+          ],
+          "dodgeable": false,
+          "blockable": false,
+          "eoc": [
+            "EOC_MOM_HOUND_SPEED_ADJUSTMENT"
+          ],
+          "hit_dmg_u": "",
+          "hit_dmg_npc": "",
+          "miss_msg_u": "",
+          "miss_msg_npc": "",
+          "no_dmg_msg_u": "",
+          "no_dmg_msg_npc": ""
+        },
+        {
+          "type": "monster_attack",
+          "attack_type": "melee",
+          "id": "hound_tindalos_lose_speed",
+          "cooldown": 600,
+          "move_cost": 1,
+          "range": 60,
+          "damage_max_instance": [
+            {
+              "damage_type": "biological",
+              "amount": 0
+            }
+          ],
+          "dodgeable": false,
+          "blockable": false,
+          "eoc": [
+            "EOC_MOM_HOUND_SPEED_ADJUSTMENT"
+          ],
+          "hit_dmg_u": "",
+          "hit_dmg_npc": "",
+          "miss_msg_u": "",
+          "miss_msg_npc": "",
+          "no_dmg_msg_u": "",
+          "no_dmg_msg_npc": ""
+        }
+      ]
+    },
+    "attack_effs": [
+      {
+        "id": "effect_teleporting_lock",
+        "duration": 32,
+        "chance": 50
+      }
+    ]
+  },
+  {
+    "id": "mon_hound_tindalos_afterimage",
+    "copy-from": "mon_hound_tindalos_afterimage",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ],
+      "special_attacks": [
+        {
+          "type": "monster_attack",
+          "attack_type": "melee",
+          "id": "hound_tindalos_maintain_speed",
+          "cooldown": 600,
+          "move_cost": 1,
+          "range": 60,
+          "damage_max_instance": [
+            {
+              "damage_type": "biological",
+              "amount": 0
+            }
+          ],
+          "dodgeable": false,
+          "blockable": false,
+          "eoc": [
+            "EOC_MOM_HOUND_SPEED_ADJUSTMENT"
+          ],
+          "hit_dmg_u": "",
+          "hit_dmg_npc": "",
+          "miss_msg_u": "",
+          "miss_msg_npc": "",
+          "no_dmg_msg_u": "",
+          "no_dmg_msg_npc": ""
+        },
+        {
+          "type": "monster_attack",
+          "attack_type": "melee",
+          "id": "hound_tindalos_lose_speed",
+          "cooldown": 600,
+          "move_cost": 1,
+          "range": 60,
+          "damage_max_instance": [
+            {
+              "damage_type": "biological",
+              "amount": 0
+            }
+          ],
+          "dodgeable": false,
+          "blockable": false,
+          "eoc": [
+            "EOC_MOM_HOUND_SPEED_ADJUSTMENT"
+          ],
+          "hit_dmg_u": "",
+          "hit_dmg_npc": "",
+          "miss_msg_u": "",
+          "miss_msg_npc": "",
+          "no_dmg_msg_u": "",
+          "no_dmg_msg_npc": ""
+        }
+      ]
+    },
+    "attack_effs": [
+      {
+        "id": "effect_teleporting_lock",
+        "duration": 32,
+        "chance": 50
+      }
+    ]
+  },
+  {
+    "id": "mon_dementia",
+    "copy-from": "mon_dementia",
+    "type": "MONSTER",
+    "species": [
+      "NETHER_EMANATION",
+      "PSI_NULL"
+    ]
+  },
+  {
+    "id": "mon_hunting_horror",
+    "copy-from": "mon_hunting_horror",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_shadow",
+    "copy-from": "mon_shadow",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_shadow_snake",
+    "copy-from": "mon_shadow_snake",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_darkman",
+    "copy-from": "mon_darkman",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_thing",
+    "copy-from": "mon_thing",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_yugg",
+    "copy-from": "mon_yugg",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_vortex",
+    "copy-from": "mon_vortex",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_unstable_grub",
+    "copy-from": "mon_unstable_grub",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_kreck",
+    "copy-from": "mon_kreck",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_fungaloid_tower",
+    "copy-from": "mon_fungaloid_tower",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_fungaloid_queen",
+    "copy-from": "mon_fungaloid_queen",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_fungaloid_seeder",
+    "copy-from": "mon_fungaloid_seeder",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_fungal_wall",
+    "copy-from": "mon_fungal_wall",
+    "type": "MONSTER",
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  },
+  {
+    "id": "mon_fungal_hedgerow",
+    "copy-from": "mon_fungal_hedgerow",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_fungal_blossom",
+    "copy-from": "mon_fungal_blossom",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_fungal_tendril",
+    "copy-from": "mon_fungal_tendril",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_fungaloid",
+    "copy-from": "mon_fungaloid",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_fungaloid_young",
+    "copy-from": "mon_fungaloid_young",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_ant_fungus",
+    "copy-from": "mon_ant_fungus",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_zombie_child_fungus",
+    "copy-from": "mon_zombie_child_fungus",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_zombie_fungus",
+    "copy-from": "mon_zombie_fungus",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_fungal_fighter",
+    "copy-from": "mon_fungal_fighter",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_boomer_fungus",
+    "copy-from": "mon_boomer_fungus",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_spider_fungus",
+    "copy-from": "mon_spider_fungus",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_skeleton_hulk_fungus",
+    "copy-from": "mon_skeleton_hulk_fungus",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_zombie_gasbag_fungus",
+    "copy-from": "mon_zombie_gasbag_fungus",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_mi_go",
+    "copy-from": "mon_mi_go",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_mi_go_scout",
+    "copy-from": "mon_mi_go_scout",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_mi_go_guard",
+    "copy-from": "mon_mi_go_guard",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_mi_go_slaver",
+    "copy-from": "mon_mi_go_slaver",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_mi_go_surgeon",
+    "copy-from": "mon_mi_go_surgeon",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_mi_go_myrmidon",
+    "copy-from": "mon_mi_go_myrmidon",
+    "type": "MONSTER",
+    "extend": {}
+  },
+  {
+    "id": "mon_cow",
+    "copy-from": "mon_cow",
+    "type": "MONSTER"
+  },
+  {
+    "id": "mon_plague_vector",
+    "copy-from": "mon_plague_vector",
+    "type": "MONSTER",
+    "species": [
+      "NETHER_EMANATION",
+      "TELEKIN_PUSHPULL_NULL"
+    ],
+    "extend": {
+      "flags": []
+    }
+  }
+]

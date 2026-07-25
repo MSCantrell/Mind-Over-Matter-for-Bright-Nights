@@ -1,0 +1,16 @@
+[
+  {
+    "type": "item_action",
+    "id": "MOM_EOC_ITEM",
+    "name": {
+      "str": "Focus your will on it"
+    }
+  },
+  {
+    "type": "item_action",
+    "id": "MOM_HACK",
+    "name": {
+      "str": "Interface with a nearby lock or panel"
+    }
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "//": "HAND-PORTED (2026-07-09): DDA appliances re-expressed as BN furniture (user decision — BN has no appliance system).  The matrix lamp mirrors BN's f_floor_lamp on/off transform pattern but needs no grid power: matrix crystals are the in-lore power source.  The detector exposes its item as a crafting_pseudo_item so the noetic-resonance research recipe can use it while placed.",
+    "type": "furniture",
+    "id": "f_standing_pyrokinetic_lamp",
+    "name": "standing matrix lamp (off)",
+    "description": "A tall standing lamp built around a gently pulsing matrix crystal.  It needs no wires or fuel; a touch will coax it alight.",
+    "symbol": "T",
+    "color": "red",
+    "looks_like": "f_floor_lamp_off",
+    "move_cost_mod": 2,
+    "required_str": 8,
+    "examine_action": "transform",
+    "transforms_into": "f_standing_pyrokinetic_lamp_on",
+    "prompt": "Touch the matrix crystal.",
+    "message": "The matrix crystal flares to life, flooding the area with warm light.",
+    "flags": [ "TRANSPARENT", "PLACE_ITEM", "EASY_DECONSTRUCT" ],
+    "deconstruct": { "items": [ { "item": "standing_pyrokinetic_lamp", "count": 1 } ] },
+    "bash": {
+      "str_min": 12,
+      "str_max": 40,
+      "sound": "metal screeching!",
+      "sound_fail": "bonk!",
+      "items": [
+        { "item": "scrap", "count": [ 1, 2 ] },
+        { "item": "pipe", "count": [ 0, 1 ] },
+        { "item": "glass_shard", "count": [ 0, 2 ] }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_standing_pyrokinetic_lamp_on",
+    "name": "standing matrix lamp (on)",
+    "description": "A tall standing lamp built around a blazing matrix crystal, flooding the area with warm light.",
+    "symbol": "T",
+    "color": "red",
+    "looks_like": "f_floor_lamp_on",
+    "move_cost_mod": 2,
+    "required_str": 8,
+    "light_emitted": 160,
+    "examine_action": "transform",
+    "transforms_into": "f_standing_pyrokinetic_lamp",
+    "prompt": "Touch the matrix crystal.",
+    "message": "The matrix crystal dims and goes dark.",
+    "flags": [ "TRANSPARENT", "PLACE_ITEM", "EASY_DECONSTRUCT" ],
+    "deconstruct": { "items": [ { "item": "standing_pyrokinetic_lamp", "count": 1 } ] },
+    "bash": {
+      "str_min": 12,
+      "str_max": 40,
+      "sound": "metal screeching!",
+      "sound_fail": "bonk!",
+      "items": [
+        { "item": "scrap", "count": [ 1, 2 ] },
+        { "item": "pipe", "count": [ 0, 1 ] },
+        { "item": "glass_shard", "count": [ 0, 2 ] }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_psi_noetic_resonance_detector",
+    "name": "noetic resonance detector",
+    "description": "A squat machine studded with crystal antennae, quietly attuned to psionic emanations.  With it set up here, you can use it for research without holding it.",
+    "symbol": "&",
+    "color": "red",
+    "looks_like": "f_console",
+    "move_cost_mod": 2,
+    "required_str": 10,
+    "crafting_pseudo_item": "psi_noetic_resonance_detector",
+    "flags": [ "TRANSPARENT", "EASY_DECONSTRUCT" ],
+    "deconstruct": { "items": [ { "item": "psi_noetic_resonance_detector", "count": 1 } ] },
+    "bash": {
+      "str_min": 14,
+      "str_max": 40,
+      "sound": "crunch!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "scrap", "count": [ 1, 3 ] },
+        { "item": "e_scrap", "count": [ 0, 2 ] },
+        { "item": "glass_shard", "count": [ 1, 3 ] }
+      ]
+    }
+  }
+]

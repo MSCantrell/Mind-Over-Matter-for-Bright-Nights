@@ -1,0 +1,714 @@
+[
+  {
+    "type": "nested_category",
+    "id": "pyrokinesis_practice",
+    "nested_name": "contemplation: pyrokinesis",
+    "description": "Recipes related to practicing pyrokinesis.",
+    "subcategory": "CSC_PRACTICE_METAPHYSICS",
+    "nested_category_data": [
+      "practice_pyrokinetic_intensify_flames",
+      "practice_pyrokinetic_flash",
+      "practice_pyrokinetic_eruption",
+      "practice_pyrokinetic_cauterize",
+      "practice_pyrokinetic_call_flames",
+      "practice_pyrokinetic_quell_flames",
+      "practice_pyrokinetic_cloak",
+      "practice_pyrokinetic_thermogenesis",
+      "practice_pyrokinetic_lance",
+      "practice_pyrokinetic_flamethrower",
+      "practice_pyrokinetic_aura",
+      "practice_pyrokinetic_flame_immunity",
+      "practice_pyrokinetic_blast",
+      "practice_pyrokinetic_aoe_blast",
+      "practice_pyrokinetic_incineration"
+    ],
+    "category": "CC_PRACTICE"
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_flash",
+    "nested_name": "contemplation: brilliant flash",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to create a burst of light.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:pyrokinetic_flash>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_intensify_flames",
+    "nested_name": "contemplation: intensify flames",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability increase the strength of existing flames.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:pyrokinetic_intensify_flames>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_eruption",
+    "nested_name": "contemplation: fountain of flames",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to summon flames.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:pyrokinetic_eruption>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_cauterize",
+    "nested_name": "contemplation: cauterize",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to close your wounds with precisely-directed fire.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:pyrokinetic_cauterize>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_quell_flames",
+    "nested_name": "contemplation: quell fire",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to douse flames.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:pyrokinetic_quell_flames>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_call_flames",
+    "nested_name": "contemplation: banked flames",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to summon a controlled flame.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:pyrokinetic_call_flames>",
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_cloak",
+    "nested_name": "contemplation: cloak of warmth",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your control of nearby temperatures.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:pyrokinetic_cloak>",
+    "components": [
+      [
+        [
+          "matrix_crystal_pyrokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_flamethrower",
+    "nested_name": "contemplation: flamethrower",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to direct a spray of flame.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:pyrokinetic_flamethrower>",
+    "components": [
+      [
+        [
+          "matrix_crystal_pyrokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_lance",
+    "nested_name": "contemplation: incandescent lance",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to focus heat into a searing point.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:pyrokinetic_lance>",
+    "components": [
+      [
+        [
+          "matrix_crystal_pyrokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_thermogenesis",
+    "nested_name": "contemplation: thermogenesis",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to warm the air to produce lasting heat.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:pyrokinetic_thermogenesis>",
+    "components": [
+      [
+        [
+          "matrix_crystal_pyrokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_aura",
+    "nested_name": "contemplation: blazing aura",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to heat the surrounding air to dangerous temperatures.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:pyrokinetic_aura>",
+    "components": [
+      [
+        [
+          "matrix_crystal_pyrokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_flame_immunity",
+    "nested_name": "contemplation: flameshield",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your immunity to fire.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:pyrokinetic_flame_immunity>",
+    "components": [
+      [
+        [
+          "matrix_crystal_pyrokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_blast",
+    "nested_name": "contemplation: conflagration",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your manifestation of explosions.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:pyrokinetic_blast>",
+    "components": [
+      [
+        [
+          "matrix_crystal_pyrokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_aoe_blast",
+    "nested_name": "contemplation: hellfire",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to call down sheets of fire on everything around you.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:pyrokinetic_aoe_blast>",
+    "components": [
+      [
+        [
+          "matrix_crystal_pyrokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  },
+  {
+    "type": "recipe",
+    "result": "practice",
+    "id_suffix": "pyrokinetic_incineration",
+    "nested_name": "contemplation: crucible",
+    "tools": [
+      [
+        [
+          "matrix_crystal_drained",
+          -1
+        ],
+        [
+          "black_nether_crystal_pseudo_tool",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis",
+          -1
+        ],
+        [
+          "matrix_crystal_pyrokinesis_artifact",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_*",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "description": "Contemplate your powers and improve your ability to completely incinerate your target.\n\nPower Difficulty: 10\n\nCurrent Power Level: <u_spell_level:pyrokinetic_incineration>",
+    "components": [
+      [
+        [
+          "matrix_crystal_pyrokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "time": "0 s",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "autolearn": false
+  }
+]

@@ -1,0 +1,186 @@
+[
+  {
+    "type": "recipe",
+    "result": "psi",
+    "id_suffix": "research_rad_powers",
+    "nested_name": "study the Phavian USB documents",
+    "tools": [
+      [
+        [
+          "laptop",
+          -1
+        ]
+      ],
+      [
+        [
+          "psi_usb_rad_recipes",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_PSIONIC",
+    "skill_used": "cooking",
+    "difficulty": 4,
+    "description": "Study the plethora of documents and files found on the Project PHAVIAN USB.  It has something to do with radiation; beyond that, you're not sure.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "time": "2 h",
+    "flags": [
+      "SECRET",
+      "BLIND_HARD"
+    ]
+  },
+  {
+    "type": "recipe",
+    "result": "psi",
+    "id_suffix": "research_rad_powers_clair",
+    "nested_name": "study the RED SAFARI documents",
+    "tools": [
+      [
+        [
+          "laptop",
+          -1
+        ]
+      ],
+      [
+        [
+          "psi_usb_rad_recipes",
+          -1
+        ]
+      ],
+      [
+        [
+          "light_atomic_battery_cell",
+          -1
+        ],
+        [
+          "huge_atomic_battery_cell",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_PSIONIC",
+    "skill_used": "cooking",
+    "difficulty": 6,
+    "description": "Study the plethora of documents and files found on the Project PHAVIAN USB relating to RED SAFARI.  It has something to do with radiation detection; beyond that, you're not sure.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "time": "12 h",
+    "flags": [
+      "SECRET",
+      "BLIND_HARD"
+    ]
+  },
+  {
+    "type": "recipe",
+    "result": "psi",
+    "id_suffix": "research_rad_powers_vita",
+    "nested_name": "study the HONEY BRAVO documents",
+    "tools": [
+      [
+        [
+          "laptop",
+          -1
+        ]
+      ],
+      [
+        [
+          "psi_usb_rad_recipes",
+          -1
+        ]
+      ],
+      [
+        [
+          "light_atomic_battery_cell",
+          -1
+        ],
+        [
+          "huge_atomic_battery_cell",
+          -1
+        ]
+      ]
+    ],
+    "category": "CC_PSIONIC",
+    "skill_used": "cooking",
+    "difficulty": 6,
+    "description": "Study the plethora of documents and files found on the Project PHAVIAN USB relating to HONEY BRAVO.  It has something to do with radiation treatment; beyond that, you're not sure.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "time": "16 h",
+    "flags": [
+      "SECRET",
+      "BLIND_HARD"
+    ]
+  },
+  {
+    "type": "recipe",
+    "result": "psi",
+    "id_suffix": "research_extended_channeling",
+    "nested_name": "research extended channeling",
+    "category": "CC_PSIONIC",
+    "skill_used": "metaphysics",
+    "difficulty": 1,
+    "description": "There has to be an easier way of evoking your powers than frantically concentrating and trying to get the energies out.  Maybe if you took more time, you wouldn't have to concentrate so hard?  It wouldn't help you when a zombie was trying to eat you but it would definitely be useful otherwise.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "time": "6 h",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ]
+  },
+  {
+    "type": "recipe",
+    "result": "psi",
+    "id_suffix": "research_torrential_channeling",
+    "nested_name": "research torrential channeling",
+    "category": "CC_PSIONIC",
+    "skill_used": "metaphysics",
+    "difficulty": 3,
+    "description": "You have more of an understanding of the way the Nether ebbs and flows, sometimes surging forth like a flood when you least expect it.  There has to be a way to direct that more purposefully, to call forth more energy than you need and direct it into your powers instead of letting it wash over you.  It might be risky, sure, but you need every edge you can get in this post-Cataclysmic world.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "time": "14 h",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ]
+  },
+  {
+    "type": "recipe",
+    "result": "psi",
+    "id_suffix": "noetic_resonance_detector_usage",
+    "nested_name": "use the noetic resonance detector",
+    "tools": [
+      [
+        [
+          "psi_noetic_resonance_detector_tool",
+          500
+        ]
+      ]
+    ],
+    "category": "CC_PSIONIC",
+    "skill_used": "computer",
+    "difficulty": 3,
+    "skills_required": [
+      "metaphysics",
+      3
+    ],
+    "description": "Follow the usage instructions of the noetic resonance detector to determine your \"noetic potential\".",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "time": "30 m",
+    "book_learn": [
+      [
+        "phavian_noetic_resonance_detector_instructions",
+        3
+      ]
+    ],
+    "flags": [
+      "SECRET",
+      "BLIND_HARD"
+    ]
+  }
+]

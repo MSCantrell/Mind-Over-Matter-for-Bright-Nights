@@ -1,0 +1,1780 @@
+[
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Flexibility",
+    "description": "You can make your limbs move far beyond the normal human range of motion, allowing you to twist out of others' grasp and reduce fall damage.",
+    "message": "You body begins twisting in unbelievable ways.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "effect_biokin_flexibility",
+    "base_energy_cost": 2500,
+    "final_energy_cost": 1250,
+    "energy_increment": -175,
+    "min_duration": 200,
+    "max_duration": 500,
+    "base_casting_time": 50,
+    "final_casting_time": 15,
+    "casting_time_increment": -2.5,
+    "id": "biokin_flexibility_knack",
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_biokin_flexibility_knack",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for biokin_flexibility_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_biokin_flexibility_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "biokin_flexibility_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_biokin_flexibility_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Adrenaline Trigger",
+    "description": "With a moment of concentration, you can trigger a surge of adrenaline.  This provides a speed boost, albeit at a draining cost when the boost expires.",
+    "message": "Your heartbeat surges as your body floods with adrenaline.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_adrenaline_knack",
+    "base_energy_cost": 3500,
+    "final_energy_cost": 1800,
+    "energy_increment": -165,
+    "base_casting_time": 100,
+    "final_casting_time": 35,
+    "casting_time_increment": -5.5,
+    "id": "biokin_adrenaline_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Heightened Senses (C)",
+    "description": "All of your senses are heightened, allowing you to see further and hear better, and at higher levels even see in murky water or use minor vibrations and small sounds to determine moving creatures nearby.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_better_senses_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 2000,
+    "base_casting_time": 50,
+    "id": "clair_better_senses_knack",
+    "energy_increment": -85.0,
+    "final_energy_cost": 750,
+    "casting_time_increment": -2.0,
+    "final_casting_time": 20,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Premonition (C)",
+    "description": "You can sense nearby movement and sometimes gain an advance warning of dangerous events.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_danger_sense_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 2250,
+    "base_casting_time": 85,
+    "id": "clair_danger_sense_knack",
+    "energy_increment": -85.0,
+    "final_energy_cost": 975,
+    "casting_time_increment": -7.0,
+    "final_casting_time": 25,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Psychometry",
+    "description": "You can examine an item and use your enhanced senses to determine its properties that may not be obvious to the eye.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_examine_item_knack",
+    "base_energy_cost": 5000,
+    "base_casting_time": 30000,
+    "id": "clair_examine_item_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Astral Projection",
+    "description": "After a short period of concentration and meditation, cast your spirit forth from your body, wandering the world disembodied.  You will move at the speed of thought but cannot use further powers or interact with the world while your spirit is wandering.  Follow your silver cord to return back to your body.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_astral_projection_knack",
+    "base_energy_cost": 5000,
+    "final_energy_cost": 2000,
+    "energy_increment": -125,
+    "base_casting_time": 6000,
+    "id": "clair_astral_projection_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Spark Sight (C)",
+    "description": "Open your senses to the flow of electricity, revealing nearby electrical creatures or robots.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_electrokinetic_see_electric_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 2000,
+    "base_casting_time": 150,
+    "id": "electrokinetic_see_electric_knack",
+    "energy_increment": -75.0,
+    "final_energy_cost": 875,
+    "casting_time_increment": -6.0,
+    "final_casting_time": 80,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Analgesic Block",
+    "description": "By clamping down on all pain signals you can completely eliminate your ability to feel pain briefly.  This does not eliminate the source of pain, and when the power ends all of the original pain and more will return.\n\nAnalgesic Block is <color_red>incompatible</color> with Neuro-Acceleration.",
+    "message": "The pain just\u2026 disappears.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_electrokinetic_pain_immune_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 4500,
+    "final_energy_cost": 1750,
+    "energy_increment": -125,
+    "base_casting_time": 75,
+    "final_casting_time": 25,
+    "casting_time_increment": -4.5,
+    "id": "electrokinetic_pain_immune_knack",
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Hacking Interface (C)",
+    "description": "Create an electrical interface with your powers, allowing you to hack nearby devices as if you were using a computer.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_electrokinetic_hacking_interface_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 6500,
+    "base_casting_time": 350,
+    "id": "electrokinetic_hacking_interface_knack",
+    "energy_increment": -150.0,
+    "final_energy_cost": 4250,
+    "casting_time_increment": -9.0,
+    "final_casting_time": 215,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": {
+      "//~": "Combination of chameleon and camouflage",
+      "str": "[\u03a8]Chameleoflage (C)"
+    },
+    "description": "By blending the light reflecting from you with the light reflecting from nearby surfaces, you can make yourself much harder to spot from a distance.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_photokinetic_camouflage_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 3500,
+    "base_casting_time": 150,
+    "id": "photokinetic_camouflage_knack",
+    "energy_increment": -75.0,
+    "final_energy_cost": 2375,
+    "casting_time_increment": -8.0,
+    "final_casting_time": 75,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Mirror-Mask (C)",
+    "description": "Hide your true form behind unassuming illusions, preventing baseline humans from reacting poorly to your presence if you are mutated or a cyborg.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_photokinetic_hide_ugly_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 6500,
+    "base_casting_time": 1500,
+    "id": "photokinetic_hide_ugly_knack",
+    "energy_increment": -150.0,
+    "final_energy_cost": 4250,
+    "casting_time_increment": -75.0,
+    "final_casting_time": 375,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Radio Transception (C)",
+    "description": "Attune your senses to radio waves, allowing you to listen to transmissions and send them yourself.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_photokinetic_radio_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 5000,
+    "base_casting_time": 250,
+    "id": "photokinetic_radio_knack",
+    "energy_increment": -100.0,
+    "final_energy_cost": 3500,
+    "casting_time_increment": -10.0,
+    "final_casting_time": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Brilliant Flash",
+    "description": "By strongly exciting the air at a particular point, you produce a burst of light.",
+    "message": "The air erupts into an eye-searing flash!",
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "blind",
+    "affected_body_parts": [
+      "eyes"
+    ],
+    "min_range": 3,
+    "max_range": 21,
+    "min_aoe": 1,
+    "max_aoe": 5,
+    "min_duration": 100,
+    "max_duration": 2300,
+    "base_energy_cost": 1750,
+    "final_energy_cost": 550,
+    "energy_increment": -80,
+    "base_casting_time": 150,
+    "final_casting_time": 50,
+    "casting_time_increment": -8,
+    "id": "pyrokinetic_flash_knack",
+    "range_increment": 1.2,
+    "aoe_increment": 0.25,
+    "duration_increment": 50.0,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_pyrokinetic_flash_knack",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_flash_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_pyrokinetic_flash_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "pyrokinetic_flash_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_pyrokinetic_flash_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Intensify Flames",
+    "description": "Manipulate an existing fire, increasing its heat.  This can turn small flames into raging conflagrations or spread fire through the area.  If used on a target that is on fire, the increased flames will cause additional damage.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "LOUD",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_pyrokinetic_intensify_flames_knack",
+    "base_energy_cost": 1500,
+    "final_energy_cost": 500,
+    "energy_increment": -55,
+    "base_casting_time": 125,
+    "final_casting_time": 35,
+    "casting_time_increment": -6,
+    "id": "pyrokinetic_intensify_flames_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Molten Land",
+    "description": "You reach into the ground and unmake it, pouring your will into the stone until it runs like water.  A single tile of <color_light_green>ground</color> -- soil, sand, rock, pavement, flooring, or the low growth on top of it -- becomes a pool of <color_red>molten lava</color>.\n\n<color_yellow>This does not touch walls, doors, windows or fences.</color>  It melts the land, not what is built on it.\n\n<color_red>The lava is permanent.</color>  It will not cool, and anything that steps into it is grievously burned.  Be certain before you unmake the floor you are standing near.",
+    "message": "The ground splits and runs molten!",
+    "valid_targets": [
+      "ground",
+      "hostile",
+      "ally"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "LOUD",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "ter_transform",
+    "min_damage": 1,
+    "max_damage": 1,
+    "min_range": 2,
+    "max_range": 5,
+    "base_energy_cost": 1950,
+    "final_energy_cost": 700,
+    "energy_increment": -75,
+    "base_casting_time": 100,
+    "final_casting_time": 35,
+    "casting_time_increment": -4,
+    "sound_type": "combat",
+    "sound_id": "fire_spell",
+    "sound_description": "a deep, grinding roar!",
+    "effect_str": "ter_pyrokin_molten_land",
+    "range_increment": 0.25,
+    "id": "pyrokinetic_eruption_knack",
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_pyrokinetic_eruption_knack",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_eruption_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_pyrokinetic_eruption_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "pyrokinetic_eruption_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_pyrokinetic_eruption_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Banked Flames (C)",
+    "description": "Call up flames over your outstretched hand.  You can use them to heat up food, boil water, start fires, or anything else fire can accomplish.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_pyrokinetic_call_flames_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 2500,
+    "base_casting_time": 250,
+    "id": "pyrokinetic_call_flames_knack",
+    "energy_increment": -150.0,
+    "final_energy_cost": 800,
+    "casting_time_increment": -10.0,
+    "final_casting_time": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Cloak of Warmth (C)",
+    "description": "Control the temperature of the nearby air, warming you and protecting you against flames.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_pyrokinetic_cloak_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 4500,
+    "base_casting_time": 250,
+    "id": "pyrokinetic_cloak_knack",
+    "energy_increment": -160.0,
+    "final_energy_cost": 2100,
+    "casting_time_increment": -11.0,
+    "final_casting_time": 85,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Flamethrower",
+    "description": "Spray fire in a cone in front of you.",
+    "message": "You hurl a spray of flames.",
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "ally"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "LOUD",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "cone_attack",
+    "damage_type": "FIRE",
+    "min_damage": 15,
+    "max_damage": 78,
+    "min_range": 3,
+    "max_range": 8,
+    "min_aoe": 27,
+    "max_aoe": 72,
+    "field_id": "fd_fire",
+    "min_field_intensity": 1,
+    "max_field_intensity": 2,
+    "field_chance": 5,
+    "base_energy_cost": 4500,
+    "final_energy_cost": 1600,
+    "energy_increment": -150,
+    "base_casting_time": 100,
+    "final_casting_time": 35,
+    "casting_time_increment": -6,
+    "sound_type": "combat",
+    "sound_id": "fire_spell",
+    "sound_description": "a crackle!",
+    "id": "pyrokinetic_flamethrower_knack",
+    "damage_increment": 1.5,
+    "range_increment": 0.3,
+    "aoe_increment": 3.0,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_pyrokinetic_flamethrower_knack",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_flamethrower_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_pyrokinetic_flamethrower_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "pyrokinetic_flamethrower_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_pyrokinetic_flamethrower_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Blazing Aura (C)",
+    "description": "Surround yourself with a cloud of flames, damaging anyone in melee combat with you.  The flames also produce light.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_pyrokinetic_aura_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 6500,
+    "base_casting_time": 125,
+    "sound_id": "fire_spell",
+    "id": "pyrokinetic_aura_knack",
+    "energy_increment": -175.0,
+    "final_energy_cost": 3875,
+    "casting_time_increment": -6.5,
+    "final_casting_time": 50,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Conflagration",
+    "description": "Create an expanding fireball that catches multiple targets in its wake.",
+    "message": "You call forth a raging inferno!",
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "ally"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "LOUD",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "damage_type": "FIRE",
+    "min_damage": 37,
+    "max_damage": 190,
+    "min_range": 4,
+    "max_range": 18,
+    "min_aoe": 2,
+    "max_aoe": 8,
+    "field_id": "fd_fire",
+    "min_field_intensity": 1,
+    "max_field_intensity": 2,
+    "field_chance": 4,
+    "base_energy_cost": 7500,
+    "final_energy_cost": 3500,
+    "energy_increment": -125,
+    "base_casting_time": 150,
+    "final_casting_time": 35,
+    "casting_time_increment": -7,
+    "sound_type": "combat",
+    "sound_id": "fire_spell",
+    "sound_description": "the roar of flames!",
+    "id": "pyrokinetic_blast_knack",
+    "damage_increment": 2.5,
+    "range_increment": 0.9,
+    "aoe_increment": 0.4,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_pyrokinetic_blast_knack",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_blast_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_pyrokinetic_blast_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "pyrokinetic_blast_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_pyrokinetic_blast_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "//": "power ID exists for legacy reasons",
+    "type": "SPELL",
+    "name": "[\u03a8]Far Hand",
+    "description": "Pickup items at a distance or push them away from you.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_pull_knack",
+    "base_energy_cost": 1250,
+    "final_energy_cost": 500,
+    "energy_increment": -80,
+    "base_casting_time": 50,
+    "final_casting_time": 10,
+    "casting_time_increment": -4,
+    "id": "telekinetic_pull_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "//": "power ID exists for legacy reasons",
+    "type": "SPELL",
+    "name": "[\u03a8]Force Shove",
+    "description": "Shove a target away or pull it towards you with a burst of psionic force.  The distance the target can be moved depends on its weight versus your power level; heavier things will not go as far, and if your target is too heavy, you may not be able to move it at all.",
+    "message": "",
+    "valid_targets": [
+      "ally",
+      "hostile"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_push_knack",
+    "min_range": 2,
+    "max_range": 16,
+    "base_energy_cost": 1750,
+    "final_energy_cost": 750,
+    "energy_increment": -80,
+    "base_casting_time": 50,
+    "final_casting_time": 10,
+    "casting_time_increment": -4,
+    "id": "telekinetic_push_knack",
+    "range_increment": 0.9,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telekinetic_push_knack",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_push_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telekinetic_push_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_push_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telekinetic_push_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Knockdown",
+    "description": "Slam something to the ground with a burst of telekinetic force, doing a small amount of damage and downing them.",
+    "message": "Your target is knocked to the ground.",
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "downed",
+    "damage_type": "BASH",
+    "min_damage": 5,
+    "max_damage": 33,
+    "min_duration": 100,
+    "max_duration": 1825,
+    "min_range": 2,
+    "max_range": 10,
+    "base_energy_cost": 2500,
+    "final_energy_cost": 850,
+    "energy_increment": -65,
+    "base_casting_time": 75,
+    "final_casting_time": 30,
+    "casting_time_increment": -3,
+    "id": "telekinetic_slam_down_knack",
+    "damage_increment": 0.5,
+    "duration_increment": 25.0,
+    "range_increment": 0.5,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telekinetic_slam_down_knack",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_slam_down_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telekinetic_slam_down_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_slam_down_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telekinetic_slam_down_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Wave of Force",
+    "description": "Unleash a telekinetic wave around you that indiscriminately knocks everything back.",
+    "message": "You knock everything nearby backwards!",
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telekinetic_wave_knack",
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "base_energy_cost": 4500,
+    "final_energy_cost": 2250,
+    "energy_increment": -125,
+    "base_casting_time": 50,
+    "final_casting_time": 20,
+    "casting_time_increment": -4,
+    "id": "telekinetic_wave_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telekinetic_wave_knack",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_wave_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telekinetic_wave_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic_wave_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telekinetic_wave_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Telepathic Shield (C)",
+    "description": "You can protect your mind from the dangers of the post-Cataclysmic world.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telepathic_shield_knack",
+    "difficulty": 1,
+    "max_level": 15,
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 2500,
+    "base_casting_time": 100,
+    "id": "telepathic_shield_knack",
+    "energy_increment": -125.0,
+    "final_energy_cost": 625,
+    "casting_time_increment": -6.5,
+    "final_casting_time": 10,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Mind Sonar (C)",
+    "description": "You cast your mind outward like a sonar pulse, sweeping the area for the minds of others.  While maintained, you periodically sense every <color_light_green>sapient mind</color> around you \u2014 people and other thinking things \u2014 and learn their <color_light_green>direction and distance</color>, even through walls and in total darkness.  You cannot see them, but you know they are there.  The <color_light_green>range grows</color> as you master the power, and greater mastery <color_light_green>quickens the pulse</color> and lets you pick out <color_light_green>familiar minds by name</color>.\n\nThe walking dead, robots, and other <color_light_gray>mindless</color> things have no mind to sense.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telepathic_mind_sense_knack",
+    "difficulty": 1,
+    "max_level": 15,
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 3500,
+    "base_casting_time": 500,
+    "id": "telepathic_mind_sense_knack",
+    "energy_increment": -115.0,
+    "final_energy_cost": 1775,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Mood Stabilization (C)",
+    "description": "With the ability to edit others' thoughts comes the ability to edit your own, removing negative moods to a degree.  You have also learned to do this more subtly on others, calming their anger or assuaging their fears.\n\nWhen used on yourself, this power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "message": "",
+    "valid_targets": [
+      "self",
+      "ally",
+      "hostile"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telepathic_morale_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "min_range": 3,
+    "max_range": 20,
+    "base_energy_cost": 5000,
+    "base_casting_time": 300,
+    "id": "telepathic_morale_knack",
+    "range_increment": 1.1,
+    "energy_increment": -125.0,
+    "final_energy_cost": 3125,
+    "casting_time_increment": -9.5,
+    "final_casting_time": 158,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telepathic_morale_knack",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_morale_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_morale_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_morale_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_morale_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Mesmerize",
+    "description": "Hypnotize a target, causing them to stand in a trance or wander around in a small area.  Any damage taken will snap the target out of their trance.  Some targets are more resistant to mesmerism than others.",
+    "message": "",
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_telepathic_mesmerize_knack",
+    "min_range": 3,
+    "max_range": 20,
+    "min_aoe": 0,
+    "base_energy_cost": 3500,
+    "final_energy_cost": 750,
+    "energy_increment": -75,
+    "base_casting_time": 100,
+    "final_casting_time": 35,
+    "casting_time_increment": -5,
+    "id": "telepathic_mesmerize_knack",
+    "range_increment": 1.1,
+    "aoe_increment": 0.15,
+    "max_aoe": 2,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telepathic_mesmerize_knack",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_mesmerize_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_mesmerize_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_mesmerize_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_mesmerize_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Synaptic Overload",
+    "description": "Short-circuit and overwhelm a target's brain, causing extreme damage or death.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.",
+    "message": "You assault the mind of your target!",
+    "valid_targets": [
+      "hostile"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "damage_type": "PSI",
+    "min_damage": 5,
+    "max_damage": 50,
+    "min_range": 3,
+    "max_range": 20,
+    "base_energy_cost": 3500,
+    "final_energy_cost": 900,
+    "energy_increment": -125,
+    "base_casting_time": 75,
+    "final_casting_time": 25,
+    "casting_time_increment": -2.5,
+    "id": "telepathic_blast_knack",
+    "damage_increment": 2.25,
+    "range_increment": 1.1,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telepathic_blast_knack",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_blast_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_blast_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_blast_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_blast_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Beastmaster",
+    "description": "Take control of an animal's mind, forcing it to obey you.  This power will not work on insects, spiders, or similar beings.",
+    "message": "You reach out to the animal's mind and twist.",
+    "valid_targets": [
+      "hostile"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "charm_monster",
+    "damage_type": "PSI",
+    "min_damage": 40,
+    "max_damage": 425,
+    "min_duration": 18000,
+    "max_duration": 89000,
+    "min_range": 3,
+    "max_range": 18,
+    "base_energy_cost": 4500,
+    "final_energy_cost": 2000,
+    "energy_increment": -155,
+    "base_casting_time": 120,
+    "final_casting_time": 75,
+    "casting_time_increment": -3.5,
+    "id": "telepathic_animal_mind_control_knack",
+    "damage_increment": 8.0,
+    "duration_increment": 1125.0,
+    "range_increment": 1.0,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_telepathic_animal_mind_control_knack",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_animal_mind_control_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_animal_mind_control_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_animal_mind_control_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_animal_mind_control_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Obscurity",
+    "description": "Use a light touch on others' minds to hide your presence.  You will be invisible to the target(s) while the power is in effect.\n\nThis power is <color_red>canceled by engaging in combat</color> with your target.",
+    "message": "You hide your presence from your enemies.",
+    "valid_targets": [
+      "hostile"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "telepathic_ignorance",
+    "extra_effects": [
+      {
+        "id": "telepathic_invisibility_self",
+        "hit_self": true
+      },
+      {
+        "id": "momfincast_telepathic_invisibility",
+        "hit_self": true
+      },
+      {
+        "id": "momfincast_telepathic_invisibility_knack",
+        "hit_self": true
+      }
+    ],
+    "min_duration": 12700,
+    "max_duration": 130300,
+    "min_range": 3,
+    "max_range": 26,
+    "min_aoe": 0,
+    "base_energy_cost": 4500,
+    "final_energy_cost": 2250,
+    "energy_increment": -115,
+    "base_casting_time": 100,
+    "final_casting_time": 25,
+    "casting_time_increment": -6.5,
+    "id": "telepathic_invisibility_knack",
+    "duration_increment": 1300.0,
+    "range_increment": 1.5,
+    "aoe_increment": 0.15,
+    "max_aoe": 2,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_invisibility_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_invisibility_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_invisibility_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_invisibility_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Psychic Scream",
+    "description": "Emit an uncontrolled psychic scream, attacking the mind of anyone nearby.  This power does not distinguish between friend and foe.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.",
+    "message": "You unleash a mind-piercing psionic shriek!",
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_EXPLOSION_VFX",
+      "NO_LEGS",
+      "IGNORE_WALLS"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "extra_effects": [
+      {
+        "id": "telepathic_blast_radius_guaranteed",
+        "hit_self": false
+      },
+      {
+        "id": "momfincast_telepathic_blast_radius",
+        "hit_self": true
+      },
+      {
+        "id": "momfincast_telepathic_blast_radius_knack",
+        "hit_self": true
+      }
+    ],
+    "damage_type": "PSI",
+    "min_damage": 3,
+    "max_damage": 33,
+    "min_aoe": 2,
+    "base_energy_cost": 7000,
+    "final_energy_cost": 3250,
+    "energy_increment": -275,
+    "base_casting_time": 75,
+    "final_casting_time": 30,
+    "casting_time_increment": -2.5,
+    "id": "telepathic_blast_radius_knack",
+    "damage_increment": 1.0,
+    "aoe_increment": 1.2,
+    "max_aoe": 20,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for telepathic_blast_radius_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_telepathic_blast_radius_knack",
+    "type": "SPELL",
+    "name": {
+      "str": "telepathic_blast_radius_knack cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_telepathic_blast_radius_knack",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Healthy Glow (C)",
+    "description": "Your powers can keep you in the bloom of health.  This can also stop or prevent an asthma attack.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  Healthy Glow <color_red>cannot be active</color> with Leucocyte Acculumation",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_vita_health_power_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 2500,
+    "base_casting_time": 100,
+    "id": "vita_health_power_knack",
+    "energy_increment": -75.0,
+    "final_energy_cost": 1375,
+    "casting_time_increment": -7.5,
+    "final_casting_time": 25,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Leukocyte Accumulation (C)",
+    "description": "By rerouting blood and stem cells from more lightly damaged areas, you can speed the healing of your most grievous wounds at the cost of lessened healing elsewhere.  You may also use this to control an asthma attack.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  Leucocyte Acculumation <color_red>cannot be active</color> with Healthy Glow",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_vita_concentrated_healing_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 3500,
+    "base_casting_time": 250,
+    "id": "vita_concentrated_healing_knack",
+    "energy_increment": -80.0,
+    "final_energy_cost": 2300,
+    "casting_time_increment": -9.5,
+    "final_casting_time": 108,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Detoxification",
+    "description": "When poisoned, you can isolate the poison and move it to your sweat glands where you will harmlessly sweat it out.  While doing so, your flesh will be toxic to any creatures that take a bite.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_vita_remove_poison_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 3500,
+    "final_energy_cost": 1750,
+    "energy_increment": -115,
+    "base_casting_time": 75,
+    "final_casting_time": 25,
+    "casting_time_increment": -5,
+    "id": "vita_remove_poison_knack",
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Immunostimulus (C)",
+    "description": "Kick your immune system into overdrive in order to overcome any illnesses you may be suffering from.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_vita_cure_disease_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 5500,
+    "base_casting_time": 500,
+    "id": "vita_cure_disease_knack",
+    "energy_increment": -125.0,
+    "final_energy_cost": 3625,
+    "casting_time_increment": -18.0,
+    "final_casting_time": 230,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "name": "[\u03a8]Banish Illness",
+    "description": "Enter a deep meditative trance and purge your body of illness, even serious ones like cancer or multiple sclerosis.  It will not cure mutation.  Some illnesses are more difficult to successfully eradicate than others.",
+    "message": "You attempt to cure your afflictions.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "PSYCHIC_KNACK",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_vita_banish_illness_knack",
+    "base_energy_cost": 10000,
+    "base_casting_time": 500,
+    "id": "vita_banish_illness_knack",
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  }
+]

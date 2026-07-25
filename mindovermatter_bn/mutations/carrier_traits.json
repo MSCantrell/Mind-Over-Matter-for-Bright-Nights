@@ -1,0 +1,32 @@
+[
+  {
+    "//": "Hand-port CARRIER TRAIT (Clairvoyance only).  BN effect_type has no 'enchantments' and BN's enchantment cache reads traits/items/bionics ONLY (not effects), so MoM powers whose upstream effect carried an enchantment need the enchantment on a hidden trait, toggled by mom_eoc.lua TRAIT_BRIDGE while the effect is active.  MOST such powers are now handled by the GENERATED per-level carriers (tools/port_carriers.py -> mutations/gen_carrier_traits.json + lua/gen_carrier_map.lua).  Clairvoyance stays hand-authored because it was reworked via strip_spell_math SPELL_REWRITE (self see-through-walls) with no upstream enchantment for the generator to read.",
+    "//2": "Perfected Motion + Marksman's Eye retired 2026-07-08 — the generator now emits MOM_CAR_biokin_perfected_motion_L* / MOM_CAR_clair_ranged_enhance_L* with true per-level scaling.",
+    "type": "mutation",
+    "id": "MOM_CLAIRVOYANCE",
+    "name": "Clairvoyance",
+    "points": 0,
+    "description": "You can see through nearby walls.  (Carrier trait for the Clairvoyance power — you should never see this on its own.)",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      { "condition": "ALWAYS", "values": [ { "value": "CLAIRVOYANCE", "max": 8 } ] }
+    ]
+  },
+  {
+    "//": "Hand-port FLIGHT carrier (Telekinesis: Levitation).  BN's can_fly() reads MUTATION_FLIGHT off traits ONLY — the DDA effect flags LEVITATION/CLIMB_FLYING on effect_telekinetic_levitation are inert in BN — so Levitation grants limited flight (like the Bird Wings mutation) via this hidden trait, toggled by mom_eoc.lua's TRAIT_BRIDGE while the effect is active.  FLIGHT_ALWAYS_ACTIVE flies without the mutation needing to be powered/activated; falling_damage_multiplier mirrors WINGS_BIRD so a hulk toss doesn't splatter a floating psion.  The maintained power's stamina/nether drain is what makes the flight 'limited'.",
+    "type": "mutation",
+    "id": "MOM_LEVITATION_FLIGHT",
+    "name": "Levitation",
+    "points": 0,
+    "description": "You are floating in defiance of gravity.  (Carrier trait for the Levitation power — you should never see this on its own.)",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "falling_damage_multiplier": 0.75,
+    "flags": [ "MUTATION_FLIGHT", "FLIGHT_ALWAYS_ACTIVE" ]
+  }
+]

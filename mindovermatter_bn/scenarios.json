@@ -1,0 +1,97 @@
+[
+  {
+    "copy-from": "heli_crash",
+    "type": "scenario",
+    "extend": {
+      "map_extra": "mx_helicopter",
+      "professions": [
+        "psi_telekinetic_testsubject",
+        "psi_telepath_interrogater"
+      ]
+    },
+    "id": "heli_crash"
+  },
+  {
+    "type": "scenario",
+    "id": "dimension_lost_fifth_sun",
+    "name": "Dimension-Lost",
+    "points": 0,
+    "description": "You don't understand what happened.  You were readying for a routine jump at the Far Hebrides transfer point when there was a power cascade in the drive and now you're here, on some other version of Tlalticpactli that may as well be one of the worse levels of Mictl\u0101n.  You need to find your way back home, but first you need to find a way to survive.",
+    "start_name": "???",
+    "allowed_locs": [
+      "sloc_forest",
+      "sloc_mine_finale",
+      "sloc_house",
+      "sloc_house_boarded",
+      "sloc_mall_food_court"
+    ],
+    "professions": [
+      "psi_teleporter_slider",
+      "psi_fifth_sun_cuauhpilli_special_forces"
+    ],
+    "forbidden_traits": [
+      "ALWAYS_GAIN_PSIONICS"
+    ],
+    "flags": [
+      "LONE_START"
+    ]
+  },
+  {
+    "type": "scenario",
+    "id": "hunted_forever_start",
+    "name": "Challenge - Mindhunter",
+    "points": -10,
+    "forced_traits": [
+      "HAS_NEMESIS"
+    ],
+    "description": "Since the start of the Cataclysm, something has been hunting you relentlessly.  You can try to fight it, but each time it falls it will rise again, its powers growing stronger and stronger.  The only escape is for you to die.",
+    "allowed_locs": [
+      "sloc_house",
+      "sloc_house_boarded",
+      "sloc_school",
+      "sloc_grocery_store",
+      "sloc_gun_store",
+      "sloc_garage",
+      "sloc_pawn_shop",
+      "sloc_bank",
+      "sloc_military_surplus",
+      "sloc_furniture_store",
+      "sloc_library",
+      "sloc_bookstore",
+      "sloc_golfcourse_mid_course",
+      "sloc_golfcourse_clubhouse",
+      "sloc_church",
+      "sloc_cemetery",
+      "sloc_apartments_rooftop",
+      "sloc_hospital",
+      "sloc_fire_station",
+      "sloc_police",
+      "sloc_town_hall"
+    ],
+    "start_name": "In Town",
+    "flags": [
+      "CHALLENGE",
+      "LONE_START"
+    ]
+  },
+  {
+    "type": "scenario",
+    "id": "challenge_scen_firestarter",
+    "name": "Challenge - Heart of Fire",
+    "points": 0,
+    "description": "You always loved setting fires as a child, sometimes spending hours just watching the flames.  That fire awakened in you during the Cataclysm, powerful and almost uncontrollable.  You can call up flames from thin air, burn zombies to ash with a thought, surround yourself in a blazing inferno, but the fire demands release.  It's like a internal pressure, growing as long as you don't use your powers, until it flows out as the flames rise.  Can you survive in the new world without burning yourself to ash?",
+    "start_name": "Away from civilization",
+    "allowed_locs": [
+      "sloc_cabin",
+      "sloc_hermit_shack"
+    ],
+    "forced_traits": [
+      "PSYCHIC_KNACK",
+      "PYROMANIA",
+      "SCEN_HEART_OF_FIRE"
+    ],
+    "flags": [
+      "CHALLENGE"
+    ]
+  }
+]

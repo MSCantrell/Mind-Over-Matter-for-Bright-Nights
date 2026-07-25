@@ -1,0 +1,743 @@
+[
+  {
+    "result": "matrix_crystal_biokinesis",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_biokin_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_biokinesis_artifact",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_biokin_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_clairsentience",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_clair_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_clairsentience_artifact",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_clair_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_electrokinesis",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_electrokin_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_electrokinesis_artifact",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_electrokin_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_photokinesis",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_photokinesis_artifact",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_photokin_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_pyrokinesis",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_pyrokin_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_pyrokinesis_artifact",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_pyrokin_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_telekinesis",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_telekinesis_artifact",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_telepathy",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_telepath_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_teleportation",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_teleportation_artifact",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_vitakinesis",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_vitakin_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_vitakinesis_artifact",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_vitakin_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_crystal_drained",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_drained_dust",
+          10
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "matrix_shard",
+    "type": "uncraft",
+    "time": "45 m",
+    "qualities": [
+      {
+        "id": "HAMMER",
+        "level": 2
+      }
+    ],
+    "components": [
+      [
+        [
+          "matrix_crystal_drained_dust",
+          25
+        ]
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "rock_quern",
+          -1
+        ],
+        [
+          "clay_quern",
+          -1
+        ],
+        [
+          "mortar_pestle",
+          -1
+        ],
+        [
+          "food_processor",
+          5
+        ]
+      ]
+    ]
+  }
+]

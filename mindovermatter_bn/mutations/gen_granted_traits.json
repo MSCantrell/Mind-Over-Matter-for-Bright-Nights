@@ -1,0 +1,1242 @@
+[
+  {
+    "type": "mutation_flag",
+    "id": "ASOCIAL1",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
+    "id": "ASOCIAL2",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
+    "id": "FLASH_PROTECTION",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
+    "id": "GLARE_RESIST",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
+    "id": "HERITAGE",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
+    "id": "MEND_ALL",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
+    "id": "NUMB",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
+    "id": "SEESLEEP",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
+    "id": "SOCIAL1",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
+    "id": "SOCIAL2",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
+    "id": "STRICT_HUMANITARIAN",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
+    "id": "TELESTOP",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation",
+    "id": "ALWAYS_GAIN_PSIONICS",
+    "name": {
+      "str": "Latent Psion"
+    },
+    "points": 3,
+    "description": "Before the Cataclysm, you were lucky in some way.  Maybe you never lost your keys, or maybe you always made that last green light before getting home, or maybe you never had to take a sick day in your life.  Now after the Cataclysm, you have the potential for even more power.  Your first attempt to awaken psionic powers will always be successful.",
+    "valid": false,
+    "player_display": true,
+    "starting_trait": true,
+    "purifiable": false,
+    "cancels": [
+      "BIOKINETIC",
+      "CLAIRSENTIENT",
+      "ELECTROKINETIC",
+      "PHOTOKINETIC",
+      "PYROKINETIC",
+      "TELEPATH",
+      "TELEKINETIC",
+      "TELEPORTER",
+      "VITAKINETIC",
+      "CANNOT_GAIN_PSIONICS",
+      "PSYCHIC_KNACK"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "ASOCIAL1",
+    "name": {
+      "str": "Introvert"
+    },
+    "description": "You can tolerate others, but you prefer to be alone.  Spending time by yourself will boost your mood slightly.",
+    "changes_to": [
+      "ASOCIAL2"
+    ],
+    "cancels": [
+      "SOCIAL1",
+      "SOCIAL2"
+    ],
+    "points": 1,
+    "starting_trait": true,
+    "flags": [
+      "ASOCIAL1"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "ASOCIAL2",
+    "name": {
+      "str": "Loner"
+    },
+    "description": "You'd really rather be by yourself.  Being alone will improve your mood, but spending too much time around other people can grate on your nerves.",
+    "cancels": [
+      "SOCIAL1",
+      "SOCIAL2"
+    ],
+    "points": 1,
+    "mixed_effect": true,
+    "starting_trait": true,
+    "flags": [
+      "ASOCIAL2"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BIOKIN_NEEDS",
+    "name": {
+      "str": "Efficient System"
+    },
+    "points": 1,
+    "description": "Thanks to your powers, you need less food and drink than the average person and are more efficient at processing it.",
+    "player_display": true,
+    "valid": false,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "CANNOT_GAIN_PSIONICS",
+    "name": {
+      "str": "Headblind"
+    },
+    "points": -4,
+    "description": "You've seen people do some crazy things after the Cataclysm, but you've never managed to figure out how they do it.  You can never learn psionic powers.",
+    "valid": false,
+    "player_display": true,
+    "starting_trait": true,
+    "purifiable": false,
+    "cancels": [
+      "BIOKINETIC",
+      "CLAIRSENTIENT",
+      "ELECTROKINETIC",
+      "PHOTOKINETIC",
+      "PYROKINETIC",
+      "TELEPATH",
+      "TELEKINETIC",
+      "TELEPORTER",
+      "VITAKINETIC",
+      "ALWAYS_GAIN_PSIONICS",
+      "PSYCHIC_KNACK"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "CLAIR_ASTRAL_PROJECTION_APPEARANCE",
+    "name": {
+      "str": "Astral Form"
+    },
+    "description": "You're a disembodied mind so you're all glowy and blue.  Spooky!",
+    "points": 0,
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "CLAIR_CRAFT_BONUS_01",
+    "name": {
+      "str": "Intuitive Artistry"
+    },
+    "points": 0,
+    "description": "Gazing into the near future lets you know what part goes where.",
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "CLAIR_CRAFT_BONUS_02",
+    "name": {
+      "str": "Intuitive Artistry"
+    },
+    "points": 0,
+    "description": "Gazing into the near future lets you know what part goes where.",
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "CLAIR_CRAFT_BONUS_03",
+    "name": {
+      "str": "Intuitive Artistry"
+    },
+    "points": 0,
+    "description": "Gazing into the near future lets you know what part goes where.",
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "CLAIR_CRAFT_BONUS_04",
+    "name": {
+      "str": "Intuitive Artistry"
+    },
+    "points": 0,
+    "description": "Gazing into the near future lets you know what part goes where.",
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "CLAIR_CRAFT_BONUS_05",
+    "name": {
+      "str": "Intuitive Artistry"
+    },
+    "points": 0,
+    "description": "Gazing into the near future lets you know what part goes where.",
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "CLAIR_CRAFT_BONUS_06",
+    "name": {
+      "str": "Intuitive Artistry"
+    },
+    "points": 0,
+    "description": "Gazing into the near future lets you know what part goes where.",
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "CLAIR_SENSES",
+    "name": {
+      "str": "Psionic Senses"
+    },
+    "points": 1,
+    "description": "Your powers protect you from some sensory disruption and allow you to detect creatures from beyond.",
+    "player_display": true,
+    "valid": false,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "ELECTRO_SHIELD",
+    "name": {
+      "str": "Galvanic Armor"
+    },
+    "points": 1,
+    "description": "Your powers help protect you from electrical damage and slightly reduce the intensity of pain you feel.",
+    "player_display": true,
+    "valid": false,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "FIFTH_SUN_CBM_INTERFACE",
+    "name": {
+      "str": "Tonallichicahualizmeya"
+    },
+    "points": 0,
+    "description": "You have a matrix in your central nervous system that acts as a universal control and installation bus for compact bionic modules.",
+    "valid": false,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "FIFTH_SUN_PEOPLE",
+    "name": {
+      "str": "Fifth Sun People"
+    },
+    "points": 0,
+    "description": "You were born in the \u0112xc\u0101n Tlaht\u014dl\u014dy\u0101n, maybe on Tlalticpactli, perhaps even in An\u00e1huac, or maybe on one of the colony worlds like Demeter or Yathrib or T\u00e0i Su\u00ec.  You enlisted in the Imperial Navy for your own reasons.  Perhaps you are a scion of the Huey Calpulli following in your ancestors' footsteps, or perhaps you are one of the m\u0101c\u0113hualtin seeking the social benefits of a completed tour of military service.  Regardless, now you are here, in the ashes of a dying world, and have to find a way to survive.",
+    "valid": false,
+    "purifiable": false,
+    "flags": [
+      "HERITAGE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "FORGETFUL",
+    "name": {
+      "str": "Forgetful"
+    },
+    "description": "You have a hard time remembering things.  Your skills will erode slightly faster than usual, and you have trouble keeping your story straight when lying.",
+    "points": 0,
+    "mixed_effect": true,
+    "starting_trait": true
+  },
+  {
+    "type": "mutation",
+    "id": "GOODMEMORY",
+    "name": {
+      "str": "Good Memory"
+    },
+    "description": "You have an exceptional memory, and find it easy to remember things.  However, you don't benefit as much as other people from dropping a subject for a while and will thus end up learning slower.",
+    "cancels": [
+      "FORGETFUL"
+    ],
+    "points": 0,
+    "mixed_effect": true,
+    "starting_trait": true,
+    "valid": false
+  },
+  {
+    "type": "mutation",
+    "id": "HATES_BOOKS",
+    "name": {
+      "str": "Hates Books"
+    },
+    "description": "Reading is for nerds!  Boring books are more boring, and you can't have fun by reading books.",
+    "cancels": [
+      "ILLITERATE",
+      "LOVES_BOOKS"
+    ],
+    "points": -1,
+    "valid": false
+  },
+  {
+    "type": "mutation",
+    "id": "LIMITED_PSIONICS",
+    "name": {
+      "str": "Limited Awakening"
+    },
+    "points": -2,
+    "description": "You managed to awaken psionic powers, but it was a struggle and you're not sure you'll be able to do it again.  You are subject to the random odds of awakening new powers.",
+    "valid": false,
+    "player_display": false,
+    "starting_trait": true,
+    "purifiable": false,
+    "cancels": [
+      "CANNOT_GAIN_PSIONICS",
+      "PSYCHIC_KNACK",
+      "ALWAYS_GAIN_PSIONICS"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "NOMAD2",
+    "name": {
+      "str": "Antsy"
+    },
+    "description": "You can't bear to stay still for long.  Your morale will suffer unless you constantly explore new territory.",
+    "prereqs": [
+      "NOMAD"
+    ],
+    "changes_to": [
+      "NOMAD3"
+    ],
+    "points": -2
+  },
+  {
+    "type": "mutation",
+    "id": "NOMAD3",
+    "name": {
+      "str": "Restless"
+    },
+    "description": "Spending any amount of time in familiar places makes you miserable.  Must.  Keep.  Moving.",
+    "prereqs": [
+      "NOMAD2"
+    ],
+    "points": -4
+  },
+  {
+    "type": "mutation",
+    "id": "NUMB",
+    "name": {
+      "str": "Numb"
+    },
+    "description": "Your ability to feel or express emotion has been greatly hampered.",
+    "threshreq": [
+      "THRESH_MEDICAL"
+    ],
+    "points": 0,
+    "purifiable": false,
+    "flags": [
+      "NUMB"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "PHOTOLIXIR_LIGHT",
+    "name": {
+      "str": "Golden Radiance"
+    },
+    "points": 0,
+    "description": "You can make the air around you emit a strong light.",
+    "active": true,
+    "player_display": true,
+    "purifiable": false,
+    "valid": false,
+    "cost": 0
+  },
+  {
+    "type": "mutation",
+    "id": "PHOTO_EYES",
+    "name": {
+      "str": "Photon Regulation"
+    },
+    "points": 1,
+    "description": "Your powers passively filter the amount of photons your eyes receive, and amplify what little light there is -- you see well even in near-total darkness.",
+    "flags": [
+      "FLASH_PROTECTION",
+      "SEESLEEP",
+      "GLARE_RESIST"
+    ],
+    "player_display": true,
+    "valid": false,
+    "purifiable": false,
+    "night_vision_range": 4.5
+  },
+  {
+    "type": "mutation",
+    "id": "PICKYEATER",
+    "name": {
+      "str": "Picky Eater"
+    },
+    "description": "You're a very picky eater.  You refuse to eat any food that tastes bad unless you're starving.",
+    "cancels": [
+      "GOURMAND"
+    ],
+    "points": -1,
+    "starting_trait": true
+  },
+  {
+    "type": "mutation",
+    "id": "PROF_CONCENTRATION_BASIC",
+    "name": {
+      "str": "Concentration (Beginner)"
+    },
+    "description": "You are capable of holding the same thing in mind even when sitting in an uncomfortable position or after skipping a meal.",
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "//": "proficiency modeled as a visible trait (port_traits CURATED_TRAITS)"
+  },
+  {
+    "type": "mutation",
+    "id": "PROF_CONCENTRATION_INTERMEDIATE",
+    "name": {
+      "str": "Concentration (Expert)"
+    },
+    "description": "You can maintain your concentration even if outside in winter without a coat or while in combat with a zombie.",
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "//": "proficiency modeled as a visible trait (port_traits CURATED_TRAITS)"
+  },
+  {
+    "type": "mutation",
+    "id": "PROF_CONCENTRATION_MASTER",
+    "name": {
+      "str": "Concentration (Master)"
+    },
+    "description": "You can maintain your concentration even when suffering crippling injuries or while on mind-altering substances.",
+    "points": 0,
+    "valid": false,
+    "purifiable": false,
+    "//": "proficiency modeled as a visible trait (port_traits CURATED_TRAITS)"
+  },
+  {
+    "type": "mutation",
+    "id": "PSI_EXTENDED_CHANNELING",
+    "name": {
+      "str": "Extended Channeling"
+    },
+    "points": 0,
+    "description": "You can take more time and care in channeling your powers.  It will take 5x as long to evoke them, but it will be much easier to activate them and you will be less likely to gain Nether Attunement while doing so.",
+    "active": true,
+    "valid": false,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "PSI_EXTENDED_CHANNELING_active",
+    "name": {
+      "str": "Extended Channeling Active"
+    },
+    "points": 0,
+    "description": "The active trait for Extended Channeling.  It's a bug if you can see it.",
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "PSI_TORRENTIAL_CHANNELING",
+    "name": {
+      "str": "Torrential Channeling"
+    },
+    "points": 0,
+    "description": "You can draw deeply on the Nether, increasing the strength of your powers but making making them harder to initiate and control.",
+    "active": true,
+    "valid": false,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "PSI_TORRENTIAL_CHANNELING_active",
+    "name": {
+      "str": "Torrential Channeling Active"
+    },
+    "points": 0,
+    "description": "The active trait for Torrential Channeling.  It's a bug if you can see it.",
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "PSYCHIC_KNACK",
+    "name": {
+      "str": "Psychic Knacks"
+    },
+    "points": 0,
+    "description": "The school trait for knacks.  It shouldn't be visible.",
+    "valid": false,
+    "player_display": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "cancels": [
+      "BIOKINETIC",
+      "CLAIRSENTIENT",
+      "ELECTROKINETIC",
+      "PHOTOKINETIC",
+      "PYROKINETIC",
+      "TELEPATH",
+      "TELEKINETIC",
+      "TELEPORTER",
+      "VITAKINETIC",
+      "ALWAYS_GAIN_PSIONICS",
+      "CANNOT_GAIN_PSIONICS"
+    ],
+    "spells_learned": [
+      [
+        "classless_toggleable_concentration_end",
+        1
+      ],
+      [
+        "classless_specific_concentration_end",
+        1
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "PSYCHIC_KNACK_WILD_TALENT_1",
+    "name": {
+      "str": "Psychic Knack Wild Talent 1",
+      "//~": "NO_I18N"
+    },
+    "points": 0,
+    "description": {
+      "str": "This exists to run an EoC.",
+      "//~": "NO_I18N"
+    },
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "PSYCHIC_KNACK_WILD_TALENT_2",
+    "name": {
+      "str": "Psychic Knack Wild Talent 2",
+      "//~": "NO_I18N"
+    },
+    "points": 0,
+    "description": {
+      "str": "This exists to run an EoC.",
+      "//~": "NO_I18N"
+    },
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "PSYCHIC_KNACK_WILD_TALENT_3",
+    "name": {
+      "str": "Psychic Knack Wild Talent 3",
+      "//~": "NO_I18N"
+    },
+    "points": 0,
+    "description": {
+      "str": "This exists to run an EoC.",
+      "//~": "NO_I18N"
+    },
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "PSYCHIC_KNACK_WILD_TALENT_4",
+    "name": {
+      "str": "Psychic Knack Wild Talent 4",
+      "//~": "NO_I18N"
+    },
+    "points": 0,
+    "description": {
+      "str": "This exists to run an EoC.",
+      "//~": "NO_I18N"
+    },
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "PSYCHIC_KNACK_WILD_TALENT_5",
+    "name": {
+      "str": "Psychic Knack Wild Talent 5",
+      "//~": "NO_I18N"
+    },
+    "points": 0,
+    "description": {
+      "str": "This exists to run an EoC.",
+      "//~": "NO_I18N"
+    },
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "PSYCHIC_KNACK_WILD_TALENT_6",
+    "name": {
+      "str": "Psychic Knack Wild Talent 6",
+      "//~": "NO_I18N"
+    },
+    "points": 0,
+    "description": {
+      "str": "This exists to run an EoC.",
+      "//~": "NO_I18N"
+    },
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "PYROKIN_ADAPTATION",
+    "name": {
+      "str": "Internal Fire"
+    },
+    "points": 1,
+    "description": "You naturally heat the air around you slightly, making it more comfortable in the cold.  It also helps prevent you from getting too wet.",
+    "player_display": true,
+    "valid": false,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "SCEN_HEART_OF_FIRE",
+    "name": {
+      "str": "Heart of Fire"
+    },
+    "points": 0,
+    "description": "The fire in your soul rises and falls, but never truly goes out.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false,
+    "mixed_effect": true
+  },
+  {
+    "type": "mutation",
+    "id": "SEASONAL_AFFECTIVE",
+    "name": {
+      "str": "Seasonal Affective Disorder"
+    },
+    "description": "You tend to have bouts of depression during the fall and especially winter.  Taking antidepressants can help.",
+    "points": -1,
+    "starting_trait": true
+  },
+  {
+    "type": "mutation",
+    "id": "SOCIAL1",
+    "name": {
+      "str": "Extrovert"
+    },
+    "description": "You don't mind being alone, but you get a slight mood boost from being around friends.",
+    "changes_to": [
+      "SOCIAL2"
+    ],
+    "cancels": [
+      "ASOCIAL1",
+      "ASOCIAL2"
+    ],
+    "points": 1,
+    "starting_trait": true,
+    "flags": [
+      "SOCIAL1"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "SOCIAL2",
+    "name": {
+      "str": "Sociable"
+    },
+    "description": "You are a social creature.  Spending time with friends will improve your mood, but if you're alone too long, you'll start to feel unhappy.",
+    "cancels": [
+      "ASOCIAL1",
+      "ASOCIAL2"
+    ],
+    "points": 1,
+    "mixed_effect": true,
+    "starting_trait": true,
+    "flags": [
+      "SOCIAL2"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "SQUEAMISH",
+    "name": {
+      "str": "Squeamish"
+    },
+    "description": "You can't even think about putting filthy clothes on yourself, especially from zombies' corpses.",
+    "points": -1,
+    "starting_trait": true
+  },
+  {
+    "type": "mutation",
+    "id": "STRICT_HUMANITARIAN",
+    "name": {
+      "str": "Strict Humanitarian"
+    },
+    "description": "You're convinced that these things that look vaguely human from elsewhere are definitely not people.  Therefore it's okay to eat them, right?",
+    "cancels": [
+      "VEGETARIAN",
+      "VEGAN",
+      "HERBIVORE",
+      "RUMINANT",
+      "GRAZER",
+      "CANNIBAL"
+    ],
+    "points": 1,
+    "starting_trait": true,
+    "valid": false,
+    "flags": [
+      "STRICT_HUMANITARIAN"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "TABLEMANNERS",
+    "name": {
+      "str": "Rigid Table Manners"
+    },
+    "description": "You've been taught proper table manners from your early childhood on; now, you can't even think about eating without being seated at a table and taking your time.  Eating without a table and chair frustrates you, but eating like a civilized person gives you a bigger morale bonus.",
+    "points": -1,
+    "starting_trait": true,
+    "valid": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_GRAB_POCKETS",
+    "name": {
+      "str": "Grasping Hand"
+    },
+    "points": 1,
+    "description": "Thanks to a minor application of telekinesis, the items you want to grab are always quick to hand.",
+    "player_display": true,
+    "valid": false,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_1",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_10",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_11",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_12",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_13",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_14",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_15",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_16",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_17",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_18",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_19",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_2",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_20",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_21",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_22",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_23",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_24",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_25",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_26",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_27",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_28",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_29",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_3",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_30",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_4",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_5",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_6",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_7",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_8",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC_LIFTER_9",
+    "name": {
+      "str": "Lifting Hand"
+    },
+    "points": 0,
+    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELELIXIRDOWN",
+    "name": {
+      "str": "Elixir PK Surge"
+    },
+    "description": "Thanks to the crystalline elixir, you can lash out with unfocused surges of telekinetic power.",
+    "points": 5,
+    "visibility": 0,
+    "ugliness": 0,
+    "active": true,
+    "player_display": true,
+    "valid": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEPATHIC_SUGGESTION",
+    "name": {
+      "str": "Telepathic Suggestion"
+    },
+    "points": 1,
+    "description": "You are subtly influencing the minds of the people you speak to.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "TELEPORTER_PROTECT",
+    "name": {
+      "str": "Spacial Recalibration"
+    },
+    "points": 1,
+    "description": "You can keep otherworldly eyes off you to some extent, and you will sometimes instinctively teleport to avoid danger.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false,
+    "flags": [
+      "TELESTOP"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "TRUTHTELLER",
+    "name": {
+      "str": "Truth Teller"
+    },
+    "description": "When you try to tell a lie, you blush, stammer, and get all shifty-eyed.  Telling lies and otherwise bluffing will be much more difficult for you.",
+    "cancels": [
+      "LIAR"
+    ],
+    "points": -1,
+    "starting_trait": true
+  },
+  {
+    "type": "mutation",
+    "id": "VANITY",
+    "name": {
+      "str": "Highly Vain"
+    },
+    "description": "You know you're beautiful, and the world deserves to know it too.  You prefer to show off your stunningly good looks and will be unhappy if you cover up your face.",
+    "prereqs": [
+      "BEAUTIFUL",
+      "BEAUTIFUL2"
+    ],
+    "points": -1
+  },
+  {
+    "type": "mutation",
+    "id": "VEGAN",
+    "name": {
+      "str": "Vegan"
+    },
+    "description": "You're very strictly vegan, eating animal products is out of the question, even if it means death.  You also can't bear to wear clothing made of animal products, such as leather or fur.",
+    "cancels": [
+      "CANNIBAL",
+      "STRICT_HUMANITARIAN",
+      "VEGETARIAN"
+    ],
+    "points": -4,
+    "starting_trait": true,
+    "valid": false
+  },
+  {
+    "type": "mutation",
+    "id": "VERDANT_HAND_PROTOCOLS",
+    "name": {
+      "str": "VERDANT HAND Combat Protocols"
+    },
+    "points": 2,
+    "description": "Who needs weapons?  Thanks to your biokinesis, you deal more melee damage while fighting with your bare hands.  This damage improves as your unarmed skill and biokinetic prowess increase.",
+    "starting_trait": false,
+    "valid": false,
+    "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "VITAKINETIC_HEALTH",
+    "name": {
+      "str": "Bloom of Vitality"
+    },
+    "points": 1,
+    "description": "Your psionic powers speed your healing slightly and increase your overall resilience, and any broken limbs you have mend straight and true.",
+    "valid": false,
+    "player_display": true,
+    "purifiable": false,
+    "flags": [
+      "MEND_ALL"
+    ]
+  }
+]

@@ -1,0 +1,426 @@
+[
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      [
+        "phavian_hospital_basement_nw",
+        "phavian_hospital_basement_ne"
+      ],
+      [
+        "phavian_hospital_basement_sw",
+        "phavian_hospital_basement_se"
+      ]
+    ],
+    "weight": 250,
+    "object": {
+      "fill_ter": "t_linoleum_white",
+      "rows": [
+        "................................................",
+        "#################################...............",
+        "#z\u0271IIII  |T|\u00b3\u00b3\u00b3\u00b3\u00b3\u00b3\u00b3|pppp pppp qq#...............",
+        "#G    \u0271  + |\u00b3      +            #...............",
+        "#G Att  I|||||\u00b3\u00b3\u00b3\u00b3\u00b3|  JLJJJJJ  M#...............",
+        "#G  tt  I|\u00d8\u00d8\u00d8|||||||        J  M#...............",
+        "#G  ttA I|\u00d8\u00d8\u00d8|TL|hv|\u00b3       L  M#...............",
+        "#G  tt  I|&\u1e0a\u1e0a|  | v|\u00b3       J  L#...............",
+        "#G  tt  I|   ||+|+||\u00b3       J  M#...............",
+        "#G   \u0271   $   $              L  M#...............",
+        "#G \u0271     $   $              J  M#...............",
+        "#G  tt  I|   |||||||            #...............",
+        "#G  tt  I|\u0271  |FFFFF||||     ||||#...............",
+        "#G Att\u0271 I|\u0271  +    F|J        A J#...............",
+        "#z      I|   |FFFFF|J```    ```J#...............",
+        "#|||||||||   |||||||||||||||||||#############...",
+        "# ONNNO1 |   |QQQQQQQQQ|---|L |T|\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0#...",
+        "#    A   o   $         |---|z   |\u00b0d\u00b0d\u00b0d\u00b0d\u00b0d\u00b0#...",
+        "#N    N  o   |||||||||||&;;||+|||\u00b0 \u00b0 \u00b0 \u00b0 \u00b0 \u00b0#...",
+        "#N    N  o                      |\u00b0*\u00b0*\u00b0*\u00b0*\u00b0*\u00b0#...",
+        "#7    8  |                      |       A   #...",
+        "#        ||  \u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0  ||o*||  d  d  d  #...",
+        "#P      hC|  )XXXXuuDDDD)  |H  H|    A      #...",
+        "#P     vv |  (          (  |H  H|     u|||||#...",
+        "#         +  \u00b0XXXXXXXXXX\u00b0  |    |     u|KKvv#...",
+        "#jj       |  \u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0\u00b0  |vv  +      +   E#...",
+        "#3k 2uu2uu|                | h  |  \u042f   |C   #...",
+        "#||||||||||                |||||||||||||||||#...",
+        "#  N AN  z|||  ||$|||||||  |BBB|z 2NN21NNz  #...",
+        "# AN  N     |  |S R|FFFF|  +   +            #...",
+        "#           +  ||$||F   +  |iii|    8A  aA  #...",
+        "#  N  N   vv||||  <|FFFF|  |||||    NN  NN  #...",
+        "# AN AN   h  nz|||||||||||||W|W|q           ##\u02fd#",
+        "#               +   RzS   z|+|+|    NN  NN  / ;\u00a3",
+        "#||o*o||ooo||ooo|          +   +    9A  aA  ####",
+        "#               |+|+|+|    |+|+|            #...",
+        "#ON65NNOO265NN65|T|T|T|LuuL|W|W|NN0NN0 nOOnz#...",
+        "#############################################...",
+        "................................................",
+        "................................................",
+        "................................................",
+        "................................................",
+        "................................................",
+        "................................................",
+        "................................................",
+        "................................................",
+        "................................................",
+        "................................................"
+      ],
+      "palettes": [
+        "phavian_hospital_lab"
+      ],
+      "terrain": {
+        ".": "t_dirt",
+        "\u00d8": "t_open_air",
+        "\u00b0": "t_wall_metal",
+        ";": [
+          "t_door_metal_locked",
+          "t_door_metal_locked"
+        ],
+        "\u1e0a": "t_door_metal_locked",
+        "\u02fd": "t_card_reader_broken",
+        "-": "t_metal_floor",
+        "\u00a3": "t_linoleum_white"
+      },
+      "furniture": {
+        "`": "f_dishwasher",
+        "\u00b3": "f_rack"
+      },
+      "items": {
+        "p": [
+          {
+            "item": "restaur_fridge",
+            "chance": 70,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "baked_goods",
+            "chance": 40
+          },
+          {
+            "item": "SUS_fridge",
+            "chance": 90,
+            "repeat": [
+              1,
+              2
+            ]
+          }
+        ],
+        "\u00b3": [
+          {
+            "item": "restaur_kitchen",
+            "chance": 20,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "groce_bread",
+            "chance": 30,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "SUS_pantry",
+            "chance": 60,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "cannedfood",
+            "chance": 60,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "groce_condiment",
+            "chance": 20,
+            "repeat": [
+              1,
+              2
+            ]
+          }
+        ],
+        "t": {
+          "item": "laundry",
+          "chance": 20,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "J": {
+          "item": "kitchen_appliances",
+          "chance": 20,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "u": {
+          "item": "dissection",
+          "chance": 40
+        },
+        "N": {
+          "item": "hospital_lab",
+          "chance": 40
+        },
+        "d": {
+          "item": "dissection",
+          "chance": 30
+        },
+        "M": {
+          "item": "SUS_oven",
+          "chance": 90,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "z": {
+          "item": "trash",
+          "chance": 80
+        },
+        "C": {
+          "item": "SUS_office_filing_cabinet",
+          "chance": 60,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "V": {
+          "item": "waitingroom",
+          "chance": 40,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "v": {
+          "item": "SUS_office_desk",
+          "chance": 40,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "X": [
+          {
+            "item": "harddrugs",
+            "chance": 70,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "drugs_rare",
+            "chance": 70,
+            "repeat": [
+              1,
+              2
+            ]
+          }
+        ],
+        "D": {
+          "item": "softdrugs",
+          "chance": 90,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "O": {
+          "item": "virology_lab_fridge",
+          "chance": 80,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "Q": {
+          "item": "hospital_medical_items",
+          "chance": 80,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "B": [
+          {
+            "item": "jackets",
+            "chance": 30
+          },
+          {
+            "item": "bags",
+            "chance": 40
+          }
+        ],
+        "P": {
+          "item": "hospital_medical_items",
+          "chance": 80,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "F": [
+          {
+            "item": "bed",
+            "chance": 30,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "cleaning",
+            "chance": 60,
+            "repeat": [
+              1,
+              2
+            ]
+          }
+        ],
+        "q": [
+          {
+            "item": "vending_drink",
+            "chance": 40,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "prepared_teas",
+            "chance": 30,
+            "repeat": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "computers": {
+        "6": {
+          "name": "Centrifuge",
+          "options": [
+            {
+              "name": "Analyze blood",
+              "action": "blood_anal"
+            }
+          ],
+          "failures": [
+            {
+              "action": "destroy_blood"
+            }
+          ]
+        }
+      },
+      "monster": {
+        "^": {
+          "monster": "mon_civilian_icu",
+          "chance": 10
+        },
+        "\u0582": {
+          "monster": "mon_civilian_icu",
+          "chance": 10
+        },
+        "\u0413": {
+          "monster": "mon_civilian_icu",
+          "chance": 10
+        },
+        "\u042f": {
+          "monster": "mon_civilian_icu",
+          "chance": 10
+        },
+        "\u0166": {
+          "monster": "mon_turret_rifle",
+          "spawn_data": {
+            "ammo": [
+              {
+                "ammo_id": "556",
+                "qty": [
+                  30,
+                  90
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "place_monsters": [
+        {
+          "monster": "GROUP_HOSPITAL",
+          "x": [
+            1,
+            22
+          ],
+          "y": [
+            5,
+            22
+          ],
+          "density": 0.6
+        },
+        {
+          "monster": "GROUP_HOSPITAL",
+          "x": [
+            25,
+            31
+          ],
+          "y": [
+            5,
+            22
+          ],
+          "density": 0.6
+        },
+        {
+          "monster": "GROUP_HOSPITAL",
+          "x": [
+            32,
+            42
+          ],
+          "y": [
+            17,
+            22
+          ],
+          "density": 0.8
+        },
+        {
+          "monster": "GROUP_HOSPITAL",
+          "x": [
+            1,
+            22
+          ],
+          "y": [
+            25,
+            31
+          ],
+          "density": 0.5
+        },
+        {
+          "monster": "GROUP_HOSPITAL",
+          "x": [
+            25,
+            41
+          ],
+          "y": [
+            25,
+            30
+          ],
+          "density": 0.6
+        }
+      ]
+    },
+    "method": "json"
+  }
+]

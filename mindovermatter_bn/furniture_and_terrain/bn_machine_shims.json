@@ -1,0 +1,160 @@
+[
+  {
+    "//": "HAND-PORTED (2026-07-11): DDA moved console & machinery from TERRAIN to FURNITURE; BN kept them as terrain (t_console / t_machinery_*).  MoM's DDA-authored mapgen references the FURNITURE ids, which don't exist in BN -> 'invalid furniture id' spam at worldgen.  Rather than type-move every reference (they appear as scalars, plain lists, and weighted lists), we make the furniture ids valid again as thin BN-safe furniture shims that mirror BN's terrain visuals.  Salvage loot is kept to core BN items so no new invalid-item warnings are traded in.  Lab computers still function: MoM mapgen places the interactive computer via the 'computers' key at tile coordinates, independent of the furniture id.  This is an output-only file (no MoM source counterpart), so tools/port_copy.py never overwrites it -- same pattern as appliances_as_furniture.json.",
+    "type": "furniture",
+    "id": "f_console",
+    "name": "computer console",
+    "description": "A computer console, backlit in a cool blue glow.",
+    "symbol": "6",
+    "color": "blue",
+    "move_cost_mod": -1,
+    "coverage": 60,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "NOITEM", "PERMEABLE" ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 150,
+      "sound": "crunch!",
+      "sound_fail": "whack!",
+      "furn_set": "f_console_broken",
+      "items": [
+        { "item": "processor", "prob": 25 },
+        { "item": "RAM", "count": [ 0, 2 ], "prob": 50 },
+        { "item": "cable", "charges": [ 1, 2 ], "prob": 50 },
+        { "item": "scrap", "count": [ 1, 3 ] },
+        { "item": "e_scrap", "count": [ 0, 2 ] }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_console_broken",
+    "name": "broken console",
+    "description": "A broken computer console.  Little more than a dead screen and a scorched circuit board now.",
+    "symbol": "6",
+    "color": "light_gray",
+    "move_cost_mod": -1,
+    "coverage": 60,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "NOITEM", "PERMEABLE" ],
+    "bash": {
+      "str_min": 16,
+      "str_max": 150,
+      "sound": "crunch!",
+      "sound_fail": "whack!",
+      "items": [
+        { "item": "processor", "prob": 25 },
+        { "item": "RAM", "count": [ 0, 2 ], "prob": 50 },
+        { "item": "scrap", "count": [ 1, 3 ] },
+        { "item": "e_scrap", "count": [ 0, 2 ] }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_machinery_heavy",
+    "name": "heavy machinery",
+    "description": "Assorted heavy machinery.  You could scavenge it for parts.",
+    "symbol": "%",
+    "color": "light_gray",
+    "move_cost_mod": -1,
+    "coverage": 75,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "NOITEM", "PERMEABLE" ],
+    "bash": {
+      "str_min": 18,
+      "str_max": 80,
+      "sound": "clang!",
+      "sound_fail": "ting.",
+      "items": [
+        { "item": "wire", "count": [ 1, 3 ] },
+        { "item": "pipe", "count": [ 1, 2 ] },
+        { "item": "scrap", "count": [ 2, 6 ] },
+        { "item": "steel_chunk", "count": [ 1, 3 ] },
+        { "item": "motor", "prob": 20 }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_machinery_electronic",
+    "name": "electronic machinery",
+    "description": "Assorted electronic machinery.  You could scavenge it for parts.",
+    "symbol": "$",
+    "color": "yellow",
+    "move_cost_mod": -1,
+    "coverage": 75,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "NOITEM", "PERMEABLE" ],
+    "bash": {
+      "str_min": 10,
+      "str_max": 80,
+      "sound": "clang!",
+      "sound_fail": "ting.",
+      "items": [
+        { "item": "wire", "count": [ 1, 3 ] },
+        { "item": "e_scrap", "count": [ 1, 4 ] },
+        { "item": "scrap", "count": [ 1, 4 ] },
+        { "item": "processor", "prob": 15 }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_machinery_light",
+    "name": "light machinery",
+    "description": "Assorted light machinery.  You could scavenge it for parts.",
+    "symbol": "$",
+    "color": "dark_gray",
+    "move_cost_mod": -1,
+    "coverage": 60,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "NOITEM", "PERMEABLE" ],
+    "bash": {
+      "str_min": 16,
+      "str_max": 80,
+      "sound": "clang!",
+      "sound_fail": "ting.",
+      "items": [
+        { "item": "wire", "count": [ 1, 2 ] },
+        { "item": "pipe", "count": [ 1, 2 ] },
+        { "item": "scrap", "count": [ 1, 4 ] }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_machinery_old",
+    "name": "old machinery",
+    "description": "Assorted old machinery, rusted and worn.  You could scavenge it for parts.",
+    "symbol": "&",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "coverage": 60,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "NOITEM", "PERMEABLE" ],
+    "bash": {
+      "str_min": 10,
+      "str_max": 80,
+      "sound": "clang!",
+      "sound_fail": "ting.",
+      "items": [
+        { "item": "wire", "count": [ 1, 2 ] },
+        { "item": "pipe", "count": [ 1, 2 ] },
+        { "item": "scrap", "count": [ 2, 5 ] }
+      ]
+    }
+  },
+  {
+    "//": "Teleportation power's 'memorize location' marker (set by ter_furn_transform ter_teleport_location_attune).  DDA-base id absent in BN; nothing reads it back, so a passable cosmetic ground mark suffices.",
+    "type": "furniture",
+    "id": "f_teleporter_attuned_ground",
+    "name": "attuned ground",
+    "description": "The ground here thrums faintly with a spatial resonance you have memorized.  You could teleport back to this exact spot.",
+    "symbol": "*",
+    "color": "pink",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "NOCOLLIDE" ]
+  }
+]

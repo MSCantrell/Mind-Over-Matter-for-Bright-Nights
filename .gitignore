@@ -1,0 +1,25 @@
+# This repo publishes the MOD ONLY.
+# The working tree also holds upstream clones (CDDA/, CBN/), the stale MoM/
+# archive, and the private porter pipeline (tools/, docs/, specs) -- none of
+# which are published. Allowlist rather than blocklist, so nothing new that
+# lands at the repo root gets committed by accident.
+
+/*
+
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/LICENSE
+!/mindovermatter_bn/
+
+# Junk that could appear inside the mod tree itself
+__pycache__/
+*.py[cod]
+*.bak
+*.orig
+*.rej
+*.tmp
+*~
+Thumbs.db
+desktop.ini
+.DS_Store

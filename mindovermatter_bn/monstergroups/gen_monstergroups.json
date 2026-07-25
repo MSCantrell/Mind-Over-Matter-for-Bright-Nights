@@ -1,0 +1,3010 @@
+[
+  {
+    "type": "monstergroup",
+    "name": "FERAL_HUMANS",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 1,
+        "cost_multiplier": 4
+      },
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 1,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_electrokin",
+        "freq": 2,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_feral_human_photokin",
+        "freq": 1,
+        "cost_multiplier": 4
+      },
+      {
+        "monster": "mon_feral_human_pyrokin",
+        "freq": 1,
+        "cost_multiplier": 6
+      },
+      {
+        "monster": "mon_feral_human_telekin",
+        "freq": 1,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 1,
+        "cost_multiplier": 4
+      },
+      {
+        "monster": "mon_feral_human_porter",
+        "freq": 1,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 1,
+        "cost_multiplier": 3
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GO_CAMP_OM",
+    "default": "mon_mi_go_telepath",
+    "monsters": [
+      {
+        "monster": "mon_mi_go_telepath",
+        "freq": 50,
+        "cost_multiplier": 20,
+        "starts": 840
+      },
+      {
+        "monster": "mon_mi_go_photokinetic",
+        "freq": 50,
+        "cost_multiplier": 2,
+        "starts": 840
+      },
+      {
+        "monster": "mon_mi_go_biokinetic",
+        "freq": 20,
+        "cost_multiplier": 70,
+        "starts": 840
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_AMALGAMATION_MED",
+    "default": "mon_amalgamation_photokinetic_irradiator",
+    "monsters": [
+      {
+        "monster": "mon_amalgamation_photokinetic_irradiator",
+        "freq": 5,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_amalgamation_photokinetic_irradiator",
+        "freq": 5,
+        "cost_multiplier": 0,
+        "starts": 5376
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_AMALGAMATION_SMALL",
+    "default": "mon_amalgamation_vitakinetic_debuffer",
+    "monsters": [
+      {
+        "monster": "mon_amalgamation_photokinetic_flashbanger",
+        "freq": 5,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_amalgamation_photokinetic_flashbanger",
+        "freq": 10,
+        "cost_multiplier": 0,
+        "starts": 5376
+      },
+      {
+        "monster": "mon_amalgamation_telepathic_distractor",
+        "freq": 10,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_amalgamation_telepathic_distractor",
+        "freq": 15,
+        "cost_multiplier": 0,
+        "starts": 5376
+      },
+      {
+        "monster": "mon_amalgamation_telekinetic_shielder",
+        "freq": 5,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_amalgamation_telekinetic_shielder",
+        "freq": 10,
+        "cost_multiplier": 0,
+        "starts": 5376
+      },
+      {
+        "monster": "mon_amalgamation_vitakinetic_debuffer",
+        "freq": 10,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_amalgamation_vitakinetic_debuffer",
+        "freq": 20,
+        "cost_multiplier": 0,
+        "starts": 5376
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_ANIMALPOUND_DOGS",
+    "monsters": [
+      {
+        "monster": "mon_hellhound",
+        "freq": 5,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_hellhound",
+        "freq": 15,
+        "cost_multiplier": 0,
+        "starts": 8640
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_ANIMAL_PSIONS",
+    "default": "mon_psi_gremlin",
+    "is_animal": true,
+    "monsters": [
+      {
+        "monster": "mon_hidebehind",
+        "freq": 20,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_psi_gremlin",
+        "freq": 100,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_psi_gremlin",
+        "freq": 15,
+        "cost_multiplier": 0,
+        "pack_size": [
+          2,
+          3
+        ]
+      },
+      {
+        "monster": "mon_cockatrice",
+        "freq": 75,
+        "cost_multiplier": 0,
+        "starts": 2016
+      },
+      {
+        "monster": "mon_cockatrice",
+        "freq": 10,
+        "cost_multiplier": 0,
+        "pack_size": [
+          3,
+          5
+        ],
+        "starts": 2016
+      },
+      {
+        "monster": "mon_hodag",
+        "freq": 10,
+        "cost_multiplier": 0,
+        "starts": 17280
+      },
+      {
+        "monster": "mon_bandersnatch",
+        "freq": 5,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_fear_hawk",
+        "freq": 10,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_hellhound",
+        "freq": 75,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_BEARS",
+    "monsters": [
+      {
+        "monster": "mon_bandersnatch",
+        "freq": 20,
+        "cost_multiplier": 5,
+        "starts": 192
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_CAVE",
+    "is_animal": true,
+    "monsters": [
+      {
+        "monster": "mon_hidebehind",
+        "freq": 10,
+        "cost_multiplier": 5,
+        "starts": 192
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_CHURCH_ZOMBIE",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 15,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 15,
+        "cost_multiplier": 0
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_CIVILIANS_PSYCHIC_FERAL",
+    "default": "mon_civilian_biokinetic",
+    "monsters": [
+      {
+        "monster": "mon_civilian_biokinetic",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_clairsentient",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_electrokinetic",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_photokinetic",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_pyrokinetic",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_telekinetic",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_telepath",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_teleporter",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_vitakinetic",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_CIVILIANS_STANDARD",
+    "default": "mon_civilian_biokinetic",
+    "monsters": [
+      {
+        "monster": "mon_civilian_biokinetic",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_clairsentient",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_electrokinetic",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_photokinetic",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_pyrokinetic",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_telekinetic",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_telepath",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_teleporter",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      },
+      {
+        "monster": "mon_civilian_vitakinetic",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "ends": 288
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_COWS",
+    "monsters": [
+      {
+        "monster": "mon_hodag_calf",
+        "freq": 10,
+        "cost_multiplier": 5,
+        "starts": 672
+      },
+      {
+        "monster": "mon_hodag",
+        "freq": 10,
+        "cost_multiplier": 8,
+        "starts": 17280
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_COWS_DAIRY",
+    "default": "mon_cow_biokinetic",
+    "monsters": [
+      {
+        "monster": "mon_cow_biokinetic",
+        "freq": 10,
+        "cost_multiplier": 5,
+        "starts": 192
+      },
+      {
+        "monster": "mon_hodag_calf",
+        "freq": 10,
+        "cost_multiplier": 5,
+        "starts": 672
+      },
+      {
+        "monster": "mon_hodag",
+        "freq": 10,
+        "cost_multiplier": 20,
+        "starts": 17280
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_CRYSTAL_FIELD",
+    "default": "mon_gracke",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 60,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 60,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_electrokin",
+        "freq": 60,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_photokin",
+        "freq": 60,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_pyrokin",
+        "freq": 60,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_telekin",
+        "freq": 60,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 60,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_porter",
+        "freq": 60,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 60,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_gelatin",
+        "freq": 40,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_darkman",
+        "freq": 15,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_gozu",
+        "freq": 60,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_flying_polyp",
+        "freq": 60,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_hunting_horror",
+        "freq": 60,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_flaming_eye",
+        "freq": 25,
+        "cost_multiplier": 10
+      },
+      {
+        "monster": "mon_kreck",
+        "freq": 60,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_gracke",
+        "freq": 100,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_mi_go",
+        "freq": 60,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_mi_go_slaver",
+        "freq": 50,
+        "cost_multiplier": 2,
+        "starts": 840
+      },
+      {
+        "monster": "mon_mi_go_myrmidon",
+        "freq": 10,
+        "cost_multiplier": 4,
+        "starts": 840
+      },
+      {
+        "monster": "mon_mi_go_telepath",
+        "freq": 7,
+        "cost_multiplier": 4,
+        "starts": 840
+      },
+      {
+        "monster": "mon_mi_go_biokinetic",
+        "freq": 2,
+        "cost_multiplier": 8,
+        "starts": 840
+      },
+      {
+        "monster": "mon_nether_eater",
+        "freq": 60,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_CRYSTAL_FIELD_PSYCHOACTIVE",
+    "default": "mon_gracke",
+    "monsters": [
+      {
+        "monster": "mon_gracke",
+        "freq": 60,
+        "cost_multiplier": 2
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_DEERS",
+    "default": "mon_fear_deer",
+    "monsters": [
+      {
+        "monster": "mon_fear_deer",
+        "freq": 20,
+        "cost_multiplier": 2,
+        "starts": 192
+      },
+      {
+        "monster": "mon_fear_deer_fawn",
+        "freq": 5,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_fear_deer_fawn",
+        "freq": 10,
+        "cost_multiplier": 2,
+        "starts": 8640
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_DISTORTED_MICROLAB",
+    "default": "mon_nether_eater",
+    "monsters": [
+      {
+        "monster": "mon_feral_scientist_psychic",
+        "freq": 20,
+        "cost_multiplier": 1
+      },
+      {
+        "monster": "mon_feral_human_porter3",
+        "freq": 35,
+        "cost_multiplier": 1
+      },
+      {
+        "monster": "mon_nether_eater",
+        "freq": 60,
+        "cost_multiplier": 1
+      },
+      {
+        "monster": "mon_nether_silent_one_passive",
+        "freq": 30,
+        "cost_multiplier": 2
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_EGG_CHICKEN",
+    "monsters": [
+      {
+        "monster": "mon_cockatrice_chick",
+        "freq": 5,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_chicken_chick",
+        "freq": 95,
+        "cost_multiplier": 0
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_EGG_COCKATRICE",
+    "monsters": [
+      {
+        "monster": "mon_cockatrice_chick",
+        "freq": 100,
+        "cost_multiplier": 0
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_EGG_PIGEON",
+    "default": "mon_pigeon_passenger_chick",
+    "monsters": [
+      {
+        "monster": "mon_pigeon_passenger_chick",
+        "freq": 5,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_FEAR_HAWKS",
+    "default": "mon_fear_hawk",
+    "monsters": [
+      {
+        "monster": "mon_fear_hawk",
+        "freq": 1000,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_FERAL_BIOKINETIC",
+    "default": "mon_feral_human_bio",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 25,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_bio2",
+        "freq": 8,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_bio3",
+        "freq": 1,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_FERAL_BIOKINETIC_VITAKINETIC",
+    "default": "mon_feral_human_bio",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 25,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 25,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_bio2",
+        "freq": 8,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita2",
+        "freq": 8,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_bio3",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita3",
+        "freq": 1,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_FERAL_CLAIRSENTIENT",
+    "default": "mon_feral_human_clair",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 25,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_clair2",
+        "freq": 8,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_clair3",
+        "freq": 1,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_FERAL_CLAIRSENTIENT_TELEPATH",
+    "default": "mon_feral_human_clair",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 25,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 25,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_clair2",
+        "freq": 8,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_teep2",
+        "freq": 8,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_clair3",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_teep3",
+        "freq": 1,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_FERAL_PSYCHIC",
+    "default": "mon_feral_human_bio",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 1,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_electrokin",
+        "freq": 1,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_photokin",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_pyrokin",
+        "freq": 1,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_telekin",
+        "freq": 1,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_porter",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 1,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_FERAL_TELEPATH",
+    "default": "mon_feral_human_teep",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 25,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_teep2",
+        "freq": 8,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_FERAL_TELEPORTER",
+    "default": "mon_feral_human_porter",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_porter",
+        "freq": 25,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_porter2",
+        "freq": 8,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_porter3",
+        "freq": 1,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_FOREST",
+    "is_animal": true,
+    "monsters": [
+      {
+        "monster": "mon_hidebehind",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_psi_gremlin",
+        "freq": 5,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_psi_gremlin",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "pack_size": [
+          2,
+          3
+        ]
+      },
+      {
+        "monster": "mon_cockatrice",
+        "freq": 4,
+        "cost_multiplier": 0,
+        "starts": 2016
+      },
+      {
+        "monster": "mon_cockatrice",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "pack_size": [
+          3,
+          5
+        ],
+        "starts": 2016
+      },
+      {
+        "monster": "mon_hodag",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 17280
+      },
+      {
+        "monster": "mon_bandersnatch",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_fear_hawk",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_hellhound",
+        "freq": 4,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_hidebehind",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 1344
+      },
+      {
+        "monster": "mon_psi_gremlin",
+        "freq": 5,
+        "cost_multiplier": 0,
+        "starts": 1344
+      },
+      {
+        "monster": "mon_psi_gremlin",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "pack_size": [
+          2,
+          3
+        ],
+        "starts": 1344
+      },
+      {
+        "monster": "mon_cockatrice",
+        "freq": 4,
+        "cost_multiplier": 0,
+        "starts": 2016
+      },
+      {
+        "monster": "mon_cockatrice",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "pack_size": [
+          3,
+          5
+        ],
+        "starts": 2016
+      },
+      {
+        "monster": "mon_hodag",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 17280
+      },
+      {
+        "monster": "mon_bandersnatch",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 1344
+      },
+      {
+        "monster": "mon_fear_hawk",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 1344
+      },
+      {
+        "monster": "mon_hellhound",
+        "freq": 4,
+        "cost_multiplier": 0,
+        "starts": 1344
+      },
+      {
+        "monster": "mon_hidebehind",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_psi_gremlin",
+        "freq": 5,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_psi_gremlin",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "pack_size": [
+          2,
+          3
+        ],
+        "starts": 2688
+      },
+      {
+        "monster": "mon_cockatrice",
+        "freq": 4,
+        "cost_multiplier": 0,
+        "starts": 2016
+      },
+      {
+        "monster": "mon_cockatrice",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "pack_size": [
+          3,
+          5
+        ],
+        "starts": 2016
+      },
+      {
+        "monster": "mon_hodag",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 17280
+      },
+      {
+        "monster": "mon_bandersnatch",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_fear_hawk",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_hellhound",
+        "freq": 4,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_hidebehind",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 8640
+      },
+      {
+        "monster": "mon_psi_gremlin",
+        "freq": 5,
+        "cost_multiplier": 0,
+        "starts": 8640
+      },
+      {
+        "monster": "mon_psi_gremlin",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "pack_size": [
+          2,
+          3
+        ],
+        "starts": 8640
+      },
+      {
+        "monster": "mon_cockatrice",
+        "freq": 4,
+        "cost_multiplier": 0,
+        "starts": 2016
+      },
+      {
+        "monster": "mon_cockatrice",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "pack_size": [
+          3,
+          5
+        ],
+        "starts": 2016
+      },
+      {
+        "monster": "mon_hodag",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 17280
+      },
+      {
+        "monster": "mon_bandersnatch",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 8640
+      },
+      {
+        "monster": "mon_fear_hawk",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 8640
+      },
+      {
+        "monster": "mon_hellhound",
+        "freq": 4,
+        "cost_multiplier": 0,
+        "starts": 8640
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_LAB",
+    "monsters": [
+      {
+        "monster": "mon_feral_scientist_psychic",
+        "freq": 15,
+        "cost_multiplier": 10
+      },
+      {
+        "monster": "mon_feral_security_psychic",
+        "freq": 12,
+        "cost_multiplier": 4
+      },
+      {
+        "monster": "mon_feral_security_captain_psychic",
+        "freq": 6,
+        "cost_multiplier": 10
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 50,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 20,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_LAB_BASIC_SECURITY",
+    "default": "mon_feral_security_psychic",
+    "monsters": [
+      {
+        "monster": "mon_feral_security_psychic",
+        "freq": 5,
+        "cost_multiplier": 4
+      },
+      {
+        "monster": "mon_feral_security_captain_psychic",
+        "freq": 2,
+        "cost_multiplier": 10
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_LAB_RESEARCH",
+    "default": "mon_zombie_scientist_phavian",
+    "monsters": [
+      {
+        "monster": "mon_feral_labsecurity_9mm",
+        "freq": 18,
+        "cost_multiplier": 8
+      },
+      {
+        "monster": "mon_feral_labsecurity_flashlight",
+        "freq": 18,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_scientist_scalpel",
+        "freq": 20,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_scientist_psychic",
+        "freq": 5,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_feral_security_captain_psychic",
+        "freq": 8,
+        "cost_multiplier": 10
+      },
+      {
+        "monster": "mon_feral_security_psychic",
+        "freq": 25,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 3,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_electrokin",
+        "freq": 3,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_photokin",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_pyrokin",
+        "freq": 3,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_telekin",
+        "freq": 3,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_porter",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_labsecurity",
+        "freq": 400,
+        "cost_multiplier": 2,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_scientist",
+        "freq": 100,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_scientist",
+        "freq": 40,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          5
+        ]
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 300,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 150,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          5
+        ]
+      },
+      {
+        "monster": "mon_zombie_technician",
+        "freq": 100,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_tool",
+        "freq": 25,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_hazmat",
+        "freq": 200,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_necro",
+        "freq": 15,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_zombie_electric",
+        "freq": 50,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_science_bot",
+        "freq": 80,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_secubot",
+        "freq": 1,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_zombie",
+        "freq": 100,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_fat",
+        "freq": 20,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_tough",
+        "freq": 40,
+        "cost_multiplier": 2,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_brute",
+        "freq": 10,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_zombie_crawler",
+        "freq": 50,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_manhack",
+        "freq": 200,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_manhack",
+        "freq": 45,
+        "cost_multiplier": 0,
+        "pack_size": [
+          2,
+          3
+        ]
+      },
+      {
+        "monster": "mon_mutant_experimental",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_skitterbot",
+        "freq": 85,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_skitterbot",
+        "freq": 85,
+        "cost_multiplier": 0,
+        "pack_size": [
+          2,
+          3
+        ]
+      },
+      {
+        "monster": "mon_skitterbot",
+        "freq": 10,
+        "cost_multiplier": 0,
+        "pack_size": [
+          8,
+          12
+        ]
+      },
+      {
+        "monster": "mon_blob_small",
+        "freq": 10,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          4
+        ]
+      },
+      {
+        "monster": "mon_zombie_armored",
+        "freq": 5,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_zombie_brute_shocker",
+        "freq": 5,
+        "cost_multiplier": 5
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_LAB_RESEARCHERS",
+    "default": "mon_zombie_scientist_phavian",
+    "monsters": [
+      {
+        "monster": "mon_feral_scientist_psychic",
+        "freq": 10,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 150,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 5,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          2
+        ]
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_LAB_SECURITY_PHAVIAN",
+    "default": "mon_zombie_labsecurity",
+    "monsters": [
+      {
+        "monster": "mon_feral_labsecurity_9mm",
+        "freq": 250,
+        "cost_multiplier": 8
+      },
+      {
+        "monster": "mon_feral_labsecurity_flashlight",
+        "freq": 150,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_security_captain_psychic",
+        "freq": 8,
+        "cost_multiplier": 10
+      },
+      {
+        "monster": "mon_feral_security_psychic",
+        "freq": 25,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_zombie_labsecurity",
+        "freq": 100,
+        "cost_multiplier": 2,
+        "pack_size": [
+          1,
+          3
+        ]
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_LAB_SURFACE",
+    "monsters": [
+      {
+        "monster": "mon_feral_scientist_psychic",
+        "freq": 10,
+        "cost_multiplier": 10
+      },
+      {
+        "monster": "mon_feral_security_psychic",
+        "freq": 12,
+        "cost_multiplier": 4
+      },
+      {
+        "monster": "mon_feral_security_captain_psychic",
+        "freq": 6,
+        "cost_multiplier": 10
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 50,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 20,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_MANSION_START",
+    "default": "mon_feral_human_clair",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 40,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 40,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_MEATLAB",
+    "default": "mon_amalgamation_vitakinetic_debuffer",
+    "monsters": [
+      {
+        "monster": "mon_amalgamation_photokinetic_flashbanger",
+        "freq": 5,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_amalgamation_photokinetic_flashbanger",
+        "freq": 10,
+        "cost_multiplier": 0,
+        "starts": 5376
+      },
+      {
+        "monster": "mon_amalgamation_telepathic_distractor",
+        "freq": 10,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_amalgamation_telepathic_distractor",
+        "freq": 15,
+        "cost_multiplier": 0,
+        "starts": 5376
+      },
+      {
+        "monster": "mon_amalgamation_telekinetic_shielder",
+        "freq": 5,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_amalgamation_telekinetic_shielder",
+        "freq": 10,
+        "cost_multiplier": 0,
+        "starts": 5376
+      },
+      {
+        "monster": "mon_amalgamation_vitakinetic_debuffer",
+        "freq": 10,
+        "cost_multiplier": 0,
+        "starts": 2688
+      },
+      {
+        "monster": "mon_amalgamation_vitakinetic_debuffer",
+        "freq": 20,
+        "cost_multiplier": 0,
+        "starts": 5376
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_MI-GO_BASE_BOSS",
+    "monsters": [
+      {
+        "monster": "mon_mi_go_telepath",
+        "freq": 200,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_mi_go_telepath",
+        "freq": 50,
+        "cost_multiplier": 5,
+        "pack_size": [
+          2,
+          3
+        ]
+      },
+      {
+        "monster": "mon_mi_go_photokinetic",
+        "freq": 200,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_mi_go_photokinetic",
+        "freq": 50,
+        "cost_multiplier": 5,
+        "pack_size": [
+          2,
+          3
+        ]
+      },
+      {
+        "monster": "mon_mi_go_biokinetic",
+        "freq": 200,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_mi_go_biokinetic",
+        "freq": 50,
+        "cost_multiplier": 20,
+        "pack_size": [
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_MI-GO_BASE_CAPTORS",
+    "monsters": [
+      {
+        "monster": "mon_mi_go_telepath",
+        "freq": 300,
+        "cost_multiplier": 2,
+        "starts": 840
+      },
+      {
+        "monster": "mon_mi_go_photokinetic",
+        "freq": 300,
+        "cost_multiplier": 2,
+        "starts": 840
+      },
+      {
+        "monster": "mon_mi_go_biokinetic",
+        "freq": 50,
+        "cost_multiplier": 8,
+        "starts": 840
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_MI-GO_BASE_COMMON",
+    "monsters": [
+      {
+        "monster": "mon_mi_go_telepath",
+        "freq": 50,
+        "cost_multiplier": 2,
+        "starts": 840
+      },
+      {
+        "monster": "mon_mi_go_photokinetic",
+        "freq": 50,
+        "cost_multiplier": 2,
+        "starts": 840
+      },
+      {
+        "monster": "mon_mi_go_biokinetic",
+        "freq": 15,
+        "cost_multiplier": 8,
+        "starts": 840
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_MI-GO_PSIONS",
+    "default": "mon_mi_go_telepath",
+    "monsters": [
+      {
+        "monster": "mon_mi_go_telepath",
+        "freq": 50,
+        "cost_multiplier": 20,
+        "starts": 840
+      },
+      {
+        "monster": "mon_mi_go_photokinetic",
+        "freq": 50,
+        "cost_multiplier": 2,
+        "starts": 840
+      },
+      {
+        "monster": "mon_mi_go_biokinetic",
+        "freq": 20,
+        "cost_multiplier": 70,
+        "starts": 840
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_MICROLAB",
+    "monsters": [
+      {
+        "monster": "mon_feral_scientist_psychic",
+        "freq": 2,
+        "cost_multiplier": 10
+      },
+      {
+        "monster": "mon_feral_security_psychic",
+        "freq": 12,
+        "cost_multiplier": 4
+      },
+      {
+        "monster": "mon_feral_security_captain_psychic",
+        "freq": 6,
+        "cost_multiplier": 10
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 60,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 5,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_feral_human_porter",
+        "freq": 10,
+        "cost_multiplier": 3
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_MUTANT_PET_DOGS",
+    "default": "mon_dog_mutant_mongrel",
+    "monsters": [
+      {
+        "monster": "mon_dire_hound",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 5568
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_NETHER",
+    "monsters": [
+      {
+        "monster": "mon_nether_eater",
+        "freq": 120,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_nether_silent_one_passive",
+        "freq": 50,
+        "cost_multiplier": 2
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_NETHER_PORTAL",
+    "monsters": [
+      {
+        "monster": "mon_nether_eater",
+        "freq": 200,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_nether_silent_one_passive",
+        "freq": 200,
+        "cost_multiplier": 0
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_NETHER_REALITY_TEAR_FIELD",
+    "default": "mon_nether_eater",
+    "monsters": [
+      {
+        "monster": "mon_nether_eater",
+        "freq": 100,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_nether_silent_one_passive",
+        "freq": 100,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_PARK_DOG",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 2,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_electrokin",
+        "freq": 2,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_photokin",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_pyrokin",
+        "freq": 1,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_telekin",
+        "freq": 2,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_porter",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 2,
+        "cost_multiplier": 0
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_PARK_SCENIC",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 2,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_electrokin",
+        "freq": 2,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_photokin",
+        "freq": 2,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_pyrokin",
+        "freq": 1,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_telekin",
+        "freq": 2,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_porter",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 2,
+        "cost_multiplier": 0
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_PET_DOGS",
+    "default": "mon_dog",
+    "monsters": [
+      {
+        "monster": "mon_hellhound",
+        "freq": 5,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_hellhound",
+        "freq": 25,
+        "cost_multiplier": 0,
+        "starts": 8640
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+    "default": "mon_zombie_scientist_phavian",
+    "monsters": [
+      {
+        "monster": "mon_feral_labsecurity_9mm",
+        "freq": 25,
+        "cost_multiplier": 8
+      },
+      {
+        "monster": "mon_feral_labsecurity_flashlight",
+        "freq": 25,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_scientist_scalpel",
+        "freq": 35,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_security_captain_psychic",
+        "freq": 12,
+        "cost_multiplier": 8
+      },
+      {
+        "monster": "mon_feral_security_psychic",
+        "freq": 45,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 7,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 7,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_bio2",
+        "freq": 2,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita2",
+        "freq": 2,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_bio3",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita3",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 1,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_electrokin",
+        "freq": 1,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_photokin",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_pyrokin",
+        "freq": 1,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_telekin",
+        "freq": 1,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_porter",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_labsecurity",
+        "freq": 400,
+        "cost_multiplier": 2,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 350,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 175,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          5
+        ]
+      },
+      {
+        "monster": "mon_zombie_technician",
+        "freq": 75,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_zombie_hazmat",
+        "freq": 25,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_necro",
+        "freq": 5,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_zombie_electric",
+        "freq": 20,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_zombie",
+        "freq": 100,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_fat",
+        "freq": 20,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_tough",
+        "freq": 40,
+        "cost_multiplier": 2,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_brute",
+        "freq": 15,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_zombie_crawler",
+        "freq": 50,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_PHAVIAN_OFFICE",
+    "default": "mon_zombie_scientist_phavian",
+    "monsters": [
+      {
+        "monster": "mon_feral_labsecurity_9mm",
+        "freq": 18,
+        "cost_multiplier": 8
+      },
+      {
+        "monster": "mon_feral_labsecurity_flashlight",
+        "freq": 18,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_scientist_scalpel",
+        "freq": 20,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_scientist_psychic",
+        "freq": 5,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_feral_security_captain_psychic",
+        "freq": 8,
+        "cost_multiplier": 8
+      },
+      {
+        "monster": "mon_feral_security_psychic",
+        "freq": 25,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 3,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_electrokin",
+        "freq": 3,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_photokin",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_pyrokin",
+        "freq": 3,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_telekin",
+        "freq": 3,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_porter",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_labsecurity",
+        "freq": 400,
+        "cost_multiplier": 2,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 300,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 150,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          5
+        ]
+      },
+      {
+        "monster": "mon_zombie_technician",
+        "freq": 100,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_zombie_hazmat",
+        "freq": 50,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_necro",
+        "freq": 5,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_zombie_electric",
+        "freq": 50,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_zombie",
+        "freq": 100,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_fat",
+        "freq": 20,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_tough",
+        "freq": 40,
+        "cost_multiplier": 2,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_brute",
+        "freq": 10,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_zombie_crawler",
+        "freq": 50,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_PHAVIAN_SKYSCRAPER_LAB",
+    "default": "mon_zombie_scientist_phavian",
+    "monsters": [
+      {
+        "monster": "mon_feral_labsecurity_9mm",
+        "freq": 25,
+        "cost_multiplier": 8
+      },
+      {
+        "monster": "mon_feral_labsecurity_flashlight",
+        "freq": 25,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_scientist_scalpel",
+        "freq": 35,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_scientist_psychic",
+        "freq": 5,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_feral_security_captain_psychic",
+        "freq": 12,
+        "cost_multiplier": 8
+      },
+      {
+        "monster": "mon_feral_security_psychic",
+        "freq": 30,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 7,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 7,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_clair2",
+        "freq": 2,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_teep2",
+        "freq": 2,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_clair3",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_teep3",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 1,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_electrokin",
+        "freq": 1,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_photokin",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_pyrokin",
+        "freq": 1,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_telekin",
+        "freq": 1,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_porter",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_labsecurity",
+        "freq": 400,
+        "cost_multiplier": 2,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 350,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_scientist_phavian",
+        "freq": 175,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          5
+        ]
+      },
+      {
+        "monster": "mon_zombie_technician",
+        "freq": 75,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_zombie_hazmat",
+        "freq": 25,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_necro",
+        "freq": 5,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_zombie_electric",
+        "freq": 20,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_zombie",
+        "freq": 100,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_fat",
+        "freq": 20,
+        "cost_multiplier": 0,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_tough",
+        "freq": 40,
+        "cost_multiplier": 2,
+        "pack_size": [
+          1,
+          3
+        ]
+      },
+      {
+        "monster": "mon_zombie_brute",
+        "freq": 15,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_zombie_crawler",
+        "freq": 50,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_PREPPER_HOUSE",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 10,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 15,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_electrokin",
+        "freq": 10,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_photokin",
+        "freq": 15,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_pyrokin",
+        "freq": 5,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_telekin",
+        "freq": 10,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 15,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_porter",
+        "freq": 5,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 15,
+        "cost_multiplier": 0
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_RABBIT_WILD",
+    "default": "mon_wild_rabbit_blinker",
+    "monsters": [
+      {
+        "monster": "mon_wild_rabbit_blinker",
+        "freq": 10,
+        "cost_multiplier": 1
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_REPRODUCTION_COW_MUTANT_BABIES",
+    "default": "mon_cow_calf",
+    "monsters": [
+      {
+        "monster": "mon_cow_calf",
+        "freq": 95,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_hodag_calf",
+        "freq": 95,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_REPRODUCTION_COW_PRE_HODAG_MUTANT_BABIES",
+    "default": "mon_cow_calf",
+    "monsters": [
+      {
+        "monster": "mon_cow_calf",
+        "freq": 75,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_hodag_calf",
+        "freq": 25,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_REPRODUCTION_DOG_HELLHOUND_BABIES",
+    "default": "mon_dog_pup",
+    "monsters": [
+      {
+        "monster": "mon_dog_pup",
+        "freq": 80,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_hellhound_pup",
+        "freq": 20,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_REPRODUCTION_FEAR_DEER_BABIES",
+    "default": "mon_deer_fawn",
+    "monsters": [
+      {
+        "monster": "mon_deer_fawn",
+        "freq": 80,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_fear_deer_fawn",
+        "freq": 20,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_REPRODUCTION_WILD_RABBIT_BLINKER_BABIES",
+    "default": "mon_wild_rabbit_blinker_baby",
+    "monsters": [
+      {
+        "monster": "mon_wild_rabbit_blinker_baby",
+        "freq": 35,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_ROOF_ANIMAL",
+    "is_animal": true,
+    "monsters": [
+      {
+        "monster": "mon_cockatrice",
+        "freq": 2,
+        "cost_multiplier": 2,
+        "starts": 2016
+      },
+      {
+        "monster": "mon_cockatrice",
+        "freq": 10,
+        "cost_multiplier": 10,
+        "pack_size": [
+          3,
+          5
+        ],
+        "starts": 2016
+      },
+      {
+        "monster": "mon_pigeon_passenger",
+        "freq": 2,
+        "cost_multiplier": 2,
+        "starts": 2016
+      },
+      {
+        "monster": "mon_pigeon_passenger",
+        "freq": 10,
+        "cost_multiplier": 10,
+        "pack_size": [
+          3,
+          5
+        ],
+        "starts": 2016
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_SAFE",
+    "is_animal": true,
+    "monsters": [
+      {
+        "monster": "mon_cockatrice",
+        "freq": 2,
+        "cost_multiplier": 0,
+        "starts": 2016
+      },
+      {
+        "monster": "mon_psi_gremlin",
+        "freq": 2,
+        "cost_multiplier": 0
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_SPAWN_PSI_RAPTOR",
+    "default": "mon_spawn_raptor_teke_push",
+    "monsters": [
+      {
+        "monster": "mon_spawn_raptor_teke_push",
+        "freq": 2,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_spawn_raptor_pyro_hot_air",
+        "freq": 1,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_spawn_raptor_teleport_blink",
+        "freq": 1,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_STRAY_DOGS",
+    "monsters": [
+      {
+        "monster": "mon_hellhound",
+        "freq": 3,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_hellhound",
+        "freq": 15,
+        "cost_multiplier": 0,
+        "starts": 8640
+      },
+      {
+        "monster": "mon_dire_hound",
+        "freq": 1,
+        "cost_multiplier": 0,
+        "starts": 5568
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_TRIFFID",
+    "monsters": [
+      {
+        "monster": "mon_triffid_clairsentient",
+        "freq": 10,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_triffid_pyrokinetic",
+        "freq": 10,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_triffid_teleporter",
+        "freq": 5,
+        "cost_multiplier": 0
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_TRIFFID_HEARTGUARDS",
+    "monsters": [
+      {
+        "monster": "mon_triffid_clairsentient",
+        "freq": 60,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_triffid_pyrokinetic",
+        "freq": 60,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_triffid_teleporter",
+        "freq": 30,
+        "cost_multiplier": 0
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_TRIFFID_OUTER",
+    "monsters": [
+      {
+        "monster": "mon_triffid_clairsentient",
+        "freq": 20,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_triffid_pyrokinetic",
+        "freq": 20,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_triffid_teleporter",
+        "freq": 10,
+        "cost_multiplier": 0
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_TRIFFID_PSIONS",
+    "default": "mon_triffid_clairsentient",
+    "monsters": [
+      {
+        "monster": "mon_triffid_clairsentient",
+        "freq": 400,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_triffid_pyrokinetic",
+        "freq": 400,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_triffid_teleporter",
+        "freq": 200,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_WILDERNESS_FOREST_MAMMAL_MUTANT",
+    "default": "mon_cockatrice",
+    "is_animal": true,
+    "monsters": [
+      {
+        "monster": "mon_hodag",
+        "freq": 1,
+        "cost_multiplier": 10,
+        "starts": 17280
+      },
+      {
+        "monster": "mon_cockatrice",
+        "freq": 5,
+        "cost_multiplier": 10,
+        "pack_size": [
+          3,
+          5
+        ],
+        "starts": 2016
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_WILDERNESS_FOREST_MAMMAL_WINTER",
+    "default": "mon_hidebehind",
+    "monsters": [
+      {
+        "monster": "mon_hidebehind",
+        "freq": 1,
+        "cost_multiplier": 10,
+        "starts": 192
+      },
+      {
+        "monster": "mon_psi_gremlin",
+        "freq": 1,
+        "cost_multiplier": 10,
+        "starts": 192
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_ZOMBIE",
+    "monsters": [
+      {
+        "monster": "mon_feral_human_bio",
+        "freq": 1,
+        "cost_multiplier": 4
+      },
+      {
+        "monster": "mon_feral_human_clair",
+        "freq": 1,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_electrokin",
+        "freq": 1,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_feral_human_photokin",
+        "freq": 1,
+        "cost_multiplier": 4
+      },
+      {
+        "monster": "mon_feral_human_pyrokin",
+        "freq": 1,
+        "cost_multiplier": 5
+      },
+      {
+        "monster": "mon_feral_human_telekin",
+        "freq": 1,
+        "cost_multiplier": 4
+      },
+      {
+        "monster": "mon_feral_human_teep",
+        "freq": 1,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_porter",
+        "freq": 1,
+        "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_feral_human_vita",
+        "freq": 1,
+        "cost_multiplier": 3
+      }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_ZOMBIE_BLANK_UPGRADE",
+    "default": "mon_zombie_blank",
+    "monsters": [
+      {
+        "monster": "mon_zombie_blank",
+        "freq": 450,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_nullpsi",
+        "freq": 225,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_pupating_psi",
+        "freq": 150,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_concentration_ender",
+        "freq": 200,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_psi_void",
+        "freq": 100,
+        "cost_multiplier": 0
+      },
+      {
+        "monster": "mon_zombie_master",
+        "freq": 25,
+        "cost_multiplier": 0
+      }
+    ],
+    "auto_total": true
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_ZOMBIE_UPGRADE",
+    "monsters": [
+      {
+        "monster": "mon_zombie_blank",
+        "freq": 30,
+        "cost_multiplier": 0
+      }
+    ]
+  }
+]

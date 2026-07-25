@@ -1,0 +1,8 @@
+# Keep the working tree byte-identical to what tools/*.py emit (LF).
+# Without this, core.autocrlf=true rewrites everything to CRLF on checkout and
+# every subsequent porter run shows the whole mod as modified.
+* text=auto eol=lf
+
+*.json text eol=lf
+*.lua  text eol=lf
+*.md   text eol=lf

@@ -1,0 +1,762 @@
+[
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      [
+        "phavian_hospital_main_floor_z3_nw_upper",
+        "phavian_hospital_main_floor_z3_ncw_upper",
+        "phavian_hospital_main_floor_z3_nce_upper",
+        "phavian_hospital_main_floor_z3_ne_upper"
+      ],
+      [
+        "phavian_hospital_main_floor_z3_sw_upper",
+        "phavian_hospital_main_floor_z3_scw_upper",
+        "phavian_hospital_main_floor_z3_sce_upper",
+        "phavian_hospital_main_floor_z3_se_upper"
+      ]
+    ],
+    "object": {
+      "fill_ter": "t_linoleum_white",
+      "rows": [
+        "################################################################################################",
+        "#           #           #            #          #           #           #           #          #",
+        "#           #           #            #          #           #           #           #          #",
+        "#           #           #            #          #           #           #           #          #",
+        "#           #           #        #####          #           #           #           #          #",
+        "#           #           #        #---#          #           #           #           #          #",
+        "#           #           #        #---#          #           #           #           #          #",
+        "#           #           #||+|||||#&;;#          #           #           #           #          #",
+        "#           #           #      v     #          #           #           #           #          #",
+        "#           #           #  hUUhv     #          #           #           #           #          #",
+        "######*###########*######Yvvvvvv     #####*###########*###########*###########*##########*######",
+        "#>  #                                                                                      #   #",
+        "#>  +    \u00a3                                                                            \u00a3    +   #",
+        "######                                                                                    ######",
+        "#    #        ##+###+#######**###########**###########################++##########        #    #",
+        "#    #        #  L#  L#wwCCC  zwwww#wwCCC  zwwww#          #B\u1e5aB\u1e5aB\u1e5aB\u1e5aB#  #BB    BB#        #    #",
+        "#    \u0110        # ||# ||#wh      h hw#wh      h hw#          #B\u1e5aB\u1e5aB\u1e5aB\u1e5aB#  #\u1e5a\u1e5a\u0141  \u0141\u1e5a\u1e5a#        \u0110    #",
+        "#    #        # +T# +T#w         ||#w         ||#          #         +  #BB    BB#        #    #",
+        "######   ###### ||# ||#Uh  hww   hw#Uh   hww  hw#          #\u0141\u0141\u0141\u0141\u0141   h#  #\u1e5a\u1e5a\u0141  \u0141\u1e5a\u1e5a######   ######",
+        "#    #   #    # +T# +T#||   wUh   w#||   wwUh  w######################  +      BB#T| T#   #    #",
+        "#    #   #    # ||# ||#wh   ww   hU#wh   ww   hU#ppp\u00b3\u00b3\u00b3\u00b3\u00b3\u00b3\u00b3#B\u1e5aB\u1e5aB\u1e5aB\u1e5aB#  #\u1e5a\u1e5a\u0141  \u0141\u1e5a\u1e5a#+|+|#   #    #",
+        "#    \u0110   #    # +T# +T#U    h     w#U    h     w#p        \u00b3#B\u1e5aB\u1e5aB\u1e5aB\u1e5aB#  #BB    BB#    #   \u0110    #",
+        "#    #   #    # ||# ||#wh |h  h| hw#wh |h  h| hw#p \u00b3\u00b3\u00b3\u00b3\u00b3\u00b3 \u00b3#         +  ##########    #   #    #",
+        "######   #    # +T# +T#www|Uwww|www#www|Uwww|www#p        \u00b3#\u0141\u0141\u0141\u0141\u0141   h#           +  LL#   ######",
+        "######   ############################################\u0254############################| ||#   ######",
+        "#    #   #    #                                z#     PPPPP#IIIIIIII#           #|| ||#   #    #",
+        "#    #   #    #\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc#  \u00a2         \u00a2#I      I#           #Wj jW#   #    #",
+        "#    \u0110   #    #\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc#  \u00a2  \u00a2L  L\u00a2 M#G G  G G#           #|| ||#   \u0110    #",
+        "#    #   #    #\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc#  \u00a2  \u00a2\u00a2  \u00a2\u00a2 M#G G  G G#           #Wj jW#   #    #",
+        "######   ######\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc#  \u00a2  \u00a2\u00a2  \u00a2\u00a2 M#G G  G G#           #######   ######",
+        "#    #        #\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc#  \u00a2  \u00a2L  L\u00a2 M#i G  G i#            #        #    #",
+        "#    #        #\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc\u00fch h\u00fc#  #  \u00a2\u00a2  \u00a2\u00a2 M#i G  G i#            #        #    #",
+        "#    \u0110        #                                z#z        \u00a2#ii    ii#            #        \u0254    #",
+        "#    #        ##################**###################**########**#################        #   <#",
+        "######                                                                                    ######",
+        "#   +     \u00a3                                                                           \u00a3    +  >#",
+        "#   #                                                                                      #  >#",
+        "######*###########*###########*###########*###########*###########*###########*##########*######",
+        "#           #           #           #           #           #           #           #          #",
+        "#           #           #           #           #           #           #           #          #",
+        "#           #           #           #           #           #           #           #          #",
+        "#           #           #           #           #           #           #           #          #",
+        "#           #           #           #           #           #           #           #          #",
+        "#           #           #           #           #           #           #           #          #",
+        "#           #           #           #           #           #           #           #          #",
+        "#           #           #           #           #           #           #           #          #",
+        "#           #           #           #           #           #           #           #          #",
+        "################################################################################################"
+      ],
+      "palettes": [
+        "phavian_hospital_lab"
+      ],
+      "terrain": {
+        "\u0166": "t_linoleum_white",
+        "\u00a3": "t_linoleum_white",
+        "\u00b0": "t_wall_metal",
+        ";": "t_door_metal_locked",
+        "\u02fd": "t_card_science",
+        "-": "t_metal_floor"
+      },
+      "furniture": {
+        "\u00a2": "f_counter",
+        "`": "f_dishwasher",
+        "\u00b3": "f_rack"
+      },
+      "items": {
+        "\u00a2": [
+          {
+            "item": "dining_hall_utensils",
+            "chance": 3
+          },
+          {
+            "item": "kitchen_appliances",
+            "chance": 20,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "dishes_utility",
+            "chance": 20,
+            "repeat": [
+              1,
+              2
+            ]
+          }
+        ],
+        "B": [
+          {
+            "item": "bed",
+            "chance": 30,
+            "repeat": [
+              1,
+              2
+            ]
+          }
+        ],
+        "p": [
+          {
+            "item": "restaur_fridge",
+            "chance": 70,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "SUS_fridge",
+            "chance": 90,
+            "repeat": [
+              1,
+              2
+            ]
+          }
+        ],
+        "P": [
+          {
+            "item": "restaur_fridge",
+            "chance": 70,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "baked_goods",
+            "chance": 40
+          },
+          {
+            "item": "SUS_fridge",
+            "chance": 90,
+            "repeat": [
+              1,
+              2
+            ]
+          }
+        ],
+        "w": [
+          {
+            "item": "SUS_office_desk",
+            "chance": 40
+          },
+          {
+            "item": "lab_files_psi",
+            "chance": 5
+          },
+          {
+            "item": "dist_lab_file_phavian_internal",
+            "chance": 2
+          }
+        ],
+        "\u00b3": [
+          {
+            "item": "restaur_kitchen",
+            "chance": 20,
+            "repeat": [
+              1,
+              3
+            ]
+          },
+          {
+            "item": "groce_bread",
+            "chance": 30,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "SUS_pantry",
+            "chance": 60,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "cannedfood",
+            "chance": 60,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "groce_condiment",
+            "chance": 20,
+            "repeat": [
+              1,
+              2
+            ]
+          }
+        ],
+        "H": {
+          "item": "laundry",
+          "chance": 20,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "I": {
+          "item": "laundry",
+          "chance": 20,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "M": {
+          "item": "SUS_oven",
+          "chance": 90,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "z": {
+          "item": "trash",
+          "chance": 80,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "C": {
+          "item": "SUS_office_filing_cabinet",
+          "chance": 60,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        "\u00fc": {
+          "item": "dining_hall_utensils",
+          "chance": 20
+        },
+        "\u0141": {
+          "item": "default_zombie_clothes",
+          "chance": 50
+        },
+        "q": [
+          {
+            "item": "vending_drink",
+            "chance": 40,
+            "repeat": [
+              1,
+              2
+            ]
+          },
+          {
+            "item": "prepared_teas",
+            "chance": 30,
+            "repeat": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      "place_nested": [
+        {
+          "chunks": [
+            "phavian_hospital_lab_south_door_10x10_room"
+          ],
+          "x": 38,
+          "y": 0
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_south_door_10x10_room"
+          ],
+          "x": 85,
+          "y": 0
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_north_door_10x10_room"
+          ],
+          "x": 85,
+          "y": 38
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_south_door_11x11_room"
+          ],
+          "x": 1,
+          "y": 0
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_south_door_11x11_room"
+          ],
+          "x": 13,
+          "y": 0
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_south_door_11x11_room"
+          ],
+          "x": 49,
+          "y": 0
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_south_door_11x11_room"
+          ],
+          "x": 61,
+          "y": 0
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_south_door_11x11_room"
+          ],
+          "x": 73,
+          "y": 0
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_north_door_11x11_room"
+          ],
+          "x": 1,
+          "y": 37
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_north_door_11x11_room"
+          ],
+          "x": 13,
+          "y": 37
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_north_door_11x11_room"
+          ],
+          "x": 25,
+          "y": 37
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_north_door_11x11_room"
+          ],
+          "x": 37,
+          "y": 37
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_north_door_11x11_room"
+          ],
+          "x": 49,
+          "y": 37
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_north_door_11x11_room"
+          ],
+          "x": 61,
+          "y": 37
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_north_door_11x11_room"
+          ],
+          "x": 73,
+          "y": 37
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_office_east_door4x4"
+          ],
+          "x": 1,
+          "y": 14
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_office_east_door4x4"
+          ],
+          "x": 1,
+          "y": 19
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_office_east_door4x4"
+          ],
+          "x": 1,
+          "y": 25
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_office_east_door4x4"
+          ],
+          "x": 1,
+          "y": 30
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_office_west_door4x4"
+          ],
+          "x": 91,
+          "y": 14
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_office_west_door4x4"
+          ],
+          "x": 91,
+          "y": 19
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_office_west_door4x4"
+          ],
+          "x": 91,
+          "y": 25
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_storage_room_west_door4x4"
+          ],
+          "x": 91,
+          "y": 30
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_rest_area_4x4_corner_se"
+          ],
+          "x": 9,
+          "y": 14
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_rest_area_4x4_corner_sw"
+          ],
+          "x": 82,
+          "y": 14
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_rest_area_4x4_corner_ne"
+          ],
+          "x": 9,
+          "y": 30
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_rest_area_4x4_corner_nw"
+          ],
+          "x": 82,
+          "y": 30
+        },
+        {
+          "chunks": [
+            "phavian_hospital_lab_security_area_12x12"
+          ],
+          "x": 25,
+          "y": 1
+        }
+      ],
+      "place_monster": [
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "x": [
+            1,
+            23
+          ],
+          "y": [
+            11,
+            12
+          ],
+          "repeat": [
+            1,
+            4
+          ],
+          "chance": 70
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "x": [
+            24,
+            47
+          ],
+          "y": [
+            11,
+            12
+          ],
+          "repeat": [
+            2,
+            4
+          ],
+          "chance": 70
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "x": [
+            48,
+            71
+          ],
+          "y": [
+            11,
+            12
+          ],
+          "repeat": [
+            2,
+            4
+          ],
+          "chance": 70
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "x": [
+            72,
+            95
+          ],
+          "y": [
+            11,
+            12
+          ],
+          "repeat": [
+            2,
+            4
+          ],
+          "chance": 70
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "x": [
+            1,
+            23
+          ],
+          "y": [
+            35,
+            36
+          ],
+          "repeat": [
+            2,
+            4
+          ],
+          "chance": 70
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "x": [
+            24,
+            47
+          ],
+          "y": [
+            35,
+            36
+          ],
+          "repeat": [
+            2,
+            4
+          ],
+          "chance": 70
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "x": [
+            48,
+            71
+          ],
+          "y": [
+            35,
+            36
+          ],
+          "repeat": [
+            2,
+            4
+          ],
+          "chance": 70
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "x": [
+            72,
+            95
+          ],
+          "y": [
+            35,
+            36
+          ],
+          "repeat": [
+            2,
+            4
+          ],
+          "chance": 70
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "//": "Left side bathroom",
+          "x": [
+            15,
+            22
+          ],
+          "y": [
+            15,
+            23
+          ],
+          "repeat": [
+            1,
+            4
+          ],
+          "chance": 70
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "x": [
+            60,
+            67
+          ],
+          "y": [
+            15,
+            23
+          ],
+          "repeat": [
+            1,
+            5
+          ],
+          "chance": 70
+        },
+        {
+          "group": "GROUP_FERAL_BIOKINETIC_VITAKINETIC",
+          "x": [
+            60,
+            67
+          ],
+          "y": [
+            15,
+            23
+          ],
+          "chance": 30,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "x": [
+            72,
+            79
+          ],
+          "y": [
+            15,
+            23
+          ],
+          "repeat": [
+            1,
+            5
+          ],
+          "chance": 70
+        },
+        {
+          "group": "GROUP_FERAL_BIOKINETIC_VITAKINETIC",
+          "x": [
+            72,
+            79
+          ],
+          "y": [
+            15,
+            23
+          ],
+          "chance": 30,
+          "repeat": [
+            1,
+            2
+          ]
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "//": "Cafeteria",
+          "x": [
+            15,
+            23
+          ],
+          "y": [
+            25,
+            32
+          ],
+          "repeat": [
+            2,
+            6
+          ],
+          "chance": 70
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "//": "Cafeteria",
+          "x": [
+            24,
+            47
+          ],
+          "y": [
+            25,
+            32
+          ],
+          "repeat": [
+            4,
+            8
+          ],
+          "chance": 85
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "//": "Kitchen",
+          "x": [
+            48,
+            58
+          ],
+          "y": [
+            25,
+            32
+          ],
+          "repeat": [
+            1,
+            5
+          ],
+          "chance": 70
+        },
+        {
+          "group": "GROUP_PHAVIAN_CITY_HOSPITAL_LAB",
+          "//": "Middle office rooms",
+          "x": [
+            24,
+            47
+          ],
+          "y": [
+            15,
+            23
+          ],
+          "repeat": [
+            4,
+            9
+          ],
+          "chance": 70
+        }
+      ]
+    },
+    "method": "json"
+  }
+]

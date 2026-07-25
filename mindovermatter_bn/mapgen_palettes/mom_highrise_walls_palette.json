@@ -1,0 +1,11 @@
+[
+  {
+    "//": "BN-native replacement for DDA base's parametrized_highrise_walls_palette (data/json/mapgen_palettes/common_parameters.json), which BN doesn't ship. MoM's phavian_skyscraper_office_palette includes it for the '|' interior-wall glyph (and '#' exterior, which the office palette itself overrides to t_concrete_wall). DDA randomized among 13 colored structural-concrete walls; BN has only the base t_strconc_wall (all t_strconc_wall_<color> variants are absent), which is exactly the fallback DDA used for both glyphs, so the appearance is faithful. Plain terrain map avoids depending on colored terrains BN lacks.",
+    "type": "palette",
+    "id": "parametrized_highrise_walls_palette",
+    "terrain": {
+      "|": "t_strconc_wall",
+      "#": "t_strconc_wall"
+    }
+  }
+]

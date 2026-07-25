@@ -1,0 +1,184 @@
+[
+  {
+    "id": "mon_mi_go_biokinetic",
+    "copy-from": "mon_mi_go_myrmidon",
+    "type": "MONSTER",
+    "name": {
+      "str": "mi-go juggernaut"
+    },
+    "description": "This creature resembles the smaller mi-go like a grizzly bear resembles a human.  Its enormous, thick body is covered in an iridescent segmented carapace, like a scarab crossed with an isopod.  It boasts several pairs of deadly looking claws and other appendages, and it moves with a strange, slow grace, like an otherworldly dancer.  Sometimes, it moves so quickly that its movements are only a blur.",
+    "looks_like": "mon_mi_go_myrmidon",
+    "bodytype": "migo",
+    "species": [
+      "MIGO"
+    ],
+    "proportional": {
+      "speed": 1.2
+    },
+    "relative": {
+      "dodge": 2,
+      "armor_bash": 3,
+      "armor_cut": 3,
+      "armor_bullet": 4
+    },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "leap",
+          "cooldown": 4,
+          "move_cost": 50,
+          "allow_no_target": true,
+          "max_range": 7,
+          "message": "%1$s moves so quickly your eyes can barely follow it!"
+        },
+        {
+          "id": "psi_juggernaut_speed_boost",
+          "type": "spell",
+          "spell_data": {
+            "id": "biokinetic_speed_boost_monster_01",
+            "min_level": 5
+          },
+          "cooldown": 18,
+          "monster_message": "%1$s moves so quickly it's nothing but a blur!"
+        },
+        {
+          "id": "psi_juggernaut_heightened_reflexes",
+          "type": "spell",
+          "spell_data": {
+            "id": "biokinetic_heightened_reflexes_enhanced_monster"
+          },
+          "cooldown": 600,
+          "monster_message": "%1$s begins moving much more quickly."
+        }
+      ],
+      "flags": [
+        "STUN_IMMUNE"
+      ]
+    },
+    "armor_bash": 22,
+    "armor_cut": 30,
+    "armor_bullet": 26,
+    "armor_electric": 6
+  },
+  {
+    "id": "mon_mi_go_photokinetic",
+    "copy-from": "mon_mi_go_slaver",
+    "type": "MONSTER",
+    "name": {
+      "str": "mi-go lightbringer"
+    },
+    "description": "An alien creature of uncertain origin.  Its shapeless pink body bears numerous sets of paired appendages of unknown function, and a pair of ribbed, membranous wings which seem to be quite useless.  Its odd, vaguely pyramid-shaped head bristles with numerous wavering antennae, and it moves with an uncanny fluidity on its many legs.",
+    "looks_like": "mon_mi_go_slaver",
+    "special_attacks": [
+      [
+        "PARROT",
+        100
+      ],
+      {
+        "id": "scratch",
+        "damage_max_instance": [
+          {
+            "damage_type": "cut",
+            "amount": 23,
+            "armor_multiplier": 0.8
+          }
+        ],
+        "cooldown": 20,
+        "type": "melee"
+      },
+      {
+        "id": "psi_mi-go_illumination",
+        "type": "spell",
+        "spell_data": {
+          "id": "photokinetic_illumination_migo",
+          "min_level": 5
+        },
+        "cooldown": 30,
+        "monster_message": "%1$s's numerous antennae sync their movements for a brief moment."
+      },
+      {
+        "id": "psi_mi-go_laser",
+        "type": "spell",
+        "spell_data": {
+          "id": "photokinetic_light_beam_monster",
+          "min_level": 7
+        },
+        "cooldown": 20,
+        "monster_message": "%1$s's numerous antennae sync their movements for a brief moment."
+      },
+      {
+        "id": "psi_mi-go_radiation",
+        "type": "spell",
+        "spell_data": {
+          "id": "photokinetic_radiation_attack_monster",
+          "min_level": 10
+        },
+        "cooldown": 24,
+        "monster_message": "%1$s's numerous antennae sync their movements for a brief moment."
+      }
+    ]
+  },
+  {
+    "id": "mon_mi_go_telepath",
+    "copy-from": "mon_mi_go_slaver",
+    "type": "MONSTER",
+    "name": {
+      "str": "mi-go mindrender"
+    },
+    "description": "An alien creature of uncertain origin.  Its shapeless pink body bears numerous sets of paired appendages of unknown function, and a pair of ribbed, membranous wings which seem to be quite useless.  Its odd, vaguely pyramid-shaped head bristles with numerous wavering antennae, and it moves with an uncanny fluidity on its many legs.",
+    "looks_like": "mon_mi_go_slaver",
+    "special_attacks": [
+      [
+        "PARROT",
+        100
+      ],
+      {
+        "id": "scratch",
+        "damage_max_instance": [
+          {
+            "damage_type": "cut",
+            "amount": 23,
+            "armor_multiplier": 0.8
+          }
+        ],
+        "cooldown": 20,
+        "type": "melee"
+      },
+      {
+        "id": "psi_mi-go_telepath1_blast",
+        "type": "spell",
+        "spell_data": {
+          "id": "telepathic_blast_monster",
+          "min_level": 6
+        },
+        "cooldown": 18,
+        "monster_message": "%1$s's numerous antennae sync their movements for a brief moment."
+      },
+      {
+        "id": "psi_mi-go_hallucinations",
+        "type": "spell",
+        "spell_data": {
+          "id": "telepathic_hallucinations_monster",
+          "min_level": 10
+        },
+        "cooldown": 20,
+        "monster_message": "%1$s's numerous antennae sync their movements for a brief moment."
+      },
+      {
+        "id": "psi_mi-go_blinding",
+        "type": "spell",
+        "spell_data": {
+          "id": "telepathic_confusion_monster",
+          "min_level": 3
+        },
+        "cooldown": 30,
+        "monster_message": "A roar fills %3$s's mind and the world is blotted out!"
+      }
+    ],
+    "extend": {
+      "flags": [
+        "PSIPROOF"
+      ]
+    }
+  }
+]

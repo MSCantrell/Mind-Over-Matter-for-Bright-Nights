@@ -1,0 +1,849 @@
+[
+  {
+    "id": "biokin_physical_enhance",
+    "type": "SPELL",
+    "name": "[\u03a8]Personal Enhancement (C)",
+    "description": "You suffuse your body with psionic energy, sharpening every faculty at once: <color_light_green>Strength, Dexterity, Intelligence, and Perception</color> all rise together.  The bonus grows with both your mastery of this power and your Intelligence \u2014 from <color_light_green>+1</color> to each stat when you first learn it, up to <color_light_green>+10</color> to each at full mastery with a keen mind.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 5 leads to Burst of Speed with Enhance Mobility 6 + Heightened Reflexes 5 OR Adrenaline Trigger 8 + Enhance Mobility 6 OR Heightened Reflexes 5 + Personal Enhancement 5 OR Adrenaline Trigger 8 + Personal Enhancement 5.\nLevel 10 leads to Combat Dance with Burst of Speed 6 + Heightened Reflexes 10 + Personal Enhancement 10 OR Adrenaline Trigger 9 + Heightened Reflexes 10 + Personal Enhancement 10.\nLevel 10 leads to Enhance Mobility with Burst of Speed 10 + Heightened Reflexes 6 + Overcome Pain 4 OR Burst of Speed 10 + Flexibility 9 + Overcome Pain 4 OR Combat Dance 4 + Heightened Reflexes 6 + Overcome Pain 4 OR Combat Dance 4 + Flexibility 9 + Overcome Pain 4 OR Heightened Reflexes 6 + Overcome Pain 4 + Personal Enhancement 10 OR Flexibility 9 + Overcome Pain 4 + Personal Enhancement 10.\nLevel 6 leads to Flexibility.\nLevel 6 leads to Hammerhand with Hardened Skin 6.\nLevel 8 leads to Hardened Skin with Flexibility 7 + Personal Enhancement 8 OR Personal Enhancement 8 + Temperature Adaptability 6 OR Flexibility 7 + Overcome Pain 6 OR Overcome Pain 6 + Temperature Adaptability 6.\nLevel 6 leads to Heightened Reflexes with Adrenaline Trigger 8 + Burst of Speed 8 + Personal Enhancement 6 OR Adrenaline Trigger 8 + Flexibility 8 + Personal Enhancement 6.\nLevel 12 leads to Metabolic Hyperefficiency with Adrenaline Trigger 6 + Temperature Adaptability 8 OR Personal Enhancement 12 + Temperature Adaptability 8.\nLevel 4 leads to Oxygen Absorption with Overcome Pain 3.\nLevel 9 leads to Temperature Adaptability with Overcome Pain 5 + Personal Enhancement 9 OR Metabolic Hyperefficiency 6 + Overcome Pain 5.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 5,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_physical_enhance",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 3500,
+    "base_casting_time": 120,
+    "energy_increment": -175.0,
+    "final_energy_cost": 1250,
+    "casting_time_increment": -5.5,
+    "final_casting_time": 75,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_overcome_pain",
+    "type": "SPELL",
+    "name": "[\u03a8]Overcome Pain (C)",
+    "description": "You can lessen the impact of pain on your performance, though this has no effect on the underlying injuries.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 4 leads to Enhance Mobility with Burst of Speed 10 + Heightened Reflexes 6 + Overcome Pain 4 OR Burst of Speed 10 + Flexibility 9 + Overcome Pain 4 OR Combat Dance 4 + Heightened Reflexes 6 + Overcome Pain 4 OR Combat Dance 4 + Flexibility 9 + Overcome Pain 4 OR Heightened Reflexes 6 + Overcome Pain 4 + Personal Enhancement 10 OR Flexibility 9 + Overcome Pain 4 + Personal Enhancement 10.\nLevel 6 leads to Hardened Skin with Flexibility 7 + Personal Enhancement 8 OR Personal Enhancement 8 + Temperature Adaptability 6 OR Flexibility 7 + Overcome Pain 6 OR Overcome Pain 6 + Temperature Adaptability 6.\nLevel 3 leads to Oxygen Absorption with Personal Enhancement 4.\nLevel 5 leads to Temperature Adaptability with Overcome Pain 5 + Personal Enhancement 9 OR Metabolic Hyperefficiency 6 + Overcome Pain 5.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_overcome_pain",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 1750,
+    "base_casting_time": 125,
+    "energy_increment": -75.0,
+    "final_energy_cost": 850,
+    "casting_time_increment": -7.0,
+    "final_casting_time": 50,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_breathe_skin",
+    "type": "SPELL",
+    "name": "[\u03a8]Oxygen Absorption (C)",
+    "description": "You can make the entire surface of your skin selectively permeable, allowing you to 'breathe' through it.  You can breathe in low-oxygen environments or underwater, but are more vulnerable to toxic gas.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  Oxygen Absorption <color_red>cannot be active</color> with Sealed System.\n\nLevel 5 leads to Adrenaline Trigger with Burst of Speed 8 + Oxygen Absorption 5 OR Enhance Mobility 6 + Oxygen Absorption 5.\nLevel 9 leads to Sealed System with Hammerhand 7 + Oxygen Absorption 9 OR Oxygen Absorption 9 + Temperature Adaptability 10 OR Hammerhand 7 + Hardened Skin 9 OR Hardened Skin 9 + Temperature Adaptability 10.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 2,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_breathe_skin",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 2500,
+    "base_casting_time": 70,
+    "energy_increment": -85.0,
+    "final_energy_cost": 1225,
+    "casting_time_increment": -6.0,
+    "final_casting_time": 25,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_flexibility",
+    "type": "SPELL",
+    "name": "[\u03a8]Flexibility",
+    "description": "You can make your limbs move far beyond the normal human range of motion, allowing you to twist out of others' grasp and reduce fall damage.\n\nLevel 9 leads to Enhance Mobility with Burst of Speed 10 + Heightened Reflexes 6 + Overcome Pain 4 OR Burst of Speed 10 + Flexibility 9 + Overcome Pain 4 OR Combat Dance 4 + Heightened Reflexes 6 + Overcome Pain 4 OR Combat Dance 4 + Flexibility 9 + Overcome Pain 4 OR Heightened Reflexes 6 + Overcome Pain 4 + Personal Enhancement 10 OR Flexibility 9 + Overcome Pain 4 + Personal Enhancement 10.\nLevel 7 leads to Hardened Skin with Flexibility 7 + Personal Enhancement 8 OR Personal Enhancement 8 + Temperature Adaptability 6 OR Flexibility 7 + Overcome Pain 6 OR Overcome Pain 6 + Temperature Adaptability 6.\nLevel 8 leads to Heightened Reflexes with Adrenaline Trigger 8 + Burst of Speed 8 + Personal Enhancement 6 OR Adrenaline Trigger 8 + Flexibility 8 + Personal Enhancement 6.",
+    "message": "You body begins twisting in unbelievable ways.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "effect_biokin_flexibility",
+    "base_energy_cost": 2500,
+    "final_energy_cost": 1250,
+    "energy_increment": -175,
+    "min_duration": 200,
+    "max_duration": 500,
+    "base_casting_time": 50,
+    "final_casting_time": 15,
+    "casting_time_increment": -2.5,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_biokin_flexibility",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for biokin_flexibility (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_biokin_flexibility",
+    "type": "SPELL",
+    "name": {
+      "str": "biokin_flexibility cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_biokin_flexibility",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "biokin_dash",
+    "type": "SPELL",
+    "name": "[\u03a8]Burst of Speed",
+    "description": "Like a cheetah, you can run with incredible speed for a short distance.\n\nLevel 8 leads to Adrenaline Trigger with Burst of Speed 8 + Oxygen Absorption 5 OR Enhance Mobility 6 + Oxygen Absorption 5.\nLevel 6 leads to Combat Dance with Burst of Speed 6 + Heightened Reflexes 10 + Personal Enhancement 10 OR Adrenaline Trigger 9 + Heightened Reflexes 10 + Personal Enhancement 10.\nLevel 10 leads to Enhance Mobility with Burst of Speed 10 + Heightened Reflexes 6 + Overcome Pain 4 OR Burst of Speed 10 + Flexibility 9 + Overcome Pain 4 OR Combat Dance 4 + Heightened Reflexes 6 + Overcome Pain 4 OR Combat Dance 4 + Flexibility 9 + Overcome Pain 4 OR Heightened Reflexes 6 + Overcome Pain 4 + Personal Enhancement 10 OR Flexibility 9 + Overcome Pain 4 + Personal Enhancement 10.\nLevel 8 leads to Heightened Reflexes with Adrenaline Trigger 8 + Burst of Speed 8 + Personal Enhancement 6 OR Adrenaline Trigger 8 + Flexibility 8 + Personal Enhancement 6.\nLevel 12 leads to Perfected Motion with Combat Dance 6.",
+    "message": "You move almost faster than the eye can see.",
+    "valid_targets": [
+      "ground",
+      "ally",
+      "hostile"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "dash",
+    "min_damage": 0,
+    "damage_type": "BIO",
+    "min_range": 3,
+    "max_range": 10,
+    "base_energy_cost": 3000,
+    "final_energy_cost": 1500,
+    "energy_increment": -190,
+    "base_casting_time": 75,
+    "final_casting_time": 15,
+    "casting_time_increment": -4.5,
+    "range_increment": 0.5,
+    "energy_source": "STAMINA",
+    "scale_int": true,
+    "extra_effects": [
+      {
+        "id": "momfincast_biokin_dash",
+        "hit_self": true
+      }
+    ]
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for biokin_dash (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_biokin_dash",
+    "type": "SPELL",
+    "name": {
+      "str": "biokin_dash cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_biokin_dash",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "biokin_change_appearance",
+    "type": "SPELL",
+    "name": "[\u03a8]Flesh of Clay",
+    "description": "You can reshape your physical appearance, changing hair, skin, or eye color.  Your own mother wouldn't recognize you when you're done.",
+    "message": "You physical appearance shifts!",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_change_appearance",
+    "base_energy_cost": 5000,
+    "final_energy_cost": 2000,
+    "energy_increment": -115,
+    "base_casting_time": 360000,
+    "final_casting_time": 90000,
+    "casting_time_increment": -2500,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_armor_skin",
+    "type": "SPELL",
+    "name": "[\u03a8]Hardened Skin (C)",
+    "description": "You can increase the strength of your skin, making it almost like armor while still allowing you to move freely.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 6 leads to Hammerhand with Personal Enhancement 6.\nLevel 9 leads to Sealed System with Hammerhand 7 + Oxygen Absorption 9 OR Oxygen Absorption 9 + Temperature Adaptability 10 OR Hammerhand 7 + Hardened Skin 9 OR Hardened Skin 9 + Temperature Adaptability 10.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_armor_skin",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 2500,
+    "base_casting_time": 150,
+    "energy_increment": -125.0,
+    "final_energy_cost": 750,
+    "casting_time_increment": -8.5,
+    "final_casting_time": 50,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_adrenaline",
+    "type": "SPELL",
+    "name": "[\u03a8]Adrenaline Trigger",
+    "description": "With a moment of concentration, you can trigger a surge of adrenaline.  This provides a speed boost, albeit at a draining cost when the boost expires.\n\nLevel 8 leads to Burst of Speed with Enhance Mobility 6 + Heightened Reflexes 5 OR Adrenaline Trigger 8 + Enhance Mobility 6 OR Heightened Reflexes 5 + Personal Enhancement 5 OR Adrenaline Trigger 8 + Personal Enhancement 5.\nLevel 9 leads to Combat Dance with Burst of Speed 6 + Heightened Reflexes 10 + Personal Enhancement 10 OR Adrenaline Trigger 9 + Heightened Reflexes 10 + Personal Enhancement 10.\nLevel 8 leads to Heightened Reflexes with Adrenaline Trigger 8 + Burst of Speed 8 + Personal Enhancement 6 OR Adrenaline Trigger 8 + Flexibility 8 + Personal Enhancement 6.\nLevel 12 leads to Hurricane Blows with Combat Dance 10 + Heightened Reflexes 14 OR Adrenaline Trigger 12 + Combat Dance 10.\nLevel 6 leads to Metabolic Hyperefficiency with Adrenaline Trigger 6 + Temperature Adaptability 8 OR Personal Enhancement 12 + Temperature Adaptability 8.\nLevel 6 leads to Vitaminosis with Metabolic Hyperefficiency 8.",
+    "message": "Your heartbeat surges as your body floods with adrenaline.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_adrenaline",
+    "base_energy_cost": 3500,
+    "final_energy_cost": 1800,
+    "energy_increment": -165,
+    "base_casting_time": 100,
+    "final_casting_time": 35,
+    "casting_time_increment": -5.5,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_climate_control",
+    "type": "SPELL",
+    "name": "[\u03a8]Temperature Adaptability (C)",
+    "description": "You can increase the heat dissipation and retention of your body, allowing you to function in a much wider range of temperatures.  Temperature Adaptability and Sealed System <color_red>will cancel each other</color>.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 6 leads to Hardened Skin with Flexibility 7 + Personal Enhancement 8 OR Personal Enhancement 8 + Temperature Adaptability 6 OR Flexibility 7 + Overcome Pain 6 OR Overcome Pain 6 + Temperature Adaptability 6.\nLevel 8 leads to Metabolic Hyperefficiency with Adrenaline Trigger 6 + Temperature Adaptability 8 OR Personal Enhancement 12 + Temperature Adaptability 8.\nLevel 10 leads to Sealed System with Hammerhand 7 + Oxygen Absorption 9 OR Oxygen Absorption 9 + Temperature Adaptability 10 OR Hammerhand 7 + Hardened Skin 9 OR Hardened Skin 9 + Temperature Adaptability 10.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_climate_control",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 3500,
+    "base_casting_time": 250,
+    "energy_increment": -175.0,
+    "final_energy_cost": 1250,
+    "casting_time_increment": -8.5,
+    "final_casting_time": 150,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_enhance_mobility",
+    "type": "SPELL",
+    "name": "[\u03a8]Enhance Mobility (C)",
+    "description": "Increase your range of motion and flexibility such that you can move more easily even in encumbering gear.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 6 leads to Adrenaline Trigger with Burst of Speed 8 + Oxygen Absorption 5 OR Enhance Mobility 6 + Oxygen Absorption 5.\nLevel 6 leads to Burst of Speed with Enhance Mobility 6 + Heightened Reflexes 5 OR Adrenaline Trigger 8 + Enhance Mobility 6 OR Heightened Reflexes 5 + Personal Enhancement 5 OR Adrenaline Trigger 8 + Personal Enhancement 5.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 5,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_enhance_mobility",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 4500,
+    "base_casting_time": 275,
+    "energy_increment": -150.0,
+    "final_energy_cost": 2500,
+    "casting_time_increment": -15.0,
+    "final_casting_time": 50,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_hammerhand",
+    "type": "SPELL",
+    "name": "[\u03a8]Hammerhand (C)",
+    "description": "Who needs tools?  You can apply enough raw force or torque with your bare hands to substitute for many simple tools.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 7 leads to Sealed System with Hammerhand 7 + Oxygen Absorption 9 OR Oxygen Absorption 9 + Temperature Adaptability 10 OR Hammerhand 7 + Hardened Skin 9 OR Hardened Skin 9 + Temperature Adaptability 10.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 5,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_hammerhand",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 4500,
+    "base_casting_time": 350,
+    "energy_increment": -225.0,
+    "final_energy_cost": 2250,
+    "casting_time_increment": -12.5,
+    "final_casting_time": 162,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_reflex_enhance",
+    "type": "SPELL",
+    "name": "[\u03a8]Heightened Reflexes (C)",
+    "description": "You can improve your sensory acuity and the speed at which your brain processes sensory inputs.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 5 leads to Burst of Speed with Enhance Mobility 6 + Heightened Reflexes 5 OR Adrenaline Trigger 8 + Enhance Mobility 6 OR Heightened Reflexes 5 + Personal Enhancement 5 OR Adrenaline Trigger 8 + Personal Enhancement 5.\nLevel 10 leads to Combat Dance with Burst of Speed 6 + Heightened Reflexes 10 + Personal Enhancement 10 OR Adrenaline Trigger 9 + Heightened Reflexes 10 + Personal Enhancement 10.\nLevel 6 leads to Enhance Mobility with Burst of Speed 10 + Heightened Reflexes 6 + Overcome Pain 4 OR Burst of Speed 10 + Flexibility 9 + Overcome Pain 4 OR Combat Dance 4 + Heightened Reflexes 6 + Overcome Pain 4 OR Combat Dance 4 + Flexibility 9 + Overcome Pain 4 OR Heightened Reflexes 6 + Overcome Pain 4 + Personal Enhancement 10 OR Flexibility 9 + Overcome Pain 4 + Personal Enhancement 10.\nLevel 14 leads to Hurricane Blows with Combat Dance 10 + Heightened Reflexes 14 OR Adrenaline Trigger 12 + Combat Dance 10.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 6,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_reflex_enhance",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 5500,
+    "base_casting_time": 175,
+    "energy_increment": -205.0,
+    "final_energy_cost": 2425,
+    "casting_time_increment": -5.5,
+    "final_casting_time": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_sealed_system",
+    "type": "SPELL",
+    "name": "[\u03a8]Sealed System",
+    "description": "With a deep breath, you lock your body off from the outside world.  Gas, poison, blood, bile, electricity--nothing gets in, nothing gets out.\n\nSealed System <color_red>cannot be active</color> with either Temperature Adaptability or Oxygen Absorption.",
+    "message": "You take a deep breath and seal your lips.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 7,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "effect_biokin_sealed",
+    "extra_effects": [
+      {
+        "id": "biokin_sealed_remove_climate",
+        "hit_self": true
+      },
+      {
+        "id": "biokin_sealed_remove_breathe_skin",
+        "hit_self": true
+      },
+      {
+        "id": "momfincast_biokin_sealed_system",
+        "hit_self": true
+      }
+    ],
+    "min_duration": 6000,
+    "max_duration": 67500,
+    "base_energy_cost": 5500,
+    "final_energy_cost": 2750,
+    "energy_increment": -175,
+    "base_casting_time": 200,
+    "final_casting_time": 100,
+    "casting_time_increment": -7.5,
+    "duration_increment": 800.0,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for biokin_sealed_system (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_biokin_sealed_system",
+    "type": "SPELL",
+    "name": {
+      "str": "biokin_sealed_system cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_biokin_sealed_system",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "biokin_sealed_remove_climate",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Sealed System Cancel Temperature Adaptability",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "The part of Sealed System that cancels Temperature Adaptability.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "flags": [
+      "NO_FAIL",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_sealed_remove_climate",
+    "max_level": 1,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_sealed_remove_breathe_skin",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Sealed System Cancel Oxygen Absorption",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "The part of Sealed System that cancels Oxygen Absorption.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "flags": [
+      "NO_FAIL",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_sealed_remove_breathe_skin",
+    "max_level": 1,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_metabolism_enhance",
+    "type": "SPELL",
+    "name": "[\u03a8]Metabolic Hyperefficiency (C)",
+    "description": "You can supercharge your metabolism, allowing you to eat, drink, and sleep much less than normal.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.\n\nLevel 6 leads to Temperature Adaptability with Overcome Pain 5 + Personal Enhancement 9 OR Metabolic Hyperefficiency 6 + Overcome Pain 5.\nLevel 8 leads to Vitaminosis with Adrenaline Trigger 6.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 7,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_metabolism_enhance",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 8000,
+    "base_casting_time": 250,
+    "energy_increment": -250.0,
+    "final_energy_cost": 4250,
+    "casting_time_increment": -13.0,
+    "final_casting_time": 55,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_vitaminosis",
+    "type": "SPELL",
+    "name": "[\u03a8]Vitaminosis",
+    "description": "Enter a trance and hyper focus on a narrow segment of your metabolism, supercharging your body's ability to create vitamins and expanding it beyond its normal range.  These vitamins will be created directly from your stored calories.",
+    "message": "You enter a trance and submerge your awareness into your body.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 8,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_vitaminosis",
+    "base_energy_cost": 8000,
+    "base_casting_time": 500,
+    "min_duration": 100,
+    "max_duration": 100,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_guided_evolution",
+    "type": "SPELL",
+    "name": "[\u03a8]Guided Evolution (C)",
+    "description": "With a large amount of focus, you can maintain a targeted control over any alterations to your body.  Whenever you mutate, you will have additional options to select from.  This power does not cause you to mutate on its own.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.  It requires <color_yellow>even more concentration</color> than usual.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 8,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_guided_evolution",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 8000,
+    "base_casting_time": 250,
+    "energy_increment": -250.0,
+    "final_energy_cost": 4250,
+    "casting_time_increment": -13.0,
+    "final_casting_time": 55,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_combat_dance",
+    "type": "SPELL",
+    "name": "[\u03a8]Combat Dance (C)",
+    "description": "You can flood your body with psionic power to enhance your combat prowess.\n\nLevel 4 leads to Enhance Mobility with Burst of Speed 10 + Heightened Reflexes 6 + Overcome Pain 4 OR Burst of Speed 10 + Flexibility 9 + Overcome Pain 4 OR Combat Dance 4 + Heightened Reflexes 6 + Overcome Pain 4 OR Combat Dance 4 + Flexibility 9 + Overcome Pain 4 OR Heightened Reflexes 6 + Overcome Pain 4 + Personal Enhancement 10 OR Flexibility 9 + Overcome Pain 4 + Personal Enhancement 10.\nLevel 10 leads to Hurricane Blows with Combat Dance 10 + Heightened Reflexes 14 OR Adrenaline Trigger 12 + Combat Dance 10.\nLevel 6 leads to Perfected Motion with Burst of Speed 12.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 8,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_combat_dance",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 5500,
+    "base_casting_time": 100,
+    "energy_increment": -125.0,
+    "final_energy_cost": 3625,
+    "casting_time_increment": -4.0,
+    "final_casting_time": 40,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_perfected_motion",
+    "type": "SPELL",
+    "name": "[\u03a8]Perfected Motion (C)",
+    "description": "Your control over your body allows you to move incredibly quickly.  While this does not allow you to attack more quickly, you can cross distances in the blink of an eye and outrun a cheetah.  You could even run on water, though not walk on it.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It requires <color_yellow>even more concentration</color> than usual.\n\nPerfected Motion <color_red>cannot be active</color> with Hurricane Blows.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 9,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokin_perfected_motion",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 8000,
+    "base_casting_time": 75,
+    "energy_increment": -175.0,
+    "final_energy_cost": 5375,
+    "casting_time_increment": -4.0,
+    "final_casting_time": 15,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "biokin_hurricane_blows",
+    "type": "SPELL",
+    "name": "[\u03a8]Hurricane Blows",
+    "description": "You can now strike so quickly that you don't even seem to move at all.  Before an opponent can even finish blinking, you can strike them multiple times, executing your final blow before they feel the pain of the first.  Moving while using Hurricane Blows will disrupt your concentration, ending the effect.\n\nHurricane Blows <color_red>cannot be active</color> with Perfected Motion.",
+    "message": "The world around you slows down to a stop.",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "BIOKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 10,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "effect_biokin_hurricane_blows",
+    "extra_effects": [
+      {
+        "id": "biokin_hurricane_blows_2",
+        "hit_self": true
+      },
+      {
+        "id": "momfincast_biokin_hurricane_blows",
+        "hit_self": true
+      }
+    ],
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 4500,
+    "final_energy_cost": 2500,
+    "energy_increment": -75,
+    "base_casting_time": 65,
+    "final_casting_time": 15,
+    "casting_time_increment": -3,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "//": "GENERATED spellcasting_finish caster-tag for biokin_hurricane_blows (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
+    "id": "momfincast_biokin_hurricane_blows",
+    "type": "SPELL",
+    "name": {
+      "str": "biokin_hurricane_blows cast tag",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "effect_str": "momfin_biokin_hurricane_blows",
+    "min_duration": 100,
+    "max_duration": 100
+  },
+  {
+    "id": "biokin_hurricane_blows_2",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Hurricane Blows 2",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Makes sure the extra effects of Hurricane Blows last through the power's duration.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_biokin_hurricane_blows_2",
+    "min_duration": 200,
+    "max_duration": 200,
+    "scale_int": true
+  }
+]

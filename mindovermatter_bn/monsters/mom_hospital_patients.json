@@ -1,0 +1,31 @@
+[
+  {
+    "//": "Self-contained port of the ICU 'hospitalized human' referenced by MoM's phavian hospital-lab mapgen (place_monster in the beds). DDA/BN's stock mon_civilian_icu lives in a separate Civilians mod we don't depend on, so this flattens that mod's icu->stationary->panic copy-from chain into one standalone def using only BN-base ids (faction human, species HUMAN, harvest human, hflesh). Dropped the chain's fighter cruft that made no sense for a bedridden patient: the 9999-round starting_ammo, PARROT_AT_DANGER (needs speech), the GROUP_NULL upgrade, and the mod's default_civilian_death_drops itemgroup. speed 0 + morale 0 = they just lie there; GUILT so cutting one down weighs on you. Ported 2026-07-14 as part of the hospital-lab re-base; the Civilians mod was the template.",
+    "id": "mon_civilian_icu",
+    "type": "MONSTER",
+    "name": { "str": "hospitalized human" },
+    "description": "This person is severely ill in some form or another, requiring intensive care that is not available anymore after the Cataclysm.  There is nothing you can do for them.",
+    "default_faction": "human",
+    "bodytype": "human",
+    "species": [ "HUMAN" ],
+    "material": [ "hflesh" ],
+    "volume": "62500 ml",
+    "weight": "81500 g",
+    "hp": 75,
+    "speed": 0,
+    "symbol": "@",
+    "color": "white",
+    "diff": 0,
+    "aggression": -50,
+    "aggro_character": false,
+    "morale": 0,
+    "vision_day": 10,
+    "melee_dice": 1,
+    "melee_dice_sides": 2,
+    "melee_damage": [ { "damage_type": "cut", "amount": 3 } ],
+    "harvest": "human",
+    "dodge": 1,
+    "zombify_into": "mon_zombie",
+    "flags": [ "WARM", "HUMAN", "GUILT" ]
+  }
+]

@@ -1,0 +1,35 @@
+Mind Over Matter (BN) is licensed under the Creative Commons
+Attribution-ShareAlike 3.0 Unported License (CC BY-SA 3.0).
+
+To view a copy of this license, visit
+http://creativecommons.org/licenses/by-sa/3.0/
+or send a letter to Creative Commons, 444 Castro Street, Suite 900,
+Mountain View, California, 94041, USA.
+
+--------------------------------------------------------------------------------
+
+ATTRIBUTION
+
+This mod is a derivative work. It is a port of the "Mind Over Matter" mod for
+Cataclysm: Dark Days Ahead to Cataclysm: Bright Nights.
+
+  Original mod:  Mind Over Matter, by Standing-Storm
+                 https://github.com/Standing-Storm/MindOverMatter
+                 now maintained in-tree at
+                 https://github.com/CleverRaven/Cataclysm-DDA/tree/master/data/mods/MindOverMatter
+
+  Upstream base: Cataclysm: Dark Days Ahead, by CleverRaven and contributors
+                 https://github.com/CleverRaven/Cataclysm-DDA
+                 licensed CC BY-SA 3.0
+
+  Target game:   Cataclysm: Bright Nights, by the Bright Nights contributors
+                 https://github.com/cataclysmbnteam/Cataclysm-BN
+
+  This port:     Mike Cantrell
+
+Pinned upstream source revision: CDDA master 69df2e4 (2026-07-04).
+
+Because the upstream work is licensed CC BY-SA 3.0, this derivative work is
+distributed under the same license (ShareAlike). Original prose, JSON content,
+Lua runtime code, and the fork-specific powers added by this port are likewise
+CC BY-SA 3.0.

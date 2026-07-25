@@ -1,0 +1,10 @@
+[
+  {
+    "//file": "metaphysics = MoM's core psionics skill (from CDDA/data/mods/MindOverMatter/skills.json, minus DDA's 'sort_rank' which BN's skill schema rejects). This file IS the ported MoM skills.json. Do NOT add a 'chemistry' skill here -- BN folded DDA chemistry into cooking, and the porters (port_recipes.py / port_items.py / port_professions.py SKILL_RENAMES) rewrite every chemistry reference to cooking. 2026-07-18: metaphysics got clobbered once by a stray chemistry def, breaking every metaphysics recipe/profession.",
+    "type": "skill",
+    "id": "metaphysics",
+    "name": { "str": "metaphysics" },
+    "display_category": "display_ranged",
+    "description": "Your ability to manipulate forces of energy often considered supernatural."
+  }
+]

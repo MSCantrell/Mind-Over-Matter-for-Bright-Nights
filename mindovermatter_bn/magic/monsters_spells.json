@@ -1,0 +1,2775 @@
+[
+  {
+    "id": "pigeon_aura",
+    "type": "SPELL",
+    "name": {
+      "str": "Pigeon aura",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Anyone nearby will get stronger.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_pigeon_aura",
+    "energy_source": "NONE",
+    "base_casting_time": 500,
+    "base_energy_cost": 0,
+    "flags": [
+      "SILENT",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
+    "difficulty": 0,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "type": "SPELL",
+    "id": "biokinetic_physical_enhancement_monster",
+    "name": {
+      "str": "Physical Enhancement Monster enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Preps for using Physical Enhancement when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "extra_effects": [
+      {
+        "id": "biokinetic_physical_enhancement_monster_self",
+        "hit_self": true
+      }
+    ],
+    "min_range": 60,
+    "max_range": 60,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "biokinetic_physical_enhancement_monster_self",
+    "name": {
+      "str": "Physical Enhancement Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants Physical Enhancement to a monster.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_monster_physical_enhancement",
+    "min_duration": 18000,
+    "max_duration": 36000,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "biokinetic_physical_enhancement_improved_monster",
+    "name": {
+      "str": "Physical Enhancement Monster Improved enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Preps for using Physical Enhancement but better when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "extra_effects": [
+      {
+        "id": "biokinetic_physical_enhancement_improved_monster_self",
+        "hit_self": true
+      }
+    ],
+    "min_range": 60,
+    "max_range": 60,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "biokinetic_physical_enhancement_improved_monster_self",
+    "name": {
+      "str": "Physical Enhancement Improved Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants Physical Enhancement Improved to a monster.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_monster_physical_enhancement_improved",
+    "min_duration": 26000,
+    "max_duration": 49000,
+    "scale_int": true
+  },
+  {
+    "id": "biokinetic_speed_boost_monster_01",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Biokinetic Speed Boost Monster Lesser",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Cause a monster to get a small number of extra moves.  It's a bug if you have this.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "RANDOM_DAMAGE"
+    ],
+    "effect": "mod_moves",
+    "min_damage": 150,
+    "max_damage": 350,
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "type": "SPELL",
+    "id": "biokinetic_hardened_skin_monster",
+    "name": {
+      "str": "Hardened Skin Monster enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Preps for using Hardened Skin when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "extra_effects": [
+      {
+        "id": "biokinetic_hardened_skin_monster_self",
+        "hit_self": true
+      }
+    ],
+    "min_range": 60,
+    "max_range": 60,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "biokinetic_hardened_skin_monster_self",
+    "name": {
+      "str": "Hardened Skin Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants hardened skin to a monster.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_monster_hardened_skin",
+    "min_duration": 9000,
+    "max_duration": 27000,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "pattern_screamer_rock_thrower_prep",
+    "name": {
+      "str": "Feral One Perfect Shot",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Pattern screamer prepares to hurl a rock with deadly accuracy",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 40,
+    "effect": "target_attack",
+    "min_range": 8,
+    "max_range": 8,
+    "range_increment": 0.1,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "clair_heightened_senses_monster_1",
+    "name": {
+      "str": "Heightened Senses Tier 1 Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants Heightened Senses to a clairsentient feral.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_feral_heightened_senses",
+    "min_duration": 18000,
+    "max_duration": 54000,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "clair_heightened_senses_monster_2",
+    "name": {
+      "str": "Heightened Senses Tier 2 Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants Heightened Senses to a clairsentient feral.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_feral_heightened_senses_2",
+    "min_duration": 36000,
+    "max_duration": 108000,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "clair_heightened_senses_monster_3",
+    "name": {
+      "str": "Heightened Senses Tier 3 Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants Heightened Senses to a clairsentient feral.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_feral_heightened_senses_3",
+    "min_duration": 72000,
+    "max_duration": 216000,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "clair_combat_sense_monster_2",
+    "name": {
+      "str": "Combat Sense Tier 2 Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants Combat Sense to a clairsentient feral.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_feral_combat_sense_2",
+    "min_duration": 18000,
+    "max_duration": 54000,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "clair_combat_sense_monster_3",
+    "name": {
+      "str": "Combat Sense Tier 3 Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants Combat Sense to a clairsentient feral.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_feral_combat_sense_3",
+    "min_duration": 18000,
+    "max_duration": 54000,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "clair_clarity_monster_spell",
+    "name": {
+      "str": "Heightened Clarity Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants Heightened Senses to a clairsentient feral.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_clair_clear_sight",
+    "min_duration": 36000,
+    "max_duration": 108000,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "pattern_screamer_rock_thrower_prep_self",
+    "name": {
+      "str": "One Perfect Shot Self",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants the effect for a pattern screamer to throw a rock.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_pattern_screamer_rock_thrower",
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "id": "electrokinetic_shock_touch_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Static Touch Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Unleash a shock when touching a target, doing a small amount of damage and dazing them.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_LEGS"
+    ],
+    "difficulty": 1,
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "psi_dazed_zap",
+    "damage_type": "ELECTRIC",
+    "min_damage": 3,
+    "max_damage": 7,
+    "min_range": 1,
+    "max_range": 1,
+    "min_duration": 100,
+    "max_duration": 400,
+    "field_id": "fd_electricity",
+    "min_field_intensity": 1,
+    "max_field_intensity": 2,
+    "field_chance": 1,
+    "scale_int": true
+  },
+  {
+    "id": "electrokinetic_lightning_bolt_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Electrocutioner Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Launch a bolt of lightning at a nearby target.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "LOUD",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "max_level": 20,
+    "effect": "line_attack",
+    "damage_type": "ELECTRIC",
+    "min_damage": 20,
+    "max_damage": 80,
+    "min_range": 4,
+    "max_range": 20,
+    "range_increment": 1,
+    "field_id": "fd_electricity",
+    "min_field_intensity": 1,
+    "max_field_intensity": 2,
+    "field_chance": 1,
+    "scale_int": true
+  },
+  {
+    "id": "electrokinetic_lightning_blast_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Ion Blast Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Launch a lightning explosion at a nearby target.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "LOUD",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "extra_effects": [
+      {
+        "id": "electrokinetic_lightning_blast_monster_emit",
+        "hit_self": false
+      }
+    ],
+    "max_level": 20,
+    "effect": "line_attack",
+    "damage_type": "ELECTRIC",
+    "min_damage": 6,
+    "max_damage": 18,
+    "min_range": 4,
+    "max_range": 20,
+    "range_increment": 1,
+    "field_id": "fd_electricity",
+    "min_field_intensity": 5,
+    "max_field_intensity": 8,
+    "field_chance": 1,
+    "scale_int": true
+  },
+  {
+    "id": "electrokinetic_lightning_blast_monster_emit",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Ion Blast Monster Emit",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Cause a burst of sparks near a target.  It's a bug if you see this.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "ground",
+      "hostile",
+      "ally"
+    ],
+    "flags": [
+      "LOUD",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "damage_type": "ELECTRIC",
+    "min_range": 4,
+    "max_range": 20,
+    "range_increment": 1,
+    "field_id": "fd_electricity",
+    "field_chance": 1,
+    "min_field_intensity": 3,
+    "max_field_intensity": 3,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "scale_int": true
+  },
+  {
+    "id": "electrokinetic_revive_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Revivification Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Manipulate the nervous system of a corpse, causing it to rise and protect you.  This protection will only last a short time.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "ally",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "max_level": 20,
+    "effect": "none",
+    "effect_str": "ZOMBIE",
+    "extra_effects": [
+      {
+        "id": "electrokinetic_revive_heal_monster",
+        "hit_self": false
+      },
+      {
+        "id": "electrokinetic_revive_debuff_monster",
+        "hit_self": false
+      }
+    ],
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "scale_int": true
+  },
+  {
+    "id": "electrokinetic_revive_heal_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Revive Heal Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "This heals the revivified target so it doesn't die basically immediately after rising.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "ally"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_LEGS",
+      "NO_HANDS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "min_damage": -50,
+    "max_damage": -80,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "scale_int": true
+  },
+  {
+    "id": "electrokinetic_revive_debuff_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Revive Debuff Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "This puts a debuff on the revived monster that will make sure it eventually dies.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "ally"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_LEGS",
+      "NO_HANDS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_electrokin_revive_debuff",
+    "min_duration": 360000,
+    "max_duration": 360000,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "scale_int": true
+  },
+  {
+    "id": "photokinetic_light_dodge_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Trick of the Light Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Manipulate the light around you, creating small illusions around your body to become harder to hit.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_photokin_dodge",
+    "difficulty": 1,
+    "min_duration": 5,
+    "max_duration": 30,
+    "max_level": 20,
+    "duration_increment": 1.25,
+    "energy_source": "STAMINA",
+    "base_energy_cost": 1700,
+    "final_energy_cost": 250,
+    "energy_increment": -216,
+    "base_casting_time": 100,
+    "final_casting_time": 100,
+    "scale_int": true
+  },
+  {
+    "id": "photokinetic_light_explosion_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Blinding Explosion Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "When you die, you burst apart in an explosion of light.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "effect": "target_attack",
+    "effect_str": "blind",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_aoe": 1,
+    "max_aoe": 10,
+    "aoe_increment": 1,
+    "min_duration": 500,
+    "max_duration": 5000,
+    "duration_increment": 10,
+    "scale_int": true
+  },
+  {
+    "id": "photokinetic_illumination_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Illumination Monster",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "description": {
+      "str": "Applies an effect that makes the target glow, reducing dodge.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_EXPLOSION_VFX",
+      "SILENT",
+      "RANDOM_DURATION"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_photokinetic_illuminate_enemy",
+    "damage_type": "LIGHT",
+    "max_level": 30,
+    "min_damage": 1,
+    "max_damage": 1,
+    "min_range": 5,
+    "max_range": 25,
+    "range_increment": 1,
+    "min_duration": 2300,
+    "max_duration": 19500,
+    "scale_int": true
+  },
+  {
+    "id": "photokinetic_illumination_migo",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Illumination Migo",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "description": {
+      "str": "Applies an effect that makes the target glow, reducing dodge.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_EXPLOSION_VFX",
+      "SILENT",
+      "RANDOM_DURATION"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_photokinetic_illumination",
+    "damage_type": "LIGHT",
+    "max_level": 30,
+    "min_damage": 1,
+    "max_damage": 1,
+    "min_range": 5,
+    "max_range": 25,
+    "range_increment": 1,
+    "min_duration": 6300,
+    "max_duration": 28100,
+    "scale_int": true
+  },
+  {
+    "id": "photokinetic_light_beam_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Photon Beam Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Concentrate photons into a high-energy beam.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "line_attack",
+    "damage_type": "LIGHT",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_damage": 5,
+    "max_damage": 15,
+    "damage_increment": 1,
+    "min_range": 4,
+    "max_range": 25,
+    "range_increment": 1,
+    "field_id": "fd_laser",
+    "min_field_intensity": 2,
+    "max_field_intensity": 2,
+    "field_chance": 1,
+    "scale_int": true
+  },
+  {
+    "id": "photokinetic_flashbang_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Flashbang Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Unleash a burst of light and static.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "flashbang",
+    "max_level": 20,
+    "min_damage": 10,
+    "max_damage": 200,
+    "damage_increment": 5,
+    "min_range": 4,
+    "max_range": 25,
+    "range_increment": 1,
+    "min_aoe": 0,
+    "max_aoe": 10,
+    "aoe_increment": 0.25,
+    "scale_int": true
+  },
+  {
+    "id": "photokinetic_irradiation_aura_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Irradiation Aura Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Unleash an aura of radioactive fields  Click, click, click.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "max_level": 20,
+    "min_range": 1,
+    "max_range": 1,
+    "field_id": "fd_nuke_gas",
+    "field_chance": 1,
+    "min_field_intensity": 2,
+    "max_field_intensity": 2,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "scale_int": true
+  },
+  {
+    "id": "photokinetic_radiation_attack_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Radiation Attack Monster",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "description": {
+      "str": "Applies an effect that causes radiation to the target.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_EXPLOSION_VFX",
+      "SILENT",
+      "RANDOM_DURATION"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_radiation_aura",
+    "damage_type": "LIGHT",
+    "max_level": 30,
+    "min_damage": 1,
+    "max_damage": 1,
+    "min_range": 5,
+    "max_range": 25,
+    "range_increment": 1,
+    "min_duration": 200,
+    "max_duration": 800,
+    "scale_int": true
+  },
+  {
+    "id": "photokinetic_light_flash_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Star Flash Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Create a destructive flash of light.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "line_attack",
+    "damage_type": "LIGHT",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_damage": 60,
+    "max_damage": 150,
+    "damage_increment": 1,
+    "min_range": 3,
+    "max_range": 15,
+    "range_increment": 1,
+    "min_aoe": 2,
+    "max_aoe": 8,
+    "aoe_increment": 0.3,
+    "energy_source": "STAMINA",
+    "base_energy_cost": 3500,
+    "final_energy_cost": 300,
+    "energy_increment": -216,
+    "base_casting_time": 100,
+    "final_casting_time": 100,
+    "scale_int": true
+  },
+  {
+    "id": "pyrokinetic_eruption_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Fountain of Flames Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Cause a burst of flames at the target location.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "LOUD",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "damage_type": "FIRE",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_damage": 10,
+    "max_damage": 30,
+    "damage_increment": 1,
+    "min_range": 1,
+    "max_range": 3,
+    "range_increment": 0.15,
+    "energy_source": "STAMINA",
+    "base_energy_cost": 1500,
+    "final_energy_cost": 200,
+    "energy_increment": -216,
+    "base_casting_time": 100,
+    "final_casting_time": 100,
+    "sound_type": "combat",
+    "sound_description": "a crackle",
+    "scale_int": true
+  },
+  {
+    "id": "pyrokinetic_flash_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Brilliant Flash Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "By strongly exciting the air at a particular point, you produce a burst of light.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "effect": "target_attack",
+    "effect_str": "blind",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_range": 4,
+    "max_range": 15,
+    "range_increment": 1.83,
+    "min_aoe": 1,
+    "max_aoe": 5,
+    "aoe_increment": 0.2,
+    "min_duration": 100,
+    "max_duration": 1000,
+    "duration_increment": 10,
+    "energy_source": "STAMINA",
+    "base_energy_cost": 500,
+    "final_energy_cost": 25,
+    "energy_increment": -80,
+    "base_casting_time": 150,
+    "final_casting_time": 50,
+    "casting_time_increment": -17,
+    "scale_int": true
+  },
+  {
+    "id": "pyrokinetic_quell_flames_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Quell Fire Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Power for monsters to put out flames.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "ground",
+      "hostile",
+      "ally",
+      "self"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "min_aoe": 2,
+    "max_aoe": 22,
+    "aoe_increment": 0.5,
+    "field_id": "fd_mom_quench_marker",
+    "field_chance": 1,
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "extra_effects": [
+      {
+        "id": "mom_quell_fire_monster_trigger",
+        "hit_self": true
+      }
+    ],
+    "scale_int": true
+  },
+  {
+    "id": "pyrokin_flamethrower_hellhound_monster",
+    "type": "SPELL",
+    "//": "It would be nice if there were an 'affect lower' flag for spells, but alas there is not",
+    "name": {
+      "str": "[\u03a8]Flamethrower Hellhound",
+      "//~": "NO_I18N"
+    },
+    "description": "Spray fire in a cone in front of you, if you're a hellhound.",
+    "message": "",
+    "valid_targets": [
+      "hostile"
+    ],
+    "skill": "metaphysics",
+    "flags": [
+      "CONCENTRATE",
+      "LOUD",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "cone_attack",
+    "damage_type": "FIRE",
+    "affected_body_parts": [
+      "torso",
+      "leg_l",
+      "leg_r"
+    ],
+    "min_damage": 10,
+    "max_damage": 25,
+    "min_range": 3,
+    "max_range": 3,
+    "min_aoe": 60,
+    "max_aoe": 60,
+    "field_id": "fd_fire",
+    "min_field_intensity": 1,
+    "max_field_intensity": 2,
+    "field_chance": 3,
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "id": "pyrokinetic_flame_armor_ally_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Flame Immunity Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Power for monsters to make each other immune to fire.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_monster_pyrokinetic_fire_immunity",
+    "min_range": 2,
+    "max_range": 22,
+    "range_increment": 1,
+    "min_duration": 3000,
+    "max_duration": 12000,
+    "scale_int": true
+  },
+  {
+    "id": "pyrokinetic_blast_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Conflagration Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Create an expanding fireball that catches multiple targets in its wake.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "LOUD",
+      "RANDOM_DAMAGE",
+      "RANDOM_AOE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "damage_type": "FIRE",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_damage": 60,
+    "max_damage": 180,
+    "damage_increment": 1,
+    "min_range": 3,
+    "max_range": 10,
+    "range_increment": 1,
+    "min_aoe": 1,
+    "max_aoe": 6,
+    "aoe_increment": 0.15,
+    "sound_type": "combat",
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_pull_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "telekinetic powers",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Pull a target or set of items to you.  This power is for monster usage",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "hostile"
+    ],
+    "spell_class": "TELEKINETIC",
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "directed_push",
+    "difficulty": 1,
+    "damage_type": "BASH",
+    "max_level": 20,
+    "min_range": 2,
+    "max_range": 20,
+    "range_increment": 1.5,
+    "min_damage": -20,
+    "max_damage": -20,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "telekinetic_momentum_monster",
+    "name": {
+      "str": "Momentum Alteration Monster enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Preps for using Momentum Alteration when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "extra_effects": [
+      {
+        "id": "telekinetic_momentum_monster_self",
+        "hit_self": true
+      }
+    ],
+    "min_range": 60,
+    "max_range": 60,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "telekinetic_momentum_monster_self",
+    "name": {
+      "str": "Momentum Alteration Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants the Momentum Alteration effect to a monster.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_monster_momentum_alteration",
+    "min_duration": 12000,
+    "max_duration": 42000,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "telekinetic_barrier_monster",
+    "name": {
+      "str": "Inertial Barrier Monster enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Preps for using Inertial Barrier when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "extra_effects": [
+      {
+        "id": "telekinetic_barrier_monster_self",
+        "hit_self": true
+      }
+    ],
+    "min_range": 60,
+    "max_range": 60,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "telekinetic_barrier_monster_self",
+    "name": {
+      "str": "Inertial Barrier Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants the Inertial Barrier effect to a monster.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_monster_inertial_barrier",
+    "min_duration": 12000,
+    "max_duration": 42000,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "telekinetic_barrier_monster_improved",
+    "name": {
+      "str": "Inertial Barrier Monster Improved enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Preps for using Inertial Barrier when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "extra_effects": [
+      {
+        "id": "telekinetic_barrier_monster_improved_self",
+        "hit_self": true
+      }
+    ],
+    "min_range": 60,
+    "max_range": 60,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "telekinetic_barrier_monster_improved_self",
+    "name": {
+      "str": "Inertial Barrier Monster Improved Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants the Inertial Barrier effect to a monster.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_monster_inertial_barrier_improved",
+    "min_duration": 12000,
+    "max_duration": 42000,
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_hammer_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Mindhammer Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Smash a single target with a fist of telekinetic force.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "damage_type": "BASH",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_damage": 10,
+    "max_damage": 40,
+    "damage_increment": 1,
+    "min_range": 3,
+    "max_range": 10,
+    "range_increment": 0.875,
+    "sound_type": "combat",
+    "sound_description": "a thud",
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_explosion_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "Wrecking Ball Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Create an expanding fireball that catches multiple targets in its wake.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "LOUD",
+      "RANDOM_DAMAGE",
+      "RANDOM_AOE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "damage_type": "BASH",
+    "extra_effects": [
+      {
+        "id": "telekinetic_explosion_monster_bash_terrain_monster",
+        "hit_self": false
+      }
+    ],
+    "difficulty": 1,
+    "max_level": 20,
+    "min_damage": 30,
+    "max_damage": 140,
+    "damage_increment": 1.5,
+    "min_range": 3,
+    "max_range": 15,
+    "range_increment": 1,
+    "min_aoe": 1,
+    "max_aoe": 6,
+    "aoe_increment": 0.15,
+    "sound_type": "combat",
+    "sound_description": "a loud crash!",
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_explosion_monster_bash_terrain_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "Wrecking Ball Enemy damage",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Damages enemies when you use Wrecking Ball on the ground.  If you have this you debugged it in.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "item",
+      "ground"
+    ],
+    "spell_class": "TELEKINETIC",
+    "flags": [
+      "LOUD",
+      "RANDOM_DAMAGE",
+      "IGNORE_WALLS",
+      "RANDOM_AOE"
+    ],
+    "effect": "bash",
+    "max_level": 20,
+    "min_damage": 60,
+    "max_damage": 200,
+    "min_range": 3,
+    "max_range": 15,
+    "range_increment": 1,
+    "min_aoe": 1,
+    "max_aoe": 6,
+    "aoe_increment": 0.15,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "telekinetic_aegis_monster",
+    "name": {
+      "str": "Aegis Monster Improved enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Preps for using Aegis when a hostile target is found in a vehicle.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "extra_effects": [
+      {
+        "id": "telekinetic_aegis_monster_self",
+        "hit_self": true
+      },
+      {
+        "id": "telekinetic_aegis_limiter_monster_self",
+        "hit_self": true
+      }
+    ],
+    "min_range": 15,
+    "max_range": 15,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "telekinetic_aegis_monster_self",
+    "name": {
+      "str": "Aegis Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants the Aegis effect to a monster.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_monster_telekinetic_aegis",
+    "min_duration": 6,
+    "max_duration": 6,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "telekinetic_aegis_limiter_monster_self",
+    "name": {
+      "str": "Aegis Limiter Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Allows the monster to use Aegis immediately but applies a cooldown afterwards.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_monster_aegis_limiter",
+    "min_duration": 2500,
+    "max_duration": 7500,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "telekinetic_earthshaker_monster",
+    "name": {
+      "str": "Earthshaker enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Makes sure the target is within range before using Earthshaker",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "extra_effects": [
+      {
+        "id": "telekinetic_earthshaker_monster_real",
+        "hit_self": true
+      }
+    ],
+    "min_range": 10,
+    "max_range": 10,
+    "scale_int": true
+  },
+  {
+    "id": "telekinetic_earthshaker_monster_real",
+    "type": "SPELL",
+    "name": {
+      "str": "Earthshaker Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Seize the nearby earth with your powers and *wrench* it, toppling buildings and knocking everyone nearby off their feet.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "LOUD",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "RANDOM_DURATION"
+    ],
+    "effect": "target_attack",
+    "effect_str": "downed",
+    "extra_effects": [
+      {
+        "id": "telekinetic_earthshaker_bash_terrain_monster",
+        "hit_self": false
+      },
+      {
+        "id": "telekinetic_earthshaker_spawn_rubble_monster",
+        "hit_self": false
+      }
+    ],
+    "min_duration": 200,
+    "max_duration": 600,
+    "min_aoe": 10,
+    "max_aoe": 10,
+    "sound_description": "the ground shaking!",
+    "sound_id": "earth_spell",
+    "sound_variant": "strong",
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "id": "telekinetic_earthshaker_bash_terrain_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "Earthshaker Monster Bash Terrain",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Destroy furniture and terrain nearby.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_VFX",
+      "IGNORE_WALLS",
+      "RANDOM_DAMAGE"
+    ],
+    "effect": "bash",
+    "min_damage": 50,
+    "max_damage": 120,
+    "min_aoe": 10,
+    "max_aoe": 10,
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "id": "telekinetic_earthshaker_spawn_rubble_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "Earthshaker Monster Rubble",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Causes rubble to be spawned occasionally.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_VFX",
+      "IGNORE_WALLS"
+    ],
+    "effect": "ter_transform",
+    "effect_str": "telekinetic_earthshaker_transform",
+    "min_aoe": 10,
+    "max_aoe": 10,
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "id": "telepathic_confusion_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Sensory Deprivation Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Disconnect a target's brain from its senses, leaving it blinded and confused.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "difficulty": 1,
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "psi_stunned",
+    "extra_effects": [
+      {
+        "id": "telepathic_deprivation_monster",
+        "hit_self": false,
+        "max_level": 3
+      },
+      {
+        "id": "telepathic_deafening_monster",
+        "hit_self": false,
+        "max_level": 3
+      }
+    ],
+    "min_duration": 100,
+    "max_duration": 500,
+    "duration_increment": 1,
+    "min_range": 3,
+    "max_range": 15,
+    "range_increment": 1,
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_hallucinations_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Telepathic Hallucinations Monster",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "description": {
+      "str": "Causes the player to hallucinate briefly.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_EXPLOSION_VFX",
+      "SILENT",
+      "RANDOM_DURATION"
+    ],
+    "effect": "target_attack",
+    "effect_str": "hallu",
+    "max_level": 30,
+    "min_range": 10,
+    "max_range": 25,
+    "range_increment": 1,
+    "min_duration": 30000,
+    "max_duration": 180000,
+    "duration_increment": 2000,
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_deprivation_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Sensory Deprivation Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "By shutting off a target's senses, you can prevent them from seeing anything.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "effect": "target_attack",
+    "effect_str": "psi_blind",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_range": 4,
+    "max_range": 15,
+    "range_increment": 1.83,
+    "min_duration": 100,
+    "max_duration": 1000,
+    "duration_increment": 10,
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_deafening_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Sensory Deafening Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "By shutting off a target's senses, you can prevent them from hearing anything.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "effect": "target_attack",
+    "effect_str": "psi_deaf",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_range": 4,
+    "max_range": 15,
+    "range_increment": 1.83,
+    "min_duration": 100,
+    "max_duration": 1000,
+    "duration_increment": 10,
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_blast_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Synaptic Overload Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Short-circuit and overwhelm a target's brain, causing extreme damage or death.  Does not affect targets without working brains.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 1,
+    "max_level": 20,
+    "effect": "target_attack",
+    "affected_body_parts": [
+      "head"
+    ],
+    "damage_type": "PSI",
+    "min_damage": 5,
+    "max_damage": 25,
+    "damage_increment": 1,
+    "min_range": 5,
+    "max_range": 20,
+    "range_increment": 2.5,
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_horror_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Telepathic Horror Monster",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "description": {
+      "str": "Reduces the player's speed for a brief period of time and possibly dazes or stuns.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_EXPLOSION_VFX",
+      "SILENT",
+      "RANDOM_DURATION"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_telepathic_primal_terror",
+    "max_level": 30,
+    "min_range": 5,
+    "max_range": 20,
+    "range_increment": 1,
+    "min_duration": 100,
+    "max_duration": 3000,
+    "duration_increment": 100,
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_fear_blast_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Telepathic Fear Blast Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Short-circuit and overwhelm a target's brain, causing extreme damage or death, and instilling an extreme primal fear.  Does not affect targets without working brains.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "//": "The level scaling with this can get crazy, be especially careful with how high this will go.",
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "difficulty": 1,
+    "max_level": 20,
+    "effect": "target_attack",
+    "damage_type": "PSI",
+    "min_damage": 1,
+    "max_damage": 1,
+    "affected_body_parts": [
+      "head"
+    ],
+    "extra_effects": [
+      {
+        "id": "telepathic_blast_monster",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "telepathic_horror_monster",
+        "hit_self": false,
+        "max_level": 20
+      }
+    ],
+    "min_range": 3,
+    "max_range": 15,
+    "range_increment": 1,
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_horror_aoe_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Telepathic Horror AoE Monster",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "ground",
+      "hostile"
+    ],
+    "description": {
+      "str": "Reduces the player's speed for a brief period of time and possibly dazes or stuns.  An AoE around the monster instead of a single-target effect.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_EXPLOSION_VFX",
+      "SILENT",
+      "IGNORE_WALLS",
+      "RANDOM_DURATION"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_telepathic_primal_terror",
+    "damage_type": "PSI",
+    "max_level": 30,
+    "min_damage": 1,
+    "max_damage": 1,
+    "min_aoe": 1,
+    "max_aoe": 30,
+    "aoe_increment": 1,
+    "min_duration": 100,
+    "max_duration": 3000,
+    "duration_increment": 100,
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_primal_fear_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Telepathic Primal Fear Monster",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "description": {
+      "str": "Freezes the player in place briefly.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_EXPLOSION_VFX",
+      "SILENT",
+      "RANDOM_DAMAGE"
+    ],
+    "effect": "mod_moves",
+    "max_level": 30,
+    "min_damage": -50,
+    "max_damage": -500,
+    "min_range": 10,
+    "max_range": 25,
+    "range_increment": 1,
+    "scale_int": true
+  },
+  {
+    "id": "telepathic_self_damage",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Telepathic Self Damage",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "This spell passes through a bit of damage in case something the PSYSHIELD_PARTIAL flag fails, to simulate the failure.  It's a bug if you have it directly.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "RANDOM_DAMAGE"
+    ],
+    "effect": "target_attack",
+    "affected_body_parts": [
+      "head"
+    ],
+    "damage_type": "PSI",
+    "min_damage": 1,
+    "max_damage": 4,
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "id": "whispering_amalgamation_telepathic_whispering_spell",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Telepathic Amalgamation Whispering",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Amalgamation whispers into your mind, distracting you.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SILENT"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_whispering_amalgamation_whispers",
+    "min_range": 30,
+    "min_duration": 300,
+    "max_duration": 300,
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "id": "telepathic_shrieking_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Telepathic Shrieking Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Causes noise at target location.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "RANDOM_DAMAGE"
+    ],
+    "difficulty": 1,
+    "max_level": 20,
+    "effect": "noise",
+    "min_damage": 10,
+    "max_damage": 50,
+    "min_range": 25,
+    "sound_type": "activity",
+    "sound_description": "static",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "telepathic_network_monster",
+    "name": {
+      "str": "[\u03a8]Network Effect Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "AI trigger for only casting when hostiles are present.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "effect": "none",
+    "base_casting_time": 0,
+    "flags": [
+      "WONDER",
+      "SILENT",
+      "NO_EXPLOSION_VFX"
+    ],
+    "min_damage": 1,
+    "max_damage": 1,
+    "min_range": 60,
+    "max_range": 60,
+    "extra_effects": [
+      {
+        "id": "telepathic_network_monster_real",
+        "hit_self": true
+      }
+    ],
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "id": "telepathic_network_monster_real",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Network Effect Monster Real",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Adds the telepathic network effect to the monster's ally.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 9,
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_telepath_network_monster_effect",
+    "min_aoe": 60,
+    "max_aoe": 60,
+    "min_duration": 10000,
+    "max_duration": 30000,
+    "scale_int": true
+  },
+  {
+    "id": "teleport_slow_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Stutterstep Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Manipulate space to increase relative distance around the target, reducing their speed.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "ground",
+      "hostile"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_teleport_slow",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_range": 4,
+    "max_range": 15,
+    "range_increment": 1.83,
+    "min_duration": 200,
+    "max_duration": 1000,
+    "duration_increment": 50,
+    "energy_source": "STAMINA",
+    "base_energy_cost": 1200,
+    "final_energy_cost": 200,
+    "energy_increment": -166.67,
+    "base_casting_time": 80,
+    "final_casting_time": 35,
+    "casting_time_increment": -7.5,
+    "scale_int": true
+  },
+  {
+    "id": "teleport_blink_attack_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Force Blink Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Teleport target.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_riftwalker_teleport",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_range": 1,
+    "min_duration": 1000,
+    "base_casting_time": 50,
+    "final_casting_time": 0,
+    "casting_time_increment": -4,
+    "scale_int": true
+  },
+  {
+    "id": "teleport_blink_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Blink Monster effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "The blink you cast if a riftwalker hits you.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "none"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_AOE"
+    ],
+    "effect": "teleport_random",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_aoe": 1,
+    "max_aoe": 5,
+    "aoe_increment": 0.25,
+    "min_range": 10,
+    "base_casting_time": 50,
+    "final_casting_time": 0,
+    "casting_time_increment": -4,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "teleporter_reactive_displacement_monster",
+    "name": {
+      "str": "Reactive Displacement Monster enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Preps for using Reactive Displaccement when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "extra_effects": [
+      {
+        "id": "teleporter_reactive_displacement_monster_self",
+        "hit_self": true
+      }
+    ],
+    "min_range": 60,
+    "max_range": 60,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "teleporter_reactive_displacement_monster_self",
+    "name": {
+      "str": "Reactive Displacement Monster give Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants the Reactive Displacement effect to a monster.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_teleport_reactive_displacement_monster",
+    "min_duration": 12000,
+    "max_duration": 42000,
+    "scale_int": true
+  },
+  {
+    "id": "teleport_reactive_displacement_monster_teleport",
+    "type": "SPELL",
+    "name": {
+      "str": "Reactive Displacement Monster Teleport",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Teleports Attackers.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "ally",
+      "hostile"
+    ],
+    "spell_class": "TELEPORTER",
+    "skill": "metaphysics",
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 0,
+    "max_level": 20,
+    "effect": "target_attack",
+    "damage_type": "PSI",
+    "min_damage": 1,
+    "max_damage": 1,
+    "min_range": 1,
+    "energy_source": "NONE",
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "teleporter_warped_strikes_monster",
+    "name": {
+      "str": "Warped Strikes Monster enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Preps for using Warped Strikes when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "extra_effects": [
+      {
+        "id": "teleporter_warped_strikes_monster_self",
+        "hit_self": true
+      }
+    ],
+    "min_range": 60,
+    "max_range": 60,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "teleporter_warped_strikes_monster_self",
+    "name": {
+      "str": "Warped Strikes Monster Effect",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Grants the Warped Strikes effect to a monster.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_monster_warped_strikes",
+    "min_duration": 6000,
+    "max_duration": 24000,
+    "scale_int": true
+  },
+  {
+    "id": "teleporter_breach_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Breach Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Open a portal to the Nether and summon monsters, if you're also a monster.  This will probably end badly for you but who cares, you're a monster.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self",
+      "hostile"
+    ],
+    "spell_class": "TELEPORTER",
+    "skill": "metaphysics",
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "max_level": 30,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_teleporter_breach_monster",
+    "min_range": 5,
+    "max_range": 80,
+    "range_increment": 1,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "id": "vitakinetic_health_down",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Draining Touch Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Drain Target's Health Mod.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_vitakinetic_health_down",
+    "damage_type": "PSI",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_range": 1,
+    "min_damage": 1,
+    "max_damage": 1,
+    "min_duration": 1080000,
+    "base_casting_time": 50,
+    "scale_int": true
+  },
+  {
+    "id": "vitakinetic_healing_down",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Draining Touch 2 Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Drain Target's Health Mod and reduce healing.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_LEGS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_vitakinetic_healing_down",
+    "damage_type": "PSI",
+    "difficulty": 1,
+    "max_level": 20,
+    "min_range": 1,
+    "min_damage": 1,
+    "max_damage": 1,
+    "min_duration": 1620000,
+    "base_casting_time": 50,
+    "scale_int": true
+  },
+  {
+    "id": "vitakinetic_regeneration_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Feral Vitakinetic healing",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Buffs regeneration for a feral vitakinetic.  It's a bug if you have it, and anyway it wouldn't work on you.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_feral_regeneration",
+    "min_duration": 200,
+    "max_duration": 600,
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "id": "vita_feral_vitakin3_degenerating_touch",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Degenerating Touch Self From Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "You are degenerating.  RIP.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "VITAKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "RANDOM_DAMAGE",
+      "NO_LEGS",
+      "RANDOM_DURATION",
+      "NO_EXPLOSION_VFX"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_vita_degenerating_touch",
+    "damage_type": "BIO",
+    "min_dot": 4,
+    "max_dot": 10,
+    "min_duration": 1500,
+    "max_duration": 6500,
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "id": "vita_feral_vitakin3_degenerating_touch_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Degenerating Touch Self From Monster to Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "You are degenerating.  RIP.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "VITAKINETIC",
+    "skill": "metaphysics",
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_EXPLOSION_VFX"
+    ],
+    "effect": "target_attack",
+    "effect_str": "effect_vita_degenerating_touch",
+    "damage_type": "BIO",
+    "min_dot": 1,
+    "max_dot": 4,
+    "min_duration": 1500,
+    "max_duration": 6500,
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "type": "SPELL",
+    "id": "hidebehind_apply_mindsight",
+    "name": {
+      "str": "Hidebehind apply mindsight",
+      "//~": "NO_I18N"
+    },
+    "description": "Add the effect to give the hidebehind mindsight.",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "eff_mind_seeing_bonus_20",
+    "min_range": 0,
+    "max_range": 0,
+    "min_duration": 900000,
+    "max_duration": 900000,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "eater_apply_mindsight",
+    "name": {
+      "str": "Eater apply mindsight",
+      "//~": "NO_I18N"
+    },
+    "description": "Add the effect to give the eater mindsight.",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "eff_mind_seeing_bonus_30",
+    "min_range": 0,
+    "max_range": 0,
+    "min_duration": 900000,
+    "max_duration": 900000,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "small_psi_raptor_spawn",
+    "name": {
+      "str": "Summon Psi Raptors",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Summons a few zombiespawn psi raptors.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "HOSTILE_SUMMON",
+      "RANDOM_DAMAGE",
+      "PERMANENT",
+      "NO_EXPLOSION_VFX"
+    ],
+    "valid_targets": [
+      "ground",
+      "self"
+    ],
+    "min_damage": 1,
+    "max_damage": 2,
+    "min_aoe": 4,
+    "max_aoe": 4,
+    "extra_effects": [
+      {
+        "id": "spawning_zombie_die",
+        "hit_self": true
+      }
+    ],
+    "effect": "summon",
+    "effect_str": "GROUP_SPAWN_PSI_RAPTOR",
+    "scale_int": true,
+    "max_level": 20
+  }
+]

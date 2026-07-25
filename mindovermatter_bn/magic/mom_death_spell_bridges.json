@@ -1,0 +1,35 @@
+[
+  {
+    "//": "BN backfill (2026-07-20): death_fakespell is a DDA-CORE spell (data/json/monster_special_attacks/monster_deaths.json) -- a do-nothing WONDER filler. A WONDER spell fires ONE random entry from extra_effects, so MoM's ported magic/death_effects.json pads each death spell's list with N copies of death_fakespell to set the odds (e.g. 7 fakespell + 1 death_blindness = 1/8 chance to blind). BN core lacks it -> 'invalid spell id death_fakespell'. Defined standalone in BN schema: DDA's shape:blast dropped (BN rejects 'shape' per strip_spell_math), NO_EXPLOSION_SFX -> NO_EXPLOSION_VFX (porter FLAG_RENAMES). Hand file, NOT a strip_spell_math output -- do not regenerate.",
+    "id": "death_fakespell",
+    "type": "SPELL",
+    "name": { "str": "Fake Spell", "//~": "NO_I18N" },
+    "description": { "str": "A spell that doesn't do anything.", "//~": "NO_I18N" },
+    "valid_targets": [ "hostile", "ally", "ground" ],
+    "message": "",
+    "flags": [ "SILENT", "NO_EXPLOSION_VFX" ],
+    "min_damage": 1,
+    "max_damage": 1,
+    "effect": "noise"
+  },
+  {
+    "//": "BN backfill (2026-07-20): death_conflagration is a DDA-CORE spell (monster_deaths.json) -- a small fireball payload (mild cut shrapnel + an fd_fire field) that MoM's ported death_explosion_oneineight / death_explosion_oneinfour WONDER spells list as their 'real' extra_effect (the rest are death_fakespell fillers). BN implements 'conflagration' ONLY as a hardcoded monster death_function (mon_gas_zombie -> death_function CONFLAGRATION), which cannot serve as a spell extra_effect, so the SPELL is re-created here. Converted per strip_spell_math rules: DDA effect:attack + shape:blast -> effect:target_attack, shape dropped. field_id/field_chance/min-max_field_intensity/min-max_duration are the fd_fire field (matches ported electrokinetic_shock_touch_monster schema). damage_type 'cut' is BN-valid -- BN core spells use lowercase damage types (cut/acid/stab/bio).",
+    "id": "death_conflagration",
+    "type": "SPELL",
+    "name": { "str": "Conflagration Death", "//~": "NO_I18N" },
+    "description": { "str": "A fireball.  Hits with mild shrapnel, but the main effect is fire.", "//~": "NO_I18N" },
+    "valid_targets": [ "self", "ally", "hostile", "ground" ],
+    "effect": "target_attack",
+    "field_id": "fd_fire",
+    "field_chance": 2,
+    "min_field_intensity": 2,
+    "max_field_intensity": 2,
+    "min_aoe": 3,
+    "max_aoe": 3,
+    "min_damage": 2,
+    "max_damage": 2,
+    "min_duration": 1000,
+    "max_duration": 1000,
+    "damage_type": "cut"
+  }
+]

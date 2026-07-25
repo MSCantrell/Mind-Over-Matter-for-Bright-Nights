@@ -1,0 +1,803 @@
+[
+  {
+    "id": "eater_drain_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Essence Drain",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Eater's draining attack.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "message": "",
+    "flags": [
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_eater_drain_monster",
+    "min_range": 30,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "id": "eater_drain_monster_close_range",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Essence Drain",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Eater's draining attack.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "message": "",
+    "flags": [
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 1,
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_eater_drain_monster_close_range",
+    "min_range": 30,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "id": "eater_drain_mana",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Eater Drain Mana",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Eater's spell to drain mana.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "NO_EXPLOSION_VFX"
+    ],
+    "effect": "recover_energy",
+    "effect_str": "MANA",
+    "max_level": 20,
+    "min_damage": -150,
+    "min_range": 30,
+    "scale_int": true
+  },
+  {
+    "id": "eater_drain_stamina",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Eater Drain Stamina",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Eater's spell to drain stamina.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "NO_EXPLOSION_VFX"
+    ],
+    "effect": "recover_energy",
+    "effect_str": "STAMINA",
+    "extra_effects": [
+      {
+        "id": "eater_drain_sleepiness",
+        "hit_self": false,
+        "max_level": 3
+      }
+    ],
+    "max_level": 20,
+    "min_damage": -200,
+    "min_range": 30,
+    "scale_int": true
+  },
+  {
+    "id": "eater_drain_sleepiness",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Eater Drain Sleepiness",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Eater's spell to drain sleepiness.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "NO_EXPLOSION_VFX"
+    ],
+    "effect": "recover_energy",
+    "effect_str": "SLEEPINESS",
+    "max_level": 20,
+    "min_damage": -2,
+    "min_range": 30,
+    "scale_int": true
+  },
+  {
+    "id": "eater_drain_health",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Eater Drain Stamina",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Eater's spell to drain health.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "NO_EXPLOSION_VFX",
+      "RANDOM_DAMAGE"
+    ],
+    "effect": "target_attack",
+    "damage_type": "TRUE",
+    "max_level": 20,
+    "min_damage": 1,
+    "max_damage": 2,
+    "min_range": 30,
+    "scale_int": true
+  },
+  {
+    "id": "null_break_concentration_spell",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Breaker end powers",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Breaker's power that ends concentration.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "NO_EXPLOSION_VFX"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_null_break_concentration_spell",
+    "max_level": 20,
+    "min_range": 25,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "id": "clairsentient_discern_weakness_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Discern Weakness Triffid",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "The triffid lays your weak points bare and shares them with others through the heartmind.  It's a bug if you have this.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 100,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clairsentient_discern_weakness_monster",
+    "min_range": 3,
+    "max_range": 100,
+    "range_increment": 1,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "id": "teleporter_triffid_summon_allies",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Teleporter Triffid Summon Allies",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "The triffid uses its connection to the heartmind to teleport in guards around an intruder.  If you see this, it's a bug.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_teleporter_triffid_summon_allies",
+    "min_range": 3,
+    "max_range": 23,
+    "range_increment": 1,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "id": "electrokinetic_paralysis_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Neural Spasms Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Cause an electrical burst in the target's nervous system, stunning them briefly.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_electrokinetic_paralysis_monster",
+    "min_duration": 100,
+    "max_duration": 100,
+    "min_range": 3,
+    "max_range": 23,
+    "range_increment": 1,
+    "scale_int": true
+  },
+  {
+    "id": "electrokinetic_power_draining",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Electrokinetic Power Draining Spell",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "The monster uses its powers to suck the energy out of battery devices.  If you see this, it's a bug.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self",
+      "ally",
+      "hostile"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_AOE",
+      "IGNORE_WALLS"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_electrokinetic_power_draining",
+    "min_range": 0,
+    "max_range": 0,
+    "min_aoe": 5,
+    "max_aoe": 25,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "id": "electrokinetic_power_draining_electric_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Electrokinetic Power Draining monster attack",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Gremlin's power to damage electric monsters.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "NO_EXPLOSION_VFX",
+      "RANDOM_DAMAGE"
+    ],
+    "effect": "target_attack",
+    "damage_type": "TRUE",
+    "max_level": 20,
+    "min_damage": 10,
+    "max_damage": 55,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "biokinetic_heightened_reflexes_monster",
+    "name": {
+      "str": "Heightened Reflexes enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Applies Enhanced Reflexes when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokinetic_heightened_reflexes_monster",
+    "min_range": 60,
+    "max_range": 60,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "biokinetic_heightened_reflexes_enhanced_monster",
+    "name": {
+      "str": "Heightened Reflexes enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Applies an even stronger version of Heightened Reflexes when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_biokinetic_heightened_reflexes_enhanced_monster",
+    "min_range": 60,
+    "max_range": 60,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "electrokinetic_neuro_acceleration_monster",
+    "name": {
+      "str": "Neuro-Acceleration monster enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Applies Neuro-Acceleration when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_electrokinetic_neuro_acceleration_monster",
+    "min_range": 60,
+    "max_range": 60,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "electrokinetic_neuro_acceleration_enhanced_monster",
+    "name": {
+      "str": "Neuro-Acceleration Enhanced monster enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Applies an enhanced version of Neuro-Acceleration when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_electrokinetic_neuro_acceleration_enhanced_monster",
+    "min_range": 60,
+    "max_range": 60,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "hidebehind_apply_obscurity_power",
+    "name": {
+      "str": "Hidebehind Obscurity enemy check",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Preps for using Obscurity when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_hidebehind_apply_obscurity_power",
+    "min_range": 60,
+    "max_range": 60,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "id": "teleporter_breach_lab_devourer",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Breach Melded Task Force",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Open a portal to the Nether and summon monsters, if you're also a monster.  This will not end badly for you because they're all on your side.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "self",
+      "hostile"
+    ],
+    "spell_class": "TELEPORTER",
+    "skill": "metaphysics",
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "max_level": 30,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_teleporter_breach_lab_devourer",
+    "min_range": 5,
+    "max_range": 80,
+    "range_increment": 1,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "id": "teleport_oubliette_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Oubliette Monster",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "The monster sends you to another dimension, just like you could have done to it.  Turnabout is fair play.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "valid_targets": [
+      "hostile"
+    ],
+    "spell_class": "TELEPORTER",
+    "skill": "metaphysics",
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_teleport_oubliette_monster",
+    "min_range": 3,
+    "max_range": 3,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "whispering_amalgamation_apply_mindsight",
+    "name": {
+      "str": "Eater apply mindsight",
+      "//~": "NO_I18N"
+    },
+    "description": "Add the effect to give the whispering_amalgamation mindsight.",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "valid_targets": [
+      "self"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_whispering_amalgamation_apply_mindsight",
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "type": "SPELL",
+    "id": "amalgamation_telekinetic_shielder_shield_other_spell",
+    "name": {
+      "str": "Inertial Barrier Guardian Amalgamation Shield Detector",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Preps for using Inertial Barrier when a hostile target is detected.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_amalgamation_telekinetic_shielder_shield_other_spell",
+    "min_range": 20,
+    "max_range": 20,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true
+  },
+  {
+    "id": "amalgamation_telekinetic_shielder_shield_other_spell_self_casting",
+    "type": "SPELL",
+    "name": {
+      "str": "Inertial Barrier Guardian Amalgamation Random Self Spell",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "I don't know why this spell is necessary, but it is.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "NO_EXPLOSION_VFX",
+      "SILENT"
+    ],
+    "effect": "noise",
+    "min_damage": 0,
+    "max_damage": 0,
+    "extra_effects": [
+      {
+        "id": "amalgamation_telekinetic_shielder_shield_other_spell_apply_shield"
+      }
+    ],
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "type": "SPELL",
+    "id": "amalgamation_telekinetic_shielder_shield_other_spell_apply_shield",
+    "name": {
+      "str": "Inertial Barrier Guardian Amalgamation Shield Applicator",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "The actual power that applies Inertial Barrier to an ally.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_TARGET",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "max_level": 20,
+    "effect": "target_attack",
+    "effect_str": "effect_monster_inertial_barrier",
+    "min_range": 25,
+    "max_range": 25,
+    "min_duration": 4500,
+    "max_duration": 7500,
+    "scale_int": true
+  },
+  {
+    "id": "silent_one_drain_monster",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Silent One Draining attack",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Silent One's draining attack.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "message": "",
+    "flags": [
+      "NO_EXPLOSION_VFX",
+      "SILENT"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_silent_one_drain_monster",
+    "min_range": 15,
+    "max_range": 15,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "id": "silent_one_apply_buffs",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Silent One Applying Buffs attack",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Silent One's applying buffs to itself.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "message": "",
+    "flags": [
+      "NO_EXPLOSION_VFX"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_silent_one_apply_buffs",
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "id": "silent_one_detect_psionic_activity",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Silent One Detect Psi",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Silent One's detecting of psionic activity.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "self"
+    ],
+    "message": "",
+    "flags": [
+      "NO_EXPLOSION_VFX",
+      "IGNORE_WALLS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_silent_one_detect_psionic_activity",
+    "min_aoe": 45,
+    "max_aoe": 45,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true,
+    "max_level": 20
+  },
+  {
+    "id": "silent_one_polymorph_to_hostile",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Silent One polymorph",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Silent One' polymorphing to hostile.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 8,
+    "max_level": 30,
+    "effect": "none",
+    "effect_str": "mon_nether_silent_one_aggressive",
+    "min_damage": 500,
+    "max_damage": 500,
+    "targeted_monster_ids": [
+      "mon_nether_silent_one_passive"
+    ],
+    "scale_int": true
+  },
+  {
+    "id": "silent_one_detect_psionic_activity_aggressive",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Silent One Detect Psi Aggressive",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Silent One's detecting of psionic activity when it's already angry.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "self"
+    ],
+    "message": "",
+    "flags": [
+      "NO_EXPLOSION_VFX",
+      "IGNORE_WALLS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "mom_cast_silent_one_detect_psionic_activity_aggressive",
+    "min_aoe": 15,
+    "max_aoe": 15,
+    "min_duration": 100,
+    "max_duration": 100,
+    "scale_int": true,
+    "max_level": 20
+  }
+]

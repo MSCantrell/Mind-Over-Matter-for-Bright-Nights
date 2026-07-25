@@ -1,0 +1,285 @@
+[
+  {
+    "type": "mutation",
+    "id": "BIOKINETIC",
+    "name": "Awakened Biokinetic",
+    "points": 0,
+    "description": "Mental control over bodily processes.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "//": "Class trait (satisfies spell_class refs). spells_learned = upstream starter powers (all verified ported); upstream cancels PSYCHIC_KNACK dropped (trait not ported) and ATTUNEMENT flag dropped (nothing in the port reads it).",
+    "spells_learned": [
+      [
+        "biokin_physical_enhance",
+        2
+      ],
+      [
+        "biokin_overcome_pain",
+        2
+      ],
+      [
+        "classless_toggleable_concentration_end",
+        1
+      ],
+      [
+        "classless_specific_concentration_end",
+        1
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "CLAIRSENTIENT",
+    "name": "Awakened Clairsentient",
+    "points": 0,
+    "description": "The ability to extend the senses beyond the body.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "//": "Class trait (satisfies spell_class refs). spells_learned = upstream starter powers (all verified ported); upstream cancels PSYCHIC_KNACK dropped (trait not ported) and ATTUNEMENT flag dropped (nothing in the port reads it).",
+    "spells_learned": [
+      [
+        "clair_better_senses",
+        2
+      ],
+      [
+        "clair_speed_reading",
+        2
+      ],
+      [
+        "classless_toggleable_concentration_end",
+        1
+      ],
+      [
+        "classless_specific_concentration_end",
+        1
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "ELECTROKINETIC",
+    "name": "Awakened Electrokinetic",
+    "points": 0,
+    "description": "Mental control of lightning and electricity.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "//": "Class trait (satisfies spell_class refs). spells_learned = starter powers. FORK RETUNE 2026-07-12: electrokinetic_shock_touch (Static Touch) cut and replaced as the starter attack by electrokinetic_lightning_strike (fork_powers.json), the path's single long-range signature strike; Voltaic Strikes was a discovered power, not a starter, so it just leaves the discovery pool.",
+    "spells_learned": [
+      [
+        "electrokinetic_see_electric",
+        2
+      ],
+      [
+        "electrokinetic_lightning_strike",
+        2
+      ],
+      [
+        "classless_toggleable_concentration_end",
+        1
+      ],
+      [
+        "classless_specific_concentration_end",
+        1
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CIRCUIT_SENSE",
+    "name": "Circuit Sense",
+    "points": 0,
+    "description": "Your electrokinetic senses are tuned to the flow of current, letting you read electronics intuitively.",
+    "valid": false,
+    "purifiable": false,
+    "player_display": false,
+    "//": "Hidden carrier for the ORIGINAL fork power Circuit Sense (electrokinetic_circuit_sense, fork_powers.json). Granted by EOC_ELECTROKIN_CIRCUIT_SENSE_INITIATE while the maintained buff is up, stripped by mom_hooks' effect-removed handler when it ends. Holds the +3 via mut_enchantments SKILL_LEVEL_ELECTRONICS (BN auto-registers that from the SKILL_LEVEL suffix list in enchantment_values.json; no separate enchantment_value def needed). player_display false -- the visible indicator is the effect effect_electrokinetic_circuit_sense.",
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "SKILL_LEVEL_ELECTRONICS",
+            "add": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "PHOTOKINETIC",
+    "name": "Awakened Photokinetic",
+    "points": 0,
+    "description": "Mental control of visible light and electromagnetic waves.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "//": "Class trait (satisfies spell_class refs). spells_learned = upstream starter powers (all verified ported); upstream cancels PSYCHIC_KNACK dropped (trait not ported) and ATTUNEMENT flag dropped (nothing in the port reads it).",
+    "spells_learned": [
+      [
+        "photokinetic_create_light",
+        2
+      ],
+      [
+        "photokinetic_light_local",
+        2
+      ],
+      [
+        "classless_toggleable_concentration_end",
+        1
+      ],
+      [
+        "classless_specific_concentration_end",
+        1
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "PYROKINETIC",
+    "name": "Awakened Pyrokinetic",
+    "points": 0,
+    "description": "Mental control of heat and flame.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "//": "Class trait (satisfies spell_class refs). spells_learned = upstream starter powers (all verified ported); upstream cancels PSYCHIC_KNACK dropped (trait not ported) and ATTUNEMENT flag dropped (nothing in the port reads it).",
+    "spells_learned": [
+      [
+        "pyrokinetic_intensify_flames",
+        2
+      ],
+      [
+        "pyrokinetic_flash",
+        2
+      ],
+      [
+        "classless_toggleable_concentration_end",
+        1
+      ],
+      [
+        "classless_specific_concentration_end",
+        1
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "TELEKINETIC",
+    "name": "Awakened Telekinetic",
+    "points": 0,
+    "description": "Mental control over the motion of objects and people at a distance.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "//": "Class trait (satisfies spell_class refs). spells_learned = upstream starter powers (all verified ported); upstream cancels PSYCHIC_KNACK dropped (trait not ported) and ATTUNEMENT flag dropped (nothing in the port reads it).",
+    "spells_learned": [
+      [
+        "telekinetic_pull",
+        2
+      ],
+      [
+        "telekinetic_push",
+        2
+      ],
+      [
+        "classless_toggleable_concentration_end",
+        1
+      ],
+      [
+        "classless_specific_concentration_end",
+        1
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "TELEPATH",
+    "name": "Awakened Telepath",
+    "points": 0,
+    "description": "The ability to read thoughts and influence others' minds.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "//": "Class trait (satisfies spell_class refs). spells_learned = upstream starter powers (all verified ported); upstream cancels PSYCHIC_KNACK dropped (trait not ported) and ATTUNEMENT flag dropped (nothing in the port reads it).",
+    "spells_learned": [
+      [
+        "telepathic_concentration",
+        2
+      ],
+      [
+        "telepathic_mind_sense",
+        2
+      ],
+      [
+        "classless_toggleable_concentration_end",
+        1
+      ],
+      [
+        "classless_specific_concentration_end",
+        1
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "TELEPORTER",
+    "name": "Awakened Teleporter",
+    "points": 0,
+    "description": "The ability to move without crossing the intervening space, as well as some control over space itself.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "//": "Class trait (satisfies spell_class refs). spells_learned = upstream starter powers (all verified ported); upstream cancels PSYCHIC_KNACK dropped (trait not ported) and ATTUNEMENT flag dropped (nothing in the port reads it).",
+    "spells_learned": [
+      [
+        "teleport_blink",
+        2
+      ],
+      [
+        "teleport_slow",
+        2
+      ],
+      [
+        "classless_toggleable_concentration_end",
+        1
+      ],
+      [
+        "classless_specific_concentration_end",
+        1
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "VITAKINETIC",
+    "name": "Awakened Vitakinetic",
+    "points": 0,
+    "description": "Mental control over health and vitality.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "//": "Class trait (satisfies spell_class refs). spells_learned = upstream starter powers (all verified ported); upstream cancels PSYCHIC_KNACK dropped (trait not ported) and ATTUNEMENT flag dropped (nothing in the port reads it).",
+    "spells_learned": [
+      [
+        "vita_slow_bleeding",
+        2
+      ],
+      [
+        "vita_health_power",
+        2
+      ],
+      [
+        "classless_toggleable_concentration_end",
+        1
+      ],
+      [
+        "classless_specific_concentration_end",
+        1
+      ]
+    ]
+  }
+]

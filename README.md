@@ -150,6 +150,10 @@ Please check here first — these are known and do not need new reports.
 - **Auto-learn pacing** — do powers arrive too fast, too slow, or about right?
 - **Mass Hydrothermosis** — does LOS-wide reach feel fair, does the Stamina cost hurt enough?
 - **Duration powers** — any that last a suspiciously wrong amount of time.
+- **Lifting Field** — newly working as of this build. It raises your carrying capacity while
+  held (2 kg at level 1 up to 467 kg at level 30) rather than hovering one item beside you as
+  it does in DDA, because BN has no way to discount a carried item's weight. Does the trade
+  feel worth the stamina and concentration slot?
 
 Also worth knowing: the mod emits some harmless load-time warnings, and occasional
 `Bad intensity` messages in the log are cosmetic.

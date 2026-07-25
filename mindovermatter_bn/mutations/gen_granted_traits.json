@@ -776,10 +776,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 2 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 2000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -788,10 +799,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 57 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 57000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -800,10 +822,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 68 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 68000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -812,10 +845,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 80 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 80000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -824,10 +868,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 93 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 93000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -836,10 +891,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 107 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 107000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -848,10 +914,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 122 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 122000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -860,10 +937,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 138 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 138000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -872,10 +960,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 155 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 155000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -884,10 +983,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 173 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 173000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -896,10 +1006,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 192 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 192000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -908,10 +1029,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 5 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 5000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -920,10 +1052,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 212 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 212000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -932,10 +1075,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 233 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 233000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -944,10 +1098,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 255 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 255000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -956,10 +1121,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 278 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 278000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -968,10 +1144,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 302 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 302000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -980,10 +1167,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 327 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 327000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -992,10 +1190,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 353 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 353000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1004,10 +1213,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 380 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 380000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1016,10 +1236,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 408 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 408000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1028,10 +1259,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 437 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 437000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1040,10 +1282,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 8 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 8000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1052,10 +1305,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 467 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 467000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1064,10 +1328,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 12 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 12000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1076,10 +1351,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 17 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 17000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1088,10 +1374,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 23 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 23000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1100,10 +1397,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 30 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 30000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1112,10 +1420,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 38 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 38000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1124,10 +1443,21 @@
       "str": "Lifting Hand"
     },
     "points": 0,
-    "description": "With a modicum of concentration you can carry a single item with your powers.",
+    "description": "Your powers take up part of the load you carry, bearing up to 47 kg so your body does not have to.",
     "valid": false,
     "player_display": true,
-    "purifiable": false
+    "purifiable": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CARRY_WEIGHT",
+            "add": 47000
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",

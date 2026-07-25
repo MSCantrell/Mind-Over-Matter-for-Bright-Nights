@@ -1,6 +1,6 @@
 # Mind Over Matter (BN)
 
-Psionics for **Cataclysm: Bright Nights** — nine psychic power paths, 132 powers that
+Psionics for **Cataclysm: Bright Nights** — nine psychic power paths and 160 powers that
 unlock through use rather than study.
 
 This is a Lua-based port of [Mind Over Matter](https://github.com/CleverRaven/Cataclysm-DDA/tree/master/data/mods/MindOverMatter)
@@ -81,19 +81,30 @@ grind is removed here — see [Fork changes](#fork-changes-deliberate-difference
 
 ## The nine paths
 
-| Path | Powers | Theme |
-|---|---:|---|
-| **Biokinesis** | 15 | Control of the body — strength, speed, armored skin, sealed physiology |
-| **Clairsentience** | 14 | Senses beyond the body — night vision, danger sense, seeing through walls |
-| **Electrokinesis** | 13 | Electricity — shocks, charging batteries, short-circuiting machines |
-| **Photokinesis** | 18 | Light — illumination, blinding glare, invisibility |
-| **Pyrokinesis** | 13 | Fire and heat — ignition, heat immunity, boiling a target from within |
-| **Telekinesis** | 15 | Force at a distance — pulling, hurling, barriers, collapsing structures |
-| **Telepathy** | 12 | Mind — persuasion, concealment, seizing control of an enemy |
-| **Teleportation** | 16 | Moving without crossing the distance — escapes, long jumps, banishment |
-| **Vitakinesis** | 16 | Health and injury — wound-binding, accelerated healing, limb repair |
+| Path | Powers | From start | Theme |
+|---|---:|---:|---|
+| **Biokinesis** | 19 | 4 | Control of the body — strength, speed, armored skin, sealed physiology |
+| **Clairsentience** | 18 | 4 | Senses beyond the body — night vision, danger sense, seeing through walls |
+| **Electrokinesis** | 16 | 3 | Electricity — shocks, charging batteries, short-circuiting machines |
+| **Photokinesis** | 20 | 2 | Light — illumination, blinding glare, invisibility |
+| **Pyrokinesis** | 15 | 2 | Fire and heat — ignition, heat immunity, lava, boiling a target from within |
+| **Telekinesis** | 18 | 3 | Force at a distance — pulling, hurling, barriers, collapsing structures |
+| **Telepathy** | 14 | 2 | Mind — persuasion, concealment, seizing control of an enemy |
+| **Teleportation** | 20 | 4 | Moving without crossing the distance — escapes, long jumps, banishment |
+| **Vitakinesis** | 20 | 4 | Health and injury — wound-binding, accelerated healing, limb repair |
 
-Plus **psychic knacks** — small always-on talents — and a couple of path-independent powers.
+**160 powers** in total: 28 are foundations you get the moment you take up a school, and
+the remaining **132** unlock through play. Plus **psychic knacks** — small always-on
+talents — and a couple of path-independent powers.
+
+### Reference documents
+
+- **[Psionic Discipline Atlas](mindovermatter_bn/PSIONIC_ATLAS.md)** — the full
+  power-acquisition tree for all nine schools, with every prerequisite and minimum level.
+  Renders as diagrams directly on GitHub. Start here if you want to plan a build.
+- **[Crystalline Elixirs](mindovermatter_bn/CRYSTALLINE_ELIXIRS.md)** — ⚠️ **spoilers.**
+  The nine school elixirs deliberately tell you nothing in their item descriptions; this
+  documents what each actually does, including the attunement cost and the comedown.
 
 ---
 
@@ -125,7 +136,6 @@ Please check here first — these are known and do not need new reports.
 - **Displacement / Reactive Displacement** don't teleport the target monster.
 - **Beast Tamer** can't extend an already-friendly animal's duration (BN's charm only
   applies to non-friendly monsters).
-- **Force Shove**'s manual-aim variant no-ops. Auto-aimed Wave of Force works.
 - **Maintained-power costs are too lenient.** Only 3 of ~64 maintained powers count toward
   concentration-break odds and calorie drain, so holding many at once is undercharged.
 - Some feral-psychic monster attacks are stubs (their Banish, Electrokinetic Revive).

@@ -60,6 +60,15 @@ return function(mod)
       local ok, err = pcall(mod.warped_strikes_maintain, you)
       if not ok then gdebug.log_error("MoM-BN: warped_strikes: " .. tostring(err)) end
     end
+
+    -- Integrated armor (trait -> worn item): BN has no `integrated_armor`
+    -- mutation field, so traits that work by granting a worn item need the
+    -- garment put on from here.  Self-throttles to one sweep a minute and gates
+    -- on a single has_trait, so it is ~free for non-Photokinetics.
+    if mod.u and mod.u.integrated_armor_maintain then
+      local ok, err = pcall(mod.u.integrated_armor_maintain, you)
+      if not ok then gdebug.log_error("MoM-BN: integrated_armor: " .. tostring(err)) end
+    end
   end
 
   -- effect_type-linked EOC dispatch tables, keyed by effect type id string.

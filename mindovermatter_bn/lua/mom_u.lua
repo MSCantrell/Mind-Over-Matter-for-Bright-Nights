@@ -251,6 +251,73 @@ return function(mod)
     end, nil)
   end
 
+  -- ---- integrated armor (trait -> worn item)
+  -- BN has NO `integrated_armor` mutation field (zero hits in CBN/src), so a DDA
+  -- trait that works by granting a worn item arrives completely inert -- the
+  -- trait exists, the item exists, and nothing ever puts one on the other.
+  -- port_traits.py reports the dropped key; each such trait needs an entry here.
+  --
+  -- Why a periodic sweep rather than an on-gain hook: these traits are handed out
+  -- at chargen by professions (before any Lua hook the mod owns has a character to
+  -- act on) and can also arrive mid-run from a crystal awakening. A cheap sweep
+  -- covers both and self-heals if the item is somehow lost, which an event hook
+  -- would not.
+  local INTEGRATED_ARMOR = {
+    -- Photon Regulation. Carries quality GLARE 1 (weld without goggles) and the
+    -- SUN_GLASSES flag; the fork's night_vision_range override already lives on
+    -- the trait itself, so only the glare half needs the item. PERSONAL layer, so
+    -- it does not fight actual eyewear.
+    { trait = "PHOTO_EYES", item = "integrated_photo_eyes" },
+  }
+  local IA_PERIOD = 60          -- turns between sweeps; the check is 1 has_trait
+  local IA_MAX_FAILS = 3        -- stop retrying a wear that keeps refusing
+  local ia_next_turn = 0
+  local ia_fails = {}
+
+  -- true / false / nil, where nil means "couldn't determine" -- never treat a
+  -- failed read as "not worn", or we would spawn a duplicate every sweep.
+  local function wears_itype(who, id)
+    local ok, worn = pcall(function() return who:get_worn_items() end)
+    if not ok or not worn then return nil end
+    for _, it in ipairs(worn) do
+      local okt, t = pcall(function() return it:get_type():str() end)
+      if okt and t == id then return true end
+    end
+    return false
+  end
+
+  function U.integrated_armor_maintain(who)
+    if not who then return end
+    local turn = gapi.current_turn():to_turn()
+    if turn < ia_next_turn then return end
+    ia_next_turn = turn + IA_PERIOD
+    for _, e in ipairs(INTEGRATED_ARMOR) do
+      if (ia_fails[e.item] or 0) < IA_MAX_FAILS then
+        local okt, has = pcall(function()
+          return who:has_trait(MutationBranchId.new(e.trait))
+        end)
+        if okt and has and wears_itype(who, e.item) == false then
+          -- wear_detached takes ownership: on failure the detached item is
+          -- destroyed with it, so a refused wear leaks nothing.
+          local worn_ok = guarded("integrated_armor:" .. e.item, function()
+            local det = gapi.create_item(ItypeId.new(e.item), 1)
+            return who:wear_detached(det, false) and true or false
+          end, false)
+          if worn_ok then
+            ia_fails[e.item] = nil
+          else
+            ia_fails[e.item] = (ia_fails[e.item] or 0) + 1
+            if ia_fails[e.item] >= IA_MAX_FAILS then
+              once("ia|" .. e.item,
+                   "integrated armor " .. e.item .. " could not be worn for " ..
+                   e.trait .. "; giving up this session")
+            end
+          end
+        end
+      end
+    end
+  end
+
   -- ---- spells
   local function km_of(who) return who:get_magic() end
 

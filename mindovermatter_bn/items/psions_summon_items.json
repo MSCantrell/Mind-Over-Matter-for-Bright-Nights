@@ -369,7 +369,7 @@
       ]
     ],
     "flags": [
-      "INTEGRATED",
+      "NO_TAKEOFF",
       "UNBREAKABLE",
       "SOFT",
       "WATER_FRIENDLY",

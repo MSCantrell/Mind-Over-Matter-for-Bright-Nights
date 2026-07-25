@@ -114,6 +114,7 @@
         ]
       }
     ],
+    "ammo": "battery",
     "magazines": [
       [
         "battery",

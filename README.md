@@ -26,8 +26,8 @@ runtime. See [Architecture](#architecture-for-the-curious) if you want to know h
 
 1. Download this repo: **Code → Download ZIP** (or clone it).
 2. Inside the zip there is a folder named **`mindovermatter_bn`**. Copy *that inner
-   folder* — not the zip's top-level `mindovermatter-bn-main` wrapper — into your BN
-   install's `mods/` directory:
+   folder* — not the zip's top-level `Mind-Over-Matter-for-Bright-Nights-main` wrapper —
+   into your BN install's `mods/` directory:
 
    ```
    <your BN folder>/mods/mindovermatter_bn/modinfo.json

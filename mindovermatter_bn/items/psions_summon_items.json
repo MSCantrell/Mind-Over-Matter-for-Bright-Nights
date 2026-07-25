@@ -594,13 +594,13 @@
   },
   {
     "id": "telekinetic_container_1",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 2 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -610,23 +610,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_1"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_2",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 5 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -636,23 +646,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_2"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_3",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 8 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -662,23 +682,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_3"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_4",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 12 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -688,23 +718,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_4"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_5",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 17 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -714,23 +754,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_5"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_6",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 23 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -740,23 +790,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_6"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_7",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 30 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -766,23 +826,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_7"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_8",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 38 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -792,23 +862,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_8"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_9",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 47 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -818,23 +898,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_9"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_10",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 57 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -844,23 +934,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_10"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_11",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 68 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -870,23 +970,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_11"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_12",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 80 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -896,23 +1006,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_12"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_13",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 93 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -922,23 +1042,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_13"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_14",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 107 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -948,23 +1078,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_14"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_15",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 122 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -974,23 +1114,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_15"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_16",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 138 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1000,23 +1150,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_16"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_17",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 155 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1026,23 +1186,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_17"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_18",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 173 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1052,23 +1222,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_18"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_19",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 192 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1078,23 +1258,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_19"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_20",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 212 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1104,23 +1294,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_20"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_21",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 233 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1130,23 +1330,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_21"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_22",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 255 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1156,23 +1366,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_22"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_23",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 278 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1182,23 +1402,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_23"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_24",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 302 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1208,23 +1438,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_24"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_25",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 327 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1234,23 +1474,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_25"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_26",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 353 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1260,23 +1510,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_26"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_27",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 380 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1286,23 +1546,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_27"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_28",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 408 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1312,23 +1582,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_28"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_29",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 437 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1338,23 +1618,33 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_29"
+        }
+      ]
+    }
   },
   {
     "id": "telekinetic_container_30",
-    "type": "TOOL",
+    "type": "ARMOR",
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "You can lift one thing with your powers, removing its effect on your encumbrance.",
+    "description": "A knot of telekinetic force riding alongside you, taking up to 467 kg of what you carry so your body does not have to.",
     "weight": "0 g",
-    "volume": "0 L",
+    "volume": "0 ml",
     "price": "1 cent",
     "price_postapoc": "1 cent",
     "material": [
@@ -1364,13 +1654,23 @@
     "looks_like": "ragpouch",
     "color": "yellow",
     "flags": [
-      "INTEGRATED",
-      "UNBREAKABLE",
       "AURA",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "NO_TAKEOFF",
+      "UNBREAKABLE",
+      "NO_REPAIR",
       "NO_SALVAGE",
-      "TARDIS",
-      "ZERO_WEIGHT"
-    ]
+      "TRADER_AVOID",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_lifting_field_30"
+        }
+      ]
+    }
   },
   {
     "id": "telekin_lifting_jack_1",

@@ -158,10 +158,12 @@ Please check here first — these are known and do not need new reports.
 - **Photon Regulation** (Photokinetics) — newly working as of this build. You should acquire a
   worn "photon regulation" item you can't take off, which should let you look at the sun
   without pain and **weld without goggles**. Please confirm both.
-- **Lifting Field** — newly working as of this build. It raises your carrying capacity while
-  held (2 kg at level 1 up to 467 kg at level 30) rather than hovering one item beside you as
-  it does in DDA, because BN has no way to discount a carried item's weight. Does the trade
-  feel worth the stamina and concentration slot?
+- **Lifting Field** — newly working as of this build. While it's up you'll be wearing a
+  `[Ψ]lifting field` aura you can't take off, which raises your carrying capacity (2 kg at
+  level 1 up to 467 kg at level 30). It boosts what you can carry rather than hovering one
+  specific item beside you as it does in DDA, because BN has no way to discount an individual
+  carried item's weight. Does the trade feel worth the stamina and concentration slot? And
+  does the aura reliably vanish when you stop concentrating?
 
 Also worth knowing: the mod emits some harmless load-time warnings, and occasional
 `Bad intensity` messages in the log are cosmetic.

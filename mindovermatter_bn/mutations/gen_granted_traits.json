@@ -773,691 +773,361 @@
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_1",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 2 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 2000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_10",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 57 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 57000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_11",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 68 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 68000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_12",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 80 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 80000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_13",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 93 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 93000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_14",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 107 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 107000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_15",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 122 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 122000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_16",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 138 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 138000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_17",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 155 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 155000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_18",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 173 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 173000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_19",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 192 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 192000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_2",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 5 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 5000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_20",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 212 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 212000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_21",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 233 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 233000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_22",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 255 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 255000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_23",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 278 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 278000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_24",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 302 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 302000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_25",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 327 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 327000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_26",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 353 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 353000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_27",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 380 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 380000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_28",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 408 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 408000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_29",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 437 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 437000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_3",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 8 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 8000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_30",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 467 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 467000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_4",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 12 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 12000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_5",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 17 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 17000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_6",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 23 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 23000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_7",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 30 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 30000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_8",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 38 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 38000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",
     "id": "TELEKINETIC_LIFTER_9",
     "name": {
-      "str": "Lifting Hand"
+      "str": "Lifting Field (tier marker)"
     },
     "points": 0,
-    "description": "Your powers take up part of the load you carry, bearing up to 47 kg so your body does not have to.",
+    "description": "Marks which tier of lifting field is active. The field itself is the aura you are wearing.",
     "valid": false,
-    "player_display": true,
-    "purifiable": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "CARRY_WEIGHT",
-            "add": 47000
-          }
-        ]
-      }
-    ]
+    "player_display": false,
+    "purifiable": false
   },
   {
     "type": "mutation",

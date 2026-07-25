@@ -1,0 +1,332 @@
+[
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_1",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 2000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_2",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 5000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_3",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 8000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_4",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 12000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_5",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 17000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_6",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 23000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_7",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 30000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_8",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 38000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_9",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 47000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_10",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 57000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_11",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 68000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_12",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 80000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_13",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 93000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_14",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 107000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_15",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 122000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_16",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 138000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_17",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 155000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_18",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 173000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_19",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 192000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_20",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 212000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_21",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 233000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_22",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 255000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_23",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 278000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_24",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 302000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_25",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 327000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_26",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 353000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_27",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 380000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_28",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 408000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_29",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 437000
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_mom_lifting_field_30",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CARRY_WEIGHT",
+        "add": 467000
+      }
+    ]
+  }
+]

@@ -299,6 +299,22 @@ return function(mod)
     -- it does not fight actual eyewear.
     { trait = "PHOTO_EYES", item = "integrated_photo_eyes" },
   }
+  -- Lifting Field: 30 AURA-layer relic tiers, each carrying the CARRY_WEIGHT
+  -- enchantment for its spell level (port_items.py builds the items and
+  -- gen_lifting_field_enchantments.json). The power's own switcher grants
+  -- exactly one TELEKINETIC_LIFTER_<n> marker trait, so the generic sweep below
+  -- both wears the matching tier AND strips the others -- which is what makes
+  -- levelling up mid-cast swap tiers cleanly, and what removes the aura when
+  -- concentration ends and the trait goes away. BN's ONLY_ONE blocks duplicates
+  -- of one id but NOT two different tiers (it compares typeId), so the
+  -- trait-absent removal pass is what actually keeps a single tier worn.
+  for n = 1, 30 do
+    INTEGRATED_ARMOR[#INTEGRATED_ARMOR + 1] = {
+      trait = "TELEKINETIC_LIFTER_" .. n,
+      item = "telekinetic_container_" .. n,
+      transient = true,   -- remove the item as soon as the trait is gone
+    }
+  end
   local IA_PERIOD = 60          -- turns between sweeps; the check is 1 has_trait
   local IA_MAX_FAILS = 3        -- stop retrying a wear that keeps refusing
   local ia_next_turn = 0
@@ -322,10 +338,20 @@ return function(mod)
     if turn < ia_next_turn then return end
     ia_next_turn = turn + IA_PERIOD
     for _, e in ipairs(INTEGRATED_ARMOR) do
-      if (ia_fails[e.item] or 0) < IA_MAX_FAILS then
-        local okt, has = pcall(function()
-          return who:has_trait(MutationBranchId.new(e.trait))
-        end)
+      local okt, has = pcall(function()
+        return who:has_trait(MutationBranchId.new(e.trait))
+      end)
+      -- `transient` entries belong to a maintained power: the trait going away
+      -- means the power ended (or levelled into a different tier), so the item
+      -- has to go with it or it lingers forever -- exactly the bug that left
+      -- lifting jacks in inventory. Only remove when the trait read SUCCEEDED
+      -- (okt) and came back false; a failed read must never destroy gear.
+      if e.transient and okt and not has then
+        if wears_itype(who, e.item) == true then
+          U.remove_item_with(who, e.item)
+          ia_fails[e.item] = nil
+        end
+      elseif (ia_fails[e.item] or 0) < IA_MAX_FAILS then
         if okt and has and wears_itype(who, e.item) == false then
           -- wear_detached takes ownership: on failure the detached item is
           -- destroyed with it, so a refused wear leaks nothing.

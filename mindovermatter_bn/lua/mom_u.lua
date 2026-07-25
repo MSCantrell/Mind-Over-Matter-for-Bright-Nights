@@ -251,6 +251,36 @@ return function(mod)
     end, nil)
   end
 
+  -- ---- inventory removal
+  -- DDA `u_remove_item_with`: destroy every carried item of this type. Used by
+  -- the maintained powers that hand you a summoned tool (lifting jack, hacking
+  -- interface, fire tool, radio, hammerhand, torch/weld, astral cord, rad
+  -- sensor) to take it back when concentration ends -- so while this was a
+  -- no-op stub those items piled up in inventory forever.
+  --
+  -- `all_items(false)` flattens worn garments, their contents, and the wielded
+  -- weapon, so a force_equip'd tool is reachable; `remove_item` goes through
+  -- inv_remove_item, which is a direct inventory operation and so is not blocked
+  -- by NO_TAKEOFF the way a player-initiated takeoff would be. Matches are
+  -- collected before removing -- never mutate the inventory mid-iteration.
+  --
+  -- The returned detached_ptr is intentionally discarded: dropping ownership is
+  -- what actually destroys the item.
+  function U.remove_item_with(who, item_id)
+    return guarded("remove_item_with:" .. item_id, function()
+      local all = who:all_items(false)
+      local doomed = {}
+      for _, it in ipairs(all) do
+        local okt, t = pcall(function() return it:get_type():str() end)
+        if okt and t == item_id then doomed[#doomed + 1] = it end
+      end
+      for _, it in ipairs(doomed) do
+        pcall(function() who:remove_item(it) end)
+      end
+      return #doomed > 0
+    end, false)
+  end
+
   -- ---- integrated armor (trait -> worn item)
   -- BN has NO `integrated_armor` mutation field (zero hits in CBN/src), so a DDA
   -- trait that works by granting a worn item arrives completely inert -- the

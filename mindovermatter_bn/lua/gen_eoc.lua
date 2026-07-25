@@ -2065,12 +2065,12 @@ M['EOC_BIOKIN_REMOVE_ENHANCE_MOBILITY'] = function(you, npc, ctx)
   if not C['EOC_BIOKIN_REMOVE_ENHANCE_MOBILITY'](you, npc, ctx) then
     return false
   end
-  U.unported('EOC_BIOKIN_REMOVE_ENHANCE_MOBILITY', 'u_remove_item_with')
-  U.unported('EOC_BIOKIN_REMOVE_ENHANCE_MOBILITY', 'u_remove_item_with')
-  U.unported('EOC_BIOKIN_REMOVE_ENHANCE_MOBILITY', 'u_remove_item_with')
-  U.unported('EOC_BIOKIN_REMOVE_ENHANCE_MOBILITY', 'u_remove_item_with')
-  U.unported('EOC_BIOKIN_REMOVE_ENHANCE_MOBILITY', 'u_remove_item_with')
-  U.unported('EOC_BIOKIN_REMOVE_ENHANCE_MOBILITY', 'u_remove_item_with')
+  U.remove_item_with(you, 'biokin_enhance_mobility_item_1')
+  U.remove_item_with(you, 'biokin_enhance_mobility_item_2')
+  U.remove_item_with(you, 'biokin_enhance_mobility_item_3')
+  U.remove_item_with(you, 'biokin_enhance_mobility_item_4')
+  U.remove_item_with(you, 'biokin_enhance_mobility_item_5')
+  U.remove_item_with(you, 'biokin_enhance_mobility_item_6')
   you:remove_effect(EffectTypeId.new('effect_biokin_enhance_mobility'))
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   return true
@@ -2098,7 +2098,7 @@ M['EOC_BIOKIN_REMOVE_HAMMERHAND'] = function(you, npc, ctx)
   if not C['EOC_BIOKIN_REMOVE_HAMMERHAND'](you, npc, ctx) then
     return false
   end
-  U.unported('EOC_BIOKIN_REMOVE_HAMMERHAND', 'u_remove_item_with')
+  U.remove_item_with(you, 'biokin_hammerhand_item')
   you:remove_effect(EffectTypeId.new('effect_biokin_hammerhand'))
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   return true
@@ -4286,7 +4286,7 @@ C['EOC_CLAIR_ASTRAL_PROJECTION_DEACTIVATE'] = function(you, npc, ctx)
 end
 M['EOC_CLAIR_ASTRAL_PROJECTION_DEACTIVATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  U.unported('EOC_CLAIR_ASTRAL_PROJECTION_DEACTIVATE', 'u_remove_item_with')
+  U.remove_item_with(you, 'item_clair_astral_projection_cord')
   you:remove_effect(EffectTypeId.new('effect_clair_astral_projection'))
   you:remove_effect(EffectTypeId.new('incorporeal'))
   U.unset_mutation(you, 'CLAIR_ASTRAL_PROJECTION_APPEARANCE')
@@ -5078,7 +5078,7 @@ M['EOC_CLAIR_RAD_SENSE_OUTSIDE_RECURRING'] = function(you, npc, ctx)
   if not C['EOC_CLAIR_RAD_SENSE_OUTSIDE_RECURRING'](you, npc, ctx) then
     return false
   end
-  U.unported('EOC_CLAIR_RAD_SENSE_OUTSIDE_RECURRING', 'u_remove_item_with')
+  U.remove_item_with(you, 'clair_sense_rad_item')
   U.cast_spell(you, 'clair_sense_rads_outside_spawn_item', nil, nil)
   return true
 end
@@ -6839,18 +6839,18 @@ M['EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM'] = function(you, npc, ct
   if not C['EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM'](you, npc, ctx) then
     return false
   end
-  U.unported('EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM', 'u_remove_item_with')
-  U.unported('EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM', 'u_remove_item_with')
-  U.unported('EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM', 'u_remove_item_with')
-  U.unported('EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM', 'u_remove_item_with')
-  U.unported('EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM', 'u_remove_item_with')
-  U.unported('EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM', 'u_remove_item_with')
-  U.unported('EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM', 'u_remove_item_with')
-  U.unported('EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM', 'u_remove_item_with')
-  U.unported('EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM', 'u_remove_item_with')
-  U.unported('EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM', 'u_remove_item_with')
-  U.unported('EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM', 'u_remove_item_with')
-  U.unported('EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM', 'u_remove_item_with')
+  U.remove_item_with(you, 'electrokinetic_electrohack_1')
+  U.remove_item_with(you, 'electrokinetic_electrohack_2')
+  U.remove_item_with(you, 'electrokinetic_electrohack_3')
+  U.remove_item_with(you, 'electrokinetic_electrohack_4')
+  U.remove_item_with(you, 'electrokinetic_electrohack_5')
+  U.remove_item_with(you, 'electrokinetic_electrohack_6')
+  U.remove_item_with(you, 'electrokinetic_electrohack_7')
+  U.remove_item_with(you, 'electrokinetic_electrohack_8')
+  U.remove_item_with(you, 'electrokinetic_electrohack_9')
+  U.remove_item_with(you, 'electrokinetic_electrohack_10')
+  U.remove_item_with(you, 'electrokinetic_electrohack_11')
+  U.remove_item_with(you, 'electrokinetic_electrohack_12')
   return true
 end
 C['EOC_ELECTROKIN_REMOVE_LIGHTNING_AURA'] = function(you, npc, ctx)
@@ -7339,7 +7339,7 @@ M['EOC_END_PSI_POWERS'] = function(you, npc, ctx)
   you:remove_effect(EffectTypeId.new('effect_telepath_network_effect'))
   you:remove_effect(EffectTypeId.new('effect_vitakin_purge_rads'))
   you:remove_effect(EffectTypeId.new('effect_psi_intense_concentration'))
-  U.unported('EOC_END_PSI_POWERS', 'u_remove_item_with')
+  U.remove_item_with(you, 'clair_sense_rad_item')
   -- maintained_powers write dropped (derived, Rev 3)
   return true
 end
@@ -10504,8 +10504,8 @@ M['EOC_PHOTOKIN_REMOVE_RADIO'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  U.unported('EOC_PHOTOKIN_REMOVE_RADIO', 'u_remove_item_with')
-  U.unported('EOC_PHOTOKIN_REMOVE_RADIO', 'u_remove_item_with')
+  U.remove_item_with(you, 'item_photokinetic_radio')
+  U.remove_item_with(you, 'item_photokinetic_radio_on')
   you:remove_effect(EffectTypeId.new('effect_photokinetic_radio'))
   return true
 end
@@ -19223,10 +19223,10 @@ M['EOC_PYRO_REMOVE_FIRE_TOOL'] = function(you, npc, ctx)
   end
   U.msg(you, 'The flames over your hand gutter and die out.', MsgType.bad, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  U.unported('EOC_PYRO_REMOVE_FIRE_TOOL', 'u_remove_item_with')
-  U.unported('EOC_PYRO_REMOVE_FIRE_TOOL', 'u_remove_item_with')
-  U.unported('EOC_PYRO_REMOVE_FIRE_TOOL', 'u_remove_item_with')
-  U.unported('EOC_PYRO_REMOVE_FIRE_TOOL', 'u_remove_item_with')
+  U.remove_item_with(you, 'pyrokinetic_fire_tool')
+  U.remove_item_with(you, 'pyrokinetic_fire_tool_four_arms')
+  U.remove_item_with(you, 'pyrokinetic_fire_tool_six_arms')
+  U.remove_item_with(you, 'pyrokinetic_fire_tool_eight_arms')
   you:remove_effect(EffectTypeId.new('effect_pyrokinetic_fire_tool'))
   return true
 end
@@ -19241,7 +19241,7 @@ M['EOC_PYRO_REMOVE_TORCH_WELD'] = function(you, npc, ctx)
   end
   U.msg(you, 'The line of fire vanishes in an instant.', MsgType.bad, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  U.unported('EOC_PYRO_REMOVE_TORCH_WELD', 'u_remove_item_with')
+  U.remove_item_with(you, 'pyrokinetic_torch_weld')
   you:remove_effect(EffectTypeId.new('effect_pyrokinetic_torch_weld'))
   return true
 end
@@ -20803,26 +20803,26 @@ M['EOC_TELEKIN_REMOVE_JACKING_TOOL'] = function(you, npc, ctx)
   end
   U.msg(you, 'You let the vehicle settle gently to the ground.', MsgType.bad, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
-  U.unported('EOC_TELEKIN_REMOVE_JACKING_TOOL', 'u_remove_item_with')
+  U.remove_item_with(you, 'telekin_lifting_jack_1')
+  U.remove_item_with(you, 'telekin_lifting_jack_2')
+  U.remove_item_with(you, 'telekin_lifting_jack_3')
+  U.remove_item_with(you, 'telekin_lifting_jack_4')
+  U.remove_item_with(you, 'telekin_lifting_jack_5')
+  U.remove_item_with(you, 'telekin_lifting_jack_6')
+  U.remove_item_with(you, 'telekin_lifting_jack_7')
+  U.remove_item_with(you, 'telekin_lifting_jack_8')
+  U.remove_item_with(you, 'telekin_lifting_jack_9')
+  U.remove_item_with(you, 'telekin_lifting_jack_10')
+  U.remove_item_with(you, 'telekin_lifting_jack_11')
+  U.remove_item_with(you, 'telekin_lifting_jack_12')
+  U.remove_item_with(you, 'telekin_lifting_jack_13')
+  U.remove_item_with(you, 'telekin_lifting_jack_14')
+  U.remove_item_with(you, 'telekin_lifting_jack_15')
+  U.remove_item_with(you, 'telekin_lifting_jack_16')
+  U.remove_item_with(you, 'telekin_lifting_jack_17')
+  U.remove_item_with(you, 'telekin_lifting_jack_18')
+  U.remove_item_with(you, 'telekin_lifting_jack_19')
+  U.remove_item_with(you, 'telekin_lifting_jack_20')
   you:remove_effect(EffectTypeId.new('effect_telekinetic_vehicle_lift'))
   return true
 end

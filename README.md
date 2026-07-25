@@ -152,6 +152,9 @@ Please check here first — these are known and do not need new reports.
 - **Auto-learn pacing** — do powers arrive too fast, too slow, or about right?
 - **Mass Hydrothermosis** — does LOS-wide reach feel fair, does the Stamina cost hurt enough?
 - **Duration powers** — any that last a suspiciously wrong amount of time.
+- **Summoned tools now disappear when you stop concentrating.** Previously the lifting jack,
+  hacking interface, fire tool, radio, hammerhand and friends stayed in your inventory
+  forever. If you find a psionic tool that *outlives* its power, that's a bug worth reporting.
 - **Photon Regulation** (Photokinetics) — newly working as of this build. You should acquire a
   worn "photon regulation" item you can't take off, which should let you look at the sun
   without pain and **weld without goggles**. Please confirm both.

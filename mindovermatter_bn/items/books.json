@@ -2,7 +2,7 @@
   {
     "id": "manual_meditation",
     "type": "BOOK",
-    "category": "manuals",
+    "category": "books",
     "name": {
       "str": "Meditation and You",
       "str_pl": "copies of Meditation and You"
@@ -29,7 +29,7 @@
   {
     "id": "manual_meditation_int",
     "type": "BOOK",
-    "category": "manuals",
+    "category": "books",
     "name": {
       "str": "Secrets of the Zen Masters",
       "str_pl": "copies of Secrets of the Zen Masters"
@@ -46,7 +46,7 @@
   {
     "id": "manual_psionics_advan",
     "type": "BOOK",
-    "category": "manuals",
+    "category": "books",
     "name": {
       "str": "Lab Journal-Otomo",
       "str_pl": "copies of Lab Journal-Otomo"
@@ -63,7 +63,7 @@
   {
     "id": "phavian_report_psionic_drain",
     "type": "BOOK",
-    "category": "manuals",
+    "category": "books",
     "name": {
       "str": "Report: Channeling Protocol PGS38",
       "str_pl": "copies of Report: Channeling Protocol PGS38"
@@ -80,7 +80,7 @@
   {
     "id": "manual_psionic_ritual",
     "type": "BOOK",
-    "category": "manuals",
+    "category": "books",
     "name": {
       "str": "Training Manual: Method of Loci and Dimensional Metaphysics",
       "str_pl": "copies of Training Manual: Method of Loci and Dimensional Metaphysics"
@@ -97,7 +97,7 @@
   {
     "id": "phavian_psionic_martial_power_book",
     "type": "BOOK",
-    "category": "manuals",
+    "category": "books",
     "name": {
       "str": "Training Manual: VERDANT HAND Combat Protocols",
       "str_pl": "copies of Training Manual: VERDANT HAND Combat Protocols"
@@ -114,7 +114,7 @@
   {
     "id": "phavian_psionic_control_mutations_book",
     "type": "BOOK",
-    "category": "manuals",
+    "category": "books",
     "name": {
       "str": "Progress Report: EMERALD VANGUARD",
       "str_pl": "copies of Progress Report: EMERALD VANGUARD"
@@ -131,7 +131,7 @@
   {
     "id": "phavian_psionic_teleportation_combat_book",
     "type": "BOOK",
-    "category": "manuals",
+    "category": "books",
     "name": {
       "str": "Proposal: TURQUOISE KEYSTONE",
       "str_pl": "copies of Proposal: TURQUOISE KEYSTONE"
@@ -148,7 +148,7 @@
   {
     "id": "phavian_psionic_telepathic_mental_engineering_book",
     "type": "BOOK",
-    "category": "manuals",
+    "category": "books",
     "name": {
       "str": "Lab Report: PATIENT MOSAIC process",
       "str_pl": "copies of Lab Report: PATIENT MOSAIC process"

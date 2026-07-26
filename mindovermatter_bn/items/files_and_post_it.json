@@ -456,7 +456,7 @@
     "weight": "5 g",
     "volume": "5 ml",
     "to_hit": -3,
-    "category": "keys",
+    "category": "tools_entry",
     "use_action": {
       "type": "reveal_map",
       "radius": 90,

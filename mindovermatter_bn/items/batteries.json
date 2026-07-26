@@ -2,7 +2,7 @@
   {
     "id": "light_battery_electronoetic",
     "type": "MAGAZINE",
-    "category": "tool_magazine",
+    "category": "battery",
     "name": {
       "str": "light electronoetic battery",
       "str_pl": "light electronoetic batteries"
@@ -34,7 +34,7 @@
     "id": "light_battery_electronoetic_refined",
     "copy-from": "light_battery_electronoetic",
     "type": "MAGAZINE",
-    "category": "tool_magazine",
+    "category": "battery",
     "name": {
       "str": "light refined electronoetic battery",
       "str_pl": "light refined electronoetic batteries"
@@ -46,7 +46,7 @@
   {
     "id": "medium_battery_electronoetic",
     "type": "MAGAZINE",
-    "category": "tool_magazine",
+    "category": "battery",
     "name": {
       "str": "medium electronoetic battery",
       "str_pl": "medium electronoetic batteries"
@@ -78,7 +78,7 @@
     "id": "medium_battery_electronoetic_refined",
     "copy-from": "medium_battery_electronoetic",
     "type": "MAGAZINE",
-    "category": "tool_magazine",
+    "category": "battery",
     "name": {
       "str": "medium refined electronoetic battery",
       "str_pl": "medium refined electronoetic batteries"
@@ -90,7 +90,7 @@
   {
     "id": "heavy_battery_electronoetic",
     "type": "MAGAZINE",
-    "category": "tool_magazine",
+    "category": "battery",
     "name": {
       "str": "electronoetic tool battery",
       "str_pl": "electronoetic tool batteries"
@@ -123,7 +123,7 @@
     "id": "heavy_battery_electronoetic_refined",
     "copy-from": "heavy_battery_electronoetic",
     "type": "MAGAZINE",
-    "category": "tool_magazine",
+    "category": "battery",
     "name": {
       "str": "refined electronoetic tool battery",
       "str_pl": "refined electronoetic tool batteries"

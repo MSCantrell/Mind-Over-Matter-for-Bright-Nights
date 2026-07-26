@@ -81,7 +81,7 @@
   {
     "id": "exodii_exodii_stungun_mag",
     "type": "MAGAZINE",
-    "category": "tool_magazine",
+    "category": "battery",
     "name": {
       "str": "On\u0161ut power pack"
     },

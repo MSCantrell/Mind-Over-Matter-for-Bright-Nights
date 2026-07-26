@@ -309,7 +309,7 @@
   {
     "id": "mom_fifth_sun_eagle_tac_helmet",
     "type": "TOOL_ARMOR",
-    "category": "armor",
+    "category": "clothing",
     "name": {
       "str": "Imperial Navy battle helmet"
     },
@@ -409,7 +409,7 @@
   {
     "id": "mom_fifth_sun_standard_body_armor",
     "type": "TOOL_ARMOR",
-    "category": "armor",
+    "category": "clothing",
     "name": {
       "str": "p\u0101ncahcall\u014d torso armor",
       "str_pl": "sets of p\u0101ncahcall\u014d torso armor"

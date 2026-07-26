@@ -24,7 +24,6 @@
     "//": "Capacity 3x normal",
     "capacity": 300,
     "looks_like": "battery",
-    "reloads_like": "light_battery_cell",
     "flags": [
       "NO_SALVAGE",
       "NO_UNLOAD",
@@ -42,7 +41,6 @@
     },
     "//": "Capacity 8x normal",
     "capacity": 800,
-    "reloads_like": "light_battery_cell",
     "ammo_type": "battery"
   },
   {
@@ -68,7 +66,6 @@
     "color": "cyan",
     "ammo_type": "battery",
     "looks_like": "battery",
-    "reloads_like": "medium_battery_cell",
     "flags": [
       "NO_SALVAGE",
       "NO_UNLOAD",
@@ -88,7 +85,6 @@
     },
     "//": "Capacity 8x normal",
     "capacity": 4000,
-    "reloads_like": "medium_battery_cell",
     "ammo_type": "battery"
   },
   {
@@ -117,7 +113,6 @@
     "//": "Capacity 3x normal",
     "capacity": 3000,
     "looks_like": "battery",
-    "reloads_like": "heavy_battery_cell",
     "flags": [
       "NO_SALVAGE",
       "NO_UNLOAD",
@@ -135,7 +130,6 @@
     },
     "//": "Capacity 8x normal",
     "capacity": 8000,
-    "reloads_like": "heavy_battery_cell",
     "ammo_type": "battery"
   }
 ]

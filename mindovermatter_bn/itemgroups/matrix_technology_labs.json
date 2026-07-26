@@ -759,7 +759,7 @@
       {
         "item": "pen",
         "prob": 30,
-        "repeat": 4
+        "count": [ 1, 4 ]
       },
       {
         "item": "paper",

@@ -721,6 +721,35 @@ return function(mod)
   end
 
   -- ==========================================================================
+  -- Abjuration Stone (mom_abjuration_stone_effects).  Upstream banishes Nether
+  -- creatures in a 15-25 tile radius: valid_targets [hostile, ally] narrowed by
+  -- targeted_monster_species [NETHER, NETHER_EMANATION, NETHER_BURROWING], and
+  -- its EOC is a bare `u_die` on whatever survives that filter.  BN's spell
+  -- engine has no species filter (the same gap as Short Circuit above), so the
+  -- ported spell runs through the marker bridge and the filter lives HERE.
+  -- Without it the stone would instantly kill every hostile and every ally
+  -- within 25 tiles -- not a port, a nuke.  NETHER_BURROWING is not in the port
+  -- (nothing in BN core or this mod carries it), so NETHER + NETHER_EMANATION is
+  -- the whole reachable set.
+  -- Deliberately silent, like upstream: the creatures visibly dying is the
+  -- feedback, and a nether breach would otherwise spam a line per corpse.  The
+  -- one upstream detail BN can't honor is `remove_corpse` -- `die()` leaves
+  -- whatever corpse the monster type would normally leave, which for most nether
+  -- creatures is none anyway (they carry NO_CORPSE / "melts away").
+  -- you = target creature, npc = caster (avatar).
+  -- ==========================================================================
+  M.EOC_MOM_ABJURATION_STONE_SPELL_EFFECTS = function(you, npc, ctx)
+    local nether = false
+    pcall(function()
+      nether = you:in_species(SpeciesTypeId.new("NETHER"))
+               or you:in_species(SpeciesTypeId.new("NETHER_EMANATION"))
+    end)
+    if not nether then return false end
+    U.die(you)
+    return true
+  end
+
+  -- ==========================================================================
   -- Psychometry (clair_examine_item).  Upstream reads artifact_resonance + the
   -- FIFTH_SUN_TECHNOLOGY flag off the chosen item; BN has neither (resonance is
   -- a DDA-only enchant value; MoM's Fifth-Sun items/flag aren't ported, and the

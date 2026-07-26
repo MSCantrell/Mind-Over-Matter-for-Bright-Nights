@@ -3484,5 +3484,19 @@
     "flags": [
       "EFFECT_LUA_ON_ADDED"
     ]
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_cast_mom_abjuration_stone_effects",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
   }
 ]

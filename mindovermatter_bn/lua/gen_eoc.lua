@@ -20427,7 +20427,7 @@ M['EOC_TELEKIN_LEARNING_STRENGTH'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_VEHICLE_LIFT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_pull') >= 8) and (m.spell_level(you, 'telekinetic_slowfall') >= 8)) or (m.spell_level(you, 'telekinetic_strength') >= 10) or (m.spell_level(you, ' telekinetic_lifting_field') >= 12))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_vehicle_lift') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_vehicle_lift'))))
+  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_pull') >= 8) and (m.spell_level(you, 'telekinetic_slowfall') >= 8)) or (m.spell_level(you, 'telekinetic_strength') >= 10) or (m.spell_level(you, 'telekinetic_lifting_field') >= 12))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_vehicle_lift') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_vehicle_lift'))))
 end
 M['EOC_TELEKIN_LEARNING_VEHICLE_LIFT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25265,7 +25265,7 @@ M['EOC_UNLOCK_RAD_POWERS'] = function(you, npc, ctx)
 end
 C['EOC_UNLOCK_RAD_POWERS_CLAIR'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.roll_contested(m.skill(you, 'metaphysics'), 10, 10) and U.roll_contested(m.skill(you, 'chemistry'), 8, 10) and (m.spell_level(you, 'clair_spot_weakness') >= 6) and (m.spell_level(you, 'clair_danger_sense') >= 8) and (m.spell_level(you, 'clair_voyance') >= 5))
+  return (U.roll_contested(m.skill(you, 'metaphysics'), 10, 10) and U.roll_contested(m.skill(you, 'cooking'), 8, 10) and (m.spell_level(you, 'clair_spot_weakness') >= 6) and (m.spell_level(you, 'clair_danger_sense') >= 8) and (m.spell_level(you, 'clair_voyance') >= 5))
 end
 M['EOC_UNLOCK_RAD_POWERS_CLAIR'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25284,7 +25284,7 @@ M['EOC_UNLOCK_RAD_POWERS_CLAIR'] = function(you, npc, ctx)
 end
 C['EOC_UNLOCK_RAD_POWERS_VITA'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.roll_contested(m.skill(you, 'metaphysics'), 11, 10) and U.roll_contested(m.skill(you, 'chemistry'), 8, 10) and (m.spell_level(you, 'vita_concentrated_healing') >= 8) and (m.spell_level(you, 'vita_stop_infection') >= 6) and (m.spell_level(you, 'vita_healing_trance') >= 2))
+  return (U.roll_contested(m.skill(you, 'metaphysics'), 11, 10) and U.roll_contested(m.skill(you, 'cooking'), 8, 10) and (m.spell_level(you, 'vita_concentrated_healing') >= 8) and (m.spell_level(you, 'vita_stop_infection') >= 6) and (m.spell_level(you, 'vita_healing_trance') >= 2))
 end
 M['EOC_UNLOCK_RAD_POWERS_VITA'] = function(you, npc, ctx)
   ctx = ctx or {}

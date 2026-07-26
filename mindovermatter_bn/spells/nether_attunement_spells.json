@@ -1,0 +1,144 @@
+[
+  {
+    "id": "nether_attunement_vomit",
+    "type": "SPELL",
+    "name": {
+      "str": "Nether Attunement Vomit",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "description": {
+      "str": "Vomits when you use your powers.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT"
+    ],
+    "effect": "vomit",
+    "scale_int": true
+  },
+  {
+    "id": "nether_attunement_cold_chill",
+    "type": "SPELL",
+    "name": {
+      "str": "Nether Attunement Cold Chill",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self"
+    ],
+    "description": {
+      "str": "Drops the temperature when you use your powers.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_VFX"
+    ],
+    "message": "",
+    "effect": "target_attack",
+    "field_id": "fd_cold_air_nether_chill",
+    "field_chance": 1,
+    "min_field_intensity": 3,
+    "max_field_intensity": 3,
+    "min_aoe": 2,
+    "max_aoe": 2,
+    "scale_int": true
+  },
+  {
+    "id": "nether_attunement_everyone_downed",
+    "type": "SPELL",
+    "name": {
+      "str": "Nether Attunement Everyone Downed",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self",
+      "ally",
+      "hostile"
+    ],
+    "description": {
+      "str": "Knocks you and everyone else nearby off their feet when you use your powers.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_VFX",
+      "IGNORE_WALLS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "downed",
+    "extra_effects": [
+      {
+        "id": "nether_attunement_everyone_dazed",
+        "hit_self": true
+      }
+    ],
+    "min_aoe": 2,
+    "scale_int": true
+  },
+  {
+    "id": "nether_attunement_everyone_dazed",
+    "type": "SPELL",
+    "name": {
+      "str": "Nether Attunement Everyone Dazed",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self",
+      "ally",
+      "hostile"
+    ],
+    "description": {
+      "str": "Dazes you and everyone else nearby when you use your powers.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_VFX",
+      "RANDOM_DURATION",
+      "IGNORE_WALLS"
+    ],
+    "effect": "target_attack",
+    "effect_str": "psi_dazed",
+    "min_aoe": 2,
+    "min_duration": 200,
+    "max_duration": 1500,
+    "scale_int": true
+  },
+  {
+    "id": "nether_attunement_nether_lightning",
+    "type": "SPELL",
+    "name": {
+      "str": "Nether Attunement Lightning All Around",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "self",
+      "ground",
+      "ally",
+      "hostile"
+    ],
+    "description": {
+      "str": "Unleashes a blast of lightning everywhere around.",
+      "//~": "NO_I18N"
+    },
+    "message": "",
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_VFX",
+      "RANDOM_AOE",
+      "IGNORE_WALLS"
+    ],
+    "effect": "target_attack",
+    "min_aoe": 5,
+    "max_aoe": 20,
+    "field_id": "fd_electricity",
+    "min_field_intensity": 4,
+    "max_field_intensity": 7,
+    "field_chance": 2,
+    "scale_int": true
+  }
+]

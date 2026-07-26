@@ -1,0 +1,13 @@
+[
+  {
+    "//": "Ported verbatim from upstream morale_types.json 2026-07-26 (found by tools/check_lua_refs.py).  No porter reads that file, so both ids were missing while two EOCs kept calling U.add_morale on them: the Thought-Editing morale from telepathic_morale (the whole point of the power) and the Malaise drain a silent one inflicts.  Neither did anything.  BN's morale_type schema is identical to DDA's -- id plus text -- so this is a straight copy rather than a bridge.",
+    "id": "morale_telepathy",
+    "type": "morale_type",
+    "text": "Thought-Editing"
+  },
+  {
+    "id": "morale_silent_one_drain",
+    "type": "morale_type",
+    "text": "Malaise"
+  }
+]

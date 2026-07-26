@@ -1012,5 +1012,30 @@
     "priority": 8,
     "half_life": "1 minutes",
     "phase": "gas"
+  },
+  {
+    "//": "Ported from upstream fields.json 2026-07-26 (found by tools/check_lua_refs.py).  Target field of emit_nether_chill, which nether_attunement_cold_chill emits -- see strip_spell_math.EMIT_TO_FIELD.  Verbatim: every key is BN-legal, and it is deliberately milder and slower-spreading than BN's own fd_cold_air3 (-12/-28/-40 vs -16/-40/-70, percent_spread 10 vs 100), so mapping it onto a core field would have made the Nether's chill considerably nastier than upstream intends.",
+    "id": "fd_cold_air_nether_chill",
+    "type": "field_type",
+    "intensity_levels": [
+      {
+        "name": "chill air",
+        "sym": "&",
+        "convection_temperature_mod": -12
+      },
+      {
+        "color": "blue",
+        "convection_temperature_mod": -28
+      },
+      {
+        "color": "cyan",
+        "convection_temperature_mod": -40
+      }
+    ],
+    "decay_amount_factor": 5,
+    "percent_spread": 10,
+    "priority": -1,
+    "half_life": "50 minutes",
+    "phase": "gas"
   }
 ]

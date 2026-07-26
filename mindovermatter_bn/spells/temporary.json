@@ -1,0 +1,90 @@
+[
+  {
+    "id": "telelixir_random",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Telelixir Random Choice",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "Part of the Telekinetic Elixir spell that chooses another spell to cast.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "flags": [
+      "WONDER",
+      "RANDOM_TARGET",
+      "NO_EXPLOSION_VFX"
+    ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "message": "",
+    "effect": "none",
+    "min_damage": 1,
+    "max_damage": 1,
+    "min_range": 8,
+    "max_range": 15,
+    "extra_effects": [
+      {
+        "id": "telelixir_slam"
+      },
+      {
+        "id": "telelixir_push"
+      }
+    ],
+    "scale_int": true
+  },
+  {
+    "id": "telelixir_slam",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Telelixir Slam",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "One spell for the telekinetic elixir mutation.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "message": "",
+    "effect": "target_attack",
+    "effect_str": "downed",
+    "difficulty": 1,
+    "min_duration": 200,
+    "scale_int": true
+  },
+  {
+    "id": "telelixir_push",
+    "type": "SPELL",
+    "name": {
+      "str": "[\u03a8]Telelixir Shove",
+      "//~": "NO_I18N"
+    },
+    "description": {
+      "str": "One spell for the telekinetic elixir mutation.  It's a bug if you have it.",
+      "//~": "NO_I18N"
+    },
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "message": "",
+    "effect": "directed_push",
+    "difficulty": 1,
+    "min_damage": 3,
+    "max_damage": 8,
+    "scale_int": true
+  }
+]

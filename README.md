@@ -24,7 +24,7 @@ runtime. See [Architecture](#architecture-for-the-curious) if you want to know h
 ## Install
 
 1. Grab the newest zip from **[Releases](../../releases)** — releases are dated, e.g.
-   `2026.7.25`, so you always know which build you're on. (**Code → Download ZIP** gets the
+   `2026.7.26`, so you always know which build you're on. (**Code → Download ZIP** gets the
    latest in-progress `main` instead, which is fine but harder to report bugs against.)
 
    Or install it from the **[BN Mod Registry](https://mods.cataclysmbn.org/)**, which
@@ -181,7 +181,7 @@ Open an **Issue** and include:
 
 1. What you did and what you expected.
 2. **Which mod version** you're on — shown next to the mod in the in-game mod list, and in
-   `modinfo.json`. Releases are dated, e.g. `2026.7.25`.
+   `modinfo.json`. Releases are dated, e.g. `2026.7.26`.
 3. Your BN version (main menu shows the build date).
 4. **`config/debug.log`** — attach it. This matters more than anything else; the Lua
    runtime logs there.

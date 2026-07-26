@@ -48,6 +48,7 @@
         ]
       }
     ],
+    "ammo": "battery",
     "magazines": [
       [
         "battery",
@@ -134,6 +135,7 @@
         ]
       }
     ],
+    "ammo": "battery",
     "magazines": [
       [
         "battery",

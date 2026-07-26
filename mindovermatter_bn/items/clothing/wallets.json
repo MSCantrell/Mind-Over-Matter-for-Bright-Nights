@@ -40,10 +40,6 @@
         "prob": 100
       },
       {
-        "item": "id_science_visitor_1",
-        "prob": 15
-      },
-      {
         "group": "discount_cards",
         "prob": 40,
         "count": [
@@ -52,16 +48,12 @@
         ]
       },
       {
-        "item": "condom_sealed",
+        "item": "condom",
         "prob": 10
       },
       {
         "item": "labmap",
         "prob": 30
-      },
-      {
-        "item": "wallet_photo",
-        "prob": 20
       },
       [
         "scorecard",
@@ -92,10 +84,6 @@
       {
         "item": "id_science_visitor_phavian",
         "prob": 100
-      },
-      {
-        "item": "id_science_visitor_1",
-        "prob": 15
       },
       {
         "group": "banknotes",
@@ -129,10 +117,6 @@
         "item": "labmap",
         "prob": 20
       },
-      {
-        "item": "wallet_photo",
-        "prob": 20
-      },
       [
         "scorecard",
         20
@@ -154,10 +138,6 @@
       {
         "item": "id_science_visitor_phavian",
         "prob": 100
-      },
-      {
-        "item": "id_science_visitor_1",
-        "prob": 15
       },
       {
         "item": "cash_card",
@@ -197,10 +177,6 @@
       },
       {
         "item": "labmap",
-        "prob": 20
-      },
-      {
-        "item": "wallet_photo",
         "prob": 20
       },
       [

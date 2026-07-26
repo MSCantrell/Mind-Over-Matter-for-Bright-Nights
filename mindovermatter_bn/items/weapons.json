@@ -196,11 +196,6 @@
     ],
     "symbol": "*",
     "color": "dark_gray",
-    "use_action": {
-      "type": "message",
-      "message": "You've already activated the %s, try throwing it instead.",
-      "name": "Push buttons"
-    },
     "countdown_action": {
       "type": "cast_spell",
       "spell_id": "grenade_anti_psi_explosion",
@@ -270,11 +265,6 @@
       "str": "destabilized pyrokinetic matrix crystal bomb"
     },
     "description": "A matrix crystal attuned to pyrokinesis.  The faint light in its depths is growing brighter and brighter, and the crystal itself is heating up as you hold it.",
-    "use_action": {
-      "type": "message",
-      "message": "The %s is already destabilized, try throwing it instead.",
-      "name": "Push buttons"
-    },
     "countdown_action": {
       "type": "explosion",
       "explosion": {

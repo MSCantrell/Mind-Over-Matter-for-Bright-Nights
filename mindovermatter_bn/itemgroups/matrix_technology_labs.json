@@ -11,8 +11,7 @@
           1,
           -1
         ],
-        "container-item": "bottle_plastic",
-        "sealed": false
+        "container-item": "bottle_plastic"
       },
       {
         "item": "bleach",
@@ -512,8 +511,7 @@
           1,
           -1
         ],
-        "container-item": "bottle_plastic",
-        "sealed": false
+        "container-item": "bottle_plastic"
       },
       {
         "item": "bleach",

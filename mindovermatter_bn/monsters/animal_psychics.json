@@ -135,7 +135,7 @@
     ],
     "melee_skill": 2,
     "dodge": 3,
-    "harvest": "mutant_bird",
+    "harvest": "bird_large",
     "fear_triggers": [
       "PLAYER_CLOSE"
     ],

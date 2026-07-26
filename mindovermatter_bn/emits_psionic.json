@@ -127,5 +127,21 @@
     "field": "fd_pyrokinetic_heat",
     "intensity": 3,
     "qty": 20
+  },
+  {
+    "//": "Ported from upstream emits.json 2026-07-26 together with its target field fd_nullifying_field (fields.json).  Referenced by the anti-psi zombies' emit_fields.",
+    "id": "emit_anti_psi",
+    "type": "emit",
+    "field": "fd_nullifying_field",
+    "intensity": 3,
+    "qty": 120
+  },
+  {
+    "//": "Ported from upstream emits.json 2026-07-26; see emit_anti_psi.",
+    "id": "emit_anti_psi_void",
+    "type": "emit",
+    "field": "fd_neutralizing_field",
+    "intensity": 3,
+    "qty": 120
   }
 ]

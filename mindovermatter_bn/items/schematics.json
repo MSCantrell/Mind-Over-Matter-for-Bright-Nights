@@ -251,7 +251,7 @@
     },
     "description": "An extensive series of instructions on the proper calibrations and parameters for using the \"noetic resonance detector\" to determine a target's noetic potential.  There is no way you could have ever figured this out without these directions to follow.",
     "copy-from": "schematics_generic",
-    "looks_like": "basic_chemistry",
+    "looks_like": "textbook_chemistry",
     "required_level": 3,
     "max_level": 3,
     "intelligence": 12,

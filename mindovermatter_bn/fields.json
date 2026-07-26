@@ -943,5 +943,74 @@
     "priority": -20,
     "half_life": "2 seconds",
     "phase": "gas"
+  },
+  {
+    "//": "Ported from upstream fields.json 2026-07-26 (found by tools/check_refs.py). mon_zombie_blank / _concentration_ender / _nullpsi / _psi_void reference emit_anti_psi(_void) via emit_fields, but neither the emit nor its target field was ported, so the checker baseline carried 'invalid emit source emit_anti_psi' and the anti-psi zombies emitted nothing at all.  Both effect ids (effect_psi_null, effect_psi_turn_off_powers) already exist in effects/gen_effects.json, and BN's field_type loader supports the whole effects payload including per-level inheritance (field_type.cpp:146-170), so this is verbatim.",
+    "id": "fd_nullifying_field",
+    "type": "field_type",
+    "intensity_levels": [
+      {
+        "name": "droning hum",
+        "effects": [
+          {
+            "effect_id": "effect_psi_null",
+            "intensity": 10,
+            "min_duration": "100 seconds",
+            "max_duration": "350 seconds",
+            "immune_inside_vehicle": false
+          }
+        ]
+      },
+      {
+        "//": "repeat last entry"
+      },
+      {
+        "//": "repeat last entry"
+      }
+    ],
+    "decay_amount_factor": 5,
+    "gas_absorption_factor": 15,
+    "percent_spread": 5,
+    "priority": 8,
+    "half_life": "1 minutes",
+    "phase": "gas"
+  },
+  {
+    "//": "Ported from upstream fields.json 2026-07-26; see fd_nullifying_field. The void variant also forces maintained powers off.",
+    "id": "fd_neutralizing_field",
+    "type": "field_type",
+    "intensity_levels": [
+      {
+        "name": "droning hum",
+        "effects": [
+          {
+            "effect_id": "effect_psi_null",
+            "intensity": 10,
+            "min_duration": "100 seconds",
+            "max_duration": "350 seconds",
+            "immune_inside_vehicle": false
+          },
+          {
+            "effect_id": "effect_psi_turn_off_powers",
+            "intensity": 1,
+            "min_duration": "1 seconds",
+            "max_duration": "1 seconds",
+            "immune_inside_vehicle": false
+          }
+        ]
+      },
+      {
+        "//": "repeat last entry"
+      },
+      {
+        "//": "repeat last entry"
+      }
+    ],
+    "decay_amount_factor": 5,
+    "gas_absorption_factor": 15,
+    "percent_spread": 5,
+    "priority": 8,
+    "half_life": "1 minutes",
+    "phase": "gas"
   }
 ]

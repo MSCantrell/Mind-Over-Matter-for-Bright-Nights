@@ -71,7 +71,7 @@
     "id": "psionic_mindsight_glasses",
     "type": "TOOL_ARMOR",
     "category": "clothing",
-    "looks_like": "ar_glasses_advanced",
+    "looks_like": "glasses_bal",
     "name": {
       "str": "QD944-P 'Mindsight' glasses",
       "str_pl": "sets of QD944-P 'Mindsight' glasses"

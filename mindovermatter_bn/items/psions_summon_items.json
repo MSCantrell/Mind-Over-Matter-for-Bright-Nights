@@ -2041,7 +2041,7 @@
     "name": {
       "str": "[\u03a8]Vitakinetic Wound Staunching"
     },
-    "looks_like": "bandage",
+    "looks_like": "bandages",
     "description": "The power to stop bleeding",
     "weight": "0 g",
     "volume": "0 ml",
@@ -2069,7 +2069,7 @@
     "name": {
       "str": "[\u03a8]Vitakinetic Wound Staunching"
     },
-    "looks_like": "bandage",
+    "looks_like": "bandages",
     "description": "The power to stop bleeding",
     "weight": "0 g",
     "volume": "0 ml",
@@ -2097,7 +2097,7 @@
     "name": {
       "str": "[\u03a8]Vitakinetic Wound Staunching"
     },
-    "looks_like": "bandage",
+    "looks_like": "bandages",
     "description": "The power to stop bleeding",
     "weight": "0 g",
     "volume": "0 ml",
@@ -2125,7 +2125,7 @@
     "name": {
       "str": "[\u03a8]Vitakinetic Disinfectant"
     },
-    "looks_like": "bandage",
+    "looks_like": "bandages",
     "description": "The power to stop infections",
     "weight": "0 g",
     "volume": "0 ml",
@@ -2156,7 +2156,7 @@
     "name": {
       "str": "[\u03a8]Vitakinetic Disinfectant"
     },
-    "looks_like": "bandage",
+    "looks_like": "bandages",
     "description": "The power to stop infections",
     "weight": "0 g",
     "volume": "0 ml",
@@ -2187,7 +2187,7 @@
     "name": {
       "str": "[\u03a8]Vitakinetic Disinfectant"
     },
-    "looks_like": "bandage",
+    "looks_like": "bandages",
     "description": "The power to stop infections",
     "weight": "0 g",
     "volume": "0 ml",

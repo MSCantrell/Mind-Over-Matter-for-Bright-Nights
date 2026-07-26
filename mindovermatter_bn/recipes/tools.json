@@ -396,8 +396,8 @@
         1
       ]
     ],
-    "category": "CC_APPLIANCE",
-    "subcategory": "CSC_APPLIANCE_LIGHTING",
+    "category": "CC_ELECTRONIC",
+    "subcategory": "CSC_ELECTRONIC_LIGHTING",
     "skills_required": [
       [
         "fabrication",

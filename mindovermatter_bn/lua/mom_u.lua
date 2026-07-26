@@ -259,25 +259,97 @@ return function(mod)
   -- no-op stub those items piled up in inventory forever.
   --
   -- `all_items(false)` flattens worn garments, their contents, and the wielded
-  -- weapon, so a force_equip'd tool is reachable; `remove_item` goes through
-  -- inv_remove_item, which is a direct inventory operation and so is not blocked
-  -- by NO_TAKEOFF the way a player-initiated takeoff would be. Matches are
-  -- collected before removing -- never mutate the inventory mid-iteration.
+  -- weapon, so a force_equip'd tool is reachable -- but the three locations need
+  -- three DIFFERENT removals, and getting that wrong is not a soft failure.
   --
-  -- The returned detached_ptr is intentionally discarded: dropping ownership is
-  -- what actually destroys the item.
+  -- ⚠ Character:remove_item is INVENTORY-ONLY -- "The `Item` must be in the
+  -- inventory, neither wielded nor worn" (catalua_bindings_creature.cpp:1071).
+  -- It is not merely refused for worn/wielded items, it is memory-unsafe:
+  -- location_inventory::remove_item (inventory.cpp:1380) calls
+  -- it->remove_location() FIRST, unconditionally, and only then discovers the
+  -- item is not in the inventory -- so a still-worn item is left with a dangling
+  -- location -- and returns detached_ptr<item>( &inv.remove_item( it ) ), which
+  -- on the miss path wraps null_item_reference() (inventory.cpp:669, the
+  -- "Tried to remove a item not in inventory." debugmsg).  That is a STATIC
+  -- singleton -- the game's global "no item" sentinel -- handed to Lua as an
+  -- owning pointer, so the next GC frees it out from under the whole game.
+  -- This hard-crashed a playtest (2026-07-25); the earlier version of this
+  -- function fed it every worn Lifting Field tier.  Route by location instead,
+  -- and NEVER fall back to remove_item when a targeted removal fails.
+  --
+  -- Worn: remove_worn -> Character::takeoff -> can_takeoff, which refuses
+  -- NO_TAKEOFF (character.cpp:3566).  The bridge-managed auras therefore carry
+  -- NO_TAKEOFF as an INSTANCE flag only (see port_items.py), and item::unset_flag
+  -- clears item_tags, so the clear below works on those and is a harmless no-op
+  -- on anything else.  A type-level NO_TAKEOFF would still refuse -- correctly,
+  -- since destroying it is not something this function can safely do.
+  --
+  -- Wielded: unwield() first (it stows or drops), then the item is reachable as
+  -- an ordinary inventory item on the next pass -- same dance as consume_one in
+  -- mom_hooks.lua, which hit this same debugmsg during playtest round 2.
+  --
+  -- One removal per pass, re-reading all_items each time: every removal
+  -- invalidates the pointers in the previous snapshot.
+  local NO_TAKEOFF_FLAG = "NO_TAKEOFF"
+
   function U.remove_item_with(who, item_id)
     return guarded("remove_item_with:" .. item_id, function()
-      local all = who:all_items(false)
-      local doomed = {}
-      for _, it in ipairs(all) do
-        local okt, t = pcall(function() return it:get_type():str() end)
-        if okt and t == item_id then doomed[#doomed + 1] = it end
+      local removed = false
+      for _ = 1, 20 do
+        local target, where
+        for _, it in ipairs(who:all_items(false)) do
+          local okt, t = pcall(function() return it:get_type():str() end)
+          if okt and t == item_id then
+            target = it
+            local okw, worn = pcall(function() return who:is_worn(it) end)
+            local okd, wielded = pcall(function() return who:is_wielding(it) end)
+            -- a FAILED read must not be treated as "loose in inventory" --
+            -- that is precisely the call that corrupts memory.  Bail instead.
+            if not (okw and okd) then where = "unknown"
+            elseif worn then where = "worn"
+            elseif wielded then where = "wielded"
+            else where = "inv" end
+            break
+          end
+        end
+        if not target then break end
+
+        if where == "inv" then
+          -- returned detached_ptr intentionally discarded: dropping ownership
+          -- is what destroys the item
+          local ok = pcall(function() who:remove_item(target) end)
+          if not ok then
+            once("rmi|" .. item_id, "remove_item failed for " .. item_id)
+            break
+          end
+          removed = true
+        elseif where == "worn" then
+          local ok, gone = pcall(function()
+            target:unset_flag(JsonFlagId.new(NO_TAKEOFF_FLAG))
+            return who:remove_worn(target) ~= nil
+          end)
+          if not (ok and gone) then
+            once("rmw|" .. item_id,
+                 "could not remove worn " .. item_id ..
+                 " (type-level NO_TAKEOFF?); leaving it on")
+            break
+          end
+          removed = true
+        elseif where == "wielded" then
+          local ok, unwielded = pcall(function() return who:unwield() end)
+          if not (ok and unwielded) then
+            once("rmu|" .. item_id, "unwield refused for " .. item_id)
+            break
+          end
+          -- do NOT count this as removed; the next pass finds it stowed (or it
+          -- was dropped to the floor, in which case it is off the character)
+        else
+          once("rmq|" .. item_id,
+               "could not locate " .. item_id .. " (is_worn/is_wielding failed)")
+          break
+        end
       end
-      for _, it in ipairs(doomed) do
-        pcall(function() who:remove_item(it) end)
-      end
-      return #doomed > 0
+      return removed
     end, false)
   end
 
@@ -319,15 +391,68 @@ return function(mod)
   local IA_MAX_FAILS = 3        -- stop retrying a wear that keeps refusing
   local ia_next_turn = 0
   local ia_fails = {}
+  -- item id -> INTEGRATED_ARMOR entry, for items confirmed worn RIGHT NOW.
+  -- Only `transient` entries land here; it is what lets teardown run every turn
+  -- without paying for a full sweep (see integrated_armor_maintain).  Session
+  -- state only -- a reload starts empty and the first periodic sweep repopulates
+  -- it, so at worst a teardown across a save/load waits one period as before.
+  local ia_worn = {}
 
   -- true / false / nil, where nil means "couldn't determine" -- never treat a
   -- failed read as "not worn", or we would spawn a duplicate every sweep.
-  local function wears_itype(who, id)
+  --
+  -- `stamp` also pins NO_TAKEOFF onto the worn instance.  The `transient` aura
+  -- tiers cannot carry it at the type level (a type flag is unclearable, so the
+  -- bridge could never take the aura back off -- see port_items.py and
+  -- U.remove_item_with), but the player still must not be able to peel a
+  -- conjured field off by hand: without it, a manual takeoff would leave the
+  -- item loose in the pack while the trait is still up, and the next sweep would
+  -- see "not worn" and conjure a SECOND one.  Re-stamped every sweep, so it also
+  -- self-heals on a save made before this fix.
+  -- One-shot diagnostic for the aura items, logged the first time each one is
+  -- confirmed worn.  These deliver their whole effect through
+  -- relic_data.passive_effects, and that chain has four independent links that
+  -- all fail SILENTLY -- no load error, no runtime error, just an item that does
+  -- nothing (which is exactly how Lifting Field spent weeks inert before, and
+  -- how it was reported again on 2026-07-25):
+  --   relic?  -- item::get_enchantments() returns an empty static unless
+  --             is_relic(), i.e. unless relic_data survived onto the INSTANCE.
+  --             Note item::deserialize defaults relic_data to nullptr when the
+  --             save has no entry (savegame_json.cpp:2797), so an instance
+  --             carried over from a save made when the item was a TOOL is a
+  --             non-relic forever.
+  --   ench=N  -- 0 means passive_effects didn't resolve (a `{"id": ...}` entry is
+  --             looked up eagerly at item-load time by relic::load, so the
+  --             enchantment has to be loaded before the item that names it).
+  --   cap     -- Character::weight_capacity() raw units, to compare against the
+  --             same line with the aura off.
+  -- Cheap: fires once per item id per session, and only for items the bridge
+  -- actually manages.
+  local function ia_probe(who, it, id)
+    local ok, msg = pcall(function()
+      local relic = it:is_relic()
+      local n = 0
+      local oke, enchs = pcall(function() return it:get_enchantments() end)
+      if oke and enchs then for _ in ipairs(enchs) do n = n + 1 end end
+      return string.format("%s worn: relic=%s ench=%d cap=%s",
+                           id, tostring(relic), n,
+                           tostring(who:get_weight_capacity()))
+    end)
+    once("iaprobe|" .. id, ok and msg or ("probe failed for " .. id))
+  end
+
+  local function wears_itype(who, id, stamp)
     local ok, worn = pcall(function() return who:get_worn_items() end)
     if not ok or not worn then return nil end
     for _, it in ipairs(worn) do
       local okt, t = pcall(function() return it:get_type():str() end)
-      if okt and t == id then return true end
+      if okt and t == id then
+        if stamp then
+          pcall(function() it:set_flag(JsonFlagId.new("NO_TAKEOFF")) end)
+          ia_probe(who, it, id)
+        end
+        return true
+      end
     end
     return false
   end
@@ -335,6 +460,42 @@ return function(mod)
   function U.integrated_armor_maintain(who)
     if not who then return end
     local turn = gapi.current_turn():to_turn()
+
+    -- FAST TEARDOWN, every turn, before the IA_PERIOD gate.
+    --
+    -- The periodic sweep is coarse (IA_PERIOD) because it walks all 31 entries --
+    -- fine for *acquiring* an item (chargen professions, a mid-run crystal
+    -- awakening: nobody notices a minute's delay on something permanent), but
+    -- wrong for teardown, where the player watches a conjured field linger for up
+    -- to IA_PERIOD turns after they stop concentrating. Reported from playtest
+    -- 2026-07-25: "it didn't disappear right away when I ended the power".
+    --
+    -- Teardown doesn't need the sweep: only entries we have already confirmed
+    -- worn can need removing, and at most one lifter tier is ever worn. So
+    -- ia_worn tracks those, and this checks just their traits -- 1 has_trait
+    -- while a field is up, zero otherwise, against 31 for a full sweep.
+    for item_id, e in pairs(ia_worn) do
+      local okt, has = pcall(function()
+        return who:has_trait(MutationBranchId.new(e.trait))
+      end)
+      -- a FAILED read must never destroy gear -- only act on a definite false
+      if okt and not has then
+        U.remove_item_with(who, item_id)
+        ia_worn[item_id] = nil
+        ia_fails[item_id] = nil
+        -- Clearing a key mid-`pairs` is defined behavior in Lua (adding one is
+        -- not); we only ever clear here.
+        --
+        -- A trait vanishing is EITHER the power ending or it levelling into a
+        -- different tier, and this loop can't tell which. Opening the period gate
+        -- makes the full sweep below run in THIS same call, so a tier swap wears
+        -- its replacement without ever leaving the player aura-less (and short
+        -- the carry bonus). On a genuine power-end the sweep just finds nothing
+        -- and costs one cycle of trait reads.
+        ia_next_turn = 0
+      end
+    end
+
     if turn < ia_next_turn then return end
     ia_next_turn = turn + IA_PERIOD
     for _, e in ipairs(INTEGRATED_ARMOR) do
@@ -351,8 +512,17 @@ return function(mod)
           U.remove_item_with(who, e.item)
           ia_fails[e.item] = nil
         end
+        ia_worn[e.item] = nil
       elseif (ia_fails[e.item] or 0) < IA_MAX_FAILS then
-        if okt and has and wears_itype(who, e.item) == false then
+        -- stamp=true: re-pins NO_TAKEOFF whenever the item is already worn
+        local already = wears_itype(who, e.item, true)
+        -- Register for fast teardown only once the item is CONFIRMED worn and
+        -- only for transient entries. `already == nil` means the worn-list read
+        -- failed, which must not be recorded either way.
+        if e.transient and okt and has and already == true then
+          ia_worn[e.item] = e
+        end
+        if okt and has and already == false then
           -- wear_detached takes ownership: on failure the detached item is
           -- destroyed with it, so a refused wear leaks nothing.
           local worn_ok = guarded("integrated_armor:" .. e.item, function()
@@ -361,6 +531,11 @@ return function(mod)
           end, false)
           if worn_ok then
             ia_fails[e.item] = nil
+            -- pin NO_TAKEOFF on the new instance, and register the freshly worn
+            -- transient item for fast teardown without waiting a whole period
+            if wears_itype(who, e.item, true) == true and e.transient then
+              ia_worn[e.item] = e
+            end
           else
             ia_fails[e.item] = (ia_fails[e.item] or 0) + 1
             if ia_fails[e.item] >= IA_MAX_FAILS then
@@ -1289,15 +1464,37 @@ return function(mod)
     end, false)
   end
 
+  -- `has_amount` is a Character method in DDA but is NOT bound in BN's Lua API
+  -- (catalua_bindings_creature.cpp binds has_item_with_id / all_items /
+  -- all_items_with_flag, no has_amount / use_amount).  Calling it raised
+  -- "attempt to call a nil value (method 'has_amount')" inside guarded(), so
+  -- BOTH of these silently answered false for every item, every time -- any
+  -- generated condition gated on carrying a psi tool was dead.  Found in the
+  -- 2026-07-25 playtest log next to the remove_item_with crash.
   function U.has_item(who, item_id)
     return guarded("has_item:" .. item_id, function()
-      return who:has_amount(ItypeId.new(item_id), 1)
+      return who:has_item_with_id(ItypeId.new(item_id), false)
     end, false)
   end
 
+  -- No bound counting call either, so count by walking all_items(false) --
+  -- same traversal remove_item_with uses (inventory + worn + wielded).  Stops
+  -- at `count`, so the common count == 1 case is cheap.
   function U.has_items(who, item_id, count)
     return guarded("has_items:" .. item_id, function()
-      return who:has_amount(ItypeId.new(item_id), U.round(count))
+      local want = U.round(count)
+      if want <= 1 then
+        return who:has_item_with_id(ItypeId.new(item_id), false)
+      end
+      local n = 0
+      for _, it in ipairs(who:all_items(false)) do
+        local okt, t = pcall(function() return it:get_type():str() end)
+        if okt and t == item_id then
+          n = n + 1
+          if n >= want then return true end
+        end
+      end
+      return false
     end, false)
   end
 

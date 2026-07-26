@@ -598,7 +598,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 2 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 2 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -613,7 +613,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -634,7 +633,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 5 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 5 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -649,7 +648,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -670,7 +668,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 8 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 8 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -685,7 +683,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -706,7 +703,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 12 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 12 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -721,7 +718,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -742,7 +738,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 17 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 17 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -757,7 +753,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -778,7 +773,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 23 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 23 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -793,7 +788,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -814,7 +808,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 30 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 30 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -829,7 +823,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -850,7 +843,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 38 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 38 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -865,7 +858,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -886,7 +878,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 47 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 47 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -901,7 +893,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -922,7 +913,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 57 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 57 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -937,7 +928,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -958,7 +948,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 68 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 68 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -973,7 +963,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -994,7 +983,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 80 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 80 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1009,7 +998,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1030,7 +1018,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 93 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 93 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1045,7 +1033,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1066,7 +1053,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 107 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 107 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1081,7 +1068,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1102,7 +1088,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 122 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 122 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1117,7 +1103,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1138,7 +1123,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 138 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 138 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1153,7 +1138,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1174,7 +1158,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 155 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 155 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1189,7 +1173,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1210,7 +1193,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 173 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 173 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1225,7 +1208,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1246,7 +1228,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 192 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 192 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1261,7 +1243,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1282,7 +1263,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 212 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 212 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1297,7 +1278,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1318,7 +1298,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 233 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 233 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1333,7 +1313,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1354,7 +1333,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 255 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 255 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1369,7 +1348,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1390,7 +1368,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 278 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 278 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1405,7 +1383,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1426,7 +1403,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 302 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 302 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1441,7 +1418,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1462,7 +1438,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 327 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 327 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1477,7 +1453,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1498,7 +1473,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 353 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 353 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1513,7 +1488,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1534,7 +1508,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 380 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 380 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1549,7 +1523,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1570,7 +1543,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 408 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 408 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1585,7 +1558,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1606,7 +1578,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 437 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 437 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1621,7 +1593,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",
@@ -1642,7 +1613,7 @@
     "name": {
       "str": "[\u03a8]lifting field"
     },
-    "description": "A knot of telekinetic force riding alongside you, taking up to 467 kg of what you carry so your body does not have to.",
+    "description": "A knot of telekinetic force riding alongside you, bearing the strain of your load.  Lets you carry 467 kg more than your body alone could \u2014 weight only; it makes no more room in your pack.",
     "weight": "0 g",
     "volume": "0 ml",
     "price": "1 cent",
@@ -1657,7 +1628,6 @@
       "AURA",
       "SEMITANGIBLE",
       "ONLY_ONE",
-      "NO_TAKEOFF",
       "UNBREAKABLE",
       "NO_REPAIR",
       "NO_SALVAGE",

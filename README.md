@@ -130,6 +130,10 @@ worked poorly, this port diverges on purpose:
   permanently scar your map.
 - **Mind Sonar** replaces Sense Minds, as a readable census rather than a map overlay
   (BN has no creature-sensing hook).
+- **Lifting Field raises your carrying capacity** (2 kg at level 1 up to 467 kg at level 30,
+  upstream's own curve) instead of hovering one named object weightlessly beside you. DDA does
+  it with a zero-weight holster pocket; BN is pre-pocket and no container can discount its
+  contents' weight. It lifts **weight, not bulk** — your pack is no roomier.
 - **Cut as unportable:** Nether Banish (BN monster spells cannot target other monsters),
   Re-energize (no vehicle-charge binding), Water Walking (inert in BN).
 
@@ -161,12 +165,12 @@ Please check here first — these are known and do not need new reports.
 - **Photon Regulation** (Photokinetics) — newly working as of this build. You should acquire a
   worn "photon regulation" item you can't take off, which should let you look at the sun
   without pain and **weld without goggles**. Please confirm both.
-- **Lifting Field** — newly working as of this build. While it's up you'll be wearing a
-  `[Ψ]lifting field` aura you can't take off, which raises your carrying capacity (2 kg at
-  level 1 up to 467 kg at level 30). It boosts what you can carry rather than hovering one
-  specific item beside you as it does in DDA, because BN has no way to discount an individual
-  carried item's weight. Does the trade feel worth the stamina and concentration slot? And
-  does the aura reliably vanish when you stop concentrating?
+- **Lifting Field** — confirmed working: the `[Ψ]lifting field` aura appears, raises your
+  carrying capacity, and is taken back when you stop concentrating. See
+  [Fork changes](#fork-changes-deliberate-differences-from-dda) for how it differs from DDA.
+  What's still worth an opinion: **does the trade feel worth the stamina and the concentration
+  slot?** Note the capacity gain can read larger than the number in the item description —
+  worn gear with a carry-weight modifier multiplies the bonus, which is normal BN behavior.
 
 Also worth knowing: the mod emits some harmless load-time warnings, and occasional
 `Bad intensity` messages in the log are cosmetic.

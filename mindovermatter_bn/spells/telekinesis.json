@@ -522,7 +522,7 @@
     "id": "telekinetic_lifting_field",
     "type": "SPELL",
     "name": "[\u03a8]Lifting Field (C)",
-    "description": "Hover a single object next to you, freeing your hands for other tasks and making it easy to access.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "description": "A knot of telekinetic force rides alongside you and takes the strain of your load.  While maintained you wear a visible <color_light_green>[\u03a8]lifting field</color> and can carry <color_light_green>considerably more weight</color> \u2014 2 kg more at first, rising past 400 kg once the power is mastered.\n\nIt lifts weight, not bulk: your pack is no roomier, and you are no stronger.  The load simply stops pulling on your frame.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
     "message": "",
     "valid_targets": [
       "self"

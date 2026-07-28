@@ -670,6 +670,12 @@
       },
       "palettes": [
         "lab_surface_palette"
+      ],
+      "rows": [
+        "    ",
+        "    ",
+        "    ",
+        "    "
       ]
     },
     "method": "json"
@@ -2983,6 +2989,19 @@
       },
       "palettes": [
         "lab_surface_palette"
+      ],
+      "rows": [
+        "           ",
+        "           ",
+        "           ",
+        "           ",
+        "           ",
+        "           ",
+        "           ",
+        "           ",
+        "           ",
+        "           ",
+        "           "
       ]
     },
     "method": "json"
@@ -5706,10 +5725,7 @@
         "X": [
           "t_grass_alien_2"
         ]
-      },
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ]
+      }
     },
     "method": "json"
   },
@@ -5835,9 +5851,6 @@
           "y": 0,
           "intensity": 3
         }
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ]
     },
     "method": "json"
@@ -5864,9 +5877,6 @@
           "y": 0,
           "intensity": 3
         }
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ]
     },
     "method": "json"
@@ -5893,9 +5903,6 @@
           "y": 0,
           "intensity": 3
         }
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ]
     },
     "method": "json"

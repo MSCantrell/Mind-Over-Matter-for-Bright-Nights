@@ -13,7 +13,6 @@
         "armor_penetration": 10
       }
     ],
-    "blockable": false,
     "hit_dmg_u": "%1$s touches you and the world warps around you!",
     "hit_dmg_npc": "%1$s touches <npcname> and the world warps around them!",
     "miss_msg_u": "%s reaches for you but you avoid their touch!",
@@ -25,7 +24,6 @@
     "id": "psychic_shriek",
     "cooldown": 5,
     "move_cost": 100,
-    "range": 3,
     "damage_max_instance": [
       {
         "damage_type": "psionic",
@@ -45,7 +43,6 @@
     "move_cost": 80,
     "cooldown": 15,
     "accuracy": 5,
-    "range": 10,
     "damage_max_instance": [
       {
         "damage_type": "psionic",
@@ -53,8 +50,6 @@
         "armor_penetration": 0
       }
     ],
-    "dodgeable": false,
-    "blockable": false,
     "hit_dmg_u": "%1$s looks at you and your mind reels!",
     "hit_dmg_npc": "%1$s looks at <npcname> and they flinch as if struck!",
     "miss_msg_u": "%s looks at you but nothing happens!",

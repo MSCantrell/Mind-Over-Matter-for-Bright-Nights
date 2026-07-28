@@ -136,7 +136,6 @@
     },
     "description": "A set of AR-looking glasses.  The code \"QD944-P\" is printed in small letters on the temples.  They are currently active.",
     "use_action": {
-      "ammo_scale": 0,
       "type": "transform",
       "menu_text": "Turn off",
       "msg": "You deactivate your %s.",

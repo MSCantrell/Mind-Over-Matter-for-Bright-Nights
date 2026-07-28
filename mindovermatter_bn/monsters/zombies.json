@@ -28,7 +28,6 @@
     "symbol": "Z",
     "color": "dark_gray_white",
     "dodge": 1,
-    "bleed_rate": 50,
     "vision_day": 30,
     "vision_night": 5,
     "emit_fields": [
@@ -85,7 +84,6 @@
       }
     ],
     "dodge": 3,
-    "bleed_rate": 50,
     "vision_day": 30,
     "vision_night": 5,
     "emit_fields": [
@@ -129,8 +127,7 @@
         "cooldown": 14,
         "max_range": 3,
         "min_consider_range": 2,
-        "max_consider_range": 4,
-        "message": "%1$s drops to all fours for a burst of speed!"
+        "max_consider_range": 4
       }
     ],
     "upgrades": {
@@ -173,7 +170,6 @@
     ],
     "melee_skill": 4,
     "dodge": 1,
-    "bleed_rate": 50,
     "vision_day": 35,
     "vision_night": 5,
     "emit_fields": [
@@ -270,7 +266,6 @@
         "duration": 5
       }
     ],
-    "bleed_rate": 50,
     "vision_day": 35,
     "vision_night": 5,
     "emit_fields": [
@@ -314,8 +309,7 @@
         "cooldown": 14,
         "max_range": 4,
         "min_consider_range": 2,
-        "max_consider_range": 6,
-        "message": "%1$s drops to all fours for a burst of speed!"
+        "max_consider_range": 6
       }
     ],
     "extend": {
@@ -448,8 +442,7 @@
           "cooldown": 6,
           "move_cost": 50,
           "allow_no_target": true,
-          "max_range": 6,
-          "message": "%1$s vanishes and reappears elsewhere!"
+          "max_range": 6
         }
       ]
     }

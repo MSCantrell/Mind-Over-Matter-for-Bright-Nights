@@ -154,6 +154,19 @@ Please check here first — these are known and do not need new reports.
 - The **Devourer** lab boss exists but nothing spawns it yet.
 - Phavian city buildings are present but never placed.
 
+**Monster behaviour BN cannot express** *(found via issue #3, fixed as far as BN allows)*
+- **Psionic monsters only cast their self-buffs when they can see a target.** In DDA a
+  buff like a mi-go juggernaut's speed boost can be cast with no one around
+  (`allow_no_target`). BN's monster spellcasting bails whenever the monster has no
+  attack target, with no way to opt out, so buffs land at the start of a fight rather
+  than before one. No BN-side lever for this.
+- **Reach melee attacks are adjacent-only.** BN melee has no range field, so the
+  psychic shriek and the telekinetic hurl are touch attacks rather than ranged ones.
+- **Monster melee ignores DDA's dodge/block flags**, so a few attacks MoM marked
+  undodgeable can be dodged.
+- **Lab and lockbox item groups spawn their contents loose** rather than inside a box
+  or wallet — BN item groups have no container field.
+
 **Want playtest confirmation especially on:**
 - **Nether Attunement** and per-cast costs — do they actually hurt?
 - **Auto-learn pacing** — do powers arrive too fast, too slow, or about right?

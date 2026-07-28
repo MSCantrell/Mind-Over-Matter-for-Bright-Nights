@@ -91,7 +91,6 @@
             "id": "vitakinetic_regeneration_monster"
           },
           "cooldown": 600,
-          "allow_no_target": true,
           "monster_message": "%1$s's wounds begin healing at a rapid pace!"
         },
         {
@@ -99,8 +98,7 @@
           "cooldown": 600,
           "move_cost": 50,
           "allow_no_target": true,
-          "max_range": 8,
-          "message": "%1$s moves so quickly your eyes can barely follow it!"
+          "max_range": 8
         },
         {
           "id": "nemesis_break_concentration",
@@ -163,12 +161,6 @@
               "armor_penetration": 10
             }
           ],
-          "hitsize_min": 12,
-          "range": 8,
-          "throw_strength": 50,
-          "dodgeable": false,
-          "uncanny_dodgeable": true,
-          "blockable": false,
           "hit_dmg_u": "%1$s stares at you and a powerful force hurls you through the air!",
           "hit_dmg_npc": "%1$s stares at <npcname> and a powerful force hurls them through the air!",
           "miss_msg_u": "%s stares at you, and you feel a crushing pressure for a moment before the feeling vanishes!",
@@ -186,8 +178,6 @@
               "amount": 0
             }
           ],
-          "dodgeable": true,
-          "blockable": true,
           "effects": [
             {
               "id": "effect_vitakinetic_healing_down",
@@ -333,17 +323,11 @@
           "id": "hound_tindalos_maintain_speed",
           "cooldown": 600,
           "move_cost": 1,
-          "range": 60,
           "damage_max_instance": [
             {
               "damage_type": "biological",
               "amount": 0
             }
-          ],
-          "dodgeable": false,
-          "blockable": false,
-          "eoc": [
-            "EOC_MOM_HOUND_SPEED_ADJUSTMENT"
           ],
           "hit_dmg_u": "",
           "hit_dmg_npc": "",
@@ -358,17 +342,11 @@
           "id": "hound_tindalos_lose_speed",
           "cooldown": 600,
           "move_cost": 1,
-          "range": 60,
           "damage_max_instance": [
             {
               "damage_type": "biological",
               "amount": 0
             }
-          ],
-          "dodgeable": false,
-          "blockable": false,
-          "eoc": [
-            "EOC_MOM_HOUND_SPEED_ADJUSTMENT"
           ],
           "hit_dmg_u": "",
           "hit_dmg_npc": "",
@@ -402,17 +380,11 @@
           "id": "hound_tindalos_maintain_speed",
           "cooldown": 600,
           "move_cost": 1,
-          "range": 60,
           "damage_max_instance": [
             {
               "damage_type": "biological",
               "amount": 0
             }
-          ],
-          "dodgeable": false,
-          "blockable": false,
-          "eoc": [
-            "EOC_MOM_HOUND_SPEED_ADJUSTMENT"
           ],
           "hit_dmg_u": "",
           "hit_dmg_npc": "",
@@ -427,17 +399,11 @@
           "id": "hound_tindalos_lose_speed",
           "cooldown": 600,
           "move_cost": 1,
-          "range": 60,
           "damage_max_instance": [
             {
               "damage_type": "biological",
               "amount": 0
             }
-          ],
-          "dodgeable": false,
-          "blockable": false,
-          "eoc": [
-            "EOC_MOM_HOUND_SPEED_ADJUSTMENT"
           ],
           "hit_dmg_u": "",
           "hit_dmg_npc": "",

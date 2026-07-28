@@ -31,7 +31,6 @@
             "hit_self": true
           },
           "cooldown": 600,
-          "allow_no_target": true,
           "monster_message": ""
         }
       ],
@@ -69,8 +68,7 @@
       ],
       {
         "type": "bite",
-        "cooldown": 14,
-        "infection_chance": 44
+        "cooldown": 14
       },
       {
         "id": "ranged_pull",
@@ -146,9 +144,6 @@
         "id": "psychic_shriek",
         "cooldown": 6,
         "move_cost": 100,
-        "range": 3,
-        "dodgeable": false,
-        "blockable": false,
         "damage_max_instance": [
           {
             "damage_type": "psionic",
@@ -542,7 +537,6 @@
           "id": "electrokinetic_power_draining"
         },
         "cooldown": 27,
-        "allow_no_target": true,
         "monster_message": "Sparks flicker over %1$s's fur."
       },
       {
@@ -599,7 +593,6 @@
       }
     ],
     "dodge": 3,
-    "bleed_rate": 60,
     "vision_day": 50,
     "vision_night": 5,
     "harvest": "mutant_mammal_large_fur",
@@ -850,8 +843,7 @@
         "cooldown": 2,
         "move_cost": 50,
         "allow_no_target": true,
-        "max_range": 6,
-        "message": "%1$s vanishes and reappears elsewhere!"
+        "max_range": 6
       },
       {
         "id": "psi_rabbit_blinker_blinking",
@@ -885,8 +877,7 @@
         "cooldown": 20,
         "move_cost": 50,
         "allow_no_target": true,
-        "max_range": 4,
-        "message": "%1$s vanishes and reappears elsewhere!"
+        "max_range": 4
       }
     ]
   }

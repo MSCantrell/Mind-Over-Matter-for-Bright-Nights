@@ -381,13 +381,6 @@
     ],
     "armor_portion_data": [
       {
-        "material": [
-          {
-            "type": "light",
-            "covered_by_mat": 100,
-            "thickness": 0.1
-          }
-        ],
         "covers": [
           "eyes"
         ],

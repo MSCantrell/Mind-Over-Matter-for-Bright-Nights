@@ -384,7 +384,6 @@
     "revert_to": "mom_fifth_sun_eagle_tac_helmet",
     "use_action": [
       {
-        "ammo_scale": 0,
         "target": "mom_fifth_sun_eagle_tac_helmet",
         "msg": "You flip the switch and deactivate the helmet's functions.",
         "menu_text": "Flip the switch",
@@ -451,20 +450,7 @@
           "torso"
         ],
         "coverage": 95,
-        "encumbrance": 20,
-        "material": [
-          {
-            "type": "leather",
-            "covered_by_mat": 100,
-            "thickness": 2
-          },
-          {
-            "type": "fifth_sun_antiballistic_cloth",
-            "covered_by_mat": 95,
-            "thickness": 2.4,
-            "ignore_sheet_thickness": true
-          }
-        ]
+        "encumbrance": 20
       },
       {
         "covers": [
@@ -472,20 +458,7 @@
           "arm_r"
         ],
         "coverage": 90,
-        "encumbrance": 8,
-        "material": [
-          {
-            "type": "leather",
-            "covered_by_mat": 100,
-            "thickness": 1.1
-          },
-          {
-            "type": "fifth_sun_antiballistic_cloth",
-            "covered_by_mat": 95,
-            "thickness": 1.2,
-            "ignore_sheet_thickness": true
-          }
-        ]
+        "encumbrance": 8
       }
     ],
     "ammo": [
@@ -507,7 +480,6 @@
     "revert_to": "mom_fifth_sun_standard_body_armor",
     "use_action": [
       {
-        "ammo_scale": 0,
         "target": "mom_fifth_sun_standard_body_armor",
         "msg": "You flip the switch and deactivate the eh\u0113catepantli barrier.",
         "menu_text": "Flip the switch",
@@ -557,7 +529,6 @@
     "revert_to": "mom_fifth_sun_standard_body_armor_non_fifth_sun",
     "use_action": [
       {
-        "ammo_scale": 0,
         "target": "mom_fifth_sun_standard_body_armor_non_fifth_sun",
         "msg": "You flip the switch.",
         "menu_text": "Flip the switch",

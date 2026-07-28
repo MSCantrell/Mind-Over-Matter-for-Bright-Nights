@@ -78,7 +78,6 @@
     "charges_per_use": 1,
     "use_action": [
       {
-        "ammo_scale": 0,
         "target": "psionic_transporter_remote",
         "msg": "You turn off the %s.",
         "menu_text": "Turn off",

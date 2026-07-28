@@ -22,9 +22,6 @@
         "d.\ua79dcc\ua79d..",
         "dddd...."
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -153,9 +150,6 @@
         "..cttc.&",
         "..\ua79dcc\ua79d.d",
         "....dddd"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -286,9 +280,6 @@
         "&c.-....",
         "dxd-l..&"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -387,9 +378,6 @@
         "d...-..F",
         "....-.c&",
         "&..l-dxd"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -494,9 +482,6 @@
         "........",
         "d\u023c.\u023c....",
         "dxdx&..y"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette",
@@ -604,9 +589,6 @@
         "....\u023c.\u023cd",
         "y..&xdxd"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette",
         "parametrized_carpets_nest_palette"
@@ -713,9 +695,6 @@
         "C.......",
         "CC\u023bSl..&"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -816,9 +795,6 @@
         "........",
         "&..lS\u023bCC"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -918,9 +894,6 @@
         "x......C",
         "c.....cx",
         "&..lS\u023bCC"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -1113,9 +1086,6 @@
         "cx.....c",
         "CC\u023bSl..&"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -1303,9 +1273,6 @@
         "........",
         "&..llS\u0106\u0106"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -1480,9 +1447,6 @@
         ":::==:::",
         "........",
         "\u0106\u0106Sll..&"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -1663,9 +1627,6 @@
         ".ccd|.ccd",
         "dxxd|xdxd"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -1745,9 +1706,6 @@
         "-..-|-..-",
         "dcc.|dcc.",
         "dxdx|dxxd"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -1829,9 +1787,6 @@
         "\u0111....P...",
         "xc...P...",
         "\u0111\u0111\u0110..P.\u0111\u0111"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "furniture": {
         "P": "f_curtain",
@@ -1973,9 +1928,6 @@
         "...P....\u0111",
         "...P...cx",
         "\u0111\u0111.P..\u0110\u0111\u0111"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "furniture": {
         "P": "f_curtain",
@@ -2122,9 +2074,6 @@
         "dc....c.U",
         "dx....xUU"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -2237,9 +2186,6 @@
         "U...Ax..S",
         "U.c....cd",
         "UUx....xd"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -2365,9 +2311,6 @@
         "C..X....C",
         "Cc......\u00e7",
         "CxC.MMM.C"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -2498,9 +2441,6 @@
         "\u00e7......cC",
         "C.MMM.CxC"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -2621,9 +2561,6 @@
         "xc......c",
         "...xEx..x",
         "\u00e7\u00e7\u00e7\u00e7\u00e75555"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -2757,9 +2694,6 @@
         "x..xEx...",
         "5555\u00e7\u00e7\u00e7\u00e7\u00e7"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -2892,9 +2826,6 @@
         "5.5.5.5.5",
         "5.5.5.5.5"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -2930,9 +2861,6 @@
         "5.5.5.5.5",
         "5.5.5.5.5"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -2956,9 +2884,6 @@
         ".T.",
         "..."
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -2969,13 +2894,7 @@
         {
           "x": 2,
           "y": 2,
-          "name": "Project OBSIDIAN RING access",
-          "eocs": [
-            "EOC_OBSIDIAN_RING_COMPUTER_CLAIRSENTIENT_DIALOGUE"
-          ],
-          "chat_topics": [
-            "COMP_OBSIDIAN_RING_COMPUTER_CLAIRSENTIENT"
-          ]
+          "name": "Project OBSIDIAN RING access"
         }
       ]
     },
@@ -2994,9 +2913,6 @@
         ".T.",
         "..."
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -3007,13 +2923,7 @@
         {
           "x": 2,
           "y": 2,
-          "name": "Project OBSIDIAN RING access",
-          "eocs": [
-            "EOC_OBSIDIAN_RING_COMPUTER_TELEPATH_DIALOGUE"
-          ],
-          "chat_topics": [
-            "COMP_OBSIDIAN_RING_COMPUTER_TELEPATH"
-          ]
+          "name": "Project OBSIDIAN RING access"
         }
       ]
     },
@@ -3037,9 +2947,6 @@
         "F c ",
         "    ",
         " HHH"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -3138,9 +3045,6 @@
         "F  d",
         "  cd"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -3237,9 +3141,6 @@
         "dc F",
         "  cd",
         "  dd"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -3338,9 +3239,6 @@
         "  cd",
         " xdd"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -3437,9 +3335,6 @@
         "cddc",
         "    ",
         " FBB"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -3538,9 +3433,6 @@
         "  cd",
         "  dd"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -3637,9 +3529,6 @@
         "H  d",
         "  cd",
         "  dd"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -3738,9 +3627,6 @@
         "   d",
         " BBB"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -3833,9 +3719,6 @@
         " c F",
         "    ",
         "HHH "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -3934,9 +3817,6 @@
         "d  F",
         "dc  "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -4033,9 +3913,6 @@
         "F cd",
         "dc  ",
         "dd  "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -4134,9 +4011,6 @@
         "dc  ",
         "ddx "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -4233,9 +4107,6 @@
         "cddc",
         "    ",
         "BBF "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -4334,9 +4205,6 @@
         "dc  ",
         "dd  "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -4433,9 +4301,6 @@
         "d  H",
         "dc  ",
         "dd  "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -4534,9 +4399,6 @@
         "d   ",
         "BBB "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -4633,10 +4495,7 @@
       ],
       "terrain": {
         ".": "t_linoleum_white"
-      },
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ]
+      }
     },
     "method": "json"
   },
@@ -4665,10 +4524,7 @@
       },
       "furniture": {
         "M": "f_armchair"
-      },
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ]
+      }
     },
     "method": "json"
   },
@@ -4694,10 +4550,7 @@
       ],
       "terrain": {
         ".": "t_linoleum_white"
-      },
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ]
+      }
     },
     "method": "json"
   },
@@ -4724,9 +4577,6 @@
       "terrain": {
         ".": "t_linoleum_white"
       },
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "items": {
         "l": {
           "item": "SUS_janitors_closet",
@@ -4771,9 +4621,6 @@
       "terrain": {
         ".": "t_linoleum_white"
       },
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "items": {
         "l": {
           "item": "SUS_janitors_closet",
@@ -4816,9 +4663,6 @@
       "palettes": [
         "phavian_skyscraper_office_room_palette",
         "parametrized_carpets_nest_palette"
-      ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ],
       "terrain": {
         "y": {
@@ -4917,9 +4761,6 @@
         "phavian_skyscraper_office_room_palette",
         "parametrized_carpets_nest_palette"
       ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "terrain": {
         "m": {
           "param": "carpet_color_type",
@@ -5013,9 +4854,6 @@
         "phavian_skyscraper_office_room_palette",
         "parametrized_carpets_nest_palette"
       ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "terrain": {
         ".": {
           "param": "carpet_color_type",
@@ -5105,9 +4943,6 @@
         "phavian_skyscraper_office_room_palette",
         "parametrized_carpets_nest_palette"
       ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "terrain": {
         "t": {
           "param": "carpet_color_type",
@@ -5196,9 +5031,6 @@
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "items": {
         "t": [
           {
@@ -5272,9 +5104,6 @@
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
-      ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ],
       "items": {
         "t": [

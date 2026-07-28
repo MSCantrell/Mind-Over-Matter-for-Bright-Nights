@@ -21,11 +21,8 @@
             "armor_penetration": 5
           }
         ],
-        "hitsize_min": 4,
         "min_mul": 0.5,
-        "max_mul": 1.2,
-        "infection_chance": 10,
-        "attack_upper": false
+        "max_mul": 1.2
       },
       {
         "id": "psi_amalgamation_photokinetic_flashbang",
@@ -106,11 +103,8 @@
             "armor_penetration": 5
           }
         ],
-        "hitsize_min": 4,
         "min_mul": 0.5,
-        "max_mul": 1.2,
-        "infection_chance": 10,
-        "attack_upper": false
+        "max_mul": 1.2
       },
       {
         "id": "psi_amalgamation_telekinetic_shielder_shield_other",
@@ -154,7 +148,6 @@
           "hit_self": true
         },
         "cooldown": 600,
-        "allow_no_target": true,
         "monster_message": ""
       }
     ],
@@ -188,11 +181,6 @@
             "damage_type": "biological",
             "amount": 1
           }
-        ],
-        "dodgeable": true,
-        "blockable": true,
-        "eoc": [
-          "EOC_FERAL_VITAKIN2_ENERVATING_TOUCH"
         ],
         "hit_dmg_u": "%1$s touches you and you feel weaker!",
         "hit_dmg_npc": "%1$s touches <npcname> and they flinch!",

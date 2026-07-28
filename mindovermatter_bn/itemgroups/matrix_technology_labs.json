@@ -759,7 +759,10 @@
       {
         "item": "pen",
         "prob": 30,
-        "count": [ 1, 4 ]
+        "count": [
+          1,
+          4
+        ]
       },
       {
         "item": "paper",
@@ -832,7 +835,6 @@
   {
     "type": "item_group",
     "id": "mutagenic_alpha_kit",
-    "container-item": "box_small_plastic",
     "subtype": "collection",
     "items": [
       {

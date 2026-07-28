@@ -73,7 +73,6 @@
     "//COMMENT": "There is intentionally no death function here, GUILT_HUMAN is special-cased to apply the same penalties as murdering a NPC.",
     "path_settings": {
       "max_dist": 30,
-      "allow_open_doors": true,
       "avoid_traps": true,
       "avoid_sharp": true
     },
@@ -313,7 +312,6 @@
     "description": "Holding their head in their hands, they barely seem aware of the world around them, but they still try to escape the zombies.  Looking at them, you feel an eerie sensation like fingers scratching at your mind.",
     "path_settings": {
       "max_dist": 30,
-      "allow_open_doors": false,
       "avoid_traps": false,
       "avoid_sharp": false
     },
@@ -345,7 +343,6 @@
     "description": "This person looks vacantly around them with a blank expression on their face.  Then, in an instant, they are gone.",
     "path_settings": {
       "max_dist": 30,
-      "allow_open_doors": false,
       "avoid_traps": false,
       "avoid_sharp": false
     },
@@ -384,7 +381,6 @@
     "description": "This person mutters to themselves, glancing to and fro with bloodshot eyes.  They seem remarkably unscathed for someone in the midst of the apocalypse.",
     "path_settings": {
       "max_dist": 30,
-      "allow_open_doors": false,
       "avoid_traps": false,
       "avoid_sharp": false
     },

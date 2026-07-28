@@ -132,7 +132,6 @@
     "type": "item_group",
     "subtype": "collection",
     "id": "map_extra_phavian_science_corpse",
-    "container-item": "corpse_generic_human",
     "//": "Half the time a wallet with an id card, all the time a lab coat, small chance of psi reseach to tantalize",
     "entries": [
       {

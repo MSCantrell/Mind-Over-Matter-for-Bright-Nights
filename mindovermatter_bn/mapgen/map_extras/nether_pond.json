@@ -3,9 +3,6 @@
     "type": "mapgen",
     "update_mapgen_id": "mx_nether_pond",
     "object": {
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "place_nested": [
         {
           "chunks": [
@@ -45,9 +42,6 @@
         "   SSssSS   ",
         "    SSSS    ",
         "     SS     "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "terrain": {
         "D": "t_nether_water_dp",

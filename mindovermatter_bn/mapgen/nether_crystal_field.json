@@ -122,9 +122,6 @@
         3,
         3
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "terrain": {
         " ": [
           [
@@ -140,7 +137,12 @@
             1
           ]
         ]
-      }
+      },
+      "rows": [
+        "   ",
+        "   ",
+        "   "
+      ]
     },
     "method": "json"
   },
@@ -151,9 +153,6 @@
       "mapgensize": [
         3,
         3
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "terrain": {
         " ": [
@@ -170,7 +169,12 @@
             1
           ]
         ]
-      }
+      },
+      "rows": [
+        "   ",
+        "   ",
+        "   "
+      ]
     },
     "method": "json"
   },
@@ -181,9 +185,6 @@
       "mapgensize": [
         3,
         3
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "terrain": {
         " ": [
@@ -200,7 +201,12 @@
             1
           ]
         ]
-      }
+      },
+      "rows": [
+        "   ",
+        "   ",
+        "   "
+      ]
     },
     "method": "json"
   },
@@ -211,9 +217,6 @@
       "mapgensize": [
         3,
         3
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "terrain": {
         " ": [
@@ -230,7 +233,12 @@
             1
           ]
         ]
-      }
+      },
+      "rows": [
+        "   ",
+        "   ",
+        "   "
+      ]
     },
     "method": "json"
   },
@@ -246,9 +254,6 @@
         "   ",
         " N ",
         "   "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "terrain": {
         " ": [
@@ -297,9 +302,6 @@
         " SSsddsSS ",
         "  SSssSS  ",
         "   SSSS   "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "terrain": {
         "D": "t_nether_water_dp",
@@ -370,9 +372,6 @@
         " GGGCCGGG ",
         "   GGGG   "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "terrain": {
         "C": "t_nether_stone",
         "G": [
@@ -420,9 +419,6 @@
       "mapgensize": [
         2,
         2
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ]
     },
     "method": "json"
@@ -439,9 +435,6 @@
       "rows": [
         "N ",
         " N"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "furniture": {
         "N": [
@@ -503,9 +496,6 @@
         " N",
         "N "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "furniture": {
         "N": [
           [
@@ -566,9 +556,6 @@
         "NC",
         "CN"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "terrain": {
         "C": "t_nether_stone"
       },
@@ -605,9 +592,6 @@
       "rows": [
         "CN",
         "NC"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "terrain": {
         "C": "t_nether_stone"

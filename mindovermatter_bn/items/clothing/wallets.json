@@ -4,8 +4,6 @@
     "subtype": "collection",
     "id": "wallet_phavian_leather_full",
     "//": "copy-from: wallet_leather_full ",
-    "container-item": "wallet_leather",
-    "on_overflow": "discard",
     "items": [
       {
         "item": "cash_card",
@@ -66,8 +64,6 @@
     "subtype": "collection",
     "id": "wallet_phavian_full",
     "//": "copy-from: wallet_full ",
-    "container-item": "wallet",
-    "on_overflow": "discard",
     "items": [
       {
         "item": "cash_card",
@@ -128,8 +124,6 @@
     "subtype": "collection",
     "id": "wallet_phavian_stylish_full",
     "//": "copy-from: wallet_stylish_full ",
-    "container-item": "wallet_stylish",
-    "on_overflow": "discard",
     "items": [
       {
         "item": "id_science",

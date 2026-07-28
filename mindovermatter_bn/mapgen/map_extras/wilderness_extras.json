@@ -29,9 +29,6 @@
         "    ................    ",
         "       ..........       "
       ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "palettes": [
         "fear_hawk_copse_trees_palette"
       ],

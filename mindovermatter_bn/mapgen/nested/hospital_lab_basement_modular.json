@@ -25,9 +25,6 @@
         "-..-|--.--",
         "FFy......&"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -113,9 +110,6 @@
         "dd......dd",
         "FFy......&"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -193,9 +187,6 @@
         "...cttc...",
         "....cc....",
         "y........y"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -291,9 +282,6 @@
         ":f:fDDf:f:",
         ".........."
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_hospital_lab"
       ],
@@ -332,9 +320,6 @@
         ".ccd|..ccd",
         "dxxd|xddxd",
         "          "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -422,9 +407,6 @@
         "dxdxddddxd",
         "          "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -498,9 +480,6 @@
         "d........d",
         "dddddddddd",
         "          "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -592,9 +571,6 @@
         "5.5.55.5.5",
         "          "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_hospital_lab"
       ],
@@ -636,9 +612,6 @@
         "--..-|--.--",
         "FFy.......&",
         "           "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -727,9 +700,6 @@
         "FFy.......&",
         "           "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -812,9 +782,6 @@
         "....ccc....",
         "y.........y",
         "           "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -906,9 +873,6 @@
         "v.h\u1e5a...\u1e5ah.v",
         "           "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_hospital_lab"
       ],
@@ -995,9 +959,6 @@
         "Uh.......hU",
         "y.........z",
         "           "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_hospital_lab"
@@ -1090,9 +1051,6 @@
         "|||D|||...u",
         "\u0141.........u",
         "           "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_hospital_lab"
@@ -1409,9 +1367,6 @@
         "dxdxd|xddxd",
         "           "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -1499,9 +1454,6 @@
         "dxdxddxddxd",
         "           "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -1584,9 +1536,6 @@
         "d.........d",
         "ddddddddddd",
         "           "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -1674,9 +1623,6 @@
         "\u0413..\u1e5a...\u1e5a.\u0413.",
         "           "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_hospital_lab"
       ],
@@ -1763,9 +1709,6 @@
         ".E.E...E.E.",
         "NNNNNNNNNNN",
         "           "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_hospital_lab"
@@ -1858,9 +1801,6 @@
         "h...|..dc..",
         "U...|......",
         "           "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_hospital_lab"
@@ -2167,9 +2107,6 @@
         "    ",
         "HHH "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -2267,9 +2204,6 @@
         "d  F",
         "dc  "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -2366,9 +2300,6 @@
         "F cd",
         "dc  ",
         "dd  "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -2467,9 +2398,6 @@
         "dc  ",
         "ddx "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -2566,9 +2494,6 @@
         "cddc",
         "    ",
         "BBF "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -2667,9 +2592,6 @@
         "dc  ",
         "dd  "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -2766,9 +2688,6 @@
         "d  H",
         "dc  ",
         "dd  "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -2867,9 +2786,6 @@
         "d   ",
         "BBB "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -2963,9 +2879,6 @@
         "  cd",
         "  dd"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -3058,9 +2971,6 @@
         "F   ",
         "  cd",
         " xdd"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -3159,9 +3069,6 @@
         "    ",
         " FBB"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -3258,9 +3165,6 @@
         "F c ",
         "    ",
         " HHH"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
@@ -3359,9 +3263,6 @@
         "  cd",
         "  dd"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -3459,9 +3360,6 @@
         "   z",
         "L  <"
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_hospital_lab"
       ],
@@ -3533,9 +3431,6 @@
       "palettes": [
         "phavian_hospital_lab",
         "parametrized_carpets_nest_palette"
-      ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ],
       "furniture": {
         "H": "f_bench"
@@ -3634,9 +3529,6 @@
       "palettes": [
         "phavian_hospital_lab",
         "parametrized_carpets_nest_palette"
-      ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ],
       "terrain": {
         "y": {
@@ -3798,9 +3690,6 @@
         "phavian_hospital_lab",
         "parametrized_carpets_nest_palette"
       ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "furniture": {
         "H": "f_bench"
       },
@@ -3898,9 +3787,6 @@
       "palettes": [
         "phavian_hospital_lab",
         "parametrized_carpets_nest_palette"
-      ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ],
       "terrain": {
         "y": {
@@ -4062,9 +3948,6 @@
         "phavian_hospital_lab",
         "parametrized_carpets_nest_palette"
       ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "furniture": {
         "H": "f_bench"
       },
@@ -4162,9 +4045,6 @@
       "palettes": [
         "phavian_hospital_lab",
         "parametrized_carpets_nest_palette"
-      ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ],
       "terrain": {
         "y": {
@@ -4326,9 +4206,6 @@
         "phavian_hospital_lab",
         "parametrized_carpets_nest_palette"
       ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "furniture": {
         "H": "f_bench"
       },
@@ -4426,9 +4303,6 @@
       "palettes": [
         "phavian_hospital_lab",
         "parametrized_carpets_nest_palette"
-      ],
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ],
       "terrain": {
         "y": {
@@ -4593,9 +4467,6 @@
         "           ",
         "           "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_hospital_lab"
       ],
@@ -4701,9 +4572,6 @@
         " T ",
         "   "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -4714,13 +4582,7 @@
         {
           "x": 2,
           "y": 2,
-          "name": "Project OBSIDIAN RING access",
-          "eocs": [
-            "EOC_OBSIDIAN_RING_COMPUTER_BIOKINESIS_DIALOGUE"
-          ],
-          "chat_topics": [
-            "COMP_OBSIDIAN_RING_COMPUTER_BIOKINESIS"
-          ]
+          "name": "Project OBSIDIAN RING access"
         }
       ]
     },
@@ -4748,9 +4610,6 @@
         "NLNN.....\u0141\u0141",
         "           ",
         "           "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_hospital_lab"
@@ -4857,9 +4716,6 @@
         " T ",
         "   "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "palettes": [
         "phavian_skyscraper_office_room_palette"
       ],
@@ -4870,13 +4726,7 @@
         {
           "x": 2,
           "y": 2,
-          "name": "Project OBSIDIAN RING access",
-          "eocs": [
-            "EOC_OBSIDIAN_RING_COMPUTER_VITAKINESIS_DIALOGUE"
-          ],
-          "chat_topics": [
-            "COMP_OBSIDIAN_RING_COMPUTER_VITAKINESIS"
-          ]
+          "name": "Project OBSIDIAN RING access"
         }
       ]
     },
@@ -4904,9 +4754,6 @@
         "            ",
         "            ",
         "            "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "palettes": [
         "phavian_hospital_lab"

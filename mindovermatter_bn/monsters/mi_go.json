@@ -28,8 +28,7 @@
           "cooldown": 4,
           "move_cost": 50,
           "allow_no_target": true,
-          "max_range": 7,
-          "message": "%1$s moves so quickly your eyes can barely follow it!"
+          "max_range": 7
         },
         {
           "id": "psi_juggernaut_speed_boost",
@@ -55,9 +54,6 @@
         "STUN_IMMUNE"
       ]
     },
-    "armor_bash": 22,
-    "armor_cut": 30,
-    "armor_bullet": 26,
     "armor_electric": 6
   },
   {

@@ -10,7 +10,6 @@
         "id": "teke_push_nema",
         "cooldown": 20,
         "move_cost": 100,
-        "range": 6,
         "damage_max_instance": [
           {
             "damage_type": "bash",

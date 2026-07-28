@@ -344,18 +344,7 @@
           "chance": 10
         },
         "\u0166": {
-          "monster": "mon_turret_rifle",
-          "spawn_data": {
-            "ammo": [
-              {
-                "ammo_id": "556",
-                "qty": [
-                  30,
-                  90
-                ]
-              }
-            ]
-          }
+          "monster": "mon_turret_rifle"
         }
       },
       "place_monsters": [

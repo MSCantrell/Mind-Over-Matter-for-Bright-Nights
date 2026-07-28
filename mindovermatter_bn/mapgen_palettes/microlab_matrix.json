@@ -2,19 +2,6 @@
   {
     "type": "palette",
     "id": "microlab_matrix_chunk",
-    "remove_all": {
-      "!": {},
-      "2": {},
-      ":": {},
-      "X": {},
-      "3": {},
-      "4": {},
-      "\u00f3": {},
-      "R": {},
-      ">": {},
-      "<": {},
-      ";": {}
-    },
     "terrain": {
       ".": [
         "t_strconc_floor",

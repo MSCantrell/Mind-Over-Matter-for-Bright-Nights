@@ -22,9 +22,9 @@
       "need_wielding": true,
       "target": "grenade_inferno_act",
       "msg": "You pull the pin on the %s.",
-      "target_timer": "5 seconds",
       "menu_text": "Pull pin",
-      "type": "transform"
+      "type": "transform",
+      "countdown": 5
     },
     "flags": [
       "BOMB",
@@ -94,9 +94,9 @@
       "need_wielding": true,
       "target": "grenade_inferno_makeshift_act",
       "msg": "You pull the pin on the %s.",
-      "target_timer": "5 seconds",
       "menu_text": "Pull pin",
-      "type": "transform"
+      "type": "transform",
+      "countdown": 5
     },
     "flags": [
       "BOMB",
@@ -167,9 +167,9 @@
       "need_wielding": true,
       "target": "grenade_anti_psi_act",
       "msg": "You press the buttons on the sides of the null grenade.",
-      "target_timer": "5 seconds",
       "menu_text": "Push buttons",
-      "type": "transform"
+      "type": "transform",
+      "countdown": 5
     },
     "flags": [
       "GRENADE"
@@ -247,9 +247,9 @@
       "need_wielding": true,
       "target": "pyrokinetic_matrix_crystal_bomb_act",
       "msg": "With a thought, you destabilize the matrix crystal.",
-      "target_timer": "5 seconds",
       "menu_text": "Overcharge the crystal",
-      "type": "transform"
+      "type": "transform",
+      "countdown": 5
     },
     "flags": [
       "GRENADE"
@@ -270,8 +270,7 @@
       "explosion": {
         "power": 120000,
         "fire": true,
-        "shrapnel": 0,
-        "max_noise": 25
+        "shrapnel": 0
       },
       "fields_type": "fd_fire",
       "fields_radius": 10,
@@ -377,7 +376,6 @@
     ],
     "//": "Recharge time is 8 seconds due to bug #48019, making it actually 4 seconds. Reduce to 4 seconds if that ever gets fixed.",
     "bashing": 12,
-    "max_charges": 1,
     "//relic": "was ARTIFACT subtype in DDA"
   },
   {

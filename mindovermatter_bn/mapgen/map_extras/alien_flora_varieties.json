@@ -3,9 +3,6 @@
     "type": "mapgen",
     "update_mapgen_id": "mx_alien_grass",
     "object": {
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "place_nested": [
         {
           "chunks": [
@@ -43,9 +40,6 @@
         " GGGGGGG ",
         "  GGGGG  "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "terrain": {
         "G": [
           [
@@ -66,9 +60,6 @@
     "type": "mapgen",
     "update_mapgen_id": "mx_alien_grass_2",
     "object": {
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "place_nested": [
         {
           "chunks": [
@@ -109,9 +100,6 @@
         "   GGGGGG   ",
         "    GGGG    "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "terrain": {
         "G": [
           [
@@ -136,9 +124,6 @@
     "type": "mapgen",
     "update_mapgen_id": "mx_alien_grass_3",
     "object": {
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "place_nested": [
         {
           "chunks": [
@@ -176,9 +161,6 @@
         " GGGGGGG ",
         "  GGGGG  "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "terrain": {
         "G": [
           [
@@ -203,9 +185,6 @@
     "type": "mapgen",
     "update_mapgen_id": "mx_alien_grass_4",
     "object": {
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "place_nested": [
         {
           "chunks": [
@@ -244,9 +223,6 @@
         "  GGGGGG  ",
         "   GGGG   "
       ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
-      ],
       "terrain": {
         "G": [
           [
@@ -271,9 +247,6 @@
     "type": "mapgen",
     "update_mapgen_id": "mx_alien_grass_5",
     "object": {
-      "flags": [
-        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
       "place_nested": [
         {
           "chunks": [
@@ -313,9 +286,6 @@
         "  GGGGGGGG  ",
         "   GGGGGG   ",
         "    GGGG    "
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "terrain": {
         "G": [
@@ -366,9 +336,6 @@
         ".....DDDDDDDDDDDDDDD....",
         ".......DDDDDDDDDDDD.....",
         "..........DDDDDD........"
-      ],
-      "flags": [
-        "ERASE_ALL_BEFORE_PLACING_TERRAIN"
       ],
       "terrain": {
         "G": [

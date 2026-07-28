@@ -345,13 +345,7 @@
         {
           "x": 41,
           "y": 30,
-          "name": "Project OBSIDIAN RING access",
-          "eocs": [
-            "EOC_OBSIDIAN_RING_COMPUTER_BIOKINESIS_DIALOGUE"
-          ],
-          "chat_topics": [
-            "COMP_OBSIDIAN_RING_COMPUTER_BIOKINESIS"
-          ]
+          "name": "Project OBSIDIAN RING access"
         }
       ],
       "vendingmachines": {
@@ -364,18 +358,7 @@
       },
       "monster": {
         "T": {
-          "monster": "mon_turret_rifle",
-          "spawn_data": {
-            "ammo": [
-              {
-                "ammo_id": "556",
-                "qty": [
-                  30,
-                  90
-                ]
-              }
-            ]
-          }
+          "monster": "mon_turret_rifle"
         }
       },
       "place_monster": [

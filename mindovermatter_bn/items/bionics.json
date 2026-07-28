@@ -3,6 +3,8 @@
     "id": "bio_dangersight_eyes_non_fifth_sun",
     "copy-from": "bionic_general",
     "type": "BIONIC_ITEM",
+    "//": "The unidentified twin of bio_dangersight_eyes_standard -- same device, found outside a Fifth Sun site, so only the flavour differs (cf. mom_fifth_sun_standard_body_armor_non_fifth_sun).  bionic_id is REQUIRED here: BN falls back to the item's own id when it is absent (item_factory.cpp:2545), and there is no bionic by this id -- without it the CBM installed and did nothing.",
+    "bionic_id": "bio_dangersight_eyes_standard",
     "name": {
       "str": "Strange Eye CBM"
     },

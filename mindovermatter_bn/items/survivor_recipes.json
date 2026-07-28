@@ -2,6 +2,7 @@
   {
     "id": "recipe_survivor_matrix_crystal_ground",
     "type": "BOOK",
+    "symbol": "?",
     "name": {
       "str_sp": "scribbled matrix crystal notes"
     },

@@ -61,6 +61,8 @@
       "fields_max_intensity": 3
     },
     "countdown_interval": 5,
+    "//countdown_destroy": "REQUIRED.  A countdown_action fires EVERY turn once item_counter hits 0 -- the counter is not reset and revert_to is never consulted on that path (item.cpp:11259-11270).  countdown_destroy is the only in-band exit; every vanilla BN countdown_action is a `transform`, which terminates by changing the item's type instead.  Without this the grenade detonates on a loop.  Note this makes revert_to below unreachable.",
+    "countdown_destroy": true,
     "revert_to": "canister_empty",
     "flags": [
       "ACT_IN_FIRE",
@@ -133,6 +135,7 @@
       "fields_max_intensity": 3
     },
     "countdown_interval": 5,
+    "countdown_destroy": true,
     "revert_to": "canister_empty",
     "flags": [
       "ACT_IN_FIRE",
@@ -203,11 +206,13 @@
       "level": 0
     },
     "countdown_interval": 5,
+    "countdown_destroy": true,
     "flags": [
       "BOMB",
       "TRADER_AVOID",
       "DANGEROUS"
     ],
+    "//revert_to": "Unreachable while countdown_destroy is set -- the destroy branch returns before revert() is ever reached.  Kept because grenade_anti_psi_expended is still real loot; there is no way to both cast the spell and leave the husk, since BN has no spell extra_effects and cast_spell ignores the tick flag.",
     "revert_to": "grenade_anti_psi_expended",
     "bashing": 6
   },
@@ -242,7 +247,7 @@
     "name": {
       "str": "pyrokinetic matrix crystal bomb"
     },
-    "description": "A matrix crystal attuned to pyrokinesis.  This one has a (currently) stable loop of energy set up within it.  It would take only a thought to destabilize the energy loop and set up a reaction that would lead to a massive explosion.",
+    "description": "A matrix crystal attuned to pyrokinesis.  This one has a (currently) stable loop of energy set up within it.  It would take only a thought to destabilize the energy loop and set up a reaction that would lead to a massive explosion.  The blast from this is likely to kill you if you don't shelter behind something extremely resilient.  Underground would be even better.",
     "use_action": {
       "need_wielding": true,
       "target": "pyrokinetic_matrix_crystal_bomb_act",
@@ -264,7 +269,7 @@
     "name": {
       "str": "destabilized pyrokinetic matrix crystal bomb"
     },
-    "description": "A matrix crystal attuned to pyrokinesis.  The faint light in its depths is growing brighter and brighter, and the crystal itself is heating up as you hold it.",
+    "description": "A matrix crystal attuned to pyrokinesis.  The faint light in its depths is growing brighter and brighter, and the crystal itself is heating up as you hold it.  The blast from this is likely to kill you if you don't shelter behind something extremely resilient.  Underground would be even better.",
     "countdown_action": {
       "type": "explosion",
       "explosion": {
@@ -278,6 +283,7 @@
       "fields_max_intensity": 3
     },
     "countdown_interval": 5,
+    "countdown_destroy": true,
     "flags": [
       "BOMB",
       "TRADER_AVOID",

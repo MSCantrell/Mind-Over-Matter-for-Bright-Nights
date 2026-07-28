@@ -5,6 +5,7 @@
     "locations": [
       "land"
     ],
+    "rotate": false,
     "overmaps": [
       {
         "point": [

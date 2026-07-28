@@ -20,37 +20,37 @@
         "                                                ",
         "                                                ",
         "   ##VVV#VVV#VVV##VVV##VV##VVV##VVV#VVV#VVV##   ",
-        "   #........................................#   ",
-        "   V........................................V   ",
-        "   V........................................V   ",
-        "   V........................................V   ",
-        "   #........................................#   ",
-        "   V........................................V   ",
-        "   V........................................V   ",
-        "   V........................................V   ",
-        "   #........................................#   ",
-        "   V........................................V   ",
-        "   V........................................V   ",
-        "   V........................................V   ",
-        "   #........................................#   ",
-        "   #........................................#   ",
-        "   V........................................V   ",
-        "   V........................................V   ",
-        "   #........................................#   ",
-        "   #...........<..................<.........#   ",
-        "   #........................................#   ",
-        "   V........................................V   ",
-        "   V........................................V   ",
-        "   #........................................#   ",
-        "   V........................................V   ",
-        "   #........................................#   ",
-        "   V........................................V   ",
-        "   #........................................#   ",
-        "   V........................................V   ",
-        "   V........................................V   ",
-        "   #........................................#   ",
-        "   V........................................V   ",
-        "   #........................................#   ",
+        "   #oooooooooooooooooooooooooooooooooooooooo#   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   #oooooooooooooooooooooooooooooooooooooooo#   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   #oooooooooooooooooooooooooooooooooooooooo#   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   #oooooooooooooooooooooooooooooooooooooooo#   ",
+        "   #oooooooooooooooooooooooooooooooooooooooo#   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   #oooooooooooooooooooooooooooooooooooooooo#   ",
+        "   #ooooooooooo<oooooooooooooooooo<ooooooooo#   ",
+        "   #oooooooooooooooooooooooooooooooooooooooo#   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   #oooooooooooooooooooooooooooooooooooooooo#   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   #oooooooooooooooooooooooooooooooooooooooo#   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   #oooooooooooooooooooooooooooooooooooooooo#   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   #oooooooooooooooooooooooooooooooooooooooo#   ",
+        "   VooooooooooooooooooooooooooooooooooooooooV   ",
+        "   ####################++####################   ",
         "   V........................................V   ",
         "   V........................................V   ",
         "   V...............dddd..dddd...............V   ",
@@ -71,11 +71,176 @@
         "w": "t_window",
         ".": "t_thconc_floor",
         "<": "t_stairs_up",
-        "G": "t_door_glass_c"
+        "G": "t_door_glass_c",
+        "o": "t_linoleum_white",
+        "+": "t_door_c"
       },
       "furniture": {
         "d": "f_counter"
-      }
+      },
+      "place_nested": [
+        {
+          "chunks": [
+            [
+              "office_phavian_lab_DS8x8",
+              80
+            ],
+            [
+              "null",
+              20
+            ]
+          ],
+          "x": 5,
+          "y": 5
+        },
+        {
+          "chunks": [
+            [
+              "office_phavian_lab_DS8x8",
+              80
+            ],
+            [
+              "null",
+              20
+            ]
+          ],
+          "x": 15,
+          "y": 5
+        },
+        {
+          "chunks": [
+            [
+              "office_phavian_lab_DS8x8",
+              80
+            ],
+            [
+              "null",
+              20
+            ]
+          ],
+          "x": 25,
+          "y": 5
+        },
+        {
+          "chunks": [
+            [
+              "office_phavian_lab_DS8x8",
+              80
+            ],
+            [
+              "null",
+              20
+            ]
+          ],
+          "x": 35,
+          "y": 5
+        },
+        {
+          "chunks": [
+            [
+              "office_phavian_lab_DS8x8",
+              80
+            ],
+            [
+              "null",
+              20
+            ]
+          ],
+          "x": 5,
+          "y": 13
+        },
+        {
+          "chunks": [
+            [
+              "office_phavian_lab_DS8x8",
+              80
+            ],
+            [
+              "null",
+              20
+            ]
+          ],
+          "x": 15,
+          "y": 13
+        },
+        {
+          "chunks": [
+            [
+              "office_phavian_lab_DS8x8",
+              80
+            ],
+            [
+              "null",
+              20
+            ]
+          ],
+          "x": 25,
+          "y": 13
+        },
+        {
+          "chunks": [
+            "office_phavian_security_DS8x8"
+          ],
+          "x": 35,
+          "y": 13
+        },
+        {
+          "chunks": [
+            [
+              "office_phavian_lab_DN8x8",
+              80
+            ],
+            [
+              "null",
+              20
+            ]
+          ],
+          "x": 5,
+          "y": 24
+        },
+        {
+          "chunks": [
+            [
+              "office_phavian_lab_DN8x8",
+              80
+            ],
+            [
+              "null",
+              20
+            ]
+          ],
+          "x": 15,
+          "y": 24
+        },
+        {
+          "chunks": [
+            [
+              "office_phavian_lab_DN8x8",
+              80
+            ],
+            [
+              "null",
+              20
+            ]
+          ],
+          "x": 25,
+          "y": 24
+        },
+        {
+          "chunks": [
+            [
+              "office_phavian_lab_DN8x8",
+              80
+            ],
+            [
+              "null",
+              20
+            ]
+          ],
+          "x": 35,
+          "y": 24
+        }
+      ]
     }
   },
   {

@@ -212,7 +212,7 @@
       "TRADER_AVOID",
       "DANGEROUS"
     ],
-    "//revert_to": "Unreachable while countdown_destroy is set -- the destroy branch returns before revert() is ever reached.  Kept because grenade_anti_psi_expended is still real loot; there is no way to both cast the spell and leave the husk, since BN has no spell extra_effects and cast_spell ignores the tick flag.",
+    "//revert_to": "Unreachable while countdown_destroy is set -- the destroy branch returns before revert() is ever reached.  Kept because grenade_anti_psi_expended is still real loot.  A husk IS achievable if wanted: BN does have spell extra_effects (magic.cpp:316) and a spawn_item effect, so grenade_anti_psi_explosion could chain a PERMANENT spawn_item.  Not done because spawn_ethereal_item always adds to the AVATAR's inventory, never the target tile -- a thrown grenade's husk would appear in your pocket.",
     "revert_to": "grenade_anti_psi_expended",
     "bashing": 6
   },

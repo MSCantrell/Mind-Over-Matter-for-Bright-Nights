@@ -1341,7 +1341,10 @@ return function(mod)
       local abs = gapi.bub_to_abs(who:get_pos_ms())
       local omt = coords.project_to_omt(abs)
       local params = OmtFindParams.new()
-      params:add_type(loc, OtMatchType.type)
+      -- NB: BN registers enum keys from io::enum_to_string, so the member is
+      -- OtMatchType.TYPE, not .type (overmap.cpp:7413).  Lowercase reads nil
+      -- and every near_om_location silently returned false.
+      params:add_type(loc, OtMatchType.TYPE)
       params:set_search_range(0, math.floor(range))
       params.max_results = 1
       local found = overmapbuffer.find_closest(omt, params)

@@ -367,13 +367,9 @@
       "NO_UNLOAD",
       "NON_FOULING",
       "NEEDS_NO_LUBE",
-      "NO_REPAIR",
-      "OVERHEATS"
+      "NO_REPAIR"
     ],
-    "faults": [
-      "fault_overheat_explosion",
-      "fault_overheat_melting"
-    ],
+    "//faults": "DDA overheat faults and the OVERHEATS flag dropped: BN has no overheat system, no such faults, and no such flag.",
     "//": "Recharge time is 8 seconds due to bug #48019, making it actually 4 seconds. Reduce to 4 seconds if that ever gets fixed.",
     "bashing": 12,
     "//relic": "was ARTIFACT subtype in DDA"

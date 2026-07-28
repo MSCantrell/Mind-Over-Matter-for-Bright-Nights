@@ -52,7 +52,9 @@
       [
         "battery",
         [
-          "medium_battery_cell"
+          "medium_battery_cell",
+          "medium_battery_electronoetic",
+          "medium_battery_electronoetic_refined"
         ]
       ]
     ],
@@ -137,7 +139,8 @@
       [
         "battery",
         [
-          "medium_battery_electronoetic"
+          "medium_battery_electronoetic",
+          "medium_battery_electronoetic_refined"
         ]
       ]
     ],

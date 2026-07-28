@@ -1,6 +1,6 @@
 [
   {
-    "//file": "json_flag stubs for DDA item flags BN doesn't define \u2014 items_psionic.json references these. They load as inert markers; behavior notes below are what DDA's C++ does with them (Phase-4 candidates if the loss matters).",
+    "//file": "json_flag stubs for DDA item flags BN doesn't define \u2014 items/psions_summon_items.json references these. They load as inert markers; behavior notes below are what DDA's C++ does with them (Phase-4 candidates if the loss matters).",
     "type": "json_flag",
     "id": "SINGLE_USE",
     "info": "This item is consumed on use.",

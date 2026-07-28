@@ -2052,7 +2052,7 @@
     "use_action": {
       "type": "heal",
       "bandages_power": 1,
-      "bleed": 7,
+      "bleed": 0.5,
       "move_cost": 0
     }
   },
@@ -2080,7 +2080,7 @@
     "use_action": {
       "type": "heal",
       "bandages_power": 2,
-      "bleed": 14,
+      "bleed": 0.75,
       "move_cost": 0
     }
   },
@@ -2108,7 +2108,7 @@
     "use_action": {
       "type": "heal",
       "bandages_power": 3,
-      "bleed": 20,
+      "bleed": 1.0,
       "move_cost": 0
     }
   },

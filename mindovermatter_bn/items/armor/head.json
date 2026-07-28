@@ -119,7 +119,8 @@
       [
         "battery",
         [
-          "light_battery_electronoetic"
+          "light_battery_electronoetic",
+          "light_battery_electronoetic_refined"
         ]
       ]
     ],

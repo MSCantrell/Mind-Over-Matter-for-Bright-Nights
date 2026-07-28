@@ -231,10 +231,7 @@
       "LIGHTNING",
       "BOUNCE"
     ],
-    "faults": [
-      "fault_overheat_melting",
-      "fault_overheat_safety"
-    ],
+    "//faults": "DDA overheat faults (fault_overheat_melting / _safety) dropped: BN has no overheat system and defines neither fault.",
     "ammo": [
       "mom_lightning_rifle_ammo"
     ],

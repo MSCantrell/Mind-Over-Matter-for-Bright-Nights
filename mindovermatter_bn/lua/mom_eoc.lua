@@ -27,7 +27,7 @@ return function(mod)
   local PHYS_EFFECT = "effect_biokin_physical"
   local PHYS_SPELL = "biokin_physical_enhance"
 
-  table.insert(m.maintenance_effects, PHYS_EFFECT)
+  m.register_maintenance(PHYS_EFFECT)
 
   -- Upstream drain cadence: rng(level*15+90, level*90+450) seconds.
   local function phys_drain_delay(lvl)
@@ -88,7 +88,7 @@ return function(mod)
   -- ==========================================================================
   local NOGO_EFFECT = "effect_telekinetic_nogozone"
   local NOGO_SPELL = "telekinetic_nogozone"
-  table.insert(m.maintenance_effects, NOGO_EFFECT)
+  m.register_maintenance(NOGO_EFFECT)
 
   -- Slow upkeep cadence (seconds), same shape as Reactive Displacement's drain.
   local function nogo_drain_delay(lvl)
@@ -155,7 +155,7 @@ return function(mod)
   local CIRCUIT_EFFECT = "effect_electrokinetic_circuit_sense"
   local CIRCUIT_SPELL = "electrokinetic_circuit_sense"
   local CIRCUIT_TRAIT = "MOM_CIRCUIT_SENSE"
-  table.insert(m.maintenance_effects, CIRCUIT_EFFECT)
+  m.register_maintenance(CIRCUIT_EFFECT)
 
   local function circuit_drain_delay(lvl)
     lvl = math.max(lvl, 0)

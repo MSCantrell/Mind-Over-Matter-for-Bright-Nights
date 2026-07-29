@@ -799,6 +799,17 @@ return function(mod)
     end,
   }
 
+  -- Maintained-power manifest from the transpiler: every upstream EOC that
+  -- runs EOC_POWER_MAINTENANCE_PLUS_ONE, mapped to the effect it sustains and
+  -- how much concentration it costs.  Before this existed only the three
+  -- hand-registered pilots counted, so mom_math.maintained_count read ~0 for
+  -- a character holding a full stack of powers and every concentration
+  -- consequence was skipped.  Registration is idempotent -- mom_eoc registers
+  -- the pilots and the fork-original powers separately.
+  for id, weight in pairs(mod.gen_maintenance or {}) do
+    mod.math.register_maintenance(id, weight)
+  end
+
   -- Recurring EOCs from the transpiler (upstream "recurrence"): randomized
   -- cadence handled by the on_every_x drainer above.
   for _, r in ipairs(mod.gen_recurring or {}) do

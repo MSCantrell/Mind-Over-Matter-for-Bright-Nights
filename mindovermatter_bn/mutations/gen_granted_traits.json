@@ -400,7 +400,13 @@
     "player_display": true,
     "purifiable": false,
     "valid": false,
-    "cost": 0
+    "cost": 0,
+    "transform": {
+      "target": "PHOTOLIXIR_LIGHT_active",
+      "msg_transform": "The air around you starts glowing brightly.",
+      "active": true,
+      "moves": 10
+    }
   },
   {
     "type": "mutation",
@@ -1141,7 +1147,13 @@
     "ugliness": 0,
     "active": true,
     "player_display": true,
-    "valid": false
+    "valid": false,
+    "transform": {
+      "target": "TELELIXIRDOWN_active",
+      "msg_transform": "You unleash your powers.",
+      "active": true,
+      "moves": 10
+    }
   },
   {
     "type": "mutation",

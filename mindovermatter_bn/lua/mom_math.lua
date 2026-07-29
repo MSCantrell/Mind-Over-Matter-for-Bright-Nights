@@ -149,12 +149,34 @@ function M.attunement_set(you, v)
 end
 
 -- Concentration powers currently sustained — derived, never stored.
--- Replaces u_vitamin('vitamin_maintained_powers').  mom_eoc populates the list.
+-- Replaces u_vitamin('vitamin_maintained_powers').  Two populators:
+--   * mom_hooks bulk-registers the transpiler's manifest (mod.gen_maintenance,
+--     one entry per upstream EOC that runs EOC_POWER_MAINTENANCE_PLUS_ONE);
+--   * mom_eoc registers the hand-written pilots and the fork-original powers,
+--     which have no upstream EOC for the transpiler to have seen.
+-- Registration is idempotent because those two sets overlap.
+--
+-- Weight, not a flag: upstream expresses "this power costs 2 concentration"
+-- by naming EOC_POWER_MAINTENANCE_PLUS_ONE twice in the same run_eocs list.
 M.maintenance_effects = {}
+M.maintenance_weight = {}
+
+function M.register_maintenance(id, weight)
+  if M.maintenance_weight[id] == nil then
+    table.insert(M.maintenance_effects, id)
+    M.maintenance_weight[id] = weight or 1
+  else
+    -- Both populators saw it; keep the costlier reading rather than the last.
+    M.maintenance_weight[id] = math.max(M.maintenance_weight[id], weight or 1)
+  end
+end
+
 function M.maintained_count(you)
   local n = 0
   for _, id in ipairs(M.maintenance_effects) do
-    if you:has_effect(EffectTypeId.new(id)) then n = n + 1 end
+    if you:has_effect(EffectTypeId.new(id)) then
+      n = n + (M.maintenance_weight[id] or 1)
+    end
   end
   return n
 end

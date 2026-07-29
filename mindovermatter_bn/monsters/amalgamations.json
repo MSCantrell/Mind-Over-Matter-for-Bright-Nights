@@ -151,11 +151,12 @@
         "monster_message": ""
       }
     ],
-    "vision_day": 5,
+    "vision_day": 45,
     "tracking_distance": 8,
     "extend": {
       "flags": []
-    }
+    },
+    "vision_night": 45
   },
   {
     "type": "MONSTER",

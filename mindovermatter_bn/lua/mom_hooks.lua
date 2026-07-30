@@ -69,6 +69,13 @@ return function(mod)
       local ok, err = pcall(mod.u.integrated_armor_maintain, you)
       if not ok then gdebug.log_error("MoM-BN: integrated_armor: " .. tostring(err)) end
     end
+
+    -- Nullification.  pcall-guarded: this one touches the spellbook, so a bad
+    -- turn must never escape and take on_every_x (and the restore) down with it.
+    if mod.nullification_poll then
+      local ok, err = pcall(mod.nullification_poll, you)
+      if not ok then gdebug.log_error("MoM-BN: nullification: " .. tostring(err)) end
+    end
   end
 
   -- effect_type-linked EOC dispatch tables, keyed by effect type id string.
@@ -476,6 +483,151 @@ return function(mod)
   end
 
   mod.cast_map = require("lua/gen_cast_map")
+
+  -- ---- Nullification: empty the spellbook while a NO_PSIONICS effect is on ----
+  --
+  -- "You can't use your powers" is unenforceable in BN by any other route.
+  -- spell::can_cast (magic/magic.cpp:781) checks ONLY spell components and
+  -- energy -- no flag, no effect -- and BN has no spell-cast hook to intercept
+  -- (see fire_spell_cast_events below, same problem).  Forcing a guaranteed
+  -- miss is also out: spell_fail's effective_skill is
+  -- `2*(spell_level - difficulty) + INT + metaphysics`, and ported powers reach
+  -- max_level 40 against a median difficulty of 1, so the level term alone hits
+  -- +78 before stats.  The only enchantable inputs BN offers are INTELLIGENCE
+  -- and SKILL_LEVEL (all skills), so driving that below zero needs roughly -100
+  -- and would nullify a novice while leaving a veteran untouched.
+  --
+  -- So: take the powers out of the spellbook.  Lossless, because
+  -- spell::get_level() is derived purely from experience
+  -- (`floor(log(experience + a)/b + c)`, magic.cpp) -- restore the xp and the
+  -- level comes back with it.
+  --
+  -- Structured as an idempotent per-turn POLL rather than paired
+  -- effect_added/effect_removed handlers, on purpose.  A paired design loses the
+  -- powers permanently if the removal half ever fails to run -- mid-cast effect
+  -- expiry, a save reloaded while nullified, a crash.  The poll makes recovery
+  -- automatic instead: the stash lives in a character value (so it survives
+  -- saving), and the very next turn after the effect is gone the restore branch
+  -- fires no matter HOW it went away.  That is the same cold-boot-rearm
+  -- reasoning as the maintained-power drain loops.
+  mod.psi_powers = require("lua/gen_psi_powers")
+
+  local NULLIFY_EFFECTS = {
+    "effect_psi_null",         -- fd_nullifying_field / anti-psi zombies
+    "effect_psi_null_unbound", -- same, minus the self-removal
+    "effect_psi_neutralized",  -- 24h "something is interfering with your psionics"
+  }
+  -- The other NO_PSIONICS carriers are deliberately NOT here.  psi_stunned and
+  -- effect_psi_too_much_pain_cant_channel already have their own gates,
+  -- effect_clair_astral_projection is supposed to leave some powers usable,
+  -- effect_psi_turn_off_powers lasts one second and only exists to drop
+  -- maintained powers, and effect_monster_telekinetic_aegis is a monster effect.
+  -- Emptying a spellbook for any of those would be a much larger behaviour
+  -- change than the nullifier fields this was built for.
+  local STASH_KEY = "mom_nullified_powers"
+  local GRACE_KEY = "mom_nullified_grace"
+  -- Turns of UNINTERRUPTED non-nullification required before handing the powers
+  -- back.  A restore the instant the effect drops is wrong, because the effect
+  -- is not continuous even while you stand in the field: effect_psi_null caps at
+  -- max_duration 1 minute and the field re-applies it each turn, so any hitch
+  -- that costs a tick of field processing -- reloading a save taken inside the
+  -- field being the reproducible one -- leaves a gap the restore branch races
+  -- into.  Playtest 2026-07-29 hit exactly that: reload inside the field handed
+  -- the powers back, then the next field tick stripped them again.  Waiting a
+  -- few turns costs nothing when you have genuinely walked out (the field decays
+  -- in ~3 turns now) and absorbs every one-tick gap.
+  local GRACE_TURNS = 5
+  -- Activities that resolve a spell BY ID when they finish, so forgetting the
+  -- spell out from under one makes BN debugmsg "Tried to get unknown spell" and
+  -- fall back to a garbage spell (activity_handlers.cpp:4757 for the cast,
+  -- :2195 for study).  Playtest hit this too.  Cancel them instead.
+  local SPELL_ACTIVITIES = { ACT_SPELLCASTING = true, ACT_STUDY_SPELL = true }
+
+  local function nullify_active(you)
+    for _, id in ipairs(NULLIFY_EFFECTS) do
+      if you:has_effect(EffectTypeId.new(id)) then return true end
+    end
+    return false
+  end
+
+  -- Abort an in-flight cast/study before its spell disappears.
+  local function cancel_spell_activity(you)
+    if not you.get_activity then return end
+    local act = you:get_activity()
+    if act and act.id_str and SPELL_ACTIVITIES[act:id_str()] then
+      you:cancel_activity()
+      mod.u.msg(you, "Your concentration is severed.", MsgType.bad, nil)
+    end
+  end
+
+  function mod.nullification_poll(you)
+    if not you or not you.get_magic then return end
+    local km = you:get_magic()
+    if not km then return end
+    local powers = mod.psi_powers or {}
+    local stash = you:get_value(STASH_KEY) or ""
+
+    if nullify_active(you) then
+      -- Sweep every turn, not just on the first: a power learned WHILE nullified
+      -- would otherwise stay castable until the effect ended.  After the first
+      -- sweep there is normally nothing left to find, so this costs one
+      -- knows_spell per known power.
+      local taken = {}
+      for _, sid in ipairs(km:spells()) do
+        local key = sid:str()
+        if powers[key] then
+          table.insert(taken, key .. "=" .. tostring(km:get_spell(sid):xp()))
+        end
+      end
+      you:set_value(GRACE_KEY, "0")
+      if #taken > 0 then
+        cancel_spell_activity(you)
+        for _, rec in ipairs(taken) do
+          local key = rec:match("^([^=]+)=")
+          km:forget_spell(SpellTypeId.new(key))
+        end
+        -- Append rather than overwrite: a mid-effect top-up must not discard the
+        -- xp recorded by the first sweep.
+        you:set_value(STASH_KEY,
+          (stash ~= "" and (stash .. ";") or "") .. table.concat(taken, ";"))
+        if stash == "" then
+          mod.u.msg(you, "Your powers slip out of reach.", MsgType.bad, nil)
+        end
+      end
+      return
+    end
+
+    if stash == "" then return end
+
+    -- Not nullified, but wait out the grace window before believing it.
+    local grace = tonumber(you:get_value(GRACE_KEY) or "0") or 0
+    if grace < GRACE_TURNS then
+      you:set_value(GRACE_KEY, tostring(grace + 1))
+      return
+    end
+    you:set_value(GRACE_KEY, "0")
+    -- Restore.  Clear the stash FIRST: if learn_spell were to throw partway
+    -- through, a surviving stash would be re-restored next turn and re-apply xp
+    -- to powers that already got it.  Losing the tail of one restore is
+    -- recoverable; an unbounded retry loop against a live spellbook is not.
+    you:set_value(STASH_KEY, "")
+    local n = 0
+    for key, xp in stash:gmatch("([^=;]+)=(%-?%d+)") do
+      local sid = SpellTypeId.new(key)
+      if not km:knows_spell(sid) then
+        km:learn_spell(sid, you, true)  -- force: skips the class-trait gate
+      end
+      if km:knows_spell(sid) then
+        -- math.floor at the binding boundary: set_exp binds void(int) and sol2
+        -- rejects a number carrying decimals (same trap as gain_exp in mom_math).
+        km:get_spell(sid):set_exp(math.floor(tonumber(xp) or 0))
+        n = n + 1
+      end
+    end
+    if n > 0 then
+      mod.u.msg(you, "Your powers settle back into place.", MsgType.good, nil)
+    end
+  end
   -- INITIATE dispatch: a cast marker landing runs the power's translated EOC.
   -- Registered for every markered entry (eoc may be nil — a finish="initiate"
   -- self buff with no INITIATE still needs the event fired).  For self buffs

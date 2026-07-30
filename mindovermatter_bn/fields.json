@@ -219,6 +219,7 @@
     "phase": "gas"
   },
   {
+    "//2": "EVERY field effect below MUST carry both `body_part` and `is_environmental` explicitly -- do not 'tidy' them away as redundant defaults, because BN does not apply the defaults you would expect.  field_type.cpp:154-155 reads both with the FOUR-argument optional(), whose contract is `if( !was_loaded ) { member = MemberType(); }` (generic_factory.h:786-795): when the key is absent it DEFAULT-CONSTRUCTS, discarding the field_effect struct's own initialisers (field_type.h:87-88).  So an omitted `body_part` becomes bodypart_str_id() == \"\" -- NOT NULL_ID(), which is the valid \"num_bp\" (string_id_null_ids.cpp:64) -- and an omitted `is_environmental` becomes bool() == false, not the declared true.  An empty bodypart then blows up downstream on any effect outside hardcoded_effects' map, because player_hardcoded_effects.cpp:527 does an unguarded `it.get_bp()->token`, and again in Creature::store (savegame_json.cpp:3730) which serialises the effect keyed on it, so the bad bodypart PERSISTS INTO THE SAVE.  Reported from a player's debug.log 2026-07-29 as 'invalid body part id \"\"' repeating every turn.  Vanilla BN never trips this because all 18 of its field effects specify body_part; upstream MoM omits it and DDA is quiet about it.  The first entry of each intensity level here was the one missing body_part -- torso, the gap in the head/arm_l/arm_r/leg_l/leg_r set.  is_environmental is pinned to false because that is what BN was ALREADY doing by accident; pinning it keeps behaviour identical and stops it flipping if BN ever fixes optional().  Note that upstream's intent was probably environmental (six entries only makes sense as six rolls against six bodyparts' fire resistance), so flipping these to true is a live balance question -- but it IS a balance change, not a bug fix.",
     "id": "fd_pyrokinetic_aura",
     "type": "field_type",
     "intensity_levels": [
@@ -230,6 +231,8 @@
         "effects": [
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "body_part": "torso",
+            "is_environmental": false,
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
             "intensity": 1,
@@ -237,6 +240,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "head",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -245,6 +249,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -253,6 +258,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -261,6 +267,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -269,6 +276,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -284,6 +292,8 @@
         "effects": [
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "body_part": "torso",
+            "is_environmental": false,
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
             "intensity": 2,
@@ -291,6 +301,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "head",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -299,6 +310,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -307,6 +319,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -315,6 +328,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -323,6 +337,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -338,6 +353,8 @@
         "effects": [
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "body_part": "torso",
+            "is_environmental": false,
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
             "intensity": 3,
@@ -345,6 +362,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "head",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -353,6 +371,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -361,6 +380,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -369,6 +389,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -377,6 +398,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -392,6 +414,8 @@
         "effects": [
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "body_part": "torso",
+            "is_environmental": false,
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
             "intensity": 4,
@@ -399,6 +423,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "head",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -407,6 +432,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -415,6 +441,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -423,6 +450,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -431,6 +459,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -446,6 +475,8 @@
         "effects": [
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "body_part": "torso",
+            "is_environmental": false,
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
             "intensity": 5,
@@ -453,6 +484,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "head",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -461,6 +493,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -469,6 +502,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -477,6 +511,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -485,6 +520,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -500,6 +536,8 @@
         "effects": [
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "body_part": "torso",
+            "is_environmental": false,
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
             "intensity": 6,
@@ -507,6 +545,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "head",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -515,6 +554,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -523,6 +563,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -531,6 +572,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -539,6 +581,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -554,6 +597,8 @@
         "effects": [
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "body_part": "torso",
+            "is_environmental": false,
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
             "intensity": 7,
@@ -561,6 +606,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "head",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -569,6 +615,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -577,6 +624,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -585,6 +633,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -593,6 +642,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -608,6 +658,8 @@
         "effects": [
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "body_part": "torso",
+            "is_environmental": false,
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
             "intensity": 8,
@@ -615,6 +667,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "head",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -623,6 +676,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -631,6 +685,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -639,6 +694,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -647,6 +703,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -662,6 +719,8 @@
         "effects": [
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "body_part": "torso",
+            "is_environmental": false,
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
             "intensity": 9,
@@ -669,6 +728,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "head",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -677,6 +737,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -685,6 +746,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -693,6 +755,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -701,6 +764,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -716,6 +780,8 @@
         "effects": [
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "body_part": "torso",
+            "is_environmental": false,
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
             "intensity": 10,
@@ -723,6 +789,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "head",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -731,6 +798,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -739,6 +807,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -747,6 +816,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -755,6 +825,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -770,6 +841,8 @@
         "effects": [
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "body_part": "torso",
+            "is_environmental": false,
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
             "intensity": 11,
@@ -777,6 +850,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "head",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -785,6 +859,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -793,6 +868,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -801,6 +877,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -809,6 +886,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -824,6 +902,8 @@
         "effects": [
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "body_part": "torso",
+            "is_environmental": false,
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
             "intensity": 12,
@@ -831,6 +911,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "head",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -839,6 +920,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -847,6 +929,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "arm_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -855,6 +938,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -863,6 +947,7 @@
           },
           {
             "effect_id": "effect_pyrokinetic_aura_damage",
+            "is_environmental": false,
             "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds",
@@ -946,6 +1031,7 @@
   },
   {
     "//": "Ported from upstream fields.json 2026-07-26 (found by tools/check_refs.py). mon_zombie_blank / _concentration_ender / _nullpsi / _psi_void reference emit_anti_psi(_void) via emit_fields, but neither the emit nor its target field was ported, so the checker baseline carried 'invalid emit source emit_anti_psi' and the anti-psi zombies emitted nothing at all.  Both effect ids (effect_psi_null, effect_psi_turn_off_powers) already exist in effects/gen_effects.json, and BN's field_type loader supports the whole effects payload including per-level inheritance (field_type.cpp:146-170), so this is verbatim.",
+    "//2": "body_part + is_environmental added explicitly 2026-07-29 -- this field and fd_neutralizing_field were the ones a player's debug.log caught spamming 'invalid body part id \"\"' every turn.  See the long comment on fd_pyrokinetic_aura for why omitting either key is a trap in BN.  torso is the whole-body stand-in; is_environmental false matches what BN was already doing and is also semantically right here (a psionic nullification field has no business being blocked by a raincoat's environmental protection).",
     "id": "fd_nullifying_field",
     "type": "field_type",
     "intensity_levels": [
@@ -954,6 +1040,8 @@
         "effects": [
           {
             "effect_id": "effect_psi_null",
+            "body_part": "num_bp",
+            "is_environmental": false,
             "intensity": 10,
             "min_duration": "100 seconds",
             "max_duration": "350 seconds",
@@ -972,11 +1060,13 @@
     "gas_absorption_factor": 15,
     "percent_spread": 5,
     "priority": 8,
-    "half_life": "1 minutes",
+    "//half_life": "FORK CHANGE 2026-07-29, was upstream's \"1 minutes\".  This is an aura emitted every turn by a living zombie (emit_anti_psi, delay 1 s), not a gas cloud, so it has no business outliving its emitter.  BN decays a field by rolling `dice( 2, field_age_in_turns ) > half_life_in_turns` and dropping ONE intensity per success (map_field.cpp:1788-1792); at 1 minutes that is ~60 turns per step, and the emit places intensity 3, so a tile the zombie walked past stayed nullified for roughly 3 minutes.  At 1 second the roll succeeds essentially every turn, so intensity 3 drains in ~3 turns and the field dies just behind the zombie -- which is also what fd_pyrokinetic_aura, the other emitted aura in this file, already uses.  Deliberately did NOT lower the emit intensity to make it vanish in a single turn: propagate_field spends its qty budget of 120 against max_intensity, so a lower intensity spreads the SAME budget over MORE tiles and would widen the aura instead of tightening it.  If the radius still feels too big, the knob is emit qty in emits_psionic.json, not intensity.",
+    "half_life": "1 seconds",
     "phase": "gas"
   },
   {
     "//": "Ported from upstream fields.json 2026-07-26; see fd_nullifying_field. The void variant also forces maintained powers off.",
+    "//2": "body_part + is_environmental added explicitly 2026-07-29; see fd_nullifying_field and the long comment on fd_pyrokinetic_aura.",
     "id": "fd_neutralizing_field",
     "type": "field_type",
     "intensity_levels": [
@@ -985,6 +1075,8 @@
         "effects": [
           {
             "effect_id": "effect_psi_null",
+            "body_part": "num_bp",
+            "is_environmental": false,
             "intensity": 10,
             "min_duration": "100 seconds",
             "max_duration": "350 seconds",
@@ -992,6 +1084,8 @@
           },
           {
             "effect_id": "effect_psi_turn_off_powers",
+            "body_part": "num_bp",
+            "is_environmental": false,
             "intensity": 1,
             "min_duration": "1 seconds",
             "max_duration": "1 seconds",
@@ -1010,7 +1104,8 @@
     "gas_absorption_factor": 15,
     "percent_spread": 5,
     "priority": 8,
-    "half_life": "1 minutes",
+    "//half_life": "FORK CHANGE 2026-07-29, was upstream's \"1 minutes\".  This is an aura emitted every turn by a living zombie (emit_anti_psi, delay 1 s), not a gas cloud, so it has no business outliving its emitter.  BN decays a field by rolling `dice( 2, field_age_in_turns ) > half_life_in_turns` and dropping ONE intensity per success (map_field.cpp:1788-1792); at 1 minutes that is ~60 turns per step, and the emit places intensity 3, so a tile the zombie walked past stayed nullified for roughly 3 minutes.  At 1 second the roll succeeds essentially every turn, so intensity 3 drains in ~3 turns and the field dies just behind the zombie -- which is also what fd_pyrokinetic_aura, the other emitted aura in this file, already uses.  Deliberately did NOT lower the emit intensity to make it vanish in a single turn: propagate_field spends its qty budget of 120 against max_intensity, so a lower intensity spreads the SAME budget over MORE tiles and would widen the aura instead of tightening it.  If the radius still feels too big, the knob is emit qty in emits_psionic.json, not intensity.",
+    "half_life": "1 seconds",
     "phase": "gas"
   },
   {

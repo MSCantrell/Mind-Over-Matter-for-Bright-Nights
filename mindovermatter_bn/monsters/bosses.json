@@ -145,7 +145,7 @@
             "min_level": 3
           },
           "cooldown": 10,
-          "monster_message": "Mathematician A57 stares at %3$s and %3$s is lifted up and pulled towards them!"
+          "monster_message": "Mathematician A57 stares at %3$s and drags %3$s toward them!"
         },
         {
           "id": "psi_transcendant_alpha_momentum_alteration",

@@ -1045,7 +1045,7 @@
             "min_level": 2
           },
           "cooldown": 14,
-          "monster_message": "%1$s stares at %3$s and %3$s is lifted up and pulled towards them!"
+          "monster_message": "%1$s stares at %3$s and drags %3$s toward them!"
         },
         {
           "type": "gun",
@@ -1142,7 +1142,7 @@
             "min_level": 3
           },
           "cooldown": 10,
-          "monster_message": "%1$s stares at %3$s and %3$s is lifted up and pulled towards them!"
+          "monster_message": "%1$s stares at %3$s and drags %3$s toward them!"
         },
         {
           "type": "monster_attack",
@@ -1241,7 +1241,7 @@
             "min_level": 6
           },
           "cooldown": 10,
-          "monster_message": "%1$s stares at %3$s and %3$s is lifted up and pulled towards them!"
+          "monster_message": "%1$s stares at %3$s and drags %3$s toward them!"
         },
         {
           "type": "monster_attack",

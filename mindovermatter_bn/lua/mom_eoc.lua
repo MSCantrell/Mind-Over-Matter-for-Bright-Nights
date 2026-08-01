@@ -666,7 +666,14 @@ return function(mod)
       -- never legitimately share a tile, and if they do we are already in the
       -- corrupted state this function exists to avoid creating.
       if not (mp.x == tp.x and mp.y == tp.y and mp.z == tp.z) then
-        local ok, id = pcall(function() return tostring(mon:get_type()) end)
+        -- `:str()`, NOT tostring().  luna registers to_string on every
+        -- string_id as "%s[%s]" % (usertype name, id)
+        -- (catalua_bindings_ids_common.h:55), so tostring() yields
+        -- "MtypeId[mon_feral_human_telekin]" and never matches a bare id key --
+        -- find_tk_puller returned nil on every call, and since a nil puller
+        -- fizzles silently the pull did nothing with no error to show for it.
+        -- `str` is bound to string_id::c_str on the same usertype (:53).
+        local ok, id = pcall(function() return mon:get_type():str() end)
         if ok and TK_PULLERS[id] and mon:get_hp() > 0 then
           local d = U.dist(mp, tp)
           if d <= 20 and (not best_d or d < best_d) and mon:sees(tp) then

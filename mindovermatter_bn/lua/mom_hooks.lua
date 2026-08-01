@@ -123,7 +123,11 @@ return function(mod)
   function mod.on_mon_death(params)
     local mon = params.mon
     if not mon then return end
-    local ok, id = pcall(function() return tostring(mon:get_type()) end)
+    -- `:str()`, NOT tostring(): luna's to_string for a string_id is
+    -- "%s[%s]" % (usertype name, id) (catalua_bindings_ids_common.h:55), so
+    -- tostring() gives "MtypeId[mon_foo]" and misses every key in mon_death.
+    -- This silently disabled all 22 death payloads until 2026-08-01.
+    local ok, id = pcall(function() return mon:get_type():str() end)
     if not ok then return end
     local d = mon_death[id]
     if not d then return end

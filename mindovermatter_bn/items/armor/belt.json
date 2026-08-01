@@ -1,11 +1,44 @@
 [
   {
+    "//": "⚠ THE TWO `enchantment` OBJECTS MUST STAY AT THE TOP OF THIS FILE, AHEAD OF THE ITEMS THAT REFERENCE THEM.  BN resolves a `relic_data.passive_effects` id at item-load time and objects within one file load in array order, so with the enchantments last the items fail with `invalid enchantment id \"ench_mom_shield_belt\"` (generic_factory.h:462) and both belts silently lose their protection while everything else still loads.  Cost one check-mods run to find.  Do not let a formatter or a tidy-up sort these to the bottom.  ALSO: shield belt, active.  BASH immunity is a deliberate FORK BUFF over upstream's flat `bash -8` -- it is this port's answer to DDA's TELEKIN_SHIELD, which BN cannot express: a kinetic barrier that stops blunt force outright reads better than a partial psi resist, and it is what the no-clubbing emblem on the belt advertises.  The stab/cut/bullet numbers below are upstream's own, unchanged.  Structure matches the proven in-repo precedent, items/gen_lifting_field_enchantments.json.",
+    "type": "enchantment",
+    "id": "ench_mom_shield_belt",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "ARMOR_STAB",
+        "add": -20
+      },
+      {
+        "value": "ARMOR_CUT",
+        "add": -15
+      },
+      {
+        "value": "ARMOR_BULLET",
+        "add": -40
+      }
+    ]
+  },
+  {
+    "//": "Suppression belt, active.  Heat immunity itself rides on the HEAT_IMMUNE worn flag (see the note on psionic_shield_belt); this covers the other half of upstream's block, DDA `CLIMATE_CONTROL_CHILL: 1000` -> BN `CLIMATE_CONTROL_COOLING`.  BN splits climate control into COOLING/HEATING suffixes where DDA used CHILL/WARMTH; COOLING is the one that keeps you comfortable in heat.  1000 is upstream's value, half of what BN power armor grants (power_armor.json:97, `add: 2000`), which is the right shape for a belt that only fights heat.",
+    "type": "enchantment",
+    "id": "ench_mom_suppression_belt",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CLIMATE_CONTROL_COOLING",
+        "add": 1000
+      }
+    ]
+  },
+  {
+    "//": "BELT PROTECTION -- restored 2026-08-01.  Both belts arrived from DDA with their entire `passive_effects` block dropped (DDA relic system; the leftover `//relic` marker on each item is the tombstone), leaving two 2-encumbrance belts that toggled an LED, drained a battery and did NOTHING else.  Rebuilt on BN-native mechanisms.  Three things did NOT survive as written and are deliberately re-expressed: (1) `TELEKIN_SHIELD` is a MoM-invented flag BN has never heard of -- zero hits in CBN/src and CBN/data -- because upstream implements it through DDA custom damage types, which BN lacks; (2) the ported effect `effect_suppression_belt_fire_protection` carries the flag `HEAT_IMMUNE`, but on an EFFECT BN wants `EFFECT_HEAT_IMMUNE` -- bare `HEAT_IMMUNE` is the WORN ITEM flag (character.cpp:7176-7177), so the effect route was inert twice over; (3) DDA's `CLIMATE_CONTROL_CHILL` is `CLIMATE_CONTROL_COOLING` in BN.  Both effects are left defined in gen_effects.json but are no longer the delivery mechanism -- the immunities now ride on worn item flags, which is how BN natively does `is_immune_damage` (character.cpp:7150-7185).  Enchantment sign convention verified: armor_enchantment_adjust does `du.amount += bonus` (character.cpp:9124-9130), so a NEGATIVE add reduces damage, matching DDA's incoming_damage_mod -- upstream's numbers carry over verbatim.",
     "id": "psionic_shield_belt",
     "type": "TOOL_ARMOR",
     "name": {
       "str": "shield belt"
     },
-    "description": "A simple synthetic fabric belt with a box to the right of the belt loop.  The box has a toggleable switch and a stylized shield with \u03a8 and the XEDRA logo inside it.",
+    "description": "A simple synthetic fabric belt with a box to the right of the belt loop.  The box has a toggleable switch and a stylized shield with \u03a8 and the XEDRA logo inside it, beside a raised club struck through with a large circle and line.  Switched on, it wraps you in a kinetic field: blunt force stops dead against it, and blades and bullets bite far less deeply.  The field is hungry, and eats a charged battery quickly.",
     "weight": "350 g",
     "volume": "500 ml",
     "price": "100 USD",
@@ -79,10 +112,18 @@
         "moves": 75
       }
     ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_shield_belt"
+        }
+      ]
+    },
     "extend": {
       "flags": [
         "NO_TAKEOFF",
-        "SPAWN_ACTIVE"
+        "SPAWN_ACTIVE",
+        "BASH_IMMUNE"
       ]
     }
   },
@@ -92,7 +133,7 @@
     "name": {
       "str": "suppression belt"
     },
-    "description": "A simple synthetic fabric belt with a box to the right of the belt loop.  The box has a toggleable switch and a stylized flame with a large circle and line superimposed over it and a \u03a8 behind the XEDRA logo inside it.",
+    "description": "A simple synthetic fabric belt with a box to the right of the belt loop.  The box has a toggleable switch and a stylized flame with a large circle and line superimposed over it and a \u03a8 behind the XEDRA logo inside it.  Switched on, it holds a shell of cool air against your skin: fire cannot burn you at all, and even a blazing room stays bearable.  It sips at its battery while lit.",
     "weight": "350 g",
     "volume": "500 ml",
     "price": "100 USD",
@@ -165,10 +206,18 @@
         "moves": 75
       }
     ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "id": "ench_mom_suppression_belt"
+        }
+      ]
+    },
     "extend": {
       "flags": [
         "NO_TAKEOFF",
-        "SPAWN_ACTIVE"
+        "SPAWN_ACTIVE",
+        "HEAT_IMMUNE"
       ]
     }
   }

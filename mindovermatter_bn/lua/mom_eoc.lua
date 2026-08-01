@@ -615,6 +615,94 @@ return function(mod)
     return true
   end
 
+  -- ==========================================================================
+  -- directed_push corrupts the creature tracker (2026-08-01, player report).
+  --
+  -- BN's directed_push moves a monster with `mon->setpos( push_dest )`
+  -- (magic_spell_effect.cpp:776) after checking ONLY map::impassable along the
+  -- path -- it never asks critter_at() whether the destination is occupied.
+  -- monster::setpos (monster.cpp:475) then calls update_zombie_pos and assigns
+  -- pos_abs REGARDLESS of the false return, so the engine's own refusal is
+  -- cosmetic: the monster relocates while Creature_tracker still indexes it at
+  -- its old tile, and the next setpos erases the OTHER monster's entry
+  -- (creature_tracker.cpp:171).  That monster stays alive but drops out of
+  -- every critter_at lookup -- unattackable, walk-through-able, still able to
+  -- attack -- and the state is saved.  Reported as:
+  --   "wanted to move the deer to 305,1833,0, but new location already has the
+  --    feral PKer"
+  --
+  -- strip_spell_math now reroutes the two creature-moving directed_push spells
+  -- here (SPELL_REWRITE -> _rewrite_monster_pull / _rewrite_telelixir_push).
+  -- U.shove steps with Creature::knock_back_to, which DOES check critter_at at
+  -- every tile and bounces off an occupant, so a blocked push stops short.
+  --
+  -- Fix the engine and this whole block goes away; see
+  -- docs/upstream-bn-directed-push.md.
+  -- ==========================================================================
+
+  -- mtypes carrying telekinetic_pull_monster.  BN's effect hooks pass only
+  -- (mon, effect) -- no caster (monster.cpp:3792) -- and mom_hooks' marker
+  -- dispatch fills `npc` with the avatar, which is wrong for a monster cast.
+  -- So the puller is inferred.  Keep in sync with monsters/feral_psychics.json,
+  -- monsters/bosses.json, monsters/monster_overrides.json; check_refs would
+  -- catch a renamed id, not a newly added caster, so an unlisted puller simply
+  -- fizzles rather than misbehaving.
+  local TK_PULLERS = {
+    mon_feral_human_telekin = true,
+    mon_feral_human_telekin2 = true,
+    mon_feral_human_telekin3 = true,
+    mon_transcendant_alpha_psion = true,
+    mon_zombie_nemesis = true,
+  }
+
+  -- The nearest TK_PULLERS monster that can see `target` and is within the
+  -- spell's own max_range (20).  nil when nothing plausible is in reach.
+  local function find_tk_puller(target)
+    local tp = target:get_pos_ms()
+    local best, best_d = nil, nil
+    for _, mon in ipairs(gapi.get_all_monsters()) do
+      local mp = mon:get_pos_ms()
+      -- Position equality doubles as "not the target itself": two creatures
+      -- never legitimately share a tile, and if they do we are already in the
+      -- corrupted state this function exists to avoid creating.
+      if not (mp.x == tp.x and mp.y == tp.y and mp.z == tp.z) then
+        local ok, id = pcall(function() return tostring(mon:get_type()) end)
+        if ok and TK_PULLERS[id] and mon:get_hp() > 0 then
+          local d = U.dist(mp, tp)
+          if d <= 20 and (not best_d or d < best_d) and mon:sees(tp) then
+            best, best_d = mon, d
+          end
+        end
+      end
+    end
+    return best
+  end
+
+  -- telekinetic_pull_monster.  Upstream is DDA `pull_target`, which the
+  -- pull_target branch of transpile_spell encoded as directed_push with damage
+  -- -(max_range); directed_push clamps a negative distance to exactly
+  -- rl_dist(caster, target), so every cast inside 20 tiles dropped the target
+  -- on the caster's own tile.  U.shove's `toward` loop breaks at range 1, so
+  -- the pull now correctly ends ADJACENT to the puller.
+  M.EOC_MOM_MONSTER_TK_PULL = function(you, npc, ctx)
+    local caster = find_tk_puller(you)
+    -- No identifiable puller: fizzle.  A silent no-op is strictly better than
+    -- guessing a direction, and far better than the tracker corruption.
+    if not caster then return true end
+    U.shove(you, caster, -20)
+    return true
+  end
+
+  -- telelixir_push: the telekinesis elixir surge (EOC_TELELIXIR_CAST fires it
+  -- every 2-5 turns while TELELIXIRDOWN_active).  Player-cast, so mom_hooks'
+  -- avatar `npc` is the correct caster here.  3-8 tiles is upstream's
+  -- min_damage/max_damage, which the marker bridge strips off the spell.
+  M.EOC_MOM_TELELIXIR_PUSH = function(you, npc, ctx)
+    npc = npc or gapi.get_avatar()
+    U.shove(you, npc, U.rng(3, 8))
+    return true
+  end
+
   -- [Ψ]Degenerating Touch: damage-over-time driven entirely by caster math
   -- (the fitted vita_degenerating_touch_self_* spells read runtime vars and
   -- fit to 0).  Total damage spread over the duration, 1 tick per second

@@ -76,15 +76,15 @@
     ],
     "flags": [
       "SILENT",
-      "RANDOM_DAMAGE",
       "NO_HANDS",
       "NO_LEGS"
     ],
     "message": "",
-    "effect": "directed_push",
+    "effect": "target_attack",
     "difficulty": 1,
-    "min_damage": 3,
-    "max_damage": 8,
+    "effect_str": "mom_cast_telelixir_push",
+    "min_duration": 100,
+    "max_duration": 100,
     "scale_int": true
   }
 ]

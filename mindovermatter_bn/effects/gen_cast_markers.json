@@ -3193,6 +3193,20 @@
   },
   {
     "type": "effect_type",
+    "id": "mom_cast_telekinetic_pull_monster",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "type": "effect_type",
     "id": "mom_cast_teleporter_breach_monster",
     "name": [
       ""
@@ -3488,6 +3502,20 @@
   {
     "type": "effect_type",
     "id": "mom_cast_mom_abjuration_stone_effects",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_cast_telelixir_push",
     "name": [
       ""
     ],

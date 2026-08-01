@@ -1254,15 +1254,15 @@
       "NO_HANDS",
       "NO_LEGS"
     ],
-    "effect": "directed_push",
+    "effect": "target_attack",
     "difficulty": 1,
-    "damage_type": "BASH",
     "max_level": 20,
     "min_range": 2,
     "max_range": 20,
     "range_increment": 1.5,
-    "min_damage": -20,
-    "max_damage": -20,
+    "effect_str": "mom_cast_telekinetic_pull_monster",
+    "min_duration": 100,
+    "max_duration": 100,
     "scale_int": true
   },
   {

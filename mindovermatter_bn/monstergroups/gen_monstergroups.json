@@ -2955,6 +2955,60 @@
         "monster": "mon_feral_human_vita",
         "freq": 1,
         "cost_multiplier": 3
+      },
+      {
+        "monster": "mon_civilian_biokinetic",
+        "freq": 1,
+        "cost_multiplier": 4,
+        "ends": 720
+      },
+      {
+        "monster": "mon_civilian_clairsentient",
+        "freq": 1,
+        "cost_multiplier": 3,
+        "ends": 720
+      },
+      {
+        "monster": "mon_civilian_electrokinetic",
+        "freq": 1,
+        "cost_multiplier": 5,
+        "ends": 720
+      },
+      {
+        "monster": "mon_civilian_photokinetic",
+        "freq": 1,
+        "cost_multiplier": 4,
+        "ends": 720
+      },
+      {
+        "monster": "mon_civilian_pyrokinetic",
+        "freq": 1,
+        "cost_multiplier": 5,
+        "ends": 720
+      },
+      {
+        "monster": "mon_civilian_telekinetic",
+        "freq": 1,
+        "cost_multiplier": 4,
+        "ends": 720
+      },
+      {
+        "monster": "mon_civilian_telepath",
+        "freq": 1,
+        "cost_multiplier": 3,
+        "ends": 720
+      },
+      {
+        "monster": "mon_civilian_teleporter",
+        "freq": 1,
+        "cost_multiplier": 3,
+        "ends": 720
+      },
+      {
+        "monster": "mon_civilian_vitakinetic",
+        "freq": 1,
+        "cost_multiplier": 3,
+        "ends": 720
       }
     ]
   },

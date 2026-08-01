@@ -42,7 +42,7 @@
     "copy-from": "generic_city_building",
     "looks_like": "office_cubical",
     "name": "office",
-    "color": "light_gray"
+    "color": "pink"
   },
   {
     "type": "overmap_terrain",
@@ -52,7 +52,7 @@
     "copy-from": "generic_city_building",
     "looks_like": "office_cubical_roof",
     "name": "office roof",
-    "color": "light_gray"
+    "color": "pink"
   },
   {
     "type": "overmap_terrain",
@@ -62,7 +62,7 @@
     "copy-from": "generic_city_building",
     "looks_like": "office_cubical",
     "name": "office basement",
-    "color": "light_gray",
+    "color": "pink",
     "delete": {
       "post_process_generators": [
         "riot_damage"
@@ -77,7 +77,7 @@
     "copy-from": "generic_city_building",
     "looks_like": "office_cubical",
     "name": "office subbasement",
-    "color": "light_gray",
+    "color": "pink",
     "delete": {
       "post_process_generators": [
         "riot_damage"

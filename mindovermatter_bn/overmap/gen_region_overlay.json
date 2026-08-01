@@ -9,6 +9,9 @@
         "office_cubical_phavian": 175,
         "phavian_skyscraper_lab": 250,
         "phavian_hospital_lab": 85
+      },
+      "urban_shops": {
+        "office_cubical_phavian": 175
       }
     },
     "map_extras": {

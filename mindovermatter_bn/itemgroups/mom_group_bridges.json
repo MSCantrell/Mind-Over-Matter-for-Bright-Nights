@@ -5,11 +5,12 @@
     "subtype": "distribution",
     "items": [
       [
-        "matrix_crystal_biokinesis_artifact",
+        "matrix_crystal_biokinesis",
         100
       ]
     ],
-    "//file": "HAND-AUTHORED bridge file (2026-07-17). NOT a port_copy output \u2014 do not regenerate via the porter. Defines item_groups BN reported missing in debug.log: 16 matrix-crystal artifact base groups (mirrored from MoM procgen/*.json; BN has no relic-procgen, so the wrapping _procgen groups' 'artifact' blocks are inert and these spawn plain attuned crystals), plus DDA->BN twin aliases and intentionally-empty drops."
+    "//file": "HAND-AUTHORED bridge file (2026-07-17). NOT a port_copy output \u2014 do not regenerate via the porter. Defines item_groups BN reported missing in debug.log: 16 matrix-crystal artifact base groups (mirrored from MoM procgen/*.json; BN has no relic-procgen, so the wrapping _procgen groups' 'artifact' blocks are inert and these spawn plain attuned crystals), plus DDA->BN twin aliases and intentionally-empty drops.",
+    "//artifact-slot": "The non-awakening drop slot.  Upstream MoM distinguished an awakening crystal (can make you a psion) from a plain relic crystal that could not; BN has no relic procgen, so the latter ported as an inert GENERIC twin that looked identical and could only be uncrafted.  Those 8 matrix_crystal_*_artifact items were removed 2026-08-01; this group now yields the activatable crystal.  Deliberately NOT folded into the _awakening_artifact_item group or into the deathdrop probabilities: keeping the two groups separate leaves feral_deathdrops/boss_deathdrops untouched, so a colored crystal drops exactly as often as before -- it is just always the usable one now."
   },
   {
     "type": "item_group",
@@ -28,7 +29,7 @@
     "subtype": "distribution",
     "items": [
       [
-        "matrix_crystal_clairsentience_artifact",
+        "matrix_crystal_clairsentience",
         100
       ]
     ]
@@ -50,7 +51,7 @@
     "subtype": "distribution",
     "items": [
       [
-        "matrix_crystal_electrokinesis_artifact",
+        "matrix_crystal_electrokinesis",
         100
       ]
     ]
@@ -72,7 +73,7 @@
     "subtype": "distribution",
     "items": [
       [
-        "matrix_crystal_photokinesis_artifact",
+        "matrix_crystal_photokinesis",
         100
       ]
     ]
@@ -94,7 +95,7 @@
     "subtype": "distribution",
     "items": [
       [
-        "matrix_crystal_pyrokinesis_artifact",
+        "matrix_crystal_pyrokinesis",
         100
       ]
     ]
@@ -116,7 +117,7 @@
     "subtype": "distribution",
     "items": [
       [
-        "matrix_crystal_telekinesis_artifact",
+        "matrix_crystal_telekinesis",
         100
       ]
     ]
@@ -138,7 +139,7 @@
     "subtype": "distribution",
     "items": [
       [
-        "matrix_crystal_teleportation_artifact",
+        "matrix_crystal_teleportation",
         100
       ]
     ]
@@ -160,7 +161,7 @@
     "subtype": "distribution",
     "items": [
       [
-        "matrix_crystal_vitakinesis_artifact",
+        "matrix_crystal_vitakinesis",
         100
       ]
     ]

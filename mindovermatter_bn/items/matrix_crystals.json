@@ -54,28 +54,6 @@
     "looks_like": "material_quicklime"
   },
   {
-    "type": "GENERIC",
-    "category": "artifacts",
-    "id": "matrix_crystal_biokinesis_artifact",
-    "name": {
-      "str_sp": "strange crystal, pink"
-    },
-    "description": "A strange-looking, surprisingly-heavy crystal with a faintly-glowing pink light in its depths.  Holding it, you feel more capable.",
-    "color": "pink",
-    "symbol": "+",
-    "volume": "10 ml",
-    "weight": "150 g",
-    "material": [
-      "nether_crystal"
-    ],
-    "looks_like": "matrix_crystal_biokinesis",
-    "flags": [
-      "MATRIX_CRYSTAL_BIOKINESIS",
-      "RELIC_PINK"
-    ],
-    "//relic": "was ARTIFACT subtype in DDA"
-  },
-  {
     "type": "TOOL",
     "id": "matrix_crystal_clairsentience",
     "name": {
@@ -109,28 +87,6 @@
     "description": "Concentrated matrix crystal dust.  It glitters gray even in complete darkness.",
     "copy-from": "matrix_crystal_biokin_dust_refined",
     "color": "dark_gray"
-  },
-  {
-    "type": "GENERIC",
-    "category": "artifacts",
-    "id": "matrix_crystal_clairsentience_artifact",
-    "name": {
-      "str_sp": "strange crystal, gray"
-    },
-    "description": "A strange-looking, surprisingly-heavy crystal with a faintly-glowing gray light in its depths.  Holding it, you feel more perceptive.",
-    "color": "dark_gray",
-    "symbol": "+",
-    "volume": "10 ml",
-    "weight": "150 g",
-    "material": [
-      "nether_crystal"
-    ],
-    "looks_like": "matrix_crystal_clairsentience",
-    "flags": [
-      "MATRIX_CRYSTAL_CLAIRSENTIENCE",
-      "RELIC_PINK"
-    ],
-    "//relic": "was ARTIFACT subtype in DDA"
   },
   {
     "type": "TOOL",
@@ -168,28 +124,6 @@
     "color": "cyan"
   },
   {
-    "type": "GENERIC",
-    "category": "artifacts",
-    "id": "matrix_crystal_electrokinesis_artifact",
-    "name": {
-      "str_sp": "strange crystal, cyan"
-    },
-    "description": "A strange-looking, surprisingly-heavy crystal with a faintly-glowing cyan light in its depths.  Holding it, you feel more energetic.",
-    "color": "cyan",
-    "symbol": "+",
-    "volume": "10 ml",
-    "weight": "150 g",
-    "material": [
-      "nether_crystal"
-    ],
-    "looks_like": "matrix_crystal_electrokinesis",
-    "flags": [
-      "MATRIX_CRYSTAL_ELECTROKINESIS",
-      "RELIC_PINK"
-    ],
-    "//relic": "was ARTIFACT subtype in DDA"
-  },
-  {
     "type": "TOOL",
     "id": "matrix_crystal_photokinesis",
     "name": {
@@ -223,28 +157,6 @@
     "description": "Concentrated matrix crystal dust.  It glitters gold even in complete darkness.",
     "copy-from": "matrix_crystal_biokin_dust_refined",
     "color": "yellow"
-  },
-  {
-    "type": "GENERIC",
-    "category": "artifacts",
-    "id": "matrix_crystal_photokinesis_artifact",
-    "name": {
-      "str_sp": "strange crystal, golden"
-    },
-    "description": "A strange-looking, surprisingly-heavy crystal with a faintly-glowing golden light in its depths.  Holding it, you feel radiant.",
-    "color": "dark_gray",
-    "symbol": "+",
-    "volume": "10 ml",
-    "weight": "150 g",
-    "material": [
-      "nether_crystal"
-    ],
-    "looks_like": "matrix_crystal_photokinesis",
-    "flags": [
-      "MATRIX_CRYSTAL_PHOTOKINESIS",
-      "RELIC_PINK"
-    ],
-    "//relic": "was ARTIFACT subtype in DDA"
   },
   {
     "type": "TOOL",
@@ -281,28 +193,6 @@
     "color": "red"
   },
   {
-    "type": "GENERIC",
-    "category": "artifacts",
-    "id": "matrix_crystal_pyrokinesis_artifact",
-    "name": {
-      "str_sp": "strange crystal, red"
-    },
-    "description": "A strange-looking, surprisingly-heavy crystal with a faintly-glowing red light in its depths.  Holding it, you feel hot.",
-    "color": "red",
-    "symbol": "+",
-    "volume": "10 ml",
-    "weight": "150 g",
-    "material": [
-      "nether_crystal"
-    ],
-    "looks_like": "matrix_crystal_pyrokinesis",
-    "flags": [
-      "MATRIX_CRYSTAL_PYROKINESIS",
-      "RELIC_PINK"
-    ],
-    "//relic": "was ARTIFACT subtype in DDA"
-  },
-  {
     "type": "TOOL",
     "id": "matrix_crystal_telekinesis",
     "name": {
@@ -335,28 +225,6 @@
     "description": "Concentrated matrix crystal dust.  It glitters yellow even in complete darkness.",
     "copy-from": "matrix_crystal_biokin_dust_refined",
     "color": "yellow"
-  },
-  {
-    "type": "GENERIC",
-    "category": "artifacts",
-    "id": "matrix_crystal_telekinesis_artifact",
-    "name": {
-      "str_sp": "strange crystal, yellow"
-    },
-    "description": "A strange-looking, surprisingly-heavy crystal with a faintly-glowing red light in its depths.  Holding it, you feel lighter.",
-    "color": "yellow",
-    "symbol": "+",
-    "volume": "10 ml",
-    "weight": "150 g",
-    "material": [
-      "nether_crystal"
-    ],
-    "looks_like": "matrix_crystal_telekinesis",
-    "flags": [
-      "MATRIX_CRYSTAL_TELEKINESIS",
-      "RELIC_PINK"
-    ],
-    "//relic": "was ARTIFACT subtype in DDA"
   },
   {
     "type": "TOOL",
@@ -427,28 +295,6 @@
     "color": "blue"
   },
   {
-    "type": "GENERIC",
-    "category": "artifacts",
-    "id": "matrix_crystal_teleportation_artifact",
-    "name": {
-      "str_sp": "strange crystal, blue"
-    },
-    "description": "A strange-looking, surprisingly-heavy crystal with a faintly-glowing blue light in its depths.  Holding it, you feel more mobile.",
-    "color": "blue",
-    "symbol": "+",
-    "volume": "10 ml",
-    "weight": "150 g",
-    "material": [
-      "nether_crystal"
-    ],
-    "looks_like": "matrix_crystal_teleportation",
-    "flags": [
-      "MATRIX_CRYSTAL_TELEPORTATION",
-      "RELIC_PINK"
-    ],
-    "//relic": "was ARTIFACT subtype in DDA"
-  },
-  {
     "type": "TOOL",
     "id": "matrix_crystal_vitakinesis",
     "name": {
@@ -481,28 +327,6 @@
     "description": "Concentrated matrix crystal dust.  It glitters green even in complete darkness.",
     "copy-from": "matrix_crystal_biokin_dust_refined",
     "color": "green"
-  },
-  {
-    "type": "GENERIC",
-    "category": "artifacts",
-    "id": "matrix_crystal_vitakinesis_artifact",
-    "name": {
-      "str_sp": "strange crystal, green"
-    },
-    "description": "A strange-looking, surprisingly-heavy crystal with a faintly-glowing green light in its depths.  Holding it, you feel healthier.",
-    "color": "green",
-    "symbol": "+",
-    "volume": "10 ml",
-    "weight": "150 g",
-    "material": [
-      "nether_crystal"
-    ],
-    "looks_like": "matrix_crystal_vitakinesis",
-    "flags": [
-      "MATRIX_CRYSTAL_VITAKINESIS",
-      "RELIC_PINK"
-    ],
-    "//relic": "was ARTIFACT subtype in DDA"
   },
   {
     "type": "TOOL",

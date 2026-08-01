@@ -1431,12 +1431,6 @@
             ]
           },
           {
-            "item": "matrix_crystal_biokinesis_artifact",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
             "item": "matrix_crystal_clair_dust",
             "custom-flags": [
               "no_auto_equip"
@@ -1456,12 +1450,6 @@
           },
           {
             "item": "matrix_crystal_clairsentience",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "matrix_crystal_clairsentience_artifact",
             "custom-flags": [
               "no_auto_equip"
             ]
@@ -1515,12 +1503,6 @@
             ]
           },
           {
-            "item": "matrix_crystal_electrokinesis_artifact",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
             "item": "matrix_crystal_photokin_dust",
             "custom-flags": [
               "no_auto_equip"
@@ -1540,12 +1522,6 @@
           },
           {
             "item": "matrix_crystal_photokinesis",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "matrix_crystal_photokinesis_artifact",
             "custom-flags": [
               "no_auto_equip"
             ]
@@ -1575,12 +1551,6 @@
             ]
           },
           {
-            "item": "matrix_crystal_pyrokinesis_artifact",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
             "item": "matrix_crystal_telekin_dust",
             "custom-flags": [
               "no_auto_equip"
@@ -1600,12 +1570,6 @@
           },
           {
             "item": "matrix_crystal_telekinesis",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "matrix_crystal_telekinesis_artifact",
             "custom-flags": [
               "no_auto_equip"
             ]
@@ -1659,12 +1623,6 @@
             ]
           },
           {
-            "item": "matrix_crystal_teleportation_artifact",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
             "item": "matrix_crystal_vitakin_dust",
             "custom-flags": [
               "no_auto_equip"
@@ -1684,12 +1642,6 @@
           },
           {
             "item": "matrix_crystal_vitakinesis",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "matrix_crystal_vitakinesis_artifact",
             "custom-flags": [
               "no_auto_equip"
             ]

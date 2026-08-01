@@ -50,8 +50,8 @@
       "NO_EXPLOSION_VFX"
     ],
     "effect": "target_attack",
-    "min_damage": 0,
-    "max_damage": 0,
+    "min_damage": 1,
+    "max_damage": 1,
     "extra_effects": [
       {
         "id": "death_fakespell"
@@ -103,8 +103,8 @@
       "NO_EXPLOSION_VFX"
     ],
     "effect": "target_attack",
-    "min_damage": 0,
-    "max_damage": 0,
+    "min_damage": 1,
+    "max_damage": 1,
     "extra_effects": [
       {
         "id": "death_fakespell"

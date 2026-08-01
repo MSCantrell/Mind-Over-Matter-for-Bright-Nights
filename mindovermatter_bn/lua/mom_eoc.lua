@@ -710,6 +710,63 @@ return function(mod)
     return true
   end
 
+  -- Font of vitality (mon_feral_human_vita3) death revival.  Upstream, in
+  -- CDDA/data/mods/MindOverMatter/monsters/death_effects.json:
+  --   npc_location_variable -> spawn_place
+  --   npc_spawn_monster mon_feral_human_vita3_revived, real_count 1, radius 0..0
+  --   run_eocs EOC_VITAKIN3_DEATH_EFFECT_2 with alpha_loc = spawn_place
+  --     -> u_hp('ALL') = 25, u_add_effect effect_feral_regeneration 15-30 s
+  --
+  -- The transpiler has no `npc_spawn_monster` verb (only `u_spawn_monster`, as
+  -- U.spawn_monster), so gen_eoc's version called U.unported() and the font
+  -- announced its revival without ever rising.  _2 was wrong twice over: it
+  -- cannot write hp at all, and `alpha_loc` means its `u` is the NEWLY SPAWNED
+  -- monster -- the generated version would have put the regen on the corpse.
+  --
+  -- U.spawn_monster is unusable here: it floors radius at 1 (`math.max(1, ...)`)
+  -- and discards the monster it placed, and we need both the exact tile and a
+  -- handle to set hp on.  gapi.place_monster_at is place_critter_around(.., 0),
+  -- which gates the tile on can_place_monster and returns nil rather than
+  -- stacking -- the safe primitive, unlike setpos (see EOC_MOM_MONSTER_TK_PULL).
+  --
+  -- The radius-1 fallback is not belt-and-braces: `on_mon_death` fires at the end
+  -- of monster::die (monster.cpp:3565) but the corpse is not unregistered until
+  -- the game loop's later cleanup_dead, so its own tile is usually still occupied
+  -- and the exact-tile attempt is expected to fail more often than not.
+  local function vita3_spawn(where)
+    local id = MonsterTypeId.new('mon_feral_human_vita3_revived')
+    local mon = gapi.place_monster_at(id, where)
+    if mon == nil then mon = gapi.place_monster_around(id, where, 1) end
+    return mon
+  end
+
+  M.EOC_VITAKIN3_DEATH_EFFECT = function(you, npc, ctx)
+    ctx = ctx or {}
+    -- on_mon_death dispatches as fn(mon, mon, {}), so either arg is the corpse.
+    local who = npc or you
+    if not who then return true end
+    local ok, where = pcall(function() return who:get_pos_ms() end)
+    if not ok or not where then return true end
+    ctx['spawn_place'] = where
+    local sok, mon = pcall(vita3_spawn, where)
+    -- Nowhere free to rise: stay dead.  Better a missed revival than a debugmsg.
+    if not sok or not mon then return true end
+    M.EOC_VITAKIN3_DEATH_EFFECT_2(mon, npc, ctx)
+    return true
+  end
+
+  M.EOC_VITAKIN3_DEATH_EFFECT_2 = function(you, npc, ctx)
+    ctx = ctx or {}
+    if not you then return true end
+    -- monster:set_hp is bound (catalua_bindings_creature.cpp:569); Character has
+    -- no such setter, but `you` here is always the spawned monster.
+    pcall(function() you:set_hp(25) end)
+    U.add_effect(you, 'effect_feral_regeneration',
+                 U.rng_dur(TimeDuration.from_seconds(15),
+                           TimeDuration.from_seconds(30)), nil, nil)
+    return true
+  end
+
   -- [Ψ]Degenerating Touch: damage-over-time driven entirely by caster math
   -- (the fitted vita_degenerating_touch_self_* spells read runtime vars and
   -- fit to 0).  Total damage spread over the duration, 1 tick per second

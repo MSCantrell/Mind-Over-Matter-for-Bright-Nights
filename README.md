@@ -24,7 +24,7 @@ runtime. See [Architecture](#architecture-for-the-curious) if you want to know h
 ## Install
 
 1. Grab the newest zip from **[Releases](../../releases)** — releases are dated, e.g.
-   `2026.8.1`, so you always know which build you're on. (**Code → Download ZIP** gets the
+   `2026.8.1-B`, so you always know which build you're on. (**Code → Download ZIP** gets the
    latest in-progress `main` instead, which is fine but harder to report bugs against.)
 
    Or install it from the **[BN Mod Registry](https://mods.cataclysmbn.org/)**, which
@@ -45,7 +45,7 @@ runtime. See [Architecture](#architecture-for-the-curious) if you want to know h
 Lua load failures are quiet. After starting a world, open `config/debug.log` and look for:
 
 ```
-MoM-BN: main loaded (1790 EOC handlers)
+MoM-BN: main loaded (1792 EOC handlers)
 ```
 
 If that line is missing, the Lua runtime didn't come up and nothing psionic will work —
@@ -145,14 +145,17 @@ Please check here first — these are known and do not need new reports.
 - **Displacement / Reactive Displacement** don't teleport the target monster.
 - **Beast Tamer** can't extend an already-friendly animal's duration (BN's charm only
   applies to non-friendly monsters).
-- **Maintained-power costs are probably too lenient.** Only 3 of ~64 maintained powers count toward
-  concentration-break odds and calorie drain, so holding many at once is underpenalized.
+- **Maintained-power costs are enforced but not yet tuned.** As of `2026.8.1` all 66 maintained
+  powers count toward concentration-break odds and calorie drain (previously only 3 did, so the
+  cap was effectively free). The numbers behind it are still first-pass — opinions welcome on
+  whether holding several powers at once now costs too much or too little.
 - Some feral-psychic monster attacks are stubs (their Banish, Electrokinetic Revive).
 
 **Content wiring**
 - The **OBSIDIAN RING** dialogue-computer is inert (flavor-only even in DDA).
 - The **Devourer** lab boss exists but nothing spawns it yet.
-- Phavian city buildings are present but never placed.
+- Phavian city buildings are placed in towns of every size as of `2026.8.1-B` (they were
+  small-town-only before, which is why they read as far too rare).
 
 **Monster behaviour BN cannot express** *(found via issue #3, fixed as far as BN allows)*
 - **Psionic monsters only cast their self-buffs when they can see a target.** In DDA a
@@ -194,7 +197,7 @@ Open an **Issue** and include:
 
 1. What you did and what you expected.
 2. **Which mod version** you're on — shown next to the mod in the in-game mod list, and in
-   `modinfo.json`. Releases are dated, e.g. `2026.8.1`.
+   `modinfo.json`. Releases are dated, e.g. `2026.8.1-B`.
 3. Your BN version (main menu shows the build date).
 4. **`config/debug.log`** — attach it. This matters more than anything else; the Lua
    runtime logs there.

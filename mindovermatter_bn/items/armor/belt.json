@@ -1,26 +1,6 @@
 [
   {
-    "//": "⚠ THE TWO `enchantment` OBJECTS MUST STAY AT THE TOP OF THIS FILE, AHEAD OF THE ITEMS THAT REFERENCE THEM.  BN resolves a `relic_data.passive_effects` id at item-load time and objects within one file load in array order, so with the enchantments last the items fail with `invalid enchantment id \"ench_mom_shield_belt\"` (generic_factory.h:462) and both belts silently lose their protection while everything else still loads.  Cost one check-mods run to find.  Do not let a formatter or a tidy-up sort these to the bottom.  ALSO: shield belt, active.  BASH immunity is a deliberate FORK BUFF over upstream's flat `bash -8` -- it is this port's answer to DDA's TELEKIN_SHIELD, which BN cannot express: a kinetic barrier that stops blunt force outright reads better than a partial psi resist, and it is what the no-clubbing emblem on the belt advertises.  The stab/cut/bullet numbers below are upstream's own, unchanged.  Structure matches the proven in-repo precedent, items/gen_lifting_field_enchantments.json.",
-    "type": "enchantment",
-    "id": "ench_mom_shield_belt",
-    "has": "WORN",
-    "values": [
-      {
-        "value": "ARMOR_STAB",
-        "add": -20
-      },
-      {
-        "value": "ARMOR_CUT",
-        "add": -15
-      },
-      {
-        "value": "ARMOR_BULLET",
-        "add": -40
-      }
-    ]
-  },
-  {
-    "//": "Suppression belt, active.  Heat immunity itself rides on the HEAT_IMMUNE worn flag (see the note on psionic_shield_belt); this covers the other half of upstream's block, DDA `CLIMATE_CONTROL_CHILL: 1000` -> BN `CLIMATE_CONTROL_COOLING`.  BN splits climate control into COOLING/HEATING suffixes where DDA used CHILL/WARMTH; COOLING is the one that keeps you comfortable in heat.  1000 is upstream's value, half of what BN power armor grants (power_armor.json:97, `add: 2000`), which is the right shape for a belt that only fights heat.",
+    "//": "⚠ THIS `enchantment` OBJECT MUST STAY AT THE TOP OF THIS FILE, AHEAD OF THE ITEM THAT REFERENCES IT.  BN resolves a `relic_data.passive_effects` id at item-load time and objects within one file load in array order, so with the enchantment last the item fails with `invalid enchantment id` (generic_factory.h:462) and the belt silently loses its effect while everything else still loads.  Cost one check-mods run to find.  Do not let a formatter or a tidy-up sort it to the bottom.  (The shield belt used to have a matching ARMOR_* enchantment here; it was replaced on 2026-08-01 by an explicit `resistance` map on the item itself -- see the note on psionic_shield_belt_on.)  ALSO: suppression belt, active.  Heat immunity itself rides on the HEAT_IMMUNE worn flag (see the note on psionic_shield_belt); this covers the other half of upstream's block, DDA `CLIMATE_CONTROL_CHILL: 1000` -> BN `CLIMATE_CONTROL_COOLING`.  BN splits climate control into COOLING/HEATING suffixes where DDA used CHILL/WARMTH; COOLING is the one that keeps you comfortable in heat.  1000 is upstream's value, half of what BN power armor grants (power_armor.json:97, `add: 2000`), which is the right shape for a belt that only fights heat.",
     "type": "enchantment",
     "id": "ench_mom_suppression_belt",
     "has": "WORN",
@@ -38,7 +18,7 @@
     "name": {
       "str": "shield belt"
     },
-    "description": "A simple synthetic fabric belt with a box to the right of the belt loop.  The box has a toggleable switch and a stylized shield with \u03a8 and the XEDRA logo inside it, beside a raised club struck through with a large circle and line.  Switched on, it wraps you in a kinetic field: blunt force stops dead against it, and blades and bullets bite far less deeply.  The field is hungry, and eats a charged battery quickly.",
+    "description": "A simple synthetic fabric belt with a box to the right of the belt loop.  The box has a toggleable switch and a stylized shield with \u03a8 and the XEDRA logo inside it, beside a raised club struck through with a large circle and line.  Switched on, it thickens the air against your skin until blunt force simply cannot reach you -- but the same treacle drags on every movement you make, and it is far less use against a blade or a bullet.  The field is hungry, and eats a charged battery quickly.",
     "weight": "350 g",
     "volume": "500 ml",
     "price": "100 USD",
@@ -62,7 +42,7 @@
     "use_action": [
       {
         "type": "transform",
-        "msg": "You flip the switch on the box and a red LED lights up.",
+        "msg": "You flip the switch on the belt and it emits a resonant thump.  The space just outside the surface of your body feels as thick as molasses.",
         "target": "psionic_shield_belt_on",
         "need_charges": 1,
         "need_charges_msg": "The switch clicks but nothing happens.",
@@ -112,18 +92,31 @@
         "moves": 75
       }
     ],
-    "relic_data": {
-      "passive_effects": [
-        {
-          "id": "ench_mom_shield_belt"
-        }
-      ]
+    "//": "Active state is a FIELD, not a garment: it thickens the space just outside the skin, so it covers the whole body, stops blunt force almost absolutely, and drags on everything you do.  Encumbrance 80 on six part groups is far beyond any vanilla armour (BN's heaviest sheet is 15) and is the deliberate price.  Resistances use BN's explicit `resistance` map (item_factory.cpp:2039, keys bash/cut/stab/bullet -- damage.cpp:540-547; BN calls the player's `pierce` STAB).  bash 100 is off the top of the vanilla scale on purpose -- BN's best ballistic plate is bullet 90 -- and it REPLACES the earlier BASH_IMMUNE flag: same intent, but a number that armour-piercing can still bite into rather than a binary the game cannot tune.  `resistance` also replaced the ARMOR_* enchantment, so ench_mom_shield_belt is gone; the suppression belt keeps its own.  EYES and MOUTH are deliberately NOT covered: encumbrance there drives vision and breathing penalties rather than movement, and 80 would blind the wearer -- add them only if that is wanted.",
+    "armor_portion_data": [
+      {
+        "encumbrance": 80,
+        "coverage": 100,
+        "covers": [
+          "torso",
+          "head",
+          "arms",
+          "hands",
+          "legs",
+          "feet"
+        ]
+      }
+    ],
+    "resistance": {
+      "bash": 100,
+      "cut": 10,
+      "stab": 10,
+      "bullet": 20
     },
     "extend": {
       "flags": [
         "NO_TAKEOFF",
-        "SPAWN_ACTIVE",
-        "BASH_IMMUNE"
+        "SPAWN_ACTIVE"
       ]
     }
   },

@@ -8428,6 +8428,24 @@
   },
   {
     "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L0",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "flags": [
+          "ELECTROSENSE"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
     "id": "MOM_CAR_electrokin_reduce_pain_L0",
     "name": "Pain Suppression",
     "points": 0,

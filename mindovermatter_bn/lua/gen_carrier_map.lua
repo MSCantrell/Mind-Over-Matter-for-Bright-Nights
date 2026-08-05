@@ -29,6 +29,7 @@ return {
   ["effect_electrokin_overload"] = { spell = nil, max_level = 0, prefix = "MOM_CAR_electrokin_overload_L" },
   ["effect_electrokin_potion"] = { spell = nil, max_level = 0, prefix = "MOM_CAR_electrokin_potion_L" },
   ["effect_electrokin_reduce_pain"] = { spell = "electrokinetic_reduce_pain", max_level = 15, prefix = "MOM_CAR_electrokin_reduce_pain_L" },
+  ["effect_electrokin_see_electricity"] = { spell = nil, max_level = 0, prefix = "MOM_CAR_electrokin_see_electricity_L" },
   ["effect_electrokinetic_speed_boost"] = { spell = "electrokinetic_speed_boost", max_level = 15, prefix = "MOM_CAR_electrokinetic_speed_boost_L" },
   ["effect_electrokinetic_speed_boost_npc"] = { spell = nil, max_level = 0, prefix = "MOM_CAR_electrokinetic_speed_boost_npc_L" },
   ["effect_mom_artifact_burning_cloak"] = { spell = nil, max_level = 0, prefix = "MOM_CAR_mom_artifact_burning_cloak_L" },

@@ -7766,7 +7766,7 @@ M['EOC_GAMESTART_RANDOMIZE_AWAKENING_ODDS_2'] = function(you, npc, ctx)
     V.uset(you, 'has_initial_awakening_countup_set', 1)
     return false
   end
-  V.uset(you, 'awakening_countup', (V.uget(you, 'awakening_countup')) + ((U.rng(0, 8) + 1)))
+  V.uset(you, 'awakening_countup', (V.uget(you, 'awakening_countup')) + (1))
   V.uset(you, 'has_initial_awakening_countup_set', 1)
   return true
 end

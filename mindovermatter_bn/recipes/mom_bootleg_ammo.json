@@ -1,0 +1,167 @@
+[
+  {
+    "result": "mom_fusion_ammo_bootleg",
+    "type": "recipe",
+    "category": "CC_AMMO",
+    "subcategory": "CSC_AMMO_PISTOL",
+    "skill_used": "fabrication",
+    "skills_required": [
+      "gun",
+      4
+    ],
+    "difficulty": 5,
+    "time": "3 m",
+    "batch_time_factors": [
+      60,
+      5
+    ],
+    "charges": 1,
+    "reversible": false,
+    "autolearn": [
+      [
+        "fabrication",
+        5
+      ],
+      [
+        "gun",
+        4
+      ]
+    ],
+    "using": [
+      [
+        "soldering_standard",
+        1
+      ]
+    ],
+    "components": [
+      [
+        [
+          "light_battery_cell",
+          1
+        ]
+      ],
+      [
+        [
+          "chem_thermite",
+          2
+        ]
+      ],
+      [
+        [
+          "scrap",
+          10
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "mom_fifth_sun_stungun_ammo_bootleg",
+    "type": "recipe",
+    "category": "CC_AMMO",
+    "subcategory": "CSC_AMMO_PISTOL",
+    "skill_used": "fabrication",
+    "skills_required": [
+      "gun",
+      2
+    ],
+    "difficulty": 3,
+    "time": "1 m 30 s",
+    "batch_time_factors": [
+      60,
+      5
+    ],
+    "charges": 1,
+    "reversible": false,
+    "autolearn": [
+      [
+        "fabrication",
+        3
+      ],
+      [
+        "gun",
+        2
+      ]
+    ],
+    "using": [
+      [
+        "soldering_standard",
+        1
+      ]
+    ],
+    "components": [
+      [
+        [
+          "light_battery_cell",
+          1
+        ]
+      ],
+      [
+        [
+          "wire",
+          1
+        ]
+      ],
+      [
+        [
+          "scrap",
+          1
+        ]
+      ]
+    ]
+  },
+  {
+    "result": "mom_lightning_rifle_ammo_bootleg",
+    "type": "recipe",
+    "category": "CC_AMMO",
+    "subcategory": "CSC_AMMO_RIFLE",
+    "skill_used": "fabrication",
+    "skills_required": [
+      "gun",
+      5
+    ],
+    "difficulty": 6,
+    "time": "4 m",
+    "batch_time_factors": [
+      60,
+      5
+    ],
+    "charges": 1,
+    "reversible": false,
+    "autolearn": [
+      [
+        "fabrication",
+        6
+      ],
+      [
+        "gun",
+        5
+      ]
+    ],
+    "using": [
+      [
+        "soldering_standard",
+        1
+      ]
+    ],
+    "components": [
+      [
+        [
+          "medium_battery_cell",
+          1
+        ]
+      ],
+      [
+        [
+          "copper",
+          2
+        ]
+      ],
+      [
+        [
+          "scrap",
+          12
+        ]
+      ]
+    ]
+  }
+]

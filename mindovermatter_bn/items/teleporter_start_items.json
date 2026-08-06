@@ -31,6 +31,14 @@
     "ammo": [
       "mom_fusion_ammo"
     ],
+    "magazines": [
+      [
+        "mom_fusion_ammo",
+        [
+          "mom_fusion_mag"
+        ]
+      ]
+    ],
     "flags": [
       "NEVER_JAMS",
       "NON_FOULING",
@@ -95,6 +103,32 @@
     "default": "mom_fusion_ammo"
   },
   {
+    "id": "mom_fusion_ammo_bootleg",
+    "type": "AMMO",
+    "name": {
+      "str": "bootleg Ch47 power cartridge"
+    },
+    "description": "A hand-built substitute for the real thing: a battery cell and a pinch of thermite crammed into a shop-milled casing.  It'll cycle through the Ch47 just fine, but without the genuine fusion-cell chemistry behind it, the discharge is weaker and noticeably less precise.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": "1 USD",
+    "price_postapoc": "1 USD",
+    "material": [
+      "steel"
+    ],
+    "symbol": "=",
+    "color": "red",
+    "count": 40,
+    "stack_size": 40,
+    "ammo_type": "mom_fusion_ammo",
+    "dispersion": 15,
+    "damage": {
+      "damage_type": "heat",
+      "amount": 42,
+      "armor_penetration": 21
+    }
+  },
+  {
     "id": "mom_fifth_sun_stungun_pistol",
     "looks_like": "v29",
     "type": "GUN",
@@ -121,6 +155,14 @@
     "ammo": [
       "mom_fifth_sun_stungun_ammo"
     ],
+    "magazines": [
+      [
+        "mom_fifth_sun_stungun_ammo",
+        [
+          "mom_fifth_sun_stungun_mag"
+        ]
+      ]
+    ],
     "flags": [
       "NEVER_JAMS",
       "NON_FOULING",
@@ -136,7 +178,7 @@
     "name": {
       "str": "M12 power pack"
     },
-    "description": "A power pack for the Ch47.",
+    "description": "A power pack for the M12.",
     "weight": "40 g",
     "volume": "20 ml",
     "material": [
@@ -147,7 +189,7 @@
     "price_postapoc": "1 cent",
     "symbol": "#",
     "color": "red",
-    "ammo_type": "mom_fusion_ammo",
+    "ammo_type": "mom_fifth_sun_stungun_ammo",
     "capacity": 25
   },
   {
@@ -183,6 +225,31 @@
     "id": "mom_fifth_sun_stungun_ammo",
     "name": "M12 neural shot",
     "default": "mom_fifth_sun_stungun_ammo"
+  },
+  {
+    "id": "mom_fifth_sun_stungun_ammo_bootleg",
+    "type": "AMMO",
+    "name": {
+      "str": "bootleg M12 power cartridge"
+    },
+    "description": "A crude reload for the M12: a battery cell and a loop of scavenged wire packed into a resized casing.  Enough of a jolt to cycle the pistol, but a rougher, less focused shock than the real cartridge delivers.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": "1 USD",
+    "price_postapoc": "1 USD",
+    "material": [
+      "steel"
+    ],
+    "symbol": "=",
+    "color": "red",
+    "count": 40,
+    "stack_size": 40,
+    "ammo_type": "mom_fifth_sun_stungun_ammo",
+    "dispersion": 10,
+    "damage": {
+      "damage_type": "electric",
+      "amount": 2
+    }
   },
   {
     "id": "mom_lightning_rifle",
@@ -234,6 +301,14 @@
     "//faults": "DDA overheat faults (fault_overheat_melting / _safety) dropped: BN has no overheat system and defines neither fault.",
     "ammo": [
       "mom_lightning_rifle_ammo"
+    ],
+    "magazines": [
+      [
+        "mom_lightning_rifle_ammo",
+        [
+          "mom_lightning_rifle_mag"
+        ]
+      ]
     ],
     "flags": [
       "NEVER_JAMS",
@@ -294,6 +369,32 @@
       "damage_type": "electric",
       "amount": 80,
       "armor_penetration": 15
+    }
+  },
+  {
+    "id": "mom_lightning_rifle_ammo_bootleg",
+    "type": "AMMO",
+    "name": {
+      "str": "bootleg G-Tz77 power cartridge"
+    },
+    "description": "A hand-wound substitute cartridge for the G-Tz77: a battery cell and a coil of copper wire, with none of the genuine cartridge's exotic resonator inside.  It still throws a real jolt, but noticeably weaker and less precise than the genuine article.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": "1 USD",
+    "price_postapoc": "1 USD",
+    "material": [
+      "steel"
+    ],
+    "symbol": "=",
+    "color": "cyan",
+    "count": 120,
+    "stack_size": 120,
+    "ammo_type": "mom_lightning_rifle_ammo",
+    "dispersion": 1,
+    "damage": {
+      "damage_type": "electric",
+      "amount": 56,
+      "armor_penetration": 10
     }
   },
   {

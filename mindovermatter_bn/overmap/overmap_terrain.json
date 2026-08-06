@@ -37,6 +37,33 @@
   {
     "type": "overmap_terrain",
     "id": [
+      "mom_itzcuauhtli_trooper_grave"
+    ],
+    "name": "forest",
+    "sym": "F",
+    "looks_like": "forest",
+    "color": "green",
+    "see_cost": 3,
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": [
+      "mom_nether_crystal_field_itzcuauhtli"
+    ],
+    "name": "crystal outcroppings",
+    "sym": "*",
+    "color": "light_cyan",
+    "flags": [
+      "NO_ROTATE"
+    ],
+    "see_cost": 2
+  },
+  {
+    "type": "overmap_terrain",
+    "id": [
       "office_cubical_phavian"
     ],
     "copy-from": "generic_city_building",

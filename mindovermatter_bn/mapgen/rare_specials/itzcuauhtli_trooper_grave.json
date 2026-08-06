@@ -1,0 +1,134 @@
+[
+  {
+    "type": "mapgen",
+    "om_terrain": "mom_itzcuauhtli_trooper_grave",
+    "object": {
+      "fill_ter": "t_region_groundcover",
+      "rows": [
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTT______TTTTTTTTT",
+        "TTTTTTTTT______TTTTTTTTT",
+        "TTTTTTTTT______TTTTTTTTT",
+        "TTTTTTTTT______TTTTTTTTT",
+        "TTTTTTTTT______TTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT",
+        "TTTTTTTTTTTTTTTTTTTTTTTT"
+      ],
+      "terrain": {
+        "T": [
+          [
+            "t_region_groundcover",
+            4
+          ],
+          [
+            "t_tree",
+            2
+          ],
+          [
+            "t_underbrush",
+            3
+          ],
+          [
+            "t_grass",
+            3
+          ]
+        ],
+        "_": "t_region_groundcover"
+      },
+      "place_item": [
+        {
+          "item": "skull_human",
+          "x": 11,
+          "y": 11
+        },
+        {
+          "item": "bone_human",
+          "amount": [
+            5,
+            13
+          ],
+          "x": 11,
+          "y": 11
+        }
+      ],
+      "place_items": [
+        {
+          "chance": 100,
+          "item": "mom_itzcuauhtli_trooper_weapon",
+          "x": 11,
+          "y": 11
+        },
+        {
+          "chance": 100,
+          "item": "mom_itzcuauhtli_trooper_armor",
+          "x": 11,
+          "y": 12
+        },
+        {
+          "chance": 60,
+          "item": "mom_itzcuauhtli_trooper_gear",
+          "x": 12,
+          "y": 12
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 11,
+          "y": 11,
+          "intensity": 2,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 11,
+          "y": 12,
+          "intensity": 2,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 12,
+          "y": 11,
+          "intensity": 1,
+          "age": 0
+        }
+      ],
+      "place_monster": [
+        {
+          "monster": "mon_wolf_mutant_huge",
+          "x": [
+            9,
+            13
+          ],
+          "y": [
+            9,
+            13
+          ],
+          "chance": 100,
+          "repeat": [
+            4,
+            4
+          ]
+        }
+      ]
+    },
+    "method": "json"
+  }
+]

@@ -62,11 +62,75 @@
     ],
     "occurrences": [
       1,
-      100
+      12
     ],
     "flags": [
-      "GLOBALLY_UNIQUE",
+      "UNIQUE",
       "MAN_MADE"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "itzcuauhtli_trooper_grave",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "mom_itzcuauhtli_trooper_grave"
+      }
+    ],
+    "locations": [
+      "wilderness"
+    ],
+    "city_distance": [
+      10,
+      -1
+    ],
+    "city_sizes": [
+      0,
+      20
+    ],
+    "occurrences": [
+      1,
+      20
+    ],
+    "flags": [
+      "UNIQUE"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "nether_crystal_field_itzcuauhtli",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "mom_nether_crystal_field_itzcuauhtli"
+      }
+    ],
+    "locations": [
+      "wilderness"
+    ],
+    "city_distance": [
+      20,
+      -1
+    ],
+    "city_sizes": [
+      0,
+      20
+    ],
+    "occurrences": [
+      1,
+      15
+    ],
+    "flags": [
+      "UNIQUE"
     ]
   },
   {

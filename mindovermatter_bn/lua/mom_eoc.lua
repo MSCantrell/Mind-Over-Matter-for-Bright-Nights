@@ -902,6 +902,94 @@ return function(mod)
   end
 
   -- ==========================================================================
+  -- Beastmaster (telepathic_animal_mind_control [+_knack]) / Beast Tamer
+  -- (telepathic_beast_taming), user backlog 2026-08-06.  Upstream is BN-
+  -- native charm_monster gated by targeted_monster_species [MAMMAL, BIRD,
+  -- AMPHIBIAN, REPTILE, FISH] / ignored_monster_species [ZOMBIE, ROBOT,
+  -- ROBOT_FLYING, NETHER, NETHER_EMANATION, LEECH_PLANT, WORM, FUNGUS, SLIME,
+  -- PSI_NULL].  BN's spell engine has no species filter at all (same gap as
+  -- Short Circuit / Abjuration Stone above), so as ported BOTH spells already
+  -- had zero species gate -- they'd already charm a zombie today.  Separately,
+  -- BN's native charm_monster (magic_spell_effect.cpp:1071) never reads
+  -- spell_flag::RECHARM/CHARM_PET at all -- unlike DDA's real version
+  -- (CDDA/src/magic_spell_effect.cpp:1604), it hard-requires friendly==0, so
+  -- Beast Tamer's whole premise ("must already be friendly, this extends it")
+  -- could never fire, for animals either, before today.
+  -- Rerouted through the marker bridge (strip_spell_math.SPELL_REWRITE) to
+  -- fix both: gate on MF_PSIPROOF (this mod's existing, already-verified
+  -- stand-in for the upstream exclusion set -- TEEP_IMMUNE->PSIPROOF, see
+  -- port_monsters -- landing on ZOMBIE/ROBOT/NETHER/plant/slime, the same set
+  -- upstream cared about, and correctly still resisting the handful of
+  -- high-tier feral Telepaths that carry PSIPROOF as their own psi ward) and
+  -- a hand port of DDA's real charm_monster logic, RECHARM/CHARM_PET
+  -- included.  The upstream animal-only species WHITELIST is not rebuilt: BN
+  -- has no mechanism to enforce one, and PSIPROOF already keeps out
+  -- everything upstream excluded for a reason, so nothing that used to be
+  -- blocked on purpose becomes targetable just because ferals now are.
+  -- you = target creature, npc = caster (avatar).
+  -- ==========================================================================
+  local MOM_CHARM_PSIPROOF_FLAG = (MonsterFlag and MonsterFlag.PSIPROOF) or nil
+  local function mom_charm_is_mindless(you)
+    if MOM_CHARM_PSIPROOF_FLAG == nil then return false end
+    local ok, res = pcall(function() return you:has_flag(MOM_CHARM_PSIPROOF_FLAG) end)
+    return ok and res == true
+  end
+  -- Shared charm-attempt logic (DDA magic_spell_effect.cpp:1604, hand port).
+  -- recharm: allow success when already friendly (spell_flag::RECHARM).
+  -- charm_pet: on success, override to permanent friendly=-1 + effect_pet
+  -- (spell_flag::CHARM_PET) -- this is what actually makes Beast Tamer
+  -- permanent; the duration roll below is otherwise moot once it fires.
+  local function mom_charm_attempt(you, caster, min_dmg, max_dmg,
+                                    min_dur, max_dur, recharm, charm_pet)
+    if mom_charm_is_mindless(you) then
+      U.msg(caster, "You reach for " .. you:get_name() ..
+            "'s mind and find nothing there to seize.", MsgType.warning)
+      return false
+    end
+    local friendly = you.friendly or 0
+    if not (friendly == 0 or (friendly ~= 0 and recharm)) then
+      U.msg(caster, "Something about " .. you:get_name() ..
+            " resists your reach.", MsgType.warning)
+      return false
+    end
+    local threshold = U.rng(min_dmg, max_dmg)
+    if you:get_hp() > threshold then
+      U.msg(caster, "The " .. you:get_name() ..
+            " resists your charm attempt.", MsgType.bad)
+      return false
+    end
+    local dur_turns = U.round(U.rng(min_dur, max_dur) / 100)
+    you.friendly = you.friendly + dur_turns
+    if charm_pet and you.friendly ~= -1 then
+      you.friendly = -1
+      U.add_effect(you, 'pet', TimeDuration.from_turns(1), nil, nil)
+    end
+    U.msg(caster, "You charm the " .. you:get_name() .. "!", MsgType.good)
+    return true
+  end
+
+  M.EOC_MOM_BEASTMASTER_CHARM = function(you, npc, ctx)
+    local caster = npc or gapi.get_avatar()
+    local lvl = math.max(m.spell_level(caster, 'telepathic_animal_mind_control'), 0)
+              + math.max(m.spell_level(caster, 'telepathic_animal_mind_control_knack'), 0)
+    local p = ppm(caster)
+    return mom_charm_attempt(you, caster,
+      (lvl * 8 + 40) * p, (lvl * 15 + 200) * p,
+      (lvl * 1125 + 18000) * p, (lvl * 2800 + 47000) * p,
+      false, false)
+  end
+
+  M.EOC_MOM_BEAST_TAMER_CHARM = function(you, npc, ctx)
+    local caster = npc or gapi.get_avatar()
+    local lvl = math.max(m.spell_level(caster, 'telepathic_beast_taming'), 0)
+    local p = ppm(caster)
+    return mom_charm_attempt(you, caster,
+      (lvl * 15 + 200) * p, (lvl * 35 + 500) * p,
+      (lvl * 8640000 + 241920000) * p, (lvl * 25920000 + 483840000) * p,
+      true, true)
+  end
+
+  -- ==========================================================================
   -- Psychometry (clair_examine_item).  Upstream reads artifact_resonance + the
   -- FIFTH_SUN_TECHNOLOGY flag off the chosen item; BN has neither (resonance is
   -- a DDA-only enchant value; MoM's Fifth-Sun items/flag aren't ported, and the

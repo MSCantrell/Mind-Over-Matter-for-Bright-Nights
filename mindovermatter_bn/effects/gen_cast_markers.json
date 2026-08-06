@@ -1737,6 +1737,20 @@
   },
   {
     "type": "effect_type",
+    "id": "mom_cast_telepathic_animal_mind_control",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "type": "effect_type",
     "id": "momfin_telepathic_animal_mind_control",
     "name": [
       ""
@@ -1808,6 +1822,20 @@
   {
     "type": "effect_type",
     "id": "momfin_telepathic_blast_radius",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_cast_telepathic_beast_taming",
     "name": [
       ""
     ],
@@ -3054,6 +3082,20 @@
   {
     "type": "effect_type",
     "id": "momfin_telepathic_blast_knack",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_cast_telepathic_animal_mind_control_knack",
     "name": [
       ""
     ],

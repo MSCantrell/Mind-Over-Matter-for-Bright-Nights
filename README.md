@@ -24,7 +24,7 @@ runtime. See [Architecture](#architecture-for-the-curious) if you want to know h
 ## Install
 
 1. Grab the newest zip from **[Releases](../../releases)** — releases are dated, e.g.
-   `2026.8.1-C`, so you always know which build you're on. (**Code → Download ZIP** gets the
+   `2026.8.6-B`, so you always know which build you're on. (**Code → Download ZIP** gets the
    latest in-progress `main` instead, which is fine but harder to report bugs against.)
 
    Or install it from the **[BN Mod Registry](https://mods.cataclysmbn.org/)**, which
@@ -110,6 +110,10 @@ don't advance any further.
 - **[Crystalline Elixirs](mindovermatter_bn/CRYSTALLINE_ELIXIRS.md)** — ⚠️ **spoilers.**
   The nine school elixirs deliberately tell you nothing in their item descriptions; this
   documents what each actually does, including the attunement cost and the comedown.
+- **[Matrix Crystals and the Odds of Awakening](mindovermatter_bn/MATRIX_CRYSTALS.md)** —
+  ⚠️ **spoilers.** Exactly how likely a strange crystal is to awaken a new path, why your
+  odds roughly halve with every path you own, and the hidden 1-in-9 luck roll set at
+  character creation that you are never shown.
 
 ---
 
@@ -134,6 +138,14 @@ worked poorly, this port diverges on purpose:
   upstream's own curve) instead of hovering one named object weightlessly beside you. DDA does
   it with a zero-weight holster pocket; BN is pre-pocket and no container can discount its
   contents' weight. It lifts **weight, not bulk** — your pack is no roomier.
+- **LV429 Pulse Rifle now runs on batteries**, including BN's self-recharging plutonium
+  cells — load one and it tops itself off over time, which is what "essentially unlimited
+  combat operations" was always supposed to mean. Ordinary battery cells still work as a
+  manual-recharge fallback.
+- **Bootleg reloads** for the Ch47, M12, and G-Tz77 — their factory cartridges are one-offs
+  you'll never restock, so each now has a craftable substitute round (fabrication + gun
+  skill) at roughly 70% of the real thing's power and noticeably less accurate. The genuine
+  cartridges remain the better find.
 - **Cut as unportable:** Nether Banish (BN monster spells cannot target other monsters),
   Re-energize (no vehicle-charge binding), Water Walking (inert in BN).
 
@@ -197,7 +209,7 @@ Open an **Issue** and include:
 
 1. What you did and what you expected.
 2. **Which mod version** you're on — shown next to the mod in the in-game mod list, and in
-   `modinfo.json`. Releases are dated, e.g. `2026.8.1-C`.
+   `modinfo.json`. Releases are dated, e.g. `2026.8.6-B`.
 3. Your BN version (main menu shows the build date).
 4. **`config/debug.log`** — attach it. This matters more than anything else; the Lua
    runtime logs there.

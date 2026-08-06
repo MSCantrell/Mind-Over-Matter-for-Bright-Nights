@@ -1713,6 +1713,12 @@
             ]
           },
           {
+            "item": "mom_fifth_sun_stungun_ammo_bootleg",
+            "custom-flags": [
+              "no_auto_equip"
+            ]
+          },
+          {
             "item": "mom_fifth_sun_stungun_mag",
             "custom-flags": [
               "no_auto_equip"
@@ -1726,6 +1732,12 @@
           },
           {
             "item": "mom_fusion_ammo",
+            "custom-flags": [
+              "no_auto_equip"
+            ]
+          },
+          {
+            "item": "mom_fusion_ammo_bootleg",
             "custom-flags": [
               "no_auto_equip"
             ]
@@ -1755,6 +1767,12 @@
             ]
           },
           {
+            "item": "mom_lightning_rifle_ammo_bootleg",
+            "custom-flags": [
+              "no_auto_equip"
+            ]
+          },
+          {
             "item": "mom_lightning_rifle_mag",
             "custom-flags": [
               "no_auto_equip"
@@ -1762,12 +1780,6 @@
           },
           {
             "item": "mom_pulse_rifle",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_pulse_rifle_ammo",
             "custom-flags": [
               "no_auto_equip"
             ]

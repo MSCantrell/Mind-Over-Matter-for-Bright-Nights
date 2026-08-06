@@ -314,6 +314,11 @@
     "color": "cyan",
     "skill": "rifle",
     "range": 35,
+    "ranged_damage": {
+      "damage_type": "light",
+      "amount": 55,
+      "armor_penetration": 4
+    },
     "dispersion": 10,
     "recoil": 0,
     "durability": 4,
@@ -325,8 +330,7 @@
       ]
     ],
     "loudness": 5,
-    "reload": 0,
-    "clip_size": 1,
+    "reload": 100,
     "valid_mod_locations": [
       [
         "emitter",
@@ -362,7 +366,21 @@
       ]
     ],
     "ammo": [
-      "mom_pulse_rifle_ammo"
+      "battery"
+    ],
+    "magazines": [
+      [
+        "battery",
+        [
+          "light_battery_cell",
+          "medium_battery_cell",
+          "heavy_battery_cell",
+          "light_minus_atomic_battery_cell",
+          "light_atomic_battery_cell",
+          "medium_atomic_battery_cell",
+          "heavy_atomic_battery_cell"
+        ]
+      ]
     ],
     "ammo_effects": [
       "LASER",
@@ -370,7 +388,6 @@
     ],
     "flags": [
       "NEVER_JAMS",
-      "NO_UNLOAD",
       "NON_FOULING",
       "NEEDS_NO_LUBE",
       "NO_REPAIR"
@@ -423,6 +440,14 @@
     "ammo_effects": [],
     "ammo": [
       "psionic_charge_power"
+    ],
+    "magazines": [
+      [
+        "psionic_charge_power",
+        [
+          "exodii_exodii_stungun_mag"
+        ]
+      ]
     ],
     "flags": [
       "NEVER_JAMS",

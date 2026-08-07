@@ -4,58 +4,20 @@
     "id": "vitakinesis_practice",
     "nested_name": "contemplation: vitakinesis",
     "description": "Recipes related to practicing vitakinesis.",
+    "category": "CC_PRACTICE",
     "subcategory": "CSC_PRACTICE_METAPHYSICS",
     "nested_category_data": [
       "practice_vita_health_power",
-      "practice_vita_slow_bleeding",
-      "practice_vita_concentrated_healing",
       "practice_vita_stop_bleeding",
-      "practice_vita_healing_touch",
-      "practice_vita_remove_poison",
-      "practice_vita_hurt_touch",
-      "practice_vita_sleeping_trance",
-      "practice_vita_cure_disease",
-      "practice_vita_stop_infection",
-      "practice_vita_purge_rads",
-      "practice_vita_healing_trance",
-      "practice_vita_attack_touch",
-      "practice_vita_blood_purge",
-      "practice_vita_no_need_for_sleep",
-      "practice_vita_banish_illness",
-      "practice_vita_super_heal",
-      "practice_vita_limb_restore",
-      "practice_vita_degenerating_touch",
-      "practice_vita_return_from_death"
-    ],
-    "category": "CC_PRACTICE"
+      "practice_vita_remove_poison"
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "vita_health_power",
     "nested_name": "contemplation: healthy glow",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
     "description": "Contemplate your powers and improve your ability to enhance your overall health.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:vita_health_power>",
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -64,13 +26,12 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_slow_bleeding",
-    "nested_name": "contemplation: coagulation",
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "time": "0 s",
+    "category": "CC_*",
     "tools": [
       [
         [
@@ -80,93 +41,16 @@
         [
           "black_nether_crystal_pseudo_tool",
           -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
         ]
       ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to slow your rate of bleeding.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:vita_slow_bleeding>",
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_concentrated_healing",
-    "nested_name": "contemplation: leukocyte accumulation",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to direct your body's healing ability to where it is most needed.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:vita_concentrated_healing>",
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "vita_stop_bleeding",
     "nested_name": "contemplation: staunch wound",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
     "description": "Contemplate your powers and improve your ability to stop bleeding.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:vita_stop_bleeding>",
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -175,13 +59,12 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_hurt_touch",
-    "nested_name": "contemplation: enervating touch",
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "time": "0 s",
+    "category": "CC_*",
     "tools": [
       [
         [
@@ -191,93 +74,16 @@
         [
           "black_nether_crystal_pseudo_tool",
           -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
         ]
       ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to induce decay.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:vita_hurt_touch>",
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_healing_touch",
-    "nested_name": "contemplation: medicinal touch",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to speed your allies' healing.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:vita_health_power_ally>",
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "vita_remove_poison",
     "nested_name": "contemplation: detoxification",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
     "description": "Contemplate your powers and improve your ability to sweat out any dangerous toxins.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:vita_remove_poison>",
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -286,13 +92,12 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_sleeping_trance",
-    "nested_name": "contemplation: wakeful rest",
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "skill_used": "metaphysics",
+    "difficulty": 0,
+    "time": "0 s",
+    "category": "CC_*",
     "tools": [
       [
         [
@@ -302,567 +107,8 @@
         [
           "black_nether_crystal_pseudo_tool",
           -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
         ]
       ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and develop your ability to forego sleep in favor of meditation.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:vita_sleeping_trance>",
-    "components": [
-      [
-        [
-          "matrix_crystal_vitakin_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_cure_disease",
-    "nested_name": "contemplation: immunostimulus",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and develop your ability to cure mundane illnesses in yourself.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:vita_cure_disease>",
-    "components": [
-      [
-        [
-          "matrix_crystal_vitakin_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_stop_infection",
-    "nested_name": "contemplation: allay infection",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to use your powers to disinfect.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:vita_stop_infection>",
-    "components": [
-      [
-        [
-          "matrix_crystal_vitakin_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_healing_trance",
-    "nested_name": "contemplation: revitalizing meditation",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to speed healing while meditating.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:vita_healing_trance>",
-    "components": [
-      [
-        [
-          "matrix_crystal_vitakin_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_purge_rads",
-    "nested_name": "contemplation: radiation decontamination",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to remove radiation from your body.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:vita_purge_rads>",
-    "components": [
-      [
-        [
-          "matrix_crystal_vitakin_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_attack_touch",
-    "nested_name": "contemplation: lacerating touch",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to cause wounds with a touch.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:vita_attack_touch>",
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_no_need_for_sleep",
-    "nested_name": "contemplation: selective autosomnia",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to sleep while remaining awake.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:vita_no_need_for_sleep>",
-    "components": [
-      [
-        [
-          "matrix_crystal_vitakin_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_blood_purge",
-    "nested_name": "contemplation: blood purge",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to cleanse impurities from your blood.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:vita_blood_purge>",
-    "components": [
-      [
-        [
-          "matrix_crystal_vitakin_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_banish_illness",
-    "nested_name": "contemplation: banish illness",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to cure permanent or long-term conditions.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:vita_banish_illness>",
-    "components": [
-      [
-        [
-          "matrix_crystal_vitakin_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_super_heal",
-    "nested_name": "contemplation: anabolic rejuvenation",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to heal unbelievably quickly, but at a cost.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:vita_super_heal>",
-    "components": [
-      [
-        [
-          "matrix_crystal_vitakin_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_limb_restore",
-    "nested_name": "contemplation: ameliorate extremity",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to restore whole limbs, but at an extreme cost.\n\nPower Difficulty: 10\n\nCurrent Power Level: <u_spell_level:vita_limb_restore>",
-    "components": [
-      [
-        [
-          "matrix_crystal_vitakin_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_degenerating_touch",
-    "nested_name": "contemplation: degenerating touch",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to cause a target's body to break down on a fundamental level.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:vita_degenerating_touch>",
-    "components": [
-      [
-        [
-          "matrix_crystal_vitakin_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_return_from_death",
-    "nested_name": "contemplation: accelerated resuscitation",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_vitakinesis",
-          -1
-        ]
-      ]
-    ],
-    "category": "CC_*",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "description": "Contemplate your powers and improve your ability to keep yourself alive in the event of a near-death experience.\n\nPower Difficulty: 10\n\nCurrent Power Level: <u_spell_level:vita_return_from_death>",
-    "components": [
-      [
-        [
-          "matrix_crystal_vitakin_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "time": "0 s",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false
+    ]
   }
 ]

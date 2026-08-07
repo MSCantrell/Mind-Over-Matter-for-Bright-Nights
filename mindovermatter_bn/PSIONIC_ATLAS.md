@@ -1,6 +1,8 @@
 # Psionic Discipline Atlas
 
-Power-acquisition trees for the nine psionic schools in **Mind Over Matter (BN)**.
+Power-acquisition trees for the eight psionic schools in **Mind Over Matter (BN)**.
+Vitakinesis merged into Biokinesis 2026-08-07 (see `HANDOFF.md`'s changelog) — there
+were nine schools before that.
 
 ## How powers unlock
 
@@ -21,7 +23,7 @@ Reading the trees:
 
 ## Disciplines
 
-- [Biokinesis](#biokinesis) — 19 powers
+- [Biokinesis](#biokinesis) — 20 powers
 - [Telekinesis](#telekinesis) — 18 powers
 - [Pyrokinesis](#pyrokinesis) — 15 powers
 - [Electrokinesis](#electrokinesis) — 16 powers
@@ -29,30 +31,28 @@ Reading the trees:
 - [Clairsentience](#clairsentience) — 18 powers
 - [Telepathy](#telepathy) — 14 powers
 - [Teleportation](#teleportation) — 20 powers
-- [Vitakinesis](#vitakinesis) — 20 powers
 
 ---
 
 ## Biokinesis
 
-*Turn the body into an instrument — reflexes, resilience, and reshaped flesh.*
+*Turn the body into an instrument — reflexes, resilience, reshaped flesh, and
+(since the Vitakinesis merge) the body's own repair.*
 
-**19** powers · **4** known at start · **15** trainable
+**20** powers · **5** known at start · **15** trainable
 
-**Foundations:** Flesh of Clay · Guided Evolution (C) · Overcome Pain (C) · Personal Enhancement (C)
+**Foundations:** Healthy Glow (C) · Overcome Pain (C) · Personal Enhancement (C) ·
+Radiation Decontamination · Staunch Wound
 
 ```mermaid
 graph TD
   n_biokin_adrenaline["Adrenaline Trigger"]:::power
   n_biokin_armor_skin["Hardened Skin (C)"]:::power
   n_biokin_breathe_skin["Oxygen Absorption (C)"]:::power
-  n_biokin_change_appearance["Flesh of Clay"]:::start
   n_biokin_climate_control["Temperature Adaptability (C)"]:::power
   n_biokin_combat_dance["Combat Dance (C)"]:::apex
   n_biokin_dash["Burst of Speed"]:::power
   n_biokin_enhance_mobility["Enhance Mobility (C)"]:::power
-  n_biokin_flexibility["Flexibility"]:::power
-  n_biokin_guided_evolution["Guided Evolution (C)"]:::start
   n_biokin_hammerhand["Hammerhand (C)"]:::power
   n_biokin_hurricane_blows["Hurricane Blows"]:::apex
   n_biokin_metabolism_enhance["Metabolic Hyperefficiency (C)"]:::power
@@ -61,54 +61,58 @@ graph TD
   n_biokin_physical_enhance["Personal Enhancement (C)"]:::start
   n_biokin_reflex_enhance["Heightened Reflexes (C)"]:::power
   n_biokin_sealed_system["Sealed System"]:::power
-  n_biokin_vitaminosis["Vitaminosis"]:::apex
-  n_biokin_enhance_mobility -.->|L6| n_biokin_adrenaline
+  n_vita_health_power["Healthy Glow (C)"]:::start
+  n_vita_purge_rads["Radiation Decontamination"]:::start
+  n_vita_remove_poison["Detoxification"]:::power
+  n_vita_stop_bleeding["Staunch Wound"]:::start
+  n_vita_super_heal["Anabolic Rejuvenation (C)"]:::apex
   n_biokin_dash -.->|L8| n_biokin_adrenaline
-  n_biokin_breathe_skin -->|L5| n_biokin_adrenaline
+  n_biokin_breathe_skin -.->|L5| n_biokin_adrenaline
+  n_biokin_enhance_mobility -.->|L6| n_biokin_adrenaline
   n_biokin_physical_enhance -.->|L8| n_biokin_armor_skin
+  n_vita_remove_poison -.->|L7| n_biokin_armor_skin
   n_biokin_climate_control -.->|L6| n_biokin_armor_skin
-  n_biokin_flexibility -.->|L7| n_biokin_armor_skin
   n_biokin_overcome_pain -.->|L6| n_biokin_armor_skin
   n_biokin_physical_enhance -->|L4| n_biokin_breathe_skin
   n_biokin_overcome_pain -->|L3| n_biokin_breathe_skin
   n_biokin_physical_enhance -.->|L9| n_biokin_climate_control
+  n_biokin_overcome_pain -.->|L5| n_biokin_climate_control
   n_biokin_metabolism_enhance -.->|L6| n_biokin_climate_control
-  n_biokin_overcome_pain -->|L5| n_biokin_climate_control
-  n_biokin_physical_enhance -->|L10| n_biokin_combat_dance
+  n_biokin_physical_enhance -.->|L10| n_biokin_combat_dance
+  n_biokin_reflex_enhance -.->|L10| n_biokin_combat_dance
   n_biokin_dash -.->|L6| n_biokin_combat_dance
-  n_biokin_reflex_enhance -->|L10| n_biokin_combat_dance
   n_biokin_adrenaline -.->|L9| n_biokin_combat_dance
-  n_biokin_physical_enhance -.->|L5| n_biokin_dash
   n_biokin_enhance_mobility -.->|L6| n_biokin_dash
   n_biokin_reflex_enhance -.->|L5| n_biokin_dash
   n_biokin_adrenaline -.->|L8| n_biokin_dash
-  n_biokin_physical_enhance -.->|L10| n_biokin_enhance_mobility
+  n_biokin_physical_enhance -.->|L5| n_biokin_dash
   n_biokin_dash -.->|L10| n_biokin_enhance_mobility
-  n_biokin_overcome_pain -->|L4| n_biokin_enhance_mobility
-  n_biokin_flexibility -.->|L9| n_biokin_enhance_mobility
   n_biokin_reflex_enhance -.->|L6| n_biokin_enhance_mobility
+  n_biokin_overcome_pain -.->|L4| n_biokin_enhance_mobility
+  n_vita_remove_poison -.->|L9| n_biokin_enhance_mobility
   n_biokin_combat_dance -.->|L4| n_biokin_enhance_mobility
-  n_biokin_physical_enhance -->|L6| n_biokin_flexibility
+  n_biokin_physical_enhance -.->|L10| n_biokin_enhance_mobility
   n_biokin_physical_enhance -->|L6| n_biokin_hammerhand
   n_biokin_armor_skin -->|L6| n_biokin_hammerhand
-  n_biokin_combat_dance -->|L10| n_biokin_hurricane_blows
-  n_biokin_adrenaline -.->|L12| n_biokin_hurricane_blows
+  n_biokin_combat_dance -.->|L10| n_biokin_hurricane_blows
   n_biokin_reflex_enhance -.->|L14| n_biokin_hurricane_blows
-  n_biokin_climate_control -->|L8| n_biokin_metabolism_enhance
+  n_biokin_adrenaline -.->|L12| n_biokin_hurricane_blows
+  n_biokin_climate_control -.->|L8| n_biokin_metabolism_enhance
   n_biokin_adrenaline -.->|L6| n_biokin_metabolism_enhance
   n_biokin_physical_enhance -.->|L12| n_biokin_metabolism_enhance
   n_biokin_combat_dance -->|L6| n_biokin_perfected_motion
   n_biokin_dash -->|L12| n_biokin_perfected_motion
-  n_biokin_physical_enhance -->|L6| n_biokin_reflex_enhance
+  n_biokin_physical_enhance -.->|L6| n_biokin_reflex_enhance
+  n_biokin_adrenaline -.->|L8| n_biokin_reflex_enhance
   n_biokin_dash -.->|L8| n_biokin_reflex_enhance
-  n_biokin_flexibility -.->|L8| n_biokin_reflex_enhance
-  n_biokin_adrenaline -->|L8| n_biokin_reflex_enhance
-  n_biokin_climate_control -.->|L10| n_biokin_sealed_system
-  n_biokin_hammerhand -.->|L7| n_biokin_sealed_system
-  n_biokin_armor_skin -.->|L9| n_biokin_sealed_system
+  n_vita_remove_poison -.->|L8| n_biokin_reflex_enhance
   n_biokin_breathe_skin -.->|L9| n_biokin_sealed_system
-  n_biokin_metabolism_enhance -->|L8| n_biokin_vitaminosis
-  n_biokin_adrenaline -->|L6| n_biokin_vitaminosis
+  n_biokin_hammerhand -.->|L7| n_biokin_sealed_system
+  n_biokin_climate_control -.->|L10| n_biokin_sealed_system
+  n_biokin_armor_skin -.->|L9| n_biokin_sealed_system
+  n_biokin_physical_enhance -->|L6| n_vita_remove_poison
+  n_biokin_metabolism_enhance -->|L8| n_vita_super_heal
+  n_biokin_adrenaline -->|L6| n_vita_super_heal
   classDef start fill:#c0495a,stroke:#82313d,color:#ffffff,stroke-width:1.5px,font-weight:600;
   classDef power fill:#ffffff,stroke:#c0495a,color:#22242b,stroke-width:1.4px;
   classDef apex fill:#eecfd4,stroke:#c0495a,color:#692831,stroke-width:3px,font-weight:700;
@@ -596,79 +600,6 @@ graph TD
   classDef start fill:#cf5aa8,stroke:#8c3d72,color:#ffffff,stroke-width:1.5px,font-weight:600;
   classDef power fill:#ffffff,stroke:#cf5aa8,color:#22242b,stroke-width:1.4px;
   classDef apex fill:#f2d4e8,stroke:#cf5aa8,color:#71315c,stroke-width:3px,font-weight:700;
-```
-
----
-
-## Vitakinesis
-
-*Mend flesh and purge affliction; the healer's quiet discipline.*
-
-**20** powers · **4** known at start · **16** trainable
-
-**Foundations:** Ameliorate Extremity · Coagulation (C) · Healthy Glow (C) · Radiation Decontamination
-
-```mermaid
-graph TD
-  n_vita_attack_touch["Lacerating Touch"]:::power
-  n_vita_banish_illness["Banish Illness"]:::apex
-  n_vita_blood_purge["Blood Purge"]:::power
-  n_vita_concentrated_healing["Leukocyte Accumulation (C)"]:::power
-  n_vita_cure_disease["Immunostimulus (C)"]:::power
-  n_vita_degenerating_touch["Degenerating Touch"]:::apex
-  n_vita_healing_trance["Revitalizing Meditation"]:::power
-  n_vita_health_power["Healthy Glow (C)"]:::start
-  n_vita_health_power_ally["Medicinal Touch"]:::power
-  n_vita_hurt_touch["Enervating Touch"]:::power
-  n_vita_limb_restore["Ameliorate Extremity"]:::start
-  n_vita_no_need_for_sleep["Selective Autosomnia"]:::power
-  n_vita_purge_rads["Radiation Decontamination"]:::start
-  n_vita_remove_poison["Detoxification"]:::power
-  n_vita_return_from_death["Accelerated Resuscitation (C)"]:::apex
-  n_vita_sleeping_trance["Wakeful Rest"]:::power
-  n_vita_slow_bleeding["Coagulation (C)"]:::start
-  n_vita_stop_bleeding["Staunch Wound"]:::power
-  n_vita_stop_infection["Allay Infection"]:::power
-  n_vita_super_heal["Anabolic Rejuvenation (C)"]:::apex
-  n_vita_hurt_touch -->|L8| n_vita_attack_touch
-  n_vita_stop_infection -->|L12| n_vita_banish_illness
-  n_vita_concentrated_healing -.->|L8| n_vita_banish_illness
-  n_vita_cure_disease -.->|L12| n_vita_banish_illness
-  n_vita_healing_trance -->|L6| n_vita_blood_purge
-  n_vita_stop_infection -.->|L8| n_vita_blood_purge
-  n_vita_remove_poison -.->|L8| n_vita_blood_purge
-  n_vita_health_power -->|L5| n_vita_concentrated_healing
-  n_vita_remove_poison -->|L5| n_vita_cure_disease
-  n_vita_attack_touch -.->|L8| n_vita_degenerating_touch
-  n_vita_super_heal -.->|L5| n_vita_degenerating_touch
-  n_vita_cure_disease -.->|L15| n_vita_degenerating_touch
-  n_vita_banish_illness -->|L6| n_vita_degenerating_touch
-  n_vita_hurt_touch -.->|L16| n_vita_degenerating_touch
-  n_vita_stop_infection -->|L5| n_vita_healing_trance
-  n_vita_concentrated_healing -->|L6| n_vita_healing_trance
-  n_vita_health_power -->|L6| n_vita_health_power_ally
-  n_vita_health_power_ally -->|L5| n_vita_hurt_touch
-  n_vita_slow_bleeding -->|L5| n_vita_hurt_touch
-  n_vita_healing_trance -->|L6| n_vita_no_need_for_sleep
-  n_vita_sleeping_trance -->|L10| n_vita_no_need_for_sleep
-  n_vita_slow_bleeding -.->|L7| n_vita_remove_poison
-  n_vita_health_power -->|L8| n_vita_remove_poison
-  n_vita_stop_bleeding -.->|L3| n_vita_remove_poison
-  n_vita_healing_trance -.->|L6| n_vita_return_from_death
-  n_vita_banish_illness -.->|L8| n_vita_return_from_death
-  n_vita_super_heal -.->|L6| n_vita_return_from_death
-  n_vita_cure_disease -->|L4| n_vita_sleeping_trance
-  n_vita_health_power -->|L8| n_vita_sleeping_trance
-  n_vita_slow_bleeding -->|L5| n_vita_stop_bleeding
-  n_vita_cure_disease -->|L7| n_vita_stop_infection
-  n_vita_healing_trance -.->|L9| n_vita_super_heal
-  n_vita_health_power -.->|L14| n_vita_super_heal
-  n_vita_remove_poison -.->|L7| n_vita_super_heal
-  n_vita_blood_purge -.->|L5| n_vita_super_heal
-  n_vita_concentrated_healing -.->|L10| n_vita_super_heal
-  classDef start fill:#47a86a,stroke:#307248,color:#ffffff,stroke-width:1.5px,font-weight:600;
-  classDef power fill:#ffffff,stroke:#47a86a,color:#22242b,stroke-width:1.4px;
-  classDef apex fill:#cfe8d8,stroke:#47a86a,color:#275c3a,stroke-width:3px,font-weight:700;
 ```
 
 ---

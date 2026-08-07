@@ -56,7 +56,9 @@
               ]
             },
             {
-              "u_has_trait": "VITAKINETIC"
+              "not": {
+                "and": []
+              }
             }
           ]
         }
@@ -83,7 +85,9 @@
               ]
             },
             {
-              "u_has_trait": "VITAKINETIC"
+              "not": {
+                "and": []
+              }
             }
           ]
         }
@@ -110,7 +114,9 @@
               ]
             },
             {
-              "u_has_trait": "VITAKINETIC"
+              "not": {
+                "and": []
+              }
             }
           ]
         }

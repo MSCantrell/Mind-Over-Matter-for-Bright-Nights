@@ -1,11 +1,15 @@
 # Crystalline Elixirs
 
-Nine "psionic performance drugs," one per school, brewed from refined matrix
+Eight "psionic performance drugs," one per school, brewed from refined matrix
 crystal dust. Each is a `... crystalline elixir` (`matrix_crystal_<school>_dust_potion`)
 — a plastic bottle of faintly glowing water, quench 50, drunk cold.
 
 The item description tells you *nothing* about the effect (just the color/glow) —
 this doc is the hidden truth.
+
+**Fork change (2026-08-07):** the green Vitakinesis elixir is gone — Vitakinesis
+merged into Biokinesis (see `HANDOFF.md`'s changelog), and its former healing
+powers don't have a matching elixir of their own.
 
 ---
 
@@ -44,7 +48,7 @@ ever-climbing attunement price.
 
 ---
 
-## The nine elixirs
+## The eight elixirs
 
 ### Pink — Biokinesis (`biokin`)
 The bruiser. **STR +4, DEX +4, Speed +25**, immune to bleeding (`BLEED_IMMUNE`),
@@ -95,11 +99,6 @@ blow **you** land warp-slows the enemy ("stutterstepping," `effect_teleport_slow
 ~20–30 turns).
 - **Comedown:** Speed −15, pain.
 
-### Green — Vitakinesis (`vitakin`)
-The regenerator. **Healing rate +4**, **max HP ×1.2**, mends broken limbs over
-time (`MEND_ALL`), and immune to **paralysis, disease, and infection**.
-- **Comedown:** healing crawls (rate 0.3), vomiting, pain.
-
 ---
 
 ## Quick reference
@@ -114,7 +113,6 @@ time (`MEND_ALL`), and immune to **paralysis, disease, and infection**.
 | Yellow | Telekinesis | STR +2, carry ×1.25 | instant up-from-prone | STR −2, Speed −25 |
 | White | Telepathy | focus +15, mind shield | — | INT −4, focus −30 |
 | Blue | Teleportation | feather fall | your hits warp-slow foes | Speed −15 |
-| Green | Vitakinesis | healing +4, max HP ×1.2 | mend limbs, para/disease immune | vomiting, healing stalls |
 
 *Every psychic drink also silently raises nether attunement for its full 30 h.*
 

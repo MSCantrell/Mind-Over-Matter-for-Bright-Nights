@@ -1,6 +1,6 @@
 # Mind Over Matter (BN)
 
-Psionics for **Cataclysm: Bright Nights** — nine psychic power paths and 160 powers that
+Psionics for **Cataclysm: Bright Nights** — eight psychic power paths and 141 powers that
 unlock through use rather than study.
 
 This is a Lua-based port of [Mind Over Matter](https://github.com/CleverRaven/Cataclysm-DDA/tree/master/data/mods/MindOverMatter)
@@ -24,7 +24,7 @@ runtime. See [Architecture](#architecture-for-the-curious) if you want to know h
 ## Install
 
 1. Grab the newest zip from **[Releases](../../releases)** — releases are dated, e.g.
-   `2026.8.6-B`, so you always know which build you're on. (**Code → Download ZIP** gets the
+   `2026.8.7`, so you always know which build you're on. (**Code → Download ZIP** gets the
    latest in-progress `main` instead, which is fine but harder to report bugs against.)
 
    Or install it from the **[BN Mod Registry](https://mods.cataclysmbn.org/)**, which
@@ -45,7 +45,7 @@ runtime. See [Architecture](#architecture-for-the-curious) if you want to know h
 Lua load failures are quiet. After starting a world, open `config/debug.log` and look for:
 
 ```
-MoM-BN: main loaded (1792 EOC handlers)
+MoM-BN: main loaded (1794 EOC handlers)
 ```
 
 If that line is missing, the Lua runtime didn't come up and nothing psionic will work —
@@ -61,7 +61,7 @@ please file an issue and attach `debug.log`.
 
 - **Easiest:** pick one of the psionic **professions** at character creation.
 -  Each path has a themed starting profession — Star Athlete (biokinetic),
-  Doomseer (clairsentient), Firestarter (pyrokinetic), Faith Healer (vitakinetic), and so
+  Doomseer (clairsentient), Firestarter (pyrokinetic), and so
   on. **Awakening Psion** rolls a random path.
 - **In world:** strange crystals found in Nether-touched places or carried by psychic
   ferals can awaken a latent path.
@@ -84,11 +84,11 @@ Also see the pretty mermaid chart, Psionic Discipline Atlas, linked below.
 *(This differs from DDA, which requires a 16-hour meditation activity per power. That
 grind is removed here — see [Fork changes](#fork-changes-deliberate-differences-from-dda).)*
 
-## The nine paths
+## The eight paths
 
 | Path | Powers | From start | Theme |
 |---|---:|---:|---|
-| **Biokinesis** | 19 | 4 | Control of the body — strength, speed, armored skin, sealed physiology |
+| **Biokinesis** | 20 | 5 | Control of the body and its own repair — strength, speed, armored skin, sealed physiology, accelerated healing |
 | **Clairsentience** | 18 | 4 | Senses beyond the body — night vision, danger sense, seeing through walls |
 | **Electrokinesis** | 16 | 3 | Electricity — shocks, charging batteries, short-circuiting machines |
 | **Photokinesis** | 20 | 2 | Light — illumination, blinding glare, invisibility |
@@ -96,24 +96,24 @@ grind is removed here — see [Fork changes](#fork-changes-deliberate-difference
 | **Telekinesis** | 18 | 3 | Force at a distance — pulling, hurling, barriers, collapsing structures |
 | **Telepathy** | 14 | 2 | Mind — persuasion, concealment, seizing control of an enemy |
 | **Teleportation** | 20 | 4 | Moving without crossing the distance — escapes, long jumps, banishment |
-| **Vitakinesis** | 20 | 4 | Health and injury — wound-binding, accelerated healing, limb repair |
 
-**160 powers** in total: 28 are foundations you get the moment you take up a school, and
-the remaining **132** unlock through play. Plus **psychic knacks** — talents that start at level 6 and
-don't advance any further. 
+**141 powers** in total: 25 are foundations you get the moment you take up a school, and
+the remaining **116** unlock through play. Plus **psychic knacks** — talents that start at level 6 and
+don't advance any further. *(Vitakinesis merged into Biokinesis 2026-08-07 — BN makes
+healing hard enough to come by that a standalone healer path read as underpowered; 5 of
+its powers, including Anabolic Rejuvenation, moved into Biokinesis instead.)*
 
 ### Reference documents
 
 - **[Psionic Discipline Atlas](mindovermatter_bn/PSIONIC_ATLAS.md)** — the full
-  power-acquisition tree for all nine schools, with every prerequisite and minimum level.
+  power-acquisition tree for all eight schools, with every prerequisite and minimum level.
   Renders as diagrams directly on GitHub. Start here if you want to plan a build.
 - **[Crystalline Elixirs](mindovermatter_bn/CRYSTALLINE_ELIXIRS.md)** — ⚠️ **spoilers.**
-  The nine school elixirs deliberately tell you nothing in their item descriptions; this
+  The eight school elixirs deliberately tell you nothing in their item descriptions; this
   documents what each actually does, including the attunement cost and the comedown.
 - **[Matrix Crystals and the Odds of Awakening](mindovermatter_bn/MATRIX_CRYSTALS.md)** —
-  ⚠️ **spoilers.** Exactly how likely a strange crystal is to awaken a new path, why your
-  odds roughly halve with every path you own, and the hidden 1-in-9 luck roll set at
-  character creation that you are never shown.
+  ⚠️ **spoilers.** Exactly how likely a strange crystal is to awaken a new path and why your
+  odds roughly halve with every path you own.
 
 ---
 
@@ -209,7 +209,7 @@ Open an **Issue** and include:
 
 1. What you did and what you expected.
 2. **Which mod version** you're on — shown next to the mod in the in-game mod list, and in
-   `modinfo.json`. Releases are dated, e.g. `2026.8.6-B`.
+   `modinfo.json`. Releases are dated, e.g. `2026.8.7`.
 3. Your BN version (main menu shows the build date).
 4. **`config/debug.log`** — attach it. This matters more than anything else; the Lua
    runtime logs there.

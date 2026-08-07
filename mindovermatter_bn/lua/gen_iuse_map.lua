@@ -17,7 +17,6 @@ return {
   ['matrix_crystal_telekinesis'] = { eocs = { 'EOC_TELEKIN_MATRIX_AWAKENING' }, consume = true, need_wielding = true },
   ['matrix_crystal_telepathy'] = { eocs = { 'EOC_TEEP_MATRIX_AWAKENING' }, consume = true, need_wielding = true },
   ['matrix_crystal_teleportation'] = { eocs = { 'EOC_TELEPORT_MATRIX_AWAKENING' }, consume = true, need_wielding = true },
-  ['matrix_crystal_vitakinesis'] = { eocs = { 'EOC_VITAKIN_MATRIX_AWAKENING' }, consume = true, need_wielding = true },
   ['psi_usb_rad_recipes'] = { eocs = { 'EOC_PSI_USB_RAD_RECIPE' }, consume = false, need_wielding = false },
   ['psionic_transporter_remote_on'] = { eocs = { 'EOC_PSI_TRANSPORTER_REMOTE_TELEPORT' }, consume = false, need_wielding = false },
   ['quest_starter_note_fifth_sun_cuachic'] = { eocs = { 'EOC_QUEST_STARTER_NOTE_FIFTH_SUN_CUACHIC' }, consume = false, need_wielding = false },

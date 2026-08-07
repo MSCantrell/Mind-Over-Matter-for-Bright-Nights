@@ -157,28 +157,6 @@
   },
   {
     "type": "item_group",
-    "id": "vitakinetic_crystal_artifact_item",
-    "subtype": "distribution",
-    "items": [
-      [
-        "matrix_crystal_vitakinesis",
-        100
-      ]
-    ]
-  },
-  {
-    "type": "item_group",
-    "id": "vitakinetic_crystal_awakening_artifact_item",
-    "subtype": "distribution",
-    "items": [
-      [
-        "matrix_crystal_vitakinesis",
-        100
-      ]
-    ]
-  },
-  {
-    "type": "item_group",
     "id": "everyday_gear_lab",
     "subtype": "distribution",
     "//": "Bridge: MoM/DDA group 'everyday_gear_lab' -> BN twin 'everyday_gear'.",

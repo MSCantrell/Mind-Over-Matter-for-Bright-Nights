@@ -14,8 +14,7 @@
       "PYROKINETIC",
       "TELEKINETIC",
       "TELEPATH",
-      "TELEPORTER",
-      "VITAKINETIC"
+      "TELEPORTER"
     ],
     "skills": [
       {
@@ -41,10 +40,6 @@
         "level": 15
       },
       {
-        "id": "biokin_change_appearance",
-        "level": 15
-      },
-      {
         "id": "biokin_climate_control",
         "level": 15
       },
@@ -61,15 +56,7 @@
         "level": 15
       },
       {
-        "id": "biokin_flexibility",
-        "level": 15
-      },
-      {
         "id": "biokin_flexibility_knack",
-        "level": 15
-      },
-      {
-        "id": "biokin_guided_evolution",
         "level": 15
       },
       {
@@ -110,10 +97,6 @@
       },
       {
         "id": "biokin_sealed_system",
-        "level": 15
-      },
-      {
-        "id": "biokin_vitaminosis",
         "level": 15
       },
       {
@@ -733,23 +716,7 @@
         "level": 0
       },
       {
-        "id": "vita_attack_touch",
-        "level": 15
-      },
-      {
-        "id": "vita_banish_illness",
-        "level": 15
-      },
-      {
         "id": "vita_banish_illness_knack",
-        "level": 15
-      },
-      {
-        "id": "vita_blood_purge",
-        "level": 15
-      },
-      {
-        "id": "vita_concentrated_healing",
         "level": 15
       },
       {
@@ -757,19 +724,7 @@
         "level": 15
       },
       {
-        "id": "vita_cure_disease",
-        "level": 15
-      },
-      {
         "id": "vita_cure_disease_knack",
-        "level": 15
-      },
-      {
-        "id": "vita_degenerating_touch",
-        "level": 15
-      },
-      {
-        "id": "vita_healing_trance",
         "level": 15
       },
       {
@@ -777,23 +732,7 @@
         "level": 15
       },
       {
-        "id": "vita_health_power_ally",
-        "level": 15
-      },
-      {
         "id": "vita_health_power_knack",
-        "level": 15
-      },
-      {
-        "id": "vita_hurt_touch",
-        "level": 15
-      },
-      {
-        "id": "vita_limb_restore",
-        "level": 15
-      },
-      {
-        "id": "vita_no_need_for_sleep",
         "level": 15
       },
       {
@@ -809,23 +748,7 @@
         "level": 15
       },
       {
-        "id": "vita_return_from_death",
-        "level": 15
-      },
-      {
-        "id": "vita_sleeping_trance",
-        "level": 15
-      },
-      {
-        "id": "vita_slow_bleeding",
-        "level": 15
-      },
-      {
         "id": "vita_stop_bleeding",
-        "level": 15
-      },
-      {
-        "id": "vita_stop_infection",
         "level": 15
       },
       {
@@ -1618,30 +1541,6 @@
           },
           {
             "item": "matrix_crystal_teleportation",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "matrix_crystal_vitakin_dust",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "matrix_crystal_vitakin_dust_potion",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "matrix_crystal_vitakin_dust_refined",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "matrix_crystal_vitakinesis",
             "custom-flags": [
               "no_auto_equip"
             ]

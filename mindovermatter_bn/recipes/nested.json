@@ -4,6 +4,7 @@
     "id": "crystalline_potions",
     "nested_name": "crystalline elixirs",
     "description": "Recipes for mixing refined matrix crystal into water.",
+    "category": "CC_PSIONIC",
     "subcategory": "CSC_PSIONIC_MEDICAL",
     "nested_category_data": [
       "matrix_crystal_biokin_dust_potion",
@@ -13,16 +14,15 @@
       "matrix_crystal_pyrokin_dust_potion",
       "matrix_crystal_telekin_dust_potion",
       "matrix_crystal_telepath_dust_potion",
-      "matrix_crystal_teleport_dust_potion",
-      "matrix_crystal_vitakin_dust_potion"
-    ],
-    "category": "CC_PSIONIC"
+      "matrix_crystal_teleport_dust_potion"
+    ]
   },
   {
     "type": "nested_category",
     "id": "irradiated_food",
     "nested_name": "irradiated food",
     "description": "Recipes for irradiating food through photokinesis.",
+    "category": "CC_PSIONIC",
     "subcategory": "CSC_PSIONIC_FOOD",
     "nested_category_data": [
       "irradiated_rose_hips",
@@ -64,7 +64,6 @@
       "irradiated_cucumber",
       "irradiated_celery",
       "irradiated_rhubarb"
-    ],
-    "category": "CC_PSIONIC"
+    ]
   }
 ]

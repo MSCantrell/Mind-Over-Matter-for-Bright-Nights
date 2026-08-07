@@ -17,7 +17,6 @@ return {
   ["mon_feral_human_telekin"] = { spell = "death_telekeinetic_hit_oneinfive", message = "As the %1$s dies, a wave of force explodes outward!" },
   ["mon_feral_human_telekin2"] = { spell = "death_telekeinetic_hit_oneinthree", message = "As the %1$s dies, a wave of force explodes outward!" },
   ["mon_feral_human_telekin3"] = { spell = "death_telekeinetic_hit_oneinthree", message = "As the %1$s dies, a wave of force explodes outward!" },
-  ["mon_feral_human_vita3"] = { eoc = "EOC_VITAKIN3_DEATH_EFFECT", message = "As the %s succumbs to their wounds, they suddenly rise up with new vigor!" },
   ["mon_nether_eater"] = { message = "The %s melts away." },
   ["mon_nether_silent_one_passive"] = { message = "The %s melts away." },
   ["mon_photokin_army_image"] = { spell = "photokinetic_light_explosion_monster", level = 5, message = "The %s explodes in a brilliant burst of light!" },

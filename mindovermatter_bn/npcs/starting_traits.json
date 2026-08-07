@@ -70,10 +70,6 @@
       {
         "group": "trait_group_TELEPORTER",
         "prob": 1
-      },
-      {
-        "group": "trait_group_VITAKINETIC",
-        "prob": 1
       }
     ]
   },
@@ -227,25 +223,6 @@
       },
       {
         "trait": "TELEPORTER_PROTECT",
-        "prob": 100
-      },
-      {
-        "trait": "LIMITED_PSIONICS",
-        "prob": 95
-      }
-    ]
-  },
-  {
-    "type": "trait_group",
-    "id": "trait_group_VITAKINETIC",
-    "subtype": "collection",
-    "traits": [
-      {
-        "trait": "VITAKINETIC",
-        "prob": 100
-      },
-      {
-        "trait": "VITAKINETIC_HEALTH",
         "prob": 100
       },
       {

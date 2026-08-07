@@ -6,7 +6,7 @@ find out by playing, close the tab.
 Strange crystals are the only way to awaken a psionic path mid-game. There are
 **two kinds**, and they work on completely different rules:
 
-- **Nine colored crystals**, one per school. These roll against a hidden,
+- **Eight colored crystals**, one per school. These roll against a hidden,
   exponentially-decaying chance. Most of this document is about them.
 - **One coruscating crystal**, which ignores that math entirely and is far more
   reliable. [See below](#the-coruscating-crystal).
@@ -25,7 +25,6 @@ Strange crystals are the only way to awaken a psionic path mid-game. There are
 | Yellow | Telekinesis | `matrix_crystal_telekinesis` |
 | White | Telepathy | `matrix_crystal_telepathy` |
 | Blue | Teleportation | `matrix_crystal_teleportation` |
-| Green | Vitakinesis | `matrix_crystal_vitakinesis` |
 
 **You must be wielding it** to activate one. Each use destroys the crystal,
 win or lose.
@@ -84,6 +83,12 @@ half of all characters will need more than 138.
 | Psychic Knack trait | **+ ½ per spell known** | at game start |
 | Heart of Fire scenario | **+50** | at scenario start |
 
+**Fork change (2026-08-07): Vitakinesis merged into Biokinesis.** Nine
+schools became eight; there is no green crystal anymore. Five of
+Vitakinesis's powers (Healthy Glow, Radiation Decontamination, Staunch
+Wound, Detoxification, Anabolic Rejuvenation) live on inside Biokinesis's
+own tree instead. See `HANDOFF.md`'s changelog for the full rationale.
+
 **Fork change (2026-08-06): the hidden luck roll is gone.** Upstream MoM rolled
 a uniform 1–9 here, invisible to the player, that alone spread a fresh
 character's real first-crystal odds across a **110× range** (55.5% down to
@@ -128,24 +133,24 @@ Before rolling at all, the game checks whether the attempt is possible. It is
 applies to it.** It ignores `awakening_countup` and Noetic Flexibility
 completely.
 
-Instead it picks **one of the nine schools at random, each equally likely**, and
+Instead it picks **one of the eight schools at random, each equally likely**, and
 awakens it — unless the school it happened to pick is one you already have, in
 which case the attempt simply fails.
 
 So its success chance is just:
 
 ```
-chance = (9 - paths you already have) / 9
+chance = (8 - paths you already have) / 8
 ```
 
 | Paths you have | Chance |
 |---:|---:|
 | 0 | **100%** |
-| 1 | 88.9% |
-| 2 | 77.8% |
-| 3 | 66.7% |
-| 4 | 55.6% |
-| 5 | 44.4% |
+| 1 | 87.5% |
+| 2 | 75.0% |
+| 3 | 62.5% |
+| 4 | 50.0% |
+| 5 | 37.5% |
 
 Compare that to a colored crystal at the same point in a typical run — 17.1% for
 a third path, 9.51% for a fourth — and the coruscating crystal is worth roughly
@@ -183,4 +188,6 @@ is a project. Your fifth is a life's work.
 `EOC_GAMESTART_RANDOMIZE_AWAKENING_ODDS`, `EOC_PSI_AWAKENING_*_FINALIZATION`),
 `lua/mom_hooks.lua` (`iuse_eoc_item`, `consume_one`). Odds are upstream MoM's
 except the removed luck roll — see `tools/eoc_transpile.py`'s
-`_fix_awakening_luck_roll` (2026-08-06, fork change).*
+`_fix_awakening_luck_roll` (2026-08-06, fork change) and
+`_drop_weighted_eoc_entry` (2026-08-07, drops Vitakinesis's slot from
+`EOC_CORUSCATING_MATRIX`'s weighted pick).*

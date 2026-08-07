@@ -11,7 +11,7 @@
     "cancels": [
       "PSYCHIC_KNACK"
     ],
-    "//": "Class trait (satisfies spell_class refs). spells_learned = upstream starter powers (all verified ported); cancels PSYCHIC_KNACK restored 2026-07-29 -- PSYCHIC_KNACK is defined after all (gen_granted_traits.json), and there it already cancels all nine schools; this adds the missing reverse half, so awakening into a school clears the hidden knack trait instead of leaving both set.  The upstream ATTUNEMENT flag is still dropped: nothing reads it, in the port OR upstream (no has_flag condition anywhere in MoM).",
+    "//": "Class trait (satisfies spell_class refs). spells_learned = upstream starter powers (all verified ported); cancels PSYCHIC_KNACK restored 2026-07-29 -- PSYCHIC_KNACK is defined after all (gen_granted_traits.json), and there it already cancels all nine schools; this adds the missing reverse half, so awakening into a school clears the hidden knack trait instead of leaving both set.  The upstream ATTUNEMENT flag is still dropped: nothing reads it, in the port OR upstream (no has_flag condition anywhere in MoM). vita_health_power (Healthy Glow) added 2026-08-07 when Vitakinesis merged into Biokinesis (merge-bio-and-vita.md) -- it 'remains auto-learn from the beginning' per the user's design, so it joins the two Biokinetic starters as an instant-known foundation rather than going through gen_learn_map.",
     "spells_learned": [
       [
         "biokin_physical_enhance",
@@ -19,6 +19,10 @@
       ],
       [
         "biokin_overcome_pain",
+        2
+      ],
+      [
+        "vita_health_power",
         2
       ],
       [
@@ -265,38 +269,6 @@
       ],
       [
         "teleport_slow",
-        2
-      ],
-      [
-        "classless_toggleable_concentration_end",
-        1
-      ],
-      [
-        "classless_specific_concentration_end",
-        1
-      ]
-    ]
-  },
-  {
-    "type": "mutation",
-    "id": "VITAKINETIC",
-    "name": "Awakened Vitakinetic",
-    "points": 0,
-    "description": "Mental control over health and vitality.",
-    "starting_trait": false,
-    "purifiable": false,
-    "valid": false,
-    "cancels": [
-      "PSYCHIC_KNACK"
-    ],
-    "//": "Class trait (satisfies spell_class refs). spells_learned = upstream starter powers (all verified ported); cancels PSYCHIC_KNACK restored 2026-07-29 -- PSYCHIC_KNACK is defined after all (gen_granted_traits.json), and there it already cancels all nine schools; this adds the missing reverse half, so awakening into a school clears the hidden knack trait instead of leaving both set.  The upstream ATTUNEMENT flag is still dropped: nothing reads it, in the port OR upstream (no has_flag condition anywhere in MoM).",
-    "spells_learned": [
-      [
-        "vita_slow_bleeding",
-        2
-      ],
-      [
-        "vita_health_power",
         2
       ],
       [

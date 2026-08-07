@@ -42,11 +42,6 @@
         "monster": "mon_feral_human_porter",
         "freq": 1,
         "cost_multiplier": 3
-      },
-      {
-        "monster": "mon_feral_human_vita",
-        "freq": 1,
-        "cost_multiplier": 3
       }
     ]
   },
@@ -267,11 +262,6 @@
         "monster": "mon_feral_human_clair",
         "freq": 15,
         "cost_multiplier": 2
-      },
-      {
-        "monster": "mon_feral_human_vita",
-        "freq": 15,
-        "cost_multiplier": 0
       }
     ]
   },
@@ -324,12 +314,6 @@
       },
       {
         "monster": "mon_civilian_teleporter",
-        "freq": 1,
-        "cost_multiplier": 0,
-        "ends": 288
-      },
-      {
-        "monster": "mon_civilian_vitakinetic",
         "freq": 1,
         "cost_multiplier": 0,
         "ends": 288
@@ -386,12 +370,6 @@
       },
       {
         "monster": "mon_civilian_teleporter",
-        "freq": 1,
-        "cost_multiplier": 0,
-        "ends": 288
-      },
-      {
-        "monster": "mon_civilian_vitakinetic",
         "freq": 1,
         "cost_multiplier": 0,
         "ends": 288
@@ -485,11 +463,6 @@
       },
       {
         "monster": "mon_feral_human_porter",
-        "freq": 60,
-        "cost_multiplier": 0
-      },
-      {
-        "monster": "mon_feral_human_vita",
         "freq": 60,
         "cost_multiplier": 0
       },
@@ -723,27 +696,12 @@
         "cost_multiplier": 0
       },
       {
-        "monster": "mon_feral_human_vita",
-        "freq": 25,
-        "cost_multiplier": 0
-      },
-      {
         "monster": "mon_feral_human_bio2",
         "freq": 8,
         "cost_multiplier": 0
       },
       {
-        "monster": "mon_feral_human_vita2",
-        "freq": 8,
-        "cost_multiplier": 0
-      },
-      {
         "monster": "mon_feral_human_bio3",
-        "freq": 1,
-        "cost_multiplier": 0
-      },
-      {
-        "monster": "mon_feral_human_vita3",
         "freq": 1,
         "cost_multiplier": 0
       }
@@ -853,11 +811,6 @@
       },
       {
         "monster": "mon_feral_human_porter",
-        "freq": 1,
-        "cost_multiplier": 0
-      },
-      {
-        "monster": "mon_feral_human_vita",
         "freq": 1,
         "cost_multiplier": 0
       }
@@ -1279,11 +1232,6 @@
       },
       {
         "monster": "mon_feral_human_porter",
-        "freq": 3,
-        "cost_multiplier": 0
-      },
-      {
-        "monster": "mon_feral_human_vita",
         "freq": 3,
         "cost_multiplier": 0
       },
@@ -1902,11 +1850,6 @@
         "monster": "mon_feral_human_porter",
         "freq": 1,
         "cost_multiplier": 0
-      },
-      {
-        "monster": "mon_feral_human_vita",
-        "freq": 2,
-        "cost_multiplier": 0
       }
     ]
   },
@@ -1952,11 +1895,6 @@
       {
         "monster": "mon_feral_human_porter",
         "freq": 1,
-        "cost_multiplier": 0
-      },
-      {
-        "monster": "mon_feral_human_vita",
-        "freq": 2,
         "cost_multiplier": 0
       }
     ]
@@ -2016,27 +1954,12 @@
         "cost_multiplier": 0
       },
       {
-        "monster": "mon_feral_human_vita",
-        "freq": 7,
-        "cost_multiplier": 0
-      },
-      {
         "monster": "mon_feral_human_bio2",
         "freq": 2,
         "cost_multiplier": 0
       },
       {
-        "monster": "mon_feral_human_vita2",
-        "freq": 2,
-        "cost_multiplier": 0
-      },
-      {
         "monster": "mon_feral_human_bio3",
-        "freq": 1,
-        "cost_multiplier": 0
-      },
-      {
-        "monster": "mon_feral_human_vita3",
         "freq": 1,
         "cost_multiplier": 0
       },
@@ -2077,11 +2000,6 @@
       },
       {
         "monster": "mon_feral_human_porter",
-        "freq": 1,
-        "cost_multiplier": 0
-      },
-      {
-        "monster": "mon_feral_human_vita",
         "freq": 1,
         "cost_multiplier": 0
       },
@@ -2240,11 +2158,6 @@
       },
       {
         "monster": "mon_feral_human_porter",
-        "freq": 3,
-        "cost_multiplier": 0
-      },
-      {
-        "monster": "mon_feral_human_vita",
         "freq": 3,
         "cost_multiplier": 0
       },
@@ -2437,11 +2350,6 @@
         "cost_multiplier": 0
       },
       {
-        "monster": "mon_feral_human_vita",
-        "freq": 1,
-        "cost_multiplier": 0
-      },
-      {
         "monster": "mon_zombie_labsecurity",
         "freq": 400,
         "cost_multiplier": 2,
@@ -2566,11 +2474,6 @@
       {
         "monster": "mon_feral_human_porter",
         "freq": 5,
-        "cost_multiplier": 0
-      },
-      {
-        "monster": "mon_feral_human_vita",
-        "freq": 15,
         "cost_multiplier": 0
       }
     ]
@@ -2952,11 +2855,6 @@
         "cost_multiplier": 3
       },
       {
-        "monster": "mon_feral_human_vita",
-        "freq": 1,
-        "cost_multiplier": 3
-      },
-      {
         "monster": "mon_civilian_biokinetic",
         "freq": 1,
         "cost_multiplier": 4,
@@ -3000,12 +2898,6 @@
       },
       {
         "monster": "mon_civilian_teleporter",
-        "freq": 1,
-        "cost_multiplier": 3,
-        "ends": 720
-      },
-      {
-        "monster": "mon_civilian_vitakinetic",
         "freq": 1,
         "cost_multiplier": 3,
         "ends": 720

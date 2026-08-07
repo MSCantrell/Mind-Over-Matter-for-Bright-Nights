@@ -37,10 +37,6 @@
         "prob": 10
       },
       {
-        "group": "vitakinetic_matrix_crystals_group",
-        "prob": 10
-      },
-      {
         "item": "matrix_crystal_coruscating",
         "prob": 1
       }
@@ -85,10 +81,6 @@
       },
       {
         "group": "teleportation_matrix_crystals_group",
-        "prob": 10
-      },
-      {
-        "group": "vitakinetic_matrix_crystals_group",
         "prob": 10
       },
       {
@@ -137,10 +129,6 @@
       {
         "group": "teleportation_matrix_crystals_group",
         "prob": 1
-      },
-      {
-        "group": "vitakinetic_matrix_crystals_group",
-        "prob": 1
       }
     ]
   },
@@ -186,11 +174,6 @@
       },
       {
         "item": "matrix_crystal_teleport_dust",
-        "prob": 30,
-        "container-item": "test_tube"
-      },
-      {
-        "item": "matrix_crystal_vitakin_dust",
         "prob": 30,
         "container-item": "test_tube"
       },
@@ -247,11 +230,6 @@
         "container-item": "test_tube"
       },
       {
-        "item": "matrix_crystal_vitakin_dust",
-        "prob": 1,
-        "container-item": "test_tube"
-      },
-      {
         "item": "matrix_crystal_drained_dust",
         "prob": 1,
         "container-item": "test_tube"
@@ -279,6 +257,22 @@
     "type": "item_group",
     "subtype": "distribution",
     "id": "biokinetic_matrix_crystals_group",
+    "entries": [
+      {
+        "group": "biokinetic_crystal_awakening_artifact_procgen",
+        "prob": 1
+      },
+      {
+        "group": "biokinetic_crystal_artifact_procgen",
+        "prob": 1
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "distribution",
+    "id": "vitakinetic_matrix_crystals_group",
+    "//": "Merge Vitakinesis into Biokinesis (2026-08-07, merge-bio-and-vita.md): repointed to the biokinetic procgen groups rather than deleted -- this id is spawned by name from the frozen/hand-drifted hospital_lab_basement_modular.json's Osiris \"vitakinetic ascension chamber\" room, which HANDOFF.md's DO-NOT-RUN table forbids regenerating. The room/terrain (t_ascension_chamber_vitakinesis) is purely decorative flavor with no awakening mechanic of its own -- real awakening is matrix-crystal-only -- so only the dangling item reference needed fixing, not the room's theming.",
     "entries": [
       {
         "group": "biokinetic_crystal_awakening_artifact_procgen",
@@ -376,21 +370,6 @@
       },
       {
         "group": "teleportation_crystal_artifact_procgen",
-        "prob": 1
-      }
-    ]
-  },
-  {
-    "type": "item_group",
-    "subtype": "distribution",
-    "id": "vitakinetic_matrix_crystals_group",
-    "entries": [
-      {
-        "group": "vitakinetic_crystal_awakening_artifact_procgen",
-        "prob": 1
-      },
-      {
-        "group": "vitakinetic_crystal_artifact_procgen",
         "prob": 1
       }
     ]
@@ -518,14 +497,15 @@
     "type": "item_group",
     "subtype": "distribution",
     "id": "matrix_crystal_vitakin_dust_group",
+    "//": "Merge Vitakinesis into Biokinesis (2026-08-07, merge-bio-and-vita.md): repointed to biokin dust rather than deleted -- this group id is spawned by name from frozen/hand-drifted mapgen (mapgen/nested/office_phavian_modular.json, hospital_lab_basement_modular.json) that HANDOFF.md's DO-NOT-RUN table forbids regenerating, so the id must stay valid. The Osiris hospital lab was already a mixed biokinesis/vitakinesis location (see GROUP_FERAL_BIOKINETIC_VITAKINETIC), so biokin dust in this slot is thematically consistent, not a stand-in.",
     "items": [
       {
-        "item": "matrix_crystal_vitakin_dust",
+        "item": "matrix_crystal_biokin_dust",
         "prob": 3,
         "container-item": "test_tube"
       },
       {
-        "item": "matrix_crystal_vitakin_dust_refined",
+        "item": "matrix_crystal_biokin_dust_refined",
         "prob": 1,
         "container-item": "test_tube"
       }
@@ -594,10 +574,6 @@
       {
         "item": "matrix_crystal_drained",
         "prob": 4
-      },
-      {
-        "item": "matrix_crystal_vitakinesis",
-        "prob": 1
       }
     ]
   },
@@ -658,11 +634,6 @@
       },
       {
         "item": "matrix_crystal_teleport_dust_potion",
-        "prob": 2,
-        "container-item": "bottle_plastic"
-      },
-      {
-        "item": "matrix_crystal_vitakin_dust_potion",
         "prob": 2,
         "container-item": "bottle_plastic"
       }

@@ -2,6 +2,32 @@
 -- Every function takes the acting Character as its first argument.
 local M = {}
 
+-- string_id<T> construction (SpellTypeId.new / EffectTypeId.new / SkillId.new)
+-- crosses the Lua/C++ boundary (marshal the string, run the factory lookup,
+-- wrap the result in userdata) on every call -- it is not a free table index.
+-- These three accessors are the ones the generated EOC/jmath code calls
+-- CONSTANTLY (every condition check, every formula term, often several times
+-- per cast and per tick for a psion with active powers), so memoize by
+-- string once per session rather than re-resolving the same id over and
+-- over.  Perf fix 2026-08-08: this was previously a fresh construction on
+-- every call, one of the bigger contributors to psi-specific slowdown.
+local _spell_ids, _effect_ids, _skill_ids = {}, {}, {}
+local function spell_tid(s)
+  local v = _spell_ids[s]
+  if v == nil then v = SpellTypeId.new(s); _spell_ids[s] = v end
+  return v
+end
+local function effect_tid(s)
+  local v = _effect_ids[s]
+  if v == nil then v = EffectTypeId.new(s); _effect_ids[s] = v end
+  return v
+end
+local function skill_tid(s)
+  local v = _skill_ids[s]
+  if v == nil then v = SkillId.new(s); _skill_ids[s] = v end
+  return v
+end
+
 -- u_val('intelligence') — effective stat = base + bonus in BN.
 -- BN binds the stat accessors on Character ONLY.  Since QA round 3 an EOC can
 -- run with a monster as `you` (a marker landing on a spell's monster target,
@@ -32,7 +58,7 @@ end
 function M.spell_level(you, spell_id)
   local km = magic_of(you)
   if not km then return -1 end
-  local sid = SpellTypeId.new(spell_id)
+  local sid = spell_tid(spell_id)
   if not km:knows_spell(sid) then return -1 end
   return km:get_spell(sid):get_level()
 end
@@ -41,7 +67,7 @@ end
 function M.spell_exp(you, spell_id)
   local km = magic_of(you)
   if not km then return -1 end
-  local sid = SpellTypeId.new(spell_id)
+  local sid = spell_tid(spell_id)
   if not km:knows_spell(sid) then return -1 end
   return km:get_spell(sid):xp()
 end
@@ -52,7 +78,7 @@ end
 function M.gain_spell_exp(you, spell_id, amount)
   local km = magic_of(you)
   if not km then return end
-  local sid = SpellTypeId.new(spell_id)
+  local sid = spell_tid(spell_id)
   if km:knows_spell(sid) then
     km:get_spell(sid):gain_exp(math.floor(amount + 0.5))
   end
@@ -60,7 +86,7 @@ end
 
 -- u_effect_intensity('id') -> -1 if absent (MoM convention).
 function M.effect_intensity(you, effect_id, bp)
-  local eid = EffectTypeId.new(effect_id)
+  local eid = effect_tid(effect_id)
   if not you:has_effect(eid, bp) then return -1 end
   return you:get_effect_int(eid, bp)
 end
@@ -69,7 +95,7 @@ function M.focus(you) return you.focus_pool end
 function M.pain(you) return you:get_pain() end
 function M.stamina(you) return you:get_stamina() end
 function M.sleep_deprivation(you) return you:get_sleep_deprivation() end
-function M.skill(you, skill_id) return you:get_skill_level(SkillId.new(skill_id)) end
+function M.skill(you, skill_id) return you:get_skill_level(skill_tid(skill_id)) end
 function M.morale(you) return you:get_morale_level() end
 
 -- Fork skill ceilings.  Base BN caps skills at 10 ("thorough mastery"); the
@@ -86,7 +112,7 @@ M.SKILL_CAPS = { metaphysics = 15 }
 -- game_option('SKILL_TRAINING_SPEED') itself), so skip_scaling=true here
 -- mirrors that: it adds straight to _exercise (skill.cpp:237).
 function M.gain_skill_exp(you, skill_id, amount)
-  local sid = SkillId.new(skill_id)
+  local sid = skill_tid(skill_id)
   local cap = M.SKILL_CAPS[skill_id]
   if cap and you:get_skill_level(sid) >= cap then return end   -- already at ceiling
   you:get_skill_level_object(sid):train(math.floor(amount + 0.5), true)
@@ -103,7 +129,7 @@ end
 function M.enforce_skill_caps(you)
   if not you then return end
   for skill_id, cap in pairs(M.SKILL_CAPS) do
-    local sid = SkillId.new(skill_id)
+    local sid = skill_tid(skill_id)
     if you:get_skill_level(sid) > cap then
       you:set_skill_level(sid, cap)
     end
@@ -127,7 +153,7 @@ function M.attunement(you)
   local v = tonumber(you:get_value(M.ATTUNEMENT_VAR))
   if v then return v end
   -- Migration: derive from a pre-existing effect intensity (band start).
-  local eid = EffectTypeId.new(M.ATTUNEMENT_EFFECT)
+  local eid = effect_tid(M.ATTUNEMENT_EFFECT)
   if not you:has_effect(eid) then return 0 end
   local i = you:get_effect_int(eid)
   return i <= 0 and 0 or (20 * i - 5)
@@ -138,7 +164,7 @@ function M.attunement_set(you, v)
   v = math.max(0, math.min(math.floor(v + 0.5), M.ATTUNEMENT_MAX))
   you:set_value(M.ATTUNEMENT_VAR, tostring(v))
   local band = math.max(0, math.min(math.floor((v + 5) / 20), 12))
-  local eid = EffectTypeId.new(M.ATTUNEMENT_EFFECT)
+  local eid = effect_tid(M.ATTUNEMENT_EFFECT)
   if band <= 0 then
     you:remove_effect(eid)
   else
@@ -160,10 +186,12 @@ end
 -- by naming EOC_POWER_MAINTENANCE_PLUS_ONE twice in the same run_eocs list.
 M.maintenance_effects = {}
 M.maintenance_weight = {}
+M.maintenance_eid = {}   -- id -> pre-resolved EffectTypeId, filled at register time
 
 function M.register_maintenance(id, weight)
   if M.maintenance_weight[id] == nil then
     table.insert(M.maintenance_effects, id)
+    M.maintenance_eid[id] = effect_tid(id)
     M.maintenance_weight[id] = weight or 1
   else
     -- Both populators saw it; keep the costlier reading rather than the last.
@@ -171,10 +199,16 @@ function M.register_maintenance(id, weight)
   end
 end
 
+-- Called from several per-cast/per-tick formulas (concentration-break odds,
+-- per-turn drain, attunement gain, the concentration-practice gates,
+-- EOC_..._VS_LIMIT) -- walks all ~68 registered maintenance effects every
+-- call, so the id lookup MUST be pre-resolved (M.maintenance_eid), not
+-- reconstructed here; that used to be a fresh EffectTypeId.new() per entry
+-- per call and was the single largest per-cast cost for a psion.
 function M.maintained_count(you)
   local n = 0
   for _, id in ipairs(M.maintenance_effects) do
-    if you:has_effect(EffectTypeId.new(id)) then
+    if you:has_effect(M.maintenance_eid[id]) then
       n = n + (M.maintenance_weight[id] or 1)
     end
   end

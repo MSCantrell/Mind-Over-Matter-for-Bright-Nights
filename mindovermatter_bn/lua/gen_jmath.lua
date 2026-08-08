@@ -9,15 +9,15 @@ return function(mod)
   end
   function J.concentration_nether_attunement_influences(you, npc, ctx)
     ctx = ctx or {}
-    return ((((U.truthy((J.concentration_calculations(you, npc, ctx) > 1)) and (J.concentration_calculations(you, npc, ctx)) or (1)) * (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_BASIC')))) and (0.9) or (1))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_INTERMEDIATE')))) and (0.9) or (1))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_MASTER')))) and (0.8) or (1)))
+    return ((((U.truthy((J.concentration_calculations(you, npc, ctx) > 1)) and (J.concentration_calculations(you, npc, ctx)) or (1)) * (U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_BASIC')))) and (0.9) or (1))) + (U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_INTERMEDIATE')))) and (0.9) or (1))) + (U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_MASTER')))) and (0.8) or (1)))
   end
   function J.concentration_trait_bonuses(you, npc, ctx)
     ctx = ctx or {}
-    return ((((((((((((((((((((((((((((((((U.b2n(you:has_trait(MutationBranchId.new('CONCENTRATION_GOOD'))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('CONCENTRATION_BAD')))) and (-(1)) or (0))) + U.b2n(you:has_trait(MutationBranchId.new('INT_ALPHA')))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('NOMAD2')))) and (-(1)) or (0))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('NOMAD3')))) and (-(1)) or (0))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PER_SLIME')))) and (-(15)) or (0))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PER_INTERSTICE')))) and (2) or (0))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('CONCENTRATION_DEBUG')))) and (50) or (0))) + U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_BASIC')))) + U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_INTERMEDIATE')))) + (U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_MASTER'))) * 2)) + (U.truthy((m.effect_intensity(you, 'effect_disease_psionic_drain') > 4)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'effect_disease_psionic_drain') > 10)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'effect_psi_studying_power') > 0)) and (-(2)) or (0))) + (U.truthy((m.effect_intensity(you, 'effect_psi_learning_new_power') > 0)) and (-(3)) or (0))) + (U.truthy((m.effect_intensity(you, 'hallu') > 0)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'winded') > 0)) and (-(2)) or (0))) + (U.truthy((m.effect_intensity(you, 'nausea') > 0)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'nausea') > 3)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'cold') > 1)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'hot') > 1)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'asthma') > 0)) and (-(3)) or (0))) + (U.truthy((m.effect_intensity(you, 'datura') > 0)) and (-(3)) or (0))) + (U.truthy((m.effect_intensity(you, 'dazed') > 0)) and (-(2)) or (0))) + (U.truthy((m.effect_intensity(you, 'psi_dazed') > 0)) and (-(2)) or (0))) + (U.truthy((m.effect_intensity(you, 'psi_dazed_zap') > 0)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'downed') > 0)) and (-(2)) or (0))) + (U.truthy((m.effect_intensity(you, 'boomered') > 0)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'conjunctivitis') > 0)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'teargas') > 0)) and (-(3)) or (0))) + (U.truthy((m.effect_intensity(you, 'smoke_eyes') > 0)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'smoke_lungs') > 0)) and (-(2)) or (0))) + (U.truthy((m.effect_intensity(you, 'effect_whispering_amalgamation_whispers') > 0)) and (-(2)) or (0)))
+    return ((((((((((((((((((((((((((((((((U.b2n(you:has_trait(U.mid('CONCENTRATION_GOOD'))) + (U.truthy(U.b2n(you:has_trait(U.mid('CONCENTRATION_BAD')))) and (-(1)) or (0))) + U.b2n(you:has_trait(U.mid('INT_ALPHA')))) + (U.truthy(U.b2n(you:has_trait(U.mid('NOMAD2')))) and (-(1)) or (0))) + (U.truthy(U.b2n(you:has_trait(U.mid('NOMAD3')))) and (-(1)) or (0))) + (U.truthy(U.b2n(you:has_trait(U.mid('PER_SLIME')))) and (-(15)) or (0))) + (U.truthy(U.b2n(you:has_trait(U.mid('PER_INTERSTICE')))) and (2) or (0))) + (U.truthy(U.b2n(you:has_trait(U.mid('CONCENTRATION_DEBUG')))) and (50) or (0))) + U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_BASIC')))) + U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_INTERMEDIATE')))) + (U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_MASTER'))) * 2)) + (U.truthy((m.effect_intensity(you, 'effect_disease_psionic_drain') > 4)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'effect_disease_psionic_drain') > 10)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'effect_psi_studying_power') > 0)) and (-(2)) or (0))) + (U.truthy((m.effect_intensity(you, 'effect_psi_learning_new_power') > 0)) and (-(3)) or (0))) + (U.truthy((m.effect_intensity(you, 'hallu') > 0)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'winded') > 0)) and (-(2)) or (0))) + (U.truthy((m.effect_intensity(you, 'nausea') > 0)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'nausea') > 3)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'cold') > 1)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'hot') > 1)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'asthma') > 0)) and (-(3)) or (0))) + (U.truthy((m.effect_intensity(you, 'datura') > 0)) and (-(3)) or (0))) + (U.truthy((m.effect_intensity(you, 'dazed') > 0)) and (-(2)) or (0))) + (U.truthy((m.effect_intensity(you, 'psi_dazed') > 0)) and (-(2)) or (0))) + (U.truthy((m.effect_intensity(you, 'psi_dazed_zap') > 0)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'downed') > 0)) and (-(2)) or (0))) + (U.truthy((m.effect_intensity(you, 'boomered') > 0)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'conjunctivitis') > 0)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'teargas') > 0)) and (-(3)) or (0))) + (U.truthy((m.effect_intensity(you, 'smoke_eyes') > 0)) and (-(1)) or (0))) + (U.truthy((m.effect_intensity(you, 'smoke_lungs') > 0)) and (-(2)) or (0))) + (U.truthy((m.effect_intensity(you, 'effect_whispering_amalgamation_whispers') > 0)) and (-(2)) or (0)))
   end
   function J.contemplation_factor(you, npc, ctx)
     ctx = ctx or {}
-    return (((m.focus(you) * 0.004) * V.uget(you, 'nether_attunement_power_scaling')) * U.clamp((U.truthy((m.maintained_count(you) > 0)) and (((1 + U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_MASTER')))) / (1 + m.maintained_count(you)))) or (1)), 0.1, 1))
+    return (((m.focus(you) * 0.004) * V.uget(you, 'nether_attunement_power_scaling')) * U.clamp((U.truthy((m.maintained_count(you) > 0)) and (((1 + U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_MASTER')))) / (1 + m.maintained_count(you)))) or (1)), 0.1, 1))
   end
   function J.int_to_level(you, npc, ctx, a0)
     ctx = ctx or {}
@@ -101,7 +101,7 @@ return function(mod)
   end
   function J.matrix_awakening_odds(you, npc, ctx, a0)
     ctx = ctx or {}
-    return (100 * (math.exp(1)) ^ (((a0 - math.max((U.b2n(you:has_trait(MutationBranchId.new('MORE_PSI_ALPHA'))) * 0.75), 0)) / -(1.7))))
+    return (100 * (math.exp(1)) ^ (((a0 - math.max((U.b2n(you:has_trait(U.mid('MORE_PSI_ALPHA'))) * 0.75), 0)) / -(1.7))))
   end
   function J.nether_attune_difficulty_scaler(you, npc, ctx, a0)
     ctx = ctx or {}
@@ -109,7 +109,7 @@ return function(mod)
   end
   function J.nether_attune_torrential_channeling_influence(you, npc, ctx)
     ctx = ctx or {}
-    return (U.b2n(you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active'))) * ((U.clamp((m.attunement(you) / 2), 0, 50) + U.clamp((m.attunement(you) - 100), 0, 100)) + U.clamp(((m.attunement(you) - 200) * 2), 0, 100)))
+    return (U.b2n(you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active'))) * ((U.clamp((m.attunement(you) / 2), 0, 50) + U.clamp((m.attunement(you) - 100), 0, 100)) + U.clamp(((m.attunement(you) - 200) * 2), 0, 100)))
   end
   function J.portal_storm_awakening_chance(you, npc, ctx)
     ctx = ctx or {}
@@ -117,7 +117,7 @@ return function(mod)
   end
   function J.portal_storm_awakening_odds(you, npc, ctx, a0)
     ctx = ctx or {}
-    return (100 * (math.exp(1)) ^ (((a0 - math.max((U.b2n(you:has_trait(MutationBranchId.new('MORE_PSI_ALPHA'))) * 0.75), 0)) / -(3))))
+    return (100 * (math.exp(1)) ^ (((a0 - math.max((U.b2n(you:has_trait(U.mid('MORE_PSI_ALPHA'))) * 0.75), 0)) / -(3))))
   end
   function J.psionic_power_experience_formula(you, npc, ctx)
     ctx = ctx or {}
@@ -149,11 +149,11 @@ return function(mod)
   end
   function J.psionic_power_success_formula_modifiers(you, npc, ctx)
     ctx = ctx or {}
-    return (J.psionic_power_success_formula_torrential_channeling(you, npc, ctx) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active')))) and ((8 + m.skill(you, 'metaphysics'))) or (0)))
+    return (J.psionic_power_success_formula_torrential_channeling(you, npc, ctx) + (U.truthy(U.b2n(you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active')))) and ((8 + m.skill(you, 'metaphysics'))) or (0)))
   end
   function J.psionic_power_success_formula_nether_attunement_calculations(you, npc, ctx)
     ctx = ctx or {}
-    return (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_BASIC')))) and ((U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_INTERMEDIATE')))) and ((U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_MASTER')))) and ((m.attunement(you) / 40)) or ((m.attunement(you) / 25)))) or ((m.attunement(you) / 15)))) or ((m.attunement(you) / 10)))
+    return (U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_BASIC')))) and ((U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_INTERMEDIATE')))) and ((U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_MASTER')))) and ((m.attunement(you) / 40)) or ((m.attunement(you) / 25)))) or ((m.attunement(you) / 15)))) or ((m.attunement(you) / 10)))
   end
   function J.psionic_power_success_formula_perks(you, npc, ctx)
     ctx = ctx or {}
@@ -165,15 +165,15 @@ return function(mod)
   end
   function J.psionic_power_success_formula_proficiency_handling(you, npc, ctx)
     ctx = ctx or {}
-    return (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_BASIC')))) and ((U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_INTERMEDIATE')))) and ((U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_MASTER')))) and (math.min(J.psionic_power_success_formula_base_calc(you, npc, ctx), 40)) or (math.min(J.psionic_power_success_formula_base_calc(you, npc, ctx), (37 + (U.b2n(you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active'))) * 3)))))) or (math.min(J.psionic_power_success_formula_base_calc(you, npc, ctx), (31 + (U.b2n(you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active'))) * 3)))))) or (math.min(J.psionic_power_success_formula_base_calc(you, npc, ctx), (24 + (U.b2n(you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active'))) * 7)))))
+    return (U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_BASIC')))) and ((U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_INTERMEDIATE')))) and ((U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_MASTER')))) and (math.min(J.psionic_power_success_formula_base_calc(you, npc, ctx), 40)) or (math.min(J.psionic_power_success_formula_base_calc(you, npc, ctx), (37 + (U.b2n(you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active'))) * 3)))))) or (math.min(J.psionic_power_success_formula_base_calc(you, npc, ctx), (31 + (U.b2n(you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active'))) * 3)))))) or (math.min(J.psionic_power_success_formula_base_calc(you, npc, ctx), (24 + (U.b2n(you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active'))) * 7)))))
   end
   function J.psionic_power_success_formula_repeated_channeling_modifiers(you, npc, ctx)
     ctx = ctx or {}
-    return ((V.uget(you, 'nether_conduit_repeated_channeling_value') / -(2)) * (1 + (U.b2n(you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active'))) + 0.6)))
+    return ((V.uget(you, 'nether_conduit_repeated_channeling_value') / -(2)) * (1 + (U.b2n(you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active'))) + 0.6)))
   end
   function J.psionic_power_success_formula_torrential_channeling(you, npc, ctx)
     ctx = ctx or {}
-    return (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active')))) and (math.max((J.psionic_power_success_formula_nether_attunement_calculations(you, npc, ctx) * -(2)), -(35))) or ((J.psionic_power_success_formula_nether_attunement_calculations(you, npc, ctx) * -(1))))
+    return (U.truthy(U.b2n(you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active')))) and (math.max((J.psionic_power_success_formula_nether_attunement_calculations(you, npc, ctx) * -(2)), -(35))) or ((J.psionic_power_success_formula_nether_attunement_calculations(you, npc, ctx) * -(1))))
   end
   function J.psionic_power_success_formula_weariness_modifiers(you, npc, ctx)
     ctx = ctx or {}
@@ -185,7 +185,7 @@ return function(mod)
   end
   function J.psionics_kcal_cost(you, npc, ctx, a0)
     ctx = ctx or {}
-    return (((((4 * a0) * U.rng(0.3, 1.7)) * V.uget(you, 'nether_attunement_power_scaling')) * (U.truthy((m.effect_intensity(you, 'effect_nether_attunement_extra_kcal') > 0)) and (3) or (1))) + ((1 * U.b2n(you:has_trait(MutationBranchId.new('SCEN_HEART_OF_FIRE')))) * 0.5))
+    return (((((4 * a0) * U.rng(0.3, 1.7)) * V.uget(you, 'nether_attunement_power_scaling')) * (U.truthy((m.effect_intensity(you, 'effect_nether_attunement_extra_kcal') > 0)) and (3) or (1))) + ((1 * U.b2n(you:has_trait(U.mid('SCEN_HEART_OF_FIRE')))) * 0.5))
   end
   function J.scaling_factor(you, npc, ctx, a0)
     ctx = ctx or {}

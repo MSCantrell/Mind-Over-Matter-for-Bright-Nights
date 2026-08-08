@@ -997,19 +997,19 @@ M['DEFENSE_MODE_WAVE_CONTROL_PREMENITION'] = function(you, npc, ctx)
 end
 C['ECO_TELEPORTER_CANCELLING_ATTUNING_CANCELS_ATTUNE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (('ACT_PSI_TELEPORTER_ATTUNING' == tostring(ctx['activity'] or '')) and you:has_effect(EffectTypeId.new('effect_teleporter_attuning_to_area')))
+  return (('ACT_PSI_TELEPORTER_ATTUNING' == tostring(ctx['activity'] or '')) and you:has_effect(U.eid('effect_teleporter_attuning_to_area')))
 end
 M['ECO_TELEPORTER_CANCELLING_ATTUNING_CANCELS_ATTUNE'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['ECO_TELEPORTER_CANCELLING_ATTUNING_CANCELS_ATTUNE'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_teleporter_attuning_to_area'))
+  you:remove_effect(U.eid('effect_teleporter_attuning_to_area'))
   return true
 end
 C['EOC_ADD_KNACK_RATING_TO_COUNTUP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_ADD_KNACK_RATING_TO_COUNTUP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1086,7 +1086,7 @@ M['EOC_BANDIT_ASSASSIN_1_ACTUAL_NEAR'] = function(you, npc, ctx)
 end
 C['EOC_BANDIT_ASSASSIN_1_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_clair_premonition')) or you:has_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures')))
+  return (you:has_effect(U.eid('effect_clair_premonition')) or you:has_effect(U.eid('effect_clair_sense_hostile_creatures')))
 end
 M['EOC_BANDIT_ASSASSIN_1_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1095,10 +1095,10 @@ M['EOC_BANDIT_ASSASSIN_1_PREMONITION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You feel hostile eyes watching you and rapidly getting closer.  Someone has it in for you.', MsgType.bad, ctx)
-  if (you:has_effect(EffectTypeId.new('effect_clair_premonition')) and you:has_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures'))) then
+  if (you:has_effect(U.eid('effect_clair_premonition')) and you:has_effect(U.eid('effect_clair_sense_hostile_creatures'))) then
     util.queue_eoc(function(y) M['EOC_BANDIT_ASSASSIN_1_ACTUAL_FAR'](y, npc, ctx) end, you, ((((m.spell_level(you, 'clair_danger_sense') + m.spell_level(you, 'clair_danger_sense_knack')) * 4) + (m.spell_level(you, 'clair_sense_hostile_creatures') * 8)) + 5))
   end
-  if you:has_effect(EffectTypeId.new('effect_clair_premonition')) then
+  if you:has_effect(U.eid('effect_clair_premonition')) then
     util.queue_eoc(function(y) M['EOC_BANDIT_ASSASSIN_1_ACTUAL_FAR'](y, npc, ctx) end, you, (((m.spell_level(you, 'clair_danger_sense') + m.spell_level(you, 'clair_danger_sense_knack')) * 4) + 5))
   else
     util.queue_eoc(function(y) M['EOC_BANDIT_ASSASSIN_1_ACTUAL_FAR'](y, npc, ctx) end, you, ((m.spell_level(you, 'clair_sense_hostile_creatures') * 8) + 5))
@@ -1139,7 +1139,7 @@ M['EOC_BANDIT_ASSASSIN_2_ACTUAL_NEAR'] = function(you, npc, ctx)
 end
 C['EOC_BANDIT_ASSASSIN_2_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_clair_premonition')) or you:has_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures')))
+  return (you:has_effect(U.eid('effect_clair_premonition')) or you:has_effect(U.eid('effect_clair_sense_hostile_creatures')))
 end
 M['EOC_BANDIT_ASSASSIN_2_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1148,10 +1148,10 @@ M['EOC_BANDIT_ASSASSIN_2_PREMONITION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You feel hostile eyes watching you and rapidly getting closer.  Someone has it in for you.', MsgType.bad, ctx)
-  if (you:has_effect(EffectTypeId.new('effect_clair_premonition')) and you:has_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures'))) then
+  if (you:has_effect(U.eid('effect_clair_premonition')) and you:has_effect(U.eid('effect_clair_sense_hostile_creatures'))) then
     util.queue_eoc(function(y) M['EOC_BANDIT_ASSASSIN_2_ACTUAL_FAR'](y, npc, ctx) end, you, ((((m.spell_level(you, 'clair_danger_sense') + m.spell_level(you, 'clair_danger_sense_knack')) * 4) + (m.spell_level(you, 'clair_sense_hostile_creatures') * 8)) + 5))
   end
-  if you:has_effect(EffectTypeId.new('effect_clair_premonition')) then
+  if you:has_effect(U.eid('effect_clair_premonition')) then
     util.queue_eoc(function(y) M['EOC_BANDIT_ASSASSIN_2_ACTUAL_FAR'](y, npc, ctx) end, you, (((m.spell_level(you, 'clair_danger_sense') + m.spell_level(you, 'clair_danger_sense_knack')) * 4) + 5))
   else
     util.queue_eoc(function(y) M['EOC_BANDIT_ASSASSIN_2_ACTUAL_FAR'](y, npc, ctx) end, you, ((m.spell_level(you, 'clair_sense_hostile_creatures') * 8) + 5))
@@ -1192,7 +1192,7 @@ M['EOC_BANDIT_ASSASSIN_3_ACTUAL_NEAR'] = function(you, npc, ctx)
 end
 C['EOC_BANDIT_ASSASSIN_3_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_clair_premonition')) or you:has_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures')))
+  return (you:has_effect(U.eid('effect_clair_premonition')) or you:has_effect(U.eid('effect_clair_sense_hostile_creatures')))
 end
 M['EOC_BANDIT_ASSASSIN_3_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1201,10 +1201,10 @@ M['EOC_BANDIT_ASSASSIN_3_PREMONITION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You feel several sets of hostile eyes watching you and rapidly getting closer.  Someone has it in for you.', MsgType.bad, ctx)
-  if (you:has_effect(EffectTypeId.new('effect_clair_premonition')) and you:has_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures'))) then
+  if (you:has_effect(U.eid('effect_clair_premonition')) and you:has_effect(U.eid('effect_clair_sense_hostile_creatures'))) then
     util.queue_eoc(function(y) M['EOC_BANDIT_ASSASSIN_3_ACTUAL_FAR'](y, npc, ctx) end, you, ((((m.spell_level(you, 'clair_danger_sense') + m.spell_level(you, 'clair_danger_sense_knack')) * 4) + (m.spell_level(you, 'clair_sense_hostile_creatures') * 8)) + 5))
   end
-  if you:has_effect(EffectTypeId.new('effect_clair_premonition')) then
+  if you:has_effect(U.eid('effect_clair_premonition')) then
     util.queue_eoc(function(y) M['EOC_BANDIT_ASSASSIN_3_ACTUAL_FAR'](y, npc, ctx) end, you, (((m.spell_level(you, 'clair_danger_sense') + m.spell_level(you, 'clair_danger_sense_knack')) * 4) + 5))
   else
     util.queue_eoc(function(y) M['EOC_BANDIT_ASSASSIN_3_ACTUAL_FAR'](y, npc, ctx) end, you, ((m.spell_level(you, 'clair_sense_hostile_creatures') * 8) + 5))
@@ -1213,7 +1213,7 @@ M['EOC_BANDIT_ASSASSIN_3_PREMONITION'] = function(you, npc, ctx)
 end
 C['EOC_BIOKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_BIOKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1237,7 +1237,7 @@ M['EOC_BIOKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_ADRENALINE_TRIGGER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('adrenaline')))
+  return (not you:has_effect(U.eid('adrenaline')))
 end
 M['EOC_BIOKIN_ADRENALINE_TRIGGER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1250,7 +1250,7 @@ M['EOC_BIOKIN_ADRENALINE_TRIGGER'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_BREATHE_SKIN_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_biokin_breathe_skin')))
+  return (not you:has_effect(U.eid('effect_biokin_breathe_skin')))
 end
 M['EOC_BIOKIN_BREATHE_SKIN_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1261,13 +1261,13 @@ M['EOC_BIOKIN_BREATHE_SKIN_INITIATE'] = function(you, npc, ctx)
   U.msg(you, 'As you seal your lips, your chest still rises and falls.', MsgType.good, ctx)
   M['EOC_POWER_MAINTENANCE_PLUS_ONE'](you, npc, ctx)
   U.add_effect(you, 'effect_biokin_breathe_skin', 'PERMANENT', nil, nil)
-  you:remove_effect(EffectTypeId.new('biokin_sealed_system'))
+  you:remove_effect(U.eid('biokin_sealed_system'))
   util.queue_eoc(function(y) M['EOC_BIOKIN_BREATH_SKIN_DRAIN'](y, npc, ctx) end, you, U.rng((((m.spell_level(you, 'biokin_breathe_skin') * 36) + 180) * J.psionic_power_modifiers(you, npc, ctx)), (((m.spell_level(you, 'biokin_breathe_skin') * 72) + 540) * J.psionic_power_modifiers(you, npc, ctx))))
   return true
 end
 C['EOC_BIOKIN_BREATH_SKIN_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_breathe_skin'))
+  return you:has_effect(U.eid('effect_biokin_breathe_skin'))
 end
 M['EOC_BIOKIN_BREATH_SKIN_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1284,7 +1284,7 @@ M['EOC_BIOKIN_BREATH_SKIN_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_CANCELLING_ACTIVITY_CANCELS_VITAMINOSIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (('ACT_BIOKIN_VITAMINOSIS_MEDITATE' == tostring(ctx['activity'] or '')) and you:has_effect(EffectTypeId.new('effect_biokin_vitaminosis')))
+  return (('ACT_BIOKIN_VITAMINOSIS_MEDITATE' == tostring(ctx['activity'] or '')) and you:has_effect(U.eid('effect_biokin_vitaminosis')))
 end
 M['EOC_BIOKIN_CANCELLING_ACTIVITY_CANCELS_VITAMINOSIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1307,7 +1307,7 @@ M['EOC_BIOKIN_CHANGE_APPEARANCE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_CLIMATE_CONTROL_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_climate_control'))
+  return you:has_effect(U.eid('effect_biokin_climate_control'))
 end
 M['EOC_BIOKIN_CLIMATE_CONTROL_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1324,7 +1324,7 @@ M['EOC_BIOKIN_CLIMATE_CONTROL_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_CLIMATE_CONTROL_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_biokin_climate_control')))
+  return (not you:has_effect(U.eid('effect_biokin_climate_control')))
 end
 M['EOC_BIOKIN_CLIMATE_CONTROL_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1335,13 +1335,13 @@ M['EOC_BIOKIN_CLIMATE_CONTROL_INITIATE'] = function(you, npc, ctx)
   U.msg(you, 'You feel much more comfortable.', MsgType.good, ctx)
   M['EOC_POWER_MAINTENANCE_PLUS_ONE'](you, npc, ctx)
   U.add_effect(you, 'effect_biokin_climate_control', 'PERMANENT', nil, nil)
-  you:remove_effect(EffectTypeId.new('biokin_sealed_system'))
+  you:remove_effect(U.eid('biokin_sealed_system'))
   util.queue_eoc(function(y) M['EOC_BIOKIN_CLIMATE_CONTROL_DRAIN'](y, npc, ctx) end, you, U.rng((((m.spell_level(you, 'biokin_climate_control') * 180) + 300) * J.psionic_power_modifiers(you, npc, ctx)), (((m.spell_level(you, 'biokin_climate_control') * 360) + 600) * J.psionic_power_modifiers(you, npc, ctx))))
   return true
 end
 C['EOC_BIOKIN_COMBAT_DANCE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_combat_dance'))
+  return you:has_effect(U.eid('effect_biokin_combat_dance'))
 end
 M['EOC_BIOKIN_COMBAT_DANCE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1358,7 +1358,7 @@ M['EOC_BIOKIN_COMBAT_DANCE_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_COMBAT_DANCE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_biokin_combat_dance')))
+  return (not you:has_effect(U.eid('effect_biokin_combat_dance')))
 end
 M['EOC_BIOKIN_COMBAT_DANCE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1387,7 +1387,7 @@ M['EOC_BIOKIN_CRYSTAL_DRAINING'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_ENHANCE_MOBILITY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_enhance_mobility'))
+  return you:has_effect(U.eid('effect_biokin_enhance_mobility'))
 end
 M['EOC_BIOKIN_ENHANCE_MOBILITY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1404,7 +1404,7 @@ M['EOC_BIOKIN_ENHANCE_MOBILITY_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_ENHANCE_MOBILITY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_biokin_enhance_mobility')))
+  return (not you:has_effect(U.eid('effect_biokin_enhance_mobility')))
 end
 M['EOC_BIOKIN_ENHANCE_MOBILITY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1420,7 +1420,7 @@ M['EOC_BIOKIN_ENHANCE_MOBILITY_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_GUIDED_EVOLUTION_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_guided_evolution'))
+  return you:has_effect(U.eid('effect_biokin_guided_evolution'))
 end
 M['EOC_BIOKIN_GUIDED_EVOLUTION_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1437,7 +1437,7 @@ M['EOC_BIOKIN_GUIDED_EVOLUTION_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_GUIDED_EVOLUTION_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_biokin_guided_evolution')))
+  return (not you:has_effect(U.eid('effect_biokin_guided_evolution')))
 end
 M['EOC_BIOKIN_GUIDED_EVOLUTION_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1454,7 +1454,7 @@ M['EOC_BIOKIN_GUIDED_EVOLUTION_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_GUIDED_EVOLUTION_NETHER_ATTUNEMENT_BACKFIRE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_biokin_guided_evolution')) and ((100 * (math.max((V.uget(you, 'nether_attunement_power_scaling') - 1.05), 0) / 2.95)) > U.rng(0, 100)))
+  return (you:has_effect(U.eid('effect_biokin_guided_evolution')) and ((100 * (math.max((V.uget(you, 'nether_attunement_power_scaling') - 1.05), 0) / 2.95)) > U.rng(0, 100)))
 end
 M['EOC_BIOKIN_GUIDED_EVOLUTION_NETHER_ATTUNEMENT_BACKFIRE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1466,7 +1466,7 @@ M['EOC_BIOKIN_GUIDED_EVOLUTION_NETHER_ATTUNEMENT_BACKFIRE'] = function(you, npc,
 end
 C['EOC_BIOKIN_HAMMERHAND_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('biokin_hammerhand'))
+  return you:has_effect(U.eid('biokin_hammerhand'))
 end
 M['EOC_BIOKIN_HAMMERHAND_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1483,7 +1483,7 @@ M['EOC_BIOKIN_HAMMERHAND_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_HAMMERHAND_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_biokin_hammerhand')))
+  return (not you:has_effect(U.eid('effect_biokin_hammerhand')))
 end
 M['EOC_BIOKIN_HAMMERHAND_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1500,7 +1500,7 @@ M['EOC_BIOKIN_HAMMERHAND_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_HARDENED_SKIN_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_armor_skin'))
+  return you:has_effect(U.eid('effect_biokin_armor_skin'))
 end
 M['EOC_BIOKIN_HARDENED_SKIN_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1517,7 +1517,7 @@ M['EOC_BIOKIN_HARDENED_SKIN_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_HARDENED_SKIN_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_biokin_armor_skin')))
+  return (not you:has_effect(U.eid('effect_biokin_armor_skin')))
 end
 M['EOC_BIOKIN_HARDENED_SKIN_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1533,20 +1533,20 @@ M['EOC_BIOKIN_HARDENED_SKIN_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_HURRICANE_BLOWS_MOVE_CANCEL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_biokin_hurricane_blows')) or you:has_effect(EffectTypeId.new('effect_biokin_hurricane_blows_2')))
+  return (you:has_effect(U.eid('effect_biokin_hurricane_blows')) or you:has_effect(U.eid('effect_biokin_hurricane_blows_2')))
 end
 M['EOC_BIOKIN_HURRICANE_BLOWS_MOVE_CANCEL'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_BIOKIN_HURRICANE_BLOWS_MOVE_CANCEL'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_biokin_hurricane_blows'))
-  you:remove_effect(EffectTypeId.new('effect_biokin_hurricane_blows_2'))
+  you:remove_effect(U.eid('effect_biokin_hurricane_blows'))
+  you:remove_effect(U.eid('effect_biokin_hurricane_blows_2'))
   return true
 end
 C['EOC_BIOKIN_LEARNING_ADRENALINE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'biokin_dash') >= 8) or (m.spell_level(you, 'biokin_enhance_mobility') >= 6)) and (m.spell_level(you, 'biokin_breathe_skin') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_adrenaline') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_adrenaline'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'biokin_dash') >= 8) or (m.spell_level(you, 'biokin_enhance_mobility') >= 6)) and (m.spell_level(you, 'biokin_breathe_skin') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_adrenaline') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_adrenaline'))))
 end
 M['EOC_BIOKIN_LEARNING_ADRENALINE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1560,7 +1560,7 @@ M['EOC_BIOKIN_LEARNING_ADRENALINE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_ARMOR_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'biokin_physical_enhance') >= 8) or (m.spell_level(you, 'biokin_overcome_pain') >= 6)) and ((m.spell_level(you, 'biokin_flexibility') >= 7) or (m.spell_level(you, 'biokin_climate_control') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_armor_skin') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_armor_skin'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'biokin_physical_enhance') >= 8) or (m.spell_level(you, 'biokin_overcome_pain') >= 6)) and ((m.spell_level(you, 'biokin_flexibility') >= 7) or (m.spell_level(you, 'biokin_climate_control') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_armor_skin') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_armor_skin'))))
 end
 M['EOC_BIOKIN_LEARNING_ARMOR_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1574,7 +1574,7 @@ M['EOC_BIOKIN_LEARNING_ARMOR_SKIN'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_CLIMATE_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'biokin_physical_enhance') >= 9) or (m.spell_level(you, 'biokin_metabolism_enhance') >= 6)) and (m.spell_level(you, 'biokin_overcome_pain') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_climate_control') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_climate_control'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'biokin_physical_enhance') >= 9) or (m.spell_level(you, 'biokin_metabolism_enhance') >= 6)) and (m.spell_level(you, 'biokin_overcome_pain') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_climate_control') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_climate_control'))))
 end
 M['EOC_BIOKIN_LEARNING_CLIMATE_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1588,7 +1588,7 @@ M['EOC_BIOKIN_LEARNING_CLIMATE_CONTROL'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_COMBAT_DANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_physical_enhance') >= 10) and (m.spell_level(you, 'biokin_reflex_enhance') >= 10) and ((m.spell_level(you, 'biokin_dash') >= 6) or (m.spell_level(you, 'biokin_adrenaline') >= 9)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_combat_dance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_combat_dance'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_physical_enhance') >= 10) and (m.spell_level(you, 'biokin_reflex_enhance') >= 10) and ((m.spell_level(you, 'biokin_dash') >= 6) or (m.spell_level(you, 'biokin_adrenaline') >= 9)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_combat_dance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_combat_dance'))))
 end
 M['EOC_BIOKIN_LEARNING_COMBAT_DANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1602,7 +1602,7 @@ M['EOC_BIOKIN_LEARNING_COMBAT_DANCE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_DASH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'biokin_enhance_mobility') >= 6) or (m.spell_level(you, 'biokin_physical_enhance') >= 5)) and ((m.spell_level(you, 'biokin_reflex_enhance') >= 5) or (m.spell_level(you, 'biokin_adrenaline') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_dash') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_dash'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'biokin_enhance_mobility') >= 6) or (m.spell_level(you, 'biokin_physical_enhance') >= 5)) and ((m.spell_level(you, 'biokin_reflex_enhance') >= 5) or (m.spell_level(you, 'biokin_adrenaline') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_dash') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_dash'))))
 end
 M['EOC_BIOKIN_LEARNING_DASH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1616,7 +1616,7 @@ M['EOC_BIOKIN_LEARNING_DASH'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_ENHANCE_MOBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'biokin_dash') >= 10) or (m.spell_level(you, 'biokin_combat_dance') >= 4) or (m.spell_level(you, 'biokin_physical_enhance') >= 10)) and ((m.spell_level(you, 'biokin_reflex_enhance') >= 6) or (m.spell_level(you, 'biokin_flexibility') >= 9)) and (m.spell_level(you, 'biokin_overcome_pain') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_enhance_mobility') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_enhance_mobility'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'biokin_dash') >= 10) or (m.spell_level(you, 'biokin_combat_dance') >= 4) or (m.spell_level(you, 'biokin_physical_enhance') >= 10)) and ((m.spell_level(you, 'biokin_reflex_enhance') >= 6) or (m.spell_level(you, 'biokin_flexibility') >= 9)) and (m.spell_level(you, 'biokin_overcome_pain') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_enhance_mobility') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_enhance_mobility'))))
 end
 M['EOC_BIOKIN_LEARNING_ENHANCE_MOBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1630,7 +1630,7 @@ M['EOC_BIOKIN_LEARNING_ENHANCE_MOBILITY'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_FLEXIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'biokin_physical_enhance') >= 6)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_flexibility') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_flexibility'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'biokin_physical_enhance') >= 6)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_flexibility') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_flexibility'))))
 end
 M['EOC_BIOKIN_LEARNING_FLEXIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1652,7 +1652,7 @@ M['EOC_BIOKIN_LEARNING_GUIDED_EVOLUTION'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_HAMMERHAND'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_physical_enhance') >= 6) and (m.spell_level(you, 'biokin_armor_skin') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_hammerhand') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_hammerhand'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_physical_enhance') >= 6) and (m.spell_level(you, 'biokin_armor_skin') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_hammerhand') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_hammerhand'))))
 end
 M['EOC_BIOKIN_LEARNING_HAMMERHAND'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1666,7 +1666,7 @@ M['EOC_BIOKIN_LEARNING_HAMMERHAND'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_HURRICANE_BLOWS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_combat_dance') >= 10) and ((m.spell_level(you, 'biokin_reflex_enhance') >= 14) or (m.spell_level(you, 'biokin_adrenaline') >= 12)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_hurricane_blows') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_hurricane_blows'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_combat_dance') >= 10) and ((m.spell_level(you, 'biokin_reflex_enhance') >= 14) or (m.spell_level(you, 'biokin_adrenaline') >= 12)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_hurricane_blows') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_hurricane_blows'))))
 end
 M['EOC_BIOKIN_LEARNING_HURRICANE_BLOWS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1680,7 +1680,7 @@ M['EOC_BIOKIN_LEARNING_HURRICANE_BLOWS'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_METABOLISM_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_climate_control') >= 8) and ((m.spell_level(you, 'biokin_adrenaline') >= 6) or (m.spell_level(you, 'biokin_physical_enhance') >= 12)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_metabolism_enhance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_metabolism_enhance'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_climate_control') >= 8) and ((m.spell_level(you, 'biokin_adrenaline') >= 6) or (m.spell_level(you, 'biokin_physical_enhance') >= 12)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_metabolism_enhance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_metabolism_enhance'))))
 end
 M['EOC_BIOKIN_LEARNING_METABOLISM_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1694,7 +1694,7 @@ M['EOC_BIOKIN_LEARNING_METABOLISM_ENHANCE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_OXYGEN_ABSORPTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_physical_enhance') >= 4) and (m.spell_level(you, 'biokin_overcome_pain') >= 3))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_breathe_skin') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_breathe_skin'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_physical_enhance') >= 4) and (m.spell_level(you, 'biokin_overcome_pain') >= 3))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_breathe_skin') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_breathe_skin'))))
 end
 M['EOC_BIOKIN_LEARNING_OXYGEN_ABSORPTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1708,7 +1708,7 @@ M['EOC_BIOKIN_LEARNING_OXYGEN_ABSORPTION'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_PERFECTED_MOTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_combat_dance') >= 6) and (m.spell_level(you, 'biokin_dash') >= 12))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_perfected_motion') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_perfected_motion'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_combat_dance') >= 6) and (m.spell_level(you, 'biokin_dash') >= 12))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_perfected_motion') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_perfected_motion'))))
 end
 M['EOC_BIOKIN_LEARNING_PERFECTED_MOTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1722,7 +1722,7 @@ M['EOC_BIOKIN_LEARNING_PERFECTED_MOTION'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_REFLEX_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_physical_enhance') >= 6) and (m.spell_level(you, 'biokin_adrenaline') >= 8) and ((m.spell_level(you, 'biokin_dash') >= 8) or (m.spell_level(you, 'biokin_flexibility') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_reflex_enhance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_reflex_enhance'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_physical_enhance') >= 6) and (m.spell_level(you, 'biokin_adrenaline') >= 8) and ((m.spell_level(you, 'biokin_dash') >= 8) or (m.spell_level(you, 'biokin_flexibility') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_reflex_enhance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_reflex_enhance'))))
 end
 M['EOC_BIOKIN_LEARNING_REFLEX_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1736,7 +1736,7 @@ M['EOC_BIOKIN_LEARNING_REFLEX_ENHANCE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_SEALED_SYSTEM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'biokin_breathe_skin') >= 9) or (m.spell_level(you, 'biokin_armor_skin') >= 9)) and ((m.spell_level(you, 'biokin_hammerhand') >= 7) or (m.spell_level(you, 'biokin_climate_control') >= 10)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_sealed_system') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_sealed_system'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'biokin_breathe_skin') >= 9) or (m.spell_level(you, 'biokin_armor_skin') >= 9)) and ((m.spell_level(you, 'biokin_hammerhand') >= 7) or (m.spell_level(you, 'biokin_climate_control') >= 10)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_sealed_system') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_sealed_system'))))
 end
 M['EOC_BIOKIN_LEARNING_SEALED_SYSTEM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1750,7 +1750,7 @@ M['EOC_BIOKIN_LEARNING_SEALED_SYSTEM'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_LEARNING_VITAMINOSIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_metabolism_enhance') >= 8) and (m.spell_level(you, 'biokin_adrenaline') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_vitaminosis') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_vitaminosis'))))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'biokin_metabolism_enhance') >= 8) and (m.spell_level(you, 'biokin_adrenaline') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'biokin_vitaminosis') <= 0) and (not you:knows_recipe(RecipeId.new('practice_biokin_vitaminosis'))))
 end
 M['EOC_BIOKIN_LEARNING_VITAMINOSIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1776,7 +1776,7 @@ M['EOC_BIOKIN_LOSES_GUIDED_EVOLUTION_BACKFIRE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_BIOKIN_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1805,7 +1805,7 @@ M['EOC_BIOKIN_MATRIX_AWAKENING_2'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_BIOKIN_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1844,7 +1844,7 @@ M['EOC_BIOKIN_MATRIX_AWAKENING_SUCCESS'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_BIOKINESIS'))
+  return (you:has_trait(U.mid('BIOKINETIC')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_BIOKINESIS'))
 end
 M['EOC_BIOKIN_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1856,7 +1856,7 @@ M['EOC_BIOKIN_MATRIX_BOOST'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_METABOLISM_ENHANCE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_metabolism_enhance'))
+  return you:has_effect(U.eid('effect_biokin_metabolism_enhance'))
 end
 M['EOC_BIOKIN_METABOLISM_ENHANCE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1874,7 +1874,7 @@ M['EOC_BIOKIN_METABOLISM_ENHANCE_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_METABOLISM_ENHANCE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_biokin_metabolism_enhance')))
+  return (not you:has_effect(U.eid('effect_biokin_metabolism_enhance')))
 end
 M['EOC_BIOKIN_METABOLISM_ENHANCE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1890,7 +1890,7 @@ M['EOC_BIOKIN_METABOLISM_ENHANCE_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_OVERCOME_PAIN_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_overcome_pain'))
+  return you:has_effect(U.eid('effect_biokin_overcome_pain'))
 end
 M['EOC_BIOKIN_OVERCOME_PAIN_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1929,7 +1929,7 @@ M['EOC_BIOKIN_OVERCOME_PAIN_SWITCHER'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_PAIN_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_biokin_overcome_pain')))
+  return (not you:has_effect(U.eid('effect_biokin_overcome_pain')))
 end
 M['EOC_BIOKIN_PAIN_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1946,7 +1946,7 @@ M['EOC_BIOKIN_PAIN_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_PERFECTED_MOTION_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_perfected_motion'))
+  return you:has_effect(U.eid('effect_biokin_perfected_motion'))
 end
 M['EOC_BIOKIN_PERFECTED_MOTION_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1963,7 +1963,7 @@ M['EOC_BIOKIN_PERFECTED_MOTION_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_PERFECTED_MOTION_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_biokin_perfected_motion')))
+  return (not you:has_effect(U.eid('effect_biokin_perfected_motion')))
 end
 M['EOC_BIOKIN_PERFECTED_MOTION_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1980,7 +1980,7 @@ M['EOC_BIOKIN_PERFECTED_MOTION_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_PHYSICAL_ENHANCE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_physical'))
+  return you:has_effect(U.eid('effect_biokin_physical'))
 end
 M['EOC_BIOKIN_PHYSICAL_ENHANCE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1997,7 +1997,7 @@ M['EOC_BIOKIN_PHYSICAL_ENHANCE_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_PHYSICAL_ENHANCE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_biokin_physical')))
+  return (not you:has_effect(U.eid('effect_biokin_physical')))
 end
 M['EOC_BIOKIN_PHYSICAL_ENHANCE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2013,7 +2013,7 @@ M['EOC_BIOKIN_PHYSICAL_ENHANCE_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_BIOKIN_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2023,7 +2023,7 @@ M['EOC_BIOKIN_POTION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You drink the concoction.', MsgType.neutral, ctx)
-  you:remove_effect(EffectTypeId.new('effect_biokin_potion_comedown'))
+  you:remove_effect(U.eid('effect_biokin_potion_comedown'))
   U.add_effect(you, 'effect_biokin_potion', TimeDuration.from_hours(30), nil, nil)
   U.add_effect(you, 'effect_matrix_potion_nether_boost', TimeDuration.from_hours(30), nil, nil)
   util.queue_eoc(function(y) M['EOC_BIOKIN_POTION_COMEDOWN'](y, npc, ctx) end, you, U.rng(43200, 108000))
@@ -2035,14 +2035,14 @@ C['EOC_BIOKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
 end
 M['EOC_BIOKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  you:remove_effect(EffectTypeId.new('effect_biokin_potion'))
-  you:remove_effect(EffectTypeId.new('effect_matrix_potion_nether_boost'))
+  you:remove_effect(U.eid('effect_biokin_potion'))
+  you:remove_effect(U.eid('effect_matrix_potion_nether_boost'))
   U.add_effect(you, 'effect_biokin_potion_comedown', U.rng_dur(TimeDuration.from_hours(24), TimeDuration.from_hours(55)), nil, nil)
   return true
 end
 C['EOC_BIOKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_BIOKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2054,7 +2054,7 @@ M['EOC_BIOKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_REFLEX_ENHANCE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_reflex'))
+  return you:has_effect(U.eid('effect_biokin_reflex'))
 end
 M['EOC_BIOKIN_REFLEX_ENHANCE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2071,7 +2071,7 @@ M['EOC_BIOKIN_REFLEX_ENHANCE_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_REFLEX_ENHANCE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_biokin_reflex')))
+  return (not you:has_effect(U.eid('effect_biokin_reflex')))
 end
 M['EOC_BIOKIN_REFLEX_ENHANCE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2087,7 +2087,7 @@ M['EOC_BIOKIN_REFLEX_ENHANCE_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_REMOVE_BREATHE_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_breathe_skin'))
+  return you:has_effect(U.eid('effect_biokin_breathe_skin'))
 end
 M['EOC_BIOKIN_REMOVE_BREATHE_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2095,25 +2095,25 @@ M['EOC_BIOKIN_REMOVE_BREATHE_SKIN'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_biokin_breathe_skin'))
+  you:remove_effect(U.eid('effect_biokin_breathe_skin'))
   return true
 end
 C['EOC_BIOKIN_REMOVE_CLIMATE_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_climate_control'))
+  return you:has_effect(U.eid('effect_biokin_climate_control'))
 end
 M['EOC_BIOKIN_REMOVE_CLIMATE_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_BIOKIN_REMOVE_CLIMATE_CONTROL'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_biokin_climate_control'))
+  you:remove_effect(U.eid('effect_biokin_climate_control'))
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   return true
 end
 C['EOC_BIOKIN_REMOVE_COMBAT_DANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_combat_dance'))
+  return you:has_effect(U.eid('effect_biokin_combat_dance'))
 end
 M['EOC_BIOKIN_REMOVE_COMBAT_DANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2121,12 +2121,12 @@ M['EOC_BIOKIN_REMOVE_COMBAT_DANCE'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_biokin_combat_dance'))
+  you:remove_effect(U.eid('effect_biokin_combat_dance'))
   return true
 end
 C['EOC_BIOKIN_REMOVE_ENHANCE_MOBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_enhance_mobility'))
+  return you:has_effect(U.eid('effect_biokin_enhance_mobility'))
 end
 M['EOC_BIOKIN_REMOVE_ENHANCE_MOBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2139,27 +2139,27 @@ M['EOC_BIOKIN_REMOVE_ENHANCE_MOBILITY'] = function(you, npc, ctx)
   U.remove_item_with(you, 'biokin_enhance_mobility_item_4')
   U.remove_item_with(you, 'biokin_enhance_mobility_item_5')
   U.remove_item_with(you, 'biokin_enhance_mobility_item_6')
-  you:remove_effect(EffectTypeId.new('effect_biokin_enhance_mobility'))
+  you:remove_effect(U.eid('effect_biokin_enhance_mobility'))
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   return true
 end
 C['EOC_BIOKIN_REMOVE_GUIDED_EVOLUTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_guided_evolution'))
+  return you:has_effect(U.eid('effect_biokin_guided_evolution'))
 end
 M['EOC_BIOKIN_REMOVE_GUIDED_EVOLUTION'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_BIOKIN_REMOVE_GUIDED_EVOLUTION'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_biokin_guided_evolution'))
+  you:remove_effect(U.eid('effect_biokin_guided_evolution'))
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   return true
 end
 C['EOC_BIOKIN_REMOVE_HAMMERHAND'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_hammerhand'))
+  return you:has_effect(U.eid('effect_biokin_hammerhand'))
 end
 M['EOC_BIOKIN_REMOVE_HAMMERHAND'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2167,13 +2167,13 @@ M['EOC_BIOKIN_REMOVE_HAMMERHAND'] = function(you, npc, ctx)
     return false
   end
   U.remove_item_with(you, 'biokin_hammerhand_item')
-  you:remove_effect(EffectTypeId.new('effect_biokin_hammerhand'))
+  you:remove_effect(U.eid('effect_biokin_hammerhand'))
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   return true
 end
 C['EOC_BIOKIN_REMOVE_HARDENED_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_armor_skin'))
+  return you:has_effect(U.eid('effect_biokin_armor_skin'))
 end
 M['EOC_BIOKIN_REMOVE_HARDENED_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2181,44 +2181,44 @@ M['EOC_BIOKIN_REMOVE_HARDENED_SKIN'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_biokin_armor_skin'))
+  you:remove_effect(U.eid('effect_biokin_armor_skin'))
   return true
 end
 C['EOC_BIOKIN_REMOVE_METABOLISM_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_metabolism_enhance'))
+  return you:has_effect(U.eid('effect_biokin_metabolism_enhance'))
 end
 M['EOC_BIOKIN_REMOVE_METABOLISM_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_BIOKIN_REMOVE_METABOLISM_ENHANCE'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_biokin_metabolism_enhance'))
+  you:remove_effect(U.eid('effect_biokin_metabolism_enhance'))
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   return true
 end
 C['EOC_BIOKIN_REMOVE_OVERCOME_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_overcome_pain'))
+  return you:has_effect(U.eid('effect_biokin_overcome_pain'))
 end
 M['EOC_BIOKIN_REMOVE_OVERCOME_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_BIOKIN_REMOVE_OVERCOME_PAIN'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_biokin_pkill_1'))
-  you:remove_effect(EffectTypeId.new('effect_biokin_pkill_2'))
-  you:remove_effect(EffectTypeId.new('effect_biokin_pkill_3'))
-  you:remove_effect(EffectTypeId.new('effect_biokin_pkill_4'))
-  you:remove_effect(EffectTypeId.new('effect_biokin_pkill_5'))
-  you:remove_effect(EffectTypeId.new('effect_biokin_pkill_6'))
-  you:remove_effect(EffectTypeId.new('effect_biokin_overcome_pain'))
+  you:remove_effect(U.eid('effect_biokin_pkill_1'))
+  you:remove_effect(U.eid('effect_biokin_pkill_2'))
+  you:remove_effect(U.eid('effect_biokin_pkill_3'))
+  you:remove_effect(U.eid('effect_biokin_pkill_4'))
+  you:remove_effect(U.eid('effect_biokin_pkill_5'))
+  you:remove_effect(U.eid('effect_biokin_pkill_6'))
+  you:remove_effect(U.eid('effect_biokin_overcome_pain'))
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   return true
 end
 C['EOC_BIOKIN_REMOVE_PERFECTED_MOTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_perfected_motion'))
+  return you:has_effect(U.eid('effect_biokin_perfected_motion'))
 end
 M['EOC_BIOKIN_REMOVE_PERFECTED_MOTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2227,12 +2227,12 @@ M['EOC_BIOKIN_REMOVE_PERFECTED_MOTION'] = function(you, npc, ctx)
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_biokin_perfected_motion'))
+  you:remove_effect(U.eid('effect_biokin_perfected_motion'))
   return true
 end
 C['EOC_BIOKIN_REMOVE_PHYSICAL_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_physical'))
+  return you:has_effect(U.eid('effect_biokin_physical'))
 end
 M['EOC_BIOKIN_REMOVE_PHYSICAL_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2240,12 +2240,12 @@ M['EOC_BIOKIN_REMOVE_PHYSICAL_ENHANCE'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_biokin_physical'))
+  you:remove_effect(U.eid('effect_biokin_physical'))
   return true
 end
 C['EOC_BIOKIN_REMOVE_REFLEX_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_reflex'))
+  return you:has_effect(U.eid('effect_biokin_reflex'))
 end
 M['EOC_BIOKIN_REMOVE_REFLEX_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2253,7 +2253,7 @@ M['EOC_BIOKIN_REMOVE_REFLEX_ENHANCE'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_biokin_reflex'))
+  you:remove_effect(U.eid('effect_biokin_reflex'))
   return true
 end
 C['EOC_BIOKIN_VITAMINOSIS'] = function(you, npc, ctx)
@@ -2273,7 +2273,7 @@ M['EOC_BIOKIN_VITAMINOSIS'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_VITAMINOSIS_CALCIUM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_biokin_vitaminosis')) and (U.unported_num('EOC_BIOKIN_VITAMINOSIS_CALCIUM', 'u_vitamin:calcium') <= -(100)))
+  return (you:has_effect(U.eid('effect_biokin_vitaminosis')) and (U.unported_num('EOC_BIOKIN_VITAMINOSIS_CALCIUM', 'u_vitamin:calcium') <= -(100)))
 end
 M['EOC_BIOKIN_VITAMINOSIS_CALCIUM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2287,7 +2287,7 @@ M['EOC_BIOKIN_VITAMINOSIS_CALCIUM'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_VITAMINOSIS_EXPERIENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_biokin_vitaminosis')) and ((U.unported_num('EOC_BIOKIN_VITAMINOSIS_EXPERIENCE', 'u_vitamin:calcium') <= -(100)) or (U.unported_num('EOC_BIOKIN_VITAMINOSIS_EXPERIENCE', 'u_vitamin:iron') <= -(100)) or (U.unported_num('EOC_BIOKIN_VITAMINOSIS_EXPERIENCE', 'u_vitamin:vitC') <= -(100))) and (you:get_stored_kcal() > 50000))
+  return (you:has_effect(U.eid('effect_biokin_vitaminosis')) and ((U.unported_num('EOC_BIOKIN_VITAMINOSIS_EXPERIENCE', 'u_vitamin:calcium') <= -(100)) or (U.unported_num('EOC_BIOKIN_VITAMINOSIS_EXPERIENCE', 'u_vitamin:iron') <= -(100)) or (U.unported_num('EOC_BIOKIN_VITAMINOSIS_EXPERIENCE', 'u_vitamin:vitC') <= -(100))) and (you:get_stored_kcal() > 50000))
 end
 M['EOC_BIOKIN_VITAMINOSIS_EXPERIENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2304,7 +2304,7 @@ M['EOC_BIOKIN_VITAMINOSIS_EXPERIENCE'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_VITAMINOSIS_IRON'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_biokin_vitaminosis')) and (U.unported_num('EOC_BIOKIN_VITAMINOSIS_IRON', 'u_vitamin:iron') <= -(100)))
+  return (you:has_effect(U.eid('effect_biokin_vitaminosis')) and (U.unported_num('EOC_BIOKIN_VITAMINOSIS_IRON', 'u_vitamin:iron') <= -(100)))
 end
 M['EOC_BIOKIN_VITAMINOSIS_IRON'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2318,7 +2318,7 @@ M['EOC_BIOKIN_VITAMINOSIS_IRON'] = function(you, npc, ctx)
 end
 C['EOC_BIOKIN_VITAMINOSIS_ONGOING_NETHER_ATTUNEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_vitaminosis'))
+  return you:has_effect(U.eid('effect_biokin_vitaminosis'))
 end
 M['EOC_BIOKIN_VITAMINOSIS_ONGOING_NETHER_ATTUNEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2335,13 +2335,13 @@ C['EOC_BIOKIN_VITAMINOSIS_REMOVE'] = function(you, npc, ctx)
 end
 M['EOC_BIOKIN_VITAMINOSIS_REMOVE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  you:remove_effect(EffectTypeId.new('effect_biokin_vitaminosis'))
+  you:remove_effect(U.eid('effect_biokin_vitaminosis'))
   U.msg(you, 'You exit your trance and feel somehow fuller.', MsgType.good, ctx)
   return true
 end
 C['EOC_BIOKIN_VITAMINOSIS_VITC'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_biokin_vitaminosis')) and (U.unported_num('EOC_BIOKIN_VITAMINOSIS_VITC', 'u_vitamin:vitC') <= -(100)))
+  return (you:has_effect(U.eid('effect_biokin_vitaminosis')) and (U.unported_num('EOC_BIOKIN_VITAMINOSIS_VITC', 'u_vitamin:vitC') <= -(100)))
 end
 M['EOC_BIOKIN_VITAMINOSIS_VITC'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2382,7 +2382,7 @@ M['EOC_CAUSE_EARLY_PORTAL_STORM_ACTUAL'] = function(you, npc, ctx)
 end
 C['EOC_CAUSE_EARLY_PORTAL_STORM_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_premonition'))
+  return you:has_effect(U.eid('effect_clair_premonition'))
 end
 M['EOC_CAUSE_EARLY_PORTAL_STORM_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2403,25 +2403,25 @@ M['EOC_CENTERING_MEDITATION'] = function(you, npc, ctx)
   if not C['EOC_CENTERING_MEDITATION'](you, npc, ctx) then
     U.msg(you, 'After your meditations, your mind is free and clear.  The odd feelings caused by excessive psionic channeling have entirely left you.', MsgType.good, ctx)
     U.attunement_set(you, 0)
-    you:remove_effect(EffectTypeId.new('effect_noetic_resilience'))
+    you:remove_effect(U.eid('effect_noetic_resilience'))
     U.add_effect(you, 'effect_noetic_resilience', TimeDuration.from_minutes(30), nil, nil)
     return false
   end
   U.attunement_set(you, (m.attunement(you)) - ((2 + (m.skill(you, 'metaphysics') * 2))))
-  you:remove_effect(EffectTypeId.new('effect_noetic_resilience'))
+  you:remove_effect(U.eid('effect_noetic_resilience'))
   U.add_effect(you, 'effect_noetic_resilience', TimeDuration.from_minutes(30), nil, nil)
   return true
 end
 C['EOC_CHANNEL_TELEPORTER_POWERS_WHILE_THE_HOUNDS_ARE_WATCHING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (('TELEPORTER' == tostring(ctx['school'] or '')) and you:has_effect(EffectTypeId.new('effect_teleport_mishap_tindrift_warning')))
+  return (('TELEPORTER' == tostring(ctx['school'] or '')) and you:has_effect(U.eid('effect_teleport_mishap_tindrift_warning')))
 end
 M['EOC_CHANNEL_TELEPORTER_POWERS_WHILE_THE_HOUNDS_ARE_WATCHING'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_CHANNEL_TELEPORTER_POWERS_WHILE_THE_HOUNDS_ARE_WATCHING'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_teleport_mishap_tindrift_warning'))
+  you:remove_effect(U.eid('effect_teleport_mishap_tindrift_warning'))
   U.msg(you, '…but it\'s because the hunters have found you.', MsgType.bad, ctx)
   U.add_effect(you, 'tindrift', TimeDuration.from_days(1), nil, nil)
   U.spawn_monster(you, 'mon_hound_tindalos', U.round(1), U.round(8), false, false)
@@ -2432,7 +2432,7 @@ M['EOC_CHANNEL_TELEPORTER_POWERS_WHILE_THE_HOUNDS_ARE_WATCHING'] = function(you,
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_ADRENALINE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_adrenaline') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_adrenaline') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_ADRENALINE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2444,7 +2444,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_ADRENALINE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_ARMOR_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_armor_skin') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_armor_skin') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_ARMOR_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2456,7 +2456,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_ARMOR_SKIN'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_BREATH_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_breathe_skin') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_breathe_skin') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_BREATH_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2468,7 +2468,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_BREATH_SKIN'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_CLIMATE_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_climate_control') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_climate_control') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_CLIMATE_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2480,7 +2480,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_CLIMATE_CONTROL'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_COMBAT_DANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_combat_dance') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_combat_dance') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_COMBAT_DANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2492,7 +2492,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_COMBAT_DANCE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_DASH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_dash') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_dash') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_DASH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2504,7 +2504,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_DASH'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_ENHANCE_MOBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_enhance_mobility') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_enhance_mobility') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_ENHANCE_MOBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2516,7 +2516,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_ENHANCE_MOBILITY'] = function(you, npc, ctx
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_FLEXIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_flexibility') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_flexibility') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_FLEXIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2528,7 +2528,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_FLEXIBILITY'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_HAMMERHAND'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_hammerhand') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_hammerhand') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_HAMMERHAND'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2540,7 +2540,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_HAMMERHAND'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_HURRICANE_BLOWS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_hurricane_blows') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_hurricane_blows') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_HURRICANE_BLOWS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2552,7 +2552,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_HURRICANE_BLOWS'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_METABOLISM_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_metabolism_enhance') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_metabolism_enhance') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_METABOLISM_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2564,7 +2564,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_METABOLISM_ENHANCE'] = function(you, npc, c
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_OVERCOME_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_overcome_pain') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_overcome_pain') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_OVERCOME_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2576,7 +2576,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_OVERCOME_PAIN'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_PERFECTED_MOTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_perfected_motion') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_perfected_motion') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_PERFECTED_MOTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2588,7 +2588,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_PERFECTED_MOTION'] = function(you, npc, ctx
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_PHYSICAL_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_physical_enhance') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_physical_enhance') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_PHYSICAL_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2600,7 +2600,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_PHYSICAL_ENHANCE'] = function(you, npc, ctx
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_REFLEX_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_reflex_enhance') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_reflex_enhance') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_REFLEX_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2612,7 +2612,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_REFLEX_ENHANCE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_SEALED_SYSTEM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and (m.spell_level(you, 'biokin_sealed_system') >= 0))
+  return (you:has_trait(U.mid('BIOKINETIC')) and (m.spell_level(you, 'biokin_sealed_system') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_SEALED_SYSTEM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2624,7 +2624,7 @@ M['EOC_CHECK_GAMEBEGIN_BIOKIN_RECIPE_SEALED_SYSTEM'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_AURA_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_see_auras') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_see_auras') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_AURA_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2636,7 +2636,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_AURA_SIGHT'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_BETTER_SENSES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_better_senses') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_better_senses') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_BETTER_SENSES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2648,7 +2648,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_BETTER_SENSES'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_CLEAR_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_clear_sight') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_clear_sight') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_CLEAR_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2660,7 +2660,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_CLEAR_SIGHT'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_CRAFT_BONUS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_craft_bonus') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_craft_bonus') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_CRAFT_BONUS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2672,7 +2672,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_CRAFT_BONUS'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_DANGER_SENSE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_danger_sense') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_danger_sense') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_DANGER_SENSE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2684,7 +2684,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_DANGER_SENSE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_DODGE_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_dodge_power') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_dodge_power') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_DODGE_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2696,7 +2696,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_DODGE_POWER'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_EXAMINE_ITEMS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_examine_item') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_examine_item') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_EXAMINE_ITEMS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2708,7 +2708,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_EXAMINE_ITEMS'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_GROUP_TACTICS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_group_tactics') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_group_tactics') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_GROUP_TACTICS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2720,7 +2720,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_GROUP_TACTICS'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_NIGHT_VISION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_night_vision') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_night_vision') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_NIGHT_VISION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2732,7 +2732,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_NIGHT_VISION'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_OMNISCIENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_omniscience') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_omniscience') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_OMNISCIENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2744,7 +2744,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_OMNISCIENCE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_PERFECT_SHOT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_perfect_shot') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_perfect_shot') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_PERFECT_SHOT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2756,7 +2756,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_PERFECT_SHOT'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_RANGED_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_ranged_enhance') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_ranged_enhance') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_RANGED_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2768,7 +2768,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_RANGED_ENHANCE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SEE_MAP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_see_map') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_see_map') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SEE_MAP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2780,7 +2780,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SEE_MAP'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_sense_hostile_creatures') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_sense_hostile_creatures') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2792,7 +2792,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SENSE_HOSTILE_CREATURES'] = function(you, np
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SPEED_READING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_speed_reading') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_speed_reading') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SPEED_READING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2804,7 +2804,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SPEED_READING'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SPOT_WEAKNESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_spot_weakness') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_spot_weakness') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SPOT_WEAKNESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2816,7 +2816,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SPOT_WEAKNESS'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_VOYANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_voyance') >= 0))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_voyance') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_VOYANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2828,7 +2828,7 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_VOYANCE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_HACKING_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_hacking_interface') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_hacking_interface') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_HACKING_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2840,7 +2840,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_HACKING_INTERFACE'] = function(you, npc
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_KILL_ROBOT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_kill_robot') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_kill_robot') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_KILL_ROBOT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2852,7 +2852,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_KILL_ROBOT'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_LIGHTNING_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_lightning_aura') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_lightning_aura') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_LIGHTNING_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2864,7 +2864,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_LIGHTNING_AURA'] = function(you, npc, c
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_LIGHTNING_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_lightning_blast') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_lightning_blast') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_LIGHTNING_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2876,7 +2876,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_LIGHTNING_BLAST'] = function(you, npc, 
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_LIGHTNING_BOLT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_lightning_bolt') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_lightning_bolt') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_LIGHTNING_BOLT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2888,7 +2888,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_LIGHTNING_BOLT'] = function(you, npc, c
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_PAIN_IMMUNE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_pain_immune') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_pain_immune') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_PAIN_IMMUNE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2900,7 +2900,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_PAIN_IMMUNE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_PARALYSIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_paralysis') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_paralysis') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_PARALYSIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2912,7 +2912,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_PARALYSIS'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_PERSONAL_BATTERY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_personal_battery') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_personal_battery') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_PERSONAL_BATTERY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2924,7 +2924,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_PERSONAL_BATTERY'] = function(you, npc,
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_REDUCE_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_reduce_pain') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_reduce_pain') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_REDUCE_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2936,7 +2936,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_REDUCE_PAIN'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_REVIVE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_revive') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_revive') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_REVIVE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2948,7 +2948,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_REVIVE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_ROBOT_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_robot_interface') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_robot_interface') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_ROBOT_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2960,7 +2960,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_ROBOT_INTERFACE'] = function(you, npc, 
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_SEE_ELECTRIC'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_see_electric') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_see_electric') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_SEE_ELECTRIC'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2972,7 +2972,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_SEE_ELECTRIC'] = function(you, npc, ctx
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_SPEED_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_speed_boost') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_speed_boost') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_SPEED_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2984,7 +2984,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_SPEED_BOOST'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_ZAP_ENEMIES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_zap_enemies') >= 0))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (m.spell_level(you, 'electrokinetic_zap_enemies') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_ZAP_ENEMIES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -2996,7 +2996,7 @@ M['EOC_CHECK_GAMEBEGIN_ELECTROKIN_RECIPE_ZAP_ENEMIES'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_BLINDING_GLARE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_blinding_glare') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_blinding_glare') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_BLINDING_GLARE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3008,7 +3008,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_BLINDING_GLARE'] = function(you, npc, ctx
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_CAMOUFLAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_camouflage') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_camouflage') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_CAMOUFLAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3020,7 +3020,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_CAMOUFLAGE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_CREATE_LIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_create_light') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_create_light') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_CREATE_LIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3032,7 +3032,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_CREATE_LIGHT'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_FLASH_BANG'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_flash_bang') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_flash_bang') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_FLASH_BANG'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3044,7 +3044,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_FLASH_BANG'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_HIDE_UGLY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_hide_ugly') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_hide_ugly') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_HIDE_UGLY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3056,7 +3056,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_HIDE_UGLY'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_INVISIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_invisibility') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_invisibility') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_INVISIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3068,7 +3068,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_INVISIBILITY'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_ARMS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_arms') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_arms') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_ARMS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3080,7 +3080,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_ARMS'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_ARMY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_army') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_army') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_ARMY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3092,7 +3092,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_ARMY'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_BEAM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_beam') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_beam') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_BEAM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3104,7 +3104,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_BEAM'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_DISINTEGRATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_disintegrate') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_disintegrate') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_DISINTEGRATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3116,7 +3116,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_DISINTEGRATE'] = function(you, npc,
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_DODGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_dodge') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_dodge') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_DODGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3128,7 +3128,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_DODGE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_FLASH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_flash') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_flash') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_FLASH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3140,7 +3140,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_FLASH'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_IMAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_image') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_image') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_IMAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3152,7 +3152,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_IMAGE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_LOCAL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_local') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_light_local') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_LOCAL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3164,7 +3164,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_LIGHT_LOCAL'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_RADIO'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_radio') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_radio') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_RADIO'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3176,7 +3176,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_RADIO'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_RAD_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_rad_immunity') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_rad_immunity') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_RAD_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3188,7 +3188,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_RAD_IMMUNITY'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_SNUFF_LIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_snuff_light') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_snuff_light') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_SNUFF_LIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3200,7 +3200,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_SNUFF_LIGHT'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_STERILIZE_FOOD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_sterilize_food') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_sterilize_food') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_STERILIZE_FOOD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3212,7 +3212,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_STERILIZE_FOOD'] = function(you, npc, ctx
 end
 C['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_STUN_ROBOTS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_stun_robots') >= 0))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (m.spell_level(you, 'photokinetic_stun_robots') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_STUN_ROBOTS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3224,7 +3224,7 @@ M['EOC_CHECK_GAMEBEGIN_PHOTOKIN_RECIPE_STUN_ROBOTS'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_AOE_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_aoe_blast') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_aoe_blast') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_AOE_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3236,7 +3236,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_AOE_BLAST'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_aura') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_aura') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3248,7 +3248,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_AURA'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_blast') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_blast') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3260,7 +3260,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_BLAST'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_CALL_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_call_flames') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_call_flames') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_CALL_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3272,7 +3272,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_CALL_FLAMES'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_CAUTERIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_cauterize') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_cauterize') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_CAUTERIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3284,7 +3284,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_CAUTERIZE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_CLOAK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_cloak') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_cloak') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_CLOAK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3296,7 +3296,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_CLOAK'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_ERUPTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_eruption') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_eruption') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_ERUPTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3308,7 +3308,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_ERUPTION'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_FLAMETHROWER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_flamethrower') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_flamethrower') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_FLAMETHROWER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3320,7 +3320,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_FLAMETHROWER'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_FLAME_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_flame_immunity') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_flame_immunity') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_FLAME_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3332,7 +3332,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_FLAME_IMMUNITY'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_FLASH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_flash') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_flash') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_FLASH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3344,7 +3344,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_FLASH'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_INCINERATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_incineration') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_incineration') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_INCINERATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3356,7 +3356,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_INCINERATION'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_INTENSIFY_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_intensify_flames') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_intensify_flames') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_INTENSIFY_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3368,7 +3368,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_INTENSIFY_FLAMES'] = function(you, npc, ct
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_LANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_lance') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_lance') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_LANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3380,7 +3380,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_LANCE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_QUELL_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_quell_flames') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_quell_flames') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_QUELL_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3392,7 +3392,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_QUELL_FLAMES'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_THERMOGENESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_thermogenesis') >= 0))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (m.spell_level(you, 'pyrokinetic_thermogenesis') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_THERMOGENESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3404,7 +3404,7 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_THERMOGENESIS'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_AEGIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_aegis') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_aegis') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_AEGIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3416,7 +3416,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_AEGIS'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_EARTHSHAKER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_earthshaker') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_earthshaker') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_EARTHSHAKER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3428,7 +3428,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_EARTHSHAKER'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_EXPLOSION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_explosion') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_explosion') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_EXPLOSION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3440,7 +3440,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_EXPLOSION'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_HAMMER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_hammer') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_hammer') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_HAMMER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3452,7 +3452,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_HAMMER'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_LEVITATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_levitation') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_levitation') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_LEVITATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3464,7 +3464,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_LEVITATION'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_LIFTING_FIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_lifting_field') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_lifting_field') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_LIFTING_FIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3476,7 +3476,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_LIFTING_FIELD'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_MOMENTUM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_momentum') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_momentum') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_MOMENTUM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3488,7 +3488,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_MOMENTUM'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_PULL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_pull') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_pull') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_PULL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3500,7 +3500,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_PULL'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_PUSH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_push') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_push') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_PUSH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3512,7 +3512,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_PUSH'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_shield') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_shield') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3524,7 +3524,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_SHIELD'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_SLAM_DOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_slam_down') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_slam_down') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_SLAM_DOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3536,7 +3536,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_SLAM_DOWN'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_SLOWFALL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_slowfall') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_slowfall') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_SLOWFALL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3548,7 +3548,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_SLOWFALL'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_STRENGTH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_strength') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_strength') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_STRENGTH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3560,7 +3560,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_STRENGTH'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_VEHICLE_LIFT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_vehicle_lift') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_vehicle_lift') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_VEHICLE_LIFT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3572,7 +3572,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_VEHICLE_LIFT'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_WAVE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_wave') >= 0))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_wave') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_WAVE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3584,7 +3584,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_WAVE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_ANIMAL_MIND_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_animal_mind_control') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_animal_mind_control') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_ANIMAL_MIND_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3596,7 +3596,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_ANIMAL_MIND_CONTROL'] = function(you, npc
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_BEAST_TAMING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_beast_taming') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_beast_taming') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_BEAST_TAMING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3608,7 +3608,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_BEAST_TAMING'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_blast') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_blast') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3620,7 +3620,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_BLAST'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_BLAST_RADIUS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_blast_radius') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_blast_radius') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_BLAST_RADIUS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3632,7 +3632,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_BLAST_RADIUS'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_CONCENTRATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_concentration') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_concentration') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_CONCENTRATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3644,7 +3644,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_CONCENTRATION'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_CONFUSION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_confusion') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_confusion') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_CONFUSION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3656,7 +3656,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_CONFUSION'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_FEAR'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_fear') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_fear') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_FEAR'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3668,7 +3668,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_FEAR'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_INVISIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_invisibility') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_invisibility') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_INVISIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3680,7 +3680,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_INVISIBILITY'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_MESMERIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_mesmerize') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_mesmerize') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_MESMERIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3692,7 +3692,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_MESMERIZE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_MIND_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_mind_control') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_mind_control') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_MIND_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3704,7 +3704,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_MIND_CONTROL'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_MIND_SENSE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_mind_sense') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_mind_sense') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_MIND_SENSE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3716,7 +3716,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_MIND_SENSE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_MORALE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_morale') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_morale') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_MORALE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3728,7 +3728,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_MORALE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_NETWORK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_network') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_network') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_NETWORK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3740,7 +3740,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_NETWORK'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (m.spell_level(you, 'telepathic_shield') >= 0))
+  return (you:has_trait(U.mid('TELEPATH')) and (m.spell_level(you, 'telepathic_shield') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3752,7 +3752,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPATH_RECIPE_SHIELD'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_BANISH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_banish') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_banish') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_BANISH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3764,7 +3764,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_BANISH'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_BLINK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_blink') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_blink') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_BLINK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3776,7 +3776,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_BLINK'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_BREACH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_summon') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_summon') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_BREACH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3788,7 +3788,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_BREACH'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_COLLAPSE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_collapse') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_collapse') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_COLLAPSE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3800,7 +3800,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_COLLAPSE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_displacement') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_displacement') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3812,7 +3812,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_DISPLACEMENT'] = function(you, npc, ctx
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_FARSTEP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_farstep') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_farstep') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_FARSTEP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3824,7 +3824,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_FARSTEP'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_GATEWAY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_gateway') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_gateway') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_GATEWAY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3836,7 +3836,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_GATEWAY'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_ITEM_TELEPORT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_item_apport') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_item_apport') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_ITEM_TELEPORT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3848,7 +3848,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_ITEM_TELEPORT'] = function(you, npc, ct
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_LOCI_ESTABLISHMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_loci_establishment') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_loci_establishment') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_LOCI_ESTABLISHMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3860,7 +3860,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_LOCI_ESTABLISHMENT'] = function(you, np
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_LOCI_TECHNIQUE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_loci_technique') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_loci_technique') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_LOCI_TECHNIQUE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3872,7 +3872,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_LOCI_TECHNIQUE'] = function(you, npc, c
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_PHASE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_phase') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_phase') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_PHASE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3884,7 +3884,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_PHASE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_REACTIVE_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_reactive_displacement') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_reactive_displacement') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_REACTIVE_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3896,7 +3896,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_REACTIVE_DISPLACEMENT'] = function(you,
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_RELOCATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_relocation') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_relocation') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_RELOCATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3908,7 +3908,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_RELOCATION'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_SLOW'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_slow') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_slow') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_SLOW'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3920,7 +3920,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_SLOW'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_STRIDE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_stride') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_stride') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_STRIDE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3932,7 +3932,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_STRIDE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_TRANSPOSE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_transpose') >= 0))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_transpose') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_TRANSPOSE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3944,7 +3944,7 @@ M['EOC_CHECK_GAMEBEGIN_TELEPORTER_RECIPE_TRANSPOSE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_ATTACK_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_attack_touch') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_attack_touch') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_ATTACK_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3956,7 +3956,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_ATTACK_TOUCH'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_BANISH_ILLNESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_banish_illness') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_banish_illness') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_BANISH_ILLNESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3968,7 +3968,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_BANISH_ILLNESS'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_BLOOD_PURGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_blood_purge') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_blood_purge') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_BLOOD_PURGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3980,7 +3980,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_BLOOD_PURGE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_CONCENTRATED_HEALING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_concentrated_healing') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_concentrated_healing') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_CONCENTRATED_HEALING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -3992,7 +3992,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_CONCENTRATED_HEALING'] = function(you, npc
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_CURE_DISEASE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_cure_disease') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_cure_disease') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_CURE_DISEASE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4004,7 +4004,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_CURE_DISEASE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_HEALING_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_health_power_ally') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_health_power_ally') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_HEALING_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4016,7 +4016,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_HEALING_TOUCH'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_HEALING_TRANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_healing_trance') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_healing_trance') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_HEALING_TRANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4028,7 +4028,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_HEALING_TRANCE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_HEALTH_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_health_power') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_health_power') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_HEALTH_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4040,7 +4040,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_HEALTH_POWER'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_HURT_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_hurt_touch') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_hurt_touch') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_HURT_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4052,7 +4052,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_HURT_TOUCH'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_LIMB_RESTORE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_limb_restore') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_limb_restore') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_LIMB_RESTORE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4064,7 +4064,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_LIMB_RESTORE'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_NO_NEED_FOR_SLEEP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_no_need_for_sleep') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_no_need_for_sleep') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_NO_NEED_FOR_SLEEP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4076,7 +4076,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_NO_NEED_FOR_SLEEP'] = function(you, npc, c
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_REMOVE_POISON'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_remove_poison') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_remove_poison') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_REMOVE_POISON'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4088,7 +4088,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_REMOVE_POISON'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_RETURN_FROM_DEATH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_return_from_death') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_return_from_death') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_RETURN_FROM_DEATH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4100,7 +4100,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_RETURN_FROM_DEATH'] = function(you, npc, c
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_SLEEPING_TRANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_sleeping_trance') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_sleeping_trance') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_SLEEPING_TRANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4112,7 +4112,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_SLEEPING_TRANCE'] = function(you, npc, ctx
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_SLOW_BLEEDING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_slow_bleeding') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_slow_bleeding') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_SLOW_BLEEDING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4124,7 +4124,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_SLOW_BLEEDING'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_STOP_BLEEDING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_stop_bleeding') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_stop_bleeding') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_STOP_BLEEDING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4136,7 +4136,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_STOP_BLEEDING'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_STOP_INFECTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_stop_infection') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_stop_infection') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_STOP_INFECTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4148,7 +4148,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_STOP_INFECTION'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_SUPER_HEAL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_super_heal') >= 0))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_super_heal') >= 0))
 end
 M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_SUPER_HEAL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4160,7 +4160,7 @@ M['EOC_CHECK_GAMEBEGIN_VITAKIN_RECIPE_SUPER_HEAL'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMESTART_BIOKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_CHECK_GAMESTART_BIOKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4172,7 +4172,7 @@ M['EOC_CHECK_GAMESTART_BIOKIN'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMESTART_CLAIR'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_CHECK_GAMESTART_CLAIR'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4184,7 +4184,7 @@ M['EOC_CHECK_GAMESTART_CLAIR'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMESTART_ELECTROKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_CHECK_GAMESTART_ELECTROKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4196,7 +4196,7 @@ M['EOC_CHECK_GAMESTART_ELECTROKIN'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMESTART_PHOTOKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_CHECK_GAMESTART_PHOTOKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4208,7 +4208,7 @@ M['EOC_CHECK_GAMESTART_PHOTOKIN'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMESTART_PYROKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_CHECK_GAMESTART_PYROKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4220,7 +4220,7 @@ M['EOC_CHECK_GAMESTART_PYROKIN'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMESTART_TELEKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_CHECK_GAMESTART_TELEKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4232,7 +4232,7 @@ M['EOC_CHECK_GAMESTART_TELEKIN'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMESTART_TELEPATH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_CHECK_GAMESTART_TELEPATH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4244,7 +4244,7 @@ M['EOC_CHECK_GAMESTART_TELEPATH'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMESTART_TELEPORT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_CHECK_GAMESTART_TELEPORT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4256,7 +4256,7 @@ M['EOC_CHECK_GAMESTART_TELEPORT'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_GAMESTART_VITAKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_CHECK_GAMESTART_VITAKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4268,7 +4268,7 @@ M['EOC_CHECK_GAMESTART_VITAKIN'] = function(you, npc, ctx)
 end
 C['EOC_CHECK_NEAR_NETHER_CRYSTAL_EFFECTS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('psi_nether_attention'))
+  return you:has_effect(U.eid('psi_nether_attention'))
 end
 M['EOC_CHECK_NEAR_NETHER_CRYSTAL_EFFECTS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4308,7 +4308,7 @@ M['EOC_CHECK_NEAR_NETHER_CRYSTAL_RECURRING'] = function(you, npc, ctx)
 end
 C['EOC_CLAIRSENTIENT_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_CLAIRSENTIENT_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4337,7 +4337,7 @@ M['EOC_CLAIRSENTIENT_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_ASTRAL_PROJECTION_CANT_DO_THAT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_clair_astral_projection')) and (('ACT_LOCKPICK' == tostring(ctx['activity'] or '')) or ('ACT_REPAIR_ITEM' == tostring(ctx['activity'] or '')) or ('ACT_MEND_ITEM' == tostring(ctx['activity'] or '')) or ('ACT_VEHICLE_REPAIR' == tostring(ctx['activity'] or '')) or ('ACT_RELOAD' == tostring(ctx['activity'] or '')) or ('ACT_FIRSTAID' == tostring(ctx['activity'] or '')) or ('ACT_MILK' == tostring(ctx['activity'] or '')) or ('ACT_HACKSAW' == tostring(ctx['activity'] or '')) or ('ACT_BOLTCUTTING' == tostring(ctx['activity'] or '')) or ('ACT_HAIRCUT' == tostring(ctx['activity'] or '')) or ('ACT_SHAVE' == tostring(ctx['activity'] or '')) or ('ACT_CRACKING' == tostring(ctx['activity'] or '')) or ('ACT_READ' == tostring(ctx['activity'] or '')) or ('ACT_EBOOKSAVE' == tostring(ctx['activity'] or '')) or ('ACT_TIDY_UP' == tostring(ctx['activity'] or '')) or ('ACT_MOP' == tostring(ctx['activity'] or '')) or ('ACT_VEHICLE_DECONSTRUCTION' == tostring(ctx['activity'] or '')) or ('ACT_VEHICLE_FOLD' == tostring(ctx['activity'] or '')) or ('ACT_VEHICLE_UNFOLD' == tostring(ctx['activity'] or '')) or ('ACT_BIKERACK_UNRACKING' == tostring(ctx['activity'] or '')) or ('ACT_BIKERACK_RACKING' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_DIS' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_FISH' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_CRAFT' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_CHOP_PLANKS' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_CHOP_TREES' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_MINE' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_CONSTRUCTION' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_MOP' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_READ' == tostring(ctx['activity'] or '')) or ('ACT_FISH' == tostring(ctx['activity'] or '')) or ('ACT_GENERIC_GAME' == tostring(ctx['activity'] or '')) or ('ACT_GAME' == tostring(ctx['activity'] or '')) or ('ACT_DISASSEMBLE' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_FARM' == tostring(ctx['activity'] or '')) or ('ACT_HARVEST' == tostring(ctx['activity'] or '')) or ('ACT_FIELD_DRESS' == tostring(ctx['activity'] or '')) or ('ACT_SKIN' == tostring(ctx['activity'] or '')) or ('ACT_QUARTER' == tostring(ctx['activity'] or '')) or ('ACT_DISSECT' == tostring(ctx['activity'] or '')) or ('ACT_LONGSALVAGE' == tostring(ctx['activity'] or '')) or ('ACT_BUILD' == tostring(ctx['activity'] or '')) or ('ACT_PICKAXE' == tostring(ctx['activity'] or '')) or ('ACT_HAND_CRANK' == tostring(ctx['activity'] or '')) or ('ACT_PICKUP' == tostring(ctx['activity'] or '')) or ('ACT_AUTODRIVE' == tostring(ctx['activity'] or '')) or ('ACT_FERTILIZE_PLOT' == tostring(ctx['activity'] or '')) or ('ACT_MOVE_LOOT' == tostring(ctx['activity'] or '')) or ('ACT_UNLOAD_LOOT' == tostring(ctx['activity'] or '')) or ('ACT_INSERT_ITEM' == tostring(ctx['activity'] or '')) or ('ACT_START_FIRE' == tostring(ctx['activity'] or '')) or ('ACT_OPEN_GATE' == tostring(ctx['activity'] or '')) or ('ACT_FILL_LIQUID' == tostring(ctx['activity'] or '')) or ('ACT_SHEARING' == tostring(ctx['activity'] or '')) or ('ACT_HOTWIRE_CAR' == tostring(ctx['activity'] or '')) or ('ACT_AIM' == tostring(ctx['activity'] or '')) or ('ACT_ATM' == tostring(ctx['activity'] or '')) or ('ACT_START_ENGINES' == tostring(ctx['activity'] or '')) or ('ACT_OXYTORCH' == tostring(ctx['activity'] or '')) or ('ACT_TOOLMOD_ADD' == tostring(ctx['activity'] or '')) or ('ACT_CLEAR_RUBBLE' == tostring(ctx['activity'] or '')) or ('ACT_WASH' == tostring(ctx['activity'] or '')) or ('ACT_PRYING' == tostring(ctx['activity'] or '')) or ('ACT_CHOP_LOGS' == tostring(ctx['activity'] or '')) or ('ACT_CHOP_PLANKS' == tostring(ctx['activity'] or '')) or ('ACT_JACKHAMMER' == tostring(ctx['activity'] or '')) or ('ACT_CHURN' == tostring(ctx['activity'] or '')) or ('ACT_PLANT_SEED' == tostring(ctx['activity'] or '')) or ('ACT_WEAR' == tostring(ctx['activity'] or '')) or ('ACT_PICKUP' == tostring(ctx['activity'] or '')) or ('ACT_WIELD' == tostring(ctx['activity'] or '')) or ('ACT_BINDER_COPY_RECIPE' == tostring(ctx['activity'] or '')) or ('ACT_DATA_HANDLING' == tostring(ctx['activity'] or '')) or ('ACT_FURNITURE_MOVE' == tostring(ctx['activity'] or '')) or ('ACT_TENT_PLACE' == tostring(ctx['activity'] or '')) or ('ACT_TENT_DECONSTRUCT' == tostring(ctx['activity'] or '')) or ('ACT_REEL_CABLE' == tostring(ctx['activity'] or '')) or ('ACT_SALINE_INFUSE' == tostring(ctx['activity'] or ''))))
+  return (you:has_effect(U.eid('effect_clair_astral_projection')) and (('ACT_LOCKPICK' == tostring(ctx['activity'] or '')) or ('ACT_REPAIR_ITEM' == tostring(ctx['activity'] or '')) or ('ACT_MEND_ITEM' == tostring(ctx['activity'] or '')) or ('ACT_VEHICLE_REPAIR' == tostring(ctx['activity'] or '')) or ('ACT_RELOAD' == tostring(ctx['activity'] or '')) or ('ACT_FIRSTAID' == tostring(ctx['activity'] or '')) or ('ACT_MILK' == tostring(ctx['activity'] or '')) or ('ACT_HACKSAW' == tostring(ctx['activity'] or '')) or ('ACT_BOLTCUTTING' == tostring(ctx['activity'] or '')) or ('ACT_HAIRCUT' == tostring(ctx['activity'] or '')) or ('ACT_SHAVE' == tostring(ctx['activity'] or '')) or ('ACT_CRACKING' == tostring(ctx['activity'] or '')) or ('ACT_READ' == tostring(ctx['activity'] or '')) or ('ACT_EBOOKSAVE' == tostring(ctx['activity'] or '')) or ('ACT_TIDY_UP' == tostring(ctx['activity'] or '')) or ('ACT_MOP' == tostring(ctx['activity'] or '')) or ('ACT_VEHICLE_DECONSTRUCTION' == tostring(ctx['activity'] or '')) or ('ACT_VEHICLE_FOLD' == tostring(ctx['activity'] or '')) or ('ACT_VEHICLE_UNFOLD' == tostring(ctx['activity'] or '')) or ('ACT_BIKERACK_UNRACKING' == tostring(ctx['activity'] or '')) or ('ACT_BIKERACK_RACKING' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_DIS' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_FISH' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_CRAFT' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_CHOP_PLANKS' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_CHOP_TREES' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_MINE' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_CONSTRUCTION' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_MOP' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_READ' == tostring(ctx['activity'] or '')) or ('ACT_FISH' == tostring(ctx['activity'] or '')) or ('ACT_GENERIC_GAME' == tostring(ctx['activity'] or '')) or ('ACT_GAME' == tostring(ctx['activity'] or '')) or ('ACT_DISASSEMBLE' == tostring(ctx['activity'] or '')) or ('ACT_MULTIPLE_FARM' == tostring(ctx['activity'] or '')) or ('ACT_HARVEST' == tostring(ctx['activity'] or '')) or ('ACT_FIELD_DRESS' == tostring(ctx['activity'] or '')) or ('ACT_SKIN' == tostring(ctx['activity'] or '')) or ('ACT_QUARTER' == tostring(ctx['activity'] or '')) or ('ACT_DISSECT' == tostring(ctx['activity'] or '')) or ('ACT_LONGSALVAGE' == tostring(ctx['activity'] or '')) or ('ACT_BUILD' == tostring(ctx['activity'] or '')) or ('ACT_PICKAXE' == tostring(ctx['activity'] or '')) or ('ACT_HAND_CRANK' == tostring(ctx['activity'] or '')) or ('ACT_PICKUP' == tostring(ctx['activity'] or '')) or ('ACT_AUTODRIVE' == tostring(ctx['activity'] or '')) or ('ACT_FERTILIZE_PLOT' == tostring(ctx['activity'] or '')) or ('ACT_MOVE_LOOT' == tostring(ctx['activity'] or '')) or ('ACT_UNLOAD_LOOT' == tostring(ctx['activity'] or '')) or ('ACT_INSERT_ITEM' == tostring(ctx['activity'] or '')) or ('ACT_START_FIRE' == tostring(ctx['activity'] or '')) or ('ACT_OPEN_GATE' == tostring(ctx['activity'] or '')) or ('ACT_FILL_LIQUID' == tostring(ctx['activity'] or '')) or ('ACT_SHEARING' == tostring(ctx['activity'] or '')) or ('ACT_HOTWIRE_CAR' == tostring(ctx['activity'] or '')) or ('ACT_AIM' == tostring(ctx['activity'] or '')) or ('ACT_ATM' == tostring(ctx['activity'] or '')) or ('ACT_START_ENGINES' == tostring(ctx['activity'] or '')) or ('ACT_OXYTORCH' == tostring(ctx['activity'] or '')) or ('ACT_TOOLMOD_ADD' == tostring(ctx['activity'] or '')) or ('ACT_CLEAR_RUBBLE' == tostring(ctx['activity'] or '')) or ('ACT_WASH' == tostring(ctx['activity'] or '')) or ('ACT_PRYING' == tostring(ctx['activity'] or '')) or ('ACT_CHOP_LOGS' == tostring(ctx['activity'] or '')) or ('ACT_CHOP_PLANKS' == tostring(ctx['activity'] or '')) or ('ACT_JACKHAMMER' == tostring(ctx['activity'] or '')) or ('ACT_CHURN' == tostring(ctx['activity'] or '')) or ('ACT_PLANT_SEED' == tostring(ctx['activity'] or '')) or ('ACT_WEAR' == tostring(ctx['activity'] or '')) or ('ACT_PICKUP' == tostring(ctx['activity'] or '')) or ('ACT_WIELD' == tostring(ctx['activity'] or '')) or ('ACT_BINDER_COPY_RECIPE' == tostring(ctx['activity'] or '')) or ('ACT_DATA_HANDLING' == tostring(ctx['activity'] or '')) or ('ACT_FURNITURE_MOVE' == tostring(ctx['activity'] or '')) or ('ACT_TENT_PLACE' == tostring(ctx['activity'] or '')) or ('ACT_TENT_DECONSTRUCT' == tostring(ctx['activity'] or '')) or ('ACT_REEL_CABLE' == tostring(ctx['activity'] or '')) or ('ACT_SALINE_INFUSE' == tostring(ctx['activity'] or ''))))
 end
 M['EOC_CLAIR_ASTRAL_PROJECTION_CANT_DO_THAT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4355,8 +4355,8 @@ end
 M['EOC_CLAIR_ASTRAL_PROJECTION_DEACTIVATE'] = function(you, npc, ctx)
   ctx = ctx or {}
   U.remove_item_with(you, 'item_clair_astral_projection_cord')
-  you:remove_effect(EffectTypeId.new('effect_clair_astral_projection'))
-  you:remove_effect(EffectTypeId.new('incorporeal'))
+  you:remove_effect(U.eid('effect_clair_astral_projection'))
+  you:remove_effect(U.eid('incorporeal'))
   U.unset_mutation(you, 'CLAIR_ASTRAL_PROJECTION_APPEARANCE')
   U.set_spell_level(you, 'clair_astral_projection_return', -(1))
   if U.teleport_to_saved(you, you, 'clair_astral_projection_original_location') then
@@ -4409,7 +4409,7 @@ M['EOC_CLAIR_ASTRAL_PROJECTION_INITIATE_POST_VEHICLE_CHECK'] = function(you, npc
 end
 C['EOC_CLAIR_ASTRAL_PROJECTION_MOVEMENT_STAMINA'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_astral_projection'))
+  return you:has_effect(U.eid('effect_clair_astral_projection'))
 end
 M['EOC_CLAIR_ASTRAL_PROJECTION_MOVEMENT_STAMINA'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4421,7 +4421,7 @@ M['EOC_CLAIR_ASTRAL_PROJECTION_MOVEMENT_STAMINA'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_ASTRAL_PROJECTION_NO_STAMINA_RETURN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_clair_astral_projection')) and (you:has_effect(EffectTypeId.new('winded')) or (m.stamina(you) == 0)))
+  return (you:has_effect(U.eid('effect_clair_astral_projection')) and (you:has_effect(U.eid('winded')) or (m.stamina(you) == 0)))
 end
 M['EOC_CLAIR_ASTRAL_PROJECTION_NO_STAMINA_RETURN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4433,7 +4433,7 @@ M['EOC_CLAIR_ASTRAL_PROJECTION_NO_STAMINA_RETURN'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_BETTER_SENSES_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_better_senses'))
+  return you:has_effect(U.eid('effect_clair_better_senses'))
 end
 M['EOC_CLAIR_BETTER_SENSES_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4454,7 +4454,7 @@ M['EOC_CLAIR_BETTER_SENSES_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_BETTER_SENSES_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_clair_better_senses')))
+  return (not you:has_effect(U.eid('effect_clair_better_senses')))
 end
 M['EOC_CLAIR_BETTER_SENSES_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4470,7 +4470,7 @@ M['EOC_CLAIR_BETTER_SENSES_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_CLEAR_SIGHT_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_clear_sight'))
+  return you:has_effect(U.eid('effect_clair_clear_sight'))
 end
 M['EOC_CLAIR_CLEAR_SIGHT_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4487,7 +4487,7 @@ M['EOC_CLAIR_CLEAR_SIGHT_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_CLEAR_SIGHT_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_clair_clear_sight')))
+  return (not you:has_effect(U.eid('effect_clair_clear_sight')))
 end
 M['EOC_CLAIR_CLEAR_SIGHT_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4503,7 +4503,7 @@ M['EOC_CLAIR_CLEAR_SIGHT_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_CRAFTING_ADD_BLINDNESS_WHEN_CRAFTING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_clair_craft_bonus')) and (('ACT_MULTIPLE_CRAFT' == tostring(ctx['activity'] or '')) or ('ACT_CRAFT' == tostring(ctx['activity'] or ''))))
+  return (you:has_effect(U.eid('effect_clair_craft_bonus')) and (('ACT_MULTIPLE_CRAFT' == tostring(ctx['activity'] or '')) or ('ACT_CRAFT' == tostring(ctx['activity'] or ''))))
 end
 M['EOC_CLAIR_CRAFTING_ADD_BLINDNESS_WHEN_CRAFTING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4516,20 +4516,20 @@ M['EOC_CLAIR_CRAFTING_ADD_BLINDNESS_WHEN_CRAFTING'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_CRAFTING_REMOVE_BLINDNESS_WHEN_DONE_CRAFTING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_clair_craft_bonus')) and you:has_effect(EffectTypeId.new('effect_clair_craft_bonus_blindness')) and (('ACT_MULTIPLE_CRAFT' == tostring(ctx['activity'] or '')) or ('ACT_CRAFT' == tostring(ctx['activity'] or ''))))
+  return (you:has_effect(U.eid('effect_clair_craft_bonus')) and you:has_effect(U.eid('effect_clair_craft_bonus_blindness')) and (('ACT_MULTIPLE_CRAFT' == tostring(ctx['activity'] or '')) or ('ACT_CRAFT' == tostring(ctx['activity'] or ''))))
 end
 M['EOC_CLAIR_CRAFTING_REMOVE_BLINDNESS_WHEN_DONE_CRAFTING'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_CLAIR_CRAFTING_REMOVE_BLINDNESS_WHEN_DONE_CRAFTING'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_clair_craft_bonus_blindness'))
+  you:remove_effect(U.eid('effect_clair_craft_bonus_blindness'))
   U.msg(you, 'You open your eyes as the visions fade.', MsgType.neutral, ctx)
   return true
 end
 C['EOC_CLAIR_CRAFT_BONUS_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_craft_bonus'))
+  return you:has_effect(U.eid('effect_clair_craft_bonus'))
 end
 M['EOC_CLAIR_CRAFT_BONUS_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4546,7 +4546,7 @@ M['EOC_CLAIR_CRAFT_BONUS_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_CRAFT_BONUS_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_clair_craft_bonus')))
+  return (not you:has_effect(U.eid('effect_clair_craft_bonus')))
 end
 M['EOC_CLAIR_CRAFT_BONUS_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4598,7 +4598,7 @@ M['EOC_CLAIR_CRYSTAL_DRAINING'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_DANGER_SENSE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_premonition'))
+  return you:has_effect(U.eid('effect_clair_premonition'))
 end
 M['EOC_CLAIR_DANGER_SENSE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4619,7 +4619,7 @@ M['EOC_CLAIR_DANGER_SENSE_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_DANGER_SENSE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_clair_premonition')))
+  return (not you:has_effect(U.eid('effect_clair_premonition')))
 end
 M['EOC_CLAIR_DANGER_SENSE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4647,7 +4647,7 @@ M['EOC_CLAIR_DISCERN_WEAKNESS'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_DODGE_POWER_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_dodge'))
+  return you:has_effect(U.eid('effect_clair_dodge'))
 end
 M['EOC_CLAIR_DODGE_POWER_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4664,7 +4664,7 @@ M['EOC_CLAIR_DODGE_POWER_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_DODGE_POWER_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_clair_dodge')))
+  return (not you:has_effect(U.eid('effect_clair_dodge')))
 end
 M['EOC_CLAIR_DODGE_POWER_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4718,7 +4718,7 @@ M['EOC_CLAIR_EXAMINE_ITEM_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_GROUP_TACTICS_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_group_tactics_self'))
+  return you:has_effect(U.eid('effect_clair_group_tactics_self'))
 end
 M['EOC_CLAIR_GROUP_TACTICS_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4735,7 +4735,7 @@ M['EOC_CLAIR_GROUP_TACTICS_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_GROUP_TACTICS_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_clair_group_tactics_self')))
+  return (not you:has_effect(U.eid('effect_clair_group_tactics_self')))
 end
 M['EOC_CLAIR_GROUP_TACTICS_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4752,7 +4752,7 @@ M['EOC_CLAIR_GROUP_TACTICS_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_ASTRAL_PROJECTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'clair_clear_sight') >= 6) and (m.spell_level(you, 'clair_voyance') >= 9)) or ((m.spell_level(you, 'clair_see_map') >= 8) and (m.spell_level(you, 'clair_voyance') >= 9)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_astral_projection') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_astral_projection'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'clair_clear_sight') >= 6) and (m.spell_level(you, 'clair_voyance') >= 9)) or ((m.spell_level(you, 'clair_see_map') >= 8) and (m.spell_level(you, 'clair_voyance') >= 9)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_astral_projection') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_astral_projection'))))
 end
 M['EOC_CLAIR_LEARNING_ASTRAL_PROJECTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4766,7 +4766,7 @@ M['EOC_CLAIR_LEARNING_ASTRAL_PROJECTION'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_AURA_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_better_senses') >= 5) and (m.spell_level(you, 'clair_spot_weakness') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_see_auras') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_aura_sight'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_better_senses') >= 5) and (m.spell_level(you, 'clair_spot_weakness') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_see_auras') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_aura_sight'))))
 end
 M['EOC_CLAIR_LEARNING_AURA_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4780,7 +4780,7 @@ M['EOC_CLAIR_LEARNING_AURA_SIGHT'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_CLEAR_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_night_vision') >= 10) and ((m.spell_level(you, 'clair_speed_reading') >= 8) or (m.spell_level(you, 'clair_dodge_power') >= 5) or (m.spell_level(you, 'clair_aura_sight') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_clear_sight') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_clear_sight'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_night_vision') >= 10) and ((m.spell_level(you, 'clair_speed_reading') >= 8) or (m.spell_level(you, 'clair_dodge_power') >= 5) or (m.spell_level(you, 'clair_aura_sight') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_clear_sight') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_clear_sight'))))
 end
 M['EOC_CLAIR_LEARNING_CLEAR_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4794,7 +4794,7 @@ M['EOC_CLAIR_LEARNING_CLEAR_SIGHT'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_CRAFT_BONUS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_speed_reading') >= 8) and (m.spell_level(you, 'clair_spot_weakness') >= 4) and (m.spell_level(you, 'clair_danger_sense') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_craft_bonus') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_craft_bonus'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_speed_reading') >= 8) and (m.spell_level(you, 'clair_spot_weakness') >= 4) and (m.spell_level(you, 'clair_danger_sense') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_craft_bonus') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_craft_bonus'))))
 end
 M['EOC_CLAIR_LEARNING_CRAFT_BONUS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4808,7 +4808,7 @@ M['EOC_CLAIR_LEARNING_CRAFT_BONUS'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_DODGE_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_voyance') >= 6) and ((m.spell_level(you, 'clair_danger_sense') >= 10) or (m.spell_level(you, 'clair_sense_hostile_creatures') >= 10)) and ((m.spell_level(you, 'clair_speed_reading') >= 10) or (m.spell_level(you, 'clair_spot_weakness') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_dodge_power') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_dodge_power'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_voyance') >= 6) and ((m.spell_level(you, 'clair_danger_sense') >= 10) or (m.spell_level(you, 'clair_sense_hostile_creatures') >= 10)) and ((m.spell_level(you, 'clair_speed_reading') >= 10) or (m.spell_level(you, 'clair_spot_weakness') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_dodge_power') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_dodge_power'))))
 end
 M['EOC_CLAIR_LEARNING_DODGE_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4822,7 +4822,7 @@ M['EOC_CLAIR_LEARNING_DODGE_POWER'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_EXAMINE_ITEM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'clair_see_auras') >= 6) or ((m.spell_level(you, 'clair_speed_reading') >= 8) or (m.spell_level(you, 'clair_danger_sense') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_examine_item') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_examine_item'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'clair_see_auras') >= 6) or ((m.spell_level(you, 'clair_speed_reading') >= 8) or (m.spell_level(you, 'clair_danger_sense') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_examine_item') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_examine_item'))))
 end
 M['EOC_CLAIR_LEARNING_EXAMINE_ITEM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4836,7 +4836,7 @@ M['EOC_CLAIR_LEARNING_EXAMINE_ITEM'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_GROUP_TACTICS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_ranged_enhance') >= 7) and (m.spell_level(you, 'clair_dodge_power') >= 8) and (m.spell_level(you, 'clair_clear_sight') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_group_tactics') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_group_tactics'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_ranged_enhance') >= 7) and (m.spell_level(you, 'clair_dodge_power') >= 8) and (m.spell_level(you, 'clair_clear_sight') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_group_tactics') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_group_tactics'))))
 end
 M['EOC_CLAIR_LEARNING_GROUP_TACTICS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4850,7 +4850,7 @@ M['EOC_CLAIR_LEARNING_GROUP_TACTICS'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_NIGHT_VISION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_better_senses') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_night_vision') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_night_vision'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_better_senses') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_night_vision') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_night_vision'))))
 end
 M['EOC_CLAIR_LEARNING_NIGHT_VISION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4864,7 +4864,7 @@ M['EOC_CLAIR_LEARNING_NIGHT_VISION'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_OMNISCIENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_clear_sight') >= 5) and ((m.spell_level(you, 'clair_see_map') >= 8) or (m.spell_level(you, 'clair_voyance') >= 14)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_omniscience') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_omniscience'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_clear_sight') >= 5) and ((m.spell_level(you, 'clair_see_map') >= 8) or (m.spell_level(you, 'clair_voyance') >= 14)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_omniscience') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_omniscience'))))
 end
 M['EOC_CLAIR_LEARNING_OMNISCIENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4878,7 +4878,7 @@ M['EOC_CLAIR_LEARNING_OMNISCIENCE'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_PERFECT_SHOT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'clair_ranged_enhance') >= 9)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_perfect_shot') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_perfect_shot'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'clair_ranged_enhance') >= 9)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_perfect_shot') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_perfect_shot'))))
 end
 M['EOC_CLAIR_LEARNING_PERFECT_SHOT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4892,7 +4892,7 @@ M['EOC_CLAIR_LEARNING_PERFECT_SHOT'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'clair_better_senses') >= 6)) and (V.uget(you, 'psi_learning_counter') == 1) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_danger_sense') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_danger_sense'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'clair_better_senses') >= 6)) and (V.uget(you, 'psi_learning_counter') == 1) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_danger_sense') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_danger_sense'))))
 end
 M['EOC_CLAIR_LEARNING_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4906,7 +4906,7 @@ M['EOC_CLAIR_LEARNING_PREMONITION'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_RANGED_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'clair_spot_weakness') >= 7)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_ranged_enhance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_ranged_enhance'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'clair_spot_weakness') >= 7)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_ranged_enhance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_ranged_enhance'))))
 end
 M['EOC_CLAIR_LEARNING_RANGED_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4920,7 +4920,7 @@ M['EOC_CLAIR_LEARNING_RANGED_ENHANCE'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_SEE_MAP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_voyance') >= 8) and ((m.spell_level(you, 'clair_danger_sense') >= 6) or (m.spell_level(you, 'clair_aura_sight') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_see_map') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_see_map'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_voyance') >= 8) and ((m.spell_level(you, 'clair_danger_sense') >= 6) or (m.spell_level(you, 'clair_aura_sight') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_see_map') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_see_map'))))
 end
 M['EOC_CLAIR_LEARNING_SEE_MAP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4934,7 +4934,7 @@ M['EOC_CLAIR_LEARNING_SEE_MAP'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_better_senses') >= 8) and (m.spell_level(you, 'clair_danger_sense') >= 6) and (m.spell_level(you, 'clair_aura_sight') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_sense_hostile_creatures') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_sense_hostile_creatures'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_better_senses') >= 8) and (m.spell_level(you, 'clair_danger_sense') >= 6) and (m.spell_level(you, 'clair_aura_sight') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_sense_hostile_creatures') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_sense_hostile_creatures'))))
 end
 M['EOC_CLAIR_LEARNING_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4948,7 +4948,7 @@ M['EOC_CLAIR_LEARNING_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_SPOT_WEAKNESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_danger_sense') >= 4) and (m.spell_level(you, 'clair_night_vision') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_spot_weakness') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_spot_weakness'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_danger_sense') >= 4) and (m.spell_level(you, 'clair_night_vision') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_spot_weakness') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_spot_weakness'))))
 end
 M['EOC_CLAIR_LEARNING_SPOT_WEAKNESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4962,7 +4962,7 @@ M['EOC_CLAIR_LEARNING_SPOT_WEAKNESS'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_LEARNING_VOYANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_danger_sense') >= 6) and ((m.spell_level(you, 'clair_aura_sight') >= 6) or (m.spell_level(you, 'clair_night_vision') >= 10)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_voyance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_voyance'))))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_danger_sense') >= 6) and ((m.spell_level(you, 'clair_aura_sight') >= 6) or (m.spell_level(you, 'clair_night_vision') >= 10)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_voyance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_voyance'))))
 end
 M['EOC_CLAIR_LEARNING_VOYANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -4976,7 +4976,7 @@ M['EOC_CLAIR_LEARNING_VOYANCE'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_CLAIR_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5005,7 +5005,7 @@ M['EOC_CLAIR_MATRIX_AWAKENING_2'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_CLAIR_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5044,7 +5044,7 @@ M['EOC_CLAIR_MATRIX_AWAKENING_SUCCESS'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_CLAIRSENTIENCE'))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_CLAIRSENTIENCE'))
 end
 M['EOC_CLAIR_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5056,7 +5056,7 @@ M['EOC_CLAIR_MATRIX_BOOST'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_NIGHT_EYES_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_night_eyes'))
+  return you:has_effect(U.eid('effect_clair_night_eyes'))
 end
 M['EOC_CLAIR_NIGHT_EYES_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5073,7 +5073,7 @@ M['EOC_CLAIR_NIGHT_EYES_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_NIGHT_EYES_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_clair_night_eyes')))
+  return (not you:has_effect(U.eid('effect_clair_night_eyes')))
 end
 M['EOC_CLAIR_NIGHT_EYES_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5089,7 +5089,7 @@ M['EOC_CLAIR_NIGHT_EYES_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_CLAIR_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5099,7 +5099,7 @@ M['EOC_CLAIR_POTION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You drink the concoction.', MsgType.neutral, ctx)
-  you:remove_effect(EffectTypeId.new('effect_clair_potion_comedown'))
+  you:remove_effect(U.eid('effect_clair_potion_comedown'))
   U.add_effect(you, 'effect_clair_potion', TimeDuration.from_hours(30), nil, nil)
   U.add_effect(you, 'effect_matrix_potion_nether_boost', TimeDuration.from_hours(30), nil, nil)
   util.queue_eoc(function(y) M['EOC_CLAIR_POTION_COMEDOWN'](y, npc, ctx) end, you, U.rng(43200, 108000))
@@ -5111,8 +5111,8 @@ C['EOC_CLAIR_POTION_COMEDOWN'] = function(you, npc, ctx)
 end
 M['EOC_CLAIR_POTION_COMEDOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  you:remove_effect(EffectTypeId.new('effect_clair_potion'))
-  you:remove_effect(EffectTypeId.new('effect_matrix_potion_nether_boost'))
+  you:remove_effect(U.eid('effect_clair_potion'))
+  you:remove_effect(U.eid('effect_matrix_potion_nether_boost'))
   U.add_effect(you, 'effect_clair_potion_comedown', U.rng_dur(TimeDuration.from_hours(24), TimeDuration.from_hours(55)), nil, nil)
   return true
 end
@@ -5139,7 +5139,7 @@ M['EOC_CLAIR_RAD_SENSE_OUTSIDE'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_RAD_SENSE_OUTSIDE_RECURRING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_sense_rads_self'))
+  return you:has_effect(U.eid('effect_clair_sense_rads_self'))
 end
 M['EOC_CLAIR_RAD_SENSE_OUTSIDE_RECURRING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5238,7 +5238,7 @@ M['EOC_CLAIR_RAD_SENSE_SELF_REPORT_6'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_RANGED_ENHANCE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_ranged_enhance'))
+  return you:has_effect(U.eid('effect_clair_ranged_enhance'))
 end
 M['EOC_CLAIR_RANGED_ENHANCE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5255,7 +5255,7 @@ M['EOC_CLAIR_RANGED_ENHANCE_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_RANGED_ENHANCE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_clair_ranged_enhance')))
+  return (not you:has_effect(U.eid('effect_clair_ranged_enhance')))
 end
 M['EOC_CLAIR_RANGED_ENHANCE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5271,7 +5271,7 @@ M['EOC_CLAIR_RANGED_ENHANCE_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_CLAIR_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5283,7 +5283,7 @@ M['EOC_CLAIR_RECIPE_TEACHER'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_REMOVE_BETTER_SENSES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_better_senses'))
+  return you:has_effect(U.eid('effect_clair_better_senses'))
 end
 M['EOC_CLAIR_REMOVE_BETTER_SENSES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5292,12 +5292,12 @@ M['EOC_CLAIR_REMOVE_BETTER_SENSES'] = function(you, npc, ctx)
   end
   U.msg(you, 'The world now seems separated from you by a thin veil.', MsgType.good, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_clair_better_senses'))
+  you:remove_effect(U.eid('effect_clair_better_senses'))
   return true
 end
 C['EOC_CLAIR_REMOVE_CLEAR_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_clear_sight'))
+  return you:has_effect(U.eid('effect_clair_clear_sight'))
 end
 M['EOC_CLAIR_REMOVE_CLEAR_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5305,12 +5305,12 @@ M['EOC_CLAIR_REMOVE_CLEAR_SIGHT'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_clair_clear_sight'))
+  you:remove_effect(U.eid('effect_clair_clear_sight'))
   return true
 end
 C['EOC_CLAIR_REMOVE_CRAFT_BONUS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_craft_bonus'))
+  return you:has_effect(U.eid('effect_clair_craft_bonus'))
 end
 M['EOC_CLAIR_REMOVE_CRAFT_BONUS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5318,8 +5318,8 @@ M['EOC_CLAIR_REMOVE_CRAFT_BONUS'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_clair_craft_bonus'))
-  you:remove_effect(EffectTypeId.new('effect_clair_craft_bonus_blindness'))
+  you:remove_effect(U.eid('effect_clair_craft_bonus'))
+  you:remove_effect(U.eid('effect_clair_craft_bonus_blindness'))
   U.unset_mutation(you, 'CLAIR_CRAFT_BONUS_01')
   U.unset_mutation(you, 'CLAIR_CRAFT_BONUS_02')
   U.unset_mutation(you, 'CLAIR_CRAFT_BONUS_03')
@@ -5330,7 +5330,7 @@ M['EOC_CLAIR_REMOVE_CRAFT_BONUS'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_REMOVE_DANGER_SENSE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_premonition'))
+  return you:has_effect(U.eid('effect_clair_premonition'))
 end
 M['EOC_CLAIR_REMOVE_DANGER_SENSE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5338,12 +5338,12 @@ M['EOC_CLAIR_REMOVE_DANGER_SENSE'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_clair_premonition'))
+  you:remove_effect(U.eid('effect_clair_premonition'))
   return true
 end
 C['EOC_CLAIR_REMOVE_DODGE_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_dodge'))
+  return you:has_effect(U.eid('effect_clair_dodge'))
 end
 M['EOC_CLAIR_REMOVE_DODGE_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5351,12 +5351,12 @@ M['EOC_CLAIR_REMOVE_DODGE_POWER'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_clair_dodge'))
+  you:remove_effect(U.eid('effect_clair_dodge'))
   return true
 end
 C['EOC_CLAIR_REMOVE_GROUP_TACTICS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_group_tactics_self'))
+  return you:has_effect(U.eid('effect_clair_group_tactics_self'))
 end
 M['EOC_CLAIR_REMOVE_GROUP_TACTICS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5365,33 +5365,33 @@ M['EOC_CLAIR_REMOVE_GROUP_TACTICS'] = function(you, npc, ctx)
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_clair_group_tactics_self'))
+  you:remove_effect(U.eid('effect_clair_group_tactics_self'))
   return true
 end
 C['EOC_CLAIR_REMOVE_NIGHT_EYES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_night_eyes'))
+  return you:has_effect(U.eid('effect_clair_night_eyes'))
 end
 M['EOC_CLAIR_REMOVE_NIGHT_EYES'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_CLAIR_REMOVE_NIGHT_EYES'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_clair_night_eyes_1'))
-  you:remove_effect(EffectTypeId.new('effect_clair_night_eyes_2'))
-  you:remove_effect(EffectTypeId.new('effect_clair_night_eyes_3'))
-  you:remove_effect(EffectTypeId.new('effect_clair_night_eyes_4'))
-  you:remove_effect(EffectTypeId.new('effect_clair_night_eyes_5'))
-  you:remove_effect(EffectTypeId.new('effect_clair_night_eyes_6'))
-  you:remove_effect(EffectTypeId.new('effect_clair_night_eyes_7'))
-  you:remove_effect(EffectTypeId.new('effect_clair_night_eyes_8'))
-  you:remove_effect(EffectTypeId.new('effect_clair_night_eyes'))
+  you:remove_effect(U.eid('effect_clair_night_eyes_1'))
+  you:remove_effect(U.eid('effect_clair_night_eyes_2'))
+  you:remove_effect(U.eid('effect_clair_night_eyes_3'))
+  you:remove_effect(U.eid('effect_clair_night_eyes_4'))
+  you:remove_effect(U.eid('effect_clair_night_eyes_5'))
+  you:remove_effect(U.eid('effect_clair_night_eyes_6'))
+  you:remove_effect(U.eid('effect_clair_night_eyes_7'))
+  you:remove_effect(U.eid('effect_clair_night_eyes_8'))
+  you:remove_effect(U.eid('effect_clair_night_eyes'))
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   return true
 end
 C['EOC_CLAIR_REMOVE_RANGED_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_ranged_enhance'))
+  return you:has_effect(U.eid('effect_clair_ranged_enhance'))
 end
 M['EOC_CLAIR_REMOVE_RANGED_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5399,12 +5399,12 @@ M['EOC_CLAIR_REMOVE_RANGED_ENHANCE'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_clair_ranged_enhance'))
+  you:remove_effect(U.eid('effect_clair_ranged_enhance'))
   return true
 end
 C['EOC_CLAIR_REMOVE_SEE_AURAS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_see_auras'))
+  return you:has_effect(U.eid('effect_clair_see_auras'))
 end
 M['EOC_CLAIR_REMOVE_SEE_AURAS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5412,12 +5412,12 @@ M['EOC_CLAIR_REMOVE_SEE_AURAS'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_clair_see_auras'))
+  you:remove_effect(U.eid('effect_clair_see_auras'))
   return true
 end
 C['EOC_CLAIR_REMOVE_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures'))
+  return you:has_effect(U.eid('effect_clair_sense_hostile_creatures'))
 end
 M['EOC_CLAIR_REMOVE_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5425,12 +5425,12 @@ M['EOC_CLAIR_REMOVE_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures'))
+  you:remove_effect(U.eid('effect_clair_sense_hostile_creatures'))
   return true
 end
 C['EOC_CLAIR_REMOVE_SPEED_READ'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_speed_reader'))
+  return you:has_effect(U.eid('effect_clair_speed_reader'))
 end
 M['EOC_CLAIR_REMOVE_SPEED_READ'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5439,12 +5439,12 @@ M['EOC_CLAIR_REMOVE_SPEED_READ'] = function(you, npc, ctx)
   end
   U.msg(you, 'Your eyes ache a bit.  Maybe it\'s time to put the book down.', MsgType.good, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_clair_speed_reader'))
+  you:remove_effect(U.eid('effect_clair_speed_reader'))
   return true
 end
 C['EOC_CLAIR_SEE_AURAS_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_see_auras'))
+  return you:has_effect(U.eid('effect_clair_see_auras'))
 end
 M['EOC_CLAIR_SEE_AURAS_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5461,7 +5461,7 @@ M['EOC_CLAIR_SEE_AURAS_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_SEE_AURAS_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_clair_see_auras')))
+  return (not you:has_effect(U.eid('effect_clair_see_auras')))
 end
 M['EOC_CLAIR_SEE_AURAS_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5477,7 +5477,7 @@ M['EOC_CLAIR_SEE_AURAS_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_SENSE_HOSTILE_CREATURES_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures'))
+  return you:has_effect(U.eid('effect_clair_sense_hostile_creatures'))
 end
 M['EOC_CLAIR_SENSE_HOSTILE_CREATURES_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5494,7 +5494,7 @@ M['EOC_CLAIR_SENSE_HOSTILE_CREATURES_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_SENSE_HOSTILE_CREATURES_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures')))
+  return (not you:has_effect(U.eid('effect_clair_sense_hostile_creatures')))
 end
 M['EOC_CLAIR_SENSE_HOSTILE_CREATURES_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5510,7 +5510,7 @@ M['EOC_CLAIR_SENSE_HOSTILE_CREATURES_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_SPEED_READING_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_clair_speed_reader'))
+  return you:has_effect(U.eid('effect_clair_speed_reader'))
 end
 M['EOC_CLAIR_SPEED_READING_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5527,7 +5527,7 @@ M['EOC_CLAIR_SPEED_READING_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_CLAIR_SPEED_READING_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_clair_speed_reader')))
+  return (not you:has_effect(U.eid('effect_clair_speed_reader')))
 end
 M['EOC_CLAIR_SPEED_READING_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5580,7 +5580,7 @@ M['EOC_CONCENTRATION_IN_NETHER_AREAS_ATTUNEMENT'] = function(you, npc, ctx)
 end
 C['EOC_CONCENTRATION_LIMIT_INSTANT_UPDATER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('ELECTROKINETIC')) or you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('VITAKINETIC')) or you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))) and (m.maintained_count(you) >= 1))
+  return ((you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('ELECTROKINETIC')) or you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('VITAKINETIC')) or you:has_trait(U.mid('PSYCHIC_KNACK'))) and (m.maintained_count(you) >= 1))
 end
 M['EOC_CONCENTRATION_LIMIT_INSTANT_UPDATER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5595,7 +5595,7 @@ M['EOC_CONCENTRATION_LIMIT_INSTANT_UPDATER'] = function(you, npc, ctx)
 end
 C['EOC_CONCENTRATION_SUCCESS_PROFICIENCY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_BASIC'))) and (not U.test_eoc(C, 'EOC_CONDITION_MOM_BANNED_EFFECTS_TO_PRACTICE_CONCENTRATION', you, npc, ctx)) and (m.maintained_count(you) > 0))
+  return ((not you:has_trait(U.mid('PROF_CONCENTRATION_BASIC'))) and (not U.test_eoc(C, 'EOC_CONDITION_MOM_BANNED_EFFECTS_TO_PRACTICE_CONCENTRATION', you, npc, ctx)) and (m.maintained_count(you) > 0))
 end
 M['EOC_CONCENTRATION_SUCCESS_PROFICIENCY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5608,7 +5608,7 @@ M['EOC_CONCENTRATION_SUCCESS_PROFICIENCY'] = function(you, npc, ctx)
 end
 C['EOC_CONCENTRATION_SUCCESS_PROFICIENCY_INT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_INTERMEDIATE'))) and (not U.test_eoc(C, 'EOC_CONDITION_MOM_BANNED_EFFECTS_TO_PRACTICE_CONCENTRATION', you, npc, ctx)) and (m.maintained_count(you) > 0))
+  return ((not you:has_trait(U.mid('PROF_CONCENTRATION_INTERMEDIATE'))) and (not U.test_eoc(C, 'EOC_CONDITION_MOM_BANNED_EFFECTS_TO_PRACTICE_CONCENTRATION', you, npc, ctx)) and (m.maintained_count(you) > 0))
 end
 M['EOC_CONCENTRATION_SUCCESS_PROFICIENCY_INT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5621,7 +5621,7 @@ M['EOC_CONCENTRATION_SUCCESS_PROFICIENCY_INT'] = function(you, npc, ctx)
 end
 C['EOC_CONCENTRATION_SUCCESS_PROFICIENCY_MASTER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_MASTER'))) and (not U.test_eoc(C, 'EOC_CONDITION_MOM_BANNED_EFFECTS_TO_PRACTICE_CONCENTRATION', you, npc, ctx)) and (m.maintained_count(you) > 0))
+  return ((not you:has_trait(U.mid('PROF_CONCENTRATION_MASTER'))) and (not U.test_eoc(C, 'EOC_CONDITION_MOM_BANNED_EFFECTS_TO_PRACTICE_CONCENTRATION', you, npc, ctx)) and (m.maintained_count(you) > 0))
 end
 M['EOC_CONCENTRATION_SUCCESS_PROFICIENCY_MASTER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5650,13 +5650,13 @@ end
 M['EOC_CONCENTRATION_VS_LIMIT_CALCULATIONS'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_CONCENTRATION_VS_LIMIT_CALCULATIONS'](you, npc, ctx) then
-    if you:has_effect(EffectTypeId.new('effect_psi_intense_concentration')) then
+    if you:has_effect(U.eid('effect_psi_intense_concentration')) then
       U.msg(you, 'The pressure on your mind lightens.  It\'s easier to concentrate now.', MsgType.good, ctx)
-      you:remove_effect(EffectTypeId.new('effect_psi_intense_concentration'))
+      you:remove_effect(U.eid('effect_psi_intense_concentration'))
     end
     return false
   end
-  if (not you:has_effect(EffectTypeId.new('effect_psi_intense_concentration'))) then
+  if (not you:has_effect(U.eid('effect_psi_intense_concentration'))) then
     U.msg(you, 'It\'s taking you a lot of concentration to maintain your powers.  You\'re not sure you\'ll be able to do it for very long.', MsgType.bad, ctx)
     U.add_effect(you, 'effect_psi_intense_concentration', 'PERMANENT', nil, nil)
   end
@@ -5686,7 +5686,7 @@ M['EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER'] = function(you, npc, ctx)
 end
 C['EOC_CONDITION_HAS_MIND'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((((not U.badcond('EOC_CONDITION_HAS_MIND', 'npc_has_species')) and U.has_creature_flag(npc, 'HAS_MIND')) or ((not U.badcond('EOC_CONDITION_HAS_MIND', 'npc_has_species')) and (not U.badcond('EOC_CONDITION_HAS_MIND', 'npc_has_species')) and U.has_creature_flag(npc, 'HUMAN')) or U.badcond('EOC_CONDITION_HAS_MIND', 'npc_is_npc')) and (not npc:has_effect(EffectTypeId.new('eff_monster_immune_to_telepathy'))) and (not U.has_creature_flag(npc, 'TEEP_IMMUNE')))
+  return ((((not U.badcond('EOC_CONDITION_HAS_MIND', 'npc_has_species')) and U.has_creature_flag(npc, 'HAS_MIND')) or ((not U.badcond('EOC_CONDITION_HAS_MIND', 'npc_has_species')) and (not U.badcond('EOC_CONDITION_HAS_MIND', 'npc_has_species')) and U.has_creature_flag(npc, 'HUMAN')) or U.badcond('EOC_CONDITION_HAS_MIND', 'npc_is_npc')) and (not npc:has_effect(U.eid('eff_monster_immune_to_telepathy'))) and (not U.has_creature_flag(npc, 'TEEP_IMMUNE')))
 end
 M['EOC_CONDITION_HAS_MIND'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5697,7 +5697,7 @@ M['EOC_CONDITION_HAS_MIND'] = function(you, npc, ctx)
 end
 C['EOC_CONDITION_LIST_OF_POWERS_CANCELLED_BY_COMBAT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (npc:has_effect(EffectTypeId.new('effect_biokin_metabolism_enhance')) or npc:has_effect(EffectTypeId.new('effect_clair_speed_reader')) or npc:has_effect(EffectTypeId.new('effect_clair_see_auras')) or npc:has_effect(EffectTypeId.new('effect_clair_craft_bonus')) or npc:has_effect(EffectTypeId.new('effect_clair_perfect_shot')) or npc:has_effect(EffectTypeId.new('effect_photokin_light_local')) or npc:has_effect(EffectTypeId.new('effect_pyrokinetic_fire_tool')) or U.has_item(npc, 'pyrokinetic_torch_weld') or npc:has_effect(EffectTypeId.new('effect_telekinetic_strength')) or U.has_item(npc, 'telekin_lifting_jack_1') or U.has_item(npc, 'telekin_lifting_jack_2') or U.has_item(npc, 'telekin_lifting_jack_3') or U.has_item(npc, 'telekin_lifting_jack_4') or U.has_item(npc, 'telekin_lifting_jack_5') or U.has_item(npc, 'telekin_lifting_jack_6') or U.has_item(npc, 'telekin_lifting_jack_7') or U.has_item(npc, 'telekin_lifting_jack_8') or U.has_item(npc, 'telekin_lifting_jack_9') or U.has_item(npc, 'telekin_lifting_jack_10') or U.has_item(npc, 'telekin_lifting_jack_11') or U.has_item(npc, 'telekin_lifting_jack_12') or U.has_item(npc, 'telekin_lifting_jack_13') or U.has_item(npc, 'telekin_lifting_jack_14') or U.has_item(npc, 'telekin_lifting_jack_15') or U.has_item(npc, 'telekin_lifting_jack_16') or U.has_item(npc, 'telekin_lifting_jack_17') or U.has_item(npc, 'telekin_lifting_jack_18') or U.has_item(npc, 'telekin_lifting_jack_19') or U.has_item(npc, 'telekin_lifting_jack_20') or npc:has_effect(EffectTypeId.new('effect_telekinetic_levitation')) or npc:has_effect(EffectTypeId.new('effect_telepathic_learning_bonus')))
+  return (npc:has_effect(U.eid('effect_biokin_metabolism_enhance')) or npc:has_effect(U.eid('effect_clair_speed_reader')) or npc:has_effect(U.eid('effect_clair_see_auras')) or npc:has_effect(U.eid('effect_clair_craft_bonus')) or npc:has_effect(U.eid('effect_clair_perfect_shot')) or npc:has_effect(U.eid('effect_photokin_light_local')) or npc:has_effect(U.eid('effect_pyrokinetic_fire_tool')) or U.has_item(npc, 'pyrokinetic_torch_weld') or npc:has_effect(U.eid('effect_telekinetic_strength')) or U.has_item(npc, 'telekin_lifting_jack_1') or U.has_item(npc, 'telekin_lifting_jack_2') or U.has_item(npc, 'telekin_lifting_jack_3') or U.has_item(npc, 'telekin_lifting_jack_4') or U.has_item(npc, 'telekin_lifting_jack_5') or U.has_item(npc, 'telekin_lifting_jack_6') or U.has_item(npc, 'telekin_lifting_jack_7') or U.has_item(npc, 'telekin_lifting_jack_8') or U.has_item(npc, 'telekin_lifting_jack_9') or U.has_item(npc, 'telekin_lifting_jack_10') or U.has_item(npc, 'telekin_lifting_jack_11') or U.has_item(npc, 'telekin_lifting_jack_12') or U.has_item(npc, 'telekin_lifting_jack_13') or U.has_item(npc, 'telekin_lifting_jack_14') or U.has_item(npc, 'telekin_lifting_jack_15') or U.has_item(npc, 'telekin_lifting_jack_16') or U.has_item(npc, 'telekin_lifting_jack_17') or U.has_item(npc, 'telekin_lifting_jack_18') or U.has_item(npc, 'telekin_lifting_jack_19') or U.has_item(npc, 'telekin_lifting_jack_20') or npc:has_effect(U.eid('effect_telekinetic_levitation')) or npc:has_effect(U.eid('effect_telepathic_learning_bonus')))
 end
 M['EOC_CONDITION_LIST_OF_POWERS_CANCELLED_BY_COMBAT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5708,7 +5708,7 @@ M['EOC_CONDITION_LIST_OF_POWERS_CANCELLED_BY_COMBAT'] = function(you, npc, ctx)
 end
 C['EOC_CONDITION_MOM_BANNED_EFFECTS_TO_PRACTICE_CONCENTRATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.unported_num('EOC_CONDITION_MOM_BANNED_EFFECTS_TO_PRACTICE_CONCENTRATION', 'u_vitamin:BAC') > 1000) or you:has_effect(EffectTypeId.new('winded')) or you:has_effect(EffectTypeId.new('weed_high')) or you:has_effect(EffectTypeId.new('high')) or you:has_effect(EffectTypeId.new('datura')) or you:has_effect(EffectTypeId.new('hallu')) or you:has_effect(EffectTypeId.new('nausea')) or you:has_effect(EffectTypeId.new('meth')) or you:has_effect(EffectTypeId.new('onfire')) or you:has_effect(EffectTypeId.new('onfire')) or you:has_effect(EffectTypeId.new('onfire')) or you:has_effect(EffectTypeId.new('onfire')) or you:has_effect(EffectTypeId.new('onfire')) or you:has_effect(EffectTypeId.new('onfire')))
+  return ((U.unported_num('EOC_CONDITION_MOM_BANNED_EFFECTS_TO_PRACTICE_CONCENTRATION', 'u_vitamin:BAC') > 1000) or you:has_effect(U.eid('winded')) or you:has_effect(U.eid('weed_high')) or you:has_effect(U.eid('high')) or you:has_effect(U.eid('datura')) or you:has_effect(U.eid('hallu')) or you:has_effect(U.eid('nausea')) or you:has_effect(U.eid('meth')) or you:has_effect(U.eid('onfire')) or you:has_effect(U.eid('onfire')) or you:has_effect(U.eid('onfire')) or you:has_effect(U.eid('onfire')) or you:has_effect(U.eid('onfire')) or you:has_effect(U.eid('onfire')))
 end
 M['EOC_CONDITION_MOM_BANNED_EFFECTS_TO_PRACTICE_CONCENTRATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5719,7 +5719,7 @@ M['EOC_CONDITION_MOM_BANNED_EFFECTS_TO_PRACTICE_CONCENTRATION'] = function(you, 
 end
 C['EOC_CONDITION_MOM_QUALIFY_FOR_BIOKINETIC_KNACK_CRAFTING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PSYCHIC_KNACK')) and ((m.spell_level(you, 'biokin_flexibility_knack') >= 5) or (m.spell_level(you, 'biokin_adrenaline_knack') >= 5)))
+  return (you:has_trait(U.mid('PSYCHIC_KNACK')) and ((m.spell_level(you, 'biokin_flexibility_knack') >= 5) or (m.spell_level(you, 'biokin_adrenaline_knack') >= 5)))
 end
 M['EOC_CONDITION_MOM_QUALIFY_FOR_BIOKINETIC_KNACK_CRAFTING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5730,7 +5730,7 @@ M['EOC_CONDITION_MOM_QUALIFY_FOR_BIOKINETIC_KNACK_CRAFTING'] = function(you, npc
 end
 C['EOC_CONDITION_MOM_QUALIFY_FOR_PYROKINETIC_KNACK_CRAFTING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PSYCHIC_KNACK')) and ((m.spell_level(you, 'pyrokinetic_flash_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_intensify_flames_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_eruption_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_call_flames_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_cloak_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_flamethrower_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_aura_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_blast_knack') >= 5)))
+  return (you:has_trait(U.mid('PSYCHIC_KNACK')) and ((m.spell_level(you, 'pyrokinetic_flash_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_intensify_flames_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_eruption_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_call_flames_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_cloak_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_flamethrower_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_aura_knack') >= 5) or (m.spell_level(you, 'pyrokinetic_blast_knack') >= 5)))
 end
 M['EOC_CONDITION_MOM_QUALIFY_FOR_PYROKINETIC_KNACK_CRAFTING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5741,7 +5741,7 @@ M['EOC_CONDITION_MOM_QUALIFY_FOR_PYROKINETIC_KNACK_CRAFTING'] = function(you, np
 end
 C['EOC_CONDITION_MOM_QUALIFY_FOR_VITAKINETIC_KNACK_CRAFTING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PSYCHIC_KNACK')) and ((m.spell_level(you, 'vita_health_power_knack') >= 5) or (m.spell_level(you, 'vita_concentrated_healing_knack') >= 5) or (m.spell_level(you, 'vita_remove_poison_knack') >= 5) or (m.spell_level(you, 'vita_cure_disease_knack') >= 5) or (m.spell_level(you, 'vita_banish_illness_knack') >= 5)))
+  return (you:has_trait(U.mid('PSYCHIC_KNACK')) and ((m.spell_level(you, 'vita_health_power_knack') >= 5) or (m.spell_level(you, 'vita_concentrated_healing_knack') >= 5) or (m.spell_level(you, 'vita_remove_poison_knack') >= 5) or (m.spell_level(you, 'vita_cure_disease_knack') >= 5) or (m.spell_level(you, 'vita_banish_illness_knack') >= 5)))
 end
 M['EOC_CONDITION_MOM_QUALIFY_FOR_VITAKINETIC_KNACK_CRAFTING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5752,7 +5752,7 @@ M['EOC_CONDITION_MOM_QUALIFY_FOR_VITAKINETIC_KNACK_CRAFTING'] = function(you, np
 end
 C['EOC_CONDITION_MONSTER_MAINTAINING_PSI_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_monster_hardened_skin')) or you:has_effect(EffectTypeId.new('effect_monster_heightened_reflex')) or you:has_effect(EffectTypeId.new('effect_monster_heightened_reflex_enhanced')) or you:has_effect(EffectTypeId.new('effect_psi_biokin3_hurricane_blows')) or you:has_effect(EffectTypeId.new('effect_feral_heightened_senses')) or you:has_effect(EffectTypeId.new('effect_feral_heightened_senses_2')) or you:has_effect(EffectTypeId.new('effect_feral_combat_sense_2')) or you:has_effect(EffectTypeId.new('effect_feral_combat_sense_3')) or you:has_effect(EffectTypeId.new('effect_feral_heightened_senses_3')) or you:has_effect(EffectTypeId.new('effect_feral_regeneration')) or you:has_effect(EffectTypeId.new('effect_pattern_screamer_rock_thrower')) or you:has_effect(EffectTypeId.new('effect_monster_neuro_acceleration')) or you:has_effect(EffectTypeId.new('effect_monster_neuro_acceleration_enhanced')) or you:has_effect(EffectTypeId.new('effect_monster_pyrokinetic_fire_immunity')) or you:has_effect(EffectTypeId.new('effect_monster_momentum_alteration')) or you:has_effect(EffectTypeId.new('effect_monster_inertial_barrier')) or you:has_effect(EffectTypeId.new('effect_monster_inertial_barrier_improved')) or you:has_effect(EffectTypeId.new('effect_telepath_network_monster_effect')))
+  return (you:has_effect(U.eid('effect_monster_hardened_skin')) or you:has_effect(U.eid('effect_monster_heightened_reflex')) or you:has_effect(U.eid('effect_monster_heightened_reflex_enhanced')) or you:has_effect(U.eid('effect_psi_biokin3_hurricane_blows')) or you:has_effect(U.eid('effect_feral_heightened_senses')) or you:has_effect(U.eid('effect_feral_heightened_senses_2')) or you:has_effect(U.eid('effect_feral_combat_sense_2')) or you:has_effect(U.eid('effect_feral_combat_sense_3')) or you:has_effect(U.eid('effect_feral_heightened_senses_3')) or you:has_effect(U.eid('effect_feral_regeneration')) or you:has_effect(U.eid('effect_pattern_screamer_rock_thrower')) or you:has_effect(U.eid('effect_monster_neuro_acceleration')) or you:has_effect(U.eid('effect_monster_neuro_acceleration_enhanced')) or you:has_effect(U.eid('effect_monster_pyrokinetic_fire_immunity')) or you:has_effect(U.eid('effect_monster_momentum_alteration')) or you:has_effect(U.eid('effect_monster_inertial_barrier')) or you:has_effect(U.eid('effect_monster_inertial_barrier_improved')) or you:has_effect(U.eid('effect_telepath_network_monster_effect')))
 end
 M['EOC_CONDITION_MONSTER_MAINTAINING_PSI_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5763,7 +5763,7 @@ M['EOC_CONDITION_MONSTER_MAINTAINING_PSI_POWER'] = function(you, npc, ctx)
 end
 C['EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.near_om_location(you, 'unvitrified_farm_0', 2) or U.near_om_location(you, 'unvitrified_farm_1', 2) or U.near_om_location(you, 'unvitrified_farm_neg_1', 2) or U.near_om_location(you, 'unvitrified_farm_2', 2) or U.near_om_location(you, 'vitrified_farm_0', 2) or U.near_om_location(you, 'vitrified_farm_1', 2) or U.near_om_location(you, 'vitrified_farm_neg_1', 2) or U.near_om_location(you, 'vitrified_farm_2', 2) or U.near_om_location(you, 'microlab_portal_elevator_physics_glass', 2) or U.near_om_location(you, 'microlab_distorted_hallway', 2) or U.near_om_location(you, 'microlab_distorted', 2) or U.near_om_location(you, 'microlab_distorted_edge', 2) or U.near_om_location(you, 'microlab_portal_elevator_physics_glass', 2) or U.near_om_location(you, 'corpse_surface', 0) or U.near_om_location(you, 'corpse_bowels_neck_right', 2) or U.near_om_location(you, 'corpse_bowels_neck_left', 2) or U.near_om_location(you, 'corpse_bowels_neck_edge_center', 2) or U.near_om_location(you, 'corpse_bowels_rcorner', 2) or U.near_om_location(you, 'corpse_bowels_lcorner', 2) or U.near_om_location(you, 'corpse_bowels_empty_edge', 2) or U.near_om_location(you, 'corpse_bowels_mid', 2) or U.near_om_location(you, 'corpse_tentacle', 2) or U.near_om_location(you, 'corpse_tentacle_entry', 2) or U.near_om_location(you, 'corpse_tentacle_surface_entry', 0) or U.near_om_location(you, 'corpse_bowels_tentacle_edge', 2) or U.near_om_location(you, 'corpse_bowels_empty_edge', 2) or U.near_om_location(you, 'corpse_head', 2) or U.near_om_location(you, 'corpse_brain', 2) or U.near_om_location(you, 'corpse_under_brain', 2) or U.near_om_location(you, 'corpse_head_edge', 2) or U.near_om_location(you, 'corpse_head_fin', 2) or U.near_om_location(you, 'corpse_head_lcorner', 2) or U.near_om_location(you, 'corpse_head_rcorner', 2) or U.near_om_location(you, 'corpse_head_neck_l', 2) or U.near_om_location(you, 'corpse_head_neck_r', 2) or U.near_om_location(you, 'corpse_head_neck_center', 2) or U.near_om_location(you, 'corpse_head_neck_l_decap', 2) or U.near_om_location(you, 'corpse_head_neck_r', 2) or U.near_om_location(you, 'corpse_head_neck_r_decap', 2) or U.near_om_location(you, 'corpse_head_neck_center_decap', 2) or U.near_om_location(you, 'nether_crystal_field', 1) or U.near_om_location(you, 'psi_phavian_lab_blockB1', 2) or U.near_om_location(you, 'psi_phavian_lab_blockD1', 2) or U.near_om_location(you, 'psi_phavian_lab_blockB3', 2) or U.near_om_location(you, 'psi_phavian_lab_blockD3', 2) or U.near_om_location(you, 'psi_phavian_lab_block2B1', 2) or U.near_om_location(you, 'psi_phavian_lab_block2D1', 2) or U.near_om_location(you, 'psi_phavian_lab_block2B3', 2) or U.near_om_location(you, 'psi_phavian_lab_block2D3', 2) or U.near_om_location(you, 'psi_phavian_lab_block3B1', 2) or U.near_om_location(you, 'psi_phavian_lab_block3D1', 2) or U.near_om_location(you, 'psi_phavian_lab_block3B3', 2) or U.near_om_location(you, 'psi_phavian_lab_block3D3', 2) or U.near_om_location(you, 'psi_phavian_lab_block4B1', 2) or U.near_om_location(you, 'psi_phavian_lab_block4D1', 2) or U.near_om_location(you, 'psi_phavian_lab_block4B3', 2) or U.near_om_location(you, 'psi_phavian_lab_block4D3', 2) or U.near_om_location(you, 'psi_phavian_lab_block5B1', 2) or U.near_om_location(you, 'psi_phavian_lab_block5D1', 2) or U.near_om_location(you, 'psi_phavian_lab_block5B3', 2) or U.near_om_location(you, 'psi_phavian_lab_block5D3', 2) or U.near_om_location(you, 'LIXA_surface_1b_north', 2) or U.near_om_location(you, 'LIXA_roof_1a_north', 2) or U.near_om_location(you, 'LIXA_stairshaft_1a_north', 2) or U.near_om_location(you, 'LIXA_stairshaft_2a_north', 2) or U.near_om_location(you, 'LIXA_device_2_north', 2) or U.near_om_location(you, 'LIXA_device_unfolded_noaccess_north', 2) or U.near_om_location(you, 'LIXA_entry_2_north', 2) or U.near_om_location(you, 'LIXA_road_north', 2) or U.near_om_location(you, 'LIXA_road_guard_north', 2))
+  return (U.near_any_om_location(you, {'unvitrified_farm_0', 'unvitrified_farm_1', 'unvitrified_farm_neg_1', 'unvitrified_farm_2', 'vitrified_farm_0', 'vitrified_farm_1', 'vitrified_farm_neg_1', 'vitrified_farm_2', 'microlab_portal_elevator_physics_glass', 'microlab_distorted_hallway', 'microlab_distorted', 'microlab_distorted_edge', 'microlab_portal_elevator_physics_glass'}, 2) or U.near_om_location(you, 'corpse_surface', 0) or U.near_any_om_location(you, {'corpse_bowels_neck_right', 'corpse_bowels_neck_left', 'corpse_bowels_neck_edge_center', 'corpse_bowels_rcorner', 'corpse_bowels_lcorner', 'corpse_bowels_empty_edge', 'corpse_bowels_mid', 'corpse_tentacle', 'corpse_tentacle_entry'}, 2) or U.near_om_location(you, 'corpse_tentacle_surface_entry', 0) or U.near_any_om_location(you, {'corpse_bowels_tentacle_edge', 'corpse_bowels_empty_edge', 'corpse_head', 'corpse_brain', 'corpse_under_brain', 'corpse_head_edge', 'corpse_head_fin', 'corpse_head_lcorner', 'corpse_head_rcorner', 'corpse_head_neck_l', 'corpse_head_neck_r', 'corpse_head_neck_center', 'corpse_head_neck_l_decap', 'corpse_head_neck_r', 'corpse_head_neck_r_decap', 'corpse_head_neck_center_decap'}, 2) or U.near_om_location(you, 'nether_crystal_field', 1) or U.near_any_om_location(you, {'psi_phavian_lab_blockB1', 'psi_phavian_lab_blockD1', 'psi_phavian_lab_blockB3', 'psi_phavian_lab_blockD3', 'psi_phavian_lab_block2B1', 'psi_phavian_lab_block2D1', 'psi_phavian_lab_block2B3', 'psi_phavian_lab_block2D3', 'psi_phavian_lab_block3B1', 'psi_phavian_lab_block3D1', 'psi_phavian_lab_block3B3', 'psi_phavian_lab_block3D3', 'psi_phavian_lab_block4B1', 'psi_phavian_lab_block4D1', 'psi_phavian_lab_block4B3', 'psi_phavian_lab_block4D3', 'psi_phavian_lab_block5B1', 'psi_phavian_lab_block5D1', 'psi_phavian_lab_block5B3', 'psi_phavian_lab_block5D3', 'LIXA_surface_1b_north', 'LIXA_roof_1a_north', 'LIXA_stairshaft_1a_north', 'LIXA_stairshaft_2a_north', 'LIXA_device_2_north', 'LIXA_device_unfolded_noaccess_north', 'LIXA_entry_2_north', 'LIXA_road_north', 'LIXA_road_guard_north'}, 2))
 end
 M['EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5818,7 +5818,7 @@ M['EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT'] = function(you, npc, ct
 end
 C['EOC_CONDITION_PSI_REQUIRED_FOR_LEARNING_NEW_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_psi_learning_new_power')) and (not (you:has_effect(EffectTypeId.new('sleep')) or you:has_effect(EffectTypeId.new('effect_vitakin_wakeful_resting')) or you:has_effect(EffectTypeId.new('lack_sleep')) or you:has_effect(EffectTypeId.new('sleep_deprived')) or you:has_effect(EffectTypeId.new('under_operation')))) and (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS'))))
+  return (you:has_effect(U.eid('effect_psi_learning_new_power')) and (not (you:has_effect(U.eid('sleep')) or you:has_effect(U.eid('effect_vitakin_wakeful_resting')) or you:has_effect(U.eid('lack_sleep')) or you:has_effect(U.eid('sleep_deprived')) or you:has_effect(U.eid('under_operation')))) and (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS'))))
 end
 M['EOC_CONDITION_PSI_REQUIRED_FOR_LEARNING_NEW_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5829,7 +5829,7 @@ M['EOC_CONDITION_PSI_REQUIRED_FOR_LEARNING_NEW_POWER'] = function(you, npc, ctx)
 end
 C['EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('ELECTROKINETIC')) or you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('VITAKINETIC')) or you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))) and (('BIOKINETIC' == tostring(ctx['school'] or '')) or ('CLAIRSENTIENT' == tostring(ctx['school'] or '')) or ('ELECTROKINETIC' == tostring(ctx['school'] or '')) or ('PHOTOKINETIC' == tostring(ctx['school'] or '')) or ('PYROKINETIC' == tostring(ctx['school'] or '')) or ('TELEKINETIC' == tostring(ctx['school'] or '')) or ('TELEPATH' == tostring(ctx['school'] or '')) or ('TELEPORTER' == tostring(ctx['school'] or '')) or ('VITAKINETIC' == tostring(ctx['school'] or '')) or ('PSYCHIC_KNACK' == tostring(ctx['school'] or ''))))
+  return ((you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('ELECTROKINETIC')) or you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('VITAKINETIC')) or you:has_trait(U.mid('PSYCHIC_KNACK'))) and (('BIOKINETIC' == tostring(ctx['school'] or '')) or ('CLAIRSENTIENT' == tostring(ctx['school'] or '')) or ('ELECTROKINETIC' == tostring(ctx['school'] or '')) or ('PHOTOKINETIC' == tostring(ctx['school'] or '')) or ('PYROKINETIC' == tostring(ctx['school'] or '')) or ('TELEKINETIC' == tostring(ctx['school'] or '')) or ('TELEPATH' == tostring(ctx['school'] or '')) or ('TELEPORTER' == tostring(ctx['school'] or '')) or ('VITAKINETIC' == tostring(ctx['school'] or '')) or ('PSYCHIC_KNACK' == tostring(ctx['school'] or ''))))
 end
 M['EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5840,7 +5840,7 @@ M['EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST'] = function(you, npc
 end
 C['EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.near_om_location(you, 'nether_glass_deep', 2) or U.near_om_location(you, 'nether_glass', 2) or U.badcond('EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', 'u_at_om_location') or U.near_om_location(you, 'void_spider_lair', 2) or U.badcond('EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', 'current_dimension') or U.badcond('EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', 'current_dimension') or U.badcond('EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', 'current_dimension') or U.near_om_location(you, 'inner_cabins_depths', 2) or ((you:get_pos_ms().z == 6) and (not U.is_outside(you)) and U.badcond('EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', 'u_is_on_terrain')) or you:has_trait(MutationBranchId.new('DEFORMED_INTERSTICE')))
+  return (U.near_any_om_location(you, {'nether_glass_deep', 'nether_glass'}, 2) or U.badcond('EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', 'u_at_om_location') or U.near_om_location(you, 'void_spider_lair', 2) or U.badcond('EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', 'current_dimension') or U.badcond('EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', 'current_dimension') or U.badcond('EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', 'current_dimension') or U.near_om_location(you, 'inner_cabins_depths', 2) or ((you:get_pos_ms().z == 6) and (not U.is_outside(you)) and U.badcond('EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', 'u_is_on_terrain')) or you:has_trait(U.mid('DEFORMED_INTERSTICE')))
 end
 M['EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -5864,7 +5864,7 @@ M['EOC_CORUSCATING_CRYSTAL_DRAINING'] = function(you, npc, ctx)
 end
 C['EOC_CORUSCATING_MATRIX'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_CORUSCATING_MATRIX'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6017,7 +6017,7 @@ M['EOC_DRAIN_EFFECT_CHECK_NOSEBLEED'] = function(you, npc, ctx)
 end
 C['EOC_DRAIN_EFFECT_CHECK_POWER_SURGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((m.attunement(you) >= 85) or you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active')))
+  return ((m.attunement(you) >= 85) or you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active')))
 end
 M['EOC_DRAIN_EFFECT_CHECK_POWER_SURGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6101,13 +6101,13 @@ C['EOC_DRAIN_RESIST_POTION_COMEDOWN'] = function(you, npc, ctx)
 end
 M['EOC_DRAIN_RESIST_POTION_COMEDOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  you:remove_effect(EffectTypeId.new('effect_noetic_resilience'))
+  you:remove_effect(U.eid('effect_noetic_resilience'))
   U.add_effect(you, 'effect_noetic_resilience_comedown', U.rng_dur(TimeDuration.from_hours(24), TimeDuration.from_hours(55)), nil, nil)
   return true
 end
 C['EOC_DRAIN_RESIST_POTION_COMEDOWN_PENALTY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_noetic_resilience_comedown'))
+  return you:has_effect(U.eid('effect_noetic_resilience_comedown'))
 end
 M['EOC_DRAIN_RESIST_POTION_COMEDOWN_PENALTY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6131,7 +6131,7 @@ C['EOC_DRAIN_RESIST_POTION_START_EFFECTS'] = function(you, npc, ctx)
 end
 M['EOC_DRAIN_RESIST_POTION_START_EFFECTS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  you:remove_effect(EffectTypeId.new('effect_noetic_resilience_comedown'))
+  you:remove_effect(U.eid('effect_noetic_resilience_comedown'))
   U.add_effect(you, 'effect_noetic_resilience', TimeDuration.from_hours(30), nil, nil)
   util.queue_eoc(function(y) M['EOC_DRAIN_RESIST_POTION_COMEDOWN'](y, npc, ctx) end, you, U.rng(64800, 108000))
   return true
@@ -6150,12 +6150,12 @@ M['EOC_DRINKING_NETHER_WATER_NIGHTMARES_GAIN'] = function(you, npc, ctx)
 end
 C['EOC_DRINKING_NETHER_WATER_NIGHTMARES_OCCUR'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_black_nether_water_nightmares')) and U.x_in_y(1, 4))
+  return (you:has_effect(U.eid('effect_black_nether_water_nightmares')) and U.x_in_y(1, 4))
 end
 M['EOC_DRINKING_NETHER_WATER_NIGHTMARES_OCCUR'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_DRINKING_NETHER_WATER_NIGHTMARES_OCCUR'](you, npc, ctx) then
-    you:remove_effect(EffectTypeId.new('effect_black_nether_water_nightmares'))
+    you:remove_effect(U.eid('effect_black_nether_water_nightmares'))
     return false
   end
   U.unported('EOC_DRINKING_NETHER_WATER_NIGHTMARES_OCCUR', 'effect-parse-error')
@@ -6205,7 +6205,7 @@ M['EOC_EATER_DRAIN_3'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_ELECTROKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6234,7 +6234,7 @@ M['EOC_ELECTROKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_HACKING_INTERFACE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_hacking_interface'))
+  return you:has_effect(U.eid('effect_electrokin_hacking_interface'))
 end
 M['EOC_ELECTROKIN_HACKING_INTERFACE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6259,7 +6259,7 @@ M['EOC_ELECTROKIN_HACKING_INTERFACE_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_HACKING_INTERFACE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_electrokin_hacking_interface')))
+  return (not you:has_effect(U.eid('effect_electrokin_hacking_interface')))
 end
 M['EOC_ELECTROKIN_HACKING_INTERFACE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6310,7 +6310,7 @@ M['EOC_ELECTROKIN_HACKING_INTERFACE_SWITCHER'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_HACKING_INTERFACE_UPDATER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_hacking_interface'))
+  return you:has_effect(U.eid('effect_electrokin_hacking_interface'))
 end
 M['EOC_ELECTROKIN_HACKING_INTERFACE_UPDATER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6323,7 +6323,7 @@ M['EOC_ELECTROKIN_HACKING_INTERFACE_UPDATER'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LEARNING_HACKING_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_see_electric') >= 4) and (m.spell_level(you, 'electrokinetic_shock_touch') >= 4) and (m.spell_level(you, 'electrokinetic_personal_battery') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_hacking_interface') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_hacking_interface'))))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_see_electric') >= 4) and (m.spell_level(you, 'electrokinetic_shock_touch') >= 4) and (m.spell_level(you, 'electrokinetic_personal_battery') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_hacking_interface') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_hacking_interface'))))
 end
 M['EOC_ELECTROKIN_LEARNING_HACKING_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6337,7 +6337,7 @@ M['EOC_ELECTROKIN_LEARNING_HACKING_INTERFACE'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LEARNING_KILL_ROBOT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'electrokinetic_recharge_vehicle') >= 8) or (m.spell_level(you, 'electrokinetic_lightning_bolt') >= 8) or (m.spell_level(you, 'electrokinetic_melee_attacks') >= 13)) and (m.spell_level(you, 'electrokinetic_see_electric') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_kill_robot') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_kill_robot'))))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'electrokinetic_recharge_vehicle') >= 8) or (m.spell_level(you, 'electrokinetic_lightning_bolt') >= 8) or (m.spell_level(you, 'electrokinetic_melee_attacks') >= 13)) and (m.spell_level(you, 'electrokinetic_see_electric') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_kill_robot') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_kill_robot'))))
 end
 M['EOC_ELECTROKIN_LEARNING_KILL_ROBOT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6351,7 +6351,7 @@ M['EOC_ELECTROKIN_LEARNING_KILL_ROBOT'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LEARNING_LIGHTNING_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_zap_enemies') >= 12) and ((m.spell_level(you, 'electrokinetic_personal_battery') >= 15) or (m.spell_level(you, 'electrokinetic_recharge_vehicle') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_lightning_aura') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_lightning_aura'))))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_zap_enemies') >= 12) and ((m.spell_level(you, 'electrokinetic_personal_battery') >= 15) or (m.spell_level(you, 'electrokinetic_recharge_vehicle') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_lightning_aura') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_lightning_aura'))))
 end
 M['EOC_ELECTROKIN_LEARNING_LIGHTNING_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6365,7 +6365,7 @@ M['EOC_ELECTROKIN_LEARNING_LIGHTNING_AURA'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LEARNING_LIGHTNING_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'electrokinetic_kill_robot') >= 6) or (m.spell_level(you, 'electrokinetic_lightning_bolt') >= 10)) and ((m.spell_level(you, 'electrokinetic_melee_attacks') >= 8) or (m.spell_level(you, 'electrokinetic_shock_touch') >= 12)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_lightning_blast') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_lightning_blast'))))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'electrokinetic_kill_robot') >= 6) or (m.spell_level(you, 'electrokinetic_lightning_bolt') >= 10)) and ((m.spell_level(you, 'electrokinetic_melee_attacks') >= 8) or (m.spell_level(you, 'electrokinetic_shock_touch') >= 12)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_lightning_blast') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_lightning_blast'))))
 end
 M['EOC_ELECTROKIN_LEARNING_LIGHTNING_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6379,7 +6379,7 @@ M['EOC_ELECTROKIN_LEARNING_LIGHTNING_BLAST'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LEARNING_LIGHTNING_BOLT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'electrokinetic_shock_touch') >= 12) or (m.spell_level(you, 'electrokinetic_melee_attacks') >= 8)) and (m.spell_level(you, 'electrokinetic_zap_enemies') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_lightning_bolt') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_lightning_bolt'))))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'electrokinetic_shock_touch') >= 12) or (m.spell_level(you, 'electrokinetic_melee_attacks') >= 8)) and (m.spell_level(you, 'electrokinetic_zap_enemies') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_lightning_bolt') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_lightning_bolt'))))
 end
 M['EOC_ELECTROKIN_LEARNING_LIGHTNING_BOLT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6393,7 +6393,7 @@ M['EOC_ELECTROKIN_LEARNING_LIGHTNING_BOLT'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LEARNING_PAIN_IMMUNE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'electrokinetic_reduce_pain') >= 9)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_pain_immune') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_pain_immune'))))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'electrokinetic_reduce_pain') >= 9)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_pain_immune') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_pain_immune'))))
 end
 M['EOC_ELECTROKIN_LEARNING_PAIN_IMMUNE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6407,7 +6407,7 @@ M['EOC_ELECTROKIN_LEARNING_PAIN_IMMUNE'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LEARNING_PARALYSIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_see_electric') >= 6) and ((m.spell_level(you, 'electrokinetic_melee_attacks') >= 5) or (m.spell_level(you, 'electrokinetic_shock_touch') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_paralysis') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_paralysis'))))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_see_electric') >= 6) and ((m.spell_level(you, 'electrokinetic_melee_attacks') >= 5) or (m.spell_level(you, 'electrokinetic_shock_touch') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_paralysis') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_paralysis'))))
 end
 M['EOC_ELECTROKIN_LEARNING_PARALYSIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6421,7 +6421,7 @@ M['EOC_ELECTROKIN_LEARNING_PARALYSIS'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LEARNING_PERSONAL_BATTERY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_see_electric') >= 5) and (m.spell_level(you, 'electrokinetic_zap_enemies') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_personal_battery') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_personal_battery'))))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_see_electric') >= 5) and (m.spell_level(you, 'electrokinetic_zap_enemies') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_personal_battery') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_personal_battery'))))
 end
 M['EOC_ELECTROKIN_LEARNING_PERSONAL_BATTERY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6435,7 +6435,7 @@ M['EOC_ELECTROKIN_LEARNING_PERSONAL_BATTERY'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LEARNING_REDUCE_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_paralysis') >= 4) or ((m.spell_level(you, 'electrokinetic_see_electric') >= 8) and (m.spell_level(you, 'electrokinetic_zap_enemies') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_reduce_pain') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_reduce_pain'))))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_paralysis') >= 4) or ((m.spell_level(you, 'electrokinetic_see_electric') >= 8) and (m.spell_level(you, 'electrokinetic_zap_enemies') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_reduce_pain') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_reduce_pain'))))
 end
 M['EOC_ELECTROKIN_LEARNING_REDUCE_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6449,7 +6449,7 @@ M['EOC_ELECTROKIN_LEARNING_REDUCE_PAIN'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LEARNING_REVIVE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_speed_boost') >= 8) and ((m.spell_level(you, 'electrokinetic_reduce_pain') >= 13) or (m.spell_level(you, 'electrokinetic_pain_immune') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_revive') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_revive'))))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_speed_boost') >= 8) and ((m.spell_level(you, 'electrokinetic_reduce_pain') >= 13) or (m.spell_level(you, 'electrokinetic_pain_immune') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_revive') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_revive'))))
 end
 M['EOC_ELECTROKIN_LEARNING_REVIVE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6463,7 +6463,7 @@ M['EOC_ELECTROKIN_LEARNING_REVIVE'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LEARNING_ROBOT_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_see_electric') >= 12) and (m.spell_level(you, 'electrokinetic_hacking_interface') >= 8) and (m.spell_level(you, 'electrokinetic_kill_robot') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_robot_interface') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_robot_interface'))))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_see_electric') >= 12) and (m.spell_level(you, 'electrokinetic_hacking_interface') >= 8) and (m.spell_level(you, 'electrokinetic_kill_robot') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_robot_interface') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_robot_interface'))))
 end
 M['EOC_ELECTROKIN_LEARNING_ROBOT_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6477,7 +6477,7 @@ M['EOC_ELECTROKIN_LEARNING_ROBOT_INTERFACE'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LEARNING_SPEED_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'electrokinetic_personal_battery') >= 11) or (m.spell_level(you, 'electrokinetic_paralysis') >= 6)) and ((m.spell_level(you, 'electrokinetic_zap_enemies') >= 8) or (m.spell_level(you, 'electrokinetic_see_electric') >= 5)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_speed_boost') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_speed_boost'))))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'electrokinetic_personal_battery') >= 11) or (m.spell_level(you, 'electrokinetic_paralysis') >= 6)) and ((m.spell_level(you, 'electrokinetic_zap_enemies') >= 8) or (m.spell_level(you, 'electrokinetic_see_electric') >= 5)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_speed_boost') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_speed_boost'))))
 end
 M['EOC_ELECTROKIN_LEARNING_SPEED_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6491,7 +6491,7 @@ M['EOC_ELECTROKIN_LEARNING_SPEED_BOOST'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LEARNING_ZAP_ENEMIES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_shock_touch') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_zap_enemies') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_zap_enemies'))))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'electrokinetic_shock_touch') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'electrokinetic_zap_enemies') <= 0) and (not you:knows_recipe(RecipeId.new('practice_electrokinetic_zap_enemies'))))
 end
 M['EOC_ELECTROKIN_LEARNING_ZAP_ENEMIES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6505,7 +6505,7 @@ M['EOC_ELECTROKIN_LEARNING_ZAP_ENEMIES'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LIGHTNING_AURA_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokinetic_lightning_aura'))
+  return you:has_effect(U.eid('effect_electrokinetic_lightning_aura'))
 end
 M['EOC_ELECTROKIN_LIGHTNING_AURA_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6522,7 +6522,7 @@ M['EOC_ELECTROKIN_LIGHTNING_AURA_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LIGHTNING_AURA_EFFECTS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokinetic_lightning_aura'))
+  return you:has_effect(U.eid('effect_electrokinetic_lightning_aura'))
 end
 M['EOC_ELECTROKIN_LIGHTNING_AURA_EFFECTS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6537,7 +6537,7 @@ M['EOC_ELECTROKIN_LIGHTNING_AURA_EFFECTS'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_LIGHTNING_AURA_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_electrokinetic_lightning_aura')))
+  return (not you:has_effect(U.eid('effect_electrokinetic_lightning_aura')))
 end
 M['EOC_ELECTROKIN_LIGHTNING_AURA_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6559,7 +6559,7 @@ end
 M['EOC_ELECTROKIN_MONSTER_PARALYSIS'] = function(you, npc, ctx)
   ctx = ctx or {}
   ctx['duration'] = U.rng(1.5, 4)
-  if (not (you:has_effect(EffectTypeId.new('effect_electrokinetic_speed_boost')) or you:has_effect(EffectTypeId.new('effect_monster_neuro_acceleration')) or you:has_effect(EffectTypeId.new('effect_monster_neuro_acceleration')))) then
+  if (not (you:has_effect(U.eid('effect_electrokinetic_speed_boost')) or you:has_effect(U.eid('effect_monster_neuro_acceleration')) or you:has_effect(U.eid('effect_monster_neuro_acceleration')))) then
     U.add_effect(you, 'downed', TimeDuration.from_turns(U.round((ctx['duration'] or 0))), nil, nil)
     U.add_effect(you, 'psi_dazed', TimeDuration.from_turns(U.round((ctx['duration'] or 0))), nil, nil)
     U.add_effect(you, 'effect_electrokin_paralysis', TimeDuration.from_turns(U.round((ctx['duration'] or 0))), nil, nil)
@@ -6570,20 +6570,20 @@ M['EOC_ELECTROKIN_MONSTER_PARALYSIS'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_PAIN_IMMUNE_OFF'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokinetic_pain_immune'))
+  return you:has_effect(U.eid('effect_electrokinetic_pain_immune'))
 end
 M['EOC_ELECTROKIN_PAIN_IMMUNE_OFF'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_ELECTROKIN_PAIN_IMMUNE_OFF'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_electrokinetic_pain_immune'))
+  you:remove_effect(U.eid('effect_electrokinetic_pain_immune'))
   you:set_pain(U.round((m.pain(you)) + ((V.uget(you, 'electrokin_pain_value') * 1.1))))
   return true
 end
 C['EOC_ELECTROKIN_PAIN_IMMUNE_ON'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_electrokinetic_pain_immune')))
+  return (not you:has_effect(U.eid('effect_electrokinetic_pain_immune')))
 end
 M['EOC_ELECTROKIN_PAIN_IMMUNE_ON'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6606,7 +6606,7 @@ M['EOC_ELECTROKIN_PARALYSIS'] = function(you, npc, ctx)
   if not C['EOC_ELECTROKIN_PARALYSIS'](you, npc, ctx) then
     return false
   end
-  if (not (you:has_effect(EffectTypeId.new('effect_electrokinetic_speed_boost')) or you:has_effect(EffectTypeId.new('effect_monster_neuro_acceleration')) or you:has_effect(EffectTypeId.new('effect_monster_neuro_acceleration')))) then
+  if (not (you:has_effect(U.eid('effect_electrokinetic_speed_boost')) or you:has_effect(U.eid('effect_monster_neuro_acceleration')) or you:has_effect(U.eid('effect_monster_neuro_acceleration')))) then
     V.uset(you, 'paralysis_electrokin_intelligence', ((m.int(npc) + 10) / 20))
     V.uset(you, 'paralysis_electrokin_power_level', m.spell_level(npc, 'electrokinetic_paralysis'))
     V.uset(you, 'nether_attunement_paralysis_scaling', V.uget(npc, 'nether_attunement_power_scaling'))
@@ -6624,7 +6624,7 @@ M['EOC_ELECTROKIN_PARALYSIS'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_PERSONAL_BATTERY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_personal_battery'))
+  return you:has_effect(U.eid('effect_electrokin_personal_battery'))
 end
 M['EOC_ELECTROKIN_PERSONAL_BATTERY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6674,7 +6674,7 @@ M['EOC_ELECTROKIN_PERSONAL_BATTERY_EFFECT_AMMEND_ITEM_COUNT'] = function(you, np
 end
 C['EOC_ELECTROKIN_PERSONAL_BATTERY_EFFECT_BEGIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_personal_battery'))
+  return you:has_effect(U.eid('effect_electrokin_personal_battery'))
 end
 M['EOC_ELECTROKIN_PERSONAL_BATTERY_EFFECT_BEGIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6751,7 +6751,7 @@ M['EOC_ELECTROKIN_PERSONAL_BATTERY_GET_ITEM_COUNT_2'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_PERSONAL_BATTERY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_nether_attunement_electrokinetic_power_drain')))
+  return (not you:has_effect(U.eid('effect_nether_attunement_electrokinetic_power_drain')))
 end
 M['EOC_ELECTROKIN_PERSONAL_BATTERY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6765,7 +6765,7 @@ M['EOC_ELECTROKIN_PERSONAL_BATTERY_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_PERSONAL_BATTERY_INITIATE_REAL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_electrokin_personal_battery')))
+  return (not you:has_effect(U.eid('effect_electrokin_personal_battery')))
 end
 M['EOC_ELECTROKIN_PERSONAL_BATTERY_INITIATE_REAL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6782,7 +6782,7 @@ M['EOC_ELECTROKIN_PERSONAL_BATTERY_INITIATE_REAL'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_ELECTROKIN_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6792,7 +6792,7 @@ M['EOC_ELECTROKIN_POTION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You drink the concoction.', MsgType.neutral, ctx)
-  you:remove_effect(EffectTypeId.new('effect_electrokin_potion_comedown'))
+  you:remove_effect(U.eid('effect_electrokin_potion_comedown'))
   U.add_effect(you, 'effect_electrokin_potion', TimeDuration.from_hours(30), nil, nil)
   U.add_effect(you, 'effect_matrix_potion_nether_boost', TimeDuration.from_hours(30), nil, nil)
   M['EOC_ELECTROKIN_POTION_JITTERS_CHECKER'](you, npc, ctx)
@@ -6805,8 +6805,8 @@ C['EOC_ELECTROKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
 end
 M['EOC_ELECTROKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  you:remove_effect(EffectTypeId.new('effect_electrokin_potion'))
-  you:remove_effect(EffectTypeId.new('effect_matrix_potion_nether_boost'))
+  you:remove_effect(U.eid('effect_electrokin_potion'))
+  you:remove_effect(U.eid('effect_matrix_potion_nether_boost'))
   if (V.uget(you, 'preexisting_jittery_trait') ~= 1) then
     U.set_mutation(you, 'JITTERY')
   end
@@ -6829,7 +6829,7 @@ M['EOC_ELECTROKIN_POTION_COMEDOWN_END'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_POTION_JITTERS_CHECKER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('JITTERY')) and (not you:has_effect(EffectTypeId.new('effect_electrokin_potion_comedown'))))
+  return (you:has_trait(U.mid('JITTERY')) and (not you:has_effect(U.eid('effect_electrokin_potion_comedown'))))
 end
 M['EOC_ELECTROKIN_POTION_JITTERS_CHECKER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6841,7 +6841,7 @@ M['EOC_ELECTROKIN_POTION_JITTERS_CHECKER'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_ELECTROKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6853,7 +6853,7 @@ M['EOC_ELECTROKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_REDUCE_PAIN_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_reduce_pain'))
+  return you:has_effect(U.eid('effect_electrokin_reduce_pain'))
 end
 M['EOC_ELECTROKIN_REDUCE_PAIN_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6870,7 +6870,7 @@ M['EOC_ELECTROKIN_REDUCE_PAIN_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_REDUCE_PAIN_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_electrokin_reduce_pain')))
+  return (not you:has_effect(U.eid('effect_electrokin_reduce_pain')))
 end
 M['EOC_ELECTROKIN_REDUCE_PAIN_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6886,7 +6886,7 @@ M['EOC_ELECTROKIN_REDUCE_PAIN_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_hacking_interface'))
+  return you:has_effect(U.eid('effect_electrokin_hacking_interface'))
 end
 M['EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6895,12 +6895,12 @@ M['EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE'] = function(you, npc, ctx)
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   M['EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_electrokin_hacking_interface'))
+  you:remove_effect(U.eid('effect_electrokin_hacking_interface'))
   return true
 end
 C['EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_hacking_interface'))
+  return you:has_effect(U.eid('effect_electrokin_hacking_interface'))
 end
 M['EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6923,7 +6923,7 @@ M['EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE_REMOVE_ITEM'] = function(you, npc, ct
 end
 C['EOC_ELECTROKIN_REMOVE_LIGHTNING_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokinetic_lightning_aura'))
+  return you:has_effect(U.eid('effect_electrokinetic_lightning_aura'))
 end
 M['EOC_ELECTROKIN_REMOVE_LIGHTNING_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6931,26 +6931,26 @@ M['EOC_ELECTROKIN_REMOVE_LIGHTNING_AURA'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_electrokinetic_lightning_aura'))
+  you:remove_effect(U.eid('effect_electrokinetic_lightning_aura'))
   U.add_effect(you, 'effect_electrokinetic_lightning_aura_aftershock', TimeDuration.from_seconds(5), nil, nil)
   return true
 end
 C['EOC_ELECTROKIN_REMOVE_PERSONAL_BATTERY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_personal_battery'))
+  return you:has_effect(U.eid('effect_electrokin_personal_battery'))
 end
 M['EOC_ELECTROKIN_REMOVE_PERSONAL_BATTERY'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_ELECTROKIN_REMOVE_PERSONAL_BATTERY'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_electrokin_personal_battery'))
+  you:remove_effect(U.eid('effect_electrokin_personal_battery'))
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   return true
 end
 C['EOC_ELECTROKIN_REMOVE_REDUCE_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_reduce_pain'))
+  return you:has_effect(U.eid('effect_electrokin_reduce_pain'))
 end
 M['EOC_ELECTROKIN_REMOVE_REDUCE_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6958,12 +6958,12 @@ M['EOC_ELECTROKIN_REMOVE_REDUCE_PAIN'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_electrokin_reduce_pain'))
+  you:remove_effect(U.eid('effect_electrokin_reduce_pain'))
   return true
 end
 C['EOC_ELECTROKIN_REMOVE_SEE_ELECTRICITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_see_electricity'))
+  return you:has_effect(U.eid('effect_electrokin_see_electricity'))
 end
 M['EOC_ELECTROKIN_REMOVE_SEE_ELECTRICITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6971,12 +6971,12 @@ M['EOC_ELECTROKIN_REMOVE_SEE_ELECTRICITY'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_electrokin_see_electricity'))
+  you:remove_effect(U.eid('effect_electrokin_see_electricity'))
   return true
 end
 C['EOC_ELECTROKIN_REMOVE_SPEED_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokinetic_speed_boost'))
+  return you:has_effect(U.eid('effect_electrokinetic_speed_boost'))
 end
 M['EOC_ELECTROKIN_REMOVE_SPEED_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6984,12 +6984,12 @@ M['EOC_ELECTROKIN_REMOVE_SPEED_BOOST'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_electrokinetic_speed_boost'))
+  you:remove_effect(U.eid('effect_electrokinetic_speed_boost'))
   return true
 end
 C['EOC_ELECTROKIN_REMOVE_ZAP_ENEMIES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_zap_enemies'))
+  return you:has_effect(U.eid('effect_electrokin_zap_enemies'))
 end
 M['EOC_ELECTROKIN_REMOVE_ZAP_ENEMIES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -6997,7 +6997,7 @@ M['EOC_ELECTROKIN_REMOVE_ZAP_ENEMIES'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_electrokin_zap_enemies'))
+  you:remove_effect(U.eid('effect_electrokin_zap_enemies'))
   return true
 end
 C['EOC_ELECTROKIN_ROBOT_INTERFACE'] = function(you, npc, ctx)
@@ -7012,7 +7012,7 @@ M['EOC_ELECTROKIN_ROBOT_INTERFACE'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_SEE_ELECTRICITY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_see_electricity'))
+  return you:has_effect(U.eid('effect_electrokin_see_electricity'))
 end
 M['EOC_ELECTROKIN_SEE_ELECTRICITY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7037,7 +7037,7 @@ M['EOC_ELECTROKIN_SEE_ELECTRICITY_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_SEE_ELECTRICITY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_electrokin_see_electricity')))
+  return (not you:has_effect(U.eid('effect_electrokin_see_electricity')))
 end
 M['EOC_ELECTROKIN_SEE_ELECTRICITY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7053,7 +7053,7 @@ M['EOC_ELECTROKIN_SEE_ELECTRICITY_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_SPEED_BOOST_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokinetic_speed_boost'))
+  return you:has_effect(U.eid('effect_electrokinetic_speed_boost'))
 end
 M['EOC_ELECTROKIN_SPEED_BOOST_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7070,7 +7070,7 @@ M['EOC_ELECTROKIN_SPEED_BOOST_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_SPEED_BOOST_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_electrokinetic_speed_boost')))
+  return (not you:has_effect(U.eid('effect_electrokinetic_speed_boost')))
 end
 M['EOC_ELECTROKIN_SPEED_BOOST_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7122,7 +7122,7 @@ M['EOC_ELECTROKIN_USE_ROBOT_INTERFACE_ACTIVATE'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_ZAP_ENEMIES_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_zap_enemies'))
+  return you:has_effect(U.eid('effect_electrokin_zap_enemies'))
 end
 M['EOC_ELECTROKIN_ZAP_ENEMIES_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7139,7 +7139,7 @@ M['EOC_ELECTROKIN_ZAP_ENEMIES_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_ELECTROKIN_ZAP_ENEMIES_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_electrokin_zap_enemies')))
+  return (not you:has_effect(U.eid('effect_electrokin_zap_enemies')))
 end
 M['EOC_ELECTROKIN_ZAP_ENEMIES_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7180,7 +7180,7 @@ M['EOC_ELECTRONKINETIC_MONSTER_POWER_DRAINING_CHARACTER_CHECK'] = function(you, 
 end
 C['EOC_ELECTRONKINETIC_MONSTER_POWER_DRAINING_ELECTROKINETIC_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_electrokin_personal_battery')))
+  return (not you:has_effect(U.eid('effect_electrokin_personal_battery')))
 end
 M['EOC_ELECTRONKINETIC_MONSTER_POWER_DRAINING_ELECTROKINETIC_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7229,7 +7229,7 @@ M['EOC_ELECTRO_CRYSTAL_DRAINING'] = function(you, npc, ctx)
 end
 C['EOC_ELECTRO_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) or you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) or you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_ELECTRO_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7258,7 +7258,7 @@ M['EOC_ELECTRO_MATRIX_AWAKENING_2'] = function(you, npc, ctx)
 end
 C['EOC_ELECTRO_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_ELECTRO_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7297,7 +7297,7 @@ M['EOC_ELECTRO_MATRIX_AWAKENING_SUCCESS'] = function(you, npc, ctx)
 end
 C['EOC_ELECTRO_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_ELECTROKINESIS'))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_ELECTROKINESIS'))
 end
 M['EOC_ELECTRO_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7309,7 +7309,7 @@ M['EOC_ELECTRO_MATRIX_BOOST'] = function(you, npc, ctx)
 end
 C['EOC_ELECTRO_OVERLOAD_ZAP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_electrokin_overload'))
+  return you:has_effect(U.eid('effect_electrokin_overload'))
 end
 M['EOC_ELECTRO_OVERLOAD_ZAP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7396,17 +7396,17 @@ M['EOC_END_PSI_POWERS'] = function(you, npc, ctx)
   M['EOC_VITAKIN_REMOVE_NO_NEED_FOR_SLEEP'](you, npc, ctx)
   M['EOC_VITAKIN_REMOVE_SUPER_HEAL'](you, npc, ctx)
   M['EOC_VITAKIN_REMOVE_RETURN_FROM_DEATH'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_biokin_sealed'))
-  you:remove_effect(EffectTypeId.new('effect_clair_sense_rads_self'))
-  you:remove_effect(EffectTypeId.new('effect_clair_perfect_shot'))
-  you:remove_effect(EffectTypeId.new('effect_clair_omniscence'))
-  you:remove_effect(EffectTypeId.new('effect_photokin_arms'))
-  you:remove_effect(EffectTypeId.new('effect_telekinetic_slowfall'))
-  you:remove_effect(EffectTypeId.new('effect_telekinetic_aegis'))
-  you:remove_effect(EffectTypeId.new('effect_telepath_invisibility'))
-  you:remove_effect(EffectTypeId.new('effect_telepath_network_effect'))
-  you:remove_effect(EffectTypeId.new('effect_vitakin_purge_rads'))
-  you:remove_effect(EffectTypeId.new('effect_psi_intense_concentration'))
+  you:remove_effect(U.eid('effect_biokin_sealed'))
+  you:remove_effect(U.eid('effect_clair_sense_rads_self'))
+  you:remove_effect(U.eid('effect_clair_perfect_shot'))
+  you:remove_effect(U.eid('effect_clair_omniscence'))
+  you:remove_effect(U.eid('effect_photokin_arms'))
+  you:remove_effect(U.eid('effect_telekinetic_slowfall'))
+  you:remove_effect(U.eid('effect_telekinetic_aegis'))
+  you:remove_effect(U.eid('effect_telepath_invisibility'))
+  you:remove_effect(U.eid('effect_telepath_network_effect'))
+  you:remove_effect(U.eid('effect_vitakin_purge_rads'))
+  you:remove_effect(U.eid('effect_psi_intense_concentration'))
   U.remove_item_with(you, 'clair_sense_rad_item')
   -- maintained_powers write dropped (derived, Rev 3)
   return true
@@ -7486,7 +7486,7 @@ M['EOC_END_PSI_POWERS_MAINTAINED'] = function(you, npc, ctx)
   M['EOC_VITAKIN_REMOVE_SUPER_HEAL'](you, npc, ctx)
   M['EOC_VITAKIN_REMOVE_RETURN_FROM_DEATH'](you, npc, ctx)
   -- maintained_powers write dropped (derived, Rev 3)
-  you:remove_effect(EffectTypeId.new('effect_psi_intense_concentration'))
+  you:remove_effect(U.eid('effect_psi_intense_concentration'))
   return true
 end
 C['EOC_END_PSI_POWERS_SPECIFIC'] = function(you, npc, ctx)
@@ -7550,14 +7550,14 @@ M['EOC_EXODII_NEURAL_STUNGUN'] = function(you, npc, ctx)
   if not C['EOC_EXODII_NEURAL_STUNGUN'](you, npc, ctx) then
     return false
   end
-  if ((U.badcond('EOC_EXODII_NEURAL_STUNGUN', 'npc_is_character') or U.has_creature_flag(npc, 'HUMAN') or U.has_creature_flag(npc, 'HAS_MIND')) and (not (npc:has_trait(MutationBranchId.new('NPC_TELEPATHY_IMMUNE')) or U.has_creature_flag(npc, 'TEEPSHIELD') or U.has_creature_flag(npc, 'TEEP_IMMUNE')))) then
+  if ((U.badcond('EOC_EXODII_NEURAL_STUNGUN', 'npc_is_character') or U.has_creature_flag(npc, 'HUMAN') or U.has_creature_flag(npc, 'HAS_MIND')) and (not (npc:has_trait(U.mid('NPC_TELEPATHY_IMMUNE')) or U.has_creature_flag(npc, 'TEEPSHIELD') or U.has_creature_flag(npc, 'TEEP_IMMUNE')))) then
     U.add_effect(npc, 'psi_stunned', TimeDuration.from_turns(U.round(U.rng(15, 60))), nil, nil)
   end
   return true
 end
 C['EOC_FEAR_PARALYZE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('fearparalyze')))
+  return (not you:has_effect(U.eid('fearparalyze')))
 end
 M['EOC_FEAR_PARALYZE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7569,7 +7569,7 @@ M['EOC_FEAR_PARALYZE'] = function(you, npc, ctx)
 end
 C['EOC_FEAR_PARALYZE1'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telepathic_psi_armor')))
+  return (not you:has_effect(U.eid('effect_telepathic_psi_armor')))
 end
 M['EOC_FEAR_PARALYZE1'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7757,7 +7757,7 @@ M['EOC_GAMESTART_RANDOMIZE_AWAKENING_ODDS'] = function(you, npc, ctx)
 end
 C['EOC_GAMESTART_RANDOMIZE_AWAKENING_ODDS_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (((not (you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('ELECTROKINETIC')) or you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('VITAKINETIC')))) and (not you:has_trait(MutationBranchId.new('ALWAYS_GAIN_PSIONICS')))) or ((you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('ELECTROKINETIC')) or you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('VITAKINETIC'))) and you:has_trait(MutationBranchId.new('LIMITED_PSIONICS'))))
+  return (((not (you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('ELECTROKINETIC')) or you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('VITAKINETIC')))) and (not you:has_trait(U.mid('ALWAYS_GAIN_PSIONICS')))) or ((you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('ELECTROKINETIC')) or you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('VITAKINETIC'))) and you:has_trait(U.mid('LIMITED_PSIONICS'))))
 end
 M['EOC_GAMESTART_RANDOMIZE_AWAKENING_ODDS_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7785,7 +7785,7 @@ M['EOC_INCANDESCENT_MEDITATION'] = function(you, npc, ctx)
 end
 C['EOC_INTERSTICE_MOM_PHYSIOLOGY_REDUCES_POWER_COST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('INTERSTICE_PHYSIOLOGY'))
+  return you:has_trait(U.mid('INTERSTICE_PHYSIOLOGY'))
 end
 M['EOC_INTERSTICE_MOM_PHYSIOLOGY_REDUCES_POWER_COST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7797,7 +7797,7 @@ M['EOC_INTERSTICE_MOM_PHYSIOLOGY_REDUCES_POWER_COST'] = function(you, npc, ctx)
 end
 C['EOC_LIEUTENANT_SPAWN_SHADOW_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_clair_premonition')) or you:has_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures')))
+  return (you:has_effect(U.eid('effect_clair_premonition')) or you:has_effect(U.eid('effect_clair_sense_hostile_creatures')))
 end
 M['EOC_LIEUTENANT_SPAWN_SHADOW_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7806,10 +7806,10 @@ M['EOC_LIEUTENANT_SPAWN_SHADOW_PREMONITION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'The darkness takes on a palpable sense of menace.  Something terrible is coming.', MsgType.bad, ctx)
-  if (you:has_effect(EffectTypeId.new('effect_clair_premonition')) and you:has_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures'))) then
+  if (you:has_effect(U.eid('effect_clair_premonition')) and you:has_effect(U.eid('effect_clair_sense_hostile_creatures'))) then
     util.queue_eoc(function(y) M['EOC_LIEUTENANT_SPAWN_SHADOW_NOW'](y, npc, ctx) end, you, ((((m.spell_level(you, 'clair_danger_sense') + m.spell_level(you, 'clair_danger_sense_knack')) * 5) + (m.spell_level(you, 'clair_sense_hostile_creatures') * 10)) + 10))
   end
-  if you:has_effect(EffectTypeId.new('effect_clair_premonition')) then
+  if you:has_effect(U.eid('effect_clair_premonition')) then
     util.queue_eoc(function(y) M['EOC_LIEUTENANT_SPAWN_SHADOW_NOW'](y, npc, ctx) end, you, (((m.spell_level(you, 'clair_danger_sense') + m.spell_level(you, 'clair_danger_sense_knack')) * 5) + 10))
   else
     util.queue_eoc(function(y) M['EOC_LIEUTENANT_SPAWN_SHADOW_NOW'](y, npc, ctx) end, you, ((m.spell_level(you, 'clair_sense_hostile_creatures') * 10) + 10))
@@ -7839,55 +7839,55 @@ M['EOC_MATRIX_DRAIN_MEDITATION'] = function(you, npc, ctx)
 end
 C['EOC_MINDOVERMATTER_PRE_COLD_TO_COLD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('pre_cold'))
+  return you:has_effect(U.eid('pre_cold'))
 end
 M['EOC_MINDOVERMATTER_PRE_COLD_TO_COLD'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_MINDOVERMATTER_PRE_COLD_TO_COLD'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('pre_cold'))
+  you:remove_effect(U.eid('pre_cold'))
   U.add_effect(you, 'cold', TimeDuration.from_turns(U.round(U.rng(86400, 1209600))), nil, nil)
   return true
 end
 C['EOC_MINDOVERMATTER_PRE_CONJUNCTIVITIS_BACTERIAL_TO_CONJUNCTIVITIS_BACTERIAL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('pre_conjunctivitis_bacterial'))
+  return you:has_effect(U.eid('pre_conjunctivitis_bacterial'))
 end
 M['EOC_MINDOVERMATTER_PRE_CONJUNCTIVITIS_BACTERIAL_TO_CONJUNCTIVITIS_BACTERIAL'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_MINDOVERMATTER_PRE_CONJUNCTIVITIS_BACTERIAL_TO_CONJUNCTIVITIS_BACTERIAL'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('pre_conjunctivitis_viral'))
-  you:remove_effect(EffectTypeId.new('pre_conjunctivitis_bacterial'))
+  you:remove_effect(U.eid('pre_conjunctivitis_viral'))
+  you:remove_effect(U.eid('pre_conjunctivitis_bacterial'))
   U.add_effect(you, 'conjunctivitis_bacterial', TimeDuration.from_turns(U.round((U.rng(0, 259200) + 432000))), 'eyes', nil)
   return true
 end
 C['EOC_MINDOVERMATTER_PRE_CONJUNCTIVITIS_VIRAL_TO_CONJUNCTIVITIS_VIRAL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('pre_conjunctivitis_viral'))
+  return you:has_effect(U.eid('pre_conjunctivitis_viral'))
 end
 M['EOC_MINDOVERMATTER_PRE_CONJUNCTIVITIS_VIRAL_TO_CONJUNCTIVITIS_VIRAL'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_MINDOVERMATTER_PRE_CONJUNCTIVITIS_VIRAL_TO_CONJUNCTIVITIS_VIRAL'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('pre_conjunctivitis_viral'))
-  you:remove_effect(EffectTypeId.new('pre_conjunctivitis_bacterial'))
+  you:remove_effect(U.eid('pre_conjunctivitis_viral'))
+  you:remove_effect(U.eid('pre_conjunctivitis_bacterial'))
   U.add_effect(you, 'conjunctivitis_viral', TimeDuration.from_turns(U.round((U.rng(0, 259200) + 432000))), 'eyes', nil)
   return true
 end
 C['EOC_MINDOVERMATTER_PRE_FLU_TO_FLU'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('pre_flu'))
+  return you:has_effect(U.eid('pre_flu'))
 end
 M['EOC_MINDOVERMATTER_PRE_FLU_TO_FLU'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_MINDOVERMATTER_PRE_FLU_TO_FLU'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('pre_flu'))
+  you:remove_effect(U.eid('pre_flu'))
   U.add_effect(you, 'flu', TimeDuration.from_turns(U.round(U.rng(259200, 864000))), nil, nil)
   return true
 end
@@ -7920,7 +7920,7 @@ M['EOC_MOM_AEA_ARTIFACT_CALORIE_COST'] = function(you, npc, ctx)
 end
 C['EOC_MOM_CASCADE_STONE_CONSEQUENCES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and you:has_effect(EffectTypeId.new('effect_mom_cascade_stone')))
+  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and you:has_effect(U.eid('effect_mom_cascade_stone')))
 end
 M['EOC_MOM_CASCADE_STONE_CONSEQUENCES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7947,7 +7947,7 @@ M['EOC_MOM_CASCADE_STONE_EFFECTS'] = function(you, npc, ctx)
 end
 C['EOC_MOM_CASCADE_STONE_POWER_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_mom_cascade_stone'))
+  return you:has_effect(U.eid('effect_mom_cascade_stone'))
 end
 M['EOC_MOM_CASCADE_STONE_POWER_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7984,7 +7984,7 @@ M['EOC_MOM_DIMENSIONAL_ANCHOR_WILL_CANCEL_POWERS'] = function(you, npc, ctx)
 end
 C['EOC_MOM_DIMENSIONAL_ANCHOR_WILL_CANCEL_POWERS_ESCALATING_CHECKER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.has_item_flag(you, 'DIMENSIONAL_ANCHOR') and you:has_effect(EffectTypeId.new('effect_mom_dimensionally_anchored_eventually_cancel_concentration')))
+  return (U.has_item_flag(you, 'DIMENSIONAL_ANCHOR') and you:has_effect(U.eid('effect_mom_dimensionally_anchored_eventually_cancel_concentration')))
 end
 M['EOC_MOM_DIMENSIONAL_ANCHOR_WILL_CANCEL_POWERS_ESCALATING_CHECKER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -7992,7 +7992,7 @@ M['EOC_MOM_DIMENSIONAL_ANCHOR_WILL_CANCEL_POWERS_ESCALATING_CHECKER'] = function
     return false
   end
   if U.x_in_y(m.effect_intensity(you, 'effect_mom_dimensionally_anchored_eventually_cancel_concentration'), 100) then
-    you:remove_effect(EffectTypeId.new('effect_mom_dimensionally_anchored_eventually_cancel_concentration'))
+    you:remove_effect(U.eid('effect_mom_dimensionally_anchored_eventually_cancel_concentration'))
     M['EOC_END_PSI_POWERS'](you, npc, ctx)
   else
     util.queue_eoc(function(y) M['EOC_MOM_DIMENSIONAL_ANCHOR_WILL_CANCEL_POWERS_ESCALATING_CHECKER'](y, npc, ctx) end, you, 1)
@@ -8001,7 +8001,7 @@ M['EOC_MOM_DIMENSIONAL_ANCHOR_WILL_CANCEL_POWERS_ESCALATING_CHECKER'] = function
 end
 C['EOC_MOM_FIFTH_SUN_ON_SEEING_YRAX_APEIROHEDRON'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('FIFTH_SUN_PEOPLE')) and (not ('yes' == V.ustr(you, 'fifth_sun_and_seen_yrax_apeirohedron'))))
+  return (you:has_trait(U.mid('FIFTH_SUN_PEOPLE')) and (not ('yes' == V.ustr(you, 'fifth_sun_and_seen_yrax_apeirohedron'))))
 end
 M['EOC_MOM_FIFTH_SUN_ON_SEEING_YRAX_APEIROHEDRON'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8039,7 +8039,7 @@ M['EOC_MOM_GAMESTART_POWER_LEARNING_VARIABLES'] = function(you, npc, ctx)
 end
 C['EOC_MOM_GAME_ONGOING_GRANT_BIOKINETIC_CRAFTING_PROFICIENCY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) or U.test_eoc(C, 'EOC_CONDITION_MOM_QUALIFY_FOR_BIOKINETIC_KNACK_CRAFTING', you, npc, ctx))
+  return (you:has_trait(U.mid('BIOKINETIC')) or U.test_eoc(C, 'EOC_CONDITION_MOM_QUALIFY_FOR_BIOKINETIC_KNACK_CRAFTING', you, npc, ctx))
 end
 M['EOC_MOM_GAME_ONGOING_GRANT_BIOKINETIC_CRAFTING_PROFICIENCY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8051,7 +8051,7 @@ M['EOC_MOM_GAME_ONGOING_GRANT_BIOKINETIC_CRAFTING_PROFICIENCY'] = function(you, 
 end
 C['EOC_MOM_GAME_ONGOING_GRANT_CRAFTING_PROFICIENICES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('ELECTROKINETIC')) or you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('VITAKINETIC')) or you:has_trait(MutationBranchId.new('PSYCHIC_KNACK')))
+  return (you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('ELECTROKINETIC')) or you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('VITAKINETIC')) or you:has_trait(U.mid('PSYCHIC_KNACK')))
 end
 M['EOC_MOM_GAME_ONGOING_GRANT_CRAFTING_PROFICIENICES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8063,7 +8063,7 @@ M['EOC_MOM_GAME_ONGOING_GRANT_CRAFTING_PROFICIENICES'] = function(you, npc, ctx)
 end
 C['EOC_MOM_GAME_ONGOING_GRANT_PYROKINETIC_CRAFTING_PROFICIENCY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) or U.test_eoc(C, 'EOC_CONDITION_MOM_QUALIFY_FOR_PYROKINETIC_KNACK_CRAFTING', you, npc, ctx))
+  return (you:has_trait(U.mid('PYROKINETIC')) or U.test_eoc(C, 'EOC_CONDITION_MOM_QUALIFY_FOR_PYROKINETIC_KNACK_CRAFTING', you, npc, ctx))
 end
 M['EOC_MOM_GAME_ONGOING_GRANT_PYROKINETIC_CRAFTING_PROFICIENCY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8075,7 +8075,7 @@ M['EOC_MOM_GAME_ONGOING_GRANT_PYROKINETIC_CRAFTING_PROFICIENCY'] = function(you,
 end
 C['EOC_MOM_GAME_ONGOING_GRANT_TELEPORTATION_CRAFTING_PROFICIENCY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_MOM_GAME_ONGOING_GRANT_TELEPORTATION_CRAFTING_PROFICIENCY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8087,7 +8087,7 @@ M['EOC_MOM_GAME_ONGOING_GRANT_TELEPORTATION_CRAFTING_PROFICIENCY'] = function(yo
 end
 C['EOC_MOM_GAME_ONGOING_GRANT_VITAKINETIC_CRAFTING_PROFICIENCY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) or U.test_eoc(C, 'EOC_CONDITION_MOM_QUALIFY_FOR_VITAKINETIC_KNACK_CRAFTING', you, npc, ctx))
+  return (you:has_trait(U.mid('VITAKINETIC')) or U.test_eoc(C, 'EOC_CONDITION_MOM_QUALIFY_FOR_VITAKINETIC_KNACK_CRAFTING', you, npc, ctx))
 end
 M['EOC_MOM_GAME_ONGOING_GRANT_VITAKINETIC_CRAFTING_PROFICIENCY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8099,7 +8099,7 @@ M['EOC_MOM_GAME_ONGOING_GRANT_VITAKINETIC_CRAFTING_PROFICIENCY'] = function(you,
 end
 C['EOC_MOM_GRANT_GROUNDING_MEDITATION_TO_PSIONS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('ELECTROKINETIC')) or you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('VITAKINETIC'))) and (m.skill(you, 'metaphysics') >= 4))
+  return ((you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('ELECTROKINETIC')) or you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('VITAKINETIC'))) and (m.skill(you, 'metaphysics') >= 4))
 end
 M['EOC_MOM_GRANT_GROUNDING_MEDITATION_TO_PSIONS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8111,13 +8111,13 @@ M['EOC_MOM_GRANT_GROUNDING_MEDITATION_TO_PSIONS'] = function(you, npc, ctx)
 end
 C['EOC_MOM_HOUND_SPEED_ADJUSTMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_hound_extended_speed_bonus')))
+  return (not you:has_effect(U.eid('effect_hound_extended_speed_bonus')))
 end
 M['EOC_MOM_HOUND_SPEED_ADJUSTMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_MOM_HOUND_SPEED_ADJUSTMENT'](you, npc, ctx) then
-    you:remove_effect(EffectTypeId.new('effect_hound_extended_speed_bonus'))
-    npc:remove_effect(EffectTypeId.new('effect_mom_tindalos_hounds_corrupted_stride'))
+    you:remove_effect(U.eid('effect_hound_extended_speed_bonus'))
+    npc:remove_effect(U.eid('effect_mom_tindalos_hounds_corrupted_stride'))
     return false
   end
   U.add_effect(you, 'effect_hound_extended_speed_bonus', TimeDuration.from_minutes(5), nil, nil)
@@ -8157,7 +8157,7 @@ M['EOC_MOM_OUBLIETTE_MONSTER_PICK_DIMENSION'] = function(you, npc, ctx)
 end
 C['EOC_MOM_PREMONITION_QUIET_FARMSTEAD_WARNING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_clair_premonition')) and (not you:has_effect(EffectTypeId.new('effect_premonition_quiet_farm_limiter'))) and (not you:has_trait(MutationBranchId.new('NOT_GLASS'))) and (U.near_om_location(you, 'unvitrified_farm_1', 2) or U.near_om_location(you, 'unvitrified_farm_0', 2)))
+  return (you:has_effect(U.eid('effect_clair_premonition')) and (not you:has_effect(U.eid('effect_premonition_quiet_farm_limiter'))) and (not you:has_trait(U.mid('NOT_GLASS'))) and (U.near_any_om_location(you, {'unvitrified_farm_1', 'unvitrified_farm_0'}, 2)))
 end
 M['EOC_MOM_PREMONITION_QUIET_FARMSTEAD_WARNING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8178,7 +8178,7 @@ M['EOC_MOM_PSYCHIC_VAMPIRE_HEAL_HP'] = function(you, npc, ctx)
 end
 C['EOC_MOM_PSYCHIC_VAMPIRE_TELEPATHY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('MOM_PSYCHIC_VAMPIRE')) and ((ctx['success'] or 0) == V.gget('true')) and (('telepathic_blast' == tostring(ctx['spell'] or ''))))
+  return (you:has_trait(U.mid('MOM_PSYCHIC_VAMPIRE')) and ((ctx['success'] or 0) == V.gget('true')) and (('telepathic_blast' == tostring(ctx['spell'] or ''))))
 end
 M['EOC_MOM_PSYCHIC_VAMPIRE_TELEPATHY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8190,7 +8190,7 @@ M['EOC_MOM_PSYCHIC_VAMPIRE_TELEPATHY'] = function(you, npc, ctx)
 end
 C['EOC_MOM_PSYCHIC_VAMPIRE_VITAKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('MOM_PSYCHIC_VAMPIRE')) and ((ctx['success'] or 0) == V.gget('true')) and (('vita_hurt_touch' == tostring(ctx['spell'] or '')) or ('vita_attack_touch' == tostring(ctx['spell'] or ''))))
+  return (you:has_trait(U.mid('MOM_PSYCHIC_VAMPIRE')) and ((ctx['success'] or 0) == V.gget('true')) and (('vita_hurt_touch' == tostring(ctx['spell'] or '')) or ('vita_attack_touch' == tostring(ctx['spell'] or ''))))
 end
 M['EOC_MOM_PSYCHIC_VAMPIRE_VITAKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8231,32 +8231,32 @@ M['EOC_MOM_SCEN_HEART_OF_FIRE_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_MOM_SCEN_HEART_OF_FIRE_ON_CHANNELING_END'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('SCEN_HEART_OF_FIRE')) and ((ctx['success'] or 0) ~= V.gget('false')))
+  return (you:has_trait(U.mid('SCEN_HEART_OF_FIRE')) and ((ctx['success'] or 0) ~= V.gget('false')))
 end
 M['EOC_MOM_SCEN_HEART_OF_FIRE_ON_CHANNELING_END'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_MOM_SCEN_HEART_OF_FIRE_ON_CHANNELING_END'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_channeled_power_protector'))
+  you:remove_effect(U.eid('effect_scenario_heart_of_fire_channeled_power_protector'))
   ctx['effect_reducer'] = m.effect_intensity(you, 'effect_scenario_heart_of_fire_need_to_channel')
   ctx['effect_reducer'] = ((ctx['effect_reducer'] or 0)) - (1)
   if ((ctx['effect_reducer'] or 0) > 0) then
-    you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_need_to_channel'))
+    you:remove_effect(U.eid('effect_scenario_heart_of_fire_need_to_channel'))
     U.add_effect(you, 'effect_scenario_heart_of_fire_need_to_channel', 'PERMANENT', nil, U.round((ctx['effect_reducer'] or 0)))
   else
-    you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_need_to_channel'))
+    you:remove_effect(U.eid('effect_scenario_heart_of_fire_need_to_channel'))
   end
   if (m.effect_intensity(you, 'effect_scenario_heart_of_fire_damage') >= 1) then
     if (m.effect_intensity(you, 'effect_scenario_heart_of_fire_damage') >= 2) then
       ctx['effect_burning_reducer'] = m.effect_intensity(you, 'effect_scenario_heart_of_fire_damage')
       ctx['effect_burning_reducer'] = ((ctx['effect_burning_reducer'] or 0)) - (1)
-      you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_damage'))
-      you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_damage'))
-      you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_damage'))
-      you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_damage'))
-      you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_damage'))
-      you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_damage'))
+      you:remove_effect(U.eid('effect_scenario_heart_of_fire_damage'))
+      you:remove_effect(U.eid('effect_scenario_heart_of_fire_damage'))
+      you:remove_effect(U.eid('effect_scenario_heart_of_fire_damage'))
+      you:remove_effect(U.eid('effect_scenario_heart_of_fire_damage'))
+      you:remove_effect(U.eid('effect_scenario_heart_of_fire_damage'))
+      you:remove_effect(U.eid('effect_scenario_heart_of_fire_damage'))
       U.add_effect(you, 'effect_scenario_heart_of_fire_damage', 'PERMANENT', 'head', U.round((ctx['effect_burning_reducer'] or 0)))
       U.add_effect(you, 'effect_scenario_heart_of_fire_damage', 'PERMANENT', 'torso', U.round((ctx['effect_burning_reducer'] or 0)))
       U.add_effect(you, 'effect_scenario_heart_of_fire_damage', 'PERMANENT', 'arm_l', U.round((ctx['effect_burning_reducer'] or 0)))
@@ -8264,12 +8264,12 @@ M['EOC_MOM_SCEN_HEART_OF_FIRE_ON_CHANNELING_END'] = function(you, npc, ctx)
       U.add_effect(you, 'effect_scenario_heart_of_fire_damage', 'PERMANENT', 'leg_l', U.round((ctx['effect_burning_reducer'] or 0)))
       U.add_effect(you, 'effect_scenario_heart_of_fire_damage', 'PERMANENT', 'leg_r', U.round((ctx['effect_burning_reducer'] or 0)))
     else
-      you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_damage'))
-      you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_damage'))
-      you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_damage'))
-      you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_damage'))
-      you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_damage'))
-      you:remove_effect(EffectTypeId.new('effect_scenario_heart_of_fire_damage'))
+      you:remove_effect(U.eid('effect_scenario_heart_of_fire_damage'))
+      you:remove_effect(U.eid('effect_scenario_heart_of_fire_damage'))
+      you:remove_effect(U.eid('effect_scenario_heart_of_fire_damage'))
+      you:remove_effect(U.eid('effect_scenario_heart_of_fire_damage'))
+      you:remove_effect(U.eid('effect_scenario_heart_of_fire_damage'))
+      you:remove_effect(U.eid('effect_scenario_heart_of_fire_damage'))
     end
   end
   U.add_effect(you, 'effect_scenario_heart_of_fire_channeled_power_protector', TimeDuration.from_turns(U.round((3600 + U.rng(0, 18000)))), nil, nil)
@@ -8277,7 +8277,7 @@ M['EOC_MOM_SCEN_HEART_OF_FIRE_ON_CHANNELING_END'] = function(you, npc, ctx)
 end
 C['EOC_MOM_SCEN_HEART_OF_FIRE_PAIN_DISABLES_PSI'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('SCEN_HEART_OF_FIRE')) and (not U.has_creature_flag(you, 'PAIN_IMMUNE')) and (not you:has_effect(EffectTypeId.new('effect_psi_too_much_pain_cant_channel'))) and (m.pain(you) >= (60 + (15 * ((((((U.b2n(you:has_trait(MutationBranchId.new('CONCENTRATION_GOOD'))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('CONCENTRATION_BAD')))) and (-(1)) or (0))) + U.b2n(you:has_trait(MutationBranchId.new('INT_ALPHA')))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('CONCENTRATION_DEBUG')))) and (50) or (0))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_BASIC')))) and (1) or (0))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_INTERMEDIATE')))) and (2) or (0))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_MASTER')))) and (3) or (0)))))))
+  return (you:has_trait(U.mid('SCEN_HEART_OF_FIRE')) and (not U.has_creature_flag(you, 'PAIN_IMMUNE')) and (not you:has_effect(U.eid('effect_psi_too_much_pain_cant_channel'))) and (m.pain(you) >= (60 + (15 * ((((((U.b2n(you:has_trait(U.mid('CONCENTRATION_GOOD'))) + (U.truthy(U.b2n(you:has_trait(U.mid('CONCENTRATION_BAD')))) and (-(1)) or (0))) + U.b2n(you:has_trait(U.mid('INT_ALPHA')))) + (U.truthy(U.b2n(you:has_trait(U.mid('CONCENTRATION_DEBUG')))) and (50) or (0))) + (U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_BASIC')))) and (1) or (0))) + (U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_INTERMEDIATE')))) and (2) or (0))) + (U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_MASTER')))) and (3) or (0)))))))
 end
 M['EOC_MOM_SCEN_HEART_OF_FIRE_PAIN_DISABLES_PSI'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8289,7 +8289,7 @@ M['EOC_MOM_SCEN_HEART_OF_FIRE_PAIN_DISABLES_PSI'] = function(you, npc, ctx)
 end
 C['EOC_MOM_SCEN_HEART_OF_FIRE_RECURRING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('SCEN_HEART_OF_FIRE')) and (not (you:has_effect(EffectTypeId.new('sleep')) or you:has_effect(EffectTypeId.new('effect_scenario_heart_of_fire_channeled_power_protector')))))
+  return (you:has_trait(U.mid('SCEN_HEART_OF_FIRE')) and (not (you:has_effect(U.eid('sleep')) or you:has_effect(U.eid('effect_scenario_heart_of_fire_channeled_power_protector')))))
 end
 M['EOC_MOM_SCEN_HEART_OF_FIRE_RECURRING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8304,7 +8304,7 @@ M['EOC_MOM_SCEN_HEART_OF_FIRE_RECURRING'] = function(you, npc, ctx)
 end
 C['EOC_MOM_SCEN_HEART_OF_FIRE_WAKE_UP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('SCEN_HEART_OF_FIRE')) and (not you:has_effect(EffectTypeId.new('effect_scenario_heart_of_fire_need_to_channel'))))
+  return (you:has_trait(U.mid('SCEN_HEART_OF_FIRE')) and (not you:has_effect(U.eid('effect_scenario_heart_of_fire_need_to_channel'))))
 end
 M['EOC_MOM_SCEN_HEART_OF_FIRE_WAKE_UP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8328,7 +8328,7 @@ M['EOC_MOM_SI_POST_TELEPORT_FOLLOWUP'] = function(you, npc, ctx)
     end
     return false
   end
-  if you:has_trait(MutationBranchId.new('awayfromhome')) then
+  if you:has_trait(U.mid('awayfromhome')) then
     U.teleport_to_saved(you, you, 'mom_si_on_ground_location')
     U.msg(you, 'You briefly see the familiar sights of the floating island before you feel a wrenching sensation and you\'re suddenly back on the surface.  Whatever powers have put you in this situation must not be happy with you trying to circumvent the rules.', MsgType.bad, ctx)
     V.gset('timeawayfromhome', (V.gget('timeawayfromhome')) + (1))
@@ -8360,7 +8360,7 @@ M['EOC_MOM_SI_PRE_TELEPORT_POST_TELEPORT_FOLLOWUP'] = function(you, npc, ctx)
   ctx = ctx or {}
   U.teleport_to_saved(you, nil, 'OM_HQ_origin')
   U.msg(you, 'With an internal twist, you\'re suddenly back on the island.', MsgType.neutral, ctx)
-  you:remove_effect(EffectTypeId.new('warpsickness'))
+  you:remove_effect(U.eid('warpsickness'))
   return true
 end
 C['EOC_MOM_SI_PRE_TELEPORT_POWER_CHECKING'] = function(you, npc, ctx)
@@ -8377,34 +8377,34 @@ M['EOC_MOM_SI_PRE_TELEPORT_POWER_CHECKING'] = function(you, npc, ctx)
 end
 C['EOC_MOM_WILD_TALENT_DETERMINE_TALENTS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PSYCHIC_KNACK')) and (you:has_trait(MutationBranchId.new('PSYCHIC_KNACK_WILD_TALENT_1')) or you:has_trait(MutationBranchId.new('PSYCHIC_KNACK_WILD_TALENT_2')) or you:has_trait(MutationBranchId.new('PSYCHIC_KNACK_WILD_TALENT_3')) or you:has_trait(MutationBranchId.new('PSYCHIC_KNACK_WILD_TALENT_4')) or you:has_trait(MutationBranchId.new('PSYCHIC_KNACK_WILD_TALENT_5')) or you:has_trait(MutationBranchId.new('PSYCHIC_KNACK_WILD_TALENT_6'))))
+  return (you:has_trait(U.mid('PSYCHIC_KNACK')) and (you:has_trait(U.mid('PSYCHIC_KNACK_WILD_TALENT_1')) or you:has_trait(U.mid('PSYCHIC_KNACK_WILD_TALENT_2')) or you:has_trait(U.mid('PSYCHIC_KNACK_WILD_TALENT_3')) or you:has_trait(U.mid('PSYCHIC_KNACK_WILD_TALENT_4')) or you:has_trait(U.mid('PSYCHIC_KNACK_WILD_TALENT_5')) or you:has_trait(U.mid('PSYCHIC_KNACK_WILD_TALENT_6'))))
 end
 M['EOC_MOM_WILD_TALENT_DETERMINE_TALENTS'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_MOM_WILD_TALENT_DETERMINE_TALENTS'](you, npc, ctx) then
     return false
   end
-  if you:has_trait(MutationBranchId.new('PSYCHIC_KNACK_WILD_TALENT_1')) then
+  if you:has_trait(U.mid('PSYCHIC_KNACK_WILD_TALENT_1')) then
     U.unset_mutation(you, 'PSYCHIC_KNACK_WILD_TALENT_1')
     V.uset(you, 'knack_wild_talent_iterations', 1)
   end
-  if you:has_trait(MutationBranchId.new('PSYCHIC_KNACK_WILD_TALENT_2')) then
+  if you:has_trait(U.mid('PSYCHIC_KNACK_WILD_TALENT_2')) then
     U.unset_mutation(you, 'PSYCHIC_KNACK_WILD_TALENT_2')
     V.uset(you, 'knack_wild_talent_iterations', 2)
   end
-  if you:has_trait(MutationBranchId.new('PSYCHIC_KNACK_WILD_TALENT_3')) then
+  if you:has_trait(U.mid('PSYCHIC_KNACK_WILD_TALENT_3')) then
     U.unset_mutation(you, 'PSYCHIC_KNACK_WILD_TALENT_3')
     V.uset(you, 'knack_wild_talent_iterations', 3)
   end
-  if you:has_trait(MutationBranchId.new('PSYCHIC_KNACK_WILD_TALENT_4')) then
+  if you:has_trait(U.mid('PSYCHIC_KNACK_WILD_TALENT_4')) then
     U.unset_mutation(you, 'PSYCHIC_KNACK_WILD_TALENT_4')
     V.uset(you, 'knack_wild_talent_iterations', 4)
   end
-  if you:has_trait(MutationBranchId.new('PSYCHIC_KNACK_WILD_TALENT_5')) then
+  if you:has_trait(U.mid('PSYCHIC_KNACK_WILD_TALENT_5')) then
     U.unset_mutation(you, 'PSYCHIC_KNACK_WILD_TALENT_5')
     V.uset(you, 'knack_wild_talent_iterations', 5)
   end
-  if you:has_trait(MutationBranchId.new('PSYCHIC_KNACK_WILD_TALENT_6')) then
+  if you:has_trait(U.mid('PSYCHIC_KNACK_WILD_TALENT_6')) then
     U.unset_mutation(you, 'PSYCHIC_KNACK_WILD_TALENT_6')
     V.uset(you, 'knack_wild_talent_iterations', 6)
   end
@@ -8426,7 +8426,7 @@ M['EOC_MOM_WILD_TALENT_ROLL_RANDOM_TALENTS'] = function(you, npc, ctx)
 end
 C['EOC_MOM_XE_NOETIC_RANGE_BOOSTER_ACTIVE_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_ench_bio_psi_range_increaser'))
+  return you:has_effect(U.eid('effect_ench_bio_psi_range_increaser'))
 end
 M['EOC_MOM_XE_NOETIC_RANGE_BOOSTER_ACTIVE_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8438,7 +8438,7 @@ M['EOC_MOM_XE_NOETIC_RANGE_BOOSTER_ACTIVE_CHECK'] = function(you, npc, ctx)
 end
 C['EOC_MOM_XE_NOETIC_RANGE_BOOSTER_ACTIVE_HEADACHES_AND_FEVER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_ench_bio_psi_range_increaser'))
+  return you:has_effect(U.eid('effect_ench_bio_psi_range_increaser'))
 end
 M['EOC_MOM_XE_NOETIC_RANGE_BOOSTER_ACTIVE_HEADACHES_AND_FEVER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8474,7 +8474,7 @@ M['EOC_MOM_XE_NOETIC_RANGE_BOOSTER_POSSESSION_HEADACHES_AND_FEVER'] = function(y
 end
 C['EOC_MONSTER_APPLY_OBSCURITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not U.has_creature_flag(you, 'TEEPSHIELD')) and (not U.has_creature_flag(you, 'TEEP_IMMUNE')) and (not you:has_effect(EffectTypeId.new('eff_monster_immune_to_telepathy'))))
+  return ((not U.has_creature_flag(you, 'TEEPSHIELD')) and (not U.has_creature_flag(you, 'TEEP_IMMUNE')) and (not you:has_effect(U.eid('eff_monster_immune_to_telepathy'))))
 end
 M['EOC_MONSTER_APPLY_OBSCURITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8519,26 +8519,26 @@ M['EOC_MoM_AEA_BLOOD_PURGE'] = function(you, npc, ctx)
 end
 C['EOC_MoM_AEA_ELECTRICAL_ZAP_ATTACK_MELEE_CHARACTER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_mom_artifact_electrical_zap_attack'))
+  return you:has_effect(U.eid('effect_mom_artifact_electrical_zap_attack'))
 end
 M['EOC_MoM_AEA_ELECTRICAL_ZAP_ATTACK_MELEE_CHARACTER'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_MoM_AEA_ELECTRICAL_ZAP_ATTACK_MELEE_CHARACTER'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_mom_artifact_electrical_zap_attack'))
+  you:remove_effect(U.eid('effect_mom_artifact_electrical_zap_attack'))
   return true
 end
 C['EOC_MoM_AEA_ELECTRICAL_ZAP_ATTACK_MELEE_MONSTER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_mom_artifact_electrical_zap_attack'))
+  return you:has_effect(U.eid('effect_mom_artifact_electrical_zap_attack'))
 end
 M['EOC_MoM_AEA_ELECTRICAL_ZAP_ATTACK_MELEE_MONSTER'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_MoM_AEA_ELECTRICAL_ZAP_ATTACK_MELEE_MONSTER'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_mom_artifact_electrical_zap_attack'))
+  you:remove_effect(U.eid('effect_mom_artifact_electrical_zap_attack'))
   return true
 end
 C['EOC_MoM_AEA_HEALTH_CHANGER'] = function(you, npc, ctx)
@@ -8580,7 +8580,7 @@ M['EOC_MoM_AEA_NETHER_ATTUNEMENT'] = function(you, npc, ctx)
 end
 C['EOC_NETHER_ATTENTION_NIGHTMARES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('psi_nether_attention')) and U.x_in_y(1, 3))
+  return (you:has_effect(U.eid('psi_nether_attention')) and U.x_in_y(1, 3))
 end
 M['EOC_NETHER_ATTENTION_NIGHTMARES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8592,7 +8592,7 @@ M['EOC_NETHER_ATTENTION_NIGHTMARES'] = function(you, npc, ctx)
 end
 C['EOC_NETHER_ATTUNEMENT_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_nether_attunement_power_surge'))
+  return you:has_effect(U.eid('effect_nether_attunement_power_surge'))
 end
 M['EOC_NETHER_ATTUNEMENT_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8612,7 +8612,7 @@ M['EOC_NETHER_ATTUNEMENT_BOOST'] = function(you, npc, ctx)
 end
 C['EOC_NETHER_ATTUNEMENT_FEEDBACK_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and you:has_effect(EffectTypeId.new('effect_nether_attunement_feedback')) and U.x_in_y(m.attunement(you), 250))
+  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and you:has_effect(U.eid('effect_nether_attunement_feedback')) and U.x_in_y(m.attunement(you), 250))
 end
 M['EOC_NETHER_ATTUNEMENT_FEEDBACK_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8625,7 +8625,7 @@ M['EOC_NETHER_ATTUNEMENT_FEEDBACK_CHECK'] = function(you, npc, ctx)
 end
 C['EOC_NETHER_ATTUNEMENT_FEEDBACK_CHECK_CONCENTRATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_nether_attunement_feedback')) and U.x_in_y(m.attunement(you), 250))
+  return (you:has_effect(U.eid('effect_nether_attunement_feedback')) and U.x_in_y(m.attunement(you), 250))
 end
 M['EOC_NETHER_ATTUNEMENT_FEEDBACK_CHECK_CONCENTRATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8704,7 +8704,7 @@ M['EOC_NETHER_EFFECT_APPLY_TELEPORT_MISJUMP'] = function(you, npc, ctx)
 end
 C['EOC_NETHER_EFFECT_CHECK_ATTENUATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((m.attunement(you) >= 125) or you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active')))
+  return ((m.attunement(you) >= 125) or you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active')))
 end
 M['EOC_NETHER_EFFECT_CHECK_ATTENUATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8882,7 +8882,7 @@ M['EOC_NETHER_EFFECT_CHECK_HALLUCINATIONS'] = function(you, npc, ctx)
 end
 C['EOC_NETHER_EFFECT_CHECK_MINDSHOCK_STUN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((m.attunement(you) >= 115) or you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active')))
+  return ((m.attunement(you) >= 115) or you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active')))
 end
 M['EOC_NETHER_EFFECT_CHECK_MINDSHOCK_STUN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8915,7 +8915,7 @@ M['EOC_NETHER_EFFECT_CHECK_MUTATION'] = function(you, npc, ctx)
 end
 C['EOC_NETHER_EFFECT_CHECK_NETHER_LIGHTNING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((m.attunement(you) >= 175) or you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active')))
+  return ((m.attunement(you) >= 175) or you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active')))
 end
 M['EOC_NETHER_EFFECT_CHECK_NETHER_LIGHTNING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8948,7 +8948,7 @@ M['EOC_NETHER_EFFECT_CHECK_NO_PSIONICS'] = function(you, npc, ctx)
 end
 C['EOC_NETHER_EFFECT_CHECK_OBSERVED'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (((m.attunement(you) >= 75) or you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active'))) and (not you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active'))))
+  return (((m.attunement(you) >= 75) or you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active'))) and (not you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active'))))
 end
 M['EOC_NETHER_EFFECT_CHECK_OBSERVED'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -8959,7 +8959,7 @@ M['EOC_NETHER_EFFECT_CHECK_OBSERVED'] = function(you, npc, ctx)
   if U.x_in_y(((((U.clamp(((m.attunement(you) - 130) * 1.5), 0, 90) + U.clamp(((m.attunement(you) - 190) * 3), 0, 250)) + J.nether_attune_difficulty_scaler(you, npc, ctx, V.uget(you, 'latest_channeled_power_difficulty'))) + 20) + J.nether_attune_torrential_channeling_influence(you, npc, ctx)), 1000) then
     U.msg(you, 'You feel like you\'re being watched.', MsgType.bad, ctx)
     ctx['duration'] = ((m.attunement(you) * U.rng(150, 600)) + 86400)
-    if you:has_effect(EffectTypeId.new('psi_nether_attention')) then
+    if you:has_effect(U.eid('psi_nether_attention')) then
       U.add_effect(you, 'psi_nether_attention', TimeDuration.from_turns(U.round(((ctx['duration'] or 0) / 4))), nil, nil)
     else
       U.add_effect(you, 'psi_nether_attention', TimeDuration.from_turns(U.round((ctx['duration'] or 0))), nil, nil)
@@ -9017,7 +9017,7 @@ M['EOC_NETHER_EFFECT_CHECK_PYROKINETIC_FOG'] = function(you, npc, ctx)
 end
 C['EOC_NETHER_EFFECT_CHECK_RIFT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((you:has_effect(EffectTypeId.new('psi_nether_attention')) or you:has_effect(EffectTypeId.new('effect_nether_attunement_raiser'))) and (m.attunement(you) >= 235))
+  return ((you:has_effect(U.eid('psi_nether_attention')) or you:has_effect(U.eid('effect_nether_attunement_raiser'))) and (m.attunement(you) >= 235))
 end
 M['EOC_NETHER_EFFECT_CHECK_RIFT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9033,7 +9033,7 @@ M['EOC_NETHER_EFFECT_CHECK_RIFT'] = function(you, npc, ctx)
 end
 C['EOC_NETHER_EFFECT_CHECK_SUMMON_HOUNDS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((you:has_effect(EffectTypeId.new('psi_nether_attention')) or you:has_effect(EffectTypeId.new('effect_nether_attunement_raiser'))) and (m.attunement(you) >= 200))
+  return ((you:has_effect(U.eid('psi_nether_attention')) or you:has_effect(U.eid('effect_nether_attunement_raiser'))) and (m.attunement(you) >= 200))
 end
 M['EOC_NETHER_EFFECT_CHECK_SUMMON_HOUNDS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9093,7 +9093,7 @@ M['EOC_NETHER_EFFECT_CHECK_TELEPORT_MISJUMP_APPLY_HOUNDS'] = function(you, npc, 
 end
 C['EOC_NETHER_EFFECT_CHECK_TEMPORARY_TEAR_IN_REALITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((m.attunement(you) >= 175) or you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active')))
+  return ((m.attunement(you) >= 175) or you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active')))
 end
 M['EOC_NETHER_EFFECT_CHECK_TEMPORARY_TEAR_IN_REALITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9126,7 +9126,7 @@ M['EOC_NETHER_EFFECT_CHECK_VOMIT'] = function(you, npc, ctx)
 end
 C['EOC_NETHER_EFFECT_CHECK_WEARINESS_EXTRA_CALORIE_EFFECT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((m.attunement(you) >= 70) or you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active')))
+  return ((m.attunement(you) >= 70) or you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active')))
 end
 M['EOC_NETHER_EFFECT_CHECK_WEARINESS_EXTRA_CALORIE_EFFECT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9142,7 +9142,7 @@ M['EOC_NETHER_EFFECT_CHECK_WEARINESS_EXTRA_CALORIE_EFFECT'] = function(you, npc,
 end
 C['EOC_NETHER_EFFECT_ELECTROKINETIC_POWER_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_nether_attunement_electrokinetic_power_drain'))
+  return you:has_effect(U.eid('effect_nether_attunement_electrokinetic_power_drain'))
 end
 M['EOC_NETHER_EFFECT_ELECTROKINETIC_POWER_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9200,16 +9200,16 @@ M['EOC_NOETIC_RESONANCE_DETECT_PSI_POWER_PART_TWO'] = function(you, npc, ctx)
     U.msg(you, 'The machine requires a test subject to report any results.', MsgType.neutral, ctx)
     return false
   end
-  if (you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('VITAKINETIC'))) then
+  if (you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('VITAKINETIC'))) then
     ctx['already_psi'] = 1
   else
     ctx['already_psi'] = 0
   end
-  if you:has_trait(MutationBranchId.new('ALWAYS_GAIN_PSIONICS')) then
+  if you:has_trait(U.mid('ALWAYS_GAIN_PSIONICS')) then
     U.msg(you, 'The lights inside in the machine blink and swirl for what seems like forever until the machine beeps.  On the output screen, the words "<color_magenta>Potential: Excellent.  Mathematician Target</color>" are visible.', MsgType.neutral, ctx)
     U.add_effect(you, 'psionic_overload', TimeDuration.from_minutes(30), 'head', nil)
   end
-  if you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')) then
+  if you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')) then
     ctx['awakening_check'] = -(100)
   else
     ctx['awakening_check'] = (100 - J.matrix_awakening_odds(you, npc, ctx, V.uget(you, 'awakening_countup')))
@@ -9233,7 +9233,7 @@ M['EOC_NOETIC_RESONANCE_DETECT_PSI_POWER_PART_TWO'] = function(you, npc, ctx)
     U.msg(you, 'Below it in red are the words: <color_light_red>WARNING: Noetic activity detected.', MsgType.neutral, ctx)
     U.add_effect(you, 'psionic_overload', TimeDuration.from_minutes(30), 'head', nil)
   else
-    if (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS'))) then
+    if (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS'))) then
       U.add_effect(you, 'psionic_overload', TimeDuration.from_minutes(30), 'head', nil)
     end
   end
@@ -9241,7 +9241,7 @@ M['EOC_NOETIC_RESONANCE_DETECT_PSI_POWER_PART_TWO'] = function(you, npc, ctx)
 end
 C['EOC_NULL_BREAK_CONCENTRATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_telepathic_psi_armor')) and U.x_in_y(m.spell_level(you, 'telepathic_shield'), 12))
+  return (you:has_effect(U.eid('effect_telepathic_psi_armor')) and U.x_in_y(m.spell_level(you, 'telepathic_shield'), 12))
 end
 M['EOC_NULL_BREAK_CONCENTRATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9268,7 +9268,7 @@ M['EOC_NULL_BREAK_CONCENTRATION_2'] = function(you, npc, ctx)
 end
 C['EOC_NULL_BREAK_CONCENTRATION_3'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return U.x_in_y((((5 - U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_BASIC')))) - U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_INTERMEDIATE')))) - U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_MASTER')))), 5)
+  return U.x_in_y((((5 - U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_BASIC')))) - U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_INTERMEDIATE')))) - U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_MASTER')))), 5)
 end
 M['EOC_NULL_BREAK_CONCENTRATION_3'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9382,7 +9382,7 @@ M['EOC_OLD_GUARD_ASSASSIN_ACTUAL_NEAR'] = function(you, npc, ctx)
 end
 C['EOC_OLD_GUARD_ASSASSIN_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_clair_premonition')) or you:has_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures')))
+  return (you:has_effect(U.eid('effect_clair_premonition')) or you:has_effect(U.eid('effect_clair_sense_hostile_creatures')))
 end
 M['EOC_OLD_GUARD_ASSASSIN_PREMONITION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9391,10 +9391,10 @@ M['EOC_OLD_GUARD_ASSASSIN_PREMONITION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You feel several sets of hostile eyes watching you and rapidly getting closer.  Someone has it in for you.', MsgType.bad, ctx)
-  if (you:has_effect(EffectTypeId.new('effect_clair_premonition')) and you:has_effect(EffectTypeId.new('effect_clair_sense_hostile_creatures'))) then
+  if (you:has_effect(U.eid('effect_clair_premonition')) and you:has_effect(U.eid('effect_clair_sense_hostile_creatures'))) then
     util.queue_eoc(function(y) M['EOC_OLD_GUARD_ASSASSIN_ACTUAL_FAR'](y, npc, ctx) end, you, ((((m.spell_level(you, 'clair_danger_sense') + m.spell_level(you, 'clair_danger_sense_knack')) * 4) + (m.spell_level(you, 'clair_sense_hostile_creatures') * 8)) + 5))
   end
-  if you:has_effect(EffectTypeId.new('effect_clair_premonition')) then
+  if you:has_effect(U.eid('effect_clair_premonition')) then
     util.queue_eoc(function(y) M['EOC_OLD_GUARD_ASSASSIN_ACTUAL_FAR'](y, npc, ctx) end, you, (((m.spell_level(you, 'clair_danger_sense') + m.spell_level(you, 'clair_danger_sense_knack')) * 4) + 5))
   else
     util.queue_eoc(function(y) M['EOC_OLD_GUARD_ASSASSIN_ACTUAL_FAR'](y, npc, ctx) end, you, ((m.spell_level(you, 'clair_sense_hostile_creatures') * 8) + 5))
@@ -9403,7 +9403,7 @@ M['EOC_OLD_GUARD_ASSASSIN_PREMONITION'] = function(you, npc, ctx)
 end
 C['EOC_PAIN_DISABLES_PSI'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('ELECTROKINETIC')) or you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('VITAKINETIC'))) and (not U.has_creature_flag(you, 'PAIN_IMMUNE')) and (not you:has_effect(EffectTypeId.new('effect_psi_too_much_pain_cant_channel'))) and (m.pain(you) >= (40 + (15 * ((((((U.b2n(you:has_trait(MutationBranchId.new('CONCENTRATION_GOOD'))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('CONCENTRATION_BAD')))) and (-(1)) or (0))) + U.b2n(you:has_trait(MutationBranchId.new('INT_ALPHA')))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('CONCENTRATION_DEBUG')))) and (50) or (0))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_BASIC')))) and (1) or (0))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_INTERMEDIATE')))) and (2) or (0))) + (U.truthy(U.b2n(you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_MASTER')))) and (3) or (0)))))))
+  return ((you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('ELECTROKINETIC')) or you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('VITAKINETIC'))) and (not U.has_creature_flag(you, 'PAIN_IMMUNE')) and (not you:has_effect(U.eid('effect_psi_too_much_pain_cant_channel'))) and (m.pain(you) >= (40 + (15 * ((((((U.b2n(you:has_trait(U.mid('CONCENTRATION_GOOD'))) + (U.truthy(U.b2n(you:has_trait(U.mid('CONCENTRATION_BAD')))) and (-(1)) or (0))) + U.b2n(you:has_trait(U.mid('INT_ALPHA')))) + (U.truthy(U.b2n(you:has_trait(U.mid('CONCENTRATION_DEBUG')))) and (50) or (0))) + (U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_BASIC')))) and (1) or (0))) + (U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_INTERMEDIATE')))) and (2) or (0))) + (U.truthy(U.b2n(you:has_trait(U.mid('PROF_CONCENTRATION_MASTER')))) and (3) or (0)))))))
 end
 M['EOC_PAIN_DISABLES_PSI'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9415,7 +9415,7 @@ M['EOC_PAIN_DISABLES_PSI'] = function(you, npc, ctx)
 end
 C['EOC_PERFECTED_MOTION_WATER_RUN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_biokin_perfected_motion'))
+  return you:has_effect(U.eid('effect_biokin_perfected_motion'))
 end
 M['EOC_PERFECTED_MOTION_WATER_RUN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9440,7 +9440,7 @@ M['EOC_PERFECTED_MOTION_WATER_RUN_CONTINUANCE'] = function(you, npc, ctx)
 end
 C['EOC_PERK_BURNING_BRIGHT_ATTUNEMENT_MAINTAINED'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('perk_burning_bright')) and (m.maintained_count(you) == 0))
+  return (you:has_trait(U.mid('perk_burning_bright')) and (m.maintained_count(you) == 0))
 end
 M['EOC_PERK_BURNING_BRIGHT_ATTUNEMENT_MAINTAINED'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9452,7 +9452,7 @@ M['EOC_PERK_BURNING_BRIGHT_ATTUNEMENT_MAINTAINED'] = function(you, npc, ctx)
 end
 C['EOC_PERK_BURNING_BRIGHT_CHANNELING_FINISH_RAISE_ATTUNEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('perk_burning_bright'))
+  return you:has_trait(U.mid('perk_burning_bright'))
 end
 M['EOC_PERK_BURNING_BRIGHT_CHANNELING_FINISH_RAISE_ATTUNEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9472,7 +9472,7 @@ M['EOC_PERK_BURNING_BRIGHT_RAISE_ATTUNEMENT'] = function(you, npc, ctx)
 end
 C['EOC_PERK_IN_THE_ZONE_ACTUAL_COST_ADJUSTMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_perk_in_the_zone'))
+  return you:has_effect(U.eid('effect_perk_in_the_zone'))
 end
 M['EOC_PERK_IN_THE_ZONE_ACTUAL_COST_ADJUSTMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9484,7 +9484,7 @@ M['EOC_PERK_IN_THE_ZONE_ACTUAL_COST_ADJUSTMENT'] = function(you, npc, ctx)
 end
 C['EOC_PERK_IN_THE_ZONE_ADD_EFFECT_TRIGGER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and (not you:has_effect(EffectTypeId.new('effect_perk_in_the_zone'))) and you:has_trait(MutationBranchId.new('perk_in_the_zone')))
+  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and (not you:has_effect(U.eid('effect_perk_in_the_zone'))) and you:has_trait(U.mid('perk_in_the_zone')))
 end
 M['EOC_PERK_IN_THE_ZONE_ADD_EFFECT_TRIGGER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9497,19 +9497,19 @@ M['EOC_PERK_IN_THE_ZONE_ADD_EFFECT_TRIGGER'] = function(you, npc, ctx)
 end
 C['EOC_PERK_IN_THE_ZONE_REMOVE_EFFECT_TRIGGER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and you:has_trait(MutationBranchId.new('perk_in_the_zone')) and (not you:has_effect(EffectTypeId.new('effect_perk_in_the_zone_rate_limiter'))) and you:has_effect(EffectTypeId.new('effect_perk_in_the_zone')))
+  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and you:has_trait(U.mid('perk_in_the_zone')) and (not you:has_effect(U.eid('effect_perk_in_the_zone_rate_limiter'))) and you:has_effect(U.eid('effect_perk_in_the_zone')))
 end
 M['EOC_PERK_IN_THE_ZONE_REMOVE_EFFECT_TRIGGER'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PERK_IN_THE_ZONE_REMOVE_EFFECT_TRIGGER'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_perk_in_the_zone'))
+  you:remove_effect(U.eid('effect_perk_in_the_zone'))
   return true
 end
 C['EOC_PERK_MIND_CRY_TAKE_DAMAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('perk_mind_cry')) and (m.pain(you) >= 10) and U.x_in_y(1, 100))
+  return (you:has_trait(U.mid('perk_mind_cry')) and (m.pain(you) >= 10) and U.x_in_y(1, 100))
 end
 M['EOC_PERK_MIND_CRY_TAKE_DAMAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9522,7 +9522,7 @@ M['EOC_PERK_MIND_CRY_TAKE_DAMAGE'] = function(you, npc, ctx)
 end
 C['EOC_PERK_PHOENIX_RISING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('perk_phoenix_rising')) and (m.attunement(you) >= 155))
+  return (you:has_trait(U.mid('perk_phoenix_rising')) and (m.attunement(you) >= 155))
 end
 M['EOC_PERK_PHOENIX_RISING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9534,7 +9534,7 @@ M['EOC_PERK_PHOENIX_RISING'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PHOTOKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9563,7 +9563,7 @@ M['EOC_PHOTOKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKINETIC_DAMAGE_BLIND_CHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.x_in_y(2, 5) and ((ctx['damage_taken'] or 0) > 0) and (not npc:has_trait(MutationBranchId.new('PHOTOKINETIC'))) and (not U.has_creature_flag(npc, 'PHOTOKIN_CHAR_IMMUNE')) and (not U.has_creature_flag(npc, 'PHOTOKIN_MONSTER_IMMUNE')))
+  return (U.x_in_y(2, 5) and ((ctx['damage_taken'] or 0) > 0) and (not npc:has_trait(U.mid('PHOTOKINETIC'))) and (not U.has_creature_flag(npc, 'PHOTOKIN_CHAR_IMMUNE')) and (not U.has_creature_flag(npc, 'PHOTOKIN_MONSTER_IMMUNE')))
 end
 M['EOC_PHOTOKINETIC_DAMAGE_BLIND_CHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9575,7 +9575,7 @@ M['EOC_PHOTOKINETIC_DAMAGE_BLIND_CHANCE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKINETIC_DAMAGE_EXTRA_BLIND_CHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.x_in_y(1, 20) and ((ctx['damage_taken'] or 0) > 0) and (not npc:has_trait(MutationBranchId.new('PHOTOKINETIC'))) and (not U.has_creature_flag(npc, 'PHOTOKIN_CHAR_IMMUNE')) and (not U.has_creature_flag(npc, 'PHOTOKIN_MONSTER_IMMUNE')))
+  return (U.x_in_y(1, 20) and ((ctx['damage_taken'] or 0) > 0) and (not npc:has_trait(U.mid('PHOTOKINETIC'))) and (not U.has_creature_flag(npc, 'PHOTOKIN_CHAR_IMMUNE')) and (not U.has_creature_flag(npc, 'PHOTOKIN_MONSTER_IMMUNE')))
 end
 M['EOC_PHOTOKINETIC_DAMAGE_EXTRA_BLIND_CHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9614,7 +9614,7 @@ M['EOC_PHOTOKINETIC_STERILIZE_FOODS_PREP'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_BLINDING_GLARE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_blinding_glare'))
+  return you:has_effect(U.eid('effect_photokin_blinding_glare'))
 end
 M['EOC_PHOTOKIN_BLINDING_GLARE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9631,7 +9631,7 @@ M['EOC_PHOTOKIN_BLINDING_GLARE_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_BLINDING_GLARE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_photokin_blinding_glare')))
+  return (not you:has_effect(U.eid('effect_photokin_blinding_glare')))
 end
 M['EOC_PHOTOKIN_BLINDING_GLARE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9647,7 +9647,7 @@ M['EOC_PHOTOKIN_BLINDING_GLARE_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_CAMOUFLAGE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_camouflage'))
+  return you:has_effect(U.eid('effect_photokin_camouflage'))
 end
 M['EOC_PHOTOKIN_CAMOUFLAGE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9672,7 +9672,7 @@ M['EOC_PHOTOKIN_CAMOUFLAGE_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_CAMOUFLAGE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_photokin_camouflage')))
+  return (not you:has_effect(U.eid('effect_photokin_camouflage')))
 end
 M['EOC_PHOTOKIN_CAMOUFLAGE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9717,7 +9717,7 @@ M['EOC_PHOTOKIN_CRYSTAL_DRAINING'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_DODGE_CANCEL_ATTACKED'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_dodge'))
+  return you:has_effect(U.eid('effect_photokin_dodge'))
 end
 M['EOC_PHOTOKIN_DODGE_CANCEL_ATTACKED'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9729,7 +9729,7 @@ M['EOC_PHOTOKIN_DODGE_CANCEL_ATTACKED'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_HIDE_UGLY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_hide_ugly'))
+  return you:has_effect(U.eid('effect_photokin_hide_ugly'))
 end
 M['EOC_PHOTOKIN_HIDE_UGLY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9754,7 +9754,7 @@ M['EOC_PHOTOKIN_HIDE_UGLY_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_HIDE_UGLY_GRANT_GODCO_VARS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('THRESH_LIZARD')) or you:has_trait(MutationBranchId.new('THRESH_GASTROPOD')) or you:has_trait(MutationBranchId.new('THRESH_BIRD')) or you:has_trait(MutationBranchId.new('THRESH_FISH')) or you:has_trait(MutationBranchId.new('THRESH_BEAST')) or you:has_trait(MutationBranchId.new('THRESH_FELINE')) or you:has_trait(MutationBranchId.new('THRESH_LUPINE')) or you:has_trait(MutationBranchId.new('THRESH_URSINE')) or you:has_trait(MutationBranchId.new('THRESH_CATTLE')) or you:has_trait(MutationBranchId.new('THRESH_INSECT')) or you:has_trait(MutationBranchId.new('THRESH_PLANT')) or you:has_trait(MutationBranchId.new('THRESH_SLIME')) or you:has_trait(MutationBranchId.new('THRESH_TROGLOBITE')) or you:has_trait(MutationBranchId.new('THRESH_CEPHALOPOD')) or you:has_trait(MutationBranchId.new('THRESH_SPIDER')) or you:has_trait(MutationBranchId.new('THRESH_RAT')) or you:has_trait(MutationBranchId.new('THRESH_ELPHA')) or you:has_trait(MutationBranchId.new('THRESH_CHIMERA')) or you:has_trait(MutationBranchId.new('THRESH_RAPTOR')) or you:has_trait(MutationBranchId.new('THRESH_BATRACHIAN')) or you:has_trait(MutationBranchId.new('THRESH_MOUSE')) or you:has_trait(MutationBranchId.new('THRESH_MARLOSS')) or you:has_trait(MutationBranchId.new('THRESH_MYCUS')) or you:has_trait(MutationBranchId.new('THRESH_CRUSTACEAN')))
+  return (you:has_trait(U.mid('THRESH_LIZARD')) or you:has_trait(U.mid('THRESH_GASTROPOD')) or you:has_trait(U.mid('THRESH_BIRD')) or you:has_trait(U.mid('THRESH_FISH')) or you:has_trait(U.mid('THRESH_BEAST')) or you:has_trait(U.mid('THRESH_FELINE')) or you:has_trait(U.mid('THRESH_LUPINE')) or you:has_trait(U.mid('THRESH_URSINE')) or you:has_trait(U.mid('THRESH_CATTLE')) or you:has_trait(U.mid('THRESH_INSECT')) or you:has_trait(U.mid('THRESH_PLANT')) or you:has_trait(U.mid('THRESH_SLIME')) or you:has_trait(U.mid('THRESH_TROGLOBITE')) or you:has_trait(U.mid('THRESH_CEPHALOPOD')) or you:has_trait(U.mid('THRESH_SPIDER')) or you:has_trait(U.mid('THRESH_RAT')) or you:has_trait(U.mid('THRESH_ELPHA')) or you:has_trait(U.mid('THRESH_CHIMERA')) or you:has_trait(U.mid('THRESH_RAPTOR')) or you:has_trait(U.mid('THRESH_BATRACHIAN')) or you:has_trait(U.mid('THRESH_MOUSE')) or you:has_trait(U.mid('THRESH_MARLOSS')) or you:has_trait(U.mid('THRESH_MYCUS')) or you:has_trait(U.mid('THRESH_CRUSTACEAN')))
 end
 M['EOC_PHOTOKIN_HIDE_UGLY_GRANT_GODCO_VARS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9766,7 +9766,7 @@ M['EOC_PHOTOKIN_HIDE_UGLY_GRANT_GODCO_VARS'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_HIDE_UGLY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_photokin_hide_ugly')))
+  return (not you:has_effect(U.eid('effect_photokin_hide_ugly')))
 end
 M['EOC_PHOTOKIN_HIDE_UGLY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9783,7 +9783,7 @@ M['EOC_PHOTOKIN_HIDE_UGLY_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_HIDE_UGLY_REMOVE_GODCO_VARS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('THRESH_LIZARD')) or you:has_trait(MutationBranchId.new('THRESH_GASTROPOD')) or you:has_trait(MutationBranchId.new('THRESH_BIRD')) or you:has_trait(MutationBranchId.new('THRESH_FISH')) or you:has_trait(MutationBranchId.new('THRESH_BEAST')) or you:has_trait(MutationBranchId.new('THRESH_FELINE')) or you:has_trait(MutationBranchId.new('THRESH_LUPINE')) or you:has_trait(MutationBranchId.new('THRESH_URSINE')) or you:has_trait(MutationBranchId.new('THRESH_CATTLE')) or you:has_trait(MutationBranchId.new('THRESH_INSECT')) or you:has_trait(MutationBranchId.new('THRESH_PLANT')) or you:has_trait(MutationBranchId.new('THRESH_SLIME')) or you:has_trait(MutationBranchId.new('THRESH_TROGLOBITE')) or you:has_trait(MutationBranchId.new('THRESH_CEPHALOPOD')) or you:has_trait(MutationBranchId.new('THRESH_SPIDER')) or you:has_trait(MutationBranchId.new('THRESH_RAT')) or you:has_trait(MutationBranchId.new('THRESH_ELFA')) or you:has_trait(MutationBranchId.new('THRESH_CHIMERA')) or you:has_trait(MutationBranchId.new('THRESH_RAPTOR')) or you:has_trait(MutationBranchId.new('THRESH_BATRACHIAN')) or you:has_trait(MutationBranchId.new('THRESH_MOUSE')) or you:has_trait(MutationBranchId.new('THRESH_MARLOSS')) or you:has_trait(MutationBranchId.new('THRESH_MYCUS')) or you:has_trait(MutationBranchId.new('THRESH_CRUSTACEAN')))
+  return (you:has_trait(U.mid('THRESH_LIZARD')) or you:has_trait(U.mid('THRESH_GASTROPOD')) or you:has_trait(U.mid('THRESH_BIRD')) or you:has_trait(U.mid('THRESH_FISH')) or you:has_trait(U.mid('THRESH_BEAST')) or you:has_trait(U.mid('THRESH_FELINE')) or you:has_trait(U.mid('THRESH_LUPINE')) or you:has_trait(U.mid('THRESH_URSINE')) or you:has_trait(U.mid('THRESH_CATTLE')) or you:has_trait(U.mid('THRESH_INSECT')) or you:has_trait(U.mid('THRESH_PLANT')) or you:has_trait(U.mid('THRESH_SLIME')) or you:has_trait(U.mid('THRESH_TROGLOBITE')) or you:has_trait(U.mid('THRESH_CEPHALOPOD')) or you:has_trait(U.mid('THRESH_SPIDER')) or you:has_trait(U.mid('THRESH_RAT')) or you:has_trait(U.mid('THRESH_ELFA')) or you:has_trait(U.mid('THRESH_CHIMERA')) or you:has_trait(U.mid('THRESH_RAPTOR')) or you:has_trait(U.mid('THRESH_BATRACHIAN')) or you:has_trait(U.mid('THRESH_MOUSE')) or you:has_trait(U.mid('THRESH_MARLOSS')) or you:has_trait(U.mid('THRESH_MYCUS')) or you:has_trait(U.mid('THRESH_CRUSTACEAN')))
 end
 M['EOC_PHOTOKIN_HIDE_UGLY_REMOVE_GODCO_VARS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9795,7 +9795,7 @@ M['EOC_PHOTOKIN_HIDE_UGLY_REMOVE_GODCO_VARS'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_INVISIBILITY_CANCEL_RUN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and you:has_effect(EffectTypeId.new('effect_photokin_invisibility')) and ('run' == tostring(ctx['movement_mode'] or '')) and U.x_in_y(math.max((80 - (m.spell_level(you, 'photokinetic_invisibility') * 3)), 30), 1000))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and you:has_effect(U.eid('effect_photokin_invisibility')) and ('run' == tostring(ctx['movement_mode'] or '')) and U.x_in_y(math.max((80 - (m.spell_level(you, 'photokinetic_invisibility') * 3)), 30), 1000))
 end
 M['EOC_PHOTOKIN_INVISIBILITY_CANCEL_RUN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9803,12 +9803,12 @@ M['EOC_PHOTOKIN_INVISIBILITY_CANCEL_RUN'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'As you run, a shower of light outlines your path, revealing your position!', MsgType.bad, ctx)
-  you:remove_effect(EffectTypeId.new('effect_photokin_invisibility'))
+  you:remove_effect(U.eid('effect_photokin_invisibility'))
   return true
 end
 C['EOC_PHOTOKIN_INVISIBILITY_CANCEL_WALK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and you:has_effect(EffectTypeId.new('effect_photokin_invisibility')) and (('walk' == tostring(ctx['movement_mode'] or '')) or ('crouch' == tostring(ctx['movement_mode'] or '')) or ('prone' == tostring(ctx['movement_mode'] or ''))) and U.x_in_y(math.max((20 - m.spell_level(you, 'photokinetic_invisibility')), 4), 1000))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and you:has_effect(U.eid('effect_photokin_invisibility')) and (('walk' == tostring(ctx['movement_mode'] or '')) or ('crouch' == tostring(ctx['movement_mode'] or '')) or ('prone' == tostring(ctx['movement_mode'] or ''))) and U.x_in_y(math.max((20 - m.spell_level(you, 'photokinetic_invisibility')), 4), 1000))
 end
 M['EOC_PHOTOKIN_INVISIBILITY_CANCEL_WALK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9816,12 +9816,12 @@ M['EOC_PHOTOKIN_INVISIBILITY_CANCEL_WALK'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'As you move, light scatters around you in coruscating shards, revealing your position!', MsgType.bad, ctx)
-  you:remove_effect(EffectTypeId.new('effect_photokin_invisibility'))
+  you:remove_effect(U.eid('effect_photokin_invisibility'))
   return true
 end
 C['EOC_PHOTOKIN_INVISIBILITY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_invisibility'))
+  return you:has_effect(U.eid('effect_photokin_invisibility'))
 end
 M['EOC_PHOTOKIN_INVISIBILITY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9838,7 +9838,7 @@ M['EOC_PHOTOKIN_INVISIBILITY_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_INVISIBILITY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_photokin_invisibility')))
+  return (not you:has_effect(U.eid('effect_photokin_invisibility')))
 end
 M['EOC_PHOTOKIN_INVISIBILITY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9854,7 +9854,7 @@ M['EOC_PHOTOKIN_INVISIBILITY_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_FLASH_BANG'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'photokinetic_create_light') >= 9) or (m.spell_level(you, 'photokinetic_light_beam') >= 5)) and (m.spell_level(you, 'photokinetic_light_up_enemy') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_flash_bang') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_flash_bang'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'photokinetic_create_light') >= 9) or (m.spell_level(you, 'photokinetic_light_beam') >= 5)) and (m.spell_level(you, 'photokinetic_light_up_enemy') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_flash_bang') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_flash_bang'))))
 end
 M['EOC_PHOTOKIN_LEARNING_FLASH_BANG'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9868,7 +9868,7 @@ M['EOC_PHOTOKIN_LEARNING_FLASH_BANG'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_HIDE_UGLY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_camouflage') >= 8) and (m.spell_level(you, 'photokinetic_rad_immunity') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_hide_ugly') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_hide_ugly'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_camouflage') >= 8) and (m.spell_level(you, 'photokinetic_rad_immunity') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_hide_ugly') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_hide_ugly'))))
 end
 M['EOC_PHOTOKIN_LEARNING_HIDE_UGLY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9882,7 +9882,7 @@ M['EOC_PHOTOKIN_LEARNING_HIDE_UGLY'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_INVISIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'photokinetic_rad_immunity') >= 6) or (m.spell_level(you, 'photokinetic_light_image') >= 6)) and ((m.spell_level(you, 'photokinetic_camouflage') >= 10) or (m.spell_level(you, 'photokinetic_hide_ugly') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_invisibility') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_invisibility'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'photokinetic_rad_immunity') >= 6) or (m.spell_level(you, 'photokinetic_light_image') >= 6)) and ((m.spell_level(you, 'photokinetic_camouflage') >= 10) or (m.spell_level(you, 'photokinetic_hide_ugly') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_invisibility') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_invisibility'))))
 end
 M['EOC_PHOTOKIN_LEARNING_INVISIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9896,7 +9896,7 @@ M['EOC_PHOTOKIN_LEARNING_INVISIBILITY'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_LIGHT_ARMS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_dodge') >= 8) and (m.spell_level(you, 'photokinetic_camouflage') >= 6) and (m.spell_level(you, 'photokinetic_light_local') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_arms') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_arms'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_dodge') >= 8) and (m.spell_level(you, 'photokinetic_camouflage') >= 6) and (m.spell_level(you, 'photokinetic_light_local') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_arms') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_arms'))))
 end
 M['EOC_PHOTOKIN_LEARNING_LIGHT_ARMS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9910,7 +9910,7 @@ M['EOC_PHOTOKIN_LEARNING_LIGHT_ARMS'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_LIGHT_ARMY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_image') >= 10) and ((m.spell_level(you, 'photokinetic_create_light') >= 14) or (m.spell_level(you, 'photokinetic_light_arms') >= 10) or (m.spell_level(you, 'photokinetic_blinding_glare') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_army') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_army'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_image') >= 10) and ((m.spell_level(you, 'photokinetic_create_light') >= 14) or (m.spell_level(you, 'photokinetic_light_arms') >= 10) or (m.spell_level(you, 'photokinetic_blinding_glare') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_army') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_army'))))
 end
 M['EOC_PHOTOKIN_LEARNING_LIGHT_ARMY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9924,7 +9924,7 @@ M['EOC_PHOTOKIN_LEARNING_LIGHT_ARMY'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_LIGHT_BLINDING_GLARE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'photokinetic_create_light') >= 12) or (m.spell_level(you, 'photokinetic_flash_bang') >= 7)) and ((m.spell_level(you, 'photokinetic_light_flash') >= 6) or (m.spell_level(you, 'photokinetic_rad_immunity') >= 10)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_blinding_glare') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_blinding_glare'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'photokinetic_create_light') >= 12) or (m.spell_level(you, 'photokinetic_flash_bang') >= 7)) and ((m.spell_level(you, 'photokinetic_light_flash') >= 6) or (m.spell_level(you, 'photokinetic_rad_immunity') >= 10)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_blinding_glare') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_blinding_glare'))))
 end
 M['EOC_PHOTOKIN_LEARNING_LIGHT_BLINDING_GLARE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9938,7 +9938,7 @@ M['EOC_PHOTOKIN_LEARNING_LIGHT_BLINDING_GLARE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_LIGHT_DISINTEGRATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_blinding_glare') >= 5) and ((m.spell_level(you, 'photokinetic_light_flash') >= 8) or (m.spell_level(you, 'photokinetic_light_beam') >= 14)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_disintegrate') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_disintegrate'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_blinding_glare') >= 5) and ((m.spell_level(you, 'photokinetic_light_flash') >= 8) or (m.spell_level(you, 'photokinetic_light_beam') >= 14)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_disintegrate') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_disintegrate'))))
 end
 M['EOC_PHOTOKIN_LEARNING_LIGHT_DISINTEGRATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9952,7 +9952,7 @@ M['EOC_PHOTOKIN_LEARNING_LIGHT_DISINTEGRATE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_LIGHT_FLASH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_beam') >= 8) and ((m.spell_level(you, 'photokinetic_rad_immunity') >= 6) or (m.spell_level(you, 'photokinetic_light_arms') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_flash') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_flash'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_beam') >= 8) and ((m.spell_level(you, 'photokinetic_rad_immunity') >= 6) or (m.spell_level(you, 'photokinetic_light_arms') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_flash') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_flash'))))
 end
 M['EOC_PHOTOKIN_LEARNING_LIGHT_FLASH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9966,7 +9966,7 @@ M['EOC_PHOTOKIN_LEARNING_LIGHT_FLASH'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_LIGHT_IMAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_beam') >= 6) and ((m.spell_level(you, 'photokinetic_camouflage') >= 6) or (m.spell_level(you, 'photokinetic_light_arms') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_image') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_image'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_beam') >= 6) and ((m.spell_level(you, 'photokinetic_camouflage') >= 6) or (m.spell_level(you, 'photokinetic_light_arms') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_image') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_image'))))
 end
 M['EOC_PHOTOKIN_LEARNING_LIGHT_IMAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9980,7 +9980,7 @@ M['EOC_PHOTOKIN_LEARNING_LIGHT_IMAGE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_LIGHT_UP_ENEMY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_up_enemy') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_up_enemy'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_up_enemy') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_up_enemy'))))
 end
 M['EOC_PHOTOKIN_LEARNING_LIGHT_UP_ENEMY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -9994,7 +9994,7 @@ M['EOC_PHOTOKIN_LEARNING_LIGHT_UP_ENEMY'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_RADIO'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_rad_immunity') >= 6) and ((m.spell_level(you, 'photokinetic_create_light') >= 8) or (m.spell_level(you, 'photokinetic_light_beam') >= 7)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_radio') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_radio'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_rad_immunity') >= 6) and ((m.spell_level(you, 'photokinetic_create_light') >= 8) or (m.spell_level(you, 'photokinetic_light_beam') >= 7)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_radio') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_radio'))))
 end
 M['EOC_PHOTOKIN_LEARNING_RADIO'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10008,7 +10008,7 @@ M['EOC_PHOTOKIN_LEARNING_RADIO'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_SNUFF_LIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_local') >= 5) or (m.spell_level(you, 'photokinetic_create_light') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_snuff_light') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_snuff_light'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_local') >= 5) or (m.spell_level(you, 'photokinetic_create_light') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_snuff_light') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_snuff_light'))))
 end
 M['EOC_PHOTOKIN_LEARNING_SNUFF_LIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10022,7 +10022,7 @@ M['EOC_PHOTOKIN_LEARNING_SNUFF_LIGHT'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_STERILIZE_FOOD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_rad_immunity') >= 7) and (m.spell_level(you, 'photokinetic_camouflage') >= 4) and ((m.spell_level(you, 'photokinetic_light_flash') >= 3) or (m.spell_level(you, 'photokinetic_light_up_enemy') >= 9) or (m.spell_level(you, 'photokinetic_light_beam') >= 5)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_sterilize_food') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_sterilize_food'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_rad_immunity') >= 7) and (m.spell_level(you, 'photokinetic_camouflage') >= 4) and ((m.spell_level(you, 'photokinetic_light_flash') >= 3) or (m.spell_level(you, 'photokinetic_light_up_enemy') >= 9) or (m.spell_level(you, 'photokinetic_light_beam') >= 5)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_sterilize_food') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_sterilize_food'))))
 end
 M['EOC_PHOTOKIN_LEARNING_STERILIZE_FOOD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10036,7 +10036,7 @@ M['EOC_PHOTOKIN_LEARNING_STERILIZE_FOOD'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LEARNING_STUN_ROBOTS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_flash') >= 5) or ((m.spell_level(you, 'photokinetic_radio') >= 6) and (m.spell_level(you, 'photokinetic_light_beam') >= 4)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_stun_robots') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_stun_robots'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_flash') >= 5) or ((m.spell_level(you, 'photokinetic_radio') >= 6) and (m.spell_level(you, 'photokinetic_light_beam') >= 4)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_stun_robots') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_stun_robots'))))
 end
 M['EOC_PHOTOKIN_LEARNING_STUN_ROBOTS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10057,7 +10057,7 @@ M['EOC_PHOTOKIN_LIGHT_ARMY_CONTINUING_CHECK'] = function(you, npc, ctx)
   if not C['EOC_PHOTOKIN_LIGHT_ARMY_CONTINUING_CHECK'](you, npc, ctx) then
     M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
     M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-    you:remove_effect(EffectTypeId.new('effect_photokin_light_army'))
+    you:remove_effect(U.eid('effect_photokin_light_army'))
     return false
   end
   util.queue_eoc(function(y) M['EOC_PHOTOKIN_LIGHT_ARMY_CONTINUING_CHECK'](y, npc, ctx) end, you, 1)
@@ -10077,7 +10077,7 @@ M['EOC_PHOTOKIN_LIGHT_ARMY_DISAPPEAR_MONSTERS'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LIGHT_ARMY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_light_army'))
+  return you:has_effect(U.eid('effect_photokin_light_army'))
 end
 M['EOC_PHOTOKIN_LIGHT_ARMY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10094,7 +10094,7 @@ M['EOC_PHOTOKIN_LIGHT_ARMY_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LIGHT_ARMY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_photokin_light_army')))
+  return (not you:has_effect(U.eid('effect_photokin_light_army')))
 end
 M['EOC_PHOTOKIN_LIGHT_ARMY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10117,7 +10117,7 @@ M['EOC_PHOTOKIN_LIGHT_ARMY_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LIGHT_DODGE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_dodge'))
+  return you:has_effect(U.eid('effect_photokin_dodge'))
 end
 M['EOC_PHOTOKIN_LIGHT_DODGE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10134,7 +10134,7 @@ M['EOC_PHOTOKIN_LIGHT_DODGE_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LIGHT_DODGE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_photokin_dodge')))
+  return (not you:has_effect(U.eid('effect_photokin_dodge')))
 end
 M['EOC_PHOTOKIN_LIGHT_DODGE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10150,7 +10150,7 @@ M['EOC_PHOTOKIN_LIGHT_DODGE_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LIGHT_LOCAL_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_light_local'))
+  return you:has_effect(U.eid('effect_photokin_light_local'))
 end
 M['EOC_PHOTOKIN_LIGHT_LOCAL_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10167,7 +10167,7 @@ M['EOC_PHOTOKIN_LIGHT_LOCAL_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_LIGHT_LOCAL_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_photokin_light_local')))
+  return (not you:has_effect(U.eid('effect_photokin_light_local')))
 end
 M['EOC_PHOTOKIN_LIGHT_LOCAL_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10195,7 +10195,7 @@ M['EOC_PHOTOKIN_LIGHT_UP_ENEMY_TARGET'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_PHOTOKIN_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10224,7 +10224,7 @@ M['EOC_PHOTOKIN_MATRIX_AWAKENING_2'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PHOTOKIN_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10264,7 +10264,7 @@ M['EOC_PHOTOKIN_MATRIX_AWAKENING_SUCCESS'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_PHOTOKIN_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10274,7 +10274,7 @@ M['EOC_PHOTOKIN_POTION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You drink the concoction.', MsgType.neutral, ctx)
-  you:remove_effect(EffectTypeId.new('effect_photokin_potion_comedown'))
+  you:remove_effect(U.eid('effect_photokin_potion_comedown'))
   U.add_effect(you, 'effect_photokin_potion', TimeDuration.from_hours(30), nil, nil)
   U.add_effect(you, 'effect_matrix_potion_nether_boost', TimeDuration.from_hours(30), nil, nil)
   U.set_mutation(you, 'PHOTOLIXIR_LIGHT')
@@ -10287,8 +10287,8 @@ C['EOC_PHOTOKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
 end
 M['EOC_PHOTOKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  you:remove_effect(EffectTypeId.new('effect_photokin_potion'))
-  you:remove_effect(EffectTypeId.new('effect_matrix_potion_nether_boost'))
+  you:remove_effect(U.eid('effect_photokin_potion'))
+  you:remove_effect(U.eid('effect_matrix_potion_nether_boost'))
   U.unset_mutation(you, 'PHOTOLIXIR_LIGHT')
   U.unset_mutation(you, 'PHOTOLIXIR_LIGHT_active')
   U.add_effect(you, 'effect_photokin_potion_comedown', U.rng_dur(TimeDuration.from_hours(24), TimeDuration.from_hours(55)), nil, nil)
@@ -10296,19 +10296,19 @@ M['EOC_PHOTOKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_RADIATION_STERILIZATION_CANCELS_STERILIZING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (('ACT_PSI_PHOTOKIN_RADIATION_STERILIZATION' == tostring(ctx['activity'] or '')) and you:has_effect(EffectTypeId.new('effect_photokin_sterilization')))
+  return (('ACT_PSI_PHOTOKIN_RADIATION_STERILIZATION' == tostring(ctx['activity'] or '')) and you:has_effect(U.eid('effect_photokin_sterilization')))
 end
 M['EOC_PHOTOKIN_RADIATION_STERILIZATION_CANCELS_STERILIZING'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PHOTOKIN_RADIATION_STERILIZATION_CANCELS_STERILIZING'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_photokin_sterilization'))
+  you:remove_effect(U.eid('effect_photokin_sterilization'))
   return true
 end
 C['EOC_PHOTOKIN_RADIATION_STERILIZATION_COST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_sterilization'))
+  return you:has_effect(U.eid('effect_photokin_sterilization'))
 end
 M['EOC_PHOTOKIN_RADIATION_STERILIZATION_COST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10321,7 +10321,7 @@ M['EOC_PHOTOKIN_RADIATION_STERILIZATION_COST'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_RADIATION_STERILIZATION_FINALIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_sterilization'))
+  return you:has_effect(U.eid('effect_photokin_sterilization'))
 end
 M['EOC_PHOTOKIN_RADIATION_STERILIZATION_FINALIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10346,7 +10346,7 @@ M['EOC_PHOTOKIN_RADIATION_STERILIZATION_FINALIZE_END'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_RADIO_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokinetic_radio'))
+  return you:has_effect(U.eid('effect_photokinetic_radio'))
 end
 M['EOC_PHOTOKIN_RADIO_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10371,7 +10371,7 @@ M['EOC_PHOTOKIN_RADIO_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_RADIO_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_photokinetic_radio')))
+  return (not you:has_effect(U.eid('effect_photokinetic_radio')))
 end
 M['EOC_PHOTOKIN_RADIO_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10388,7 +10388,7 @@ M['EOC_PHOTOKIN_RADIO_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_RAD_IMMUNITY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_light_barrier'))
+  return you:has_effect(U.eid('effect_photokin_light_barrier'))
 end
 M['EOC_PHOTOKIN_RAD_IMMUNITY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10405,7 +10405,7 @@ M['EOC_PHOTOKIN_RAD_IMMUNITY_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_RAD_IMMUNITY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_photokin_light_barrier')))
+  return (not you:has_effect(U.eid('effect_photokin_light_barrier')))
 end
 M['EOC_PHOTOKIN_RAD_IMMUNITY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10421,7 +10421,7 @@ M['EOC_PHOTOKIN_RAD_IMMUNITY_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PHOTOKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10433,7 +10433,7 @@ M['EOC_PHOTOKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_REMOVE_BLINDING_GLARE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_blinding_glare'))
+  return you:has_effect(U.eid('effect_photokin_blinding_glare'))
 end
 M['EOC_PHOTOKIN_REMOVE_BLINDING_GLARE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10441,19 +10441,19 @@ M['EOC_PHOTOKIN_REMOVE_BLINDING_GLARE'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_photokin_blinding_glare'))
+  you:remove_effect(U.eid('effect_photokin_blinding_glare'))
   return true
 end
 C['EOC_PHOTOKIN_REMOVE_CAMOUFLAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_camouflage'))
+  return you:has_effect(U.eid('effect_photokin_camouflage'))
 end
 M['EOC_PHOTOKIN_REMOVE_CAMOUFLAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PHOTOKIN_REMOVE_CAMOUFLAGE'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_photokin_camouflage'))
+  you:remove_effect(U.eid('effect_photokin_camouflage'))
   U.unset_mutation(you, 'PHOTOKINETIC_CAMOUFLAGE_1')
   U.unset_mutation(you, 'PHOTOKINETIC_CAMOUFLAGE_2')
   U.unset_mutation(you, 'PHOTOKINETIC_CAMOUFLAGE_3')
@@ -10465,7 +10465,7 @@ M['EOC_PHOTOKIN_REMOVE_CAMOUFLAGE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_REMOVE_HIDE_UGLY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_hide_ugly'))
+  return you:has_effect(U.eid('effect_photokin_hide_ugly'))
 end
 M['EOC_PHOTOKIN_REMOVE_HIDE_UGLY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10473,7 +10473,7 @@ M['EOC_PHOTOKIN_REMOVE_HIDE_UGLY'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_photokin_hide_ugly'))
+  you:remove_effect(U.eid('effect_photokin_hide_ugly'))
   U.unset_mutation(you, 'PHOTOKIN_HIDE_UGLY_01')
   U.unset_mutation(you, 'PHOTOKIN_HIDE_UGLY_02')
   U.unset_mutation(you, 'PHOTOKIN_HIDE_UGLY_03')
@@ -10485,7 +10485,7 @@ M['EOC_PHOTOKIN_REMOVE_HIDE_UGLY'] = function(you, npc, ctx)
 end
 C['EOC_PHOTOKIN_REMOVE_INVISIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_invisibility'))
+  return you:has_effect(U.eid('effect_photokin_invisibility'))
 end
 M['EOC_PHOTOKIN_REMOVE_INVISIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10493,36 +10493,36 @@ M['EOC_PHOTOKIN_REMOVE_INVISIBILITY'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_photokin_invisibility'))
+  you:remove_effect(U.eid('effect_photokin_invisibility'))
   return true
 end
 C['EOC_PHOTOKIN_REMOVE_INVISIBILITY_MELEE_CHARACTER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_invisibility'))
+  return you:has_effect(U.eid('effect_photokin_invisibility'))
 end
 M['EOC_PHOTOKIN_REMOVE_INVISIBILITY_MELEE_CHARACTER'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PHOTOKIN_REMOVE_INVISIBILITY_MELEE_CHARACTER'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_photokin_invisibility'))
+  you:remove_effect(U.eid('effect_photokin_invisibility'))
   return true
 end
 C['EOC_PHOTOKIN_REMOVE_INVISIBILITY_MELEE_MONSTER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_invisibility'))
+  return you:has_effect(U.eid('effect_photokin_invisibility'))
 end
 M['EOC_PHOTOKIN_REMOVE_INVISIBILITY_MELEE_MONSTER'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PHOTOKIN_REMOVE_INVISIBILITY_MELEE_MONSTER'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_photokin_invisibility'))
+  you:remove_effect(U.eid('effect_photokin_invisibility'))
   return true
 end
 C['EOC_PHOTOKIN_REMOVE_LIGHT_ARMY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_light_army'))
+  return you:has_effect(U.eid('effect_photokin_light_army'))
 end
 M['EOC_PHOTOKIN_REMOVE_LIGHT_ARMY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10531,14 +10531,14 @@ M['EOC_PHOTOKIN_REMOVE_LIGHT_ARMY'] = function(you, npc, ctx)
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_photokin_light_army'))
+  you:remove_effect(U.eid('effect_photokin_light_army'))
   U.cast_spell(you, 'photokinetic_light_army_remove', nil, nil)
   U.msg(you, 'The remaining light duplicates disappear.', MsgType.neutral, ctx)
   return true
 end
 C['EOC_PHOTOKIN_REMOVE_LIGHT_DODGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_dodge'))
+  return you:has_effect(U.eid('effect_photokin_dodge'))
 end
 M['EOC_PHOTOKIN_REMOVE_LIGHT_DODGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10546,12 +10546,12 @@ M['EOC_PHOTOKIN_REMOVE_LIGHT_DODGE'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_photokin_dodge'))
+  you:remove_effect(U.eid('effect_photokin_dodge'))
   return true
 end
 C['EOC_PHOTOKIN_REMOVE_LIGHT_LOCAL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_light_local'))
+  return you:has_effect(U.eid('effect_photokin_light_local'))
 end
 M['EOC_PHOTOKIN_REMOVE_LIGHT_LOCAL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10559,12 +10559,12 @@ M['EOC_PHOTOKIN_REMOVE_LIGHT_LOCAL'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_photokin_light_local'))
+  you:remove_effect(U.eid('effect_photokin_light_local'))
   return true
 end
 C['EOC_PHOTOKIN_REMOVE_RADIO'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokinetic_radio'))
+  return you:has_effect(U.eid('effect_photokinetic_radio'))
 end
 M['EOC_PHOTOKIN_REMOVE_RADIO'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10574,25 +10574,25 @@ M['EOC_PHOTOKIN_REMOVE_RADIO'] = function(you, npc, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   U.remove_item_with(you, 'item_photokinetic_radio')
   U.remove_item_with(you, 'item_photokinetic_radio_on')
-  you:remove_effect(EffectTypeId.new('effect_photokinetic_radio'))
+  you:remove_effect(U.eid('effect_photokinetic_radio'))
   return true
 end
 C['EOC_PHOTOKIN_REMOVE_RAD_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_photokin_light_barrier'))
+  return you:has_effect(U.eid('effect_photokin_light_barrier'))
 end
 M['EOC_PHOTOKIN_REMOVE_RAD_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PHOTOKIN_REMOVE_RAD_IMMUNITY'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_photokin_light_barrier'))
+  you:remove_effect(U.eid('effect_photokin_light_barrier'))
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   return true
 end
 C['EOC_PHOTO_LEARNING_CAMOUFLAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_dodge') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_camouflage') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_camouflage'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_dodge') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_camouflage') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_camouflage'))))
 end
 M['EOC_PHOTO_LEARNING_CAMOUFLAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10606,7 +10606,7 @@ M['EOC_PHOTO_LEARNING_CAMOUFLAGE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTO_LEARNING_LIGHT_BEAM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_local') >= 8) or (m.spell_level(you, 'photokinetic_create_light') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_beam') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_beam'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_local') >= 8) or (m.spell_level(you, 'photokinetic_create_light') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_beam') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_beam'))))
 end
 M['EOC_PHOTO_LEARNING_LIGHT_BEAM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10620,7 +10620,7 @@ M['EOC_PHOTO_LEARNING_LIGHT_BEAM'] = function(you, npc, ctx)
 end
 C['EOC_PHOTO_LEARNING_LIGHT_DODGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_snuff_light') >= 5) and (m.spell_level(you, 'photokinetic_create_light') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_dodge') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_dodge'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_snuff_light') >= 5) and (m.spell_level(you, 'photokinetic_create_light') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_light_dodge') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_light_dodge'))))
 end
 M['EOC_PHOTO_LEARNING_LIGHT_DODGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10634,7 +10634,7 @@ M['EOC_PHOTO_LEARNING_LIGHT_DODGE'] = function(you, npc, ctx)
 end
 C['EOC_PHOTO_LEARNING_RAD_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_dodge') >= 9) or ((m.spell_level(you, 'photokinetic_snuff_light') >= 6) and (m.spell_level(you, 'photokinetic_camouflage') >= 5)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_rad_immunity') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_rad_immunity'))))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'photokinetic_light_dodge') >= 9) or ((m.spell_level(you, 'photokinetic_snuff_light') >= 6) and (m.spell_level(you, 'photokinetic_camouflage') >= 5)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'photokinetic_rad_immunity') <= 0) and (not you:knows_recipe(RecipeId.new('practice_photokinetic_rad_immunity'))))
 end
 M['EOC_PHOTO_LEARNING_RAD_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10648,7 +10648,7 @@ M['EOC_PHOTO_LEARNING_RAD_IMMUNITY'] = function(you, npc, ctx)
 end
 C['EOC_PHOTO_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_PHOTOKINESIS'))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_PHOTOKINESIS'))
 end
 M['EOC_PHOTO_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10660,7 +10660,7 @@ M['EOC_PHOTO_MATRIX_BOOST'] = function(you, npc, ctx)
 end
 C['EOC_PORTAL_BIOKIN_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_trait(MutationBranchId.new('BIOKINETIC'))) and (not you:has_effect(EffectTypeId.new('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
+  return ((not you:has_trait(U.mid('BIOKINETIC'))) and (not you:has_effect(U.eid('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
 end
 M['EOC_PORTAL_BIOKIN_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10695,7 +10695,7 @@ M['EOC_PORTAL_BLINK'] = function(you, npc, ctx)
 end
 C['EOC_PORTAL_CLAIR_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))) and (not you:has_effect(EffectTypeId.new('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
+  return ((not you:has_trait(U.mid('CLAIRSENTIENT'))) and (not you:has_effect(U.eid('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
 end
 M['EOC_PORTAL_CLAIR_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10754,7 +10754,7 @@ M['EOC_PORTAL_EFFECTS_ACTIVE'] = function(you, npc, ctx)
 end
 C['EOC_PORTAL_ELECTRO_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_trait(MutationBranchId.new('ELECTROKINETIC'))) and (not you:has_effect(EffectTypeId.new('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
+  return ((not you:has_trait(U.mid('ELECTROKINETIC'))) and (not you:has_effect(U.eid('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
 end
 M['EOC_PORTAL_ELECTRO_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10783,7 +10783,7 @@ M['EOC_PORTAL_OUBLIETTE_RETURN'] = function(you, npc, ctx)
 end
 C['EOC_PORTAL_PHOTOKIN_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_trait(MutationBranchId.new('PHOTOKINETIC'))) and (not you:has_effect(EffectTypeId.new('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
+  return ((not you:has_trait(U.mid('PHOTOKINETIC'))) and (not you:has_effect(U.eid('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
 end
 M['EOC_PORTAL_PHOTOKIN_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10806,7 +10806,7 @@ M['EOC_PORTAL_PHOTOKIN_AWAKENING'] = function(you, npc, ctx)
 end
 C['EOC_PORTAL_PORTER_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_trait(MutationBranchId.new('TELEPORTER'))) and (not you:has_effect(EffectTypeId.new('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
+  return ((not you:has_trait(U.mid('TELEPORTER'))) and (not you:has_effect(U.eid('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
 end
 M['EOC_PORTAL_PORTER_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10827,7 +10827,7 @@ M['EOC_PORTAL_PORTER_AWAKENING'] = function(you, npc, ctx)
 end
 C['EOC_PORTAL_PYRO_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_trait(MutationBranchId.new('PYROKINETIC'))) and (not you:has_effect(EffectTypeId.new('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
+  return ((not you:has_trait(U.mid('PYROKINETIC'))) and (not you:has_effect(U.eid('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
 end
 M['EOC_PORTAL_PYRO_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10851,7 +10851,7 @@ M['EOC_PORTAL_PYRO_AWAKENING'] = function(you, npc, ctx)
 end
 C['EOC_PORTAL_STORM_CONDITION_FLAG_PORTAL_PROOF'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not U.has_item_flag(you, 'PORTAL_PROOF')) and (not (you:has_effect(EffectTypeId.new('effect_telepathic_psi_armor')) and ((m.spell_level(you, 'telepathic_shield') + m.spell_level(you, 'telepathic_shield_knack')) >= (((m.attunement(you) / 10) + (math.max(U.school_level(you, 'BIOKINETIC'), U.school_level(you, 'CLAIRSENTIENT'), U.school_level(you, 'ELECTROKINETIC'), U.school_level(you, 'PHOTOKINETIC'), U.school_level(you, 'PYROKINETIC'), U.school_level(you, 'TELEPATH'), U.school_level(you, 'TELEKINETIC'), U.school_level(you, 'TELEPORTER'), U.school_level(you, 'VITAKINETIC')) / 3)) + (V.uget(you, 'awakening_countup') / 3))))))
+  return ((not U.has_item_flag(you, 'PORTAL_PROOF')) and (not (you:has_effect(U.eid('effect_telepathic_psi_armor')) and ((m.spell_level(you, 'telepathic_shield') + m.spell_level(you, 'telepathic_shield_knack')) >= (((m.attunement(you) / 10) + (math.max(U.school_level(you, 'BIOKINETIC'), U.school_level(you, 'CLAIRSENTIENT'), U.school_level(you, 'ELECTROKINETIC'), U.school_level(you, 'PHOTOKINETIC'), U.school_level(you, 'PYROKINETIC'), U.school_level(you, 'TELEPATH'), U.school_level(you, 'TELEKINETIC'), U.school_level(you, 'TELEPORTER'), U.school_level(you, 'VITAKINETIC')) / 3)) + (V.uget(you, 'awakening_countup') / 3))))))
 end
 M['EOC_PORTAL_STORM_CONDITION_FLAG_PORTAL_PROOF'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10862,7 +10862,7 @@ M['EOC_PORTAL_STORM_CONDITION_FLAG_PORTAL_PROOF'] = function(you, npc, ctx)
 end
 C['EOC_PORTAL_STORM_PSION_AWAKENING_CLOSE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.is_outside(you) and U.is_weather('close_portal_storm') and U.test_eoc(C, 'EOC_PORTAL_STORM_CONDITION_FLAG_PORTAL_PROOF', you, npc, ctx) and (not you:has_effect(EffectTypeId.new('sleep'))) and (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS'))))
+  return (U.is_outside(you) and U.is_weather('close_portal_storm') and U.test_eoc(C, 'EOC_PORTAL_STORM_CONDITION_FLAG_PORTAL_PROOF', you, npc, ctx) and (not you:has_effect(U.eid('sleep'))) and (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS'))))
 end
 M['EOC_PORTAL_STORM_PSION_AWAKENING_CLOSE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10877,7 +10877,7 @@ M['EOC_PORTAL_STORM_PSION_AWAKENING_CLOSE'] = function(you, npc, ctx)
 end
 C['EOC_PORTAL_STORM_PSION_AWAKENING_DISTANT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.is_outside(you) and U.is_weather('distant_portal_storm') and U.test_eoc(C, 'EOC_PORTAL_STORM_CONDITION_FLAG_PORTAL_PROOF', you, npc, ctx) and (not you:has_effect(EffectTypeId.new('sleep'))) and (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS'))))
+  return (U.is_outside(you) and U.is_weather('distant_portal_storm') and U.test_eoc(C, 'EOC_PORTAL_STORM_CONDITION_FLAG_PORTAL_PROOF', you, npc, ctx) and (not you:has_effect(U.eid('sleep'))) and (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS'))))
 end
 M['EOC_PORTAL_STORM_PSION_AWAKENING_DISTANT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10892,7 +10892,7 @@ M['EOC_PORTAL_STORM_PSION_AWAKENING_DISTANT'] = function(you, npc, ctx)
 end
 C['EOC_PORTAL_STORM_PSION_AWAKENING_MEDIUM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.is_outside(you) and U.is_weather('portal_storm') and U.test_eoc(C, 'EOC_PORTAL_STORM_CONDITION_FLAG_PORTAL_PROOF', you, npc, ctx) and (not you:has_effect(EffectTypeId.new('sleep'))) and (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS'))))
+  return (U.is_outside(you) and U.is_weather('portal_storm') and U.test_eoc(C, 'EOC_PORTAL_STORM_CONDITION_FLAG_PORTAL_PROOF', you, npc, ctx) and (not you:has_effect(U.eid('sleep'))) and (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS'))))
 end
 M['EOC_PORTAL_STORM_PSION_AWAKENING_MEDIUM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10916,7 +10916,7 @@ M['EOC_PORTAL_SUCCESSFUL_AWAKENING'] = function(you, npc, ctx)
 end
 C['EOC_PORTAL_TEEP_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_trait(MutationBranchId.new('TELEPATH'))) and (not you:has_effect(EffectTypeId.new('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
+  return ((not you:has_trait(U.mid('TELEPATH'))) and (not you:has_effect(U.eid('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
 end
 M['EOC_PORTAL_TEEP_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10938,7 +10938,7 @@ M['EOC_PORTAL_TEEP_AWAKENING'] = function(you, npc, ctx)
 end
 C['EOC_PORTAL_TELEKIN_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_trait(MutationBranchId.new('TELEKINETIC'))) and (not you:has_effect(EffectTypeId.new('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
+  return ((not you:has_trait(U.mid('TELEKINETIC'))) and (not you:has_effect(U.eid('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
 end
 M['EOC_PORTAL_TELEKIN_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -10982,7 +10982,7 @@ M['EOC_PORTAL_TEMPORARY_TEARS_IN_REALITY_MESSAGE'] = function(you, npc, ctx)
 end
 C['EOC_PORTAL_VITA_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_trait(MutationBranchId.new('VITAKINETIC'))) and (not you:has_effect(EffectTypeId.new('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
+  return ((not you:has_trait(U.mid('VITAKINETIC'))) and (not you:has_effect(U.eid('psionic_awakened'))) and U.test_eoc(C, 'EOC_CONDITION_AWAKENING_X_IN_Y_CHANCE', you, npc, ctx))
 end
 M['EOC_PORTAL_VITA_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11003,7 +11003,7 @@ M['EOC_PORTAL_VITA_AWAKENING'] = function(you, npc, ctx)
 end
 C['EOC_POWERS_IN_NETHER_CHECK_BIOKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and ('BIOKINETIC' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
+  return (you:has_trait(U.mid('BIOKINETIC')) and ('BIOKINETIC' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
 end
 M['EOC_POWERS_IN_NETHER_CHECK_BIOKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11030,7 +11030,7 @@ M['EOC_POWERS_IN_NETHER_CHECK_BIOKINESIS_2'] = function(you, npc, ctx)
 end
 C['EOC_POWERS_IN_NETHER_CHECK_CLAIRSENTIENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and ('CLAIRSENTIENT' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and ('CLAIRSENTIENT' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
 end
 M['EOC_POWERS_IN_NETHER_CHECK_CLAIRSENTIENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11057,7 +11057,7 @@ M['EOC_POWERS_IN_NETHER_CHECK_CLAIRSENTIENCE_2'] = function(you, npc, ctx)
 end
 C['EOC_POWERS_IN_NETHER_CHECK_ELECTROKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and ('ELECTROKINETIC' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and ('ELECTROKINETIC' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
 end
 M['EOC_POWERS_IN_NETHER_CHECK_ELECTROKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11084,7 +11084,7 @@ M['EOC_POWERS_IN_NETHER_CHECK_ELECTROKINESIS_2'] = function(you, npc, ctx)
 end
 C['EOC_POWERS_IN_NETHER_CHECK_PHOTOKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and ('PHOTOKINETIC' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and ('PHOTOKINETIC' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
 end
 M['EOC_POWERS_IN_NETHER_CHECK_PHOTOKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11111,7 +11111,7 @@ M['EOC_POWERS_IN_NETHER_CHECK_PHOTOKINESIS_2'] = function(you, npc, ctx)
 end
 C['EOC_POWERS_IN_NETHER_CHECK_PYROKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and ('PYROKINETIC' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
+  return (you:has_trait(U.mid('PYROKINETIC')) and ('PYROKINETIC' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
 end
 M['EOC_POWERS_IN_NETHER_CHECK_PYROKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11138,7 +11138,7 @@ M['EOC_POWERS_IN_NETHER_CHECK_PYROKINESIS_2'] = function(you, npc, ctx)
 end
 C['EOC_POWERS_IN_NETHER_CHECK_TELEKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and ('TELEKINETIC' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
+  return (you:has_trait(U.mid('TELEKINETIC')) and ('TELEKINETIC' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
 end
 M['EOC_POWERS_IN_NETHER_CHECK_TELEKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11165,7 +11165,7 @@ M['EOC_POWERS_IN_NETHER_CHECK_TELEKINESIS_2'] = function(you, npc, ctx)
 end
 C['EOC_POWERS_IN_NETHER_CHECK_TELEPATHY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and ('TELEPATH' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
+  return (you:has_trait(U.mid('TELEPATH')) and ('TELEPATH' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
 end
 M['EOC_POWERS_IN_NETHER_CHECK_TELEPATHY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11192,7 +11192,7 @@ M['EOC_POWERS_IN_NETHER_CHECK_TELEPATHY_2'] = function(you, npc, ctx)
 end
 C['EOC_POWERS_IN_NETHER_CHECK_TELEPORTATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and ('TELEPORTER' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
+  return (you:has_trait(U.mid('TELEPORTER')) and ('TELEPORTER' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
 end
 M['EOC_POWERS_IN_NETHER_CHECK_TELEPORTATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11219,7 +11219,7 @@ M['EOC_POWERS_IN_NETHER_CHECK_TELEPORTATION_2'] = function(you, npc, ctx)
 end
 C['EOC_POWERS_IN_NETHER_CHECK_VITAKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and ('VITAKINETIC' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
+  return (you:has_trait(U.mid('VITAKINETIC')) and ('VITAKINETIC' == tostring(ctx['school'] or '')) and (U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
 end
 M['EOC_POWERS_IN_NETHER_CHECK_VITAKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11246,7 +11246,7 @@ M['EOC_POWERS_IN_NETHER_CHECK_VITAKINESIS_2'] = function(you, npc, ctx)
 end
 C['EOC_POWERS_IN_NETHER_HOLDING_MATRIX_CRYSTAL_WARNING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_in_the_nether_warning_timer')))
+  return (not you:has_effect(U.eid('effect_in_the_nether_warning_timer')))
 end
 M['EOC_POWERS_IN_NETHER_HOLDING_MATRIX_CRYSTAL_WARNING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11324,7 +11324,7 @@ M['EOC_POWERS_IN_NETHER_LOCATION_CHECKER_NEAR_NETHER_3'] = function(you, npc, ct
 end
 C['EOC_POWERS_IN_NETHER_NOT_HOLDING_MATRIX_CRYSTAL_WARNING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_in_the_nether_warning_timer')))
+  return (not you:has_effect(U.eid('effect_in_the_nether_warning_timer')))
 end
 M['EOC_POWERS_IN_NETHER_NOT_HOLDING_MATRIX_CRYSTAL_WARNING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11401,13 +11401,13 @@ M['EOC_POWER_TOGGLE_REMOVE_EFFECTS'] = function(you, npc, ctx)
   M['EOC_TELEKIN_REMOVE_JACKING_TOOL'](you, npc, ctx)
   M['EOC_TELEKIN_REMOVE_LEVITATION'](you, npc, ctx)
   M['EOC_TELEPATH_REMOVE_TELEPATHIC_CONCENTRATION'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('telepathic_ignorance_self'))
-  you:remove_effect(EffectTypeId.new('effect_clair_perfect_shot'))
+  you:remove_effect(U.eid('telepathic_ignorance_self'))
+  you:remove_effect(U.eid('effect_clair_perfect_shot'))
   return true
 end
 C['EOC_PRACTICE_BIOKIN_ADRENALINE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_ADRENALINE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11428,7 +11428,7 @@ M['EOC_PRACTICE_BIOKIN_ADRENALINE'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_ADRENALINE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_BIOKIN_ADRENALINE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11455,7 +11455,7 @@ M['EOC_PRACTICE_BIOKIN_ADRENALINE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_ARMOR_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_ARMOR_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11488,7 +11488,7 @@ M['EOC_PRACTICE_BIOKIN_ARMOR_SKIN_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_BREATHE_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_BREATHE_SKIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11521,7 +11521,7 @@ M['EOC_PRACTICE_BIOKIN_BREATHE_SKIN_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_CLIMATE_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_CLIMATE_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11554,7 +11554,7 @@ M['EOC_PRACTICE_BIOKIN_CLIMATE_CONTROL_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_COMBAT_DANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_COMBAT_DANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11587,7 +11587,7 @@ M['EOC_PRACTICE_BIOKIN_COMBAT_DANCE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_DASH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_DASH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11620,7 +11620,7 @@ M['EOC_PRACTICE_BIOKIN_DASH_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_ENHANCE_MOBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_ENHANCE_MOBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11653,7 +11653,7 @@ M['EOC_PRACTICE_BIOKIN_ENHANCE_MOBILITY_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_FLEXIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_FLEXIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11674,7 +11674,7 @@ M['EOC_PRACTICE_BIOKIN_FLEXIBILITY'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_FLEXIBILITY_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_BIOKIN_FLEXIBILITY_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11701,7 +11701,7 @@ M['EOC_PRACTICE_BIOKIN_FLEXIBILITY_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_GUIDED_EVOLUTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_GUIDED_EVOLUTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11734,7 +11734,7 @@ M['EOC_PRACTICE_BIOKIN_GUIDED_EVOLUTION_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_HAMMERHAND'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_HAMMERHAND'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11767,7 +11767,7 @@ M['EOC_PRACTICE_BIOKIN_HAMMERHAND_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_HURRICANE_BLOWS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_HURRICANE_BLOWS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11800,7 +11800,7 @@ M['EOC_PRACTICE_BIOKIN_HURRICANE_BLOWS_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_METABOLISM_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_METABOLISM_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11833,7 +11833,7 @@ M['EOC_PRACTICE_BIOKIN_METABOLISM_ENHANCE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_OVERCOME_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_OVERCOME_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11850,7 +11850,7 @@ M['EOC_PRACTICE_BIOKIN_OVERCOME_PAIN'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_PERFECTED_MOTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_PERFECTED_MOTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11883,7 +11883,7 @@ M['EOC_PRACTICE_BIOKIN_PERFECTED_MOTION_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_PHYSICAL_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_PHYSICAL_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11900,7 +11900,7 @@ M['EOC_PRACTICE_BIOKIN_PHYSICAL_ENHANCE'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_REFLEX_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_REFLEX_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11933,7 +11933,7 @@ M['EOC_PRACTICE_BIOKIN_REFLEX_ENHANCE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_SEALED_SYSTEM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_SEALED_SYSTEM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11966,7 +11966,7 @@ M['EOC_PRACTICE_BIOKIN_SEALED_SYSTEM_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_BIOKIN_VITAMINOSIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('BIOKINETIC'))
+  return you:has_trait(U.mid('BIOKINETIC'))
 end
 M['EOC_PRACTICE_BIOKIN_VITAMINOSIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -11999,7 +11999,7 @@ M['EOC_PRACTICE_BIOKIN_VITAMINOSIS_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_ASTRAL_PROJECTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_ASTRAL_PROJECTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12020,7 +12020,7 @@ M['EOC_PRACTICE_CLAIR_ASTRAL_PROJECTION'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_ASTRAL_PROJECTION_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_CLAIR_ASTRAL_PROJECTION_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12047,7 +12047,7 @@ M['EOC_PRACTICE_CLAIR_ASTRAL_PROJECTION_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_BETTER_SENSES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_BETTER_SENSES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12062,7 +12062,7 @@ M['EOC_PRACTICE_CLAIR_BETTER_SENSES'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_CLEAR_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_CLEAR_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12095,7 +12095,7 @@ M['EOC_PRACTICE_CLAIR_CLEAR_SIGHT_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_COMBAT_SENSE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_COMBAT_SENSE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12128,7 +12128,7 @@ M['EOC_PRACTICE_CLAIR_COMBAT_SENSE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_CRAFT_BONUS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_CRAFT_BONUS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12161,7 +12161,7 @@ M['EOC_PRACTICE_CLAIR_CRAFT_BONUS_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_DANGER_SENSE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_DANGER_SENSE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12182,7 +12182,7 @@ M['EOC_PRACTICE_CLAIR_DANGER_SENSE'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_DANGER_SENSE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_CLAIR_DANGER_SENSE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12209,7 +12209,7 @@ M['EOC_PRACTICE_CLAIR_DANGER_SENSE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_EXAMINE_ITEM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_EXAMINE_ITEM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12230,7 +12230,7 @@ M['EOC_PRACTICE_CLAIR_EXAMINE_ITEM'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_EXAMINE_ITEM_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_CLAIR_EXAMINE_ITEM_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12257,7 +12257,7 @@ M['EOC_PRACTICE_CLAIR_EXAMINE_ITEM_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_GROUP_TACTICS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_GROUP_TACTICS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12290,7 +12290,7 @@ M['EOC_PRACTICE_CLAIR_GROUP_TACTICS_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_HEIGHTENED_SENSES_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_CLAIR_HEIGHTENED_SENSES_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12305,7 +12305,7 @@ M['EOC_PRACTICE_CLAIR_HEIGHTENED_SENSES_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_NIGHT_VISION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_NIGHT_VISION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12338,7 +12338,7 @@ M['EOC_PRACTICE_CLAIR_NIGHT_VISION_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_OMNISCENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_OMNISCENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12371,7 +12371,7 @@ M['EOC_PRACTICE_CLAIR_OMNISCENCE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_PERFECT_SHOT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_PERFECT_SHOT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12404,7 +12404,7 @@ M['EOC_PRACTICE_CLAIR_PERFECT_SHOT_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_RANGED_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_RANGED_ENHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12437,7 +12437,7 @@ M['EOC_PRACTICE_CLAIR_RANGED_ENHANCE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_SEE_AURAS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_SEE_AURAS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12470,7 +12470,7 @@ M['EOC_PRACTICE_CLAIR_SEE_AURAS_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_SEE_MAP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_SEE_MAP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12503,7 +12503,7 @@ M['EOC_PRACTICE_CLAIR_SEE_MAP_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12536,7 +12536,7 @@ M['EOC_PRACTICE_CLAIR_SENSE_HOSTILE_CREATURES_LEARNING'] = function(you, npc, ct
 end
 C['EOC_PRACTICE_CLAIR_SENSE_RADS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_sense_rads') >= 1))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_sense_rads') >= 1))
 end
 M['EOC_PRACTICE_CLAIR_SENSE_RADS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12551,7 +12551,7 @@ M['EOC_PRACTICE_CLAIR_SENSE_RADS'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_SPEED_READING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_SPEED_READING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12566,7 +12566,7 @@ M['EOC_PRACTICE_CLAIR_SPEED_READING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_SPOT_WEAKNESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_SPOT_WEAKNESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12599,7 +12599,7 @@ M['EOC_PRACTICE_CLAIR_SPOT_WEAKNESS_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_CLAIR_VOYANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CLAIRSENTIENT'))
+  return you:has_trait(U.mid('CLAIRSENTIENT'))
 end
 M['EOC_PRACTICE_CLAIR_VOYANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12644,7 +12644,7 @@ M['EOC_PRACTICE_ELECTROKIN_HACKING_INTERFACE_LEARNING'] = function(you, npc, ctx
 end
 C['EOC_PRACTICE_ELECTROKIN_KILL_ROBOT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTROKIN_KILL_ROBOT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12677,7 +12677,7 @@ M['EOC_PRACTICE_ELECTROKIN_KILL_ROBOT_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTROKIN_LIGHTNING_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTROKIN_LIGHTNING_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12710,7 +12710,7 @@ M['EOC_PRACTICE_ELECTROKIN_LIGHTNING_AURA_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTROKIN_LIGHTNING_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTROKIN_LIGHTNING_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12743,7 +12743,7 @@ M['EOC_PRACTICE_ELECTROKIN_LIGHTNING_BLAST_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTROKIN_LIGHTNING_BOLT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTROKIN_LIGHTNING_BOLT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12776,7 +12776,7 @@ M['EOC_PRACTICE_ELECTROKIN_LIGHTNING_BOLT_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTROKIN_PAIN_IMMUNE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTROKIN_PAIN_IMMUNE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12797,7 +12797,7 @@ M['EOC_PRACTICE_ELECTROKIN_PAIN_IMMUNE'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTROKIN_PAIN_IMMUNE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_ELECTROKIN_PAIN_IMMUNE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12824,7 +12824,7 @@ M['EOC_PRACTICE_ELECTROKIN_PAIN_IMMUNE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTROKIN_PARALYSIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTROKIN_PARALYSIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12857,7 +12857,7 @@ M['EOC_PRACTICE_ELECTROKIN_PARALYSIS_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTROKIN_REDUCE_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTROKIN_REDUCE_PAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12890,7 +12890,7 @@ M['EOC_PRACTICE_ELECTROKIN_REDUCE_PAIN_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTROKIN_REVIVE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTROKIN_REVIVE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12935,7 +12935,7 @@ M['EOC_PRACTICE_ELECTROKIN_ROBOT_INTERFACE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTROKIN_SPARK_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTROKIN_SPARK_SIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12950,7 +12950,7 @@ M['EOC_PRACTICE_ELECTROKIN_SPARK_SIGHT'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTROKIN_SPARK_SIGHT_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_ELECTROKIN_SPARK_SIGHT_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12965,7 +12965,7 @@ M['EOC_PRACTICE_ELECTROKIN_SPARK_SIGHT_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTROKIN_SPEED_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTROKIN_SPEED_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -12998,7 +12998,7 @@ M['EOC_PRACTICE_ELECTROKIN_SPEED_BOOST_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTROKIN_ZAP_ENEMIES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTROKIN_ZAP_ENEMIES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13031,7 +13031,7 @@ M['EOC_PRACTICE_ELECTROKIN_ZAP_ENEMIES_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTRO_HACKING_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTRO_HACKING_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13052,7 +13052,7 @@ M['EOC_PRACTICE_ELECTRO_HACKING_INTERFACE'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTRO_HACKING_INTERFACE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_ELECTRO_HACKING_INTERFACE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13067,7 +13067,7 @@ M['EOC_PRACTICE_ELECTRO_HACKING_INTERFACE_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTRO_PERSONAL_BATTERY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTRO_PERSONAL_BATTERY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13100,7 +13100,7 @@ M['EOC_PRACTICE_ELECTRO_PERSONAL_BATTERY_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_ELECTRO_ROBOT_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ELECTROKINETIC'))
+  return you:has_trait(U.mid('ELECTROKINETIC'))
 end
 M['EOC_PRACTICE_ELECTRO_ROBOT_INTERFACE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13121,7 +13121,7 @@ M['EOC_PRACTICE_ELECTRO_ROBOT_INTERFACE'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_LEVITATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_LEVITATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13142,7 +13142,7 @@ M['EOC_PRACTICE_LEVITATION'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_MOVE_LARGE_WEIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_MOVE_LARGE_WEIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13163,7 +13163,7 @@ M['EOC_PRACTICE_MOVE_LARGE_WEIGHT'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_BLINDING_GLARE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_BLINDING_GLARE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13196,7 +13196,7 @@ M['EOC_PRACTICE_PHOTOKIN_BLINDING_GLARE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_CAMOUFLAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_CAMOUFLAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13217,7 +13217,7 @@ M['EOC_PRACTICE_PHOTOKIN_CAMOUFLAGE'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_CAMOUFLAGE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_PHOTOKIN_CAMOUFLAGE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13244,7 +13244,7 @@ M['EOC_PRACTICE_PHOTOKIN_CAMOUFLAGE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_CREATE_LIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_CREATE_LIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13259,7 +13259,7 @@ M['EOC_PRACTICE_PHOTOKIN_CREATE_LIGHT'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_FLASH_BANG'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_FLASH_BANG'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13292,7 +13292,7 @@ M['EOC_PRACTICE_PHOTOKIN_FLASH_BANG_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_HIDE_UGLY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_HIDE_UGLY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13313,7 +13313,7 @@ M['EOC_PRACTICE_PHOTOKIN_HIDE_UGLY'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_HIDE_UGLY_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_PHOTOKIN_HIDE_UGLY_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13340,7 +13340,7 @@ M['EOC_PRACTICE_PHOTOKIN_HIDE_UGLY_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_INVISIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_INVISIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13373,7 +13373,7 @@ M['EOC_PRACTICE_PHOTOKIN_INVISIBILITY_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_LIGHT_ARMS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_LIGHT_ARMS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13406,7 +13406,7 @@ M['EOC_PRACTICE_PHOTOKIN_LIGHT_ARMS_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_LIGHT_ARMY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_LIGHT_ARMY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13439,7 +13439,7 @@ M['EOC_PRACTICE_PHOTOKIN_LIGHT_ARMY_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_LIGHT_BEAM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_LIGHT_BEAM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13472,7 +13472,7 @@ M['EOC_PRACTICE_PHOTOKIN_LIGHT_BEAM_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_LIGHT_DISINTEGRATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_LIGHT_DISINTEGRATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13505,7 +13505,7 @@ M['EOC_PRACTICE_PHOTOKIN_LIGHT_DISINTEGRATE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_LIGHT_DODGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_LIGHT_DODGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13538,7 +13538,7 @@ M['EOC_PRACTICE_PHOTOKIN_LIGHT_DODGE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_LIGHT_FLASH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_LIGHT_FLASH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13571,7 +13571,7 @@ M['EOC_PRACTICE_PHOTOKIN_LIGHT_FLASH_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_LIGHT_IMAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_LIGHT_IMAGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13604,7 +13604,7 @@ M['EOC_PRACTICE_PHOTOKIN_LIGHT_IMAGE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_LIGHT_LOCAL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_LIGHT_LOCAL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13619,7 +13619,7 @@ M['EOC_PRACTICE_PHOTOKIN_LIGHT_LOCAL'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_LIGHT_UP_ENEMY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_LIGHT_UP_ENEMY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13652,7 +13652,7 @@ M['EOC_PRACTICE_PHOTOKIN_LIGHT_UP_ENEMY_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_RADIO'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_RADIO'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13673,7 +13673,7 @@ M['EOC_PRACTICE_PHOTOKIN_RADIO'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_RADIO_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_PHOTOKIN_RADIO_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13700,7 +13700,7 @@ M['EOC_PRACTICE_PHOTOKIN_RADIO_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_RAD_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_RAD_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13733,7 +13733,7 @@ M['EOC_PRACTICE_PHOTOKIN_RAD_IMMUNITY_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_SNUFF_LIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_SNUFF_LIGHT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13766,7 +13766,7 @@ M['EOC_PRACTICE_PHOTOKIN_SNUFF_LIGHT_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_STERILIZE_FOOD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_STERILIZE_FOOD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13799,7 +13799,7 @@ M['EOC_PRACTICE_PHOTOKIN_STERILIZE_FOOD_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PHOTOKIN_STUN_ROBOTS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PHOTOKINETIC'))
+  return you:has_trait(U.mid('PHOTOKINETIC'))
 end
 M['EOC_PRACTICE_PHOTOKIN_STUN_ROBOTS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13839,7 +13839,7 @@ M['EOC_PRACTICE_PSIONICS_FINAL_LEARNING_CHECK'] = function(you, npc, ctx)
   if not C['EOC_PRACTICE_PSIONICS_FINAL_LEARNING_CHECK'](you, npc, ctx) then
     U.msg(you, 'You just couldn\'t manage to grasp the technique.  You\'ll have to try again.', MsgType.neutral, ctx)
     U.attunement_set(you, (m.attunement(you)) + (U.rng(J.learn_new_power_lower_nether_attunement_level(you, npc, ctx), J.learn_new_power_upper_nether_attunement_level(you, npc, ctx))))
-    you:remove_effect(EffectTypeId.new('effect_psi_learning_new_power'))
+    you:remove_effect(U.eid('effect_psi_learning_new_power'))
     U.cancel_activity(you)
     return false
   end
@@ -13848,7 +13848,7 @@ M['EOC_PRACTICE_PSIONICS_FINAL_LEARNING_CHECK'] = function(you, npc, ctx)
   U.set_spell_level(you, V.ustr(you, 'latest_studied_power_name'), 1)
   M['EOC_PRACTICE_PSIONICS_FINAL_LEARNING_CHECK_SPECIAL_EXCEPTIONS'](you, npc, ctx)
   U.attunement_set(you, (m.attunement(you)) + (U.rng(J.learn_new_power_lower_nether_attunement_level(you, npc, ctx), J.learn_new_power_upper_nether_attunement_level(you, npc, ctx))))
-  you:remove_effect(EffectTypeId.new('effect_psi_learning_new_power'))
+  you:remove_effect(U.eid('effect_psi_learning_new_power'))
   U.cancel_activity(you)
   return true
 end
@@ -13866,7 +13866,7 @@ M['EOC_PRACTICE_PSIONICS_FINAL_LEARNING_CHECK_SPECIAL_EXCEPTIONS'] = function(yo
 end
 C['EOC_PRACTICE_PYROKIN_AOE_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_AOE_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13899,7 +13899,7 @@ M['EOC_PRACTICE_PYROKIN_AOE_BLAST_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13920,7 +13920,7 @@ M['EOC_PRACTICE_PYROKIN_AURA'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_AURA_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_PYROKIN_AURA_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13947,7 +13947,7 @@ M['EOC_PRACTICE_PYROKIN_AURA_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13968,7 +13968,7 @@ M['EOC_PRACTICE_PYROKIN_BLAST'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_BLAST_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_PYROKIN_BLAST_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -13995,7 +13995,7 @@ M['EOC_PRACTICE_PYROKIN_BLAST_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_CALL_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_CALL_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14016,7 +14016,7 @@ M['EOC_PRACTICE_PYROKIN_CALL_FLAMES'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_CALL_FLAMES_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_PYROKIN_CALL_FLAMES_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14043,7 +14043,7 @@ M['EOC_PRACTICE_PYROKIN_CALL_FLAMES_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_CAUTERIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_CAUTERIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14076,7 +14076,7 @@ M['EOC_PRACTICE_PYROKIN_CAUTERIZE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_CLOAK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_CLOAK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14097,7 +14097,7 @@ M['EOC_PRACTICE_PYROKIN_CLOAK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_CLOAK_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_PYROKIN_CLOAK_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14124,7 +14124,7 @@ M['EOC_PRACTICE_PYROKIN_CLOAK_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14145,7 +14145,7 @@ M['EOC_PRACTICE_PYROKIN_FLAMES'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_FLAMES_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_PYROKIN_FLAMES_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14160,7 +14160,7 @@ M['EOC_PRACTICE_PYROKIN_FLAMES_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_FLAMETHROWER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_FLAMETHROWER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14181,7 +14181,7 @@ M['EOC_PRACTICE_PYROKIN_FLAMETHROWER'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_FLAMETHROWER_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_PYROKIN_FLAMETHROWER_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14208,7 +14208,7 @@ M['EOC_PRACTICE_PYROKIN_FLAMETHROWER_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_FLAME_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_FLAME_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14241,7 +14241,7 @@ M['EOC_PRACTICE_PYROKIN_FLAME_IMMUNITY_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_FLASH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_FLASH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14256,7 +14256,7 @@ M['EOC_PRACTICE_PYROKIN_FLASH'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_FLASH_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_PYROKIN_FLASH_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14283,7 +14283,7 @@ M['EOC_PRACTICE_PYROKIN_FOUNTAIN_FLAMES_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_INCINERATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_INCINERATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14316,7 +14316,7 @@ M['EOC_PRACTICE_PYROKIN_INCINERATION_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_INTENSIFY_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_INTENSIFY_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14331,7 +14331,7 @@ M['EOC_PRACTICE_PYROKIN_INTENSIFY_FLAMES'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_INTENSIFY_FLAMES_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_INTENSIFY_FLAMES_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14346,7 +14346,7 @@ M['EOC_PRACTICE_PYROKIN_INTENSIFY_FLAMES_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_LANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_LANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14379,7 +14379,7 @@ M['EOC_PRACTICE_PYROKIN_LANCE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_QUELL_FIRE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_QUELL_FIRE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14412,7 +14412,7 @@ M['EOC_PRACTICE_PYROKIN_QUELL_FIRE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_PYROKIN_THERMOGENESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PRACTICE_PYROKIN_THERMOGENESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14445,7 +14445,7 @@ M['EOC_PRACTICE_PYROKIN_THERMOGENESIS_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_AEGIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_AEGIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14478,7 +14478,7 @@ M['EOC_PRACTICE_TELEKIN_AEGIS_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_BARRIER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_BARRIER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14499,7 +14499,7 @@ M['EOC_PRACTICE_TELEKIN_BARRIER'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_BARRIER_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_TELEKIN_BARRIER_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14526,7 +14526,7 @@ M['EOC_PRACTICE_TELEKIN_BARRIER_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14559,7 +14559,7 @@ M['EOC_PRACTICE_TELEKIN_BLAST_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_EARTHSHAKER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_EARTHSHAKER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14592,7 +14592,7 @@ M['EOC_PRACTICE_TELEKIN_EARTHSHAKER_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_ENHANCE_STRENGTH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_ENHANCE_STRENGTH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14625,7 +14625,7 @@ M['EOC_PRACTICE_TELEKIN_ENHANCE_STRENGTH_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_FORCE_WAVE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_FORCE_WAVE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14646,7 +14646,7 @@ M['EOC_PRACTICE_TELEKIN_FORCE_WAVE'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_FORCE_WAVE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_TELEKIN_FORCE_WAVE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14685,7 +14685,7 @@ M['EOC_PRACTICE_TELEKIN_LEVITATION_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_LIFTING_FIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_LIFTING_FIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14718,7 +14718,7 @@ M['EOC_PRACTICE_TELEKIN_LIFTING_FIELD_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_MINDHAMMER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_MINDHAMMER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14751,7 +14751,7 @@ M['EOC_PRACTICE_TELEKIN_MINDHAMMER_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_MOMENTUM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_MOMENTUM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14796,7 +14796,7 @@ M['EOC_PRACTICE_TELEKIN_MOVE_LARGE_WEIGHT_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_NOISEMAKER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_NOISEMAKER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14829,7 +14829,7 @@ M['EOC_PRACTICE_TELEKIN_NOISEMAKER_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_PULL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_PULL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14844,7 +14844,7 @@ M['EOC_PRACTICE_TELEKIN_PULL'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_PULL_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_TELEKIN_PULL_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14859,7 +14859,7 @@ M['EOC_PRACTICE_TELEKIN_PULL_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_PUSH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_PUSH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14874,7 +14874,7 @@ M['EOC_PRACTICE_TELEKIN_PUSH'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_PUSH_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_TELEKIN_PUSH_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14889,7 +14889,7 @@ M['EOC_PRACTICE_TELEKIN_PUSH_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_SLAM_DOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_SLAM_DOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14910,7 +14910,7 @@ M['EOC_PRACTICE_TELEKIN_SLAM_DOWN'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_SLAM_DOWN_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_TELEKIN_SLAM_DOWN_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14937,7 +14937,7 @@ M['EOC_PRACTICE_TELEKIN_SLAM_DOWN_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_SLOWFALL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_SLOWFALL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -14970,7 +14970,7 @@ M['EOC_PRACTICE_TELEKIN_SLOWFALL_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEKIN_VEHICLE_LIFT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_PRACTICE_TELEKIN_VEHICLE_LIFT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15003,7 +15003,7 @@ M['EOC_PRACTICE_TELEKIN_VEHICLE_LIFT_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATHIC_ANIMAL_MIND_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATHIC_ANIMAL_MIND_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15024,7 +15024,7 @@ M['EOC_PRACTICE_TELEPATHIC_ANIMAL_MIND_CONTROL'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATHIC_ANIMAL_MIND_CONTROL_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_TELEPATHIC_ANIMAL_MIND_CONTROL_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15039,7 +15039,7 @@ M['EOC_PRACTICE_TELEPATHIC_ANIMAL_MIND_CONTROL_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATHIC_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATHIC_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15060,7 +15060,7 @@ M['EOC_PRACTICE_TELEPATHIC_BLAST'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATHIC_BLAST_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_TELEPATHIC_BLAST_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15075,7 +15075,7 @@ M['EOC_PRACTICE_TELEPATHIC_BLAST_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATHIC_BLAST_RADIUS_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_TELEPATHIC_BLAST_RADIUS_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15090,7 +15090,7 @@ M['EOC_PRACTICE_TELEPATHIC_BLAST_RADIUS_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATHIC_INVISIBILITY_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_TELEPATHIC_INVISIBILITY_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15105,7 +15105,7 @@ M['EOC_PRACTICE_TELEPATHIC_INVISIBILITY_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATHIC_MESMERIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATHIC_MESMERIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15126,7 +15126,7 @@ M['EOC_PRACTICE_TELEPATHIC_MESMERIZE'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATHIC_MESMERIZE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_TELEPATHIC_MESMERIZE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15141,7 +15141,7 @@ M['EOC_PRACTICE_TELEPATHIC_MESMERIZE_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATHIC_MIND_SENSE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_TELEPATHIC_MIND_SENSE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15156,7 +15156,7 @@ M['EOC_PRACTICE_TELEPATHIC_MIND_SENSE_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATHIC_MORALE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_TELEPATHIC_MORALE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15171,7 +15171,7 @@ M['EOC_PRACTICE_TELEPATHIC_MORALE_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATHIC_SHIELD_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_TELEPATHIC_SHIELD_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15198,7 +15198,7 @@ M['EOC_PRACTICE_TELEPATH_ANIMAL_MIND_CONTROL_LEARNING'] = function(you, npc, ctx
 end
 C['EOC_PRACTICE_TELEPATH_BEAST_TAMING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATH_BEAST_TAMING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15243,7 +15243,7 @@ M['EOC_PRACTICE_TELEPATH_BLAST_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATH_CONCENTRATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATH_CONCENTRATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15258,7 +15258,7 @@ M['EOC_PRACTICE_TELEPATH_CONCENTRATION'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATH_CONFUSION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATH_CONFUSION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15303,7 +15303,7 @@ M['EOC_PRACTICE_TELEPATH_MESMERIZE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATH_MIND_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATH_MIND_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15336,7 +15336,7 @@ M['EOC_PRACTICE_TELEPATH_MIND_CONTROL_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATH_MIND_SENSE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATH_MIND_SENSE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15351,7 +15351,7 @@ M['EOC_PRACTICE_TELEPATH_MIND_SENSE'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATH_MORALE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATH_MORALE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15384,7 +15384,7 @@ M['EOC_PRACTICE_TELEPATH_MORALE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATH_NETWORK_EFFECT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATH_NETWORK_EFFECT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15417,7 +15417,7 @@ M['EOC_PRACTICE_TELEPATH_NETWORK_EFFECT_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATH_OBSCURITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATH_OBSCURITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15450,7 +15450,7 @@ M['EOC_PRACTICE_TELEPATH_OBSCURITY_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATH_PRIMAL_FEAR'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATH_PRIMAL_FEAR'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15483,7 +15483,7 @@ M['EOC_PRACTICE_TELEPATH_PRIMAL_FEAR_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATH_SCREAM_RADIUS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATH_SCREAM_RADIUS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15516,7 +15516,7 @@ M['EOC_PRACTICE_TELEPATH_SCREAM_RADIUS_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPATH_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_PRACTICE_TELEPATH_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15549,7 +15549,7 @@ M['EOC_PRACTICE_TELEPATH_SHIELD_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_BANISH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_BANISH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15582,7 +15582,7 @@ M['EOC_PRACTICE_TELEPORT_BANISH_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_BLINK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_BLINK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15597,7 +15597,7 @@ M['EOC_PRACTICE_TELEPORT_BLINK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_BREACH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_BREACH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15630,7 +15630,7 @@ M['EOC_PRACTICE_TELEPORT_BREACH_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_COLLAPSE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_COLLAPSE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15675,7 +15675,7 @@ M['EOC_PRACTICE_TELEPORT_DILATED_GATEWAY_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15708,7 +15708,7 @@ M['EOC_PRACTICE_TELEPORT_DISPLACEMENT_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_FARSTEP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_FARSTEP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15741,7 +15741,7 @@ M['EOC_PRACTICE_TELEPORT_FARSTEP_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_GATEWAY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_GATEWAY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15774,7 +15774,7 @@ M['EOC_PRACTICE_TELEPORT_GATEWAY_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_ITEM_APPORT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_ITEM_APPORT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15807,7 +15807,7 @@ M['EOC_PRACTICE_TELEPORT_ITEM_APPORT_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_LOCI_ESTABLISHMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_LOCI_ESTABLISHMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15840,7 +15840,7 @@ M['EOC_PRACTICE_TELEPORT_LOCI_ESTABLISHMENT_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_LOCI_TECHNIQUET'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_loci_technique') >= 1))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_loci_technique') >= 1))
 end
 M['EOC_PRACTICE_TELEPORT_LOCI_TECHNIQUET'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15855,7 +15855,7 @@ M['EOC_PRACTICE_TELEPORT_LOCI_TECHNIQUET'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_PHASE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_PHASE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15888,7 +15888,7 @@ M['EOC_PRACTICE_TELEPORT_PHASE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_REACTIVE_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_REACTIVE_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15921,7 +15921,7 @@ M['EOC_PRACTICE_TELEPORT_REACTIVE_DISPLACEMENT_LEARNING'] = function(you, npc, c
 end
 C['EOC_PRACTICE_TELEPORT_REALITY_TEAR'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_REALITY_TEAR'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15954,7 +15954,7 @@ M['EOC_PRACTICE_TELEPORT_REALITY_TEAR_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_RELOCATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_RELOCATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -15987,7 +15987,7 @@ M['EOC_PRACTICE_TELEPORT_RELOCATION_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_SLOW'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_SLOW'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16002,7 +16002,7 @@ M['EOC_PRACTICE_TELEPORT_SLOW'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_STRIDE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_STRIDE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16035,7 +16035,7 @@ M['EOC_PRACTICE_TELEPORT_STRIDE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_SWAP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_SWAP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16068,7 +16068,7 @@ M['EOC_PRACTICE_TELEPORT_TRANSPOSE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_WARPED_STRIKES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_WARPED_STRIKES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16101,7 +16101,7 @@ M['EOC_PRACTICE_TELEPORT_WARPED_STRIKES_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_WARPER_COMBAT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (m.spell_level(you, 'teleport_warper_combat') >= 1))
+  return (you:has_trait(U.mid('TELEPORTER')) and (m.spell_level(you, 'teleport_warper_combat') >= 1))
 end
 M['EOC_PRACTICE_TELEPORT_WARPER_COMBAT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16116,7 +16116,7 @@ M['EOC_PRACTICE_TELEPORT_WARPER_COMBAT'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_TELEPORT_dilated_gateway'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_PRACTICE_TELEPORT_dilated_gateway'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16137,7 +16137,7 @@ M['EOC_PRACTICE_TELEPORT_dilated_gateway'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_ATTACK_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_ATTACK_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16170,7 +16170,7 @@ M['EOC_PRACTICE_VITAKIN_ATTACK_TOUCH_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_BANISH_ILLNESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_BANISH_ILLNESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16191,7 +16191,7 @@ M['EOC_PRACTICE_VITAKIN_BANISH_ILLNESS'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_BANISH_ILLNESS_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_VITAKIN_BANISH_ILLNESS_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16218,7 +16218,7 @@ M['EOC_PRACTICE_VITAKIN_BANISH_ILLNESS_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_CONCENTRATED_HEALING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_CONCENTRATED_HEALING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16239,7 +16239,7 @@ M['EOC_PRACTICE_VITAKIN_CONCENTRATED_HEALING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_CONCENTRATED_HEALING_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_VITAKIN_CONCENTRATED_HEALING_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16266,7 +16266,7 @@ M['EOC_PRACTICE_VITAKIN_CONCENTRATED_HEALING_LEARNING'] = function(you, npc, ctx
 end
 C['EOC_PRACTICE_VITAKIN_CURE_DISEASE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_CURE_DISEASE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16287,7 +16287,7 @@ M['EOC_PRACTICE_VITAKIN_CURE_DISEASE'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_CURE_DISEASE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_VITAKIN_CURE_DISEASE_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16327,7 +16327,7 @@ M['EOC_PRACTICE_VITAKIN_DAMAGE_BALANCE'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_DEGENERATING_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_DEGENERATING_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16360,7 +16360,7 @@ M['EOC_PRACTICE_VITAKIN_DEGENERATING_TOUCH_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_HEALING_TRANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_HEALING_TRANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16393,7 +16393,7 @@ M['EOC_PRACTICE_VITAKIN_HEALING_TRANCE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_HEALTH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_HEALTH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16408,7 +16408,7 @@ M['EOC_PRACTICE_VITAKIN_HEALTH'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_HEALTH_POWER_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_VITAKIN_HEALTH_POWER_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16423,7 +16423,7 @@ M['EOC_PRACTICE_VITAKIN_HEALTH_POWER_KNACK'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_HEAL_TOUCH_ALLY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_HEAL_TOUCH_ALLY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16456,7 +16456,7 @@ M['EOC_PRACTICE_VITAKIN_HEAL_TOUCH_ALLY_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_HURT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_HURT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16489,7 +16489,7 @@ M['EOC_PRACTICE_VITAKIN_HURT_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_LIMB_RESTORE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_LIMB_RESTORE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16504,7 +16504,7 @@ M['EOC_PRACTICE_VITAKIN_LIMB_RESTORE'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_NO_NEED_FOR_SLEEP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_NO_NEED_FOR_SLEEP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16537,7 +16537,7 @@ M['EOC_PRACTICE_VITAKIN_NO_NEED_FOR_SLEEP_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_PURGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_PURGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16570,7 +16570,7 @@ M['EOC_PRACTICE_VITAKIN_PURGE_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_PURGE_RADS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (m.spell_level(you, 'vita_purge_rads') >= 1))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (m.spell_level(you, 'vita_purge_rads') >= 1))
 end
 M['EOC_PRACTICE_VITAKIN_PURGE_RADS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16585,7 +16585,7 @@ M['EOC_PRACTICE_VITAKIN_PURGE_RADS'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_REMOVE_POISON'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_REMOVE_POISON'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16606,7 +16606,7 @@ M['EOC_PRACTICE_VITAKIN_REMOVE_POISON'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_REMOVE_POISON_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PRACTICE_VITAKIN_REMOVE_POISON_KNACK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16633,7 +16633,7 @@ M['EOC_PRACTICE_VITAKIN_REMOVE_POISON_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_RETURN_FROM_DEATH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_RETURN_FROM_DEATH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16666,7 +16666,7 @@ M['EOC_PRACTICE_VITAKIN_RETURN_FROM_DEATH_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_SLEEP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_SLEEP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16699,7 +16699,7 @@ M['EOC_PRACTICE_VITAKIN_SLEEP_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_SLOW_BLEEDING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_SLOW_BLEEDING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16714,7 +16714,7 @@ M['EOC_PRACTICE_VITAKIN_SLOW_BLEEDING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_STAUNCHING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_STAUNCHING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16747,7 +16747,7 @@ M['EOC_PRACTICE_VITAKIN_STAUNCHING_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_STOP_INFECTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_STOP_INFECTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16780,7 +16780,7 @@ M['EOC_PRACTICE_VITAKIN_STOP_INFECTION_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PRACTICE_VITAKIN_SUPER_HEAL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_PRACTICE_VITAKIN_SUPER_HEAL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16813,7 +16813,7 @@ M['EOC_PRACTICE_VITAKIN_SUPER_HEAL_LEARNING'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_BIOKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('BIOKINETIC')) and ('BIOKINETIC' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
+  return (you:has_trait(U.mid('BIOKINETIC')) and ('BIOKINETIC' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
 end
 M['EOC_PSIONICS_BIOKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16861,7 +16861,7 @@ M['EOC_PSIONICS_CHANNEL_MAINTENANCE_CHECK'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_CLAIRSENTIENT_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) and ('CLAIRSENTIENT' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
+  return (you:has_trait(U.mid('CLAIRSENTIENT')) and ('CLAIRSENTIENT' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
 end
 M['EOC_PSIONICS_CLAIRSENTIENT_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16889,7 +16889,7 @@ M['EOC_PSIONICS_CONCENTRATION_EFFECT_GAIN_CHECK'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_ELECTROKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ELECTROKINETIC')) and ('ELECTROKINETIC' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
+  return (you:has_trait(U.mid('ELECTROKINETIC')) and ('ELECTROKINETIC' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
 end
 M['EOC_PSIONICS_ELECTROKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16912,7 +16912,7 @@ M['EOC_PSIONICS_GAIN_NETHER_ATTUNEMENT'] = function(you, npc, ctx)
   if not C['EOC_PSIONICS_GAIN_NETHER_ATTUNEMENT'](you, npc, ctx) then
     return false
   end
-  if (not you:has_effect(EffectTypeId.new('effect_no_nether_attunement_from_channel'))) then
+  if (not you:has_effect(U.eid('effect_no_nether_attunement_from_channel'))) then
     V.uset(you, 'latest_channeled_power_difficulty', (ctx['difficulty'] or 0))
     M['EOC_PSIONICS_GAIN_NETHER_ATTUNEMENT_SCALING_CHECK'](you, npc, ctx)
   end
@@ -16950,7 +16950,7 @@ M['EOC_PSIONICS_GAIN_NETHER_ATTUNEMENT_SCALING_CHECK'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_GAIN_NETHER_ATTUNEMENT_TORRENTIAL_active'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active')))
+  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active')))
 end
 M['EOC_PSIONICS_GAIN_NETHER_ATTUNEMENT_TORRENTIAL_active'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -16962,7 +16962,7 @@ M['EOC_PSIONICS_GAIN_NETHER_ATTUNEMENT_TORRENTIAL_active'] = function(you, npc, 
 end
 C['EOC_PSIONICS_GAIN_NETHER_ATTUNEMENT_TORRENTIAL_maintenance'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active'))
+  return you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active'))
 end
 M['EOC_PSIONICS_GAIN_NETHER_ATTUNEMENT_TORRENTIAL_maintenance'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17046,7 +17046,7 @@ M['EOC_PSIONICS_NETHER_AREA_ATTENTION_CHECK'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_NETHER_AREA_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_effect(EffectTypeId.new('effect_observed_rate_limiter'))) and U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and (U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
+  return ((not you:has_effect(U.eid('effect_observed_rate_limiter'))) and U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and (U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx) or U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx)))
 end
 M['EOC_PSIONICS_NETHER_AREA_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17058,7 +17058,7 @@ M['EOC_PSIONICS_NETHER_AREA_CHECK'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_NETHER_ATTUNEMENT_CONSEQUENCES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((m.attunement(you) >= 15) or ((m.attunement(you) >= 15) and you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active')) and U.x_in_y(1, 4)))
+  return ((m.attunement(you) >= 15) or ((m.attunement(you) >= 15) and you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active')) and U.x_in_y(1, 4)))
 end
 M['EOC_PSIONICS_NETHER_ATTUNEMENT_CONSEQUENCES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17070,7 +17070,7 @@ M['EOC_PSIONICS_NETHER_ATTUNEMENT_CONSEQUENCES'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_NETHER_ATTUNEMENT_CONSEQUENCES_CHECK_EXTENDED'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active'))
+  return you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active'))
 end
 M['EOC_PSIONICS_NETHER_ATTUNEMENT_CONSEQUENCES_CHECK_EXTENDED'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17108,7 +17108,7 @@ M['EOC_PSIONICS_NETHER_ATTUNEMENT_CONSEQUENCES_SETUP'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_PHOTOKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PHOTOKINETIC')) and ('PHOTOKINETIC' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
+  return (you:has_trait(U.mid('PHOTOKINETIC')) and ('PHOTOKINETIC' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
 end
 M['EOC_PSIONICS_PHOTOKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17136,7 +17136,7 @@ M['EOC_PSIONICS_PSI_NEUTRALIZED_ENDS_ALL_POWERS'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_PYROKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and ('PYROKINETIC' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
+  return (you:has_trait(U.mid('PYROKINETIC')) and ('PYROKINETIC' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
 end
 M['EOC_PSIONICS_PYROKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17151,12 +17151,12 @@ M['EOC_PSIONICS_PYROKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_SET_NETHER_ATTUNEMENT_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:has_effect(EffectTypeId.new('effect_noetic_resilience'))) and (not you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active'))))
+  return ((not you:has_effect(U.eid('effect_noetic_resilience'))) and (not you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active'))))
 end
 M['EOC_PSIONICS_SET_NETHER_ATTUNEMENT_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PSIONICS_SET_NETHER_ATTUNEMENT_BOOST'](you, npc, ctx) then
-    if you:has_effect(EffectTypeId.new('effect_noetic_resilience')) then
+    if you:has_effect(U.eid('effect_noetic_resilience')) then
       V.uset(you, 'nether_attunement_power_scaling', 1.05)
     else
       local _sw = m.attunement(you)
@@ -17197,7 +17197,7 @@ M['EOC_PSIONICS_SET_NETHER_ATTUNEMENT_BOOST'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_SET_NETHER_ATTUNEMENT_BOOST_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active')))
+  return (not you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active')))
 end
 M['EOC_PSIONICS_SET_NETHER_ATTUNEMENT_BOOST_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17293,7 +17293,7 @@ M['EOC_PSIONICS_STUNNED_ENDS_POWERS'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_TELEKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and ('TELEKINETIC' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
+  return (you:has_trait(U.mid('TELEKINETIC')) and ('TELEKINETIC' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
 end
 M['EOC_PSIONICS_TELEKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17308,7 +17308,7 @@ M['EOC_PSIONICS_TELEKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_TELEPATH_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and ('TELEPATH' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
+  return (you:has_trait(U.mid('TELEPATH')) and ('TELEPATH' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
 end
 M['EOC_PSIONICS_TELEPATH_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17324,7 +17324,7 @@ M['EOC_PSIONICS_TELEPATH_CHANNELING_FAILURE'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_TELEPORTER_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and ('TELEPORTER' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
+  return (you:has_trait(U.mid('TELEPORTER')) and ('TELEPORTER' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
 end
 M['EOC_PSIONICS_TELEPORTER_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17339,7 +17339,7 @@ M['EOC_PSIONICS_TELEPORTER_CHANNELING_FAILURE'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_VITAKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and ('VITAKINETIC' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
+  return (you:has_trait(U.mid('VITAKINETIC')) and ('VITAKINETIC' == tostring(ctx['school'] or '')) and (((m.attunement(you) >= 200) and (not false)) or ((ctx['success'] or 0) == V.gget('false')) or U.test_eoc(C, 'EOC_CONDITION_CAUGHT_IN_NETHER_WEATHER', you, npc, ctx)) and U.x_in_y(((10 * math.max(1, ((((ctx['difficulty'] or 0) - 1) - (m.skill(you, 'metaphysics') / 2)) * 15))) + m.attunement(you)), 1000))
 end
 M['EOC_PSIONICS_VITAKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17354,7 +17354,7 @@ M['EOC_PSIONICS_VITAKINETIC_CHANNELING_FAILURE'] = function(you, npc, ctx)
 end
 C['EOC_PSIONICS_WEARINESS_ENDS_POWERS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((('weary_7' == tostring(ctx['effect'] or '')) or ('weary_8' == tostring(ctx['effect'] or ''))) and (not you:has_trait(MutationBranchId.new('PROF_CONCENTRATION_MASTER'))))
+  return ((('weary_7' == tostring(ctx['effect'] or '')) or ('weary_8' == tostring(ctx['effect'] or ''))) and (not you:has_trait(U.mid('PROF_CONCENTRATION_MASTER'))))
 end
 M['EOC_PSIONICS_WEARINESS_ENDS_POWERS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17528,33 +17528,33 @@ M['EOC_PSI_AWAKENING_VITAKINESIS_FINALIZATION'] = function(you, npc, ctx)
 end
 C['EOC_PSI_CANCELLING_ACTIVITY_CANCELS_RESEARCH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((('ACT_PSI_LEARNING_NEW_POWER' == tostring(ctx['activity'] or '')) or ('ACT_PSI_STUDYING_POWER' == tostring(ctx['activity'] or ''))) and (you:has_effect(EffectTypeId.new('effect_psi_learning_new_power')) or you:has_effect(EffectTypeId.new('effect_psi_studying_power'))))
+  return ((('ACT_PSI_LEARNING_NEW_POWER' == tostring(ctx['activity'] or '')) or ('ACT_PSI_STUDYING_POWER' == tostring(ctx['activity'] or ''))) and (you:has_effect(U.eid('effect_psi_learning_new_power')) or you:has_effect(U.eid('effect_psi_studying_power'))))
 end
 M['EOC_PSI_CANCELLING_ACTIVITY_CANCELS_RESEARCH'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PSI_CANCELLING_ACTIVITY_CANCELS_RESEARCH'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_psi_learning_new_power'))
-  you:remove_effect(EffectTypeId.new('effect_psi_studying_power'))
+  you:remove_effect(U.eid('effect_psi_learning_new_power'))
+  you:remove_effect(U.eid('effect_psi_studying_power'))
   return true
 end
 C['EOC_PSI_CHANNELING_CANCELS_RESEARCH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_psi_learning_new_power')) or you:has_effect(EffectTypeId.new('effect_psi_studying_power')))
+  return (you:has_effect(U.eid('effect_psi_learning_new_power')) or you:has_effect(U.eid('effect_psi_studying_power')))
 end
 M['EOC_PSI_CHANNELING_CANCELS_RESEARCH'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PSI_CHANNELING_CANCELS_RESEARCH'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_psi_learning_new_power'))
-  you:remove_effect(EffectTypeId.new('effect_psi_studying_power'))
+  you:remove_effect(U.eid('effect_psi_learning_new_power'))
+  you:remove_effect(U.eid('effect_psi_studying_power'))
   return true
 end
 C['EOC_PSI_EXTENDED_CHANNELING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active'))
+  return you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active'))
 end
 M['EOC_PSI_EXTENDED_CHANNELING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17566,7 +17566,7 @@ M['EOC_PSI_EXTENDED_CHANNELING'] = function(you, npc, ctx)
 end
 C['EOC_PSI_EXTENDED_CHANNELING_ON'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active')))
+  return (not you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active')))
 end
 M['EOC_PSI_EXTENDED_CHANNELING_ON'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17580,7 +17580,7 @@ M['EOC_PSI_EXTENDED_CHANNELING_ON'] = function(you, npc, ctx)
 end
 C['EOC_PSI_EXTENDED_CHANNELING_ON_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING_active'))
+  return you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING_active'))
 end
 M['EOC_PSI_EXTENDED_CHANNELING_ON_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17609,20 +17609,20 @@ M['EOC_PSI_GAIN_NETHER_ATTUNEMENT_ACHIEVEMENT'] = function(you, npc, ctx)
 end
 C['EOC_PSI_GAIN_NETHER_ATTUNEMENT_ACHIEVEMENT_FURTHER_CHECKS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('ELECTROKINETIC')) or you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('VITAKINETIC')) or you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))) and you:has_effect(EffectTypeId.new('effect_disease_psionic_drain')))
+  return ((you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('ELECTROKINETIC')) or you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('VITAKINETIC')) or you:has_trait(U.mid('PSYCHIC_KNACK'))) and you:has_effect(U.eid('effect_disease_psionic_drain')))
 end
 M['EOC_PSI_GAIN_NETHER_ATTUNEMENT_ACHIEVEMENT_FURTHER_CHECKS'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PSI_GAIN_NETHER_ATTUNEMENT_ACHIEVEMENT_FURTHER_CHECKS'](you, npc, ctx) then
     return false
   end
-  if (you:has_effect(EffectTypeId.new('effect_disease_psionic_drain')) and m.effect_intensity(you, 'effect_disease_psionic_drain') >= 4) then
+  if (you:has_effect(U.eid('effect_disease_psionic_drain')) and m.effect_intensity(you, 'effect_disease_psionic_drain') >= 4) then
     U.unported('EOC_PSI_GAIN_NETHER_ATTUNEMENT_ACHIEVEMENT_FURTHER_CHECKS', 'give_achievement')
   end
-  if (you:has_effect(EffectTypeId.new('effect_disease_psionic_drain')) and m.effect_intensity(you, 'effect_disease_psionic_drain') >= 8) then
+  if (you:has_effect(U.eid('effect_disease_psionic_drain')) and m.effect_intensity(you, 'effect_disease_psionic_drain') >= 8) then
     U.unported('EOC_PSI_GAIN_NETHER_ATTUNEMENT_ACHIEVEMENT_FURTHER_CHECKS', 'give_achievement')
   end
-  if (you:has_effect(EffectTypeId.new('effect_disease_psionic_drain')) and m.effect_intensity(you, 'effect_disease_psionic_drain') >= 12) then
+  if (you:has_effect(U.eid('effect_disease_psionic_drain')) and m.effect_intensity(you, 'effect_disease_psionic_drain') >= 12) then
     U.unported('EOC_PSI_GAIN_NETHER_ATTUNEMENT_ACHIEVEMENT_FURTHER_CHECKS', 'give_achievement')
   end
   util.queue_eoc(function(y) M['EOC_PSI_GAIN_NETHER_ATTUNEMENT_ACHIEVEMENT_FURTHER_CHECKS'](y, npc, ctx) end, you, 2)
@@ -17630,7 +17630,7 @@ M['EOC_PSI_GAIN_NETHER_ATTUNEMENT_ACHIEVEMENT_FURTHER_CHECKS'] = function(you, n
 end
 C['EOC_PSI_LEARNING_BANNED_EFFECTS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not (you:has_effect(EffectTypeId.new('sleep')) or you:has_effect(EffectTypeId.new('effect_psi_learning_new_power')) or you:has_effect(EffectTypeId.new('effect_vitakin_wakeful_resting')) or you:has_effect(EffectTypeId.new('infected')) or you:has_effect(EffectTypeId.new('spores')) or you:has_effect(EffectTypeId.new('taint')) or you:has_effect(EffectTypeId.new('visuals')) or you:has_effect(EffectTypeId.new('hallu')) or you:has_effect(EffectTypeId.new('motor_seizure')) or you:has_effect(EffectTypeId.new('frostbite')) or you:has_effect(EffectTypeId.new('blisters')) or you:has_effect(EffectTypeId.new('formication')) or you:has_effect(EffectTypeId.new('pre_common_cold')) or you:has_effect(EffectTypeId.new('common_cold')) or you:has_effect(EffectTypeId.new('pre_flu')) or you:has_effect(EffectTypeId.new('flu')) or you:has_effect(EffectTypeId.new('pre_conjunctivitis_viral')) or you:has_effect(EffectTypeId.new('conjunctivitis_viral')) or you:has_effect(EffectTypeId.new('pre_conjunctivitis_bacterial')) or you:has_effect(EffectTypeId.new('conjunctivitis_bacterial')) or you:has_effect(EffectTypeId.new('asthma')) or you:has_effect(EffectTypeId.new('brainworms')) or you:has_effect(EffectTypeId.new('bloodworms')) or you:has_effect(EffectTypeId.new('grabbed')) or you:has_effect(EffectTypeId.new('lack_sleep')) or you:has_effect(EffectTypeId.new('sleep_deprived')) or you:has_effect(EffectTypeId.new('under_operation')) or you:has_effect(EffectTypeId.new('zapped')) or you:has_effect(EffectTypeId.new('electrocuted')) or you:has_effect(EffectTypeId.new('anemia')) or you:has_effect(EffectTypeId.new('redcells_anemia')) or you:has_effect(EffectTypeId.new('scurvy')) or you:has_effect(EffectTypeId.new('toxin_buildup')) or you:has_effect(EffectTypeId.new('bad_food_ennui')) or you:has_effect(EffectTypeId.new('hypovolemia')) or you:has_effect(EffectTypeId.new('disabled')) or you:has_effect(EffectTypeId.new('foodpoison')) or you:has_effect(EffectTypeId.new('venom_pain')) or you:has_effect(EffectTypeId.new('venom_dmg')) or you:has_effect(EffectTypeId.new('badpoison')) or you:has_effect(EffectTypeId.new('onfire')) or you:has_effect(EffectTypeId.new('dazed')) or you:has_effect(EffectTypeId.new('stunned'))))
+  return (not (you:has_effect(U.eid('sleep')) or you:has_effect(U.eid('effect_psi_learning_new_power')) or you:has_effect(U.eid('effect_vitakin_wakeful_resting')) or you:has_effect(U.eid('infected')) or you:has_effect(U.eid('spores')) or you:has_effect(U.eid('taint')) or you:has_effect(U.eid('visuals')) or you:has_effect(U.eid('hallu')) or you:has_effect(U.eid('motor_seizure')) or you:has_effect(U.eid('frostbite')) or you:has_effect(U.eid('blisters')) or you:has_effect(U.eid('formication')) or you:has_effect(U.eid('pre_common_cold')) or you:has_effect(U.eid('common_cold')) or you:has_effect(U.eid('pre_flu')) or you:has_effect(U.eid('flu')) or you:has_effect(U.eid('pre_conjunctivitis_viral')) or you:has_effect(U.eid('conjunctivitis_viral')) or you:has_effect(U.eid('pre_conjunctivitis_bacterial')) or you:has_effect(U.eid('conjunctivitis_bacterial')) or you:has_effect(U.eid('asthma')) or you:has_effect(U.eid('brainworms')) or you:has_effect(U.eid('bloodworms')) or you:has_effect(U.eid('grabbed')) or you:has_effect(U.eid('lack_sleep')) or you:has_effect(U.eid('sleep_deprived')) or you:has_effect(U.eid('under_operation')) or you:has_effect(U.eid('zapped')) or you:has_effect(U.eid('electrocuted')) or you:has_effect(U.eid('anemia')) or you:has_effect(U.eid('redcells_anemia')) or you:has_effect(U.eid('scurvy')) or you:has_effect(U.eid('toxin_buildup')) or you:has_effect(U.eid('bad_food_ennui')) or you:has_effect(U.eid('hypovolemia')) or you:has_effect(U.eid('disabled')) or you:has_effect(U.eid('foodpoison')) or you:has_effect(U.eid('venom_pain')) or you:has_effect(U.eid('venom_dmg')) or you:has_effect(U.eid('badpoison')) or you:has_effect(U.eid('onfire')) or you:has_effect(U.eid('dazed')) or you:has_effect(U.eid('stunned'))))
 end
 M['EOC_PSI_LEARNING_BANNED_EFFECTS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17641,7 +17641,7 @@ M['EOC_PSI_LEARNING_BANNED_EFFECTS'] = function(you, npc, ctx)
 end
 C['EOC_PSI_LEARNING_VITAMIN_COUNTER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('ELECTROKINETIC')) or you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('VITAKINETIC'))) and (V.uget(you, 'psi_learning_counter') == 0) and (not you:has_effect(EffectTypeId.new('effect_psi_learning_new_power'))))
+  return (U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('ELECTROKINETIC')) or you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('VITAKINETIC'))) and (V.uget(you, 'psi_learning_counter') == 0) and (not you:has_effect(U.eid('effect_psi_learning_new_power'))))
 end
 M['EOC_PSI_LEARNING_VITAMIN_COUNTER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17662,20 +17662,20 @@ M['EOC_PSI_MAINTENANCE_CALORIE_COST_CALCULATOR'] = function(you, npc, ctx)
 end
 C['EOC_PSI_MOVING_CANCELS_RESEARCH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_psi_learning_new_power')) or you:has_effect(EffectTypeId.new('effect_psi_studying_power')))
+  return (you:has_effect(U.eid('effect_psi_learning_new_power')) or you:has_effect(U.eid('effect_psi_studying_power')))
 end
 M['EOC_PSI_MOVING_CANCELS_RESEARCH'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PSI_MOVING_CANCELS_RESEARCH'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_psi_learning_new_power'))
-  you:remove_effect(EffectTypeId.new('effect_psi_studying_power'))
+  you:remove_effect(U.eid('effect_psi_learning_new_power'))
+  you:remove_effect(U.eid('effect_psi_studying_power'))
   return true
 end
 C['EOC_PSI_NETHER_ATTUNEMENT_PERIODIC_ADJUSTMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('ELECTROKINETIC')) or you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('VITAKINETIC'))) and (not you:has_effect(EffectTypeId.new('effect_noetic_resilience'))))
+  return ((you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('ELECTROKINETIC')) or you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('VITAKINETIC'))) and (not you:has_effect(U.eid('effect_noetic_resilience'))))
 end
 M['EOC_PSI_NETHER_ATTUNEMENT_PERIODIC_ADJUSTMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17786,7 +17786,7 @@ M['EOC_PSI_PRACTICE_FOCUS_MOD_4'] = function(you, npc, ctx)
 end
 C['EOC_PSI_RESEARCH_LEARN_EXTENDED_CHANNELING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and (not you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING'))) and (not you:knows_recipe(RecipeId.new('psi_research_extended_channeling'))) and ((m.maintained_count(you) >= 2) or (m.pain(you) >= 35) or (m.focus(you) <= 15)) and U.x_in_y(1, math.max(((1000 - (m.skill(you, 'metaphysics') * 50)) - (m.int(you) * 25)), 1)) and ((ctx['success'] or 0) ~= V.gget('false')))
+  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and (not you:has_trait(U.mid('PSI_EXTENDED_CHANNELING'))) and (not you:knows_recipe(RecipeId.new('psi_research_extended_channeling'))) and ((m.maintained_count(you) >= 2) or (m.pain(you) >= 35) or (m.focus(you) <= 15)) and U.x_in_y(1, math.max(((1000 - (m.skill(you, 'metaphysics') * 50)) - (m.int(you) * 25)), 1)) and ((ctx['success'] or 0) ~= V.gget('false')))
 end
 M['EOC_PSI_RESEARCH_LEARN_EXTENDED_CHANNELING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17798,7 +17798,7 @@ M['EOC_PSI_RESEARCH_LEARN_EXTENDED_CHANNELING'] = function(you, npc, ctx)
 end
 C['EOC_PSI_RESEARCH_LEARN_EXTENDED_CHANNELING_TRIGGER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:knows_recipe(RecipeId.new('psi_research_extended_channeling'))) and (not you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING'))))
+  return ((not you:knows_recipe(RecipeId.new('psi_research_extended_channeling'))) and (not you:has_trait(U.mid('PSI_EXTENDED_CHANNELING'))))
 end
 M['EOC_PSI_RESEARCH_LEARN_EXTENDED_CHANNELING_TRIGGER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17811,7 +17811,7 @@ M['EOC_PSI_RESEARCH_LEARN_EXTENDED_CHANNELING_TRIGGER'] = function(you, npc, ctx
 end
 C['EOC_PSI_RESEARCH_LEARN_TORRENTIAL_CHANNELING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and (not you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING'))) and (not you:knows_recipe(RecipeId.new('psi_research_torrential_channeling'))) and (m.attunement(you) >= 135) and U.x_in_y(1, math.max((((1000 - (m.skill(you, 'metaphysics') * 50)) - (m.int(you) * 25)) * (1 - U.clamp(((m.attunement(you) - 155) / 200), 0, 0.5))), 1)) and ((ctx['success'] or 0) ~= V.gget('false')))
+  return (U.test_eoc(C, 'EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST', you, npc, ctx) and (not you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING'))) and (not you:knows_recipe(RecipeId.new('psi_research_torrential_channeling'))) and (m.attunement(you) >= 135) and U.x_in_y(1, math.max((((1000 - (m.skill(you, 'metaphysics') * 50)) - (m.int(you) * 25)) * (1 - U.clamp(((m.attunement(you) - 155) / 200), 0, 0.5))), 1)) and ((ctx['success'] or 0) ~= V.gget('false')))
 end
 M['EOC_PSI_RESEARCH_LEARN_TORRENTIAL_CHANNELING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17823,7 +17823,7 @@ M['EOC_PSI_RESEARCH_LEARN_TORRENTIAL_CHANNELING'] = function(you, npc, ctx)
 end
 C['EOC_PSI_RESEARCH_LEARN_TORRENTIAL_CHANNELING_TRIGGER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((not you:knows_recipe(RecipeId.new('psi_research_torrential_channeling'))) and (not you:has_trait(MutationBranchId.new('PSI_TORRENTIAL_CHANNELING'))))
+  return ((not you:knows_recipe(RecipeId.new('psi_research_torrential_channeling'))) and (not you:has_trait(U.mid('PSI_TORRENTIAL_CHANNELING'))))
 end
 M['EOC_PSI_RESEARCH_LEARN_TORRENTIAL_CHANNELING_TRIGGER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17888,7 +17888,7 @@ M['EOC_PSI_STUDYING_PHOTOKIN_POWER_SETUP'] = function(you, npc, ctx)
 end
 C['EOC_PSI_STUDYING_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_psi_studying_power'))
+  return you:has_effect(U.eid('effect_psi_studying_power'))
 end
 M['EOC_PSI_STUDYING_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17901,7 +17901,7 @@ M['EOC_PSI_STUDYING_POWER'] = function(you, npc, ctx)
 end
 C['EOC_PSI_STUDYING_POWER_ADD_PROFICIENCY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_psi_studying_power'))
+  return you:has_effect(U.eid('effect_psi_studying_power'))
 end
 M['EOC_PSI_STUDYING_POWER_ADD_PROFICIENCY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17914,7 +17914,7 @@ M['EOC_PSI_STUDYING_POWER_ADD_PROFICIENCY'] = function(you, npc, ctx)
 end
 C['EOC_PSI_STUDYING_POWER_BEGIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not (you:has_effect(EffectTypeId.new('weary_7')) or you:has_effect(EffectTypeId.new('weary_8'))))
+  return (not (you:has_effect(U.eid('weary_7')) or you:has_effect(U.eid('weary_8'))))
 end
 M['EOC_PSI_STUDYING_POWER_BEGIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17937,7 +17937,7 @@ M['EOC_PSI_STUDYING_POWER_BEGIN'] = function(you, npc, ctx)
 end
 C['EOC_PSI_STUDYING_POWER_FOCUS_REDUCTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_psi_studying_power'))
+  return you:has_effect(U.eid('effect_psi_studying_power'))
 end
 M['EOC_PSI_STUDYING_POWER_FOCUS_REDUCTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17962,7 +17962,7 @@ M['EOC_PSI_STUDYING_POWER_FOCUS_REDUCTION_2'] = function(you, npc, ctx)
 end
 C['EOC_PSI_STUDYING_POWER_INITIAL_SETUP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not (you:has_effect(EffectTypeId.new('weary_7')) or you:has_effect(EffectTypeId.new('weary_8'))))
+  return (not (you:has_effect(U.eid('weary_7')) or you:has_effect(U.eid('weary_8'))))
 end
 M['EOC_PSI_STUDYING_POWER_INITIAL_SETUP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -17996,7 +17996,7 @@ M['EOC_PSI_STUDYING_POWER_INTEGER_TICK_OVER'] = function(you, npc, ctx)
 end
 C['EOC_PSI_STUDYING_POWER_METAPHYSICS_GAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_psi_studying_power')) and (V.uget(you, 'latest_studied_power_difficulty') > m.skill(you, 'metaphysics')))
+  return (you:has_effect(U.eid('effect_psi_studying_power')) and (V.uget(you, 'latest_studied_power_difficulty') > m.skill(you, 'metaphysics')))
 end
 M['EOC_PSI_STUDYING_POWER_METAPHYSICS_GAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18009,7 +18009,7 @@ M['EOC_PSI_STUDYING_POWER_METAPHYSICS_GAIN'] = function(you, npc, ctx)
 end
 C['EOC_PSI_STUDYING_POWER_NETHER_ATTUNEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_psi_studying_power'))
+  return you:has_effect(U.eid('effect_psi_studying_power'))
 end
 M['EOC_PSI_STUDYING_POWER_NETHER_ATTUNEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18084,21 +18084,21 @@ M['EOC_PSI_STUDYING_VITAKIN_POWER_SETUP'] = function(you, npc, ctx)
 end
 C['EOC_PSI_TOO_TIRED_TO_STUDY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((('weary_7' == tostring(ctx['effect'] or '')) or ('weary_8' == tostring(ctx['effect'] or ''))) and (you:has_effect(EffectTypeId.new('effect_psi_learning_new_power')) or you:has_effect(EffectTypeId.new('effect_psi_studying_power'))))
+  return ((('weary_7' == tostring(ctx['effect'] or '')) or ('weary_8' == tostring(ctx['effect'] or ''))) and (you:has_effect(U.eid('effect_psi_learning_new_power')) or you:has_effect(U.eid('effect_psi_studying_power'))))
 end
 M['EOC_PSI_TOO_TIRED_TO_STUDY'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PSI_TOO_TIRED_TO_STUDY'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_psi_learning_new_power'))
-  you:remove_effect(EffectTypeId.new('effect_psi_studying_power'))
+  you:remove_effect(U.eid('effect_psi_learning_new_power'))
+  you:remove_effect(U.eid('effect_psi_studying_power'))
   U.msg(you, 'You\'re so exhausted you can barely think straight, and certainly can\'t concentrate on studying your powers.', MsgType.neutral, ctx)
   return true
 end
 C['EOC_PSI_TORRENTIAL_CHANNELING_OFF'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_mom_cascade_stone')))
+  return (not you:has_effect(U.eid('effect_mom_cascade_stone')))
 end
 M['EOC_PSI_TORRENTIAL_CHANNELING_OFF'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18112,7 +18112,7 @@ M['EOC_PSI_TORRENTIAL_CHANNELING_OFF'] = function(you, npc, ctx)
 end
 C['EOC_PSI_TORRENTIAL_CHANNELING_ON'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_mom_cascade_stone')))
+  return (not you:has_effect(U.eid('effect_mom_cascade_stone')))
 end
 M['EOC_PSI_TORRENTIAL_CHANNELING_ON'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18125,7 +18125,7 @@ M['EOC_PSI_TORRENTIAL_CHANNELING_ON'] = function(you, npc, ctx)
 end
 C['EOC_PSI_TORRENTIAL_CHANNELING_ON_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active'))
+  return you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active'))
 end
 M['EOC_PSI_TORRENTIAL_CHANNELING_ON_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18220,7 +18220,7 @@ M['EOC_PSI_TRANSPORTER_REMOTE_TELEPORT_TRANSPORT_YES'] = function(you, npc, ctx)
 end
 C['EOC_PSI_TRANSPORTER_REMOTE_TELEPORT_TRANSPORT_YES_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('psi_nether_attention'))
+  return you:has_effect(U.eid('psi_nether_attention'))
 end
 M['EOC_PSI_TRANSPORTER_REMOTE_TELEPORT_TRANSPORT_YES_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18236,7 +18236,7 @@ M['EOC_PSI_TRANSPORTER_REMOTE_TELEPORT_TRANSPORT_YES_2'] = function(you, npc, ct
 end
 C['EOC_PSI_TRANSPORTER_REMOTE_TELEPORT_TRANSPORT_YES_3'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.x_in_y((m.effect_intensity(you, 'psi_nether_attention') * 2), 100) and (not you:has_effect(EffectTypeId.new('effect_telepathic_psi_armor'))) and (not you:has_trait(MutationBranchId.new('TELEPATHICDAMPENER_SHIELD'))))
+  return (U.x_in_y((m.effect_intensity(you, 'psi_nether_attention') * 2), 100) and (not you:has_effect(U.eid('effect_telepathic_psi_armor'))) and (not you:has_trait(U.mid('TELEPATHICDAMPENER_SHIELD'))))
 end
 M['EOC_PSI_TRANSPORTER_REMOTE_TELEPORT_TRANSPORT_YES_3'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18268,7 +18268,7 @@ end
 M['EOC_PSYSHIELD_PARTIAL_EFFECT_GRANTER'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PSYSHIELD_PARTIAL_EFFECT_GRANTER'](you, npc, ctx) then
-    you:remove_effect(EffectTypeId.new('effect_psyshield_protection'))
+    you:remove_effect(U.eid('effect_psyshield_protection'))
     return false
   end
   U.add_effect(you, 'effect_psyshield_protection', TimeDuration.from_minutes(8), nil, nil)
@@ -18276,7 +18276,7 @@ M['EOC_PSYSHIELD_PARTIAL_EFFECT_GRANTER'] = function(you, npc, ctx)
 end
 C['EOC_PYROKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_PYROKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18310,7 +18310,7 @@ M['EOC_PYROKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_BLAZING_AURA_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_pyrokinetic_aura'))
+  return you:has_effect(U.eid('effect_pyrokinetic_aura'))
 end
 M['EOC_PYROKIN_BLAZING_AURA_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18337,7 +18337,7 @@ M['EOC_PYROKIN_BLAZING_AURA_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_BLAZING_AURA_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_pyrokinetic_aura')))
+  return (not you:has_effect(U.eid('effect_pyrokinetic_aura')))
 end
 M['EOC_PYROKIN_BLAZING_AURA_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18353,7 +18353,7 @@ M['EOC_PYROKIN_BLAZING_AURA_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_CALL_FLAME_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_pyrokinetic_fire_tool'))
+  return you:has_effect(U.eid('effect_pyrokinetic_fire_tool'))
 end
 M['EOC_PYROKIN_CALL_FLAME_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18378,7 +18378,7 @@ M['EOC_PYROKIN_CALL_FLAME_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ARM_TENTACLES_8'))
+  return you:has_trait(U.mid('ARM_TENTACLES_8'))
 end
 M['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18391,7 +18391,7 @@ M['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ARACHNID_ARMS_OK'))
+  return you:has_trait(U.mid('ARACHNID_ARMS_OK'))
 end
 M['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18404,7 +18404,7 @@ M['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM_2'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM_3'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ARM_TENTACLES_4'))
+  return you:has_trait(U.mid('ARM_TENTACLES_4'))
 end
 M['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM_3'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18417,7 +18417,7 @@ M['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM_3'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_CALL_FLAME_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_pyrokinetic_fire_tool')))
+  return (not you:has_effect(U.eid('effect_pyrokinetic_fire_tool')))
 end
 M['EOC_PYROKIN_CALL_FLAME_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18447,7 +18447,7 @@ M['EOC_PYROKIN_CAUTERIZE_BODY'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_CAUTERIZE_BODY_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PROF_MED')) or false or U.roll_contested(m.skill(you, 'firstaid'), 7, 10))
+  return (you:has_trait(U.mid('PROF_MED')) or false or U.roll_contested(m.skill(you, 'firstaid'), 7, 10))
 end
 M['EOC_PYROKIN_CAUTERIZE_BODY_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18461,7 +18461,7 @@ M['EOC_PYROKIN_CAUTERIZE_BODY_2'] = function(you, npc, ctx)
   end
   U.msg(you, 'There is a moment of searing pain, and when you look at the wound, The bleeding has stopped.', MsgType.good, ctx)
   U.add_effect(you, 'effect_psi_post_cauterize', TimeDuration.from_turns(U.round((U.rng(0, 10800) + 3600))), 'torso', U.round((m.effect_intensity(you, 'effect_psi_post_cauterize') + 1)))
-  you:remove_effect(EffectTypeId.new('bleed'))
+  you:remove_effect(U.eid('bleed'))
   U.unported('EOC_PYROKIN_CAUTERIZE_BODY_2', 'write u_hp')
   you:set_pain(U.round((m.pain(you)) + (U.rng(1, 3))))
   util.queue_eoc(function(y) M['EOC_PYROKIN_CAUTERIZE_TORSO_INFECTION_CHECK'](y, npc, ctx) end, you, U.rng(21600, 86400))
@@ -18482,7 +18482,7 @@ M['EOC_PYROKIN_CAUTERIZE_HEAD'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_CAUTERIZE_HEAD_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PROF_MED')) or false or U.roll_contested(m.skill(you, 'firstaid'), 7, 10))
+  return (you:has_trait(U.mid('PROF_MED')) or false or U.roll_contested(m.skill(you, 'firstaid'), 7, 10))
 end
 M['EOC_PYROKIN_CAUTERIZE_HEAD_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18496,7 +18496,7 @@ M['EOC_PYROKIN_CAUTERIZE_HEAD_2'] = function(you, npc, ctx)
   end
   U.msg(you, 'There is a moment of searing pain, and when you look at the wound, The bleeding has stopped.', MsgType.good, ctx)
   U.add_effect(you, 'effect_psi_post_cauterize', TimeDuration.from_turns(U.round((U.rng(0, 10800) + 3600))), 'head', U.round((m.effect_intensity(you, 'effect_psi_post_cauterize') + 1)))
-  you:remove_effect(EffectTypeId.new('bleed'))
+  you:remove_effect(U.eid('bleed'))
   U.unported('EOC_PYROKIN_CAUTERIZE_HEAD_2', 'write u_hp')
   you:set_pain(U.round((m.pain(you)) + (U.rng(1, 4))))
   util.queue_eoc(function(y) M['EOC_PYROKIN_CAUTERIZE_HEAD_INFECTION_CHECK'](y, npc, ctx) end, you, U.rng(21600, 86400))
@@ -18544,7 +18544,7 @@ M['EOC_PYROKIN_CAUTERIZE_LEFT_ARM'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_CAUTERIZE_LEFT_ARM_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PROF_MED')) or false or U.roll_contested(m.skill(you, 'firstaid'), 7, 10))
+  return (you:has_trait(U.mid('PROF_MED')) or false or U.roll_contested(m.skill(you, 'firstaid'), 7, 10))
 end
 M['EOC_PYROKIN_CAUTERIZE_LEFT_ARM_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18558,7 +18558,7 @@ M['EOC_PYROKIN_CAUTERIZE_LEFT_ARM_2'] = function(you, npc, ctx)
   end
   U.msg(you, 'There is a moment of searing pain, and when you look at the wound, The bleeding has stopped.', MsgType.good, ctx)
   U.add_effect(you, 'effect_psi_post_cauterize', TimeDuration.from_turns(U.round((U.rng(0, 10800) + 3600))), 'arm_l', U.round((m.effect_intensity(you, 'effect_psi_post_cauterize') + 1)))
-  you:remove_effect(EffectTypeId.new('bleed'))
+  you:remove_effect(U.eid('bleed'))
   U.unported('EOC_PYROKIN_CAUTERIZE_LEFT_ARM_2', 'write u_hp')
   you:set_pain(U.round((m.pain(you)) + (U.rng(1, 2))))
   util.queue_eoc(function(y) M['EOC_PYROKIN_CAUTERIZE_LEFT_ARM_INFECTION_CHECK'](y, npc, ctx) end, you, U.rng(21600, 86400))
@@ -18606,7 +18606,7 @@ M['EOC_PYROKIN_CAUTERIZE_LEFT_LEG'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_CAUTERIZE_LEFT_LEG_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PROF_MED')) or false or U.roll_contested(m.skill(you, 'firstaid'), 7, 10))
+  return (you:has_trait(U.mid('PROF_MED')) or false or U.roll_contested(m.skill(you, 'firstaid'), 7, 10))
 end
 M['EOC_PYROKIN_CAUTERIZE_LEFT_LEG_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18620,7 +18620,7 @@ M['EOC_PYROKIN_CAUTERIZE_LEFT_LEG_2'] = function(you, npc, ctx)
   end
   U.msg(you, 'There is a moment of searing pain, and when you look at the wound, The bleeding has stopped.', MsgType.good, ctx)
   U.add_effect(you, 'effect_psi_post_cauterize', TimeDuration.from_turns(U.round((U.rng(0, 10800) + 3600))), 'leg_l', U.round((m.effect_intensity(you, 'effect_psi_post_cauterize') + 1)))
-  you:remove_effect(EffectTypeId.new('bleed'))
+  you:remove_effect(U.eid('bleed'))
   U.unported('EOC_PYROKIN_CAUTERIZE_LEFT_LEG_2', 'write u_hp')
   you:set_pain(U.round((m.pain(you)) + (U.rng(1, 2))))
   util.queue_eoc(function(y) M['EOC_PYROKIN_CAUTERIZE_LEFT_LEG_INFECTION_CHECK'](y, npc, ctx) end, you, U.rng(21600, 86400))
@@ -18668,7 +18668,7 @@ M['EOC_PYROKIN_CAUTERIZE_RIGHT_ARM'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_CAUTERIZE_RIGHT_ARM_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PROF_MED')) or false or U.roll_contested(m.skill(you, 'firstaid'), 7, 10))
+  return (you:has_trait(U.mid('PROF_MED')) or false or U.roll_contested(m.skill(you, 'firstaid'), 7, 10))
 end
 M['EOC_PYROKIN_CAUTERIZE_RIGHT_ARM_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18682,7 +18682,7 @@ M['EOC_PYROKIN_CAUTERIZE_RIGHT_ARM_2'] = function(you, npc, ctx)
   end
   U.msg(you, 'There is a moment of searing pain, and when you look at the wound, The bleeding has stopped.', MsgType.good, ctx)
   U.add_effect(you, 'effect_psi_post_cauterize', TimeDuration.from_turns(U.round((U.rng(0, 10800) + 3600))), 'arm_r', U.round((m.effect_intensity(you, 'effect_psi_post_cauterize') + 1)))
-  you:remove_effect(EffectTypeId.new('bleed'))
+  you:remove_effect(U.eid('bleed'))
   U.unported('EOC_PYROKIN_CAUTERIZE_RIGHT_ARM_2', 'write u_hp')
   you:set_pain(U.round((m.pain(you)) + (U.rng(1, 2))))
   util.queue_eoc(function(y) M['EOC_PYROKIN_CAUTERIZE_RIGHT_ARM_INFECTION_CHECK'](y, npc, ctx) end, you, U.rng(21600, 86400))
@@ -18730,7 +18730,7 @@ M['EOC_PYROKIN_CAUTERIZE_RIGHT_LEG'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_CAUTERIZE_RIGHT_LEG_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PROF_MED')) or false or U.roll_contested(m.skill(you, 'firstaid'), 7, 10))
+  return (you:has_trait(U.mid('PROF_MED')) or false or U.roll_contested(m.skill(you, 'firstaid'), 7, 10))
 end
 M['EOC_PYROKIN_CAUTERIZE_RIGHT_LEG_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18744,7 +18744,7 @@ M['EOC_PYROKIN_CAUTERIZE_RIGHT_LEG_2'] = function(you, npc, ctx)
   end
   U.msg(you, 'There is a moment of searing pain, and when you look at the wound, The bleeding has stopped.', MsgType.good, ctx)
   U.add_effect(you, 'effect_psi_post_cauterize', TimeDuration.from_turns(U.round((U.rng(0, 10800) + 3600))), 'leg_r', U.round((m.effect_intensity(you, 'effect_psi_post_cauterize') + 1)))
-  you:remove_effect(EffectTypeId.new('bleed'))
+  you:remove_effect(U.eid('bleed'))
   U.unported('EOC_PYROKIN_CAUTERIZE_RIGHT_LEG_2', 'write u_hp')
   you:set_pain(U.round((m.pain(you)) + (U.rng(1, 2))))
   util.queue_eoc(function(y) M['EOC_PYROKIN_CAUTERIZE_RIGHT_LEG_INFECTION_CHECK'](y, npc, ctx) end, you, U.rng(21600, 86400))
@@ -18830,7 +18830,7 @@ M['EOC_PYROKIN_CRYSTAL_DRAINING'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_FLAME_IMMUNITY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_pyrokinetic_flame_immunity'))
+  return you:has_effect(U.eid('effect_pyrokinetic_flame_immunity'))
 end
 M['EOC_PYROKIN_FLAME_IMMUNITY_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18847,7 +18847,7 @@ M['EOC_PYROKIN_FLAME_IMMUNITY_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_FLAME_IMMUNITY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_pyrokinetic_flame_immunity')))
+  return (not you:has_effect(U.eid('effect_pyrokinetic_flame_immunity')))
 end
 M['EOC_PYROKIN_FLAME_IMMUNITY_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18877,7 +18877,7 @@ M['EOC_PYROKIN_INTENSIFY_FLAMES'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_LEARNING_AOE_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_flamethrower') >= 12) or (m.spell_level(you, 'pyrokinetic_blast') >= 6)) and ((m.spell_level(you, 'pyrokinetic_thermogenesis') >= 10) or (m.spell_level(you, 'pyrokinetic_flame_immunity') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_aoe_blast') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_aoe_blast'))))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_flamethrower') >= 12) or (m.spell_level(you, 'pyrokinetic_blast') >= 6)) and ((m.spell_level(you, 'pyrokinetic_thermogenesis') >= 10) or (m.spell_level(you, 'pyrokinetic_flame_immunity') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_aoe_blast') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_aoe_blast'))))
 end
 M['EOC_PYROKIN_LEARNING_AOE_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18891,7 +18891,7 @@ M['EOC_PYROKIN_LEARNING_AOE_BLAST'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_LEARNING_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_thermogenesis') >= 5) or (m.spell_level(you, 'pyrokinetic_flamethrower') >= 6)) and (m.spell_level(you, 'pyrokinetic_cloak') >= 8) and (m.spell_level(you, 'pyrokinetic_eruption') >= 7))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_aura') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_aura'))))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_thermogenesis') >= 5) or (m.spell_level(you, 'pyrokinetic_flamethrower') >= 6)) and (m.spell_level(you, 'pyrokinetic_cloak') >= 8) and (m.spell_level(you, 'pyrokinetic_eruption') >= 7))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_aura') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_aura'))))
 end
 M['EOC_PYROKIN_LEARNING_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18905,7 +18905,7 @@ M['EOC_PYROKIN_LEARNING_AURA'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_LEARNING_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_flamethrower') >= 8) or (m.spell_level(you, 'pyrokinetic_eruption') >= 13)) and ((m.spell_level(you, 'pyrokinetic_thermogenesis') >= 6) or (m.spell_level(you, 'pyrokinetic_aura') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_blast') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_blast'))))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_flamethrower') >= 8) or (m.spell_level(you, 'pyrokinetic_eruption') >= 13)) and ((m.spell_level(you, 'pyrokinetic_thermogenesis') >= 6) or (m.spell_level(you, 'pyrokinetic_aura') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_blast') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_blast'))))
 end
 M['EOC_PYROKIN_LEARNING_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18919,7 +18919,7 @@ M['EOC_PYROKIN_LEARNING_BLAST'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_LEARNING_CALL_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'pyrokinetic_eruption') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_call_flames') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_call_flames'))))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'pyrokinetic_eruption') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_call_flames') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_call_flames'))))
 end
 M['EOC_PYROKIN_LEARNING_CALL_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18933,7 +18933,7 @@ M['EOC_PYROKIN_LEARNING_CALL_FLAMES'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_LEARNING_CAUTERIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'pyrokinetic_lance') >= 5) or ((m.spell_level(you, 'pyrokinetic_eruption') >= 6) and (m.spell_level(you, 'pyrokinetic_quell_flames') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_cauterize') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_cauterize'))))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'pyrokinetic_lance') >= 5) or ((m.spell_level(you, 'pyrokinetic_eruption') >= 6) and (m.spell_level(you, 'pyrokinetic_quell_flames') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_cauterize') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_cauterize'))))
 end
 M['EOC_PYROKIN_LEARNING_CAUTERIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18947,7 +18947,7 @@ M['EOC_PYROKIN_LEARNING_CAUTERIZE'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_LEARNING_CLOAK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'pyrokinetic_call_flames') >= 6) or (m.spell_level(you, 'pyrokinetic_eruption') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_cloak') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_cloak'))))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'pyrokinetic_call_flames') >= 6) or (m.spell_level(you, 'pyrokinetic_eruption') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_cloak') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_cloak'))))
 end
 M['EOC_PYROKIN_LEARNING_CLOAK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18961,7 +18961,7 @@ M['EOC_PYROKIN_LEARNING_CLOAK'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_LEARNING_ERUPTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'pyrokinetic_intensify_flames') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_eruption') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_eruption'))))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'pyrokinetic_intensify_flames') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_eruption') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_eruption'))))
 end
 M['EOC_PYROKIN_LEARNING_ERUPTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18975,7 +18975,7 @@ M['EOC_PYROKIN_LEARNING_ERUPTION'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_LEARNING_FLAMETHROWER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'pyrokinetic_call_flames') >= 7) and (m.spell_level(you, 'pyrokinetic_flash') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_flamethrower') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_flamethrower'))))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'pyrokinetic_call_flames') >= 7) and (m.spell_level(you, 'pyrokinetic_flash') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_flamethrower') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_flamethrower'))))
 end
 M['EOC_PYROKIN_LEARNING_FLAMETHROWER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -18989,7 +18989,7 @@ M['EOC_PYROKIN_LEARNING_FLAMETHROWER'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_LEARNING_FLAME_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_cloak') >= 10) or (m.spell_level(you, 'pyrokinetic_aura') >= 6)) and (m.spell_level(you, 'pyrokinetic_quell_flames') >= 9))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_flame_immunity') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_flame_immunity'))))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_cloak') >= 10) or (m.spell_level(you, 'pyrokinetic_aura') >= 6)) and (m.spell_level(you, 'pyrokinetic_quell_flames') >= 9))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_flame_immunity') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_flame_immunity'))))
 end
 M['EOC_PYROKIN_LEARNING_FLAME_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19003,7 +19003,7 @@ M['EOC_PYROKIN_LEARNING_FLAME_IMMUNITY'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_LEARNING_INCINERATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_eruption') >= 14) or (m.spell_level(you, 'pyrokinetic_flamethrower') >= 10)) and (m.spell_level(you, 'pyrokinetic_blast') >= 10) and (m.spell_level(you, 'pyrokinetic_aoe_blast') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_incineration') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_incineration'))))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_eruption') >= 14) or (m.spell_level(you, 'pyrokinetic_flamethrower') >= 10)) and (m.spell_level(you, 'pyrokinetic_blast') >= 10) and (m.spell_level(you, 'pyrokinetic_aoe_blast') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_incineration') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_incineration'))))
 end
 M['EOC_PYROKIN_LEARNING_INCINERATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19017,7 +19017,7 @@ M['EOC_PYROKIN_LEARNING_INCINERATION'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_LEARNING_LANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_eruption') >= 9) and (m.spell_level(you, 'pyrokinetic_quell_flames') >= 6)) or (m.spell_level(you, 'pyrokinetic_call_flames') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_lance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_lance'))))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_eruption') >= 9) and (m.spell_level(you, 'pyrokinetic_quell_flames') >= 6)) or (m.spell_level(you, 'pyrokinetic_call_flames') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_lance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_lance'))))
 end
 M['EOC_PYROKIN_LEARNING_LANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19031,7 +19031,7 @@ M['EOC_PYROKIN_LEARNING_LANCE'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_LEARNING_QUELL_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'pyrokinetic_call_flames') >= 5) and (m.spell_level(you, 'pyrokinetic_intensify_flames') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_quell_flames') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_quell_flames'))))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'pyrokinetic_call_flames') >= 5) and (m.spell_level(you, 'pyrokinetic_intensify_flames') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_quell_flames') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_quell_flames'))))
 end
 M['EOC_PYROKIN_LEARNING_QUELL_FLAMES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19045,7 +19045,7 @@ M['EOC_PYROKIN_LEARNING_QUELL_FLAMES'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_LEARNING_THERMOGENESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_call_flames') >= 10) or (m.spell_level(you, 'pyrokinetic_cloak') >= 6)) and ((m.spell_level(you, 'pyrokinetic_flash') >= 7) or (m.spell_level(you, 'pyrokinetic_intensify_flames') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_thermogenesis') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_thermogenesis'))))
+  return (you:has_trait(U.mid('PYROKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'pyrokinetic_call_flames') >= 10) or (m.spell_level(you, 'pyrokinetic_cloak') >= 6)) and ((m.spell_level(you, 'pyrokinetic_flash') >= 7) or (m.spell_level(you, 'pyrokinetic_intensify_flames') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'pyrokinetic_thermogenesis') <= 0) and (not you:knows_recipe(RecipeId.new('practice_pyrokinetic_thermogenesis'))))
 end
 M['EOC_PYROKIN_LEARNING_THERMOGENESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19059,7 +19059,7 @@ M['EOC_PYROKIN_LEARNING_THERMOGENESIS'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_PYROKIN_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19088,7 +19088,7 @@ M['EOC_PYROKIN_MATRIX_AWAKENING_2'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PYROKIN_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19128,7 +19128,7 @@ M['EOC_PYROKIN_MATRIX_AWAKENING_SUCCESS'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_PYROKIN_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19138,7 +19138,7 @@ M['EOC_PYROKIN_POTION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You drink the concoction.', MsgType.neutral, ctx)
-  you:remove_effect(EffectTypeId.new('effect_pyrokin_potion_comedown'))
+  you:remove_effect(U.eid('effect_pyrokin_potion_comedown'))
   U.add_effect(you, 'effect_pyrokin_potion', TimeDuration.from_hours(30), nil, nil)
   U.add_effect(you, 'effect_matrix_potion_nether_boost', TimeDuration.from_hours(30), nil, nil)
   util.queue_eoc(function(y) M['EOC_PYROKIN_POTION_COMEDOWN'](y, npc, ctx) end, you, U.rng(43200, 108000))
@@ -19150,14 +19150,14 @@ C['EOC_PYROKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
 end
 M['EOC_PYROKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  you:remove_effect(EffectTypeId.new('effect_pyrokin_potion'))
-  you:remove_effect(EffectTypeId.new('effect_matrix_potion_nether_boost'))
+  you:remove_effect(U.eid('effect_pyrokin_potion'))
+  you:remove_effect(U.eid('effect_matrix_potion_nether_boost'))
   U.add_effect(you, 'effect_pyrokin_potion_comedown', U.rng_dur(TimeDuration.from_hours(24), TimeDuration.from_hours(55)), nil, nil)
   return true
 end
 C['EOC_PYROKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PYROKINETIC'))
+  return you:has_trait(U.mid('PYROKINETIC'))
 end
 M['EOC_PYROKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19169,7 +19169,7 @@ M['EOC_PYROKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_REMOVE_BLAZING_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_pyrokinetic_aura'))
+  return you:has_effect(U.eid('effect_pyrokinetic_aura'))
 end
 M['EOC_PYROKIN_REMOVE_BLAZING_AURA'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19177,12 +19177,12 @@ M['EOC_PYROKIN_REMOVE_BLAZING_AURA'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_pyrokinetic_aura'))
+  you:remove_effect(U.eid('effect_pyrokinetic_aura'))
   return true
 end
 C['EOC_PYROKIN_REMOVE_FLAME_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_pyrokinetic_flame_immunity'))
+  return you:has_effect(U.eid('effect_pyrokinetic_flame_immunity'))
 end
 M['EOC_PYROKIN_REMOVE_FLAME_IMMUNITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19190,7 +19190,7 @@ M['EOC_PYROKIN_REMOVE_FLAME_IMMUNITY'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_pyrokinetic_flame_immunity'))
+  you:remove_effect(U.eid('effect_pyrokinetic_flame_immunity'))
   return true
 end
 C['EOC_PYROKIN_TORCH_WELD_DRAIN'] = function(you, npc, ctx)
@@ -19212,7 +19212,7 @@ M['EOC_PYROKIN_TORCH_WELD_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_TORCH_WELD_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_pyrokinetic_torch_weld')))
+  return (not you:has_effect(U.eid('effect_pyrokinetic_torch_weld')))
 end
 M['EOC_PYROKIN_TORCH_WELD_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19229,7 +19229,7 @@ M['EOC_PYROKIN_TORCH_WELD_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_WARMTH_CLOAK_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_pyrokinetic_cloak'))
+  return you:has_effect(U.eid('effect_pyrokinetic_cloak'))
 end
 M['EOC_PYROKIN_WARMTH_CLOAK_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19254,7 +19254,7 @@ M['EOC_PYROKIN_WARMTH_CLOAK_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_PYROKIN_WARMTH_CLOAK_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_pyrokinetic_cloak')))
+  return (not you:has_effect(U.eid('effect_pyrokinetic_cloak')))
 end
 M['EOC_PYROKIN_WARMTH_CLOAK_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19270,7 +19270,7 @@ M['EOC_PYROKIN_WARMTH_CLOAK_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_PYRO_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('PYROKINETIC')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_PYROKINESIS'))
+  return (you:has_trait(U.mid('PYROKINETIC')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_PYROKINESIS'))
 end
 M['EOC_PYRO_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19282,7 +19282,7 @@ M['EOC_PYRO_MATRIX_BOOST'] = function(you, npc, ctx)
 end
 C['EOC_PYRO_REMOVE_FIRE_TOOL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_pyrokinetic_fire_tool'))
+  return you:has_effect(U.eid('effect_pyrokinetic_fire_tool'))
 end
 M['EOC_PYRO_REMOVE_FIRE_TOOL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19295,12 +19295,12 @@ M['EOC_PYRO_REMOVE_FIRE_TOOL'] = function(you, npc, ctx)
   U.remove_item_with(you, 'pyrokinetic_fire_tool_four_arms')
   U.remove_item_with(you, 'pyrokinetic_fire_tool_six_arms')
   U.remove_item_with(you, 'pyrokinetic_fire_tool_eight_arms')
-  you:remove_effect(EffectTypeId.new('effect_pyrokinetic_fire_tool'))
+  you:remove_effect(U.eid('effect_pyrokinetic_fire_tool'))
   return true
 end
 C['EOC_PYRO_REMOVE_TORCH_WELD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_pyrokinetic_torch_weld'))
+  return you:has_effect(U.eid('effect_pyrokinetic_torch_weld'))
 end
 M['EOC_PYRO_REMOVE_TORCH_WELD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19310,12 +19310,12 @@ M['EOC_PYRO_REMOVE_TORCH_WELD'] = function(you, npc, ctx)
   U.msg(you, 'The line of fire vanishes in an instant.', MsgType.bad, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   U.remove_item_with(you, 'pyrokinetic_torch_weld')
-  you:remove_effect(EffectTypeId.new('effect_pyrokinetic_torch_weld'))
+  you:remove_effect(U.eid('effect_pyrokinetic_torch_weld'))
   return true
 end
 C['EOC_PYRO_REMOVE_WARMTH_CLOAK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_pyrokinetic_cloak'))
+  return you:has_effect(U.eid('effect_pyrokinetic_cloak'))
 end
 M['EOC_PYRO_REMOVE_WARMTH_CLOAK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19323,12 +19323,12 @@ M['EOC_PYRO_REMOVE_WARMTH_CLOAK'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_pyrokinetic_cloak'))
+  you:remove_effect(U.eid('effect_pyrokinetic_cloak'))
   return true
 end
 C['EOC_QUEST_STARTER_NOTE_FIFTH_SUN_CUACHIC'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('FIFTH_SUN_PEOPLE'))
+  return you:has_trait(U.mid('FIFTH_SUN_PEOPLE'))
 end
 M['EOC_QUEST_STARTER_NOTE_FIFTH_SUN_CUACHIC'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19341,7 +19341,7 @@ M['EOC_QUEST_STARTER_NOTE_FIFTH_SUN_CUACHIC'] = function(you, npc, ctx)
 end
 C['EOC_RAISE_ATTUNEMENT_ABOVE_THRESHOLD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_noetic_resilience')) or you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active')))
+  return (you:has_effect(U.eid('effect_noetic_resilience')) or you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active')))
 end
 M['EOC_RAISE_ATTUNEMENT_ABOVE_THRESHOLD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19381,7 +19381,7 @@ M['EOC_RAISE_ATTUNEMENT_ABOVE_THRESHOLD_CHECKER_MAINTENANCE'] = function(you, np
 end
 C['EOC_RAISE_ATTUNEMENT_ABOVE_THRESHOLD_MAINTENANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_noetic_resilience')) or you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active')))
+  return (you:has_effect(U.eid('effect_noetic_resilience')) or you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active')))
 end
 M['EOC_RAISE_ATTUNEMENT_ABOVE_THRESHOLD_MAINTENANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19396,7 +19396,7 @@ M['EOC_RAISE_ATTUNEMENT_ABOVE_THRESHOLD_MAINTENANCE'] = function(you, npc, ctx)
 end
 C['EOC_RAISE_ATTUNEMENT_BELOW_THRESHOLD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_noetic_resilience')) or you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active')))
+  return (you:has_effect(U.eid('effect_noetic_resilience')) or you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active')))
 end
 M['EOC_RAISE_ATTUNEMENT_BELOW_THRESHOLD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19436,7 +19436,7 @@ M['EOC_RAISE_ATTUNEMENT_BELOW_THRESHOLD_CHECKER_MAINTENANCE'] = function(you, np
 end
 C['EOC_RAISE_ATTUNEMENT_BELOW_THRESHOLD_MAINTENANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_noetic_resilience')) or you:has_trait(MutationBranchId.new('PSI_EXTENDED_CHANNELING_active')))
+  return (you:has_effect(U.eid('effect_noetic_resilience')) or you:has_trait(U.mid('PSI_EXTENDED_CHANNELING_active')))
 end
 M['EOC_RAISE_ATTUNEMENT_BELOW_THRESHOLD_MAINTENANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19646,7 +19646,7 @@ M['EOC_STARE'] = function(you, npc, ctx)
 end
 C['EOC_STARE1'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_telepathic_psi_armor')) or U.has_creature_flag(you, 'TEEPSHIELD'))
+  return (you:has_effect(U.eid('effect_telepathic_psi_armor')) or U.has_creature_flag(you, 'TEEPSHIELD'))
 end
 M['EOC_STARE1'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19659,7 +19659,7 @@ M['EOC_STARE1'] = function(you, npc, ctx)
 end
 C['EOC_STARE1_5'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_telepathic_psi_armor')) or U.has_creature_flag(you, 'TEEPSHIELD'))
+  return (you:has_effect(U.eid('effect_telepathic_psi_armor')) or U.has_creature_flag(you, 'TEEPSHIELD'))
 end
 M['EOC_STARE1_5'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -19862,7 +19862,7 @@ M['EOC_TEACH_KNACK_CONTEMPLATION_RECIPES'] = function(you, npc, ctx)
 end
 C['EOC_TEACH_KNACK_RECIPES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_TEACH_KNACK_RECIPES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20020,7 +20020,7 @@ M['EOC_TEACH_VITAKIN_CONTEMPLATE_RECIPES'] = function(you, npc, ctx)
 end
 C['EOC_TEEP_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_TEEP_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20049,7 +20049,7 @@ M['EOC_TEEP_MATRIX_AWAKENING_2'] = function(you, npc, ctx)
 end
 C['EOC_TEEP_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_TEEP_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20088,7 +20088,7 @@ M['EOC_TEEP_MATRIX_AWAKENING_SUCCESS'] = function(you, npc, ctx)
 end
 C['EOC_TEEP_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_TELEPATHY'))
+  return (you:has_trait(U.mid('TELEPATH')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_TELEPATHY'))
 end
 M['EOC_TEEP_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20100,7 +20100,7 @@ M['EOC_TEEP_MATRIX_BOOST'] = function(you, npc, ctx)
 end
 C['EOC_TELEKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_TELEKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20134,7 +20134,7 @@ M['EOC_TELEKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
 end
 C['EOC_TELEKINETIC_DAMAGE_KNOCKDOWN_CHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.x_in_y((1 + U.b2n(you:has_trait(MutationBranchId.new('perk_concussive_blasts')))), 5) and ((ctx['damage_taken'] or 0) > 0))
+  return (U.x_in_y((1 + U.b2n(you:has_trait(U.mid('perk_concussive_blasts')))), 5) and ((ctx['damage_taken'] or 0) > 0))
 end
 M['EOC_TELEKINETIC_DAMAGE_KNOCKDOWN_CHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20146,7 +20146,7 @@ M['EOC_TELEKINETIC_DAMAGE_KNOCKDOWN_CHANCE'] = function(you, npc, ctx)
 end
 C['EOC_TELEKINETIC_DAMAGE_STAGGER_CHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.x_in_y((2 + (U.b2n(you:has_trait(MutationBranchId.new('perk_concussive_blasts'))) * 2)), 5) and ((ctx['damage_taken'] or 0) > 0))
+  return (U.x_in_y((2 + (U.b2n(you:has_trait(U.mid('perk_concussive_blasts'))) * 2)), 5) and ((ctx['damage_taken'] or 0) > 0))
 end
 M['EOC_TELEKINETIC_DAMAGE_STAGGER_CHANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20313,7 +20313,7 @@ M['EOC_TELEKIN_CRYSTAL_DRAINING'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_AEGIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_wave') >= 8) or (m.spell_level(you, 'telekinetic_slowfall') >= 9)) and ((m.spell_level(you, 'telekinetic_momentum') >= 12) or (m.spell_level(you, 'telekinetic_strength') >= 8)) and (m.spell_level(you, 'telekinetic_shield') >= 7))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_aegis') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_aegis'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_wave') >= 8) or (m.spell_level(you, 'telekinetic_slowfall') >= 9)) and ((m.spell_level(you, 'telekinetic_momentum') >= 12) or (m.spell_level(you, 'telekinetic_strength') >= 8)) and (m.spell_level(you, 'telekinetic_shield') >= 7))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_aegis') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_aegis'))))
 end
 M['EOC_TELEKIN_LEARNING_AEGIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20327,7 +20327,7 @@ M['EOC_TELEKIN_LEARNING_AEGIS'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_EARTHSHAKER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_explosion') >= 8) or (m.spell_level(you, 'telekinetic_wave') >= 13)) and ((m.spell_level(you, 'telekinetic_move_large_weight') >= 5) or (m.spell_level(you, 'telekinetic_hammer') >= 9)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_earthshaker') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_earthshaker'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_explosion') >= 8) or (m.spell_level(you, 'telekinetic_wave') >= 13)) and ((m.spell_level(you, 'telekinetic_move_large_weight') >= 5) or (m.spell_level(you, 'telekinetic_hammer') >= 9)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_earthshaker') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_earthshaker'))))
 end
 M['EOC_TELEKIN_LEARNING_EARTHSHAKER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20341,7 +20341,7 @@ M['EOC_TELEKIN_LEARNING_EARTHSHAKER'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_EXPLOSION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_slam_down') >= 12) or (m.spell_level(you, 'telekinetic_hammer') >= 7)) and ((m.spell_level(you, 'telekinetic_push') >= 10) or (m.spell_level(you, 'telekinetic_pull') >= 10)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_explosion') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_explosion'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_slam_down') >= 12) or (m.spell_level(you, 'telekinetic_hammer') >= 7)) and ((m.spell_level(you, 'telekinetic_push') >= 10) or (m.spell_level(you, 'telekinetic_pull') >= 10)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_explosion') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_explosion'))))
 end
 M['EOC_TELEKIN_LEARNING_EXPLOSION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20355,7 +20355,7 @@ M['EOC_TELEKIN_LEARNING_EXPLOSION'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_HAMMER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_wave') >= 4) or (m.spell_level(you, 'telekinetic_push') >= 8)) and (m.spell_level(you, 'telekinetic_slam_down') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_hammer') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_hammer'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_wave') >= 4) or (m.spell_level(you, 'telekinetic_push') >= 8)) and (m.spell_level(you, 'telekinetic_slam_down') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_hammer') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_hammer'))))
 end
 M['EOC_TELEKIN_LEARNING_HAMMER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20369,7 +20369,7 @@ M['EOC_TELEKIN_LEARNING_HAMMER'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_LEVITATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_push') >= 12) or (m.spell_level(you, 'telekinetic_water_walk') >= 8)) and (m.spell_level(you, 'telekinetic_slowfall') >= 9))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_levitation') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_levitation'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_push') >= 12) or (m.spell_level(you, 'telekinetic_water_walk') >= 8)) and (m.spell_level(you, 'telekinetic_slowfall') >= 9))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_levitation') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_levitation'))))
 end
 M['EOC_TELEKIN_LEARNING_LEVITATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20383,7 +20383,7 @@ M['EOC_TELEKIN_LEARNING_LEVITATION'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_LIFTING_FIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telekinetic_vehicle_lift') >= 3) or ((m.spell_level(you, 'telekinetic_pull') >= 7) and (m.spell_level(you, 'telekinetic_momentum') >= 5)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_lifting_field') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_lifting_field'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telekinetic_vehicle_lift') >= 3) or ((m.spell_level(you, 'telekinetic_pull') >= 7) and (m.spell_level(you, 'telekinetic_momentum') >= 5)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_lifting_field') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_lifting_field'))))
 end
 M['EOC_TELEKIN_LEARNING_LIFTING_FIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20397,7 +20397,7 @@ M['EOC_TELEKIN_LEARNING_LIFTING_FIELD'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_MEGAKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_push') >= 15) or (m.spell_level(you, 'telekinetic_pull') >= 15)) and ((m.spell_level(you, 'telekinetic_momentum') >= 10) or (m.spell_level(you, 'telekinetic_vehicle_lift') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_move_large_weight') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_move_large_weight'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_push') >= 15) or (m.spell_level(you, 'telekinetic_pull') >= 15)) and ((m.spell_level(you, 'telekinetic_momentum') >= 10) or (m.spell_level(you, 'telekinetic_vehicle_lift') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_move_large_weight') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_move_large_weight'))))
 end
 M['EOC_TELEKIN_LEARNING_MEGAKINESIS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20411,7 +20411,7 @@ M['EOC_TELEKIN_LEARNING_MEGAKINESIS'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_MOMENTUM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telekinetic_push') >= 5) and (m.spell_level(you, 'telekinetic_pull') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_momentum') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_momentum'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telekinetic_push') >= 5) and (m.spell_level(you, 'telekinetic_pull') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_momentum') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_momentum'))))
 end
 M['EOC_TELEKIN_LEARNING_MOMENTUM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20425,7 +20425,7 @@ M['EOC_TELEKIN_LEARNING_MOMENTUM'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_NOISEMAKER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_NO_PREREQ_POWER_INSIGHT', you, npc, ctx) and (V.uget(you, 'psi_learning_counter') == 1) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_noise') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_noise'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_NO_PREREQ_POWER_INSIGHT', you, npc, ctx) and (V.uget(you, 'psi_learning_counter') == 1) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_noise') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_noise'))))
 end
 M['EOC_TELEKIN_LEARNING_NOISEMAKER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20439,7 +20439,7 @@ M['EOC_TELEKIN_LEARNING_NOISEMAKER'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telekinetic_wave') >= 8) and (m.spell_level(you, 'telekinetic_momentum') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_shield') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_shield'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telekinetic_wave') >= 8) and (m.spell_level(you, 'telekinetic_momentum') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_shield') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_shield'))))
 end
 M['EOC_TELEKIN_LEARNING_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20453,7 +20453,7 @@ M['EOC_TELEKIN_LEARNING_SHIELD'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_SLAM_DOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telekinetic_push') >= 4) or (m.spell_level(you, 'telekinetic_noise') >= 1))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_slam_down') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_slam_down'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telekinetic_push') >= 4) or (m.spell_level(you, 'telekinetic_noise') >= 1))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_slam_down') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_slam_down'))))
 end
 M['EOC_TELEKIN_LEARNING_SLAM_DOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20467,7 +20467,7 @@ M['EOC_TELEKIN_LEARNING_SLAM_DOWN'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_SLOWFALL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telekinetic_momentum') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_slowfall') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_slowfall'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telekinetic_momentum') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_slowfall') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_slowfall'))))
 end
 M['EOC_TELEKIN_LEARNING_SLOWFALL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20481,7 +20481,7 @@ M['EOC_TELEKIN_LEARNING_SLOWFALL'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_STRENGTH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_pull') >= 6) or (m.spell_level(you, 'telekinetic_push') >= 6)) and (m.spell_level(you, 'telekinetic_momentum') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_strength') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_strength'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_pull') >= 6) or (m.spell_level(you, 'telekinetic_push') >= 6)) and (m.spell_level(you, 'telekinetic_momentum') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_strength') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_strength'))))
 end
 M['EOC_TELEKIN_LEARNING_STRENGTH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20495,7 +20495,7 @@ M['EOC_TELEKIN_LEARNING_STRENGTH'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_VEHICLE_LIFT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_pull') >= 8) and (m.spell_level(you, 'telekinetic_slowfall') >= 8)) or (m.spell_level(you, 'telekinetic_strength') >= 10) or (m.spell_level(you, 'telekinetic_lifting_field') >= 12))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_vehicle_lift') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_vehicle_lift'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_pull') >= 8) and (m.spell_level(you, 'telekinetic_slowfall') >= 8)) or (m.spell_level(you, 'telekinetic_strength') >= 10) or (m.spell_level(you, 'telekinetic_lifting_field') >= 12))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_vehicle_lift') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_vehicle_lift'))))
 end
 M['EOC_TELEKIN_LEARNING_VEHICLE_LIFT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20509,7 +20509,7 @@ M['EOC_TELEKIN_LEARNING_VEHICLE_LIFT'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEARNING_WAVE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telekinetic_push') >= 7) and (m.spell_level(you, 'telekinetic_slam_down') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_wave') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_wave'))))
+  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telekinetic_push') >= 7) and (m.spell_level(you, 'telekinetic_slam_down') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_wave') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_wave'))))
 end
 M['EOC_TELEKIN_LEARNING_WAVE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20523,7 +20523,7 @@ M['EOC_TELEKIN_LEARNING_WAVE'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEVITATION_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telekinetic_levitation'))
+  return you:has_effect(U.eid('effect_telekinetic_levitation'))
 end
 M['EOC_TELEKIN_LEVITATION_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20540,7 +20540,7 @@ M['EOC_TELEKIN_LEVITATION_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LEVITATION_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telekinetic_levitation')))
+  return (not you:has_effect(U.eid('effect_telekinetic_levitation')))
 end
 M['EOC_TELEKIN_LEVITATION_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20557,7 +20557,7 @@ M['EOC_TELEKIN_LEVITATION_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LIFTING_FIELD_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telekinetic_lifting_field'))
+  return you:has_effect(U.eid('effect_telekinetic_lifting_field'))
 end
 M['EOC_TELEKIN_LIFTING_FIELD_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20574,7 +20574,7 @@ M['EOC_TELEKIN_LIFTING_FIELD_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LIFTING_FIELD_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telekinetic_lifting_field')))
+  return (not you:has_effect(U.eid('effect_telekinetic_lifting_field')))
 end
 M['EOC_TELEKIN_LIFTING_FIELD_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20591,7 +20591,7 @@ M['EOC_TELEKIN_LIFTING_FIELD_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LIFTING_FIELD_SWITCHER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telekinetic_lifting_field'))
+  return you:has_effect(U.eid('effect_telekinetic_lifting_field'))
 end
 M['EOC_TELEKIN_LIFTING_FIELD_SWITCHER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20664,7 +20664,7 @@ M['EOC_TELEKIN_LIFTING_FIELD_SWITCHER'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_LIFTING_FIELD_SWITCHER_REMOVE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_TELEKIN_LIFTING_FIELD_SWITCHER_REMOVE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20705,7 +20705,7 @@ M['EOC_TELEKIN_LIFTING_FIELD_SWITCHER_REMOVE'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_TELEKIN_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20734,7 +20734,7 @@ M['EOC_TELEKIN_MATRIX_AWAKENING_2'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_TELEKIN_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20773,7 +20773,7 @@ M['EOC_TELEKIN_MATRIX_AWAKENING_SUCCESS'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEKINETIC')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_TELEKINESIS'))
+  return (you:has_trait(U.mid('TELEKINETIC')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_TELEKINESIS'))
 end
 M['EOC_TELEKIN_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20785,7 +20785,7 @@ M['EOC_TELEKIN_MATRIX_BOOST'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_MOMENTUM_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telekinetic_momentum'))
+  return you:has_effect(U.eid('effect_telekinetic_momentum'))
 end
 M['EOC_TELEKIN_MOMENTUM_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20802,7 +20802,7 @@ M['EOC_TELEKIN_MOMENTUM_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_MOMENTUM_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telekinetic_momentum')))
+  return (not you:has_effect(U.eid('effect_telekinetic_momentum')))
 end
 M['EOC_TELEKIN_MOMENTUM_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20818,7 +20818,7 @@ M['EOC_TELEKIN_MOMENTUM_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_TELEKIN_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20828,7 +20828,7 @@ M['EOC_TELEKIN_POTION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You drink the concoction.', MsgType.neutral, ctx)
-  you:remove_effect(EffectTypeId.new('effect_telekin_potion_comedown'))
+  you:remove_effect(U.eid('effect_telekin_potion_comedown'))
   U.add_effect(you, 'effect_telekin_potion', TimeDuration.from_hours(30), nil, nil)
   U.add_effect(you, 'effect_matrix_potion_nether_boost', TimeDuration.from_hours(30), nil, nil)
   U.set_mutation(you, 'TELELIXIRDOWN')
@@ -20841,8 +20841,8 @@ C['EOC_TELEKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
 end
 M['EOC_TELEKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  you:remove_effect(EffectTypeId.new('effect_telekin_potion'))
-  you:remove_effect(EffectTypeId.new('effect_matrix_potion_nether_boost'))
+  you:remove_effect(U.eid('effect_telekin_potion'))
+  you:remove_effect(U.eid('effect_matrix_potion_nether_boost'))
   U.add_effect(you, 'effect_telekin_potion_comedown', U.rng_dur(TimeDuration.from_hours(24), TimeDuration.from_hours(55)), nil, nil)
   U.unset_mutation(you, 'TELELIXIRDOWN')
   U.unset_mutation(you, 'TELELIXIRDOWN_active')
@@ -20850,7 +20850,7 @@ M['EOC_TELEKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEKINETIC'))
+  return you:has_trait(U.mid('TELEKINETIC'))
 end
 M['EOC_TELEKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20862,7 +20862,7 @@ M['EOC_TELEKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_REMOVE_JACKING_TOOL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telekinetic_vehicle_lift'))
+  return you:has_effect(U.eid('effect_telekinetic_vehicle_lift'))
 end
 M['EOC_TELEKIN_REMOVE_JACKING_TOOL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20891,12 +20891,12 @@ M['EOC_TELEKIN_REMOVE_JACKING_TOOL'] = function(you, npc, ctx)
   U.remove_item_with(you, 'telekin_lifting_jack_18')
   U.remove_item_with(you, 'telekin_lifting_jack_19')
   U.remove_item_with(you, 'telekin_lifting_jack_20')
-  you:remove_effect(EffectTypeId.new('effect_telekinetic_vehicle_lift'))
+  you:remove_effect(U.eid('effect_telekinetic_vehicle_lift'))
   return true
 end
 C['EOC_TELEKIN_REMOVE_LEVITATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telekinetic_levitation'))
+  return you:has_effect(U.eid('effect_telekinetic_levitation'))
 end
 M['EOC_TELEKIN_REMOVE_LEVITATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20905,12 +20905,12 @@ M['EOC_TELEKIN_REMOVE_LEVITATION'] = function(you, npc, ctx)
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_telekinetic_levitation'))
+  you:remove_effect(U.eid('effect_telekinetic_levitation'))
   return true
 end
 C['EOC_TELEKIN_REMOVE_LIFTING_FIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telekinetic_lifting_field'))
+  return you:has_effect(U.eid('effect_telekinetic_lifting_field'))
 end
 M['EOC_TELEKIN_REMOVE_LIFTING_FIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20919,12 +20919,12 @@ M['EOC_TELEKIN_REMOVE_LIFTING_FIELD'] = function(you, npc, ctx)
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   M['EOC_TELEKIN_LIFTING_FIELD_SWITCHER_REMOVE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_telekinetic_lifting_field'))
+  you:remove_effect(U.eid('effect_telekinetic_lifting_field'))
   return true
 end
 C['EOC_TELEKIN_REMOVE_MOMENTUM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telekinetic_momentum'))
+  return you:has_effect(U.eid('effect_telekinetic_momentum'))
 end
 M['EOC_TELEKIN_REMOVE_MOMENTUM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20932,12 +20932,12 @@ M['EOC_TELEKIN_REMOVE_MOMENTUM'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_telekinetic_momentum'))
+  you:remove_effect(U.eid('effect_telekinetic_momentum'))
   return true
 end
 C['EOC_TELEKIN_REMOVE_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telekinetic_armor'))
+  return you:has_effect(U.eid('effect_telekinetic_armor'))
 end
 M['EOC_TELEKIN_REMOVE_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20945,12 +20945,12 @@ M['EOC_TELEKIN_REMOVE_SHIELD'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_telekinetic_armor'))
+  you:remove_effect(U.eid('effect_telekinetic_armor'))
   return true
 end
 C['EOC_TELEKIN_REMOVE_TELEKINETIC_STRENGTH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telekinetic_strength'))
+  return you:has_effect(U.eid('effect_telekinetic_strength'))
 end
 M['EOC_TELEKIN_REMOVE_TELEKINETIC_STRENGTH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20958,12 +20958,12 @@ M['EOC_TELEKIN_REMOVE_TELEKINETIC_STRENGTH'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_telekinetic_strength'))
+  you:remove_effect(U.eid('effect_telekinetic_strength'))
   return true
 end
 C['EOC_TELEKIN_SHIELD_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telekinetic_armor'))
+  return you:has_effect(U.eid('effect_telekinetic_armor'))
 end
 M['EOC_TELEKIN_SHIELD_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20980,7 +20980,7 @@ M['EOC_TELEKIN_SHIELD_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_SHIELD_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telekinetic_armor')))
+  return (not you:has_effect(U.eid('effect_telekinetic_armor')))
 end
 M['EOC_TELEKIN_SHIELD_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -20996,7 +20996,7 @@ M['EOC_TELEKIN_SHIELD_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_STRENGTH_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telekinetic_strength'))
+  return you:has_effect(U.eid('effect_telekinetic_strength'))
 end
 M['EOC_TELEKIN_STRENGTH_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21013,7 +21013,7 @@ M['EOC_TELEKIN_STRENGTH_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_STRENGTH_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telekinetic_strength')))
+  return (not you:has_effect(U.eid('effect_telekinetic_strength')))
 end
 M['EOC_TELEKIN_STRENGTH_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21029,7 +21029,7 @@ M['EOC_TELEKIN_STRENGTH_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_SUMMON_JACKING_TOOL_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telekinetic_vehicle_lift'))
+  return you:has_effect(U.eid('effect_telekinetic_vehicle_lift'))
 end
 M['EOC_TELEKIN_SUMMON_JACKING_TOOL_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21046,7 +21046,7 @@ M['EOC_TELEKIN_SUMMON_JACKING_TOOL_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEKIN_SUMMON_JACKING_TOOL_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telekinetic_vehicle_lift')))
+  return (not you:has_effect(U.eid('effect_telekinetic_vehicle_lift')))
 end
 M['EOC_TELEKIN_SUMMON_JACKING_TOOL_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21135,7 +21135,7 @@ M['EOC_TELEKIN_WAVE_TARGETS'] = function(you, npc, ctx)
 end
 C['EOC_TELELIXIR_CAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELELIXIRDOWN_active'))
+  return you:has_trait(U.mid('TELELIXIRDOWN_active'))
 end
 M['EOC_TELELIXIR_CAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21148,7 +21148,7 @@ M['EOC_TELELIXIR_CAST'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATHIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_TELEPATHIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21226,7 +21226,7 @@ M['EOC_TELEPATHIC_DAMAGE_KNOCKDOWN_CHANCE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATHIC_DAMAGE_PSYSHIELD_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (U.badcond('EOC_TELEPATHIC_DAMAGE_PSYSHIELD_CHECK', 'npc_has_worn_with_flag') and ((ctx['damage_taken'] or 0) > -(2)) and npc:has_effect(EffectTypeId.new('effect_psyshield_protection')) and (not U.has_creature_flag(npc, 'HIVE_MIND')) and (not U.has_creature_flag(npc, 'TEEP_IMMUNE')) and (not U.has_creature_flag(npc, 'TEEPSHIELD')))
+  return (U.badcond('EOC_TELEPATHIC_DAMAGE_PSYSHIELD_CHECK', 'npc_has_worn_with_flag') and ((ctx['damage_taken'] or 0) > -(2)) and npc:has_effect(U.eid('effect_psyshield_protection')) and (not U.has_creature_flag(npc, 'HIVE_MIND')) and (not U.has_creature_flag(npc, 'TEEP_IMMUNE')) and (not U.has_creature_flag(npc, 'TEEPSHIELD')))
 end
 M['EOC_TELEPATHIC_DAMAGE_PSYSHIELD_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21246,13 +21246,13 @@ end
 M['EOC_TELEPATHIC_DAMAGE_PSYSHIELD_CHECK_2'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_TELEPATHIC_DAMAGE_PSYSHIELD_CHECK_2'](you, npc, ctx) then
-    npc:remove_effect(EffectTypeId.new('effect_psyshield_protection'))
+    npc:remove_effect(U.eid('effect_psyshield_protection'))
     U.cast_spell(npc, 'telepathic_self_damage', nil, nil)
     U.msg(npc, 'Your mind reels!', MsgType.bad, ctx)
     return false
   end
   U.msg(npc, 'Your head prickles.  It feels like spiders crawling across the surface of your brain.', MsgType.bad, ctx)
-  npc:remove_effect(EffectTypeId.new('effect_psyshield_protection'))
+  npc:remove_effect(U.eid('effect_psyshield_protection'))
   return true
 end
 C['EOC_TELEPATHIC_DAMAGE_STUN_CHANCE'] = function(you, npc, ctx)
@@ -21296,7 +21296,7 @@ M['EOC_TELEPATHIC_MENTAL_ENGINEERING_SELECTOR'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_CONCENTRATION_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telepathic_learning_bonus'))
+  return you:has_effect(U.eid('effect_telepathic_learning_bonus'))
 end
 M['EOC_TELEPATH_CONCENTRATION_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21313,7 +21313,7 @@ M['EOC_TELEPATH_CONCENTRATION_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_CONCENTRATION_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telepathic_learning_bonus')))
+  return (not you:has_effect(U.eid('effect_telepathic_learning_bonus')))
 end
 M['EOC_TELEPATH_CONCENTRATION_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21343,7 +21343,7 @@ M['EOC_TELEPATH_CRYSTAL_DRAINING'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_LEARNING_AOE_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telepathic_blast') >= 11) or (m.spell_level(you, 'telepathic_fear') >= 7)) and (m.spell_level(you, 'telepathic_shield') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_blast_radius') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_scream'))))
+  return (you:has_trait(U.mid('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telepathic_blast') >= 11) or (m.spell_level(you, 'telepathic_fear') >= 7)) and (m.spell_level(you, 'telepathic_shield') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_blast_radius') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_scream'))))
 end
 M['EOC_TELEPATH_LEARNING_AOE_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21357,7 +21357,7 @@ M['EOC_TELEPATH_LEARNING_AOE_BLAST'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_LEARNING_BEASTMASTER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'telepathic_morale') >= 8)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_animal_mind_control') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_beastmaster'))))
+  return (you:has_trait(U.mid('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'telepathic_morale') >= 8)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_animal_mind_control') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_beastmaster'))))
 end
 M['EOC_TELEPATH_LEARNING_BEASTMASTER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21371,7 +21371,7 @@ M['EOC_TELEPATH_LEARNING_BEASTMASTER'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_LEARNING_BEAST_TAMING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'telepathic_animal_mind_control') >= 10)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_beast_taming') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_beast_taming'))))
+  return (you:has_trait(U.mid('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'telepathic_animal_mind_control') >= 10)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_beast_taming') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_beast_taming'))))
 end
 M['EOC_TELEPATH_LEARNING_BEAST_TAMING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21385,7 +21385,7 @@ M['EOC_TELEPATH_LEARNING_BEAST_TAMING'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_LEARNING_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_mind_sense') >= 7) and (m.spell_level(you, 'telepathic_morale') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_blast') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_blast'))))
+  return (you:has_trait(U.mid('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_mind_sense') >= 7) and (m.spell_level(you, 'telepathic_morale') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_blast') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_blast'))))
 end
 M['EOC_TELEPATH_LEARNING_BLAST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21399,7 +21399,7 @@ M['EOC_TELEPATH_LEARNING_BLAST'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_LEARNING_CONFUSION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telepathic_blast') >= 6) or (m.spell_level(you, 'telepathic_morale') >= 6)) and (m.spell_level(you, 'telepathic_morale') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_confusion') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_confusion'))))
+  return (you:has_trait(U.mid('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telepathic_blast') >= 6) or (m.spell_level(you, 'telepathic_morale') >= 6)) and (m.spell_level(you, 'telepathic_morale') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_confusion') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_confusion'))))
 end
 M['EOC_TELEPATH_LEARNING_CONFUSION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21413,7 +21413,7 @@ M['EOC_TELEPATH_LEARNING_CONFUSION'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_LEARNING_FEAR'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_blast') >= 8) and (m.spell_level(you, 'telepathic_morale') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_fear') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_fear'))))
+  return (you:has_trait(U.mid('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_blast') >= 8) and (m.spell_level(you, 'telepathic_morale') >= 8))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_fear') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_fear'))))
 end
 M['EOC_TELEPATH_LEARNING_FEAR'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21427,7 +21427,7 @@ M['EOC_TELEPATH_LEARNING_FEAR'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_LEARNING_INVISIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_confusion') >= 8) and ((m.spell_level(you, 'telepathic_morale') >= 6) or (m.spell_level(you, 'telepathic_blast') >= 11) or (m.spell_level(you, 'telepathic_shield') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_invisibility') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_invisibility'))))
+  return (you:has_trait(U.mid('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_confusion') >= 8) and ((m.spell_level(you, 'telepathic_morale') >= 6) or (m.spell_level(you, 'telepathic_blast') >= 11) or (m.spell_level(you, 'telepathic_shield') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_invisibility') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_invisibility'))))
 end
 M['EOC_TELEPATH_LEARNING_INVISIBILITY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21441,7 +21441,7 @@ M['EOC_TELEPATH_LEARNING_INVISIBILITY'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_LEARNING_MESMERIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_mind_sense') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_mesmerize') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_mesmerize'))))
+  return (you:has_trait(U.mid('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_mind_sense') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_mesmerize') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_mesmerize'))))
 end
 M['EOC_TELEPATH_LEARNING_MESMERIZE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21455,7 +21455,7 @@ M['EOC_TELEPATH_LEARNING_MESMERIZE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_LEARNING_MIND_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telepathic_morale') >= 12) or (m.spell_level(you, 'telepathic_invisibility') >= 6)) and ((m.spell_level(you, 'telepathic_fear') >= 5) or (m.spell_level(you, 'telepathic_animal_mind_control') >= 8) or (m.spell_level(you, 'telepathic_confusion') >= 7)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_mind_control') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_mind_control'))))
+  return (you:has_trait(U.mid('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telepathic_morale') >= 12) or (m.spell_level(you, 'telepathic_invisibility') >= 6)) and ((m.spell_level(you, 'telepathic_fear') >= 5) or (m.spell_level(you, 'telepathic_animal_mind_control') >= 8) or (m.spell_level(you, 'telepathic_confusion') >= 7)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_mind_control') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_mind_control'))))
 end
 M['EOC_TELEPATH_LEARNING_MIND_CONTROL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21469,7 +21469,7 @@ M['EOC_TELEPATH_LEARNING_MIND_CONTROL'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_LEARNING_MORALE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_concentration') >= 6) and (m.spell_level(you, 'telepathic_mind_sense') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_morale') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_morale'))))
+  return (you:has_trait(U.mid('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_concentration') >= 6) and (m.spell_level(you, 'telepathic_mind_sense') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_morale') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_morale'))))
 end
 M['EOC_TELEPATH_LEARNING_MORALE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21483,7 +21483,7 @@ M['EOC_TELEPATH_LEARNING_MORALE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_LEARNING_NETWORK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_mind_sense') >= 10) and (m.spell_level(you, 'telepathic_blast_radius') >= 6) and ((m.spell_level(you, 'telepathic_morale') >= 12) or (m.spell_level(you, 'telepathic_invisibility') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_network') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_network'))))
+  return (you:has_trait(U.mid('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_mind_sense') >= 10) and (m.spell_level(you, 'telepathic_blast_radius') >= 6) and ((m.spell_level(you, 'telepathic_morale') >= 12) or (m.spell_level(you, 'telepathic_invisibility') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_network') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_network'))))
 end
 M['EOC_TELEPATH_LEARNING_NETWORK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21497,7 +21497,7 @@ M['EOC_TELEPATH_LEARNING_NETWORK'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_LEARNING_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_concentration') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_shield') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_shield'))))
+  return (you:has_trait(U.mid('TELEPATH')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'telepathic_concentration') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telepathic_shield') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telepathic_shield'))))
 end
 M['EOC_TELEPATH_LEARNING_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21511,7 +21511,7 @@ M['EOC_TELEPATH_LEARNING_SHIELD'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_ADDICTIVE_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 110) and you:has_trait(MutationBranchId.new('ADDICTIVE')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 110) and you:has_trait(U.mid('ADDICTIVE')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_ADDICTIVE_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21525,7 +21525,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_ADDICTIVE_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_ASOCIAL1_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 10) and (not you:has_trait(MutationBranchId.new('ASOCIAL1'))) and (not you:has_trait(MutationBranchId.new('ASOCIAL2'))) and (not you:has_trait(MutationBranchId.new('AMOG'))) and (not you:has_trait(MutationBranchId.new('DARK_TRIAD'))) and (not you:has_trait(MutationBranchId.new('SOCIAL1'))) and (not you:has_trait(MutationBranchId.new('SOCIAL2'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 10) and (not you:has_trait(U.mid('ASOCIAL1'))) and (not you:has_trait(U.mid('ASOCIAL2'))) and (not you:has_trait(U.mid('AMOG'))) and (not you:has_trait(U.mid('DARK_TRIAD'))) and (not you:has_trait(U.mid('SOCIAL1'))) and (not you:has_trait(U.mid('SOCIAL2'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_ASOCIAL1_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21539,7 +21539,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_ASOCIAL1_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_ASOCIAL1_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 10) and you:has_trait(MutationBranchId.new('ASOCIAL1')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 10) and you:has_trait(U.mid('ASOCIAL1')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_ASOCIAL1_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21553,7 +21553,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_ASOCIAL1_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_ASOCIAL2_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 20) and (not you:has_trait(MutationBranchId.new('ASOCIAL2'))) and you:has_trait(MutationBranchId.new('ASOCIAL1')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 20) and (not you:has_trait(U.mid('ASOCIAL2'))) and you:has_trait(U.mid('ASOCIAL1')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_ASOCIAL2_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21567,7 +21567,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_ASOCIAL2_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_ASOCIAL2_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and you:has_trait(MutationBranchId.new('ASOCIAL2')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and you:has_trait(U.mid('ASOCIAL2')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_ASOCIAL2_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21581,7 +21581,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_ASOCIAL2_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_BADTEMPER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and (m.spell_level(you, 'telepathic_morale') >= 6) and you:has_trait(MutationBranchId.new('BADTEMPER')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and (m.spell_level(you, 'telepathic_morale') >= 6) and you:has_trait(U.mid('BADTEMPER')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_BADTEMPER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21595,7 +21595,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_BADTEMPER_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_BRAWLER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 160) and U.badcond('EOC_TELEPATH_MENTAL_ENGINEERING_BRAWLER_02', 'u_has_item_category') and you:has_trait(MutationBranchId.new('BRAWLER')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 160) and U.badcond('EOC_TELEPATH_MENTAL_ENGINEERING_BRAWLER_02', 'u_has_item_category') and you:has_trait(U.mid('BRAWLER')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_BRAWLER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21617,7 +21617,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_CANCEL'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_CANNIBAL_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 140) and (not you:has_trait(MutationBranchId.new('CANNIBAL'))) and you:has_trait(MutationBranchId.new('STRICT_HUMANITARIAN')) and (not you:has_trait(MutationBranchId.new('HERBIVORE'))) and (not you:has_trait(MutationBranchId.new('SAPIOVORE'))) and (not you:has_trait(MutationBranchId.new('EATDEAD'))) and (not you:has_trait(MutationBranchId.new('VEGETARIAN'))) and (not you:has_trait(MutationBranchId.new('VEGAN'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 140) and (not you:has_trait(U.mid('CANNIBAL'))) and you:has_trait(U.mid('STRICT_HUMANITARIAN')) and (not you:has_trait(U.mid('HERBIVORE'))) and (not you:has_trait(U.mid('SAPIOVORE'))) and (not you:has_trait(U.mid('EATDEAD'))) and (not you:has_trait(U.mid('VEGETARIAN'))) and (not you:has_trait(U.mid('VEGAN'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_CANNIBAL_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21631,7 +21631,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_CANNIBAL_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_CANNIBAL_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 100) and you:has_trait(MutationBranchId.new('CANNIBAL')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 100) and you:has_trait(U.mid('CANNIBAL')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_CANNIBAL_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21645,7 +21645,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_CANNIBAL_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_DISORGANIZED_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 80) and you:has_trait(MutationBranchId.new('DISORGANIZED')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 80) and you:has_trait(U.mid('DISORGANIZED')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_DISORGANIZED_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21659,7 +21659,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_DISORGANIZED_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_EAGLEEYED_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 110) and (m.spell_level(you, 'clair_see_map') >= 12) and (not you:has_trait(MutationBranchId.new('EAGLEEYED'))) and (not you:has_trait(MutationBranchId.new('UNOBSERVANT'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 110) and (m.spell_level(you, 'clair_see_map') >= 12) and (not you:has_trait(U.mid('EAGLEEYED'))) and (not you:has_trait(U.mid('UNOBSERVANT'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_EAGLEEYED_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21673,7 +21673,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_EAGLEEYED_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_FASTLEARNER_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 180) and (m.spell_level(you, 'telepathic_concentration') >= 16) and (not you:has_trait(MutationBranchId.new('FASTLEARNER'))) and (not you:has_trait(MutationBranchId.new('SLOWLEARNER'))) and (not you:has_trait(MutationBranchId.new('CEPH_MIND'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 180) and (m.spell_level(you, 'telepathic_concentration') >= 16) and (not you:has_trait(U.mid('FASTLEARNER'))) and (not you:has_trait(U.mid('SLOWLEARNER'))) and (not you:has_trait(U.mid('CEPH_MIND'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_FASTLEARNER_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21687,7 +21687,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_FASTLEARNER_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_FASTREADER_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 160) and (m.spell_level(you, 'clair_speed_reading') >= 12) and (not you:has_trait(MutationBranchId.new('FASTREADER'))) and (not you:has_trait(MutationBranchId.new('SLOWREADER'))) and (not you:has_trait(MutationBranchId.new('ILLITERATE'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 160) and (m.spell_level(you, 'clair_speed_reading') >= 12) and (not you:has_trait(U.mid('FASTREADER'))) and (not you:has_trait(U.mid('SLOWREADER'))) and (not you:has_trait(U.mid('ILLITERATE'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_FASTREADER_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21701,7 +21701,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_FASTREADER_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_FORGETFUL_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 110) and you:has_trait(MutationBranchId.new('FORGETFUL')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 110) and you:has_trait(U.mid('FORGETFUL')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_FORGETFUL_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21715,7 +21715,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_FORGETFUL_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_GOODMEMORY_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 160) and (not you:has_trait(MutationBranchId.new('GOODMEMORY'))) and (not you:has_trait(MutationBranchId.new('FORGETFUL'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 160) and (not you:has_trait(U.mid('GOODMEMORY'))) and (not you:has_trait(U.mid('FORGETFUL'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_GOODMEMORY_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21729,7 +21729,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_GOODMEMORY_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_HATES_BOOKS_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and you:has_trait(MutationBranchId.new('HATES_BOOKS')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and you:has_trait(U.mid('HATES_BOOKS')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_HATES_BOOKS_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21743,7 +21743,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_HATES_BOOKS_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_HATES_WATER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and U.has_item(you, 'water') and you:has_trait(MutationBranchId.new('HATES_WATER')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and U.has_item(you, 'water') and you:has_trait(U.mid('HATES_WATER')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_HATES_WATER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21757,7 +21757,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_HATES_WATER_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_HOARDER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 100) and you:has_trait(MutationBranchId.new('HOARDER')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 100) and you:has_trait(U.mid('HOARDER')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_HOARDER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21771,7 +21771,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_HOARDER_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_INATTENTIVE_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 110) and (m.spell_level(you, 'clair_see_auras') >= 6) and you:has_trait(MutationBranchId.new('INATTENTIVE')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 110) and (m.spell_level(you, 'clair_see_auras') >= 6) and you:has_trait(U.mid('INATTENTIVE')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_INATTENTIVE_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21785,7 +21785,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_INATTENTIVE_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_LIAR_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and (m.skill(you, 'social') >= 6) and (not you:has_trait(MutationBranchId.new('LIAR'))) and (not you:has_trait(MutationBranchId.new('TRUTHTELLER'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and (m.skill(you, 'social') >= 6) and (not you:has_trait(U.mid('LIAR'))) and (not you:has_trait(U.mid('TRUTHTELLER'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_LIAR_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21799,7 +21799,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_LIAR_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_LOVES_BOOKS_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 100) and (not you:has_trait(MutationBranchId.new('LOVES_BOOKS'))) and (not you:has_trait(MutationBranchId.new('HATES_BOOKS'))) and (not you:has_trait(MutationBranchId.new('ILLITERATE'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 100) and (not you:has_trait(U.mid('LOVES_BOOKS'))) and (not you:has_trait(U.mid('HATES_BOOKS'))) and (not you:has_trait(U.mid('ILLITERATE'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_LOVES_BOOKS_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21813,7 +21813,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_LOVES_BOOKS_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_MASOCHIST_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 100) and (not you:has_trait(MutationBranchId.new('MASOCHIST'))) and (not you:has_trait(MutationBranchId.new('MASOCHIST_MED'))) and (not you:has_trait(MutationBranchId.new('CENOBITE'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 100) and (not you:has_trait(U.mid('MASOCHIST'))) and (not you:has_trait(U.mid('MASOCHIST_MED'))) and (not you:has_trait(U.mid('CENOBITE'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_MASOCHIST_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21827,7 +21827,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_MASOCHIST_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_MASOCHIST_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and you:has_trait(MutationBranchId.new('MASOCHIST')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and you:has_trait(U.mid('MASOCHIST')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_MASOCHIST_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21850,7 +21850,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_MESSAGE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_MOODSWINGS_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and (m.spell_level(you, 'telepathic_morale') >= 10) and you:has_trait(MutationBranchId.new('MOODSWINGS')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and (m.spell_level(you, 'telepathic_morale') >= 10) and you:has_trait(U.mid('MOODSWINGS')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_MOODSWINGS_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21864,7 +21864,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_MOODSWINGS_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_NOMAD2_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 140) and you:has_trait(MutationBranchId.new('NOMAD2')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 140) and you:has_trait(U.mid('NOMAD2')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_NOMAD2_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21878,7 +21878,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_NOMAD2_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_NOMAD3_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 190) and you:has_trait(MutationBranchId.new('NOMAD3')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 190) and you:has_trait(U.mid('NOMAD3')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_NOMAD3_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21892,7 +21892,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_NOMAD3_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_NOMAD_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and you:has_trait(MutationBranchId.new('NOMAD')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and you:has_trait(U.mid('NOMAD')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_NOMAD_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21906,7 +21906,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_NOMAD_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_NONADDICTIVE_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 140) and (not you:has_trait(MutationBranchId.new('NONADDICTIVE'))) and (not you:has_trait(MutationBranchId.new('ADDICTIVE'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 140) and (not you:has_trait(U.mid('NONADDICTIVE'))) and (not you:has_trait(U.mid('ADDICTIVE'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_NONADDICTIVE_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21920,7 +21920,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_NONADDICTIVE_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_NUMB_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 120) and you:has_trait(MutationBranchId.new('THRESH_MEDICAL')) and (not you:has_trait(MutationBranchId.new('NUMB'))) and (not you:has_trait(MutationBranchId.new('PACIFIST'))) and (not you:has_trait(MutationBranchId.new('PSYCHOPATH'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 120) and you:has_trait(U.mid('THRESH_MEDICAL')) and (not you:has_trait(U.mid('NUMB'))) and (not you:has_trait(U.mid('PACIFIST'))) and (not you:has_trait(U.mid('PSYCHOPATH'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_NUMB_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21934,7 +21934,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_NUMB_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_NUMB_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 100) and you:has_trait(MutationBranchId.new('NUMB')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 100) and you:has_trait(U.mid('NUMB')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_NUMB_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21948,7 +21948,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_NUMB_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_NYCTOPHOBIA_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 190) and you:has_trait(MutationBranchId.new('NYCTOPHOBIA')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 190) and you:has_trait(U.mid('NYCTOPHOBIA')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_NYCTOPHOBIA_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21962,7 +21962,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_NYCTOPHOBIA_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_OPTIMISTIC_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and (m.spell_level(you, 'telepathic_morale') >= 12) and (not you:has_trait(MutationBranchId.new('OPTIMISTIC'))) and (not you:has_trait(MutationBranchId.new('BADTEMPER'))) and (not you:has_trait(MutationBranchId.new('SEASONAL_AFFECTIVE'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and (m.spell_level(you, 'telepathic_morale') >= 12) and (not you:has_trait(U.mid('OPTIMISTIC'))) and (not you:has_trait(U.mid('BADTEMPER'))) and (not you:has_trait(U.mid('SEASONAL_AFFECTIVE'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_OPTIMISTIC_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21976,7 +21976,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_OPTIMISTIC_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_OUTDOORSMAN_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and U.has_item(you, 'water') and (not you:has_trait(MutationBranchId.new('OUTDOORSMAN'))) and (not you:has_trait(MutationBranchId.new('HATES_WATER'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and U.has_item(you, 'water') and (not you:has_trait(U.mid('OUTDOORSMAN'))) and (not you:has_trait(U.mid('HATES_WATER'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_OUTDOORSMAN_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -21990,7 +21990,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_OUTDOORSMAN_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_PACIFIST_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 120) and you:has_trait(MutationBranchId.new('PACIFIST')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 120) and you:has_trait(U.mid('PACIFIST')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_PACIFIST_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22004,7 +22004,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_PACIFIST_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_PACKMULE_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 120) and (not you:has_trait(MutationBranchId.new('PACKMULE'))) and (not you:has_trait(MutationBranchId.new('DISORGANIZED'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 120) and (not you:has_trait(U.mid('PACKMULE'))) and (not you:has_trait(U.mid('DISORGANIZED'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_PACKMULE_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22018,7 +22018,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_PACKMULE_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_PICKYEATER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and you:has_trait(MutationBranchId.new('PICKYEATER')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and you:has_trait(U.mid('PICKYEATER')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_PICKYEATER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22032,7 +22032,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_PICKYEATER_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_PROF_DICEMASTER_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 120) and U.has_item(you, 'dnd_handbook') and (not you:has_trait(MutationBranchId.new('PROF_DICEMASTER'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 120) and U.has_item(you, 'dnd_handbook') and (not you:has_trait(U.mid('PROF_DICEMASTER'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_PROF_DICEMASTER_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22046,7 +22046,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_PROF_DICEMASTER_01'] = function(you, npc, ctx
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_PROJUNK_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and (not you:has_trait(MutationBranchId.new('PROJUNK'))) and (not you:has_trait(MutationBranchId.new('ANTIJUNK'))) and (not you:has_trait(MutationBranchId.new('PROJUNK2'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and (not you:has_trait(U.mid('PROJUNK'))) and (not you:has_trait(U.mid('ANTIJUNK'))) and (not you:has_trait(U.mid('PROJUNK2'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_PROJUNK_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22060,7 +22060,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_PROJUNK_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_PROJUNK_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 30) and you:has_trait(MutationBranchId.new('PROJUNK')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 30) and you:has_trait(U.mid('PROJUNK')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_PROJUNK_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22074,7 +22074,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_PROJUNK_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_PYROMANIA_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and (not you:has_trait(MutationBranchId.new('PYROMANIA'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and (not you:has_trait(U.mid('PYROMANIA'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_PYROMANIA_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22088,7 +22088,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_PYROMANIA_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_PYROMANIA_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and you:has_trait(MutationBranchId.new('PYROMANIA')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and you:has_trait(U.mid('PYROMANIA')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_PYROMANIA_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22102,7 +22102,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_PYROMANIA_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_SAVANT_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and (not you:has_trait(MutationBranchId.new('SAVANT'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and (not you:has_trait(U.mid('SAVANT'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_SAVANT_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22116,7 +22116,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SAVANT_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_SAVANT_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and you:has_trait(MutationBranchId.new('SAVANT')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and you:has_trait(U.mid('SAVANT')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_SAVANT_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22130,7 +22130,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SAVANT_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_SCHIZOPHRENIC_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 160) and (m.spell_level(you, 'telepathic_shield') >= 12) and you:has_trait(MutationBranchId.new('SCHIZOPHRENIC')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 160) and (m.spell_level(you, 'telepathic_shield') >= 12) and you:has_trait(U.mid('SCHIZOPHRENIC')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_SCHIZOPHRENIC_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22144,7 +22144,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SCHIZOPHRENIC_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_SEASONAL_AFFECTIVE_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 110) and you:has_trait(MutationBranchId.new('SEASONAL_AFFECTIVE')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 110) and you:has_trait(U.mid('SEASONAL_AFFECTIVE')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_SEASONAL_AFFECTIVE_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22299,7 +22299,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SIDE_EFFECTS'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_SLOWLEARNER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 110) and (m.spell_level(you, 'telepathic_concentration') >= 6) and you:has_trait(MutationBranchId.new('SLOWLEARNER')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 110) and (m.spell_level(you, 'telepathic_concentration') >= 6) and you:has_trait(U.mid('SLOWLEARNER')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_SLOWLEARNER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22313,7 +22313,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SLOWLEARNER_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_SLOWREADER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 120) and (m.spell_level(you, 'clair_speed_reading') >= 6) and you:has_trait(MutationBranchId.new('SLOWREADER')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 120) and (m.spell_level(you, 'clair_speed_reading') >= 6) and you:has_trait(U.mid('SLOWREADER')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_SLOWREADER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22327,7 +22327,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SLOWREADER_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_SOCIAL1_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 10) and (not you:has_trait(MutationBranchId.new('SOCIAL1'))) and (not you:has_trait(MutationBranchId.new('SOCIAL2'))) and (not you:has_trait(MutationBranchId.new('AMOG'))) and (not you:has_trait(MutationBranchId.new('DARK_TRIAD'))) and (not you:has_trait(MutationBranchId.new('ASOCIAL1'))) and (not you:has_trait(MutationBranchId.new('ASOCIAL2'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 10) and (not you:has_trait(U.mid('SOCIAL1'))) and (not you:has_trait(U.mid('SOCIAL2'))) and (not you:has_trait(U.mid('AMOG'))) and (not you:has_trait(U.mid('DARK_TRIAD'))) and (not you:has_trait(U.mid('ASOCIAL1'))) and (not you:has_trait(U.mid('ASOCIAL2'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_SOCIAL1_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22341,7 +22341,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SOCIAL1_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_SOCIAL1_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 10) and you:has_trait(MutationBranchId.new('SOCIAL1')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 10) and you:has_trait(U.mid('SOCIAL1')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_SOCIAL1_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22355,7 +22355,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SOCIAL1_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_SOCIAL2_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 20) and (not you:has_trait(MutationBranchId.new('SOCIAL2'))) and you:has_trait(MutationBranchId.new('SOCIAL1')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 20) and (not you:has_trait(U.mid('SOCIAL2'))) and you:has_trait(U.mid('SOCIAL1')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_SOCIAL2_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22369,7 +22369,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SOCIAL2_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_SOCIAL2_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and you:has_trait(MutationBranchId.new('SOCIAL2')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and you:has_trait(U.mid('SOCIAL2')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_SOCIAL2_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22383,7 +22383,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SOCIAL2_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_SPIRITUAL_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and (not you:has_trait(MutationBranchId.new('SPIRITUAL'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and (not you:has_trait(U.mid('SPIRITUAL'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_SPIRITUAL_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22397,7 +22397,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SPIRITUAL_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_SPIRITUAL_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 50) and you:has_trait(MutationBranchId.new('SPIRITUAL')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 50) and you:has_trait(U.mid('SPIRITUAL')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_SPIRITUAL_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22411,7 +22411,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SPIRITUAL_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_SQUEAMISH_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 80) and you:has_trait(MutationBranchId.new('SQUEAMISH')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 80) and you:has_trait(U.mid('SQUEAMISH')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_SQUEAMISH_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22425,7 +22425,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SQUEAMISH_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_STRICT_HUMANITARIAN_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and (not you:has_trait(MutationBranchId.new('STRICT_HUMANITARIAN'))) and (not you:has_trait(MutationBranchId.new('HERBIVORE'))) and (not you:has_trait(MutationBranchId.new('SAPIOVORE'))) and (not you:has_trait(MutationBranchId.new('EATDEAD'))) and (not you:has_trait(MutationBranchId.new('VEGETARIAN'))) and (not you:has_trait(MutationBranchId.new('VEGAN'))) and (not you:has_trait(MutationBranchId.new('CANNIBAL'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and (not you:has_trait(U.mid('STRICT_HUMANITARIAN'))) and (not you:has_trait(U.mid('HERBIVORE'))) and (not you:has_trait(U.mid('SAPIOVORE'))) and (not you:has_trait(U.mid('EATDEAD'))) and (not you:has_trait(U.mid('VEGETARIAN'))) and (not you:has_trait(U.mid('VEGAN'))) and (not you:has_trait(U.mid('CANNIBAL'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_STRICT_HUMANITARIAN_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22439,7 +22439,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_STRICT_HUMANITARIAN_01'] = function(you, npc,
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_STRICT_HUMANITARIAN_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 50) and you:has_trait(MutationBranchId.new('STRICT_HUMANITARIAN')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 50) and you:has_trait(U.mid('STRICT_HUMANITARIAN')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_STRICT_HUMANITARIAN_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22462,7 +22462,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_SUCCESS_MESSAGE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_TABLEMANNERS_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and you:has_trait(MutationBranchId.new('TABLEMANNERS')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and you:has_trait(U.mid('TABLEMANNERS')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_TABLEMANNERS_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22476,7 +22476,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_TABLEMANNERS_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_TRUTHTELLER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and (m.skill(you, 'social') >= 3) and you:has_trait(MutationBranchId.new('TRUTHTELLER')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and (m.skill(you, 'social') >= 3) and you:has_trait(U.mid('TRUTHTELLER')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_TRUTHTELLER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22490,7 +22490,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_TRUTHTELLER_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_UNCARING_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and (not you:has_trait(MutationBranchId.new('PSYCHOPATH'))) and (not you:has_trait(MutationBranchId.new('PACIFIST'))) and (not you:has_trait(MutationBranchId.new('NUMB'))))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and (not you:has_trait(U.mid('PSYCHOPATH'))) and (not you:has_trait(U.mid('PACIFIST'))) and (not you:has_trait(U.mid('NUMB'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_UNCARING_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22504,7 +22504,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_UNCARING_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_UNCARING_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 40) and you:has_trait(MutationBranchId.new('PSYCHOPATH')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 40) and you:has_trait(U.mid('PSYCHOPATH')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_UNCARING_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22518,7 +22518,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_UNCARING_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_UNOBSERVANT_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and (m.spell_level(you, 'clair_see_map') >= 6) and you:has_trait(MutationBranchId.new('UNOBSERVANT')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and (m.spell_level(you, 'clair_see_map') >= 6) and you:has_trait(U.mid('UNOBSERVANT')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_UNOBSERVANT_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22532,7 +22532,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_UNOBSERVANT_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_VANITY_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and you:has_trait(MutationBranchId.new('VANITY')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and you:has_trait(U.mid('VANITY')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_VANITY_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22546,7 +22546,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_VANITY_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_VEGAN_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and you:has_trait(MutationBranchId.new('VEGAN')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 90) and you:has_trait(U.mid('VEGAN')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_VEGAN_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22560,7 +22560,7 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_VEGAN_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_WAYFARER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 190) and you:has_trait(MutationBranchId.new('WAYFARER')))
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 190) and you:has_trait(U.mid('WAYFARER')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_WAYFARER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22574,28 +22574,28 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_WAYFARER_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MESMERISM_REMOVAL_CHARACTER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('psi_stunned')) and you:has_effect(EffectTypeId.new('effect_telepath_mesmerize_tracker')))
+  return (you:has_effect(U.eid('psi_stunned')) and you:has_effect(U.eid('effect_telepath_mesmerize_tracker')))
 end
 M['EOC_TELEPATH_MESMERISM_REMOVAL_CHARACTER'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_TELEPATH_MESMERISM_REMOVAL_CHARACTER'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_telepath_mesmerize_tracker'))
-  you:remove_effect(EffectTypeId.new('psi_stunned'))
+  you:remove_effect(U.eid('effect_telepath_mesmerize_tracker'))
+  you:remove_effect(U.eid('psi_stunned'))
   return true
 end
 C['EOC_TELEPATH_MESMERISM_REMOVAL_MONSTER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('psi_stunned')) and you:has_effect(EffectTypeId.new('effect_telepath_mesmerize_tracker')))
+  return (you:has_effect(U.eid('psi_stunned')) and you:has_effect(U.eid('effect_telepath_mesmerize_tracker')))
 end
 M['EOC_TELEPATH_MESMERISM_REMOVAL_MONSTER'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_TELEPATH_MESMERISM_REMOVAL_MONSTER'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_telepath_mesmerize_tracker'))
-  you:remove_effect(EffectTypeId.new('psi_stunned'))
+  you:remove_effect(U.eid('effect_telepath_mesmerize_tracker'))
+  you:remove_effect(U.eid('psi_stunned'))
   return true
 end
 C['EOC_TELEPATH_MESMERIZE'] = function(you, npc, ctx)
@@ -22653,7 +22653,7 @@ M['EOC_TELEPATH_MESMERIZE_2'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MORALE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telepathic_morale'))
+  return you:has_effect(U.eid('effect_telepathic_morale'))
 end
 M['EOC_TELEPATH_MORALE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22713,7 +22713,7 @@ M['EOC_TELEPATH_MORALE_INITIATE_NPC_CHECK'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MORALE_INITIATE_SELF'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telepathic_morale')))
+  return (not you:has_effect(U.eid('effect_telepathic_morale')))
 end
 M['EOC_TELEPATH_MORALE_INITIATE_SELF'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22730,7 +22730,7 @@ M['EOC_TELEPATH_MORALE_INITIATE_SELF'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MORALE_MODIFY_MONSTER_VALUES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telepath_mood_stabilization_attitude_modified')))
+  return (not you:has_effect(U.eid('effect_telepath_mood_stabilization_attitude_modified')))
 end
 M['EOC_TELEPATH_MORALE_MODIFY_MONSTER_VALUES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22742,7 +22742,7 @@ M['EOC_TELEPATH_MORALE_MODIFY_MONSTER_VALUES'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MORALE_MODIFY_MONSTER_VALUES_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telepathic_psi_armor')))
+  return (not you:has_effect(U.eid('effect_telepathic_psi_armor')))
 end
 M['EOC_TELEPATH_MORALE_MODIFY_MONSTER_VALUES_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22757,7 +22757,7 @@ M['EOC_TELEPATH_MORALE_MODIFY_MONSTER_VALUES_2'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MORALE_MODIFY_NPC_VALUES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telepath_mood_stabilization_attitude_modified')))
+  return (not you:has_effect(U.eid('effect_telepath_mood_stabilization_attitude_modified')))
 end
 M['EOC_TELEPATH_MORALE_MODIFY_NPC_VALUES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22770,7 +22770,7 @@ M['EOC_TELEPATH_MORALE_MODIFY_NPC_VALUES'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MORALE_MODIFY_NPC_VALUES_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telepathic_psi_armor')))
+  return (not you:has_effect(U.eid('effect_telepathic_psi_armor')))
 end
 M['EOC_TELEPATH_MORALE_MODIFY_NPC_VALUES_2'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22808,8 +22808,8 @@ M['EOC_TELEPATH_OBSCURITY_REMOVAL_CHARACTER'] = function(you, npc, ctx)
   if not C['EOC_TELEPATH_OBSCURITY_REMOVAL_CHARACTER'](you, npc, ctx) then
     return false
   end
-  if (you:has_effect(EffectTypeId.new('telepathic_ignorance')) and npc:has_effect(EffectTypeId.new('telepathic_ignorance_self'))) then
-    you:remove_effect(EffectTypeId.new('telepathic_ignorance'))
+  if (you:has_effect(U.eid('telepathic_ignorance')) and npc:has_effect(U.eid('telepathic_ignorance_self'))) then
+    you:remove_effect(U.eid('telepathic_ignorance'))
   end
   return true
 end
@@ -22822,14 +22822,14 @@ M['EOC_TELEPATH_OBSCURITY_REMOVAL_MONSTER'] = function(you, npc, ctx)
   if not C['EOC_TELEPATH_OBSCURITY_REMOVAL_MONSTER'](you, npc, ctx) then
     return false
   end
-  if (you:has_effect(EffectTypeId.new('telepathic_ignorance')) and npc:has_effect(EffectTypeId.new('telepathic_ignorance_self'))) then
-    you:remove_effect(EffectTypeId.new('telepathic_ignorance'))
+  if (you:has_effect(U.eid('telepathic_ignorance')) and npc:has_effect(U.eid('telepathic_ignorance_self'))) then
+    you:remove_effect(U.eid('telepathic_ignorance'))
   end
   return true
 end
 C['EOC_TELEPATH_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_TELEPATH_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22839,7 +22839,7 @@ M['EOC_TELEPATH_POTION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You drink the concoction.', MsgType.neutral, ctx)
-  you:remove_effect(EffectTypeId.new('effect_telepath_potion_comedown'))
+  you:remove_effect(U.eid('effect_telepath_potion_comedown'))
   U.add_effect(you, 'effect_telepath_potion', TimeDuration.from_hours(30), nil, nil)
   U.add_effect(you, 'effect_matrix_potion_nether_boost', TimeDuration.from_hours(30), nil, nil)
   util.queue_eoc(function(y) M['EOC_TELEPATH_POTION_COMEDOWN'](y, npc, ctx) end, you, U.rng(43200, 108000))
@@ -22851,8 +22851,8 @@ C['EOC_TELEPATH_POTION_COMEDOWN'] = function(you, npc, ctx)
 end
 M['EOC_TELEPATH_POTION_COMEDOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  you:remove_effect(EffectTypeId.new('effect_telepath_potion'))
-  you:remove_effect(EffectTypeId.new('effect_matrix_potion_nether_boost'))
+  you:remove_effect(U.eid('effect_telepath_potion'))
+  you:remove_effect(U.eid('effect_matrix_potion_nether_boost'))
   U.add_effect(you, 'effect_telepath_potion_comedown', U.rng_dur(TimeDuration.from_hours(24), TimeDuration.from_hours(55)), nil, nil)
   return true
 end
@@ -22875,7 +22875,7 @@ M['EOC_TELEPATH_PRIMAL_TERROR'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_PRIMAL_TERROR_ATTITUDE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telepath_primal_terror_attitude_modified')))
+  return (not you:has_effect(U.eid('effect_telepath_primal_terror_attitude_modified')))
 end
 M['EOC_TELEPATH_PRIMAL_TERROR_ATTITUDE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22902,7 +22902,7 @@ M['EOC_TELEPATH_PRIMAL_TERROR_ATTITUDE_2'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPATH'))
+  return you:has_trait(U.mid('TELEPATH'))
 end
 M['EOC_TELEPATH_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22914,7 +22914,7 @@ M['EOC_TELEPATH_RECIPE_TEACHER'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_REMOVE_SENSE_MINDS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telepath_sense_minds'))
+  return you:has_effect(U.eid('effect_telepath_sense_minds'))
 end
 M['EOC_TELEPATH_REMOVE_SENSE_MINDS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22922,12 +22922,12 @@ M['EOC_TELEPATH_REMOVE_SENSE_MINDS'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_telepath_sense_minds'))
+  you:remove_effect(U.eid('effect_telepath_sense_minds'))
   return true
 end
 C['EOC_TELEPATH_REMOVE_TELEPATHIC_CONCENTRATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telepathic_learning_bonus'))
+  return you:has_effect(U.eid('effect_telepathic_learning_bonus'))
 end
 M['EOC_TELEPATH_REMOVE_TELEPATHIC_CONCENTRATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22935,12 +22935,12 @@ M['EOC_TELEPATH_REMOVE_TELEPATHIC_CONCENTRATION'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_telepathic_learning_bonus'))
+  you:remove_effect(U.eid('effect_telepathic_learning_bonus'))
   return true
 end
 C['EOC_TELEPATH_REMOVE_TELEPATHIC_MORALE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telepathic_morale'))
+  return you:has_effect(U.eid('effect_telepathic_morale'))
 end
 M['EOC_TELEPATH_REMOVE_TELEPATHIC_MORALE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22948,12 +22948,12 @@ M['EOC_TELEPATH_REMOVE_TELEPATHIC_MORALE'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_telepathic_morale'))
+  you:remove_effect(U.eid('effect_telepathic_morale'))
   return true
 end
 C['EOC_TELEPATH_REMOVE_TELEPATHIC_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telepathic_psi_armor'))
+  return you:has_effect(U.eid('effect_telepathic_psi_armor'))
 end
 M['EOC_TELEPATH_REMOVE_TELEPATHIC_SHIELD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22961,12 +22961,12 @@ M['EOC_TELEPATH_REMOVE_TELEPATHIC_SHIELD'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_telepathic_psi_armor'))
+  you:remove_effect(U.eid('effect_telepathic_psi_armor'))
   return true
 end
 C['EOC_TELEPATH_SENSE_MINDS_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telepath_sense_minds'))
+  return you:has_effect(U.eid('effect_telepath_sense_minds'))
 end
 M['EOC_TELEPATH_SENSE_MINDS_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22991,7 +22991,7 @@ M['EOC_TELEPATH_SENSE_MINDS_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_SENSE_MINDS_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telepath_sense_minds')))
+  return (not you:has_effect(U.eid('effect_telepath_sense_minds')))
 end
 M['EOC_TELEPATH_SENSE_MINDS_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23007,7 +23007,7 @@ M['EOC_TELEPATH_SENSE_MINDS_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_SHIELD_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_telepathic_psi_armor'))
+  return you:has_effect(U.eid('effect_telepathic_psi_armor'))
 end
 M['EOC_TELEPATH_SHIELD_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23032,7 +23032,7 @@ M['EOC_TELEPATH_SHIELD_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_SHIELD_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_telepathic_psi_armor')))
+  return (not you:has_effect(U.eid('effect_telepathic_psi_armor')))
 end
 M['EOC_TELEPATH_SHIELD_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23121,7 +23121,7 @@ M['EOC_TELEPORTER_OUBLIETTE_HANDLING_2'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORTER_THE_HOUNDS_FOLLOW'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (('teleport_blink' == tostring(ctx['spell'] or '')) or ('teleport_phase' == tostring(ctx['spell'] or '')) or ('teleport_transpose' == tostring(ctx['spell'] or '')) or ('teleport_farstep' == tostring(ctx['spell'] or ''))) and (U.monsters_nearby(you, 'mon_hound_tindalos', 50) > 0) and (not U.has_creature_flag(you, 'TEEPSHIELD')))
+  return (you:has_trait(U.mid('TELEPORTER')) and (('teleport_blink' == tostring(ctx['spell'] or '')) or ('teleport_phase' == tostring(ctx['spell'] or '')) or ('teleport_transpose' == tostring(ctx['spell'] or '')) or ('teleport_farstep' == tostring(ctx['spell'] or ''))) and (U.monsters_nearby(you, 'mon_hound_tindalos', 50) > 0) and (not U.has_creature_flag(you, 'TEEPSHIELD')))
 end
 M['EOC_TELEPORTER_THE_HOUNDS_FOLLOW'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23134,7 +23134,7 @@ M['EOC_TELEPORTER_THE_HOUNDS_FOLLOW'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORTER_THE_HOUNDS_FOLLOW_GATEWAY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (('teleport_gateway' == tostring(ctx['spell'] or '')) or ('teleport_dilated_gateway' == tostring(ctx['spell'] or ''))) and (U.monsters_nearby(you, 'mon_hound_tindalos', 50) > 0) and (not U.has_creature_flag(you, 'TEEPSHIELD')))
+  return (you:has_trait(U.mid('TELEPORTER')) and (('teleport_gateway' == tostring(ctx['spell'] or '')) or ('teleport_dilated_gateway' == tostring(ctx['spell'] or ''))) and (U.monsters_nearby(you, 'mon_hound_tindalos', 50) > 0) and (not U.has_creature_flag(you, 'TEEPSHIELD')))
 end
 M['EOC_TELEPORTER_THE_HOUNDS_FOLLOW_GATEWAY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23226,7 +23226,7 @@ end
 M['EOC_TELEPORT_DISPLACEMENT_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_TELEPORT_DISPLACEMENT_CHECK'](you, npc, ctx) then
-    if (not npc:has_effect(EffectTypeId.new('effect_teleport_reactive_displacement'))) then
+    if (not npc:has_effect(U.eid('effect_teleport_reactive_displacement'))) then
       U.msg(npc, 'You touch <u_name> but nothing happens at all.', MsgType.bad, ctx)
     end
     return false
@@ -23236,13 +23236,13 @@ M['EOC_TELEPORT_DISPLACEMENT_CHECK'] = function(you, npc, ctx)
   V.uset(you, 'nether_attunement_teleportation_scaling', V.uget(npc, 'nether_attunement_power_scaling'))
   if ((U.volume(you) <= ((((V.uget(you, 'teleportation_intelligence_power_level') * 12500) + 25000) * V.uget(you, 'teleportation_intelligence')) * V.uget(you, 'nether_attunement_teleportation_scaling'))) and (U.volume(you) > 0)) then
     U.cast_spell(you, 'teleport_blink_real', 10, nil)
-    if npc:has_effect(EffectTypeId.new('effect_teleport_reactive_displacement')) then
+    if npc:has_effect(U.eid('effect_teleport_reactive_displacement')) then
       U.msg(npc, 'As <u_name> strikes you, they are suddenly somewhere else', MsgType.good, ctx)
     else
       U.msg(npc, 'You touch <u_name> and they are suddenly somewhere else', MsgType.good, ctx)
     end
   else
-    if npc:has_effect(EffectTypeId.new('effect_teleport_reactive_displacement')) then
+    if npc:has_effect(U.eid('effect_teleport_reactive_displacement')) then
     else
       U.msg(npc, 'You touch <u_name> but nothing happens.  They are too big to teleport.', MsgType.bad, ctx)
     end
@@ -23294,7 +23294,7 @@ M['EOC_TELEPORT_GATEWAY_ATTUNE_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_ATTUNE_01_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleporter_attuning_to_area'))
+  return you:has_effect(U.eid('effect_teleporter_attuning_to_area'))
 end
 M['EOC_TELEPORT_GATEWAY_ATTUNE_01_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23321,7 +23321,7 @@ M['EOC_TELEPORT_GATEWAY_ATTUNE_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_ATTUNE_02_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleporter_attuning_to_area'))
+  return you:has_effect(U.eid('effect_teleporter_attuning_to_area'))
 end
 M['EOC_TELEPORT_GATEWAY_ATTUNE_02_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23348,7 +23348,7 @@ M['EOC_TELEPORT_GATEWAY_ATTUNE_03'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_ATTUNE_03_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleporter_attuning_to_area'))
+  return you:has_effect(U.eid('effect_teleporter_attuning_to_area'))
 end
 M['EOC_TELEPORT_GATEWAY_ATTUNE_03_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23375,7 +23375,7 @@ M['EOC_TELEPORT_GATEWAY_ATTUNE_04'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_ATTUNE_04_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleporter_attuning_to_area'))
+  return you:has_effect(U.eid('effect_teleporter_attuning_to_area'))
 end
 M['EOC_TELEPORT_GATEWAY_ATTUNE_04_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23402,7 +23402,7 @@ M['EOC_TELEPORT_GATEWAY_ATTUNE_05'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_ATTUNE_05_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleporter_attuning_to_area'))
+  return you:has_effect(U.eid('effect_teleporter_attuning_to_area'))
 end
 M['EOC_TELEPORT_GATEWAY_ATTUNE_05_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23429,7 +23429,7 @@ M['EOC_TELEPORT_GATEWAY_ATTUNE_06'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_ATTUNE_06_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleporter_attuning_to_area'))
+  return you:has_effect(U.eid('effect_teleporter_attuning_to_area'))
 end
 M['EOC_TELEPORT_GATEWAY_ATTUNE_06_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23456,7 +23456,7 @@ M['EOC_TELEPORT_GATEWAY_ATTUNE_07'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_ATTUNE_07_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleporter_attuning_to_area'))
+  return you:has_effect(U.eid('effect_teleporter_attuning_to_area'))
 end
 M['EOC_TELEPORT_GATEWAY_ATTUNE_07_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23483,7 +23483,7 @@ M['EOC_TELEPORT_GATEWAY_ATTUNE_08'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_ATTUNE_08_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleporter_attuning_to_area'))
+  return you:has_effect(U.eid('effect_teleporter_attuning_to_area'))
 end
 M['EOC_TELEPORT_GATEWAY_ATTUNE_08_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23510,7 +23510,7 @@ M['EOC_TELEPORT_GATEWAY_ATTUNE_09'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_ATTUNE_09_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleporter_attuning_to_area'))
+  return you:has_effect(U.eid('effect_teleporter_attuning_to_area'))
 end
 M['EOC_TELEPORT_GATEWAY_ATTUNE_09_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23537,7 +23537,7 @@ M['EOC_TELEPORT_GATEWAY_ATTUNE_10'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_ATTUNE_10_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleporter_attuning_to_area'))
+  return you:has_effect(U.eid('effect_teleporter_attuning_to_area'))
 end
 M['EOC_TELEPORT_GATEWAY_ATTUNE_10_SUCCESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23584,7 +23584,7 @@ M['EOC_TELEPORT_GATEWAY_SELECTOR_01'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_SELECTOR_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(MutationBranchId.new('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(MutationBranchId.new('FORGETFUL'))) * 0.33))) / 3) >= 1)
+  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(U.mid('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(U.mid('FORGETFUL'))) * 0.33))) / 3) >= 1)
 end
 M['EOC_TELEPORT_GATEWAY_SELECTOR_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23598,7 +23598,7 @@ M['EOC_TELEPORT_GATEWAY_SELECTOR_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_SELECTOR_03'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(MutationBranchId.new('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(MutationBranchId.new('FORGETFUL'))) * 0.33))) / 3) >= 2)
+  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(U.mid('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(U.mid('FORGETFUL'))) * 0.33))) / 3) >= 2)
 end
 M['EOC_TELEPORT_GATEWAY_SELECTOR_03'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23612,7 +23612,7 @@ M['EOC_TELEPORT_GATEWAY_SELECTOR_03'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_SELECTOR_04'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(MutationBranchId.new('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(MutationBranchId.new('FORGETFUL'))) * 0.33))) / 3) >= 3)
+  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(U.mid('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(U.mid('FORGETFUL'))) * 0.33))) / 3) >= 3)
 end
 M['EOC_TELEPORT_GATEWAY_SELECTOR_04'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23626,7 +23626,7 @@ M['EOC_TELEPORT_GATEWAY_SELECTOR_04'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_SELECTOR_05'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(MutationBranchId.new('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(MutationBranchId.new('FORGETFUL'))) * 0.33))) / 3) >= 4)
+  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(U.mid('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(U.mid('FORGETFUL'))) * 0.33))) / 3) >= 4)
 end
 M['EOC_TELEPORT_GATEWAY_SELECTOR_05'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23640,7 +23640,7 @@ M['EOC_TELEPORT_GATEWAY_SELECTOR_05'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_SELECTOR_06'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(MutationBranchId.new('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(MutationBranchId.new('FORGETFUL'))) * 0.33))) / 3) >= 5)
+  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(U.mid('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(U.mid('FORGETFUL'))) * 0.33))) / 3) >= 5)
 end
 M['EOC_TELEPORT_GATEWAY_SELECTOR_06'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23654,7 +23654,7 @@ M['EOC_TELEPORT_GATEWAY_SELECTOR_06'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_SELECTOR_07'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(MutationBranchId.new('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(MutationBranchId.new('FORGETFUL'))) * 0.33))) / 3) >= 6)
+  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(U.mid('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(U.mid('FORGETFUL'))) * 0.33))) / 3) >= 6)
 end
 M['EOC_TELEPORT_GATEWAY_SELECTOR_07'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23668,7 +23668,7 @@ M['EOC_TELEPORT_GATEWAY_SELECTOR_07'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_SELECTOR_08'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(MutationBranchId.new('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(MutationBranchId.new('FORGETFUL'))) * 0.33))) / 3) >= 7)
+  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(U.mid('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(U.mid('FORGETFUL'))) * 0.33))) / 3) >= 7)
 end
 M['EOC_TELEPORT_GATEWAY_SELECTOR_08'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23682,7 +23682,7 @@ M['EOC_TELEPORT_GATEWAY_SELECTOR_08'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_SELECTOR_09'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(MutationBranchId.new('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(MutationBranchId.new('FORGETFUL'))) * 0.33))) / 3) >= 8)
+  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(U.mid('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(U.mid('FORGETFUL'))) * 0.33))) / 3) >= 8)
 end
 M['EOC_TELEPORT_GATEWAY_SELECTOR_09'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23696,7 +23696,7 @@ M['EOC_TELEPORT_GATEWAY_SELECTOR_09'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_GATEWAY_SELECTOR_10'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(MutationBranchId.new('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(MutationBranchId.new('FORGETFUL'))) * 0.33))) / 3) >= 9)
+  return ((((m.spell_level(you, 'teleport_gateway') * (1 + (U.b2n(you:has_trait(U.mid('GOODMEMORY'))) * 0.2))) / (1 + (U.b2n(you:has_trait(U.mid('FORGETFUL'))) * 0.33))) / 3) >= 9)
 end
 M['EOC_TELEPORT_GATEWAY_SELECTOR_10'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23965,7 +23965,7 @@ M['EOC_TELEPORT_ITEM_APPORT_NEXT'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_BANISH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'teleport_farstep') >= 6) or (m.spell_level(you, 'teleport_collapse') >= 8) or (m.spell_level(you, 'teleport_transpose') >= 8)) and (m.spell_level(you, 'teleport_displacement') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_banish') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_banish'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'teleport_farstep') >= 6) or (m.spell_level(you, 'teleport_collapse') >= 8) or (m.spell_level(you, 'teleport_transpose') >= 8)) and (m.spell_level(you, 'teleport_displacement') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_banish') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_banish'))))
 end
 M['EOC_TELEPORT_LEARNING_BANISH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23979,7 +23979,7 @@ M['EOC_TELEPORT_LEARNING_BANISH'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_BREACH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'teleport_displacement') >= 12) or (m.spell_level(you, 'teleport_banish') >= 7)) and (m.spell_level(you, 'teleport_gateway') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_summon') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_breach'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'teleport_displacement') >= 12) or (m.spell_level(you, 'teleport_banish') >= 7)) and (m.spell_level(you, 'teleport_gateway') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_summon') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_breach'))))
 end
 M['EOC_TELEPORT_LEARNING_BREACH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -23993,7 +23993,7 @@ M['EOC_TELEPORT_LEARNING_BREACH'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_COLLAPSE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'teleport_slow') >= 10) or (m.spell_level(you, 'teleport_transpose') >= 6)) and (m.spell_level(you, 'teleport_stride') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_collapse') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_collapse'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'teleport_slow') >= 10) or (m.spell_level(you, 'teleport_transpose') >= 6)) and (m.spell_level(you, 'teleport_stride') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_collapse') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_collapse'))))
 end
 M['EOC_TELEPORT_LEARNING_COLLAPSE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24007,7 +24007,7 @@ M['EOC_TELEPORT_LEARNING_COLLAPSE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_item_apport') >= 5) and (m.spell_level(you, 'teleport_slow') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_displacement') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_displacement'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_item_apport') >= 5) and (m.spell_level(you, 'teleport_slow') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_displacement') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_displacement'))))
 end
 M['EOC_TELEPORT_LEARNING_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24021,7 +24021,7 @@ M['EOC_TELEPORT_LEARNING_DISPLACEMENT'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_FARSTEP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'teleport_stride') >= 8) or (m.spell_level(you, 'teleport_collapse') >= 6)) and (m.spell_level(you, 'teleport_phase') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_farstep') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_farstep'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'teleport_stride') >= 8) or (m.spell_level(you, 'teleport_collapse') >= 6)) and (m.spell_level(you, 'teleport_phase') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_farstep') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_farstep'))))
 end
 M['EOC_TELEPORT_LEARNING_FARSTEP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24035,7 +24035,7 @@ M['EOC_TELEPORT_LEARNING_FARSTEP'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_GATEWAY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_loci_establishment') >= 6) and (m.spell_level(you, 'teleport_farstep') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_gateway') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_gateway'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_loci_establishment') >= 6) and (m.spell_level(you, 'teleport_farstep') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_gateway') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_gateway'))))
 end
 M['EOC_TELEPORT_LEARNING_GATEWAY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24049,7 +24049,7 @@ M['EOC_TELEPORT_LEARNING_GATEWAY'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_ITEM_APPORT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_blink') >= 4) and (m.spell_level(you, 'teleport_slow') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_item_apport') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_item_apport'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_blink') >= 4) and (m.spell_level(you, 'teleport_slow') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_item_apport') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_item_apport'))))
 end
 M['EOC_TELEPORT_LEARNING_ITEM_APPORT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24063,7 +24063,7 @@ M['EOC_TELEPORT_LEARNING_ITEM_APPORT'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_LOCI_ESTABLISHMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_stride') >= 6) and (m.spell_level(you, 'teleport_farstep') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_loci_establishment') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_loci_establishment'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_stride') >= 6) and (m.spell_level(you, 'teleport_farstep') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_loci_establishment') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_loci_establishment'))))
 end
 M['EOC_TELEPORT_LEARNING_LOCI_ESTABLISHMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24077,7 +24077,7 @@ M['EOC_TELEPORT_LEARNING_LOCI_ESTABLISHMENT'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_PHASE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'teleport_blink') >= 6)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_phase') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_phase'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'teleport_blink') >= 6)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_phase') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_phase'))))
 end
 M['EOC_TELEPORT_LEARNING_PHASE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24091,7 +24091,7 @@ M['EOC_TELEPORT_LEARNING_PHASE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_REACTIVE_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_displacement') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_reactive_displacement') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_reactive_displacement'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_displacement') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_reactive_displacement') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_reactive_displacement'))))
 end
 M['EOC_TELEPORT_LEARNING_REACTIVE_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24105,7 +24105,7 @@ M['EOC_TELEPORT_LEARNING_REACTIVE_DISPLACEMENT'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_REALITY_TEAR'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_summon') >= 10) and (m.spell_level(you, 'teleport_gateway') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_reality_tear') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_reality_tear'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_summon') >= 10) and (m.spell_level(you, 'teleport_gateway') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_reality_tear') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_reality_tear'))))
 end
 M['EOC_TELEPORT_LEARNING_REALITY_TEAR'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24119,7 +24119,7 @@ M['EOC_TELEPORT_LEARNING_REALITY_TEAR'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_RELOCATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_gateway') >= 8) and (m.spell_level(you, 'teleport_item_apport') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_relocation') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_relocation'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_gateway') >= 8) and (m.spell_level(you, 'teleport_item_apport') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_relocation') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_relocation'))))
 end
 M['EOC_TELEPORT_LEARNING_RELOCATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24133,7 +24133,7 @@ M['EOC_TELEPORT_LEARNING_RELOCATION'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_STRIDE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_phase') >= 4) and (m.spell_level(you, 'teleport_slow') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_stride') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_stride'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_phase') >= 4) and (m.spell_level(you, 'teleport_slow') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_stride') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_stride'))))
 end
 M['EOC_TELEPORT_LEARNING_STRIDE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24147,7 +24147,7 @@ M['EOC_TELEPORT_LEARNING_STRIDE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_TRANSPOSE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_displacement') >= 5) and (m.spell_level(you, 'teleport_stride') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_transpose') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_transpose'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_displacement') >= 5) and (m.spell_level(you, 'teleport_stride') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_transpose') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_transpose'))))
 end
 M['EOC_TELEPORT_LEARNING_TRANSPOSE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24161,7 +24161,7 @@ M['EOC_TELEPORT_LEARNING_TRANSPOSE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_WARPED_STRIKES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_item_apport') >= 6) and (m.spell_level(you, 'teleport_stride') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_warped_strikes') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_warped_strikes'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_item_apport') >= 6) and (m.spell_level(you, 'teleport_stride') >= 10))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_warped_strikes') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_warped_strikes'))))
 end
 M['EOC_TELEPORT_LEARNING_WARPED_STRIKES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24175,7 +24175,7 @@ M['EOC_TELEPORT_LEARNING_WARPED_STRIKES'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LEARNING_dilated_gateway'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_gateway') >= 8) and (m.spell_level(you, 'teleport_banish') >= 2))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_dilated_gateway') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_dilated_gateway'))))
+  return (you:has_trait(U.mid('TELEPORTER')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'teleport_gateway') >= 8) and (m.spell_level(you, 'teleport_banish') >= 2))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'teleport_dilated_gateway') <= 0) and (not you:knows_recipe(RecipeId.new('practice_teleport_dilated_gateway'))))
 end
 M['EOC_TELEPORT_LEARNING_dilated_gateway'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24189,7 +24189,7 @@ M['EOC_TELEPORT_LEARNING_dilated_gateway'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LOCI_ESTABLISHMENT_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleport_loci_establishment'))
+  return you:has_effect(U.eid('effect_teleport_loci_establishment'))
 end
 M['EOC_TELEPORT_LOCI_ESTABLISHMENT_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24206,7 +24206,7 @@ M['EOC_TELEPORT_LOCI_ESTABLISHMENT_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LOCI_ESTABLISHMENT_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_teleport_loci_establishment')))
+  return (not you:has_effect(U.eid('effect_teleport_loci_establishment')))
 end
 M['EOC_TELEPORT_LOCI_ESTABLISHMENT_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24224,7 +24224,7 @@ M['EOC_TELEPORT_LOCI_ESTABLISHMENT_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_LOCI_TECHNIQUE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleport_loci_establishment'))
+  return you:has_effect(U.eid('effect_teleport_loci_establishment'))
 end
 M['EOC_TELEPORT_LOCI_TECHNIQUE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24252,7 +24252,7 @@ M['EOC_TELEPORT_LOCI_TECHNIQUE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_TELEPORT_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24281,7 +24281,7 @@ M['EOC_TELEPORT_MATRIX_AWAKENING_2'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_TELEPORT_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24321,7 +24321,7 @@ M['EOC_TELEPORT_MATRIX_AWAKENING_SUCCESS'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('TELEPORTER')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_TELEPORTATION'))
+  return (you:has_trait(U.mid('TELEPORTER')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_TELEPORTATION'))
 end
 M['EOC_TELEPORT_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24377,7 +24377,7 @@ M['EOC_TELEPORT_PHASE_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_TELEPORT_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24387,7 +24387,7 @@ M['EOC_TELEPORT_POTION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You drink the concoction.', MsgType.neutral, ctx)
-  you:remove_effect(EffectTypeId.new('effect_teleport_potion_comedown'))
+  you:remove_effect(U.eid('effect_teleport_potion_comedown'))
   U.add_effect(you, 'effect_teleport_potion', TimeDuration.from_hours(30), nil, nil)
   U.add_effect(you, 'effect_matrix_potion_nether_boost', TimeDuration.from_hours(30), nil, nil)
   util.queue_eoc(function(y) M['EOC_TELEPORT_POTION_COMEDOWN'](y, npc, ctx) end, you, U.rng(43200, 108000))
@@ -24399,14 +24399,14 @@ C['EOC_TELEPORT_POTION_COMEDOWN'] = function(you, npc, ctx)
 end
 M['EOC_TELEPORT_POTION_COMEDOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  you:remove_effect(EffectTypeId.new('effect_teleport_potion'))
-  you:remove_effect(EffectTypeId.new('effect_matrix_potion_nether_boost'))
+  you:remove_effect(U.eid('effect_teleport_potion'))
+  you:remove_effect(U.eid('effect_matrix_potion_nether_boost'))
   U.add_effect(you, 'effect_teleport_potion_comedown', U.rng_dur(TimeDuration.from_hours(24), TimeDuration.from_hours(55)), nil, nil)
   return true
 end
 C['EOC_TELEPORT_POTION_COMEDOWN_TELEPORT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleport_potion_comedown'))
+  return you:has_effect(U.eid('effect_teleport_potion_comedown'))
 end
 M['EOC_TELEPORT_POTION_COMEDOWN_TELEPORT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24419,7 +24419,7 @@ M['EOC_TELEPORT_POTION_COMEDOWN_TELEPORT'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_REACTIVE_DISPLACEMENT_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleport_reactive_displacement'))
+  return you:has_effect(U.eid('effect_teleport_reactive_displacement'))
 end
 M['EOC_TELEPORT_REACTIVE_DISPLACEMENT_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24436,7 +24436,7 @@ M['EOC_TELEPORT_REACTIVE_DISPLACEMENT_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_REACTIVE_DISPLACEMENT_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_teleport_reactive_displacement')))
+  return (not you:has_effect(U.eid('effect_teleport_reactive_displacement')))
 end
 M['EOC_TELEPORT_REACTIVE_DISPLACEMENT_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24452,7 +24452,7 @@ M['EOC_TELEPORT_REACTIVE_DISPLACEMENT_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TELEPORTER'))
+  return you:has_trait(U.mid('TELEPORTER'))
 end
 M['EOC_TELEPORT_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24835,7 +24835,7 @@ M['EOC_TELEPORT_RELOCATION_TELEPORT_FAIL_NO_HELD_ITEM_PRE'] = function(you, npc,
 end
 C['EOC_TELEPORT_REMOVE_LOCI_ESTABLISHMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleport_loci_establishment'))
+  return you:has_effect(U.eid('effect_teleport_loci_establishment'))
 end
 M['EOC_TELEPORT_REMOVE_LOCI_ESTABLISHMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24843,12 +24843,12 @@ M['EOC_TELEPORT_REMOVE_LOCI_ESTABLISHMENT'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_teleport_loci_establishment'))
+  you:remove_effect(U.eid('effect_teleport_loci_establishment'))
   return true
 end
 C['EOC_TELEPORT_REMOVE_REACTIVE_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleport_reactive_displacement'))
+  return you:has_effect(U.eid('effect_teleport_reactive_displacement'))
 end
 M['EOC_TELEPORT_REMOVE_REACTIVE_DISPLACEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24856,12 +24856,12 @@ M['EOC_TELEPORT_REMOVE_REACTIVE_DISPLACEMENT'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_teleport_reactive_displacement'))
+  you:remove_effect(U.eid('effect_teleport_reactive_displacement'))
   return true
 end
 C['EOC_TELEPORT_REMOVE_STRIDE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleport_stride'))
+  return you:has_effect(U.eid('effect_teleport_stride'))
 end
 M['EOC_TELEPORT_REMOVE_STRIDE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24869,12 +24869,12 @@ M['EOC_TELEPORT_REMOVE_STRIDE'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_teleport_stride'))
+  you:remove_effect(U.eid('effect_teleport_stride'))
   return true
 end
 C['EOC_TELEPORT_REMOVE_WARPED_STRIKES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleport_warped_strikes'))
+  return you:has_effect(U.eid('effect_teleport_warped_strikes'))
 end
 M['EOC_TELEPORT_REMOVE_WARPED_STRIKES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24882,12 +24882,12 @@ M['EOC_TELEPORT_REMOVE_WARPED_STRIKES'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_teleport_warped_strikes'))
+  you:remove_effect(U.eid('effect_teleport_warped_strikes'))
   return true
 end
 C['EOC_TELEPORT_REMOVE_WARPER_COMBAT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleport_warper_combat'))
+  return you:has_effect(U.eid('effect_teleport_warper_combat'))
 end
 M['EOC_TELEPORT_REMOVE_WARPER_COMBAT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24896,7 +24896,7 @@ M['EOC_TELEPORT_REMOVE_WARPER_COMBAT'] = function(you, npc, ctx)
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_teleport_warper_combat'))
+  you:remove_effect(U.eid('effect_teleport_warper_combat'))
   return true
 end
 C['EOC_TELEPORT_SELF_CARRIED_VOLUME_CHECKER'] = function(you, npc, ctx)
@@ -24960,7 +24960,7 @@ M['EOC_TELEPORT_SPACIAL_VORTEX'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_STRIDE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleport_stride'))
+  return you:has_effect(U.eid('effect_teleport_stride'))
 end
 M['EOC_TELEPORT_STRIDE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -24977,7 +24977,7 @@ M['EOC_TELEPORT_STRIDE_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_STRIDE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_teleport_stride')))
+  return (not you:has_effect(U.eid('effect_teleport_stride')))
 end
 M['EOC_TELEPORT_STRIDE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25011,7 +25011,7 @@ M['EOC_TELEPORT_SUMMON_LAB_DEVOURER'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_WARPED_STRIKES_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleport_warped_strikes'))
+  return you:has_effect(U.eid('effect_teleport_warped_strikes'))
 end
 M['EOC_TELEPORT_WARPED_STRIKES_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25028,7 +25028,7 @@ M['EOC_TELEPORT_WARPED_STRIKES_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_WARPED_STRIKES_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_teleport_warped_strikes')))
+  return (not you:has_effect(U.eid('effect_teleport_warped_strikes')))
 end
 M['EOC_TELEPORT_WARPED_STRIKES_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25044,7 +25044,7 @@ M['EOC_TELEPORT_WARPED_STRIKES_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_WARPER_COMBAT_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_teleport_warper_combat'))
+  return you:has_effect(U.eid('effect_teleport_warper_combat'))
 end
 M['EOC_TELEPORT_WARPER_COMBAT_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25061,7 +25061,7 @@ M['EOC_TELEPORT_WARPER_COMBAT_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_TELEPORT_WARPER_COMBAT_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_teleport_warper_combat')))
+  return (not you:has_effect(U.eid('effect_teleport_warper_combat')))
 end
 M['EOC_TELEPORT_WARPER_COMBAT_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25318,7 +25318,7 @@ M['EOC_UNLOCK_PSIONIC_COMBAT_2'] = function(you, npc, ctx)
 end
 C['EOC_UNLOCK_RAD_POWERS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')))
+  return (you:has_trait(U.mid('VITAKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')))
 end
 M['EOC_UNLOCK_RAD_POWERS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25446,7 +25446,7 @@ M['EOC_VITAKIN3_DEATH_EFFECT_2'] = function(you, npc, ctx)
 end
 C['EOC_VITAKINESIS_RETURN_FROM_DEATH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_return_from_death'))
+  return you:has_effect(U.eid('effect_vita_return_from_death'))
 end
 M['EOC_VITAKINESIS_RETURN_FROM_DEATH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25459,7 +25459,7 @@ M['EOC_VITAKINESIS_RETURN_FROM_DEATH'] = function(you, npc, ctx)
 end
 C['EOC_VITAKINESIS_RETURN_FROM_DEATH_DAMAGE_TRACKER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_return_from_death'))
+  return you:has_effect(U.eid('effect_vita_return_from_death'))
 end
 M['EOC_VITAKINESIS_RETURN_FROM_DEATH_DAMAGE_TRACKER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25488,7 +25488,7 @@ M['EOC_VITAKINESIS_RETURN_FROM_DEATH_DAMAGE_TRACKER'] = function(you, npc, ctx)
 end
 C['EOC_VITAKINESIS_RETURN_FROM_DEATH_START'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_return_from_death'))
+  return you:has_effect(U.eid('effect_vita_return_from_death'))
 end
 M['EOC_VITAKINESIS_RETURN_FROM_DEATH_START'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25506,19 +25506,19 @@ M['EOC_VITAKINESIS_RETURN_FROM_DEATH_START'] = function(you, npc, ctx)
   U.unported('EOC_VITAKINESIS_RETURN_FROM_DEATH_START', 'write u_vitamin:redcells')
   U.unported('EOC_VITAKINESIS_RETURN_FROM_DEATH_START', 'write u_vitamin:bad_food')
   U.unported('EOC_VITAKINESIS_RETURN_FROM_DEATH_START', 'write u_vitamin:blood')
-  you:remove_effect(EffectTypeId.new('corroding'))
-  you:remove_effect(EffectTypeId.new('onfire'))
-  you:remove_effect(EffectTypeId.new('dazed'))
-  you:remove_effect(EffectTypeId.new('downed'))
-  you:remove_effect(EffectTypeId.new('stunned'))
-  you:remove_effect(EffectTypeId.new('venom_blind'))
-  you:remove_effect(EffectTypeId.new('sap'))
-  you:remove_effect(EffectTypeId.new('staggered_character'))
-  you:remove_effect(EffectTypeId.new('nausea'))
-  you:remove_effect(EffectTypeId.new('bleed'))
-  you:remove_effect(EffectTypeId.new('blind'))
-  you:remove_effect(EffectTypeId.new('deaf'))
-  you:remove_effect(EffectTypeId.new('effect_vita_return_from_death'))
+  you:remove_effect(U.eid('corroding'))
+  you:remove_effect(U.eid('onfire'))
+  you:remove_effect(U.eid('dazed'))
+  you:remove_effect(U.eid('downed'))
+  you:remove_effect(U.eid('stunned'))
+  you:remove_effect(U.eid('venom_blind'))
+  you:remove_effect(U.eid('sap'))
+  you:remove_effect(U.eid('staggered_character'))
+  you:remove_effect(U.eid('nausea'))
+  you:remove_effect(U.eid('bleed'))
+  you:remove_effect(U.eid('blind'))
+  you:remove_effect(U.eid('deaf'))
+  you:remove_effect(U.eid('effect_vita_return_from_death'))
   U.add_effect(you, 'effect_vita_super_heal_return_from_death', TimeDuration.from_seconds(20), nil, nil)
   util.queue_eoc(function(y) M['EOC_VITAKIN_RETURN_FROM_DEATH_RUN_HEALING'](y, npc, ctx) end, you, U.rng((2 - math.min(((m.spell_level(you, 'vita_return_from_death') / 25) * J.psionic_power_modifiers(you, npc, ctx)), 1)), (3 - math.min(((m.spell_level(you, 'vita_return_from_death') / 25) * J.psionic_power_modifiers(you, npc, ctx)), 2))))
   U.add_effect(you, 'effect_vita_super_heal_pain_allayed', TimeDuration.from_seconds(300), nil, nil)
@@ -25526,7 +25526,7 @@ M['EOC_VITAKINESIS_RETURN_FROM_DEATH_START'] = function(you, npc, ctx)
 end
 C['EOC_VITAKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('PSYCHIC_KNACK'))
+  return you:has_trait(U.mid('PSYCHIC_KNACK'))
 end
 M['EOC_VITAKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25565,7 +25565,7 @@ M['EOC_VITAKINETIC_AWAKENING_KNACK_HANDLING'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_BANISH_ILLNESS_ASTHMA'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('ASTHMA')) or you:has_effect(EffectTypeId.new('effect_asthma_disease_absorbed')))
+  return (you:has_trait(U.mid('ASTHMA')) or you:has_effect(U.eid('effect_asthma_disease_absorbed')))
 end
 M['EOC_VITAKIN_BANISH_ILLNESS_ASTHMA'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25589,13 +25589,13 @@ M['EOC_VITAKIN_BANISH_ILLNESS_ASTHMA_RESULT'] = function(you, npc, ctx)
   end
   U.msg(you, 'You breathe easily once again.', MsgType.good, ctx)
   U.unset_mutation(you, 'ASTHMA')
-  you:remove_effect(EffectTypeId.new('effect_asthma_disease_absorbed'))
+  you:remove_effect(U.eid('effect_asthma_disease_absorbed'))
   U.attunement_set(you, (m.attunement(you)) + (U.rng(20, 45)))
   return true
 end
 C['EOC_VITAKIN_BANISH_ILLNESS_CHEMIMBALANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('CHEMIMBALANCE'))
+  return you:has_trait(U.mid('CHEMIMBALANCE'))
 end
 M['EOC_VITAKIN_BANISH_ILLNESS_CHEMIMBALANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25624,7 +25624,7 @@ M['EOC_VITAKIN_BANISH_ILLNESS_CHEMIMBALANCE_RESULT'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_BANISH_ILLNESS_JITTERY'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('JITTERY'))
+  return you:has_trait(U.mid('JITTERY'))
 end
 M['EOC_VITAKIN_BANISH_ILLNESS_JITTERY'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25653,7 +25653,7 @@ M['EOC_VITAKIN_BANISH_ILLNESS_JITTERY_RESULT'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_BANISH_ILLNESS_MINOR'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('pre_common_cold')) or you:has_effect(EffectTypeId.new('common_cold')) or you:has_effect(EffectTypeId.new('pre_flu')) or you:has_effect(EffectTypeId.new('flu')))
+  return (you:has_effect(U.eid('pre_common_cold')) or you:has_effect(U.eid('common_cold')) or you:has_effect(U.eid('pre_flu')) or you:has_effect(U.eid('flu')))
 end
 M['EOC_VITAKIN_BANISH_ILLNESS_MINOR'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25676,16 +25676,16 @@ M['EOC_VITAKIN_BANISH_ILLNESS_MINOR_AILMENT_RESULT'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You feel much better.', MsgType.good, ctx)
-  you:remove_effect(EffectTypeId.new('pre_common_cold'))
-  you:remove_effect(EffectTypeId.new('common_cold'))
-  you:remove_effect(EffectTypeId.new('pre_flu'))
-  you:remove_effect(EffectTypeId.new('flu'))
+  you:remove_effect(U.eid('pre_common_cold'))
+  you:remove_effect(U.eid('common_cold'))
+  you:remove_effect(U.eid('pre_flu'))
+  you:remove_effect(U.eid('flu'))
   U.attunement_set(you, (m.attunement(you)) + (U.rng(15, 30)))
   return true
 end
 C['EOC_VITAKIN_BANISH_ILLNESS_MOODSWINGS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('MOODSWINGS'))
+  return you:has_trait(U.mid('MOODSWINGS'))
 end
 M['EOC_VITAKIN_BANISH_ILLNESS_MOODSWINGS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25714,7 +25714,7 @@ M['EOC_VITAKIN_BANISH_ILLNESS_MOODSWINGS_RESULT'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_BANISH_ILLNESS_NARCOLEPTIC'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('NARCOLEPTIC'))
+  return you:has_trait(U.mid('NARCOLEPTIC'))
 end
 M['EOC_VITAKIN_BANISH_ILLNESS_NARCOLEPTIC'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25743,7 +25743,7 @@ M['EOC_VITAKIN_BANISH_ILLNESS_NARCOLEPTIC_RESULT'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_BANISH_ILLNESS_SCHIZOPHRENIC'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('SCHIZOPHRENIC'))
+  return you:has_trait(U.mid('SCHIZOPHRENIC'))
 end
 M['EOC_VITAKIN_BANISH_ILLNESS_SCHIZOPHRENIC'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25772,7 +25772,7 @@ M['EOC_VITAKIN_BANISH_ILLNESS_SCHIZOPHRENIC_RESULT'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_BANISH_ILLNESS_SEASONAL_AFFECTIVE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('SEASONAL_AFFECTIVE'))
+  return you:has_trait(U.mid('SEASONAL_AFFECTIVE'))
 end
 M['EOC_VITAKIN_BANISH_ILLNESS_SEASONAL_AFFECTIVE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25801,7 +25801,7 @@ M['EOC_VITAKIN_BANISH_ILLNESS_SEASONAL_AFFECTIVE_RESULT'] = function(you, npc, c
 end
 C['EOC_VITAKIN_BANISH_ILLNESS_SEASONAL_ALLERGIES'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('SEASONAL_ALLERGIES'))
+  return you:has_trait(U.mid('SEASONAL_ALLERGIES'))
 end
 M['EOC_VITAKIN_BANISH_ILLNESS_SEASONAL_ALLERGIES'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25841,7 +25841,7 @@ M['EOC_VITAKIN_BANISH_ILLNESS_SELECTOR'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_BANISH_ILLNESS_WEAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('ROT1'))
+  return you:has_trait(U.mid('ROT1'))
 end
 M['EOC_VITAKIN_BANISH_ILLNESS_WEAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25890,9 +25890,9 @@ M['EOC_VITAKIN_BANISH_ILLNESS_XE_VAMPIRISM_RESULT'] = function(you, npc, ctx)
     U.attunement_set(you, (m.attunement(you)) + (U.rng(60, 120)))
     return false
   end
-  if (not you:has_trait(MutationBranchId.new('VAMPIRE'))) then
+  if (not you:has_trait(U.mid('VAMPIRE'))) then
     U.msg(you, 'The odd taste in your mouth vanishes.  Maybe you\'re cured?', MsgType.good, ctx)
-    you:remove_effect(EffectTypeId.new('vampire_virus'))
+    you:remove_effect(U.eid('vampire_virus'))
     U.attunement_set(you, (m.attunement(you)) + (U.rng(60, 120)))
   else
     U.msg(you, 'This is the strangest disease you\'ve ever seen.  Every time you think you eliminate it you find hidden pockets in places you\'ve definitely cleared, almost like it\'s deliberately hiding and waiting until you let down your guard.  But that\'s impossible, isn\'t it?', MsgType.bad, ctx)
@@ -25912,7 +25912,7 @@ M['EOC_VITAKIN_BLOOD_PURGE'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CANCELLING_ACTIVITY_CANCELS_REVITALIZATION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (('ACT_VITAKIN_HEALING_TRANCE_MEDITATE' == tostring(ctx['activity'] or '')) and you:has_effect(EffectTypeId.new('effect_vitakin_healing_trance')))
+  return (('ACT_VITAKIN_HEALING_TRANCE_MEDITATE' == tostring(ctx['activity'] or '')) and you:has_effect(U.eid('effect_vitakin_healing_trance')))
 end
 M['EOC_VITAKIN_CANCELLING_ACTIVITY_CANCELS_REVITALIZATION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25924,7 +25924,7 @@ M['EOC_VITAKIN_CANCELLING_ACTIVITY_CANCELS_REVITALIZATION'] = function(you, npc,
 end
 C['EOC_VITAKIN_CONCENTRATED_HEALING_DERMATIK_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_vita_concentrated_healing')) and (you:has_effect(EffectTypeId.new('dermatik')) or you:has_effect(EffectTypeId.new('dermatik_visible')) or you:has_effect(EffectTypeId.new('dermatik')) or you:has_effect(EffectTypeId.new('dermatik')) or you:has_effect(EffectTypeId.new('dermatik')) or you:has_effect(EffectTypeId.new('dermatik')) or you:has_effect(EffectTypeId.new('dermatik')) or you:has_effect(EffectTypeId.new('dermatik'))))
+  return (you:has_effect(U.eid('effect_vita_concentrated_healing')) and (you:has_effect(U.eid('dermatik')) or you:has_effect(U.eid('dermatik_visible')) or you:has_effect(U.eid('dermatik')) or you:has_effect(U.eid('dermatik')) or you:has_effect(U.eid('dermatik')) or you:has_effect(U.eid('dermatik')) or you:has_effect(U.eid('dermatik')) or you:has_effect(U.eid('dermatik'))))
 end
 M['EOC_VITAKIN_CONCENTRATED_HEALING_DERMATIK_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25945,15 +25945,15 @@ M['EOC_VITAKIN_CONCENTRATED_HEALING_DERMATIK_CHECK_2'] = function(you, npc, ctx)
     return false
   end
   U.unported('EOC_VITAKIN_CONCENTRATED_HEALING_DERMATIK_CHECK_2', 'write u_vitamin:mutant_toxin')
-  you:remove_effect(EffectTypeId.new('dermatik'))
-  you:remove_effect(EffectTypeId.new('dermatik_visible'))
+  you:remove_effect(U.eid('dermatik'))
+  you:remove_effect(U.eid('dermatik_visible'))
   U.unported('EOC_VITAKIN_CONCENTRATED_HEALING_DERMATIK_CHECK_2', 'write u_vitamin:dermatik_larva_size')
   U.msg(you, 'You feel a severe itching sensation.', MsgType.mixed, ctx)
   return true
 end
 C['EOC_VITAKIN_CONCENTRATED_HEALING_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_concentrated_healing'))
+  return you:has_effect(U.eid('effect_vita_concentrated_healing'))
 end
 M['EOC_VITAKIN_CONCENTRATED_HEALING_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25970,7 +25970,7 @@ M['EOC_VITAKIN_CONCENTRATED_HEALING_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CONCENTRATED_HEALING_HEAD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_concentrated_healing'))
+  return you:has_effect(U.eid('effect_vita_concentrated_healing'))
 end
 M['EOC_VITAKIN_CONCENTRATED_HEALING_HEAD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -25988,7 +25988,7 @@ M['EOC_VITAKIN_CONCENTRATED_HEALING_HEAD'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CONCENTRATED_HEALING_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_vita_concentrated_healing')))
+  return (not you:has_effect(U.eid('effect_vita_concentrated_healing')))
 end
 M['EOC_VITAKIN_CONCENTRATED_HEALING_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26007,7 +26007,7 @@ M['EOC_VITAKIN_CONCENTRATED_HEALING_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CONCENTRATED_HEALING_LEFT_ARM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_concentrated_healing'))
+  return you:has_effect(U.eid('effect_vita_concentrated_healing'))
 end
 M['EOC_VITAKIN_CONCENTRATED_HEALING_LEFT_ARM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26025,7 +26025,7 @@ M['EOC_VITAKIN_CONCENTRATED_HEALING_LEFT_ARM'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CONCENTRATED_HEALING_LEFT_LEG'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_concentrated_healing'))
+  return you:has_effect(U.eid('effect_vita_concentrated_healing'))
 end
 M['EOC_VITAKIN_CONCENTRATED_HEALING_LEFT_LEG'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26043,7 +26043,7 @@ M['EOC_VITAKIN_CONCENTRATED_HEALING_LEFT_LEG'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CONCENTRATED_HEALING_RIGHT_ARM'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_concentrated_healing'))
+  return you:has_effect(U.eid('effect_vita_concentrated_healing'))
 end
 M['EOC_VITAKIN_CONCENTRATED_HEALING_RIGHT_ARM'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26062,7 +26062,7 @@ M['EOC_VITAKIN_CONCENTRATED_HEALING_RIGHT_ARM'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CONCENTRATED_HEALING_RIGHT_LEG'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_concentrated_healing'))
+  return you:has_effect(U.eid('effect_vita_concentrated_healing'))
 end
 M['EOC_VITAKIN_CONCENTRATED_HEALING_RIGHT_LEG'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26091,7 +26091,7 @@ M['EOC_VITAKIN_CONCENTRATED_HEALING_SELECTOR'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CONCENTRATED_HEALING_TORSO'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_concentrated_healing'))
+  return you:has_effect(U.eid('effect_vita_concentrated_healing'))
 end
 M['EOC_VITAKIN_CONCENTRATED_HEALING_TORSO'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26122,7 +26122,7 @@ M['EOC_VITAKIN_CRYSTAL_DRAINING'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CURE_DISEASE_CHECKS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_cure_disease'))
+  return you:has_effect(U.eid('effect_vita_cure_disease'))
 end
 M['EOC_VITAKIN_CURE_DISEASE_CHECKS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26137,7 +26137,7 @@ M['EOC_VITAKIN_CURE_DISEASE_CHECKS'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CURE_DISEASE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_cure_disease'))
+  return you:has_effect(U.eid('effect_vita_cure_disease'))
 end
 M['EOC_VITAKIN_CURE_DISEASE_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26162,7 +26162,7 @@ M['EOC_VITAKIN_CURE_DISEASE_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CURE_DISEASE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_vita_cure_disease')))
+  return (not you:has_effect(U.eid('effect_vita_cure_disease')))
 end
 M['EOC_VITAKIN_CURE_DISEASE_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26179,7 +26179,7 @@ M['EOC_VITAKIN_CURE_DISEASE_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CURE_DISEASE_VS_COMMON_COLD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((you:has_effect(EffectTypeId.new('pre_common_cold')) or you:has_effect(EffectTypeId.new('common_cold'))) and U.x_in_y((10 + (m.spell_level(you, 'vita_cure_disease') + m.spell_level(you, 'vita_cure_disease_knack'))), 100))
+  return ((you:has_effect(U.eid('pre_common_cold')) or you:has_effect(U.eid('common_cold'))) and U.x_in_y((10 + (m.spell_level(you, 'vita_cure_disease') + m.spell_level(you, 'vita_cure_disease_knack'))), 100))
 end
 M['EOC_VITAKIN_CURE_DISEASE_VS_COMMON_COLD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26191,7 +26191,7 @@ M['EOC_VITAKIN_CURE_DISEASE_VS_COMMON_COLD'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CURE_DISEASE_VS_FLU'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((you:has_effect(EffectTypeId.new('pre_flu')) or you:has_effect(EffectTypeId.new('flu'))) and U.x_in_y((10 + (m.spell_level(you, 'vita_cure_disease') + m.spell_level(you, 'vita_cure_disease_knack'))), 100))
+  return ((you:has_effect(U.eid('pre_flu')) or you:has_effect(U.eid('flu'))) and U.x_in_y((10 + (m.spell_level(you, 'vita_cure_disease') + m.spell_level(you, 'vita_cure_disease_knack'))), 100))
 end
 M['EOC_VITAKIN_CURE_DISEASE_VS_FLU'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26203,7 +26203,7 @@ M['EOC_VITAKIN_CURE_DISEASE_VS_FLU'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_CURE_DISEASE_VS_HAY_FEVER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('hay_fever'))
+  return you:has_effect(U.eid('hay_fever'))
 end
 M['EOC_VITAKIN_CURE_DISEASE_VS_HAY_FEVER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26264,7 +26264,7 @@ M['EOC_VITAKIN_DEGENERATING_TOUCH_2'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_DEXTOXIFICATION_CHECK_1'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('poison')) or you:has_effect(EffectTypeId.new('poison')) or you:has_effect(EffectTypeId.new('poison')) or you:has_effect(EffectTypeId.new('poison')) or you:has_effect(EffectTypeId.new('poison')) or you:has_effect(EffectTypeId.new('poison')) or you:has_effect(EffectTypeId.new('poison')) or you:has_effect(EffectTypeId.new('badpoison')) or you:has_effect(EffectTypeId.new('badpoison')) or you:has_effect(EffectTypeId.new('badpoison')) or you:has_effect(EffectTypeId.new('badpoison')) or you:has_effect(EffectTypeId.new('badpoison')) or you:has_effect(EffectTypeId.new('badpoison')) or you:has_effect(EffectTypeId.new('badpoison')) or you:has_effect(EffectTypeId.new('venom_dmg')) or you:has_effect(EffectTypeId.new('venom_weaken')) or you:has_effect(EffectTypeId.new('venom_blind')) or you:has_effect(EffectTypeId.new('venom_pain')) or you:has_effect(EffectTypeId.new('paralyzepoison')))
+  return (you:has_effect(U.eid('poison')) or you:has_effect(U.eid('poison')) or you:has_effect(U.eid('poison')) or you:has_effect(U.eid('poison')) or you:has_effect(U.eid('poison')) or you:has_effect(U.eid('poison')) or you:has_effect(U.eid('poison')) or you:has_effect(U.eid('badpoison')) or you:has_effect(U.eid('badpoison')) or you:has_effect(U.eid('badpoison')) or you:has_effect(U.eid('badpoison')) or you:has_effect(U.eid('badpoison')) or you:has_effect(U.eid('badpoison')) or you:has_effect(U.eid('badpoison')) or you:has_effect(U.eid('venom_dmg')) or you:has_effect(U.eid('venom_weaken')) or you:has_effect(U.eid('venom_blind')) or you:has_effect(U.eid('venom_pain')) or you:has_effect(U.eid('paralyzepoison')))
 end
 M['EOC_VITAKIN_DEXTOXIFICATION_CHECK_1'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26285,18 +26285,18 @@ M['EOC_VITAKIN_DEXTOXIFICATION_CHECK_2'] = function(you, npc, ctx)
   U.msg(you, 'You begin to sweat.', MsgType.mixed, ctx)
   U.unported('EOC_VITAKIN_DEXTOXIFICATION_CHECK_2', 'u_add_wet')
   M['EOC_VITAKIN_DEXTOXIFICATION_TOXICFLESH'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('poison'))
-  you:remove_effect(EffectTypeId.new('badpoison'))
-  you:remove_effect(EffectTypeId.new('venom_dmg'))
-  you:remove_effect(EffectTypeId.new('venom_weaken'))
-  you:remove_effect(EffectTypeId.new('venom_blind'))
-  you:remove_effect(EffectTypeId.new('venom_pain'))
-  you:remove_effect(EffectTypeId.new('paralyzepoison'))
+  you:remove_effect(U.eid('poison'))
+  you:remove_effect(U.eid('badpoison'))
+  you:remove_effect(U.eid('venom_dmg'))
+  you:remove_effect(U.eid('venom_weaken'))
+  you:remove_effect(U.eid('venom_blind'))
+  you:remove_effect(U.eid('venom_pain'))
+  you:remove_effect(U.eid('paralyzepoison'))
   return true
 end
 C['EOC_VITAKIN_DEXTOXIFICATION_TOXICFLESH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_trait(MutationBranchId.new('TOXICFLESH')))
+  return (not you:has_trait(U.mid('TOXICFLESH')))
 end
 M['EOC_VITAKIN_DEXTOXIFICATION_TOXICFLESH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26309,7 +26309,7 @@ M['EOC_VITAKIN_DEXTOXIFICATION_TOXICFLESH'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_DEXTOXIFICATION_TOXICFLESH_REMOVE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('TOXICFLESH'))
+  return you:has_trait(U.mid('TOXICFLESH'))
 end
 M['EOC_VITAKIN_DEXTOXIFICATION_TOXICFLESH_REMOVE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26365,7 +26365,7 @@ M['EOC_VITAKIN_HEALING_TRANCE'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_HEALING_TRANCE_EXPERIENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vitakin_healing_trance'))
+  return you:has_effect(U.eid('effect_vitakin_healing_trance'))
 end
 M['EOC_VITAKIN_HEALING_TRANCE_EXPERIENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26381,7 +26381,7 @@ M['EOC_VITAKIN_HEALING_TRANCE_EXPERIENCE'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_HEALING_TRANCE_ONGOING_KAL_COSTS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vitakin_healing_trance'))
+  return you:has_effect(U.eid('effect_vitakin_healing_trance'))
 end
 M['EOC_VITAKIN_HEALING_TRANCE_ONGOING_KAL_COSTS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26395,7 +26395,7 @@ M['EOC_VITAKIN_HEALING_TRANCE_ONGOING_KAL_COSTS'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_HEALING_TRANCE_ONGOING_NETHER_ATTUNEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vitakin_healing_trance'))
+  return you:has_effect(U.eid('effect_vitakin_healing_trance'))
 end
 M['EOC_VITAKIN_HEALING_TRANCE_ONGOING_NETHER_ATTUNEMENT'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26412,13 +26412,13 @@ C['EOC_VITAKIN_HEALING_TRANCE_REMOVE'] = function(you, npc, ctx)
 end
 M['EOC_VITAKIN_HEALING_TRANCE_REMOVE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  you:remove_effect(EffectTypeId.new('effect_vitakin_healing_trance'))
+  you:remove_effect(U.eid('effect_vitakin_healing_trance'))
   U.msg(you, 'You exit your trance and your wounds feel less painful', MsgType.good, ctx)
   return true
 end
 C['EOC_VITAKIN_HEALTH_POWER_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_health'))
+  return you:has_effect(U.eid('effect_vita_health'))
 end
 M['EOC_VITAKIN_HEALTH_POWER_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26443,7 +26443,7 @@ M['EOC_VITAKIN_HEALTH_POWER_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_HEALTH_POWER_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_vita_health')))
+  return (not you:has_effect(U.eid('effect_vita_health')))
 end
 M['EOC_VITAKIN_HEALTH_POWER_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26460,7 +26460,7 @@ M['EOC_VITAKIN_HEALTH_POWER_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_HEALTH_POWER_VS_DISEASE_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('effect_vita_health')) and (you:has_effect(EffectTypeId.new('pre_common_cold')) or you:has_effect(EffectTypeId.new('pre_flu')) or you:has_effect(EffectTypeId.new('pre_conjunctivitis_viral')) or you:has_effect(EffectTypeId.new('pre_conjunctivitis_bacterial'))))
+  return (you:has_effect(U.eid('effect_vita_health')) and (you:has_effect(U.eid('pre_common_cold')) or you:has_effect(U.eid('pre_flu')) or you:has_effect(U.eid('pre_conjunctivitis_viral')) or you:has_effect(U.eid('pre_conjunctivitis_bacterial'))))
 end
 M['EOC_VITAKIN_HEALTH_POWER_VS_DISEASE_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26475,7 +26475,7 @@ M['EOC_VITAKIN_HEALTH_POWER_VS_DISEASE_CHECK'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_HEALTH_POWER_VS_PRE_COMMON_COLD'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('pre_common_cold')) and U.x_in_y((10 + m.spell_level(you, 'vita_health_power')), 100))
+  return (you:has_effect(U.eid('pre_common_cold')) and U.x_in_y((10 + m.spell_level(you, 'vita_health_power')), 100))
 end
 M['EOC_VITAKIN_HEALTH_POWER_VS_PRE_COMMON_COLD'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26487,7 +26487,7 @@ M['EOC_VITAKIN_HEALTH_POWER_VS_PRE_COMMON_COLD'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_HEALTH_POWER_VS_PRE_CONJUNCTIVITIS_BACTERIA'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('pre_conjunctivitis_bacterial')) and U.x_in_y((10 + m.spell_level(you, 'vita_health_power')), 100))
+  return (you:has_effect(U.eid('pre_conjunctivitis_bacterial')) and U.x_in_y((10 + m.spell_level(you, 'vita_health_power')), 100))
 end
 M['EOC_VITAKIN_HEALTH_POWER_VS_PRE_CONJUNCTIVITIS_BACTERIA'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26499,7 +26499,7 @@ M['EOC_VITAKIN_HEALTH_POWER_VS_PRE_CONJUNCTIVITIS_BACTERIA'] = function(you, npc
 end
 C['EOC_VITAKIN_HEALTH_POWER_VS_PRE_CONJUNCTIVITIS_VIRAL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('pre_conjunctivitis_viral')) and U.x_in_y((10 + m.spell_level(you, 'vita_health_power')), 100))
+  return (you:has_effect(U.eid('pre_conjunctivitis_viral')) and U.x_in_y((10 + m.spell_level(you, 'vita_health_power')), 100))
 end
 M['EOC_VITAKIN_HEALTH_POWER_VS_PRE_CONJUNCTIVITIS_VIRAL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26511,7 +26511,7 @@ M['EOC_VITAKIN_HEALTH_POWER_VS_PRE_CONJUNCTIVITIS_VIRAL'] = function(you, npc, c
 end
 C['EOC_VITAKIN_HEALTH_POWER_VS_PRE_FLU'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_effect(EffectTypeId.new('pre_flu')) and U.x_in_y((10 + m.spell_level(you, 'vita_health_power')), 100))
+  return (you:has_effect(U.eid('pre_flu')) and U.x_in_y((10 + m.spell_level(you, 'vita_health_power')), 100))
 end
 M['EOC_VITAKIN_HEALTH_POWER_VS_PRE_FLU'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26523,7 +26523,7 @@ M['EOC_VITAKIN_HEALTH_POWER_VS_PRE_FLU'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_ATTACK_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'vita_hurt_touch') >= 8)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_attack_touch') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_attack_touch'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'vita_hurt_touch') >= 8)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_attack_touch') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_attack_touch'))))
 end
 M['EOC_VITAKIN_LEARNING_ATTACK_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26537,7 +26537,7 @@ M['EOC_VITAKIN_LEARNING_ATTACK_TOUCH'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_BANISH_ILLNESS'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_stop_infection') >= 12) and ((m.spell_level(you, 'vita_concentrated_healing') >= 8) or (m.spell_level(you, 'vita_cure_disease') >= 12)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_banish_illness') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_banish_illness'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_stop_infection') >= 12) and ((m.spell_level(you, 'vita_concentrated_healing') >= 8) or (m.spell_level(you, 'vita_cure_disease') >= 12)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_banish_illness') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_banish_illness'))))
 end
 M['EOC_VITAKIN_LEARNING_BANISH_ILLNESS'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26551,7 +26551,7 @@ M['EOC_VITAKIN_LEARNING_BANISH_ILLNESS'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_BLOOD_PURGE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_healing_trance') >= 6) and ((m.spell_level(you, 'vita_remove_poison') >= 8) or (m.spell_level(you, 'vita_stop_infection') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_blood_purge') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_blood_purge'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_healing_trance') >= 6) and ((m.spell_level(you, 'vita_remove_poison') >= 8) or (m.spell_level(you, 'vita_stop_infection') >= 8)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_blood_purge') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_blood_purge'))))
 end
 M['EOC_VITAKIN_LEARNING_BLOOD_PURGE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26565,7 +26565,7 @@ M['EOC_VITAKIN_LEARNING_BLOOD_PURGE'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_CONCENTRATED_HEALING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (m.spell_level(you, 'vita_health_power') >= 5) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_concentrated_healing') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_concentrated_healing'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (m.spell_level(you, 'vita_health_power') >= 5) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_concentrated_healing') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_concentrated_healing'))))
 end
 M['EOC_VITAKIN_LEARNING_CONCENTRATED_HEALING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26579,7 +26579,7 @@ M['EOC_VITAKIN_LEARNING_CONCENTRATED_HEALING'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_CURE_DISEASE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'vita_remove_poison') >= 5)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_cure_disease') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_cure_disease'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'vita_remove_poison') >= 5)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_cure_disease') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_cure_disease'))))
 end
 M['EOC_VITAKIN_LEARNING_CURE_DISEASE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26593,7 +26593,7 @@ M['EOC_VITAKIN_LEARNING_CURE_DISEASE'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_DEGENERATING_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'vita_hurt_touch') >= 16) or (m.spell_level(you, 'vita_attack_touch') >= 8)) and (m.spell_level(you, 'vita_banish_illness') >= 6) and ((m.spell_level(you, 'vita_super_heal') >= 5) or (m.spell_level(you, 'vita_cure_disease') >= 15)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_degenerating_touch') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_degenerating_touch'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'vita_hurt_touch') >= 16) or (m.spell_level(you, 'vita_attack_touch') >= 8)) and (m.spell_level(you, 'vita_banish_illness') >= 6) and ((m.spell_level(you, 'vita_super_heal') >= 5) or (m.spell_level(you, 'vita_cure_disease') >= 15)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_degenerating_touch') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_degenerating_touch'))))
 end
 M['EOC_VITAKIN_LEARNING_DEGENERATING_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26607,7 +26607,7 @@ M['EOC_VITAKIN_LEARNING_DEGENERATING_TOUCH'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_HEALING_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'vita_health_power') >= 6)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_health_power_ally') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_healing_touch'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'vita_health_power') >= 6)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_health_power_ally') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_healing_touch'))))
 end
 M['EOC_VITAKIN_LEARNING_HEALING_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26621,7 +26621,7 @@ M['EOC_VITAKIN_LEARNING_HEALING_TOUCH'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_HEALING_TRANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_stop_infection') >= 5) and (m.spell_level(you, 'vita_concentrated_healing') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_healing_trance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_healing_trance'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_stop_infection') >= 5) and (m.spell_level(you, 'vita_concentrated_healing') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_healing_trance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_healing_trance'))))
 end
 M['EOC_VITAKIN_LEARNING_HEALING_TRANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26635,7 +26635,7 @@ M['EOC_VITAKIN_LEARNING_HEALING_TRANCE'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_HURT_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_health_power_ally') >= 5) and (m.spell_level(you, 'vita_slow_bleeding') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_hurt_touch') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_hurt_touch'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_health_power_ally') >= 5) and (m.spell_level(you, 'vita_slow_bleeding') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_hurt_touch') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_hurt_touch'))))
 end
 M['EOC_VITAKIN_LEARNING_HURT_TOUCH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26649,7 +26649,7 @@ M['EOC_VITAKIN_LEARNING_HURT_TOUCH'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_NO_NEED_FOR_SLEEP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_sleeping_trance') >= 10) and (m.spell_level(you, 'vita_healing_trance') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_no_need_for_sleep') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_no_need_for_sleep'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_sleeping_trance') >= 10) and (m.spell_level(you, 'vita_healing_trance') >= 6))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_no_need_for_sleep') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_no_need_for_sleep'))))
 end
 M['EOC_VITAKIN_LEARNING_NO_NEED_FOR_SLEEP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26663,7 +26663,7 @@ M['EOC_VITAKIN_LEARNING_NO_NEED_FOR_SLEEP'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_REMOVE_POISON'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_health_power') >= 8) and ((m.spell_level(you, 'vita_slow_bleeding') >= 7) or (m.spell_level(you, 'vita_stop_bleeding') >= 3)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_remove_poison') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_remove_poison'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_health_power') >= 8) and ((m.spell_level(you, 'vita_slow_bleeding') >= 7) or (m.spell_level(you, 'vita_stop_bleeding') >= 3)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_remove_poison') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_remove_poison'))))
 end
 M['EOC_VITAKIN_LEARNING_REMOVE_POISON'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26677,7 +26677,7 @@ M['EOC_VITAKIN_LEARNING_REMOVE_POISON'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_RETURN_FROM_DEATH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_super_heal') >= 6) or ((m.spell_level(you, 'vita_banish_illness') >= 8) and (m.spell_level(you, 'vita_healing_trance') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_return_from_death') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_return_from_death'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_super_heal') >= 6) or ((m.spell_level(you, 'vita_banish_illness') >= 8) and (m.spell_level(you, 'vita_healing_trance') >= 6)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_return_from_death') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_return_from_death'))))
 end
 M['EOC_VITAKIN_LEARNING_RETURN_FROM_DEATH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26691,7 +26691,7 @@ M['EOC_VITAKIN_LEARNING_RETURN_FROM_DEATH'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_SLEEPING_TRANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_health_power') >= 8) and (m.spell_level(you, 'vita_cure_disease') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_sleeping_trance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_sleeping_trance'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'vita_health_power') >= 8) and (m.spell_level(you, 'vita_cure_disease') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_sleeping_trance') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_sleeping_trance'))))
 end
 M['EOC_VITAKIN_LEARNING_SLEEPING_TRANCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26705,7 +26705,7 @@ M['EOC_VITAKIN_LEARNING_SLEEPING_TRANCE'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_STOP_BLEEDING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'vita_slow_bleeding') >= 5)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_stop_bleeding') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_stop_bleeding'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'vita_slow_bleeding') >= 5)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_stop_bleeding') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_stop_bleeding'))))
 end
 M['EOC_VITAKIN_LEARNING_STOP_BLEEDING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26719,7 +26719,7 @@ M['EOC_VITAKIN_LEARNING_STOP_BLEEDING'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_STOP_INFECTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'vita_cure_disease') >= 7)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_stop_infection') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_stop_infection'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or (m.spell_level(you, 'vita_cure_disease') >= 7)) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_stop_infection') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_stop_infection'))))
 end
 M['EOC_VITAKIN_LEARNING_STOP_INFECTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26733,7 +26733,7 @@ M['EOC_VITAKIN_LEARNING_STOP_INFECTION'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_LEARNING_SUPER_HEAL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'vita_health_power') >= 14) or (m.spell_level(you, 'vita_healing_trance') >= 9)) and ((m.spell_level(you, 'vita_concentrated_healing') >= 10) or (m.spell_level(you, 'vita_remove_poison') >= 7) or (m.spell_level(you, 'vita_blood_purge') >= 5)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_super_heal') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_super_heal'))))
+  return (you:has_trait(U.mid('VITAKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'vita_health_power') >= 14) or (m.spell_level(you, 'vita_healing_trance') >= 9)) and ((m.spell_level(you, 'vita_concentrated_healing') >= 10) or (m.spell_level(you, 'vita_remove_poison') >= 7) or (m.spell_level(you, 'vita_blood_purge') >= 5)))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'vita_super_heal') <= 0) and (not you:knows_recipe(RecipeId.new('practice_vita_super_heal'))))
 end
 M['EOC_VITAKIN_LEARNING_SUPER_HEAL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26747,7 +26747,7 @@ M['EOC_VITAKIN_LEARNING_SUPER_HEAL'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) or you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (you:has_trait(U.mid('VITAKINETIC')) or you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_VITAKIN_MATRIX_AWAKENING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26776,7 +26776,7 @@ M['EOC_VITAKIN_MATRIX_AWAKENING_2'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_VITAKIN_MATRIX_AWAKENING_3'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26815,7 +26815,7 @@ M['EOC_VITAKIN_MATRIX_AWAKENING_SUCCESS'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (you:has_trait(MutationBranchId.new('VITAKINETIC')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_VITAKINESIS'))
+  return (you:has_trait(U.mid('VITAKINETIC')) and U.has_item_flag(you, 'MATRIX_CRYSTAL_VITAKINESIS'))
 end
 M['EOC_VITAKIN_MATRIX_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26866,7 +26866,7 @@ M['EOC_VITAKIN_MUTAGEN_PURGE'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_NO_NEED_FOR_SLEEP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_vitakin_no_need_for_sleep')))
+  return (not you:has_effect(U.eid('effect_vitakin_no_need_for_sleep')))
 end
 M['EOC_VITAKIN_NO_NEED_FOR_SLEEP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26883,7 +26883,7 @@ M['EOC_VITAKIN_NO_NEED_FOR_SLEEP'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_NO_NEED_FOR_SLEEP_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vitakin_no_need_for_sleep'))
+  return you:has_effect(U.eid('effect_vitakin_no_need_for_sleep'))
 end
 M['EOC_VITAKIN_NO_NEED_FOR_SLEEP_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26909,7 +26909,7 @@ M['EOC_VITAKIN_NO_NEED_FOR_SLEEP_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_trait(MutationBranchId.new('CANNOT_GAIN_PSIONICS')))
+  return (not you:has_trait(U.mid('CANNOT_GAIN_PSIONICS')))
 end
 M['EOC_VITAKIN_POTION'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -26919,7 +26919,7 @@ M['EOC_VITAKIN_POTION'] = function(you, npc, ctx)
     return false
   end
   U.msg(you, 'You drink the concoction.', MsgType.neutral, ctx)
-  you:remove_effect(EffectTypeId.new('effect_vitakin_potion_comedown'))
+  you:remove_effect(U.eid('effect_vitakin_potion_comedown'))
   U.add_effect(you, 'effect_vitakin_potion', TimeDuration.from_hours(30), nil, nil)
   U.add_effect(you, 'effect_matrix_potion_nether_boost', TimeDuration.from_hours(30), nil, nil)
   util.queue_eoc(function(y) M['EOC_VITAKIN_POTION_COMEDOWN'](y, npc, ctx) end, you, U.rng(43200, 108000))
@@ -26931,8 +26931,8 @@ C['EOC_VITAKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
 end
 M['EOC_VITAKIN_POTION_COMEDOWN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  you:remove_effect(EffectTypeId.new('effect_vitakin_potion'))
-  you:remove_effect(EffectTypeId.new('effect_matrix_potion_nether_boost'))
+  you:remove_effect(U.eid('effect_vitakin_potion'))
+  you:remove_effect(U.eid('effect_matrix_potion_nether_boost'))
   U.add_effect(you, 'effect_vitakin_potion_comedown', U.rng_dur(TimeDuration.from_hours(24), TimeDuration.from_hours(55)), nil, nil)
   return true
 end
@@ -27028,7 +27028,7 @@ M['EOC_VITAKIN_RAD_PURGE_6'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_trait(MutationBranchId.new('VITAKINETIC'))
+  return you:has_trait(U.mid('VITAKINETIC'))
 end
 M['EOC_VITAKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27040,22 +27040,22 @@ M['EOC_VITAKIN_RECIPE_TEACHER'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_REMOVE_CONCENTRATED_HEALING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_concentrated_healing'))
+  return you:has_effect(U.eid('effect_vita_concentrated_healing'))
 end
 M['EOC_VITAKIN_REMOVE_CONCENTRATED_HEALING'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_VITAKIN_REMOVE_CONCENTRATED_HEALING'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_vita_concentrated_healing'))
-  you:remove_effect(EffectTypeId.new('effect_vita_concentrated_healing_bonus'))
-  you:remove_effect(EffectTypeId.new('effect_vita_concentrated_healing_penalty'))
+  you:remove_effect(U.eid('effect_vita_concentrated_healing'))
+  you:remove_effect(U.eid('effect_vita_concentrated_healing_bonus'))
+  you:remove_effect(U.eid('effect_vita_concentrated_healing_penalty'))
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   return true
 end
 C['EOC_VITAKIN_REMOVE_CURE_DISEASE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_cure_disease'))
+  return you:has_effect(U.eid('effect_vita_cure_disease'))
 end
 M['EOC_VITAKIN_REMOVE_CURE_DISEASE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27063,12 +27063,12 @@ M['EOC_VITAKIN_REMOVE_CURE_DISEASE'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_vita_cure_disease'))
+  you:remove_effect(U.eid('effect_vita_cure_disease'))
   return true
 end
 C['EOC_VITAKIN_REMOVE_HEALTH_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_health'))
+  return you:has_effect(U.eid('effect_vita_health'))
 end
 M['EOC_VITAKIN_REMOVE_HEALTH_POWER'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27076,12 +27076,12 @@ M['EOC_VITAKIN_REMOVE_HEALTH_POWER'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_vita_health'))
+  you:remove_effect(U.eid('effect_vita_health'))
   return true
 end
 C['EOC_VITAKIN_REMOVE_NO_NEED_FOR_SLEEP'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vitakin_no_need_for_sleep'))
+  return you:has_effect(U.eid('effect_vitakin_no_need_for_sleep'))
 end
 M['EOC_VITAKIN_REMOVE_NO_NEED_FOR_SLEEP'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27089,12 +27089,12 @@ M['EOC_VITAKIN_REMOVE_NO_NEED_FOR_SLEEP'] = function(you, npc, ctx)
     return false
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_vitakin_no_need_for_sleep'))
+  you:remove_effect(U.eid('effect_vitakin_no_need_for_sleep'))
   return true
 end
 C['EOC_VITAKIN_REMOVE_RETURN_FROM_DEATH'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_return_from_death'))
+  return you:has_effect(U.eid('effect_vita_return_from_death'))
 end
 M['EOC_VITAKIN_REMOVE_RETURN_FROM_DEATH'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27107,35 +27107,35 @@ M['EOC_VITAKIN_REMOVE_RETURN_FROM_DEATH'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_REMOVE_RETURN_FROM_DEATH_2'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_return_from_death'))
+  return you:has_effect(U.eid('effect_vita_return_from_death'))
 end
 M['EOC_VITAKIN_REMOVE_RETURN_FROM_DEATH_2'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_VITAKIN_REMOVE_RETURN_FROM_DEATH_2'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_vita_return_from_death'))
+  you:remove_effect(U.eid('effect_vita_return_from_death'))
   return true
 end
 C['EOC_VITAKIN_REMOVE_SLOW_BLEEDING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vitakin_slow_bleeding'))
+  return you:has_effect(U.eid('effect_vitakin_slow_bleeding'))
 end
 M['EOC_VITAKIN_REMOVE_SLOW_BLEEDING'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_VITAKIN_REMOVE_SLOW_BLEEDING'](you, npc, ctx) then
     return false
   end
-  you:remove_effect(EffectTypeId.new('effect_vitakin_slow_bleeding'))
-  you:remove_effect(EffectTypeId.new('effect_vitakin_slow_bleeding_01'))
-  you:remove_effect(EffectTypeId.new('effect_vitakin_slow_bleeding_02'))
-  you:remove_effect(EffectTypeId.new('effect_vitakin_slow_bleeding_03'))
+  you:remove_effect(U.eid('effect_vitakin_slow_bleeding'))
+  you:remove_effect(U.eid('effect_vitakin_slow_bleeding_01'))
+  you:remove_effect(U.eid('effect_vitakin_slow_bleeding_02'))
+  you:remove_effect(U.eid('effect_vitakin_slow_bleeding_03'))
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   return true
 end
 C['EOC_VITAKIN_REMOVE_SUPER_HEAL'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_super_heal'))
+  return you:has_effect(U.eid('effect_vita_super_heal'))
 end
 M['EOC_VITAKIN_REMOVE_SUPER_HEAL'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27144,12 +27144,12 @@ M['EOC_VITAKIN_REMOVE_SUPER_HEAL'] = function(you, npc, ctx)
   end
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
   M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(EffectTypeId.new('effect_vita_super_heal'))
+  you:remove_effect(U.eid('effect_vita_super_heal'))
   return true
 end
 C['EOC_VITAKIN_RETURN_FROM_DEATH_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_return_from_death'))
+  return you:has_effect(U.eid('effect_vita_return_from_death'))
 end
 M['EOC_VITAKIN_RETURN_FROM_DEATH_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27167,7 +27167,7 @@ M['EOC_VITAKIN_RETURN_FROM_DEATH_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_RETURN_FROM_DEATH_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_vita_return_from_death')))
+  return (not you:has_effect(U.eid('effect_vita_return_from_death')))
 end
 M['EOC_VITAKIN_RETURN_FROM_DEATH_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27184,7 +27184,7 @@ M['EOC_VITAKIN_RETURN_FROM_DEATH_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_RETURN_FROM_DEATH_RUN_HEALING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_super_heal_return_from_death'))
+  return you:has_effect(U.eid('effect_vita_super_heal_return_from_death'))
 end
 M['EOC_VITAKIN_RETURN_FROM_DEATH_RUN_HEALING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27228,7 +27228,7 @@ M['EOC_VITAKIN_SLEEP_DEPRIVATION'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_SLEEP_EXPERIENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vitakin_wakeful_resting'))
+  return you:has_effect(U.eid('effect_vitakin_wakeful_resting'))
 end
 M['EOC_VITAKIN_SLEEP_EXPERIENCE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27256,7 +27256,7 @@ M['EOC_VITAKIN_SLEEP_SLEEPINESS'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_SLOW_BLEEDING_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vitakin_slow_bleeding'))
+  return you:has_effect(U.eid('effect_vitakin_slow_bleeding'))
 end
 M['EOC_VITAKIN_SLOW_BLEEDING_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27273,7 +27273,7 @@ M['EOC_VITAKIN_SLOW_BLEEDING_DRAIN'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_SLOW_BLEEDING_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_vitakin_slow_bleeding')))
+  return (not you:has_effect(U.eid('effect_vitakin_slow_bleeding')))
 end
 M['EOC_VITAKIN_SLOW_BLEEDING_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27464,7 +27464,7 @@ M['EOC_VITAKIN_STOP_INFECTION_SWITCH'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_SUPER_HEAL_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_super_heal'))
+  return you:has_effect(U.eid('effect_vita_super_heal'))
 end
 M['EOC_VITAKIN_SUPER_HEAL_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27528,7 +27528,7 @@ M['EOC_VITAKIN_SUPER_HEAL_EFFECTS'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_SUPER_HEAL_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_vita_super_heal')))
+  return (not you:has_effect(U.eid('effect_vita_super_heal')))
 end
 M['EOC_VITAKIN_SUPER_HEAL_INITIATE'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27546,7 +27546,7 @@ M['EOC_VITAKIN_SUPER_HEAL_INITIATE'] = function(you, npc, ctx)
 end
 C['EOC_VITAKIN_SUPER_HEAL_RUN_HEALING'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(EffectTypeId.new('effect_vita_super_heal'))
+  return you:has_effect(U.eid('effect_vita_super_heal'))
 end
 M['EOC_VITAKIN_SUPER_HEAL_RUN_HEALING'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27567,7 +27567,7 @@ M['EOC_VITAKIN_WAKEFUL_REST_MEDITATE'] = function(you, npc, ctx)
   if not C['EOC_VITAKIN_WAKEFUL_REST_MEDITATE'](you, npc, ctx) then
     U.msg(you, 'You are fully refreshed, and end your meditations.', MsgType.good, ctx)
     U.cancel_activity(you)
-    you:remove_effect(EffectTypeId.new('effect_vitakin_wakeful_resting'))
+    you:remove_effect(U.eid('effect_vitakin_wakeful_resting'))
     return false
   end
   M['EOC_VITAKIN_SLEEP_SLEEPINESS'](you, npc, ctx)
@@ -27607,7 +27607,7 @@ M['EOC_XE_RAISE_ATTUNEMENT_NETHER_SORCERY_INTERACTION'] = function(you, npc, ctx
 end
 C['EOC_YOU_ARE_IN_NETHER_POWER_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('ELECTROKINETIC')) or you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('VITAKINETIC'))) and U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx))
+  return ((you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('ELECTROKINETIC')) or you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('VITAKINETIC'))) and U.test_eoc(C, 'EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION', you, npc, ctx))
 end
 M['EOC_YOU_ARE_IN_NETHER_POWER_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27627,7 +27627,7 @@ M['EOC_YOU_ARE_IN_NETHER_POWER_BOOST'] = function(you, npc, ctx)
 end
 C['EOC_YOU_ARE_NEAR_NETHER_POWER_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((you:has_trait(MutationBranchId.new('BIOKINETIC')) or you:has_trait(MutationBranchId.new('CLAIRSENTIENT')) or you:has_trait(MutationBranchId.new('ELECTROKINETIC')) or you:has_trait(MutationBranchId.new('PHOTOKINETIC')) or you:has_trait(MutationBranchId.new('PYROKINETIC')) or you:has_trait(MutationBranchId.new('TELEKINETIC')) or you:has_trait(MutationBranchId.new('TELEPATH')) or you:has_trait(MutationBranchId.new('TELEPORTER')) or you:has_trait(MutationBranchId.new('VITAKINETIC'))) and U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx))
+  return ((you:has_trait(U.mid('BIOKINETIC')) or you:has_trait(U.mid('CLAIRSENTIENT')) or you:has_trait(U.mid('ELECTROKINETIC')) or you:has_trait(U.mid('PHOTOKINETIC')) or you:has_trait(U.mid('PYROKINETIC')) or you:has_trait(U.mid('TELEKINETIC')) or you:has_trait(U.mid('TELEPATH')) or you:has_trait(U.mid('TELEPORTER')) or you:has_trait(U.mid('VITAKINETIC'))) and U.test_eoc(C, 'EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION', you, npc, ctx))
 end
 M['EOC_YOU_ARE_NEAR_NETHER_POWER_BOOST'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -27682,7 +27682,7 @@ M['EOC_ZENER_DECK'] = function(you, npc, ctx)
 end
 C['EOC_quietfarm_nearby_popup_welcome_message'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return (not you:has_effect(EffectTypeId.new('effect_clair_premonition')))
+  return (not you:has_effect(U.eid('effect_clair_premonition')))
 end
 M['EOC_quietfarm_nearby_popup_welcome_message'] = function(you, npc, ctx)
   ctx = ctx or {}

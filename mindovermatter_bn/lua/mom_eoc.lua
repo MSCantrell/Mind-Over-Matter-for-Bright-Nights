@@ -415,10 +415,11 @@ return function(mod)
   -- the cost as an attunement tick while ANY elixir is active.  At +1..2 vs the
   -- decay's -1 per 5 min, the meter climbs the entire time you're dosed, so leaning
   -- on elixirs pushes you toward Nether Attunement backlash — the intended tradeoff.
+  local NETHER_BOOST_EID = EffectTypeId.new("effect_matrix_potion_nether_boost")
   mod.recurring["mom_potion_nether_boost"] = {
     min_turns = 300, max_turns = 300,
     fn = function(you)
-      if you:has_effect(EffectTypeId.new("effect_matrix_potion_nether_boost")) then
+      if you:has_effect(NETHER_BOOST_EID) then
         U.attunement_set(you, m.attunement(you) + U.rng(1, 2))
       end
     end,
@@ -468,6 +469,12 @@ return function(mod)
   local carriers = require("lua/gen_carrier_map")
   mod.carriers = carriers
 
+  -- Pre-resolve each carrier's EffectTypeId once at load instead of on every
+  -- retier-sweep tick (105 entries x fresh EffectTypeId.new() every 30 turns,
+  -- for EVERY character regardless of school -- perf fix 2026-08-08).
+  local carrier_eid = {}
+  for eff in pairs(carriers) do carrier_eid[eff] = EffectTypeId.new(eff) end
+
   local function carrier_level(who, ent)
     if not ent.spell then return 0 end  -- constant effect: single L0 tier
     local lvl = 0
@@ -502,7 +509,7 @@ return function(mod)
     min_turns = 30, max_turns = 30,
     fn = function(you)
       for eff, ent in pairs(carriers) do
-        if ent.spell and you:has_effect(EffectTypeId.new(eff)) then
+        if ent.spell and you:has_effect(carrier_eid[eff]) then
           local cur = carrier_level(you, ent)
           local old = V.uget(you, "_car_" .. eff)
           if old == nil or U.round(old) ~= cur then
@@ -529,11 +536,12 @@ return function(mod)
   -- "surges back", matching the effect's remove_message.  Capped at 200, well
   -- under the 240 overdose threshold (character.cpp:5862).  Runs every turn --
   -- painkiller decays each turn, so a coarser sweep would let the mask flicker.
+  local REDUCE_PAIN_EID = EffectTypeId.new("effect_electrokin_reduce_pain")
   mod.recurring["_mom_reduce_pain_mask"] = {
     min_turns = 1, max_turns = 1,
     fn = function(you)
       pcall(function()
-        if not you:has_effect(EffectTypeId.new("effect_electrokin_reduce_pain")) then return end
+        if not you:has_effect(REDUCE_PAIN_EID) then return end
         local pain = you:get_pain()
         if pain <= 0 then return end
         -- upstream: min((level*0.02 + 0.15) * psionic_power_modifiers, 0.5)

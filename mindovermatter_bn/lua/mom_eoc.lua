@@ -496,9 +496,21 @@ return function(mod)
     V.uset(who, "_car_" .. eff, nil)
   end
 
+  -- Track which carriers are live on the avatar right now, so the re-tier
+  -- sweep below doesn't have to brute-force all 105 entries every cadence
+  -- (perf fix 2026-08-09).  mod.recurring only ever drives `you` = the
+  -- avatar (mom_hooks.on_every_x), so a single flat set keyed by effect id
+  -- is enough -- no per-character indexing needed.
+  local avatar_carriers = {}
   for eff, ent in pairs(carriers) do
-    mod.effect_added_handlers[eff] = function(who) grant_carrier(who, eff, ent) end
-    mod.effect_removed_handlers[eff] = function(who) remove_carrier(who, eff, ent) end
+    mod.effect_added_handlers[eff] = function(who)
+      grant_carrier(who, eff, ent)
+      if ent.spell and U.is_avatar(who) then avatar_carriers[eff] = true end
+    end
+    mod.effect_removed_handlers[eff] = function(who)
+      remove_carrier(who, eff, ent)
+      if U.is_avatar(who) then avatar_carriers[eff] = nil end
+    end
   end
 
   -- Re-tier sweep: a maintained power can gain levels while active.  Runs on
@@ -508,8 +520,13 @@ return function(mod)
   mod.recurring["_mom_carrier_retier"] = {
     min_turns = 30, max_turns = 30,
     fn = function(you)
-      for eff, ent in pairs(carriers) do
-        if ent.spell and you:has_effect(carrier_eid[eff]) then
+      for eff in pairs(avatar_carriers) do
+        local ent = carriers[eff]
+        -- has_effect stays as a defensive check against tracking/effect
+        -- desync (e.g. an effect cleared through a path that skips our
+        -- removed-handler); cheap now that this only walks active entries
+        -- instead of all 105.
+        if you:has_effect(carrier_eid[eff]) then
           local cur = carrier_level(you, ent)
           local old = V.uget(you, "_car_" .. eff)
           if old == nil or U.round(old) ~= cur then
@@ -517,6 +534,8 @@ return function(mod)
             U.set_mutation(you, ent.prefix .. cur)
             V.uset(you, "_car_" .. eff, cur)
           end
+        else
+          avatar_carriers[eff] = nil
         end
       end
     end,

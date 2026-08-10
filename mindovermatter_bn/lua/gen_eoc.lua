@@ -5587,9 +5587,6 @@ M['EOC_CONCENTRATION_LIMIT_INSTANT_UPDATER'] = function(you, npc, ctx)
   if not C['EOC_CONCENTRATION_LIMIT_INSTANT_UPDATER'](you, npc, ctx) then
     return false
   end
-  ctx['debug_maintained_powers'] = m.maintained_count(you)
-  ctx['debug_concentration_calculations'] = J.concentration_calculations(you, npc, ctx)
-  U.msg(you, 'You are concentrating on <context_val:debug_maintained_powers> / <context_val:debug_concentration_calculations> powers (current/limit).', MsgType.debug, ctx)
   M['EOC_CONCENTRATION_VS_LIMIT_CALCULATIONS'](you, npc, ctx)
   return true
 end

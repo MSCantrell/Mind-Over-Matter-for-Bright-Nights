@@ -579,12 +579,18 @@ return function(mod)
 
   function mod.nullification_poll(you)
     if not you or not you.get_magic then return end
+    local stash = you:get_value(STASH_KEY) or ""
+    local active = nullify_active(you)
+    -- Cheap gate first (perf fix 2026-08-09): get_magic() used to run for
+    -- EVERY character on EVERY turn, even mundane ones who were never
+    -- nullified and have nothing stashed.  Only fetch the spellbook once
+    -- there's actually work to do.
+    if not active and stash == "" then return end
     local km = you:get_magic()
     if not km then return end
     local powers = mod.psi_powers or {}
-    local stash = you:get_value(STASH_KEY) or ""
 
-    if nullify_active(you) then
+    if active then
       -- Sweep every turn, not just on the first: a power learned WHILE nullified
       -- would otherwise stay castable until the effect ended.  After the first
       -- sweep there is normally nothing left to find, so this costs one
@@ -614,9 +620,9 @@ return function(mod)
       return
     end
 
-    if stash == "" then return end
-
     -- Not nullified, but wait out the grace window before believing it.
+    -- (stash is guaranteed non-empty here: the gate above already returned
+    -- for the not-active-and-no-stash case.)
     local grace = tonumber(you:get_value(GRACE_KEY) or "0") or 0
     if grace < GRACE_TURNS then
       you:set_value(GRACE_KEY, tostring(grace + 1))
@@ -1014,6 +1020,21 @@ return function(mod)
       mod.recurring[id] = nil
     end
   end
+
+  -- Dead recurring EOCs (perf fix 2026-08-09): upstream's crafting-proficiency
+  -- auto-grant EOCs (min_turns=max_turns=1, so every tick for every character)
+  -- had their body's actual write dropped during Phase 4 porting (BN has no
+  -- proficiency system) but kept a real has_trait/has_any_trait/nested-EOC
+  -- condition check upstream of that now-empty write.  They've been pure-cost
+  -- no-ops ever since; strip the scheduler entries so the condition never runs.
+  local DEAD_RECURRING = {
+    EOC_MOM_GAME_ONGOING_GRANT_BIOKINETIC_CRAFTING_PROFICIENCY = true,
+    EOC_MOM_GAME_ONGOING_GRANT_CRAFTING_PROFICIENICES = true,
+    EOC_MOM_GAME_ONGOING_GRANT_PYROKINETIC_CRAFTING_PROFICIENCY = true,
+    EOC_MOM_GAME_ONGOING_GRANT_TELEPORTATION_CRAFTING_PROFICIENCY = true,
+    EOC_MOM_GAME_ONGOING_GRANT_VITAKINETIC_CRAFTING_PROFICIENCY = true,
+  }
+  for id in pairs(DEAD_RECURRING) do mod.recurring[id] = nil end
 
   local AUTOLEARN_POLL = 1000  -- nominal turns between polls (~17 game-minutes)
 

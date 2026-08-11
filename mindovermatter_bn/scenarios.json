@@ -44,7 +44,7 @@
     "forced_traits": [
       "HAS_NEMESIS"
     ],
-    "description": "Since the start of the Cataclysm, something has been hunting you relentlessly.  You can try to fight it, but each time it falls it will rise again, its powers growing stronger and stronger.  The only escape is for you to die.",
+    "description": "Since the start of the Cataclysm, something huge and inhuman has been hunting you relentlessly.  You can try to fight it, but it just keeps coming -- no matter how far or fast you run, it always finds you again.  The only way this ends is if one of you dies.",
     "allowed_locs": [
       "sloc_house",
       "sloc_house_boarded",
@@ -72,6 +72,9 @@
     "flags": [
       "CHALLENGE",
       "LONE_START"
+    ],
+    "missions": [
+      "MISSION_KILL_NEMESIS"
     ]
   },
   {

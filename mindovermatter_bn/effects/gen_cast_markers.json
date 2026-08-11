@@ -2339,20 +2339,6 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_biokin_flexibility_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_biokin_adrenaline_knack",
     "name": [
       ""
@@ -2396,20 +2382,6 @@
   {
     "type": "effect_type",
     "id": "mom_cast_clair_examine_item_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_clair_astral_projection_knack",
     "name": [
       ""
     ],
@@ -2871,49 +2843,7 @@
   },
   {
     "type": "effect_type",
-    "id": "mom_cast_vita_concentrated_healing_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_vita_remove_poison_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_vita_cure_disease_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_vita_banish_illness_knack",
     "name": [
       ""
     ],

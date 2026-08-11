@@ -4,8 +4,8 @@
     "id": "crystalline_potions",
     "nested_name": "crystalline elixirs",
     "description": "Recipes for mixing refined matrix crystal into water.",
-    "category": "CC_PSIONIC",
     "subcategory": "CSC_PSIONIC_MEDICAL",
+    "category": "CC_PSIONIC",
     "nested_category_data": [
       "matrix_crystal_biokin_dust_potion",
       "matrix_crystal_clair_dust_potion",
@@ -22,8 +22,8 @@
     "id": "irradiated_food",
     "nested_name": "irradiated food",
     "description": "Recipes for irradiating food through photokinesis.",
-    "category": "CC_PSIONIC",
     "subcategory": "CSC_PSIONIC_FOOD",
+    "category": "CC_PSIONIC",
     "nested_category_data": [
       "irradiated_rose_hips",
       "irradiated_elderberries",

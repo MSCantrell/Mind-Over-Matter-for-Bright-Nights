@@ -1,74 +1,6 @@
 [
   {
     "type": "SPELL",
-    "name": "[\u03a8]Flexibility",
-    "description": "You can make your limbs move far beyond the normal human range of motion, allowing you to twist out of others' grasp and reduce fall damage.",
-    "message": "You body begins twisting in unbelievable ways.",
-    "valid_targets": [
-      "self"
-    ],
-    "spell_class": "PSYCHIC_KNACK",
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "RANDOM_DURATION",
-      "NO_EXPLOSION_VFX"
-    ],
-    "difficulty": 2,
-    "max_level": 15,
-    "effect": "target_attack",
-    "effect_str": "effect_biokin_flexibility",
-    "base_energy_cost": 2500,
-    "final_energy_cost": 1250,
-    "energy_increment": -175,
-    "min_duration": 200,
-    "max_duration": 500,
-    "base_casting_time": 50,
-    "final_casting_time": 15,
-    "casting_time_increment": -2.5,
-    "id": "biokin_flexibility_knack",
-    "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_biokin_flexibility_knack",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for biokin_flexibility_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_biokin_flexibility_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "biokin_flexibility_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_biokin_flexibility_knack",
-    "min_duration": 100,
-    "max_duration": 100
-  },
-  {
-    "type": "SPELL",
     "name": "[\u03a8]Adrenaline Trigger",
     "description": "With a moment of concentration, you can trigger a surge of adrenaline.  This provides a speed boost, albeit at a draining cost when the boost expires.",
     "message": "Your heartbeat surges as your body floods with adrenaline.",
@@ -186,36 +118,6 @@
     "base_energy_cost": 5000,
     "base_casting_time": 30000,
     "id": "clair_examine_item_knack",
-    "min_duration": 100,
-    "max_duration": 100,
-    "energy_source": "STAMINA",
-    "scale_int": true
-  },
-  {
-    "type": "SPELL",
-    "name": "[\u03a8]Astral Projection",
-    "description": "After a short period of concentration and meditation, cast your spirit forth from your body, wandering the world disembodied.  You will move at the speed of thought but cannot use further powers or interact with the world while your spirit is wandering.  Follow your silver cord to return back to your body.",
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "spell_class": "PSYCHIC_KNACK",
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "difficulty": 4,
-    "max_level": 15,
-    "effect": "target_attack",
-    "effect_str": "mom_cast_clair_astral_projection_knack",
-    "base_energy_cost": 5000,
-    "final_energy_cost": 2000,
-    "energy_increment": -125,
-    "base_casting_time": 6000,
-    "id": "clair_astral_projection_knack",
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
@@ -1649,38 +1551,6 @@
   },
   {
     "type": "SPELL",
-    "name": "[\u03a8]Leukocyte Accumulation (C)",
-    "description": "By rerouting blood and stem cells from more lightly damaged areas, you can speed the healing of your most grievous wounds at the cost of lessened healing elsewhere.  You may also use this to control an asthma attack.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  Leucocyte Acculumation <color_red>cannot be active</color> with Healthy Glow",
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "spell_class": "PSYCHIC_KNACK",
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "difficulty": 1,
-    "max_level": 15,
-    "effect": "target_attack",
-    "effect_str": "mom_cast_vita_concentrated_healing_knack",
-    "min_duration": 100,
-    "max_duration": 100,
-    "base_energy_cost": 3500,
-    "base_casting_time": 250,
-    "id": "vita_concentrated_healing_knack",
-    "energy_increment": -80.0,
-    "final_energy_cost": 2300,
-    "casting_time_increment": -9.5,
-    "final_casting_time": 108,
-    "energy_source": "STAMINA",
-    "scale_int": true
-  },
-  {
-    "type": "SPELL",
     "name": "[\u03a8]Detoxification",
     "description": "When poisoned, you can isolate the poison and move it to your sweat glands where you will harmlessly sweat it out.  While doing so, your flesh will be toxic to any creatures that take a bite.",
     "message": "",
@@ -1708,66 +1578,6 @@
     "final_casting_time": 25,
     "casting_time_increment": -5,
     "id": "vita_remove_poison_knack",
-    "energy_source": "STAMINA",
-    "scale_int": true
-  },
-  {
-    "type": "SPELL",
-    "name": "[\u03a8]Immunostimulus (C)",
-    "description": "Kick your immune system into overdrive in order to overcome any illnesses you may be suffering from.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "spell_class": "PSYCHIC_KNACK",
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "difficulty": 2,
-    "max_level": 15,
-    "effect": "target_attack",
-    "effect_str": "mom_cast_vita_cure_disease_knack",
-    "min_duration": 100,
-    "max_duration": 100,
-    "base_energy_cost": 5500,
-    "base_casting_time": 500,
-    "id": "vita_cure_disease_knack",
-    "energy_increment": -125.0,
-    "final_energy_cost": 3625,
-    "casting_time_increment": -18.0,
-    "final_casting_time": 230,
-    "energy_source": "STAMINA",
-    "scale_int": true
-  },
-  {
-    "type": "SPELL",
-    "name": "[\u03a8]Banish Illness",
-    "description": "Enter a deep meditative trance and purge your body of illness, even serious ones like cancer or multiple sclerosis.  It will not cure mutation.  Some illnesses are more difficult to successfully eradicate than others.",
-    "message": "You attempt to cure your afflictions.",
-    "valid_targets": [
-      "self"
-    ],
-    "spell_class": "PSYCHIC_KNACK",
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "difficulty": 4,
-    "max_level": 15,
-    "effect": "target_attack",
-    "effect_str": "mom_cast_vita_banish_illness_knack",
-    "base_energy_cost": 10000,
-    "base_casting_time": 500,
-    "id": "vita_banish_illness_knack",
-    "min_duration": 100,
-    "max_duration": 100,
     "energy_source": "STAMINA",
     "scale_int": true
   }

@@ -4,15 +4,13 @@
     "id": "psychic_knack_practice",
     "nested_name": "contemplation: knacks",
     "description": "Recipes related to practicing psychic knacks.",
-    "category": "CC_PRACTICE",
     "subcategory": "CSC_PRACTICE_METAPHYSICS",
+    "category": "CC_PRACTICE",
     "nested_category_data": [
-      "practice_biokin_flexibility_knack",
       "practice_biokin_adrenaline_knack",
       "practice_clair_better_senses_knack",
       "practice_clair_danger_sense_knack",
       "practice_clair_examine_item_knack",
-      "practice_clair_astral_projection_knack",
       "practice_electrokinetic_see_electric_knack",
       "practice_electrokinetic_pain_immune_knack",
       "practice_electrokinetic_hacking_interface_knack",
@@ -41,32 +39,8 @@
       "practice_telepathic_invisibility_knack",
       "practice_telepathic_blast_radius_knack",
       "practice_vita_health_power_knack",
-      "practice_vita_concentrated_healing_knack",
-      "practice_vita_remove_poison_knack",
-      "practice_vita_cure_disease_knack",
-      "practice_vita_banish_illness_knack"
+      "practice_vita_remove_poison_knack"
     ]
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "biokin_flexibility_knack",
-    "nested_name": "contemplation: flexibility",
-    "description": "Contemplate your powers and improve your ability to move your body.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:biokin_flexibility_knack>",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "time": "0 s",
-    "category": "CC_*"
   },
   {
     "type": "recipe",
@@ -74,6 +48,7 @@
     "id_suffix": "biokin_adrenaline_knack",
     "nested_name": "contemplation: adrenaline trigger",
     "description": "Contemplate your powers and improve your ability to trigger a burst of adrenaline on command.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:biokin_adrenaline_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -82,12 +57,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -95,6 +69,7 @@
     "id_suffix": "clair_better_senses_knack",
     "nested_name": "contemplation: heightened senses",
     "description": "Contemplate your powers and improve your ability to enhance your mundane senses.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:clair_better_senses_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -103,12 +78,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -116,6 +90,7 @@
     "id_suffix": "clair_danger_sense_knack",
     "nested_name": "contemplation: premonition",
     "description": "Contemplate your powers and improve your sense of nearby danger.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:clair_danger_sense_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -124,12 +99,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -137,6 +111,7 @@
     "id_suffix": "clair_examine_item_knack",
     "nested_name": "contemplation: psychometry",
     "description": "Contemplate your powers and improve your ability to determine hidden aspects of items.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:clair_examine_item_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -145,33 +120,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "clair_astral_projection_knack",
-    "nested_name": "contemplation: astral projection",
-    "description": "Contemplate your powers and improve your ability to cast your spirit forth from your body.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:clair_astral_projection_knack>",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false,
+    "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "time": "0 s",
-    "category": "CC_*"
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -179,6 +132,7 @@
     "id_suffix": "electrokinetic_see_electric_knack",
     "nested_name": "contemplation: spark sight",
     "description": "Contemplate your powers and improve your ability to detect electrical creatures or robots.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:electrokinetic_see_electric_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -187,12 +141,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -200,6 +153,7 @@
     "id_suffix": "electrokinetic_pain_immune_knack",
     "nested_name": "contemplation: analgesic block",
     "description": "Contemplate your powers and improve your ability to put off the effects of pain completely until later.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:electrokinetic_pain_immune_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -208,12 +162,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -221,6 +174,7 @@
     "id_suffix": "electrokinetic_hacking_interface_knack",
     "nested_name": "contemplation: hacking interface",
     "description": "Contemplate your powers and improve your ability to hack nearby devices with your powers.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:electrokinetic_hacking_interface_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -229,12 +183,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -242,6 +195,7 @@
     "id_suffix": "photokinetic_camouflage_knack",
     "nested_name": "contemplation: chameleoflage",
     "description": "Contemplate your powers and improve your ability to hide your presence from distant observers.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:photokinetic_camouflage_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -250,12 +204,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -263,6 +216,7 @@
     "id_suffix": "photokinetic_hide_ugly_knack",
     "nested_name": "contemplation: mirror-mask",
     "description": "Contemplate your powers and improve your ability to disguise your appearance behind an illusion.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:photokinetic_hide_ugly_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -271,12 +225,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -284,6 +237,7 @@
     "id_suffix": "photokinetic_radio_knack",
     "nested_name": "contemplation: radio transception",
     "description": "Contemplate your powers and improve your ability to see, interpret, and transmit radio waves.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:photokinetic_radio_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -292,12 +246,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -305,6 +258,7 @@
     "id_suffix": "pyrokinetic_flash_knack",
     "nested_name": "contemplation: brilliant flash",
     "description": "Contemplate your powers and improve your ability to create light.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:pyrokinetic_flash_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -313,12 +267,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -326,6 +279,7 @@
     "id_suffix": "pyrokinetic_intensify_flames_knack",
     "nested_name": "contemplation: intensify flames",
     "description": "Contemplate your powers and improve your ability increase the strength of existing flames.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:pyrokinetic_intensify_flames_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -334,12 +288,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -347,6 +300,7 @@
     "id_suffix": "pyrokinetic_eruption_knack",
     "nested_name": "contemplation: fountain of flames",
     "description": "Contemplate your powers and improve your ability to summon flames.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:pyrokinetic_eruption_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -355,12 +309,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -368,6 +321,7 @@
     "id_suffix": "pyrokinetic_call_flames_knack",
     "nested_name": "contemplation: banked flames",
     "description": "Contemplate your powers and improve your ability to summon a controlled flame.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:pyrokinetic_call_flames_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -376,12 +330,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -389,6 +342,7 @@
     "id_suffix": "pyrokinetic_cloak_knack",
     "nested_name": "contemplation: cloak of warmth",
     "description": "Contemplate your powers and improve your control of nearby temperatures.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:pyrokinetic_cloak_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -397,12 +351,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -410,6 +363,7 @@
     "id_suffix": "pyrokinetic_flamethrower_knack",
     "nested_name": "contemplation: flamethrower",
     "description": "Contemplate your powers and improve your ability to direct a spray of flame.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:pyrokinetic_flamethrower_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -418,12 +372,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -431,6 +384,7 @@
     "id_suffix": "pyrokinetic_aura_knack",
     "nested_name": "contemplation: blazing aura",
     "description": "Contemplate your powers and improve your ability to heat the surrounding air to dangerous temperatures.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:pyrokinetic_aura_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -439,12 +393,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -452,6 +405,7 @@
     "id_suffix": "pyrokinetic_blast_knack",
     "nested_name": "contemplation: conflagration",
     "description": "Contemplate your powers and improve your manifestation of explosions.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:pyrokinetic_blast_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -460,12 +414,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -473,6 +426,7 @@
     "id_suffix": "telekinetic_pull_knack",
     "nested_name": "contemplation: far hand",
     "description": "Contemplate your powers and improve your manipulation of non-living matter.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:telekinetic_pull_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -481,12 +435,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -494,6 +447,7 @@
     "id_suffix": "telekinetic_push_knack",
     "nested_name": "contemplation: force shove",
     "description": "Contemplate your powers and improve your manipulation of living beings.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:telekinetic_push_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -502,12 +456,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -515,6 +468,7 @@
     "id_suffix": "telekinetic_slam_down_knack",
     "nested_name": "contemplation: knockdown",
     "description": "Contemplate your powers and improve your ability to knock your targets over.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:telekinetic_slam_down_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -523,12 +477,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -536,6 +489,7 @@
     "id_suffix": "telekinetic_wave_knack",
     "nested_name": "contemplation: wave of force",
     "description": "Contemplate your powers and develop your ability to control bursts of telekinetic force.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telekinetic_wave_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -544,12 +498,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -557,6 +510,7 @@
     "id_suffix": "telekinetic_shield_knack",
     "nested_name": "contemplation: inertial barrier",
     "description": "Contemplate your powers and improve your creation of force barriers.\n\nCurrent Power Level: <u_spell_level:telekinetic_shield_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -565,12 +519,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -578,6 +531,7 @@
     "id_suffix": "telepathic_shield_knack",
     "nested_name": "contemplation: telepathic shield",
     "description": "Contemplate your powers and improve the resilience of your mind.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:telepathic_shield_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -586,12 +540,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -599,6 +552,7 @@
     "id_suffix": "telepathic_mind_sense_knack",
     "nested_name": "contemplation: mind sense",
     "description": "Contemplate your powers and improve your ability to detect other minds.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:telepathic_mind_sense_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -607,12 +561,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -620,6 +573,7 @@
     "id_suffix": "telepathic_morale_knack",
     "nested_name": "contemplation: mood stabilization",
     "description": "Contemplate your powers and improve your ability to detect other minds.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telepathic_morale_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -628,12 +582,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -641,6 +594,7 @@
     "id_suffix": "telepathic_blast_knack",
     "nested_name": "contemplation: synaptic overload",
     "description": "Contemplate your powers and improve your mental strength to telepathically assault your enemies.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telepathic_blast_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -649,12 +603,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -662,6 +615,7 @@
     "id_suffix": "telepathic_mesmerize_knack",
     "nested_name": "contemplation: mesmerize",
     "description": "Contemplate your powers and improve your ability to place your opponents into a trance.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telepathic_mesmerize_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -670,12 +624,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -683,6 +636,7 @@
     "id_suffix": "telepathic_animal_mind_control_knack",
     "nested_name": "contemplation: beastmaster",
     "description": "Contemplate your powers and improve your ability to overpower the minds of animals.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telepathic_animal_mind_control_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -691,12 +645,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -704,6 +657,7 @@
     "id_suffix": "telepathic_invisibility_knack",
     "nested_name": "contemplation: obscurity",
     "description": "Contemplate your powers and improve your ability to make your enemies ignore you.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:telepathic_invisibility_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -712,12 +666,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -725,6 +678,7 @@
     "id_suffix": "telepathic_blast_radius_knack",
     "nested_name": "contemplation: psychic scream",
     "description": "Contemplate your powers and improve the volume of your undirected psionic shrieking.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:telepathic_blast_radius_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -733,12 +687,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
+    "category": "CC_*",
+    "subcategory": "CSC_*_NESTED",
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -746,6 +699,7 @@
     "id_suffix": "vita_health_power_knack",
     "nested_name": "contemplation: healthy glow",
     "description": "Contemplate your powers and improve your ability to enhance your overall health.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:vita_health_power_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -754,33 +708,11 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_concentrated_healing_knack",
-    "nested_name": "contemplation: leukocyte accumulation",
-    "description": "Contemplate your powers and improve your ability to direct your body's healing ability to where it is most needed.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:vita_concentrated_healing_knack>",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false,
+    "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "time": "0 s",
-    "category": "CC_*"
+    "autolearn": false
   },
   {
     "type": "recipe",
@@ -788,6 +720,7 @@
     "id_suffix": "vita_remove_poison_knack",
     "nested_name": "contemplation: detoxification",
     "description": "Contemplate your powers and improve your ability to sweat out any dangerous toxins.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:vita_remove_poison_knack>",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -796,53 +729,10 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
     "difficulty": 0,
     "time": "0 s",
-    "category": "CC_*"
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_cure_disease_knack",
-    "nested_name": "contemplation: immunostimulus",
-    "description": "Contemplate your powers and develop your ability to cure mundane illnesses in yourself.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:vita_cure_disease_knack>",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false,
+    "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "time": "0 s",
-    "category": "CC_*"
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "vita_banish_illness_knack",
-    "nested_name": "contemplation: banish illness",
-    "description": "Contemplate your powers and improve your ability to cure permanent or long-term conditions.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:vita_banish_illness_knack>",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "autolearn": false,
-    "subcategory": "CSC_*_NESTED",
-    "skill_used": "metaphysics",
-    "difficulty": 0,
-    "time": "0 s",
-    "category": "CC_*"
+    "autolearn": false
   }
 ]

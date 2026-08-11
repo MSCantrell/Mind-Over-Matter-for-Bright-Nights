@@ -56,10 +56,6 @@
         "level": 15
       },
       {
-        "id": "biokin_flexibility_knack",
-        "level": 15
-      },
-      {
         "id": "biokin_hammerhand",
         "level": 15
       },
@@ -97,10 +93,6 @@
       },
       {
         "id": "biokin_sealed_system",
-        "level": 15
-      },
-      {
-        "id": "clair_astral_projection_knack",
         "level": 15
       },
       {
@@ -714,18 +706,6 @@
       {
         "id": "teleport_warper_combat_warp_chance_attacker",
         "level": 0
-      },
-      {
-        "id": "vita_banish_illness_knack",
-        "level": 15
-      },
-      {
-        "id": "vita_concentrated_healing_knack",
-        "level": 15
-      },
-      {
-        "id": "vita_cure_disease_knack",
-        "level": 15
       },
       {
         "id": "vita_health_power",

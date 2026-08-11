@@ -5,27 +5,27 @@
     "id_suffix": "recipe_mental_engineering",
     "nested_name": "enact the PATIENT MOSAIC process",
     "description": "With the help of a telepathic focusing tool and your (hopefully) extensive telepathic powers, you can sink into a deep trance where you can only sense yourself, allowing you to permanently adjust your mental state and view of the outside world.  Will the end result still be you?",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_EASY"
     ],
-    "subcategory": "CSC_PSIONIC_RITUALS",
-    "skill_used": "metaphysics",
     "difficulty": 9,
-    "time": "0 h",
-    "category": "CC_PSIONIC",
-    "book_learn": [
-      [
-        "phavian_psionic_telepathic_mental_engineering_book",
-        8
-      ]
-    ],
     "tools": [
       [
         [
           "telepathic_focusing_tool",
           -1
         ]
+      ]
+    ],
+    "time": "0 h",
+    "category": "CC_PSIONIC",
+    "subcategory": "CSC_PSIONIC_RITUALS",
+    "book_learn": [
+      [
+        "phavian_psionic_telepathic_mental_engineering_book",
+        8
       ]
     ]
   },
@@ -35,15 +35,15 @@
     "id_suffix": "learn_psionic_combat",
     "nested_name": "study VERDANT HAND combat protocols",
     "description": "Study and attempt to internalize the practices in the VERDANT HAND Combat Protocol training manual.  There's a lot in there; it may take you more than one attempt to understand it.",
+    "skill_used": "unarmed",
     "flags": [
       "SECRET",
       "BLIND_HARD"
     ],
-    "subcategory": "CSC_PSIONIC_RITUALS",
-    "skill_used": "unarmed",
     "difficulty": 5,
     "time": "5 h",
     "category": "CC_PSIONIC",
+    "subcategory": "CSC_PSIONIC_RITUALS",
     "book_learn": [
       [
         "phavian_psionic_martial_power_book",
@@ -57,15 +57,15 @@
     "id_suffix": "learn_psionic_teleportation_warp_combat",
     "nested_name": "study Proposal: TURQUOISE KEYSTONE",
     "description": "Study and attempt to internalize the practices in the Proposal: TURQUOISE KEYSTONE document.  This seems extremely complex and demanding; it may take you more than one attempt to understand it.",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_HARD"
     ],
-    "subcategory": "CSC_PSIONIC_RITUALS",
-    "skill_used": "metaphysics",
     "difficulty": 8,
     "time": "8 h",
     "category": "CC_PSIONIC",
+    "subcategory": "CSC_PSIONIC_RITUALS",
     "book_learn": [
       [
         "phavian_psionic_teleportation_combat_book",
@@ -79,15 +79,15 @@
     "id_suffix": "learn_psionic_mutation_control_power",
     "nested_name": "study Progress Report: EMERALD VANGUARD",
     "description": "Study and attempt to internalize the practices in the EMERALD VANGUARD progress report.  This seems extremely complex and demanding; it may take you more than one attempt to understand it.",
+    "skill_used": "metaphysics",
     "flags": [
       "SECRET",
       "BLIND_HARD"
     ],
-    "subcategory": "CSC_PSIONIC_RITUALS",
-    "skill_used": "metaphysics",
     "difficulty": 8,
     "time": "8 h",
     "category": "CC_PSIONIC",
+    "subcategory": "CSC_PSIONIC_RITUALS",
     "book_learn": [
       [
         "phavian_psionic_control_mutations_book",

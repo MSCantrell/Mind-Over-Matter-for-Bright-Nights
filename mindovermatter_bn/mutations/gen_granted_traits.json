@@ -31,17 +31,7 @@
   },
   {
     "type": "mutation_flag",
-    "id": "MEND_ALL",
-    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
-  },
-  {
-    "type": "mutation_flag",
     "id": "NUMB",
-    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
-  },
-  {
-    "type": "mutation_flag",
-    "id": "SEESLEEP",
     "//": "DDA trait flag; marker only in BN (mechanics not ported)"
   },
   {
@@ -62,7 +52,7 @@
   {
     "type": "mutation_flag",
     "id": "TELESTOP",
-    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+    "//": "MoM trait flag (mechanics ported)"
   },
   {
     "type": "mutation",
@@ -105,7 +95,7 @@
       "SOCIAL2"
     ],
     "points": 1,
-    "starting_trait": true,
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
     "flags": [
       "ASOCIAL1"
     ]
@@ -123,7 +113,7 @@
     ],
     "points": 1,
     "mixed_effect": true,
-    "starting_trait": true,
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
     "flags": [
       "ASOCIAL2"
     ]
@@ -288,6 +278,8 @@
     "description": "You were born in the \u0112xc\u0101n Tlaht\u014dl\u014dy\u0101n, maybe on Tlalticpactli, perhaps even in An\u00e1huac, or maybe on one of the colony worlds like Demeter or Yathrib or T\u00e0i Su\u00ec.  You enlisted in the Imperial Navy for your own reasons.  Perhaps you are a scion of the Huey Calpulli following in your ancestors' footsteps, or perhaps you are one of the m\u0101c\u0113hualtin seeking the social benefits of a completed tour of military service.  Regardless, now you are here, in the ashes of a dying world, and have to find a way to survive.",
     "valid": false,
     "purifiable": false,
+    "//": "Profession ~= to a marker trait like this",
+    "profession": true,
     "flags": [
       "HERITAGE"
     ]
@@ -301,7 +293,7 @@
     "description": "You have a hard time remembering things.  Your skills will erode slightly faster than usual, and you have trouble keeping your story straight when lying.",
     "points": 0,
     "mixed_effect": true,
-    "starting_trait": true
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes"
   },
   {
     "type": "mutation",
@@ -315,7 +307,7 @@
     ],
     "points": 0,
     "mixed_effect": true,
-    "starting_trait": true,
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
     "valid": false
   },
   {
@@ -421,11 +413,7 @@
     },
     "points": 1,
     "description": "Your powers passively filter the amount of photons your eyes receive, and amplify what little light there is -- you see well even in near-total darkness.",
-    "flags": [
-      "FLASH_PROTECTION",
-      "SEESLEEP",
-      "GLARE_RESIST"
-    ],
+    "mut_enchantments": [ { "flags": [ "SLEEP_SIGHT", "ANTIGLARE" ], "values": [ { "value": "FLASH_PROTECTION", "max": 6 } ] } ],
     "player_display": true,
     "valid": false,
     "purifiable": false,
@@ -442,7 +430,7 @@
       "GOURMAND"
     ],
     "points": -1,
-    "starting_trait": true
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes"
   },
   {
     "type": "mutation",
@@ -685,7 +673,7 @@
     },
     "description": "You tend to have bouts of depression during the fall and especially winter.  Taking antidepressants can help.",
     "points": -1,
-    "starting_trait": true
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes"
   },
   {
     "type": "mutation",
@@ -702,7 +690,7 @@
       "ASOCIAL2"
     ],
     "points": 1,
-    "starting_trait": true,
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
     "flags": [
       "SOCIAL1"
     ]
@@ -720,7 +708,7 @@
     ],
     "points": 1,
     "mixed_effect": true,
-    "starting_trait": true,
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
     "flags": [
       "SOCIAL2"
     ]
@@ -733,7 +721,7 @@
     },
     "description": "You can't even think about putting filthy clothes on yourself, especially from zombies' corpses.",
     "points": -1,
-    "starting_trait": true
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes"
   },
   {
     "type": "mutation",
@@ -751,7 +739,7 @@
       "CANNIBAL"
     ],
     "points": 1,
-    "starting_trait": true,
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
     "valid": false,
     "flags": [
       "STRICT_HUMANITARIAN"
@@ -765,7 +753,7 @@
     },
     "description": "You've been taught proper table manners from your early childhood on; now, you can't even think about eating without being seated at a table and taking your time.  Eating without a table and chair frustrates you, but eating like a civilized person gives you a bigger morale bonus.",
     "points": -1,
-    "starting_trait": true,
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
     "valid": false
   },
   {
@@ -1198,7 +1186,7 @@
       "LIAR"
     ],
     "points": -1,
-    "starting_trait": true
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes"
   },
   {
     "type": "mutation",
@@ -1226,7 +1214,7 @@
       "VEGETARIAN"
     ],
     "points": -4,
-    "starting_trait": true,
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
     "valid": false
   },
   {
@@ -1282,8 +1270,7 @@
     "valid": false,
     "player_display": true,
     "purifiable": false,
-    "flags": [
-      "MEND_ALL"
-    ]
+    "//": "NOTE: DDA flag MEND_ALL makes splints no longer needed, MENDING_MULT of 1 is equal to that, while still allowing mutations to bring it down lower.",
+    "mut_enchantments": [ { "values": [ { "value": "MENDING_MULT", "add": 1 } ] } ]
   }
 ]

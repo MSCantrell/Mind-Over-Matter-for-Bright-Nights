@@ -275,43 +275,5 @@
         "prob": 1
       }
     ]
-  },
-  {
-    "type": "item_group",
-    "id": "vitakinetic_crystal_awakening_artifact_procgen",
-    "subtype": "distribution",
-    "entries": [
-      {
-        "group": "vitakinetic_crystal_awakening_artifact_item",
-        "prob": 100
-      },
-      {
-        "group": "vitakinetic_crystal_awakening_artifact_item",
-        "prob": 10
-      },
-      {
-        "group": "vitakinetic_crystal_awakening_artifact_item",
-        "prob": 1
-      }
-    ]
-  },
-  {
-    "type": "item_group",
-    "id": "vitakinetic_crystal_artifact_procgen",
-    "subtype": "distribution",
-    "entries": [
-      {
-        "group": "vitakinetic_crystal_artifact_item",
-        "prob": 100
-      },
-      {
-        "group": "vitakinetic_crystal_artifact_item",
-        "prob": 10
-      },
-      {
-        "group": "vitakinetic_crystal_artifact_item",
-        "prob": 1
-      }
-    ]
   }
 ]

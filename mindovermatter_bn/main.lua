@@ -40,3 +40,19 @@ end)
 local n = 0
 for _ in pairs(mod.eoc) do n = n + 1 end
 gdebug.log_info("MoM-BN: main loaded (" .. n .. " EOC handlers).")
+
+-- Force the Lua GC's first full mark/sweep pass NOW, on the loading screen,
+-- instead of letting it happen organically mid-play.  gen_eoc.lua alone
+-- roots ~1800 live EOC-handler closures plus the cast/learn/carrier maps --
+-- a large live object graph that the collector's first cycle has to walk in
+-- full regardless of incremental pacing.  Measured 2026-08-08: a fresh
+-- character's very first psi cast froze the game (Windows "(Not
+-- Responding)") for ~30s, precisely bracketed in debug.log between two
+-- condition-check warnings in the same EOC chain with nothing logged
+-- between them -- the signature of one big stop-the-world GC pause, not a
+-- logic stall. Every cast after the first was merely slow (~3s), never
+-- freeze-slow again, consistent with "first-ever collection" rather than
+-- anything cast- or spell-specific. Paying that first pass here is
+-- invisible (the loading screen is already multiple seconds); paying it on
+-- the player's first cast isn't.
+collectgarbage("collect")

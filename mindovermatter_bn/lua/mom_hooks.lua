@@ -288,6 +288,9 @@ return function(mod)
       end,
     },
   }
+  -- Pre-resolve each aura's EffectTypeId once instead of on every landed
+  -- blow (perf fix 2026-08-08).
+  for _, aura in ipairs(mod.melee_auras) do aura.eid = EffectTypeId.new(aura.effect) end
 
   function mod.on_melee_attacked(params)
     if not params or not params.success then return end
@@ -309,7 +312,7 @@ return function(mod)
       local foe = hit_me and attacker or victim
       for _, aura in ipairs(mod.melee_auras) do
         local dir_ok = (hit_me and aura.hit_me) or (hit_you and aura.hit_you)
-        if dir_ok and you:has_effect(EffectTypeId.new(aura.effect))
+        if dir_ok and you:has_effect(aura.eid)
            and (aura.once_in <= 1 or gapi.rng(1, aura.once_in) == 1) then
           aura.proc(you, foe, hit_me)
         end
@@ -345,6 +348,7 @@ return function(mod)
   -- Only teleporters ever run the reconcile (gated below); a persisted var lets
   -- everyone else skip it entirely.
   local WARPED_EFFECT = "effect_teleport_warped_strikes"
+  local WARPED_EID = EffectTypeId.new(WARPED_EFFECT)
   local warped_flag_cache = {}
   local function warped_fid(name)
     local f = warped_flag_cache[name]
@@ -376,13 +380,17 @@ return function(mod)
 
   function mod.warped_strikes_maintain(you)
     if not you then return end
-    local active = you:has_effect(EffectTypeId.new(WARPED_EFFECT))
-    -- Fast path: a character who is not a teleporter can never have stamped a
-    -- weapon, and mom_warped_managing tells us whether residue is still out
-    -- there.  Teleporters always reconcile so a weapon dropped-and-recovered
-    -- across the buff's expiry still gets cleaned when it returns to inventory.
-    if not active and V.uget(you, "mom_warped_managing") ~= 1
-       and not you:has_trait(MutationBranchId.new("TELEPORTER")) then
+    local active = you:has_effect(WARPED_EID)
+    -- Fast path: skip the inventory scan unless the buff is up or
+    -- mom_warped_managing says a previous tick left residue to clean up.
+    -- mom_warped_managing is set to 1 on every tick that stamps or finds a
+    -- managed item and 0 otherwise (see the end of this function), so it
+    -- already fully answers "might a weapon still carry our flags" -- a
+    -- second check against the TELEPORTER trait added nothing but forced
+    -- EVERY teleporter to pay a full all_items() scan on EVERY turn forever,
+    -- even one who has never cast this power (perf fix 2026-08-08; this was
+    -- the single biggest per-tick cost for teleporters specifically).
+    if not active and V.uget(you, "mom_warped_managing") ~= 1 then
       return
     end
     local want
@@ -528,6 +536,11 @@ return function(mod)
   -- maintained powers, and effect_monster_telekinetic_aegis is a monster effect.
   -- Emptying a spellbook for any of those would be a much larger behaviour
   -- change than the nullifier fields this was built for.
+  -- Pre-resolve once: nullify_active runs from nullification_poll on EVERY
+  -- turn for EVERY character (not just psions), so these three must not be
+  -- reconstructed per call (perf fix 2026-08-08).
+  local NULLIFY_EIDS = {}
+  for _, id in ipairs(NULLIFY_EFFECTS) do NULLIFY_EIDS[#NULLIFY_EIDS + 1] = EffectTypeId.new(id) end
   local STASH_KEY = "mom_nullified_powers"
   local GRACE_KEY = "mom_nullified_grace"
   -- Turns of UNINTERRUPTED non-nullification required before handing the powers
@@ -548,8 +561,8 @@ return function(mod)
   local SPELL_ACTIVITIES = { ACT_SPELLCASTING = true, ACT_STUDY_SPELL = true }
 
   local function nullify_active(you)
-    for _, id in ipairs(NULLIFY_EFFECTS) do
-      if you:has_effect(EffectTypeId.new(id)) then return true end
+    for _, eid in ipairs(NULLIFY_EIDS) do
+      if you:has_effect(eid) then return true end
     end
     return false
   end
@@ -566,12 +579,18 @@ return function(mod)
 
   function mod.nullification_poll(you)
     if not you or not you.get_magic then return end
+    local stash = you:get_value(STASH_KEY) or ""
+    local active = nullify_active(you)
+    -- Cheap gate first (perf fix 2026-08-09): get_magic() used to run for
+    -- EVERY character on EVERY turn, even mundane ones who were never
+    -- nullified and have nothing stashed.  Only fetch the spellbook once
+    -- there's actually work to do.
+    if not active and stash == "" then return end
     local km = you:get_magic()
     if not km then return end
     local powers = mod.psi_powers or {}
-    local stash = you:get_value(STASH_KEY) or ""
 
-    if nullify_active(you) then
+    if active then
       -- Sweep every turn, not just on the first: a power learned WHILE nullified
       -- would otherwise stay castable until the effect ended.  After the first
       -- sweep there is normally nothing left to find, so this costs one
@@ -601,9 +620,9 @@ return function(mod)
       return
     end
 
-    if stash == "" then return end
-
     -- Not nullified, but wait out the grace window before believing it.
+    -- (stash is guaranteed non-empty here: the gate above already returned
+    -- for the not-active-and-no-stash case.)
     local grace = tonumber(you:get_value(GRACE_KEY) or "0") or 0
     if grace < GRACE_TURNS then
       you:set_value(GRACE_KEY, tostring(grace + 1))
@@ -1001,6 +1020,21 @@ return function(mod)
       mod.recurring[id] = nil
     end
   end
+
+  -- Dead recurring EOCs (perf fix 2026-08-09): upstream's crafting-proficiency
+  -- auto-grant EOCs (min_turns=max_turns=1, so every tick for every character)
+  -- had their body's actual write dropped during Phase 4 porting (BN has no
+  -- proficiency system) but kept a real has_trait/has_any_trait/nested-EOC
+  -- condition check upstream of that now-empty write.  They've been pure-cost
+  -- no-ops ever since; strip the scheduler entries so the condition never runs.
+  local DEAD_RECURRING = {
+    EOC_MOM_GAME_ONGOING_GRANT_BIOKINETIC_CRAFTING_PROFICIENCY = true,
+    EOC_MOM_GAME_ONGOING_GRANT_CRAFTING_PROFICIENICES = true,
+    EOC_MOM_GAME_ONGOING_GRANT_PYROKINETIC_CRAFTING_PROFICIENCY = true,
+    EOC_MOM_GAME_ONGOING_GRANT_TELEPORTATION_CRAFTING_PROFICIENCY = true,
+    EOC_MOM_GAME_ONGOING_GRANT_VITAKINETIC_CRAFTING_PROFICIENCY = true,
+  }
+  for id in pairs(DEAD_RECURRING) do mod.recurring[id] = nil end
 
   local AUTOLEARN_POLL = 1000  -- nominal turns between polls (~17 game-minutes)
 

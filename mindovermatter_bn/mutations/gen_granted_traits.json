@@ -11,6 +11,21 @@
   },
   {
     "type": "mutation_flag",
+    "id": "ATTUNEMENT",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
+    "id": "FLASH_PROTECTION",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
+    "id": "GLARE_RESIST",
+    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
+  },
+  {
+    "type": "mutation_flag",
     "id": "HERITAGE",
     "//": "DDA trait flag; marker only in BN (mechanics not ported)"
   },
@@ -1213,6 +1228,36 @@
     "starting_trait": false,
     "valid": false,
     "purifiable": false
+  },
+  {
+    "type": "mutation",
+    "id": "VITAKINETIC",
+    "name": "Awakened Vitakinetic",
+    "points": 0,
+    "description": "Mental control over health and vitality.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "cancels": [
+      "PSYCHIC_KNACK"
+    ],
+    "flags": [
+      "ATTUNEMENT"
+    ],
+    "spells_learned": [
+      [
+        "vita_health_power",
+        2
+      ],
+      [
+        "classless_toggleable_concentration_end",
+        1
+      ],
+      [
+        "classless_specific_concentration_end",
+        1
+      ]
+    ]
   },
   {
     "type": "mutation",

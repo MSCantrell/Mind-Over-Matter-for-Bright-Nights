@@ -415,10 +415,11 @@ return function(mod)
   -- the cost as an attunement tick while ANY elixir is active.  At +1..2 vs the
   -- decay's -1 per 5 min, the meter climbs the entire time you're dosed, so leaning
   -- on elixirs pushes you toward Nether Attunement backlash — the intended tradeoff.
+  local NETHER_BOOST_EID = EffectTypeId.new("effect_matrix_potion_nether_boost")
   mod.recurring["mom_potion_nether_boost"] = {
     min_turns = 300, max_turns = 300,
     fn = function(you)
-      if you:has_effect(EffectTypeId.new("effect_matrix_potion_nether_boost")) then
+      if you:has_effect(NETHER_BOOST_EID) then
         U.attunement_set(you, m.attunement(you) + U.rng(1, 2))
       end
     end,
@@ -468,6 +469,12 @@ return function(mod)
   local carriers = require("lua/gen_carrier_map")
   mod.carriers = carriers
 
+  -- Pre-resolve each carrier's EffectTypeId once at load instead of on every
+  -- retier-sweep tick (105 entries x fresh EffectTypeId.new() every 30 turns,
+  -- for EVERY character regardless of school -- perf fix 2026-08-08).
+  local carrier_eid = {}
+  for eff in pairs(carriers) do carrier_eid[eff] = EffectTypeId.new(eff) end
+
   local function carrier_level(who, ent)
     if not ent.spell then return 0 end  -- constant effect: single L0 tier
     local lvl = 0
@@ -489,9 +496,21 @@ return function(mod)
     V.uset(who, "_car_" .. eff, nil)
   end
 
+  -- Track which carriers are live on the avatar right now, so the re-tier
+  -- sweep below doesn't have to brute-force all 105 entries every cadence
+  -- (perf fix 2026-08-09).  mod.recurring only ever drives `you` = the
+  -- avatar (mom_hooks.on_every_x), so a single flat set keyed by effect id
+  -- is enough -- no per-character indexing needed.
+  local avatar_carriers = {}
   for eff, ent in pairs(carriers) do
-    mod.effect_added_handlers[eff] = function(who) grant_carrier(who, eff, ent) end
-    mod.effect_removed_handlers[eff] = function(who) remove_carrier(who, eff, ent) end
+    mod.effect_added_handlers[eff] = function(who)
+      grant_carrier(who, eff, ent)
+      if ent.spell and U.is_avatar(who) then avatar_carriers[eff] = true end
+    end
+    mod.effect_removed_handlers[eff] = function(who)
+      remove_carrier(who, eff, ent)
+      if U.is_avatar(who) then avatar_carriers[eff] = nil end
+    end
   end
 
   -- Re-tier sweep: a maintained power can gain levels while active.  Runs on
@@ -501,8 +520,13 @@ return function(mod)
   mod.recurring["_mom_carrier_retier"] = {
     min_turns = 30, max_turns = 30,
     fn = function(you)
-      for eff, ent in pairs(carriers) do
-        if ent.spell and you:has_effect(EffectTypeId.new(eff)) then
+      for eff in pairs(avatar_carriers) do
+        local ent = carriers[eff]
+        -- has_effect stays as a defensive check against tracking/effect
+        -- desync (e.g. an effect cleared through a path that skips our
+        -- removed-handler); cheap now that this only walks active entries
+        -- instead of all 105.
+        if you:has_effect(carrier_eid[eff]) then
           local cur = carrier_level(you, ent)
           local old = V.uget(you, "_car_" .. eff)
           if old == nil or U.round(old) ~= cur then
@@ -510,6 +534,8 @@ return function(mod)
             U.set_mutation(you, ent.prefix .. cur)
             V.uset(you, "_car_" .. eff, cur)
           end
+        else
+          avatar_carriers[eff] = nil
         end
       end
     end,
@@ -529,11 +555,12 @@ return function(mod)
   -- "surges back", matching the effect's remove_message.  Capped at 200, well
   -- under the 240 overdose threshold (character.cpp:5862).  Runs every turn --
   -- painkiller decays each turn, so a coarser sweep would let the mask flicker.
+  local REDUCE_PAIN_EID = EffectTypeId.new("effect_electrokin_reduce_pain")
   mod.recurring["_mom_reduce_pain_mask"] = {
     min_turns = 1, max_turns = 1,
     fn = function(you)
       pcall(function()
-        if not you:has_effect(EffectTypeId.new("effect_electrokin_reduce_pain")) then return end
+        if not you:has_effect(REDUCE_PAIN_EID) then return end
         local pain = you:get_pain()
         if pain <= 0 then return end
         -- upstream: min((level*0.02 + 0.15) * psionic_power_modifiers, 0.5)
@@ -899,6 +926,94 @@ return function(mod)
     if not nether then return false end
     U.die(you)
     return true
+  end
+
+  -- ==========================================================================
+  -- Beastmaster (telepathic_animal_mind_control [+_knack]) / Beast Tamer
+  -- (telepathic_beast_taming), user backlog 2026-08-06.  Upstream is BN-
+  -- native charm_monster gated by targeted_monster_species [MAMMAL, BIRD,
+  -- AMPHIBIAN, REPTILE, FISH] / ignored_monster_species [ZOMBIE, ROBOT,
+  -- ROBOT_FLYING, NETHER, NETHER_EMANATION, LEECH_PLANT, WORM, FUNGUS, SLIME,
+  -- PSI_NULL].  BN's spell engine has no species filter at all (same gap as
+  -- Short Circuit / Abjuration Stone above), so as ported BOTH spells already
+  -- had zero species gate -- they'd already charm a zombie today.  Separately,
+  -- BN's native charm_monster (magic_spell_effect.cpp:1071) never reads
+  -- spell_flag::RECHARM/CHARM_PET at all -- unlike DDA's real version
+  -- (CDDA/src/magic_spell_effect.cpp:1604), it hard-requires friendly==0, so
+  -- Beast Tamer's whole premise ("must already be friendly, this extends it")
+  -- could never fire, for animals either, before today.
+  -- Rerouted through the marker bridge (strip_spell_math.SPELL_REWRITE) to
+  -- fix both: gate on MF_PSIPROOF (this mod's existing, already-verified
+  -- stand-in for the upstream exclusion set -- TEEP_IMMUNE->PSIPROOF, see
+  -- port_monsters -- landing on ZOMBIE/ROBOT/NETHER/plant/slime, the same set
+  -- upstream cared about, and correctly still resisting the handful of
+  -- high-tier feral Telepaths that carry PSIPROOF as their own psi ward) and
+  -- a hand port of DDA's real charm_monster logic, RECHARM/CHARM_PET
+  -- included.  The upstream animal-only species WHITELIST is not rebuilt: BN
+  -- has no mechanism to enforce one, and PSIPROOF already keeps out
+  -- everything upstream excluded for a reason, so nothing that used to be
+  -- blocked on purpose becomes targetable just because ferals now are.
+  -- you = target creature, npc = caster (avatar).
+  -- ==========================================================================
+  local MOM_CHARM_PSIPROOF_FLAG = (MonsterFlag and MonsterFlag.PSIPROOF) or nil
+  local function mom_charm_is_mindless(you)
+    if MOM_CHARM_PSIPROOF_FLAG == nil then return false end
+    local ok, res = pcall(function() return you:has_flag(MOM_CHARM_PSIPROOF_FLAG) end)
+    return ok and res == true
+  end
+  -- Shared charm-attempt logic (DDA magic_spell_effect.cpp:1604, hand port).
+  -- recharm: allow success when already friendly (spell_flag::RECHARM).
+  -- charm_pet: on success, override to permanent friendly=-1 + effect_pet
+  -- (spell_flag::CHARM_PET) -- this is what actually makes Beast Tamer
+  -- permanent; the duration roll below is otherwise moot once it fires.
+  local function mom_charm_attempt(you, caster, min_dmg, max_dmg,
+                                    min_dur, max_dur, recharm, charm_pet)
+    if mom_charm_is_mindless(you) then
+      U.msg(caster, "You reach for " .. you:get_name() ..
+            "'s mind and find nothing there to seize.", MsgType.warning)
+      return false
+    end
+    local friendly = you.friendly or 0
+    if not (friendly == 0 or (friendly ~= 0 and recharm)) then
+      U.msg(caster, "Something about " .. you:get_name() ..
+            " resists your reach.", MsgType.warning)
+      return false
+    end
+    local threshold = U.rng(min_dmg, max_dmg)
+    if you:get_hp() > threshold then
+      U.msg(caster, "The " .. you:get_name() ..
+            " resists your charm attempt.", MsgType.bad)
+      return false
+    end
+    local dur_turns = U.round(U.rng(min_dur, max_dur) / 100)
+    you.friendly = you.friendly + dur_turns
+    if charm_pet and you.friendly ~= -1 then
+      you.friendly = -1
+      U.add_effect(you, 'pet', TimeDuration.from_turns(1), nil, nil)
+    end
+    U.msg(caster, "You charm the " .. you:get_name() .. "!", MsgType.good)
+    return true
+  end
+
+  M.EOC_MOM_BEASTMASTER_CHARM = function(you, npc, ctx)
+    local caster = npc or gapi.get_avatar()
+    local lvl = math.max(m.spell_level(caster, 'telepathic_animal_mind_control'), 0)
+              + math.max(m.spell_level(caster, 'telepathic_animal_mind_control_knack'), 0)
+    local p = ppm(caster)
+    return mom_charm_attempt(you, caster,
+      (lvl * 8 + 40) * p, (lvl * 15 + 200) * p,
+      (lvl * 1125 + 18000) * p, (lvl * 2800 + 47000) * p,
+      false, false)
+  end
+
+  M.EOC_MOM_BEAST_TAMER_CHARM = function(you, npc, ctx)
+    local caster = npc or gapi.get_avatar()
+    local lvl = math.max(m.spell_level(caster, 'telepathic_beast_taming'), 0)
+    local p = ppm(caster)
+    return mom_charm_attempt(you, caster,
+      (lvl * 15 + 200) * p, (lvl * 35 + 500) * p,
+      (lvl * 8640000 + 241920000) * p, (lvl * 25920000 + 483840000) * p,
+      true, true)
   end
 
   -- ==========================================================================

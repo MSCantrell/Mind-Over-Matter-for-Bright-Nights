@@ -166,23 +166,6 @@
   },
   {
     "type": "json_flag",
-    "id": "MATRIX_CRYSTAL_VITAKINESIS",
-    "info": "This is a matrix crystal attuned to vitakinesis.",
-    "//": "MoM-native marker flag identifying a matrix crystal's school for the use-action/EOCs; never ported from MoM json_flags.json.",
-    "context": [
-      "GENERIC",
-      "TOOL",
-      "ARMOR",
-      "TOOL_ARMOR",
-      "COMESTIBLE",
-      "AMMO",
-      "GUN",
-      "GUNMOD",
-      "MAGAZINE"
-    ]
-  },
-  {
-    "type": "json_flag",
     "id": "MATRIX_CRYSTAL_CORUSCATING",
     "info": "This is a matrix crystal with an unclear attunement.",
     "//": "MoM-native marker flag identifying a matrix crystal's school for the use-action/EOCs; never ported from MoM json_flags.json.",

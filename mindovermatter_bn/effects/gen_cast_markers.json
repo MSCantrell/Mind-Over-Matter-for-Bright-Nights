@@ -43,35 +43,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_biokin_flexibility",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "momfin_biokin_dash",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_biokin_change_appearance",
     "name": [
       ""
     ],
@@ -212,34 +184,6 @@
   {
     "type": "effect_type",
     "id": "mom_cast_biokin_metabolism_enhance",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_biokin_vitaminosis",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_biokin_guided_evolution",
     "name": [
       ""
     ],
@@ -1737,6 +1681,20 @@
   },
   {
     "type": "effect_type",
+    "id": "mom_cast_telepathic_animal_mind_control",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "type": "effect_type",
     "id": "momfin_telepathic_animal_mind_control",
     "name": [
       ""
@@ -1808,6 +1766,20 @@
   {
     "type": "effect_type",
     "id": "momfin_telepathic_blast_radius",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_cast_telepathic_beast_taming",
     "name": [
       ""
     ],
@@ -2311,63 +2283,7 @@
   },
   {
     "type": "effect_type",
-    "id": "mom_cast_vita_slow_bleeding",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_vita_stop_bleeding",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_vita_concentrated_healing",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_vita_hurt_touch",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_vita_health_power_ally",
     "name": [
       ""
     ],
@@ -2395,76 +2311,6 @@
   },
   {
     "type": "effect_type",
-    "id": "mom_cast_vita_sleeping_trance",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_vita_cure_disease",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_vita_stop_infection",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_vita_healing_trance",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_vita_attack_touch",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_vita_purge_rads",
     "name": [
       ""
@@ -2479,119 +2325,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_vita_blood_purge",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_vita_no_need_for_sleep",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_vita_blood_purge_no_mutagens",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_vita_banish_illness",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_vita_super_heal",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_vita_limb_restore",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_vita_degenerating_touch",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_vita_degenerating_touch",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_vita_return_from_death",
     "name": [
       ""
     ],
@@ -3054,6 +2788,20 @@
   {
     "type": "effect_type",
     "id": "momfin_telepathic_blast_knack",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_cast_telepathic_animal_mind_control_knack",
     "name": [
       ""
     ],

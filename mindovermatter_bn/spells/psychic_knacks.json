@@ -1385,7 +1385,7 @@
   {
     "type": "SPELL",
     "name": "[\u03a8]Beastmaster",
-    "description": "Take control of an animal's mind, forcing it to obey you.  This power will not work on insects, spiders, or similar beings.",
+    "description": "Take control of an animal's mind, forcing it to obey you.  This power will not work on insects, spiders, or similar beings.  This also works on feral humans.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.",
     "message": "You reach out to the animal's mind and twist.",
     "valid_targets": [
       "hostile"
@@ -1394,19 +1394,14 @@
     "skill": "metaphysics",
     "flags": [
       "SILENT",
-      "RANDOM_DAMAGE",
-      "RANDOM_DURATION",
       "NO_HANDS",
       "NO_LEGS"
     ],
     "difficulty": 2,
     "max_level": 15,
-    "effect": "charm_monster",
-    "damage_type": "PSI",
-    "min_damage": 40,
-    "max_damage": 425,
-    "min_duration": 18000,
-    "max_duration": 89000,
+    "effect": "target_attack",
+    "min_duration": 100,
+    "max_duration": 100,
     "min_range": 3,
     "max_range": 18,
     "base_energy_cost": 4500,
@@ -1415,9 +1410,8 @@
     "base_casting_time": 120,
     "final_casting_time": 75,
     "casting_time_increment": -3.5,
+    "effect_str": "mom_cast_telepathic_animal_mind_control_knack",
     "id": "telepathic_animal_mind_control_knack",
-    "damage_increment": 8.0,
-    "duration_increment": 1125.0,
     "range_increment": 1.0,
     "energy_source": "STAMINA",
     "scale_int": true,

@@ -34,6 +34,26 @@ return function(mod)
     return ''
   end
 
+  -- Cached string_id<T> constructors for the transpiler's generated condition/
+  -- effect code (tools/eoc_transpile.py emits U.mid(...)/U.eid(...) in place
+  -- of MutationBranchId.new(...)/EffectTypeId.new(...)).  Construction crosses
+  -- the Lua/C++ boundary and isn't free; gen_eoc.lua references the same ids
+  -- from many different EOC handlers, so memoizing here turns every
+  -- occurrence after the first (whole-session, across all ~1794 handlers)
+  -- into a table lookup. Perf fix 2026-08-08 -- same shape as mom_math.lua's
+  -- spell_tid/effect_tid/skill_tid.
+  local _mid_cache, _eid_cache = {}, {}
+  function U.mid(id)
+    local v = _mid_cache[id]
+    if v == nil then v = MutationBranchId.new(id); _mid_cache[id] = v end
+    return v
+  end
+  function U.eid(id)
+    local v = _eid_cache[id]
+    if v == nil then v = EffectTypeId.new(id); _eid_cache[id] = v end
+    return v
+  end
+
   -- Sentinel thrown when the player cancels an interactive target/tile pick
   -- (Esc).  It unwinds the whole cast so no downstream effects or "you did the
   -- thing" messages run -- an aborted Phase must not announce "you are somewhere
@@ -244,8 +264,9 @@ return function(mod)
 
   function U.unset_mutation(who, trait)
     guarded("unset_mutation:" .. trait, function()
-      if who:has_trait(MutationBranchId.new(trait)) then
-        who:unset_mutation(MutationBranchId.new(trait))
+      local mid = MutationBranchId.new(trait)
+      if who:has_trait(mid) then
+        who:unset_mutation(mid)
       end
       return true
     end, nil)
@@ -1336,10 +1357,29 @@ return function(mod)
   end
 
   -- ---- overmap: is an overmap terrain within `range` OMT tiles?
+  -- Perf fix 2026-08-08: this is the dominant per-cast psi cost. Several
+  -- generated conditions (EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION alone
+  -- chains ~69 of these with `or`, none of which short-circuit near a normal
+  -- spawn) run on EVERY cast via the opens_spellbook/spellcasting_finish
+  -- event fan-out. Each call is a native overmapbuffer.find_closest scan;
+  -- the result depends only on (loc, range, the querying OMT) -- not on who
+  -- is asking, not on anything that changes turn to turn -- and a
+  -- character's OMT position changes far less often than they cast. Cache
+  -- by that key instead of rescanning the overmap on every single spell.
+  -- The first-ever query of a given loc/range/area still pays the real
+  -- overmapbuffer cost (measured: this is where a fresh character's
+  -- multi-second first-cast stall lives, since ~69 fresh native scans run
+  -- back to back); every repeat query from the same spot is now a table
+  -- lookup. Session-only, unbounded but tiny (a handful of bytes per
+  -- distinct key ever queried) -- not worth pruning for a single session.
+  local near_om_cache = {}
   function U.near_om_location(who, loc, range)
-    return guarded("near_om_location:" .. loc, function()
-      local abs = gapi.bub_to_abs(who:get_pos_ms())
-      local omt = coords.project_to_omt(abs)
+    local abs = gapi.bub_to_abs(who:get_pos_ms())
+    local omt = coords.project_to_omt(abs)
+    local key = loc .. "|" .. range .. "|" .. omt.x .. "," .. omt.y .. "," .. omt.z
+    local cached = near_om_cache[key]
+    if cached ~= nil then return cached end
+    local result = guarded("near_om_location:" .. loc, function()
       local params = OmtFindParams.new()
       -- NB: BN registers enum keys from io::enum_to_string, so the member is
       -- OtMatchType.TYPE, not .type (overmap.cpp:7413).  Lowercase reads nil
@@ -1350,6 +1390,43 @@ return function(mod)
       local found = overmapbuffer.find_closest(omt, params)
       return found ~= nil
     end, false)
+    near_om_cache[key] = result
+    return result
+  end
+
+  -- Batched sibling of near_om_location: tools/eoc_transpile.py collapses a
+  -- run of `u_near_om_location` OR-children sharing one literal range into a
+  -- single call here instead of N sequential near_om_location calls -- one
+  -- native overmapbuffer.find_closest scan (OmtFindParams.add_type appends,
+  -- so one query can match ANY of several types) instead of N.
+  -- Shares near_om_cache's per-(loc,range,omt) keys with near_om_location
+  -- above, so a location already resolved via either path is a hit for both.
+  -- A combined query can't attribute a single `true` result back to which
+  -- one of several uncached ids actually matched, so only a combined `false`
+  -- gets cached per-id (still correct -- and it's the case that matters:
+  -- nothing nearby, over and over, every cast).
+  function U.near_any_om_location(who, ids, range)
+    local abs = gapi.bub_to_abs(who:get_pos_ms())
+    local omt = coords.project_to_omt(abs)
+    local function key_for(loc) return loc .. "|" .. range .. "|" .. omt.x .. "," .. omt.y .. "," .. omt.z end
+    local uncached = {}
+    for _, loc in ipairs(ids) do
+      local cached = near_om_cache[key_for(loc)]
+      if cached == true then return true end
+      if cached == nil then uncached[#uncached + 1] = loc end
+    end
+    if #uncached == 0 then return false end
+    local found = guarded("near_any_om_location", function()
+      local params = OmtFindParams.new()
+      for _, loc in ipairs(uncached) do params:add_type(loc, OtMatchType.TYPE) end
+      params:set_search_range(0, math.floor(range))
+      params.max_results = 1
+      return overmapbuffer.find_closest(omt, params) ~= nil
+    end, false)
+    if not found then
+      for _, loc in ipairs(uncached) do near_om_cache[key_for(loc)] = false end
+    end
+    return found
   end
 
   -- ---- misc body/state accessors

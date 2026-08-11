@@ -1760,12 +1760,6 @@
           "chance": 25
         },
         {
-          "item": "matrix_crystal_vitakinesis",
-          "x": 0,
-          "y": 5,
-          "chance": 10
-        },
-        {
           "item": "lab_file_biokinesis_item",
           "x": 0,
           "y": 3,
@@ -1944,12 +1938,6 @@
           "x": 7,
           "y": 2,
           "chance": 25
-        },
-        {
-          "item": "matrix_crystal_vitakinesis",
-          "x": 7,
-          "y": 2,
-          "chance": 10
         },
         {
           "item": "lab_file_biokinesis_item",

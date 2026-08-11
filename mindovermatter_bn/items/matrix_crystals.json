@@ -296,40 +296,6 @@
   },
   {
     "type": "TOOL",
-    "id": "matrix_crystal_vitakinesis",
-    "name": {
-      "str_sp": "strange crystal, green"
-    },
-    "copy-from": "matrix_crystal_biokinesis",
-    "description": "A strange-looking, surprisingly-heavy crystal with a faintly-glowing green light in its depths.  Holding it, you feel healthier.",
-    "color": "green",
-    "flags": [
-      "MATRIX_CRYSTAL_VITAKINESIS"
-    ],
-    "use_action": "MOM_EOC_ITEM"
-  },
-  {
-    "type": "GENERIC",
-    "id": "matrix_crystal_vitakin_dust",
-    "name": {
-      "str_sp": "crystalline dust, green"
-    },
-    "copy-from": "matrix_crystal_biokin_dust",
-    "description": "A bit of crystalline dust with a faint green shimmer.",
-    "color": "green"
-  },
-  {
-    "type": "GENERIC",
-    "id": "matrix_crystal_vitakin_dust_refined",
-    "name": {
-      "str_sp": "refined matrix crystal powder, green"
-    },
-    "description": "Concentrated matrix crystal dust.  It glitters green even in complete darkness.",
-    "copy-from": "matrix_crystal_biokin_dust_refined",
-    "color": "green"
-  },
-  {
-    "type": "TOOL",
     "id": "matrix_crystal_drained",
     "name": {
       "str_sp": "strange crystal, black"

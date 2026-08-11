@@ -312,45 +312,6 @@
     ]
   },
   {
-    "result": "matrix_crystal_vitakinesis",
-    "type": "uncraft",
-    "time": "45 m",
-    "qualities": [
-      {
-        "id": "HAMMER",
-        "level": 2
-      }
-    ],
-    "components": [
-      [
-        [
-          "matrix_crystal_vitakin_dust",
-          10
-        ]
-      ]
-    ],
-    "tools": [
-      [
-        [
-          "rock_quern",
-          -1
-        ],
-        [
-          "clay_quern",
-          -1
-        ],
-        [
-          "mortar_pestle",
-          -1
-        ],
-        [
-          "food_processor",
-          5
-        ]
-      ]
-    ]
-  },
-  {
     "result": "matrix_crystal_drained",
     "type": "uncraft",
     "time": "45 m",

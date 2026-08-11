@@ -16,16 +16,6 @@
   },
   {
     "type": "mutation_flag",
-    "id": "FLASH_PROTECTION",
-    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
-  },
-  {
-    "type": "mutation_flag",
-    "id": "GLARE_RESIST",
-    "//": "DDA trait flag; marker only in BN (mechanics not ported)"
-  },
-  {
-    "type": "mutation_flag",
     "id": "HERITAGE",
     "//": "DDA trait flag; marker only in BN (mechanics not ported)"
   },
@@ -95,10 +85,10 @@
       "SOCIAL2"
     ],
     "points": 1,
-    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
     "flags": [
       "ASOCIAL1"
-    ]
+    ],
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes"
   },
   {
     "type": "mutation",
@@ -113,10 +103,10 @@
     ],
     "points": 1,
     "mixed_effect": true,
-    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
     "flags": [
       "ASOCIAL2"
-    ]
+    ],
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes"
   },
   {
     "type": "mutation",
@@ -278,11 +268,11 @@
     "description": "You were born in the \u0112xc\u0101n Tlaht\u014dl\u014dy\u0101n, maybe on Tlalticpactli, perhaps even in An\u00e1huac, or maybe on one of the colony worlds like Demeter or Yathrib or T\u00e0i Su\u00ec.  You enlisted in the Imperial Navy for your own reasons.  Perhaps you are a scion of the Huey Calpulli following in your ancestors' footsteps, or perhaps you are one of the m\u0101c\u0113hualtin seeking the social benefits of a completed tour of military service.  Regardless, now you are here, in the ashes of a dying world, and have to find a way to survive.",
     "valid": false,
     "purifiable": false,
-    "//": "Profession ~= to a marker trait like this",
-    "profession": true,
     "flags": [
       "HERITAGE"
-    ]
+    ],
+    "//": "Profession ~= to a marker trait like this",
+    "profession": true
   },
   {
     "type": "mutation",
@@ -307,8 +297,8 @@
     ],
     "points": 0,
     "mixed_effect": true,
-    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
-    "valid": false
+    "valid": false,
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes"
   },
   {
     "type": "mutation",
@@ -413,11 +403,24 @@
     },
     "points": 1,
     "description": "Your powers passively filter the amount of photons your eyes receive, and amplify what little light there is -- you see well even in near-total darkness.",
-    "mut_enchantments": [ { "flags": [ "SLEEP_SIGHT", "ANTIGLARE" ], "values": [ { "value": "FLASH_PROTECTION", "max": 6 } ] } ],
     "player_display": true,
     "valid": false,
     "purifiable": false,
-    "night_vision_range": 4.5
+    "night_vision_range": 4.5,
+    "mut_enchantments": [
+      {
+        "flags": [
+          "SLEEP_SIGHT",
+          "ANTIGLARE"
+        ],
+        "values": [
+          {
+            "value": "FLASH_PROTECTION",
+            "max": 6
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -690,10 +693,10 @@
       "ASOCIAL2"
     ],
     "points": 1,
-    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
     "flags": [
       "SOCIAL1"
-    ]
+    ],
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes"
   },
   {
     "type": "mutation",
@@ -708,10 +711,10 @@
     ],
     "points": 1,
     "mixed_effect": true,
-    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
     "flags": [
       "SOCIAL2"
-    ]
+    ],
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes"
   },
   {
     "type": "mutation",
@@ -739,11 +742,11 @@
       "CANNIBAL"
     ],
     "points": 1,
-    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
     "valid": false,
     "flags": [
       "STRICT_HUMANITARIAN"
-    ]
+    ],
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes"
   },
   {
     "type": "mutation",
@@ -753,8 +756,8 @@
     },
     "description": "You've been taught proper table manners from your early childhood on; now, you can't even think about eating without being seated at a table and taking your time.  Eating without a table and chair frustrates you, but eating like a civilized person gives you a bigger morale bonus.",
     "points": -1,
-    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
-    "valid": false
+    "valid": false,
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes"
   },
   {
     "type": "mutation",
@@ -1214,8 +1217,8 @@
       "VEGETARIAN"
     ],
     "points": -4,
-    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes",
-    "valid": false
+    "valid": false,
+    "//": "Unimplemented effects, no need to show in starting menu, staying for EoC purposes"
   },
   {
     "type": "mutation",
@@ -1271,6 +1274,15 @@
     "player_display": true,
     "purifiable": false,
     "//": "NOTE: DDA flag MEND_ALL makes splints no longer needed, MENDING_MULT of 1 is equal to that, while still allowing mutations to bring it down lower.",
-    "mut_enchantments": [ { "values": [ { "value": "MENDING_MULT", "add": 1 } ] } ]
+    "mut_enchantments": [
+      {
+        "values": [
+          {
+            "value": "MENDING_MULT",
+            "add": 1
+          }
+        ]
+      }
+    ]
   }
 ]

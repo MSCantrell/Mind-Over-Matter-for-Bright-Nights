@@ -18,8 +18,7 @@
     "symbol": "?",
     "looks_like": "philosophy_book",
     "color": "white",
-    "required_level": 0,
-    "max_level": 0,
+    "max_level": 3,
     "intelligence": 8,
     "time": "15 m",
     "bashing": 3,
@@ -38,7 +37,7 @@
     "copy-from": "manual_meditation",
     "//": "Advanced meditation is controversial but I have to make the distinction somewhere.",
     "required_level": 3,
-    "max_level": 3,
+    "max_level": 6,
     "intelligence": 9,
     "time": "20 m",
     "fun": 0

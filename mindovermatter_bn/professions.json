@@ -78,7 +78,7 @@
     "id": "psi_biokinetic_athlete",
     "name": "Star Athlete",
     "description": "You were always good at athletics.  People praised your effort and hard work, but the truth was you barely needed to practice.  It all just came naturally to you, as naturally as breathing.  That kept you safe during the Cataclysm--you outran the dead and worse things that chased you and made it out of the cities, and they're certainly the thing that will keep you going, especially since now, you're stronger and faster than you've ever been.",
-    "points": 10,
+    "points": 8,
     "skills": [
       {
         "level": 3,
@@ -177,7 +177,7 @@
     "id": "psi_clairsentient_doomseer",
     "name": "Doomseer",
     "description": "You knew the world was going to end, but they never listened.  They never listened!  They couldn't see the things that walked among them!  They didn't know what you had seen, what you knew was coming, and where are they now?  In a zombie's stomach or walking with those corpses themselves, but you're still alive.",
-    "points": 0,
+    "points": 4,
     "skills": [
       {
         "level": 4,
@@ -275,7 +275,7 @@
     "id": "psi_electrokinetic_engineer",
     "name": "Electrical Engineer",
     "description": "You followed your parents' wishes and became an engineer, and to your surprise you were extremely good at it.  It was like the electronics you built just spoke to you, like you could see inside the wires and circuits, and then when the sky broke that literally came true.",
-    "points": 12,
+    "points": 4,
     "skills": [
       {
         "level": 4,
@@ -367,7 +367,7 @@
     "id": "psi_photokinetic_magician",
     "name": "Magician",
     "description": "Ever since you were a young kid, you just loved magic.  Growing up you managed to become a professional magician and even performed at a few big shows.  You were practicing a new trick when the Cataclysm hit, when you realized you don't need to practice anymore.  You can just do it, for real.",
-    "points": 8,
+    "points": 6,
     "skills": [
       {
         "level": 2,
@@ -576,7 +576,7 @@
     "id": "psi_telekinetic_testsubject",
     "name": "Test Subject, Project ONYX LIGHTNING",
     "description": "Before the Cataclysm, you were 'volunteered' for a top-secret military project.  They never told you what all the injections and EEGs and hours of staring at a quarter on the table were supposed to accomplish, but now that you can move things with your mind you have a pretty good idea what they were aiming at.",
-    "points": 13,
+    "points": 4,
     "skills": [
       {
         "level": 5,
@@ -714,7 +714,7 @@
     "id": "psi_telepath_interrogater",
     "name": "Government Interrogator (DECEASED)",
     "description": "You did not die in the Cataclysm because on paper, you are already dead.  You assumed a new identity as part of an experimental program designed to produce psychic interrogators.  They told you that you were serving your country, that your gifts would be the key to winning the new Cold War that was surely developing, but they didn't consider the ramifications of having a telepath on the base.  You knew right away that things were much worse than the brass was telling you, and your gifts let you \"persuade\" the guards to let you out even in the face of the lockdown.  You had thought to go somewhere else, to get away from New England, but the end came much faster than even you thought it would.",
-    "points": 3,
+    "points": 4,
     "skills": [
       {
         "level": 6,
@@ -1374,7 +1374,7 @@
     "id": "newly_biokinetic",
     "name": "Newly-Awakened Biokinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You feel in better shape than you ever have in your life, like you could run ten miles and climb a mountain and then wake up and do it again.  You'll probably need it.",
-    "points": 3,
+    "points": 2,
     "traits": [
       "BIOKINETIC",
       "BIOKIN_NEEDS"
@@ -1506,7 +1506,7 @@
     "id": "late_biokinetic",
     "name": "Ascended Biokinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You can move inhumanly fast, hitting zombies before they even seem to know that you're there.  You can pull out nails with your bare hands and go out in winter without even a shirt and not feel the cold.  You're a new breed, Homo Cataclysmicus, and if anyone is equipped to survive in this new world, it's you.",
-    "points": 10,
+    "points": 9,
     "traits": [
       "BIOKINETIC",
       "BIOKIN_NEEDS"
@@ -1608,7 +1608,7 @@
     "id": "newly_clairsentient",
     "name": "Newly-Awakened Clairsentient",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You can read much faster and your senses are much sharper; you've been able to hear a zombie scratching at a front door from outside and across the street.  At least once you avoided zombies on the other side of a wall that you didn't hear and couldn't see, but you just knew they were there.  Maybe you felt the vibrations of their movement.",
-    "points": 5,
+    "points": 2,
     "traits": [
       "CLAIRSENTIENT",
       "CLAIR_SENSES"
@@ -1654,7 +1654,7 @@
     "id": "mid_clairsentient",
     "name": "Arising Clairsentient",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You can see auras around people that tell you what they're feeling, and you've already used it to avoid someone who was feigning being injured with the hope of stealing your gear.  You can see through walls, and tell where the best place to hit something is to take it down for good.  That last ability will definitely get plenty of use.",
-    "points": 8,
+    "points": 6,
     "traits": [
       "CLAIRSENTIENT",
       "CLAIR_SENSES"
@@ -1732,7 +1732,7 @@
     "id": "late_clairsentient",
     "name": "Ascended Clairsentient",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You can finish books in a few hours and remember almost everything you read, you had to fix a bicycle a few weeks ago and even though you've never tried to do that before in your life, everything you needed to do just\u2026came to you.  What's more, last time the Zs attacked you, you never got a scratch.  Three of them came at you at once and you dodged every attack because you could see what they were going to do before they did it.  If only you could see where you needed to go to be safe.",
-    "points": 14,
+    "points": 9,
     "traits": [
       "CLAIRSENTIENT",
       "CLAIR_SENSES"
@@ -1826,7 +1826,7 @@
     "id": "newly_electrokinetic",
     "name": "Newly-Awakened Electrokinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  While running down an alleyway to escape a group of rioters, you looked back and realized you were going to get caught and then there was a deafening crash of thunder and your vision went white.  When your hearing and sight came back, the rioters were lying in a heap, some still with smoldering clothes, and you were unscathed.",
-    "points": 4,
+    "points": 2,
     "traits": [
       "ELECTROKINETIC",
       "ELECTRO_SHIELD"
@@ -1872,7 +1872,7 @@
     "id": "mid_electrokinetic",
     "name": "Arising Electrokinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You an hurl lightning bolts from your hands, like some kind of superhero, and your smartphone still has a full charge even though you haven't plugged it in weeks.  Some kind of huge wasp attacked you in the woods and there was a crackle like thunder and it fell to the ground twitching.  You didn't stop to check if it would move again.",
-    "points": 7,
+    "points": 6,
     "traits": [
       "ELECTROKINETIC",
       "ELECTRO_SHIELD"
@@ -1954,7 +1954,7 @@
     "id": "late_electrokinetic",
     "name": "Ascended Electrokinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You managed to drive the entire week the sky broke on a single charge in your car, and while you had to abandon it since then it got you out of the worst of the cities.  Anything that attacks you has to face your lightning and you haven't found anything yet that can withstand it.",
-    "points": 11,
+    "points": 9,
     "traits": [
       "ELECTROKINETIC",
       "ELECTRO_SHIELD"
@@ -2044,7 +2044,7 @@
     "id": "newly_photokinetic",
     "name": "Newly-Awakened Photokinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You noticed that light seemed to bend at the will of your thoughts, when you were almost caught by a wandering horde, light slowly dimmed enough for you to hide in the shadows.  You have a sense that there's more to your newfound talents.",
-    "points": 4,
+    "points": 2,
     "traits": [
       "PHOTOKINETIC",
       "PHOTO_EYES"
@@ -2090,7 +2090,7 @@
     "id": "mid_photokinetic",
     "name": "Arising Photokinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You can make the air glow and fire lasers from your hands, and even sometimes hear radio signals.  You haven't heard any other survivors out there yet, but you listen for a bit every night, just in case.",
-    "points": 7,
+    "points": 6,
     "traits": [
       "PHOTOKINETIC",
       "PHOTO_EYES"
@@ -2176,7 +2176,7 @@
     "id": "late_photokinetic",
     "name": "Ascended Photokinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  Many times a horde has passed within sight of you and simply never noticed you, and the few times they did, you just created illusions of yourself and all ran different directions.  The few stragglers were easy to sear to ash with focused light.",
-    "points": 11,
+    "points": 9,
     "traits": [
       "PHOTOKINETIC",
       "PHOTO_EYES"
@@ -2274,7 +2274,7 @@
     "id": "newly_pyrokinetic",
     "name": "Newly-Awakened Pyrokinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  With just a thought, you can start a fire or make light radiate from the very air.  It's already saved your life once when you burned a zombie to ash while scavenging in a ruined house.  Sure, the house burned down too, but you'll definitely get more control as time goes on, right?",
-    "points": 5,
+    "points": 2,
     "traits": [
       "PYROKINETIC",
       "PYROKIN_ADAPTATION"
@@ -2320,7 +2320,7 @@
     "id": "mid_pyrokinetic",
     "name": "Arising Pyrokinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You don't even know how many zombies you've burned at this point, and keeping warm in winter certainly won't be a problem.",
-    "points": 7,
+    "points": 6,
     "traits": [
       "PYROKINETIC",
       "PYROKIN_ADAPTATION"
@@ -2406,7 +2406,7 @@
     "id": "late_pyrokinetic",
     "name": "Ascended Pyrokinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You are one with the flames, and they come at your command and obey your every instruction.  Zombies, mutants, aliens, stranger things--no matter what is out there, you will incinerate it and survive.",
-    "points": 11,
+    "points": 9,
     "traits": [
       "PYROKINETIC",
       "PYROKIN_ADAPTATION"
@@ -2504,7 +2504,7 @@
     "id": "newly_telekinetic",
     "name": "Newly-Awakened Telekinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You can lift things with your mind.  Mostly just small things, but during the chaos a group of rioters jumped you and you hurled them off of you just by thinking about it.  This will definitely come in handy.",
-    "points": 4,
+    "points": 2,
     "traits": [
       "TELEKINETIC",
       "TELEKINETIC_GRAB_POCKETS"
@@ -2550,7 +2550,7 @@
     "id": "mid_telekinetic",
     "name": "Arising Telekinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  Moving things at a distance is child's play.  You can pick up zombies and fling them away from you, shatter doors with a thought, and jump from the fifth story and land with barely a bruise.  Nothing is going to get close to you now.",
-    "points": 8,
+    "points": 6,
     "traits": [
       "TELEKINETIC",
       "TELEKINETIC_GRAB_POCKETS"
@@ -2632,7 +2632,7 @@
     "id": "late_telekinetic",
     "name": "Ascended Telekinetic",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  One ton cars lift off the ground with merely a thought, bullets bounce off the air before they hit you, and you can smash whole groups of zombies to paste in seconds.  You can even fly from rooftop to rooftop, preventing gravity from affecting you by sheer force of will.",
-    "points": 12,
+    "points": 9,
     "traits": [
       "TELEKINETIC",
       "TELEKINETIC_GRAB_POCKETS"
@@ -2738,7 +2738,7 @@
     "id": "newly_telepath",
     "name": "Newly-Awakened Telepath",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  The crazies were bad enough during the riots, but once you were stopped by a police officer whose bloodshot eyes told you that he wasn't going to let you off with a warning.  But you could somehow hear his thoughts, a chaotic jumble of rage and hunger and fear, you just\u2026nudged them a little bit, and he wandered off and left you alone.  It doesn't work the same way with the zombies, but you can't have everything.",
-    "points": 3,
+    "points": 2,
     "traits": [
       "TELEPATH",
       "TELEPATHIC_SUGGESTION"
@@ -2866,7 +2866,7 @@
     "id": "late_telepath",
     "name": "Ascended Telepath",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  Controlling human minds is still too hard but at this point, animal minds are child's play.  A while back, some kind of mutated wolf or dog or something jumped you in the forest and after a few seconds, it was wagging its tail and jumping around like a new puppy.  You wish you still had it with you, but it died fighting off some kind of pink crustacean\u2026thing, giving you time to run.  The bravest dog you ever had.",
-    "points": 10,
+    "points": 9,
     "traits": [
       "TELEPATH",
       "TELEPATHIC_SUGGESTION"
@@ -2964,7 +2964,7 @@
     "id": "newly_teleporter",
     "name": "Newly-Awakened Teleporter",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You were fleeing down a side street when you heard a crash above you.  You looked up and saw something hurtling through the air down toward you, you closed your eyes and wished you were anywhere but where you were, and then\u2026 you were.  Indoors, in a house near the street, and you went out the back door and made good your escape.  You're very, very good at escaping now.",
-    "points": 6,
+    "points": 2,
     "traits": [
       "TELEPORTER",
       "TELEPORTER_PROTECT"
@@ -3010,7 +3010,7 @@
     "id": "mid_teleporter",
     "name": "Arising Teleporter",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You can step through walls, and once you were surrounded by a horde and looked up and a nearby rooftop and\u2026 there you were, safe and out of the zombies' line of sight.  The rule of the zombie apocalypse is \"keep moving\", and you're the best you've ever been at that.",
-    "points": 10,
+    "points": 6,
     "traits": [
       "TELEPORTER",
       "TELEPORTER_PROTECT"
@@ -3100,7 +3100,7 @@
     "id": "late_teleporter",
     "name": "Ascended Teleporter",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  No wall or door is a barrier to you and sometimes when you close your eyes you can travel to places you've already been.  Once you were surprised by a bandit and when he leveled his gun at you, you wished he was somewhere else and he just\u2026disappeared.  Nothing can keep you down now.",
-    "points": 13,
+    "points": 9,
     "traits": [
       "TELEPORTER",
       "TELEPORTER_PROTECT"
@@ -3206,7 +3206,7 @@
     "id": "gateway_teleporter",
     "name": "Gateway Initiate",
     "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  But teleporting through walls isn't the most impressive part.  You spent a few days in an abandoned basement and on a scavenging trip, one of those rioters surprised you.  Snarling, she had you by the arm and was prepared to smash in your head with a pipe and then you were just\u2026back safe in that basement.  That will definitely come in handy.",
-    "points": 5,
+    "points": 4,
     "traits": [
       "TELEPORTER",
       "TELEPORTER_PROTECT"
@@ -3264,7 +3264,7 @@
     "id": "knack_random_01",
     "name": "Wild Talent (Kappa)",
     "description": "Perhaps the Cataclysm triggered some hidden power that you previously had no idea you possessed, and now you can do things you never previously dreamed possible, or perhaps your powers manifested earlier in your life and you have kept them hidden until now.  You have one random psychic knack.",
-    "points": 3,
+    "points": 1,
     "traits": [
       "PSYCHIC_KNACK",
       "PSYCHIC_KNACK_WILD_TALENT_1"
@@ -3310,7 +3310,7 @@
     "id": "knack_random_02",
     "name": "Wild Talent (Theta)",
     "description": "Perhaps the Cataclysm triggered some hidden power that you previously had no idea you possessed, and now you can do things you never previously dreamed possible, or perhaps your powers manifested earlier in your life and you have kept them hidden until now.  You have two random psychic knacks.",
-    "points": 4,
+    "points": 2,
     "traits": [
       "PSYCHIC_KNACK",
       "PSYCHIC_KNACK_WILD_TALENT_2"
@@ -3356,7 +3356,7 @@
     "id": "knack_random_03",
     "name": "Wild Talent (Epsilon)",
     "description": "Perhaps the Cataclysm triggered some hidden power that you previously had no idea you possessed, and now you can do things you never previously dreamed possible, or perhaps your powers manifested earlier in your life and you have kept them hidden until now.  You have three random psychic knacks.",
-    "points": 6,
+    "points": 3,
     "traits": [
       "PSYCHIC_KNACK",
       "PSYCHIC_KNACK_WILD_TALENT_3"
@@ -3402,7 +3402,7 @@
     "id": "knack_random_04",
     "name": "Wild Talent (Gamma)",
     "description": "Perhaps the Cataclysm triggered some hidden power that you previously had no idea you possessed, and now you can do things you never previously dreamed possible, or perhaps your powers manifested earlier in your life and you have kept them hidden until now.  You have four random psychic knacks.",
-    "points": 8,
+    "points": 4,
     "traits": [
       "PSYCHIC_KNACK",
       "PSYCHIC_KNACK_WILD_TALENT_4"
@@ -3448,7 +3448,7 @@
     "id": "knack_random_05",
     "name": "Wild Talent (Beta)",
     "description": "Perhaps the Cataclysm triggered some hidden power that you previously had no idea you possessed, and now you can do things you never previously dreamed possible, or perhaps your powers manifested earlier in your life and you have kept them hidden until now.  You have five random psychic knacks.",
-    "points": 10,
+    "points": 5,
     "traits": [
       "PSYCHIC_KNACK",
       "PSYCHIC_KNACK_WILD_TALENT_5"
@@ -3494,7 +3494,7 @@
     "id": "knack_random_06",
     "name": "Wild Talent (Alpha)",
     "description": "Perhaps the Cataclysm triggered some hidden power that you previously had no idea you possessed, and now you can do things you never previously dreamed possible, or perhaps your powers manifested earlier in your life and you have kept them hidden until now.  You have six random psychic knacks.",
-    "points": 15,
+    "points": 6,
     "traits": [
       "PSYCHIC_KNACK",
       "PSYCHIC_KNACK_WILD_TALENT_6"

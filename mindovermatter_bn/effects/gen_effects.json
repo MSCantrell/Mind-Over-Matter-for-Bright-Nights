@@ -1396,6 +1396,10 @@
     "rating": "good",
     "max_duration": "7 days",
     "max_intensity": 58,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
+    ],
     "//src": "effects_psionic.json"
   },
   {

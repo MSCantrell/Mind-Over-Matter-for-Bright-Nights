@@ -22,6 +22,7 @@ return {
   ["effect_clair_night_eyes"] = { spell = "clair_night_vision", max_level = 15, prefix = "MOM_CAR_clair_night_eyes_L" },
   ["effect_clair_perfect_shot"] = { spell = nil, max_level = 0, prefix = "MOM_CAR_clair_perfect_shot_L" },
   ["effect_clair_potion"] = { spell = nil, max_level = 0, prefix = "MOM_CAR_clair_potion_L" },
+  ["effect_clair_premonition"] = { spell = "clair_danger_sense", max_level = 15, prefix = "MOM_CAR_clair_premonition_L" },
   ["effect_clair_ranged_enhance"] = { spell = "clair_ranged_enhance", max_level = 15, prefix = "MOM_CAR_clair_ranged_enhance_L" },
   ["effect_clair_see_auras"] = { spell = "clair_see_auras", max_level = 15, prefix = "MOM_CAR_clair_see_auras_L" },
   ["effect_clair_speed_reader"] = { spell = "clair_speed_reading", max_level = 15, prefix = "MOM_CAR_clair_speed_reader_L" },

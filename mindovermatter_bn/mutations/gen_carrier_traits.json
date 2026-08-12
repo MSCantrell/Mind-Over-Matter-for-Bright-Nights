@@ -1261,7 +1261,23 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "HEALTH_POINTS",
+            "value": "HEALTH_POINTS_TORSO",
+            "multiply": 0.2
+          },
+          {
+            "value": "HEALTH_POINTS_HEAD",
+            "multiply": 0.2
+          },
+          {
+            "value": "HEALTH_POINTS_ARM",
+            "multiply": 0.2
+          },
+          {
+            "value": "HEALTH_POINTS_HAND",
+            "multiply": 0.2
+          },
+          {
+            "value": "HEALTH_POINTS_LEG",
             "multiply": 0.2
           }
         ]
@@ -5811,6 +5827,358 @@
     "valid": false,
     "player_display": false,
     "reading_speed_multiplier": 0.55
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L0",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L1",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 1).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L2",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 2).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L3",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 3).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L4",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 4).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L5",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 5).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L6",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 6).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L7",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 7).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L8",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 8).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L9",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 9).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L10",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 10).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L11",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 11).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L12",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 12).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L13",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 13).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L14",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 14).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_premonition_L15",
+    "name": "Premonition",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_premonition (level 15).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "GROUNDED_CREATURE_SIGHT",
+            "max": 25
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",

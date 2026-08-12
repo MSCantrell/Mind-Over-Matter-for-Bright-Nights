@@ -23,7 +23,9 @@
         "text": "[Sense Hostility] *Determine if <npc_name> is a threat*",
         "topic": "TALK_EVAC_GUARD3_sense_hostility",
         "condition": {
-          "u_has_trait": "CLAIRSENTIENT"
+          "not": {
+            "and": []
+          }
         }
       },
       {

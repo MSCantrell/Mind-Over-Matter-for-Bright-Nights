@@ -4,8 +4,11 @@
     "result": "psi",
     "id_suffix": "centering_meditation_drain_reduce",
     "nested_name": "grounding meditation",
-    "description": "Through practice, you've learned how to calm and focus yourself during meditation.  If you meditated properly, you could channel the additional nether energy you have accumulated out into your surroundings, though doing so will be extremely tiring.  It will also help shield you from nether energies for a short time afterwards.",
     "skill_used": "metaphysics",
+    "description": "Through practice, you've learned how to calm and focus yourself during meditation.  If you meditated properly, you could channel the additional nether energy you have accumulated out into your surroundings, though doing so will be extremely tiring.  It will also help shield you from nether energies for a short time afterwards.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "category": "CC_PSIONIC",
+    "difficulty": 2,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -14,18 +17,18 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 2,
-    "time": "15 m",
-    "category": "CC_PSIONIC",
-    "subcategory": "CSC_PSIONIC_OTHER"
+    "time": "15 m"
   },
   {
     "type": "recipe",
     "result": "psi",
     "id_suffix": "centering_meditation_drain_reduce_heart_of_fire",
     "nested_name": "incandescent meditation",
-    "description": "By gazing into the flames, you can reduce your exposure to the energies of the Nether.",
     "skill_used": "metaphysics",
+    "description": "By gazing into the flames, you can reduce your exposure to the energies of the Nether.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "category": "CC_PSIONIC",
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "NO_MANIP",
@@ -33,7 +36,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "20 m",
     "tools": [
       [
         [
@@ -41,26 +44,20 @@
           -1
         ]
       ]
-    ],
-    "time": "20 m",
-    "category": "CC_PSIONIC",
-    "subcategory": "CSC_PSIONIC_OTHER"
+    ]
   },
   {
     "type": "recipe",
     "result": "psi",
     "id_suffix": "matrix_channeling_drain_reduce",
     "nested_name": "channeling protocol PGS38",
-    "description": "That report indicated there was a way to channel the additional nether energy from long-term psionic use into a focusing object.  All you need is a drained matrix crystal and time.",
     "skill_used": "metaphysics",
-    "flags": [
-      "SECRET",
-      "BLIND_HARD"
+    "book_learn": [
+      [
+        "phavian_report_psionic_drain",
+        5
+      ]
     ],
-    "difficulty": 7,
-    "time": "1 h",
-    "category": "CC_PSIONIC",
-    "subcategory": "CSC_PSIONIC_OTHER",
     "components": [
       [
         [
@@ -69,11 +66,14 @@
         ]
       ]
     ],
-    "book_learn": [
-      [
-        "phavian_report_psionic_drain",
-        5
-      ]
-    ]
+    "description": "That report indicated there was a way to channel the additional nether energy from long-term psionic use into a focusing object.  All you need is a drained matrix crystal and time.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "category": "CC_PSIONIC",
+    "difficulty": 7,
+    "flags": [
+      "SECRET",
+      "BLIND_HARD"
+    ],
+    "time": "1 h"
   }
 ]

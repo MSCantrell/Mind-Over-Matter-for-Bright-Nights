@@ -4,8 +4,6 @@
     "id": "telepathy_practice",
     "nested_name": "contemplation: telepathy",
     "description": "Recipes related to practicing telepathy.",
-    "subcategory": "CSC_PRACTICE_METAPHYSICS",
-    "category": "CC_PRACTICE",
     "nested_category_data": [
       "practice_telepathic_concentration",
       "practice_telepathic_shield",
@@ -21,15 +19,21 @@
       "practice_telepathic_beast_taming",
       "practice_telepathic_mind_control",
       "practice_telepathic_network"
-    ]
+    ],
+    "subcategory": "CSC_PRACTICE_METAPHYSICS",
+    "category": "CC_PRACTICE"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_concentration",
     "nested_name": "contemplation: concentration trance",
-    "description": "Contemplate your powers and improve your laser-like focus.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:telepathic_concentration>",
     "skill_used": "metaphysics",
+    "description": "Contemplate your powers and improve your laser-like focus.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:telepathic_concentration>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -38,7 +42,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -54,19 +58,19 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_mind_sense",
     "nested_name": "contemplation: mind sense",
-    "description": "Contemplate your powers and improve your ability to detect other minds.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telepathic_mind_sense>",
     "skill_used": "metaphysics",
+    "description": "Contemplate your powers and improve your ability to detect other minds.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telepathic_mind_sense>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -75,7 +79,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -91,19 +95,19 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_shield",
     "nested_name": "contemplation: telepathic shield",
-    "description": "Contemplate your powers and improve the resilience of your mind.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telepathic_shield>",
     "skill_used": "metaphysics",
+    "description": "Contemplate your powers and improve the resilience of your mind.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telepathic_shield>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -112,7 +116,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -128,19 +132,19 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_mesmerize",
     "nested_name": "contemplation: mesmerize",
-    "description": "Contemplate your powers and improve your ability to place your opponents into a trance.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:telepathic_mesmerize>",
     "skill_used": "metaphysics",
+    "description": "Contemplate your powers and improve your ability to place your opponents into a trance.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:telepathic_mesmerize>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -149,7 +153,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -165,19 +169,19 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_morale",
     "nested_name": "contemplation: mood stabilization",
-    "description": "Contemplate your powers and improve your control of your own emotions.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:telepathic_morale>",
     "skill_used": "metaphysics",
+    "description": "Contemplate your powers and improve your control of your own emotions.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:telepathic_morale>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -186,7 +190,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -202,19 +206,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_blast",
     "nested_name": "contemplation: synaptic overload",
-    "description": "Contemplate your powers and improve your mental strength to telepathically assault your enemies.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:telepathic_blast>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telepath_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your mental strength to telepathically assault your enemies.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:telepathic_blast>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -223,7 +235,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -239,27 +251,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telepath_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_beastmaster",
     "nested_name": "contemplation: beastmaster",
-    "description": "Contemplate your powers and improve your ability to overpower the minds of animals.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:telepathic_animal_mind_control>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telepath_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to overpower the minds of animals.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:telepathic_animal_mind_control>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -268,7 +280,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -284,27 +296,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telepath_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_confusion",
     "nested_name": "contemplation: sensory deprivation",
-    "description": "Contemplate your powers and improve your ability to confound your enemies's senses.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:telepathic_confusion>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telepath_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to confound your enemies's senses.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:telepathic_confusion>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -313,7 +325,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -329,27 +341,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telepath_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_invisibility",
     "nested_name": "contemplation: obscurity",
-    "description": "Contemplate your powers and improve your ability to make your enemies ignore you.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:telepathic_invisibility>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telepath_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to make your enemies ignore you.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:telepathic_invisibility>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -358,7 +370,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -374,27 +386,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telepath_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_fear",
     "nested_name": "contemplation: primal terror",
-    "description": "Contemplate your powers and improve your ability to turn your enemies' greatest fears against them.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:telepathic_fear>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telepath_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to turn your enemies' greatest fears against them.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:telepathic_fear>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -403,7 +415,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -419,27 +431,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telepath_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_scream",
     "nested_name": "contemplation: psychic scream",
-    "description": "Contemplate your powers and improve the volume of your undirected psionic shrieking.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:telepathic_blast_radius>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telepath_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve the volume of your undirected psionic shrieking.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:telepathic_blast_radius>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -448,7 +460,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -464,27 +476,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telepath_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_beast_taming",
     "nested_name": "contemplation: beast tamer",
-    "description": "Contemplate your powers and improve your ability to control animals over the long term.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:telepathic_beast_taming>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telepath_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to control animals over the long term.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:telepathic_beast_taming>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -493,7 +505,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -509,27 +521,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telepath_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_mind_control",
     "nested_name": "contemplation: mind control",
-    "description": "Contemplate your powers and improve your domination of others' minds.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:telepathic_mind_control>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telepath_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your domination of others' minds.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:telepathic_mind_control>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -538,7 +550,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -554,27 +566,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telepath_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telepathic_network",
     "nested_name": "contemplation: network effect",
-    "description": "Contemplate your powers and improve your ability to link multiple people into a gestalt whole.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:telepathic_network>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telepath_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to link multiple people into a gestalt whole.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:telepathic_network>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -583,7 +595,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -599,18 +611,6 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telepath_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   }
 ]

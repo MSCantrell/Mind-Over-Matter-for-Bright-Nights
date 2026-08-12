@@ -46,7 +46,9 @@
         "text": "[Sense Hostility] *Determine if the voice is a threat*",
         "topic": "TALK_PORTAL_STORM_DANGER_sense_hostility",
         "condition": {
-          "u_has_trait": "CLAIRSENTIENT"
+          "not": {
+            "and": []
+          }
         }
       }
     ]

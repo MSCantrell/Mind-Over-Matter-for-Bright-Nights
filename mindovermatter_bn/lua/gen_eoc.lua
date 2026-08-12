@@ -4,7 +4,7 @@ return function(mod)
   local M, C = {}, {}
 local SCHOOL_SPELLS = {
   BIOKINETIC = {'biokin_physical_enhance', 'biokin_overcome_pain', 'biokin_breathe_skin', 'biokin_dash', 'biokin_armor_skin', 'biokin_adrenaline', 'biokin_climate_control', 'biokin_enhance_mobility', 'biokin_hammerhand', 'biokin_reflex_enhance', 'biokin_sealed_system', 'biokin_sealed_remove_climate', 'biokin_sealed_remove_breathe_skin', 'biokin_metabolism_enhance', 'biokin_combat_dance', 'biokin_perfected_motion', 'biokin_hurricane_blows', 'vita_health_power', 'vita_stop_bleeding', 'vita_remove_poison', 'vita_purge_rads', 'vita_super_heal'},
-  CLAIRSENTIENT = {'clair_better_senses', 'clair_speed_reading', 'clair_danger_sense', 'clair_night_vision', 'clair_see_auras', 'clair_sense_rads', 'clair_ranged_enhance', 'clair_examine_item', 'clair_sense_hostile_creatures', 'clair_voyance', 'clair_dodge_power', 'clair_craft_bonus', 'clair_perfect_shot', 'clair_see_map', 'clair_clear_sight', 'clair_group_tactics', 'clair_omniscience'},
+  CLAIRSENTIENT = {'clair_better_senses', 'clair_speed_reading', 'clair_danger_sense', 'clair_night_vision', 'clair_see_auras', 'clair_sense_rads', 'clair_ranged_enhance', 'clair_examine_item', 'clair_voyance', 'clair_dodge_power', 'clair_craft_bonus', 'clair_perfect_shot', 'clair_see_map', 'clair_clear_sight', 'clair_group_tactics', 'clair_omniscience'},
   ELECTROKINETIC = {'electrokinetic_see_electric', 'electrokinetic_zap_enemies', 'electrokinetic_hacking_interface', 'electrokinetic_personal_battery', 'electrokinetic_paralysis', 'electrokinetic_reduce_pain', 'electrokinetic_lightning_bolt', 'electrokinetic_pain_immune', 'electrokinetic_speed_boost', 'electrokinetic_kill_robot', 'electrokinetic_robot_interface', 'electrokinetic_lightning_aura', 'electrokinetic_lightning_blast', 'electrokinetic_revive'},
   PHOTOKINETIC = {'photokinetic_light_local', 'photokinetic_create_light', 'photokinetic_light_up_enemy', 'photokinetic_snuff_light', 'photokinetic_light_dodge', 'photokinetic_light_beam', 'photokinetic_camouflage', 'photokinetic_rad_immunity', 'photokinetic_light_arms', 'photokinetic_hide_ugly', 'photokinetic_flash_bang', 'photokinetic_light_image', 'photokinetic_radio', 'photokinetic_sterilize_food', 'photokinetic_stun_robots', 'photokinetic_invisibility', 'photokinetic_light_flash', 'photokinetic_blinding_glare', 'photokinetic_light_disintegrate', 'photokinetic_light_army', 'photokinetic_light_army_remove'},
   PSYCHIC_KNACK = {'biokin_adrenaline_knack', 'clair_better_senses_knack', 'clair_danger_sense_knack', 'clair_examine_item_knack', 'electrokinetic_see_electric_knack', 'electrokinetic_pain_immune_knack', 'electrokinetic_hacking_interface_knack', 'photokinetic_camouflage_knack', 'photokinetic_hide_ugly_knack', 'photokinetic_radio_knack', 'pyrokinetic_flash_knack', 'pyrokinetic_intensify_flames_knack', 'pyrokinetic_eruption_knack', 'pyrokinetic_call_flames_knack', 'pyrokinetic_cloak_knack', 'pyrokinetic_flamethrower_knack', 'pyrokinetic_aura_knack', 'pyrokinetic_blast_knack', 'telekinetic_pull_knack', 'telekinetic_push_knack', 'telekinetic_slam_down_knack', 'telekinetic_wave_knack', 'telepathic_shield_knack', 'telepathic_mind_sense_knack', 'telepathic_morale_knack', 'telepathic_mesmerize_knack', 'telepathic_blast_knack', 'telepathic_animal_mind_control_knack', 'telepathic_invisibility_knack', 'telepathic_blast_radius_knack', 'vita_health_power_knack', 'vita_remove_poison_knack'},
@@ -518,7 +518,6 @@ local RECURRING = {
   {id = 'EOC_CLAIR_LEARNING_PREMONITION', min_turns = 3600, max_turns = 3600},
   {id = 'EOC_CLAIR_LEARNING_RANGED_ENHANCE', min_turns = 3600, max_turns = 3600},
   {id = 'EOC_CLAIR_LEARNING_SEE_MAP', min_turns = 3600, max_turns = 3600},
-  {id = 'EOC_CLAIR_LEARNING_SENSE_HOSTILE_CREATURES', min_turns = 3600, max_turns = 3600},
   {id = 'EOC_CLAIR_LEARNING_SPOT_WEAKNESS', min_turns = 3600, max_turns = 3600},
   {id = 'EOC_CLAIR_LEARNING_VOYANCE', min_turns = 3600, max_turns = 3600},
   {id = 'EOC_CLAIR_RAD_SENSE_OUTSIDE_RECURRING', min_turns = 10, max_turns = 10},
@@ -695,7 +694,6 @@ local MAINTENANCE = {
   ['effect_clair_premonition'] = 1,
   ['effect_clair_ranged_enhance'] = 1,
   ['effect_clair_see_auras'] = 1,
-  ['effect_clair_sense_hostile_creatures'] = 1,
   ['effect_clair_speed_reader'] = 1,
   ['effect_electrokin_hacking_interface'] = 1,
   ['effect_electrokin_personal_battery'] = 1,
@@ -2776,18 +2774,6 @@ M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SEE_MAP'] = function(you, npc, ctx)
     return false
   end
   you:learn_recipe(RecipeId.new('practice_clair_see_map'))
-  return true
-end
-C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (m.spell_level(you, 'clair_sense_hostile_creatures') >= 0))
-end
-M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  if not C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SENSE_HOSTILE_CREATURES'](you, npc, ctx) then
-    return false
-  end
-  you:learn_recipe(RecipeId.new('practice_clair_sense_hostile_creatures'))
   return true
 end
 C['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SPEED_READING'] = function(you, npc, ctx)
@@ -4932,20 +4918,6 @@ M['EOC_CLAIR_LEARNING_SEE_MAP'] = function(you, npc, ctx)
   U.msg(you, 'Use of your powers has led to an insight.  You expand your vision to the surrounding terrain, revealing nearby points of interest and where you should go, if you can figure out the technique.', MsgType.neutral, ctx)
   return true
 end
-C['EOC_CLAIR_LEARNING_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_TWO_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_better_senses') >= 8) and (m.spell_level(you, 'clair_danger_sense') >= 6) and (m.spell_level(you, 'clair_aura_sight') >= 5))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_sense_hostile_creatures') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_sense_hostile_creatures'))))
-end
-M['EOC_CLAIR_LEARNING_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  if not C['EOC_CLAIR_LEARNING_SENSE_HOSTILE_CREATURES'](you, npc, ctx) then
-    return false
-  end
-  V.uset(you, 'psi_learning_counter', 0)
-  you:learn_recipe(RecipeId.new('practice_clair_sense_hostile_creatures'))
-  U.msg(you, 'Use of your powers has led to an insight.  You have a general sense of possible dangers already, but you could refine it, you could focus and learn the exact location of those that seek to do you harm, if you can figure out the proper technique.', MsgType.neutral, ctx)
-  return true
-end
 C['EOC_CLAIR_LEARNING_SPOT_WEAKNESS'] = function(you, npc, ctx)
   ctx = ctx or {}
   return (you:has_trait(U.mid('CLAIRSENTIENT')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_ONE_POWER_INSIGHT', you, npc, ctx) or ((m.spell_level(you, 'clair_danger_sense') >= 4) and (m.spell_level(you, 'clair_night_vision') >= 4))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'clair_spot_weakness') <= 0) and (not you:knows_recipe(RecipeId.new('practice_clair_spot_weakness'))))
@@ -5415,19 +5387,6 @@ M['EOC_CLAIR_REMOVE_SEE_AURAS'] = function(you, npc, ctx)
   you:remove_effect(U.eid('effect_clair_see_auras'))
   return true
 end
-C['EOC_CLAIR_REMOVE_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  return you:has_effect(U.eid('effect_clair_sense_hostile_creatures'))
-end
-M['EOC_CLAIR_REMOVE_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  if not C['EOC_CLAIR_REMOVE_SENSE_HOSTILE_CREATURES'](you, npc, ctx) then
-    return false
-  end
-  M['EOC_POWER_MAINTENANCE_MINUS_ONE'](you, npc, ctx)
-  you:remove_effect(U.eid('effect_clair_sense_hostile_creatures'))
-  return true
-end
 C['EOC_CLAIR_REMOVE_SPEED_READ'] = function(you, npc, ctx)
   ctx = ctx or {}
   return you:has_effect(U.eid('effect_clair_speed_reader'))
@@ -5473,39 +5432,6 @@ M['EOC_CLAIR_SEE_AURAS_INITIATE'] = function(you, npc, ctx)
   M['EOC_POWER_MAINTENANCE_PLUS_ONE'](you, npc, ctx)
   U.add_effect(you, 'effect_clair_see_auras', 'PERMANENT', nil, nil)
   util.queue_eoc(function(y) M['EOC_CLAIR_SEE_AURAS_DRAIN'](y, npc, ctx) end, you, U.rng((((m.spell_level(you, 'clair_see_auras') * 90) + 650) * J.psionic_power_modifiers(you, npc, ctx)), (((m.spell_level(you, 'clair_see_auras') * 190) + 1130) * J.psionic_power_modifiers(you, npc, ctx))))
-  return true
-end
-C['EOC_CLAIR_SENSE_HOSTILE_CREATURES_DRAIN'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  return you:has_effect(U.eid('effect_clair_sense_hostile_creatures'))
-end
-M['EOC_CLAIR_SENSE_HOSTILE_CREATURES_DRAIN'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  if not C['EOC_CLAIR_SENSE_HOSTILE_CREATURES_DRAIN'](you, npc, ctx) then
-    return false
-  end
-  V.uset(you, 'latest_channeled_power_difficulty', 5)
-  M['EOC_PSIONICS_GAIN_NETHER_ATTUNEMENT_2'](you, npc, ctx)
-  M['EOC_PSI_MAINTENANCE_CALORIE_COST_CALCULATOR'](you, npc, ctx)
-  m.gain_spell_exp(you, 'clair_sense_hostile_creatures', U.round(J.psionic_power_experience_formula(you, npc, ctx)))
-  M['EOC_POWER_MAINTENANCE_CONCENTRATION_CHECK'](you, npc, ctx)
-  util.queue_eoc(function(y) M['EOC_CLAIR_SENSE_HOSTILE_CREATURES_DRAIN'](y, npc, ctx) end, you, U.rng((((m.spell_level(you, 'clair_sense_hostile_creatures') * 45) + 120) * J.psionic_power_modifiers(you, npc, ctx)), (((m.spell_level(you, 'clair_sense_hostile_creatures') * 75) + 490) * J.psionic_power_modifiers(you, npc, ctx))))
-  return true
-end
-C['EOC_CLAIR_SENSE_HOSTILE_CREATURES_INITIATE'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  return (not you:has_effect(U.eid('effect_clair_sense_hostile_creatures')))
-end
-M['EOC_CLAIR_SENSE_HOSTILE_CREATURES_INITIATE'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  if not C['EOC_CLAIR_SENSE_HOSTILE_CREATURES_INITIATE'](you, npc, ctx) then
-    M['EOC_CLAIR_REMOVE_SENSE_HOSTILE_CREATURES'](you, npc, ctx)
-    return false
-  end
-  U.msg(you, 'You open your senses to the dangers of the world.', MsgType.good, ctx)
-  M['EOC_POWER_MAINTENANCE_PLUS_ONE'](you, npc, ctx)
-  U.add_effect(you, 'effect_clair_sense_hostile_creatures', 'PERMANENT', nil, nil)
-  util.queue_eoc(function(y) M['EOC_CLAIR_SENSE_HOSTILE_CREATURES_DRAIN'](y, npc, ctx) end, you, U.rng((((m.spell_level(you, 'clair_sense_hostile_creatures') * 45) + 120) * J.psionic_power_modifiers(you, npc, ctx)), (((m.spell_level(you, 'clair_sense_hostile_creatures') * 75) + 490) * J.psionic_power_modifiers(you, npc, ctx))))
   return true
 end
 C['EOC_CLAIR_SPEED_READING_DRAIN'] = function(you, npc, ctx)
@@ -7344,7 +7270,7 @@ M['EOC_END_PSI_POWERS'] = function(you, npc, ctx)
   M['EOC_CLAIR_REMOVE_SEE_AURAS'](you, npc, ctx)
   M['EOC_CLAIR_REMOVE_RANGED_ENHANCE'](you, npc, ctx)
   M['EOC_CLAIR_REMOVE_DODGE_POWER'](you, npc, ctx)
-  M['EOC_CLAIR_REMOVE_SENSE_HOSTILE_CREATURES'](you, npc, ctx)
+  -- dropped EOC EOC_CLAIR_REMOVE_SENSE_HOSTILE_CREATURES (power cut from port)
   M['EOC_CLAIR_REMOVE_CRAFT_BONUS'](you, npc, ctx)
   M['EOC_CLAIR_REMOVE_CLEAR_SIGHT'](you, npc, ctx)
   M['EOC_CLAIR_REMOVE_GROUP_TACTICS'](you, npc, ctx)
@@ -7433,7 +7359,7 @@ M['EOC_END_PSI_POWERS_MAINTAINED'] = function(you, npc, ctx)
   M['EOC_CLAIR_REMOVE_SEE_AURAS'](you, npc, ctx)
   M['EOC_CLAIR_REMOVE_RANGED_ENHANCE'](you, npc, ctx)
   M['EOC_CLAIR_REMOVE_DODGE_POWER'](you, npc, ctx)
-  M['EOC_CLAIR_REMOVE_SENSE_HOSTILE_CREATURES'](you, npc, ctx)
+  -- dropped EOC EOC_CLAIR_REMOVE_SENSE_HOSTILE_CREATURES (power cut from port)
   M['EOC_CLAIR_REMOVE_CRAFT_BONUS'](you, npc, ctx)
   M['EOC_CLAIR_REMOVE_CLEAR_SIGHT'](you, npc, ctx)
   M['EOC_CLAIR_REMOVE_GROUP_TACTICS'](you, npc, ctx)
@@ -7492,7 +7418,7 @@ C['EOC_END_PSI_POWERS_SPECIFIC'] = function(you, npc, ctx)
 end
 M['EOC_END_PSI_POWERS_SPECIFIC'] = function(you, npc, ctx)
   ctx = ctx or {}
-  local _pick = U.select_eoc_menu('Stop concentrating on which power?', {'EOC_BIOKIN_REMOVE_OVERCOME_PAIN', 'EOC_BIOKIN_REMOVE_PHYSICAL_ENHANCE', 'EOC_BIOKIN_REMOVE_BREATHE_SKIN', 'EOC_BIOKIN_REMOVE_HARDENED_SKIN', 'EOC_BIOKIN_REMOVE_CLIMATE_CONTROL', 'EOC_BIOKIN_REMOVE_ENHANCE_MOBILITY', 'EOC_BIOKIN_REMOVE_GUIDED_EVOLUTION', 'EOC_BIOKIN_REMOVE_HAMMERHAND', 'EOC_BIOKIN_REMOVE_REFLEX_ENHANCE', 'EOC_BIOKIN_REMOVE_METABOLISM_ENHANCE', 'EOC_BIOKIN_REMOVE_COMBAT_DANCE', 'EOC_BIOKIN_REMOVE_PERFECTED_MOTION', 'EOC_CLAIR_REMOVE_BETTER_SENSES', 'EOC_CLAIR_REMOVE_NIGHT_EYES', 'EOC_CLAIR_REMOVE_SPEED_READ', 'EOC_CLAIR_REMOVE_DANGER_SENSE', 'EOC_CLAIR_REMOVE_SEE_AURAS', 'EOC_CLAIR_REMOVE_RANGED_ENHANCE', 'EOC_CLAIR_REMOVE_SENSE_HOSTILE_CREATURES', 'EOC_CLAIR_REMOVE_DODGE_POWER', 'EOC_CLAIR_REMOVE_CRAFT_BONUS', 'EOC_CLAIR_REMOVE_CLEAR_SIGHT', 'EOC_CLAIR_REMOVE_GROUP_TACTICS', 'EOC_ELECTROKIN_REMOVE_SEE_ELECTRICITY', 'EOC_ELECTROKIN_REMOVE_ZAP_ENEMIES', 'EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE', 'EOC_ELECTROKIN_REMOVE_PERSONAL_BATTERY', 'EOC_ELECTROKIN_REMOVE_REDUCE_PAIN', 'EOC_ELECTROKIN_REMOVE_SPEED_BOOST', 'EOC_ELECTROKIN_REMOVE_LIGHTNING_AURA', 'EOC_PHOTOKIN_REMOVE_LIGHT_LOCAL', 'EOC_PHOTOKIN_REMOVE_LIGHT_DODGE', 'EOC_PHOTOKIN_REMOVE_RAD_IMMUNITY', 'EOC_PHOTOKIN_REMOVE_CAMOUFLAGE', 'EOC_PHOTOKIN_REMOVE_HIDE_UGLY', 'EOC_PHOTOKIN_REMOVE_RADIO', 'EOC_PHOTOKIN_REMOVE_INVISIBILITY', 'EOC_PHOTOKIN_REMOVE_BLINDING_GLARE', 'EOC_PYRO_REMOVE_FIRE_TOOL', 'EOC_PYRO_REMOVE_WARMTH_CLOAK', 'EOC_PYROKIN_REMOVE_BLAZING_AURA', 'EOC_PYRO_REMOVE_TORCH_WELD', 'EOC_PYROKIN_REMOVE_FLAME_IMMUNITY', 'EOC_TELEKIN_REMOVE_MOMENTUM', 'EOC_TELEKIN_REMOVE_LIFTING_FIELD', 'EOC_TELEKIN_REMOVE_TELEKINETIC_STRENGTH', 'EOC_TELEKIN_REMOVE_SHIELD', 'EOC_TELEKIN_REMOVE_JACKING_TOOL', 'EOC_TELEKIN_REMOVE_LEVITATION', 'EOC_TELEPATH_REMOVE_TELEPATHIC_CONCENTRATION', 'EOC_TELEPATH_REMOVE_TELEPATHIC_SHIELD', 'EOC_TELEPATH_REMOVE_TELEPATHIC_MORALE', 'EOC_TELEPATH_REMOVE_SENSE_MINDS', 'EOC_TELEPORT_REMOVE_STRIDE', 'EOC_TELEPORT_REMOVE_REACTIVE_DISPLACEMENT', 'EOC_TELEPORT_REMOVE_LOCI_ESTABLISHMENT', 'EOC_TELEPORT_REMOVE_WARPED_STRIKES', 'EOC_TELEPORT_REMOVE_WARPER_COMBAT', 'EOC_VITAKIN_REMOVE_SLOW_BLEEDING', 'EOC_VITAKIN_REMOVE_CONCENTRATED_HEALING', 'EOC_VITAKIN_REMOVE_HEALTH_POWER', 'EOC_VITAKIN_REMOVE_CURE_DISEASE', 'EOC_VITAKIN_REMOVE_NO_NEED_FOR_SLEEP', 'EOC_VITAKIN_REMOVE_SUPER_HEAL', 'EOC_VITAKIN_REMOVE_RETURN_FROM_DEATH', 'EOC_MOM_NO_EFFECT'}, {'Overcome Pain', 'Personal Enhancement', 'Oxygen Absorption', 'Hardened Skin', 'Temperature Adaptability', 'Enhance Mobility', 'Guided Evolution', 'Hammerhand', 'Heightened Reflexes', 'Metabolic Hyperefficiency', 'Combat Dance', 'Perfected Motion', 'Heightened Senses', 'Night Eyes', 'Speed Reader', 'Premonition', 'Aura Sight', 'Marksman\'s Eye', 'Sense Hostility', 'Combat Sense', 'Intuitive Artisan', 'Clarity', 'Prescient Tactician', 'Spark Sight', 'Electrical Discharge', 'Hacking Interface', 'Electron Overflow', 'Pain Suppression', 'Neuro-acceleration', 'Galvanic Aura', 'Candle\'s Glow', 'Trick of the Light', 'Lucent Barrier', 'Chameleoflage', 'Mirror-Mask', 'Radio Transception', 'Veil of Light', 'Blinding Radiance', 'Banked Flames', 'Cloak of Warmth', 'Blazing Aura', 'Incandescent Lance', 'Flameshield', 'Momentum Alteration', 'Lifting Field', 'Enhance Strength', 'Inertial Barrier', 'Lift Vehicle', 'Levitation', 'Concentration Trance', 'Telepathic Shield', 'Mood Stabilization', 'Mind Sonar', 'Extended Stride', 'Reactive Displacement', 'Loci Establishment', 'Warped Strikes', 'Flickerflash Stance', 'Coagulation', 'Leukocyte Accumulation', 'Healthy Glow', 'Immunostimulus', 'Selective Autosomnia', 'Anabolic Rejuvenation', 'Accelerated Resuscitation', 'cancel'}, nil, you, npc, ctx, true)
+  local _pick = U.select_eoc_menu('Stop concentrating on which power?', {'EOC_BIOKIN_REMOVE_OVERCOME_PAIN', 'EOC_BIOKIN_REMOVE_PHYSICAL_ENHANCE', 'EOC_BIOKIN_REMOVE_BREATHE_SKIN', 'EOC_BIOKIN_REMOVE_HARDENED_SKIN', 'EOC_BIOKIN_REMOVE_CLIMATE_CONTROL', 'EOC_BIOKIN_REMOVE_ENHANCE_MOBILITY', 'EOC_BIOKIN_REMOVE_GUIDED_EVOLUTION', 'EOC_BIOKIN_REMOVE_HAMMERHAND', 'EOC_BIOKIN_REMOVE_REFLEX_ENHANCE', 'EOC_BIOKIN_REMOVE_METABOLISM_ENHANCE', 'EOC_BIOKIN_REMOVE_COMBAT_DANCE', 'EOC_BIOKIN_REMOVE_PERFECTED_MOTION', 'EOC_CLAIR_REMOVE_BETTER_SENSES', 'EOC_CLAIR_REMOVE_NIGHT_EYES', 'EOC_CLAIR_REMOVE_SPEED_READ', 'EOC_CLAIR_REMOVE_DANGER_SENSE', 'EOC_CLAIR_REMOVE_SEE_AURAS', 'EOC_CLAIR_REMOVE_RANGED_ENHANCE', 'EOC_CLAIR_REMOVE_DODGE_POWER', 'EOC_CLAIR_REMOVE_CRAFT_BONUS', 'EOC_CLAIR_REMOVE_CLEAR_SIGHT', 'EOC_CLAIR_REMOVE_GROUP_TACTICS', 'EOC_ELECTROKIN_REMOVE_SEE_ELECTRICITY', 'EOC_ELECTROKIN_REMOVE_ZAP_ENEMIES', 'EOC_ELECTROKIN_REMOVE_HACKING_INTERFACE', 'EOC_ELECTROKIN_REMOVE_PERSONAL_BATTERY', 'EOC_ELECTROKIN_REMOVE_REDUCE_PAIN', 'EOC_ELECTROKIN_REMOVE_SPEED_BOOST', 'EOC_ELECTROKIN_REMOVE_LIGHTNING_AURA', 'EOC_PHOTOKIN_REMOVE_LIGHT_LOCAL', 'EOC_PHOTOKIN_REMOVE_LIGHT_DODGE', 'EOC_PHOTOKIN_REMOVE_RAD_IMMUNITY', 'EOC_PHOTOKIN_REMOVE_CAMOUFLAGE', 'EOC_PHOTOKIN_REMOVE_HIDE_UGLY', 'EOC_PHOTOKIN_REMOVE_RADIO', 'EOC_PHOTOKIN_REMOVE_INVISIBILITY', 'EOC_PHOTOKIN_REMOVE_BLINDING_GLARE', 'EOC_PYRO_REMOVE_FIRE_TOOL', 'EOC_PYRO_REMOVE_WARMTH_CLOAK', 'EOC_PYROKIN_REMOVE_BLAZING_AURA', 'EOC_PYRO_REMOVE_TORCH_WELD', 'EOC_PYROKIN_REMOVE_FLAME_IMMUNITY', 'EOC_TELEKIN_REMOVE_MOMENTUM', 'EOC_TELEKIN_REMOVE_LIFTING_FIELD', 'EOC_TELEKIN_REMOVE_TELEKINETIC_STRENGTH', 'EOC_TELEKIN_REMOVE_SHIELD', 'EOC_TELEKIN_REMOVE_JACKING_TOOL', 'EOC_TELEKIN_REMOVE_LEVITATION', 'EOC_TELEPATH_REMOVE_TELEPATHIC_CONCENTRATION', 'EOC_TELEPATH_REMOVE_TELEPATHIC_SHIELD', 'EOC_TELEPATH_REMOVE_TELEPATHIC_MORALE', 'EOC_TELEPATH_REMOVE_SENSE_MINDS', 'EOC_TELEPORT_REMOVE_STRIDE', 'EOC_TELEPORT_REMOVE_REACTIVE_DISPLACEMENT', 'EOC_TELEPORT_REMOVE_LOCI_ESTABLISHMENT', 'EOC_TELEPORT_REMOVE_WARPED_STRIKES', 'EOC_TELEPORT_REMOVE_WARPER_COMBAT', 'EOC_VITAKIN_REMOVE_SLOW_BLEEDING', 'EOC_VITAKIN_REMOVE_CONCENTRATED_HEALING', 'EOC_VITAKIN_REMOVE_HEALTH_POWER', 'EOC_VITAKIN_REMOVE_CURE_DISEASE', 'EOC_VITAKIN_REMOVE_NO_NEED_FOR_SLEEP', 'EOC_VITAKIN_REMOVE_SUPER_HEAL', 'EOC_VITAKIN_REMOVE_RETURN_FROM_DEATH', 'EOC_MOM_NO_EFFECT'}, {'Overcome Pain', 'Personal Enhancement', 'Oxygen Absorption', 'Hardened Skin', 'Temperature Adaptability', 'Enhance Mobility', 'Guided Evolution', 'Hammerhand', 'Heightened Reflexes', 'Metabolic Hyperefficiency', 'Combat Dance', 'Perfected Motion', 'Heightened Senses', 'Night Eyes', 'Speed Reader', 'Premonition', 'Aura Sight', 'Marksman\'s Eye', 'Combat Sense', 'Intuitive Artisan', 'Clarity', 'Prescient Tactician', 'Spark Sight', 'Electrical Discharge', 'Hacking Interface', 'Electron Overflow', 'Pain Suppression', 'Neuro-acceleration', 'Galvanic Aura', 'Candle\'s Glow', 'Trick of the Light', 'Lucent Barrier', 'Chameleoflage', 'Mirror-Mask', 'Radio Transception', 'Veil of Light', 'Blinding Radiance', 'Banked Flames', 'Cloak of Warmth', 'Blazing Aura', 'Incandescent Lance', 'Flameshield', 'Momentum Alteration', 'Lifting Field', 'Enhance Strength', 'Inertial Barrier', 'Lift Vehicle', 'Levitation', 'Concentration Trance', 'Telepathic Shield', 'Mood Stabilization', 'Mind Sonar', 'Extended Stride', 'Reactive Displacement', 'Loci Establishment', 'Warped Strikes', 'Flickerflash Stance', 'Coagulation', 'Leukocyte Accumulation', 'Healthy Glow', 'Immunostimulus', 'Selective Autosomnia', 'Anabolic Rejuvenation', 'Accelerated Resuscitation', 'cancel'}, nil, you, npc, ctx, true)
   if not _pick then return false end
   M[_pick](you, npc, ctx)
   return true
@@ -12493,39 +12419,6 @@ end
 M['EOC_PRACTICE_CLAIR_SEE_MAP_LEARNING'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PRACTICE_CLAIR_SEE_MAP_LEARNING'](you, npc, ctx) then
-    return false
-  end
-  M['EOC_PRACTICE_PSIONICS_FINAL_LEARNING_CHECK'](you, npc, ctx)
-  return true
-end
-C['EOC_PRACTICE_CLAIR_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  return you:has_trait(U.mid('CLAIRSENTIENT'))
-end
-M['EOC_PRACTICE_CLAIR_SENSE_HOSTILE_CREATURES'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  if not C['EOC_PRACTICE_CLAIR_SENSE_HOSTILE_CREATURES'](you, npc, ctx) then
-    return false
-  end
-  V.usets(you, 'latest_studied_power_name', 'clair_sense_hostile_creatures')
-  M['EOC_PSI_STUDYING_CLAIR_POWER_SETUP'](you, npc, ctx)
-  if (m.spell_level(you, 'clair_sense_hostile_creatures') >= 1) then
-    M['EOC_PSI_STUDYING_POWER_BEGIN'](you, npc, ctx)
-    M['EOC_PSI_STUDYING_POWER_SIDE_EFFECTS'](you, npc, ctx)
-  else
-    M['EOC_PSI_STUDYING_POWER_INITIAL_SETUP'](you, npc, ctx)
-    M['EOC_PSI_PRACTICE_FOCUS_MOD'](you, npc, ctx)
-    util.queue_eoc(function(y) M['EOC_PRACTICE_CLAIR_SENSE_HOSTILE_CREATURES_LEARNING'](y, npc, ctx) end, you, U.rng(J.learn_new_power_lower_time_bound(you, npc, ctx, V.uget(you, 'latest_studied_power_difficulty')), J.learn_new_power_upper_time_bound(you, npc, ctx, V.uget(you, 'latest_studied_power_difficulty'))))
-  end
-  return true
-end
-C['EOC_PRACTICE_CLAIR_SENSE_HOSTILE_CREATURES_LEARNING'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  return (('clair_sense_hostile_creatures' == V.ustr(you, 'latest_studied_power_name')) and U.test_eoc(C, 'EOC_CONDITION_PSI_REQUIRED_FOR_LEARNING_NEW_POWER', you, npc, ctx))
-end
-M['EOC_PRACTICE_CLAIR_SENSE_HOSTILE_CREATURES_LEARNING'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  if not C['EOC_PRACTICE_CLAIR_SENSE_HOSTILE_CREATURES_LEARNING'](you, npc, ctx) then
     return false
   end
   M['EOC_PRACTICE_PSIONICS_FINAL_LEARNING_CHECK'](you, npc, ctx)
@@ -19705,7 +19598,7 @@ M['EOC_TEACH_CLAIR_CONTEMPLATE_RECIPES'] = function(you, npc, ctx)
   M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_AURA_SIGHT'](you, npc, ctx)
   M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_RANGED_ENHANCE'](you, npc, ctx)
   M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_EXAMINE_ITEMS'](you, npc, ctx)
-  M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SENSE_HOSTILE_CREATURES'](you, npc, ctx)
+  -- dropped EOC EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_SENSE_HOSTILE_CREATURES (power cut from port)
   M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_VOYANCE'](you, npc, ctx)
   M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_DODGE_POWER'](you, npc, ctx)
   M['EOC_CHECK_GAMEBEGIN_CLAIR_RECIPE_CRAFT_BONUS'](you, npc, ctx)

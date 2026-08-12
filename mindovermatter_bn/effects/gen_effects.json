@@ -1439,21 +1439,6 @@
   },
   {
     "type": "effect_type",
-    "id": "effect_clair_sense_hostile_creatures",
-    "name": [
-      "Sense Hostility"
-    ],
-    "desc": [
-      "You will know when there's something out there that means you harm."
-    ],
-    "apply_message": "",
-    "remove_message": "The sense of dangerous creatures fades away, but you know the danger remains.",
-    "rating": "good",
-    "max_duration": "7 days",
-    "//src": "effects_psionic.json"
-  },
-  {
-    "type": "effect_type",
     "id": "effect_clair_sense_rads_self",
     "name": [
       "Sensing Radiation"

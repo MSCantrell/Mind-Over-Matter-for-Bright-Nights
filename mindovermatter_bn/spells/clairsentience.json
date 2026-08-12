@@ -3,7 +3,7 @@
     "id": "clair_better_senses",
     "type": "SPELL",
     "name": "[\u03a8]Heightened Senses (C)",
-    "description": "All of your senses are heightened, allowing you to see further and hear better, and at higher levels even see in murky water or use minor vibrations and small sounds to determine moving creatures nearby.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 5 leads to Aura Sight.\nLevel 8 leads to Night Eyes.\nLevel 6 leads to Premonition.\nLevel 3 leads to See Mechanisms.\nLevel 8 leads to Sense Hostility with Premonition 6.",
+    "description": "All of your senses are heightened, allowing you to see further and hear better, and at higher levels even see in murky water or use minor vibrations and small sounds to determine moving creatures nearby.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 5 leads to Aura Sight.\nLevel 8 leads to Night Eyes.\nLevel 6 leads to Premonition.\nLevel 3 leads to See Mechanisms.",
     "message": "",
     "valid_targets": [
       "self"
@@ -67,7 +67,7 @@
     "id": "clair_danger_sense",
     "type": "SPELL",
     "name": "[\u03a8]Premonition (C)",
-    "description": "You can sense nearby movement and sometimes gain an advance warning of dangerous events.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 6 leads to Clairvoyance.\nLevel 10 leads to Combat Sense with Clairvoyance 6 + Premonition 10 OR Clairvoyance 6 + Sense Hostility 10.\nLevel 6 leads to Intuitive Artisan with Speed Reader 8.\nLevel 8 leads to Psychometry with Aura Sight 6 OR Speed Reader 8 OR Premonition 8.\nLevel 6 leads to Sense Hostility with Heightened Senses 8.",
+    "description": "You can sense nearby movement and sometimes gain an advance warning of dangerous events.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 6 leads to Clairvoyance.\nLevel 10 leads to Combat Sense with Clairvoyance 6.\nLevel 6 leads to Intuitive Artisan with Speed Reader 8.\nLevel 8 leads to Psychometry with Aura Sight 6 OR Speed Reader 8 OR Premonition 8.",
     "message": "",
     "valid_targets": [
       "self"
@@ -332,42 +332,10 @@
     "scale_int": true
   },
   {
-    "id": "clair_sense_hostile_creatures",
-    "type": "SPELL",
-    "name": "[\u03a8]Sense Hostility (C)",
-    "description": "You can sense the presence of the things that wish to do you harm.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 10 leads to Combat Sense with Clairvoyance 6 + Premonition 10 OR Clairvoyance 6 + Sense Hostility 10.",
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "spell_class": "CLAIRSENTIENT",
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "difficulty": 5,
-    "max_level": 15,
-    "effect": "target_attack",
-    "effect_str": "mom_cast_clair_sense_hostile_creatures",
-    "min_duration": 100,
-    "max_duration": 100,
-    "base_energy_cost": 6500,
-    "base_casting_time": 85,
-    "energy_increment": -120.0,
-    "final_energy_cost": 4700,
-    "casting_time_increment": -7.0,
-    "final_casting_time": 25,
-    "energy_source": "STAMINA",
-    "scale_int": true
-  },
-  {
     "id": "clair_voyance",
     "type": "SPELL",
     "name": "[\u03a8]Clairvoyance",
-    "description": "The classic example of a clairsentient's powers, you can see through walls and reveal everything nearby.\n\nLevel 6 leads to Combat Sense with Clairvoyance 6 + Premonition 10 OR Clairvoyance 6 + Sense Hostility 10.\nLevel 14 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\nLevel 8 leads to Satellite View.",
+    "description": "The classic example of a clairsentient's powers, you can see through walls and reveal everything nearby.\n\nLevel 6 leads to Combat Sense with Premonition 10.\nLevel 14 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\nLevel 8 leads to Satellite View.",
     "message": "You open your inner eye.",
     "valid_targets": [
       "self"

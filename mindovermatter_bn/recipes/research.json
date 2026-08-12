@@ -4,13 +4,16 @@
     "result": "psi",
     "id_suffix": "research_rad_powers",
     "nested_name": "study the Phavian USB documents",
-    "description": "Study the plethora of documents and files found on the Project PHAVIAN USB.  It has something to do with radiation; beyond that, you're not sure.",
     "skill_used": "cooking",
+    "description": "Study the plethora of documents and files found on the Project PHAVIAN USB.  It has something to do with radiation; beyond that, you're not sure.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "category": "CC_PSIONIC",
+    "difficulty": 4,
     "flags": [
       "SECRET",
       "BLIND_HARD"
     ],
-    "difficulty": 4,
+    "time": "2 h",
     "tools": [
       [
         [
@@ -24,23 +27,23 @@
           -1
         ]
       ]
-    ],
-    "time": "2 h",
-    "category": "CC_PSIONIC",
-    "subcategory": "CSC_PSIONIC_OTHER"
+    ]
   },
   {
     "type": "recipe",
     "result": "psi",
     "id_suffix": "research_rad_powers_clair",
     "nested_name": "study the RED SAFARI documents",
-    "description": "Study the plethora of documents and files found on the Project PHAVIAN USB relating to RED SAFARI.  It has something to do with radiation detection; beyond that, you're not sure.",
     "skill_used": "cooking",
+    "description": "Study the plethora of documents and files found on the Project PHAVIAN USB relating to RED SAFARI.  It has something to do with radiation detection; beyond that, you're not sure.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "category": "CC_PSIONIC",
+    "difficulty": 6,
     "flags": [
       "SECRET",
       "BLIND_HARD"
     ],
-    "difficulty": 6,
+    "time": "12 h",
     "tools": [
       [
         [
@@ -64,23 +67,23 @@
           -1
         ]
       ]
-    ],
-    "time": "12 h",
-    "category": "CC_PSIONIC",
-    "subcategory": "CSC_PSIONIC_OTHER"
+    ]
   },
   {
     "type": "recipe",
     "result": "psi",
     "id_suffix": "research_rad_powers_vita",
     "nested_name": "study the HONEY BRAVO documents",
-    "description": "Study the plethora of documents and files found on the Project PHAVIAN USB relating to HONEY BRAVO.  It has something to do with radiation treatment; beyond that, you're not sure.",
     "skill_used": "cooking",
+    "description": "Study the plethora of documents and files found on the Project PHAVIAN USB relating to HONEY BRAVO.  It has something to do with radiation treatment; beyond that, you're not sure.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "category": "CC_PSIONIC",
+    "difficulty": 6,
     "flags": [
       "SECRET",
       "BLIND_HARD"
     ],
-    "difficulty": 6,
+    "time": "16 h",
     "tools": [
       [
         [
@@ -104,18 +107,18 @@
           -1
         ]
       ]
-    ],
-    "time": "16 h",
-    "category": "CC_PSIONIC",
-    "subcategory": "CSC_PSIONIC_OTHER"
+    ]
   },
   {
     "type": "recipe",
     "result": "psi",
     "id_suffix": "research_extended_channeling",
     "nested_name": "research extended channeling",
-    "description": "There has to be an easier way of evoking your powers than frantically concentrating and trying to get the energies out.  Maybe if you took more time, you wouldn't have to concentrate so hard?  It wouldn't help you when a zombie was trying to eat you but it would definitely be useful otherwise.",
     "skill_used": "metaphysics",
+    "description": "There has to be an easier way of evoking your powers than frantically concentrating and trying to get the energies out.  Maybe if you took more time, you wouldn't have to concentrate so hard?  It wouldn't help you when a zombie was trying to eat you but it would definitely be useful otherwise.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "category": "CC_PSIONIC",
+    "difficulty": 1,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -124,18 +127,18 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 1,
-    "time": "6 h",
-    "category": "CC_PSIONIC",
-    "subcategory": "CSC_PSIONIC_OTHER"
+    "time": "6 h"
   },
   {
     "type": "recipe",
     "result": "psi",
     "id_suffix": "research_torrential_channeling",
     "nested_name": "research torrential channeling",
-    "description": "You have more of an understanding of the way the Nether ebbs and flows, sometimes surging forth like a flood when you least expect it.  There has to be a way to direct that more purposefully, to call forth more energy than you need and direct it into your powers instead of letting it wash over you.  It might be risky, sure, but you need every edge you can get in this post-Cataclysmic world.",
     "skill_used": "metaphysics",
+    "description": "You have more of an understanding of the way the Nether ebbs and flows, sometimes surging forth like a flood when you least expect it.  There has to be a way to direct that more purposefully, to call forth more energy than you need and direct it into your powers instead of letting it wash over you.  It might be risky, sure, but you need every edge you can get in this post-Cataclysmic world.",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "category": "CC_PSIONIC",
+    "difficulty": 3,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -144,42 +147,39 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 3,
-    "time": "14 h",
-    "category": "CC_PSIONIC",
-    "subcategory": "CSC_PSIONIC_OTHER"
+    "time": "14 h"
   },
   {
     "type": "recipe",
     "result": "psi",
     "id_suffix": "noetic_resonance_detector_usage",
     "nested_name": "use the noetic resonance detector",
-    "description": "Follow the usage instructions of the noetic resonance detector to determine your \"noetic potential\".",
     "skill_used": "computer",
-    "flags": [
-      "SECRET",
-      "BLIND_HARD"
+    "book_learn": [
+      [
+        "phavian_noetic_resonance_detector_instructions",
+        3
+      ]
     ],
-    "difficulty": 3,
     "skills_required": [
       "metaphysics",
       3
     ],
+    "description": "Follow the usage instructions of the noetic resonance detector to determine your \"noetic potential\".",
+    "subcategory": "CSC_PSIONIC_OTHER",
+    "category": "CC_PSIONIC",
+    "difficulty": 3,
+    "flags": [
+      "SECRET",
+      "BLIND_HARD"
+    ],
+    "time": "30 m",
     "tools": [
       [
         [
           "psi_noetic_resonance_detector_tool",
           500
         ]
-      ]
-    ],
-    "time": "30 m",
-    "category": "CC_PSIONIC",
-    "subcategory": "CSC_PSIONIC_OTHER",
-    "book_learn": [
-      [
-        "phavian_noetic_resonance_detector_instructions",
-        3
       ]
     ]
   }

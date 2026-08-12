@@ -37,7 +37,6 @@ return {
   ["clair_see_auras"] = true,
   ["clair_see_map"] = true,
   ["clair_see_mechanisms"] = true,
-  ["clair_sense_hostile_creatures"] = true,
   ["clair_sense_rads"] = true,
   ["clair_sense_rads_outside"] = true,
   ["clair_sense_rads_outside_spawn_item"] = true,

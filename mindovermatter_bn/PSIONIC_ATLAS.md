@@ -434,7 +434,6 @@ graph TD
   n_clair_see_auras["Aura Sight (C)"]:::power
   n_clair_see_map["Satellite View"]:::power
   n_clair_see_mechanisms["See Mechanisms"]:::start
-  n_clair_sense_hostile_creatures["Sense Hostility (C)"]:::power
   n_clair_sense_rads["Radiation Sense"]:::start
   n_clair_speed_reading["Speed Reader (C)"]:::start
   n_clair_voyance["Clairvoyance"]:::power
@@ -446,7 +445,6 @@ graph TD
   n_clair_better_senses -->|L6| n_clair_danger_sense
   n_clair_voyance -->|L6| n_clair_dodge_power
   n_clair_danger_sense -.->|L10| n_clair_dodge_power
-  n_clair_sense_hostile_creatures -.->|L10| n_clair_dodge_power
   n_clair_speed_reading -.->|L10| n_clair_dodge_power
   n_clair_danger_sense -.->|L8| n_clair_examine_item
   n_clair_see_auras -.->|L6| n_clair_examine_item
@@ -462,8 +460,6 @@ graph TD
   n_clair_better_senses -->|L5| n_clair_see_auras
   n_clair_voyance -->|L8| n_clair_see_map
   n_clair_danger_sense -.->|L6| n_clair_see_map
-  n_clair_danger_sense -->|L6| n_clair_sense_hostile_creatures
-  n_clair_better_senses -->|L8| n_clair_sense_hostile_creatures
   n_clair_danger_sense -->|L6| n_clair_voyance
   n_clair_night_vision -.->|L10| n_clair_voyance
   classDef start fill:#2f9aa8,stroke:#1f6872,color:#ffffff,stroke-width:1.5px,font-weight:600;

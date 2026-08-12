@@ -4,8 +4,6 @@
     "id": "telekinesis_practice",
     "nested_name": "contemplation: telekinesis",
     "description": "Recipes related to practicing telekinesis.",
-    "subcategory": "CSC_PRACTICE_METAPHYSICS",
-    "category": "CC_PRACTICE",
     "nested_category_data": [
       "practice_telekinetic_pull",
       "practice_telekinetic_push",
@@ -24,15 +22,21 @@
       "practice_telekinetic_move_large_weight",
       "practice_telekinetic_aegis",
       "practice_telekinetic_earthshaker"
-    ]
+    ],
+    "subcategory": "CSC_PRACTICE_METAPHYSICS",
+    "category": "CC_PRACTICE"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_pull",
     "nested_name": "contemplation: far hand",
-    "description": "Contemplate your powers and improve your manipulation of non-living matter.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:telekinetic_pull>",
     "skill_used": "metaphysics",
+    "description": "Contemplate your powers and improve your manipulation of non-living matter.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:telekinetic_pull>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -41,7 +45,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -57,19 +61,19 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_push",
     "nested_name": "contemplation: force shove",
-    "description": "Contemplate your powers and improve your manipulation of living beings.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telekinetic_push>",
     "skill_used": "metaphysics",
+    "description": "Contemplate your powers and improve your manipulation of living beings.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telekinetic_push>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -78,7 +82,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -94,19 +98,19 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_noise",
     "nested_name": "contemplation: noisemaker",
-    "description": "Contemplate your powers and improve your ability to create noisy distractions.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telekinetic_noise>",
     "skill_used": "metaphysics",
+    "description": "Contemplate your powers and improve your ability to create noisy distractions.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telekinetic_noise>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -115,7 +119,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -131,19 +135,19 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_slam_down",
     "nested_name": "contemplation: knockdown",
-    "description": "Contemplate your powers and improve your ability to knock your targets over.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telekinetic_slam_down>",
     "skill_used": "metaphysics",
+    "description": "Contemplate your powers and improve your ability to knock your targets over.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telekinetic_slam_down>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -152,7 +156,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -168,19 +172,19 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_momentum",
     "nested_name": "contemplation: momentum alteration",
-    "description": "Contemplate your powers and improve your control of nearby momentum.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:telekinetic_momentum>",
     "skill_used": "metaphysics",
+    "description": "Contemplate your powers and improve your control of nearby momentum.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:telekinetic_momentum>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -189,7 +193,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -205,19 +209,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_slowfall",
     "nested_name": "contemplation: slowfall",
-    "description": "Contemplate your powers and improve your ability to reduce the pull of gravity on yourself.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:telekinetic_slowfall>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to reduce the pull of gravity on yourself.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:telekinetic_slowfall>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -226,7 +238,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -242,27 +254,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telekin_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_wave",
     "nested_name": "contemplation: wave of force",
-    "description": "Contemplate your powers and develop your ability to control bursts of telekinetic force.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:telekinetic_wave>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and develop your ability to control bursts of telekinetic force.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:telekinetic_wave>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -271,7 +283,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -287,27 +299,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telekin_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_lifting_field",
     "nested_name": "contemplation: lifting field",
-    "description": "Contemplate your powers and develop your ability to lift a single object for long periods of time.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:telekinetic_lifting_field>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and develop your ability to lift a single object for long periods of time.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:telekinetic_lifting_field>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -316,7 +328,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -332,27 +344,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telekin_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_strength",
     "nested_name": "contemplation: enhance strength",
-    "description": "Contemplate your powers and improve your ability to move very heavy objects.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:telekinetic_strength>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to move very heavy objects.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:telekinetic_strength>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -361,7 +373,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -377,27 +389,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telekin_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_hammer",
     "nested_name": "contemplation: mindhammer",
-    "description": "Contemplate your powers and improve your ability to smash a small area with telekinetic force.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:telekinetic_hammer>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to smash a small area with telekinetic force.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:telekinetic_hammer>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -406,7 +418,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -422,27 +434,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telekin_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_vehicle_lift",
     "nested_name": "contemplation: lift vehicle",
-    "description": "Contemplate your powers and improve your ability to pick up vehicles briefly.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:telekinetic_vehicle_lift>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to pick up vehicles briefly.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:telekinetic_vehicle_lift>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -451,7 +463,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -467,27 +479,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telekin_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_shield",
     "nested_name": "contemplation: inertial barrier",
-    "description": "Contemplate your powers and improve your creation of force barriers.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:telekinetic_shield>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your creation of force barriers.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:telekinetic_shield>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -496,7 +508,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -512,27 +524,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telekin_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_explosion",
     "nested_name": "contemplation: wrecking ball",
-    "description": "Contemplate your powers and improve your manifestation of telekinetic explosions.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:telekinetic_explosion>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your manifestation of telekinetic explosions.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:telekinetic_explosion>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -541,7 +553,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -557,27 +569,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telekin_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_levitation",
     "nested_name": "contemplation: levitation",
-    "description": "Contemplate your powers and improve your ability to not quite fly.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:telekinetic_levitation>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to not quite fly.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:telekinetic_levitation>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -586,7 +598,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -602,27 +614,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telekin_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_move_large_weight",
     "nested_name": "contemplation: megakinesis",
-    "description": "Contemplate your powers and improve your ability to move truly enormous amounts of weight.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:telekinetic_move_large_weight>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to move truly enormous amounts of weight.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:telekinetic_move_large_weight>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -631,7 +643,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -643,27 +655,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telekin_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_aegis",
     "nested_name": "contemplation: aegis",
-    "description": "Contemplate your powers and improve your ability to shield yourself from all harm.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:telekinetic_aegis>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to shield yourself from all harm.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:telekinetic_aegis>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -672,7 +684,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -688,27 +700,27 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telekin_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "telekinetic_earthshaker",
     "nested_name": "contemplation: earthshaker",
-    "description": "Contemplate your powers and improve your ability to grip the very earth and shake it.\n\nPower Difficulty: 10\n\nCurrent Power Level: <u_spell_level:telekinetic_earthshaker>",
     "skill_used": "metaphysics",
+    "components": [
+      [
+        [
+          "matrix_crystal_telekin_dust",
+          1
+        ]
+      ]
+    ],
+    "description": "Contemplate your powers and improve your ability to grip the very earth and shake it.\n\nPower Difficulty: 10\n\nCurrent Power Level: <u_spell_level:telekinetic_earthshaker>",
+    "subcategory": "CSC_*_NESTED",
+    "category": "CC_*",
+    "autolearn": false,
+    "difficulty": 0,
     "flags": [
       "SECRET",
       "BLIND_EASY",
@@ -717,7 +729,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "difficulty": 0,
+    "time": "0 s",
     "tools": [
       [
         [
@@ -733,18 +745,6 @@
           -1
         ]
       ]
-    ],
-    "time": "0 s",
-    "category": "CC_*",
-    "subcategory": "CSC_*_NESTED",
-    "components": [
-      [
-        [
-          "matrix_crystal_telekin_dust",
-          1
-        ]
-      ]
-    ],
-    "autolearn": false
+    ]
   }
 ]

@@ -4,33 +4,19 @@
     "id": "vitakinesis_practice",
     "nested_name": "contemplation: vitakinesis",
     "description": "Recipes related to practicing vitakinesis.",
+    "category": "CC_PRACTICE",
     "nested_category_data": [
       "practice_vita_health_power",
       "practice_vita_stop_bleeding",
       "practice_vita_remove_poison"
     ],
-    "subcategory": "CSC_PRACTICE_METAPHYSICS",
-    "category": "CC_PRACTICE"
+    "subcategory": "CSC_PRACTICE_METAPHYSICS"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "vita_health_power",
     "nested_name": "contemplation: healthy glow",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to enhance your overall health.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:vita_health_power>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -43,27 +29,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to enhance your overall health.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:vita_health_power>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "vita_stop_bleeding",
     "nested_name": "contemplation: staunch wound",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to stop bleeding.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:vita_stop_bleeding>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -76,27 +62,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to stop bleeding.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:vita_stop_bleeding>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "vita_remove_poison",
     "nested_name": "contemplation: detoxification",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to sweat out any dangerous toxins.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:vita_remove_poison>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -109,6 +95,20 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to sweat out any dangerous toxins.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:vita_remove_poison>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   }
 ]

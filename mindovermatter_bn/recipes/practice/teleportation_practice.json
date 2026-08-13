@@ -4,6 +4,7 @@
     "id": "teleportation_practice",
     "nested_name": "contemplation: teleportation",
     "description": "Recipes related to practicing teleportation.",
+    "category": "CC_PRACTICE",
     "nested_category_data": [
       "practice_teleport_blink",
       "practice_teleport_slow",
@@ -26,28 +27,13 @@
       "practice_teleport_warper_combat",
       "practice_teleport_reality_tear"
     ],
-    "subcategory": "CSC_PRACTICE_METAPHYSICS",
-    "category": "CC_PRACTICE"
+    "subcategory": "CSC_PRACTICE_METAPHYSICS"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_blink",
     "nested_name": "contemplation: blink",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to travel to a random location nearby without crossing the intervening space.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:teleport_blink>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -64,27 +50,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to travel to a random location nearby without crossing the intervening space.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:teleport_blink>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_slow",
     "nested_name": "contemplation: stutterstep",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to reshape space around your enemies.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:teleport_slow>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -101,27 +87,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to reshape space around your enemies.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:teleport_slow>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_phase",
     "nested_name": "contemplation: phase",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to travel short distances in a controlled matter without crossing the intervening space.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:teleport_phase>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -138,27 +124,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to travel short distances in a controlled matter without crossing the intervening space.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:teleport_phase>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_item_apport",
     "nested_name": "contemplation: apportation",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to teleport an item without following it to its destination.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:teleport_item_apport>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -175,27 +161,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to teleport an item without following it to its destination.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:teleport_item_apport>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_stride",
     "nested_name": "contemplation: extended stride",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to warp space around your movements.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:teleport_stride>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -212,35 +198,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to warp space around your movements.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:teleport_stride>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_transpose",
     "nested_name": "contemplation: transposition",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your control of relative position exchange.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:teleport_transpose>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -257,35 +235,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your control of relative position exchange.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:teleport_transpose>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_displacement",
     "nested_name": "contemplation: displacement",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to teleport your enemies away from you.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:teleport_displacement>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -302,35 +280,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to teleport your enemies away from you.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:teleport_displacement>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_reactive_displacement",
     "nested_name": "contemplation: reactive displacement",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to automatically teleport attackers away from you.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:teleport_reactive_displacement>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -347,35 +325,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to automatically teleport attackers away from you.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:teleport_reactive_displacement>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_collapse",
     "nested_name": "contemplation: spacial vortex",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to bring distant points close together.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:teleport_collapse>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -392,35 +370,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to bring distant points close together.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:teleport_collapse>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_warped_strikes",
     "nested_name": "contemplation: warped strikes",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to maintain a slight distance from reality.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:teleport_warped_strikes>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -437,35 +415,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to maintain a slight distance from reality.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:teleport_warped_strikes>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_farstep",
     "nested_name": "contemplation: farstep",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and develop your ability to instantly travel to a new location.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:teleport_farstep>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -482,35 +460,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and develop your ability to instantly travel to a new location.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:teleport_farstep>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_banish",
     "nested_name": "contemplation: oubliette",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to banish your enemies to other dimensions.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:teleport_banish>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -527,35 +505,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to banish your enemies to other dimensions.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:teleport_banish>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_loci_establishment",
     "nested_name": "contemplation: loci establishment",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to maintain an established locus that you can teleport to.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:teleport_loci_establishment>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -572,35 +550,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to maintain an established locus that you can teleport to.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:teleport_loci_establishment>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_loci_technique",
     "nested_name": "contemplation: loci technique",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to travel to an established locus.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:teleport_loci_technique>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -617,35 +595,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to travel to an established locus.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:teleport_loci_technique>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_gateway",
     "nested_name": "contemplation: gateway",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to travel to long-distant points.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:teleport_gateway>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -662,35 +640,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to travel to long-distant points.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:teleport_gateway>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_dilated_gateway",
     "nested_name": "contemplation: dilated gateway",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to teleport other creatures with you to long-distant points.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:teleport_dilated_gateway>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -707,35 +685,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to teleport other creatures with you to long-distant points.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:teleport_dilated_gateway>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_relocation",
     "nested_name": "contemplation: relocation",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to teleport held items to long-distant points.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:teleport_relocation>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -752,35 +730,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to teleport held items to long-distant points.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:teleport_relocation>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_breach",
     "nested_name": "contemplation: breach",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to open momentary portals to the Nether.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:teleport_summon>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -797,35 +775,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to open momentary portals to the Nether.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:teleport_summon>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_warper_combat",
     "nested_name": "contemplation: flickerflash stance",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to enact the TURQUOISE KEYSTONE protocols while in combat.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:teleport_warper_combat>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -842,35 +820,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to enact the TURQUOISE KEYSTONE protocols while in combat.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:teleport_warper_combat>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "teleport_reality_tear",
     "nested_name": "contemplation: reality tear",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_teleport_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to permanently tear open reality.\n\nPower Difficulty: 10\n\nCurrent Power Level: <u_spell_level:teleport_reality_tear>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -887,6 +865,28 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_teleport_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to permanently tear open reality.\n\nPower Difficulty: 10\n\nCurrent Power Level: <u_spell_level:teleport_reality_tear>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   }
 ]

@@ -9517,7 +9517,7 @@ M['EOC_PHOTOKINETIC_STERILIZE_FOODS'] = function(you, npc, ctx)
   V.uset(you, 'photokinetic_sterilize_item_weight_in_grams', 0)
   U.run_inv_eocs(you, ctx, 'manual_mult', {excluded_flags = {'IRRADIATED'}}, function(_it)
     V.uset(you, 'photokinetic_sterilize_item_weight_in_grams', (V.uget(you, 'photokinetic_sterilize_item_weight_in_grams')) + ((U.item_weight(_it) / 1000)))
-    U.unported('EOC_PHOTOKINETIC_STERILIZE_FOODS', 'npc_set_flag')
+    _it:set_flag(JsonFlagId.new('PHOTOKIN_IRRADIATION_READY'))
   end)
   V.uset(you, 'photokinetic_sterilize_item_weight_in_grams', (V.uget(you, 'photokinetic_sterilize_item_weight_in_grams')) / (40))
   U.add_effect(you, 'effect_photokin_sterilization', TimeDuration.from_turns(U.round(math.max((V.uget(you, 'photokinetic_sterilize_item_weight_in_grams') + 1), 1))), nil, nil)
@@ -10252,8 +10252,8 @@ M['EOC_PHOTOKIN_RADIATION_STERILIZATION_FINALIZE'] = function(you, npc, ctx)
     return false
   end
   U.run_inv_eocs(you, ctx, 'all', {flags = {'PHOTOKIN_IRRADIATION_READY'}}, function(_it)
-    U.unported('EOC_PHOTOKIN_RADIATION_STERILIZATION_FINALIZE', 'npc_unset_flag')
-    U.unported('EOC_PHOTOKIN_RADIATION_STERILIZATION_FINALIZE', 'npc_set_flag')
+    _it:unset_flag(JsonFlagId.new('PHOTOKIN_IRRADIATION_READY'))
+    _it:set_flag(JsonFlagId.new('IRRADIATED'))
   end)
   return true
 end

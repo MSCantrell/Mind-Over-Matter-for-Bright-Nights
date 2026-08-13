@@ -4,6 +4,7 @@
     "id": "biokinetic_practice",
     "nested_name": "contemplation: biokinesis",
     "description": "Recipes related to practicing biokinesis.",
+    "category": "CC_PRACTICE",
     "nested_category_data": [
       "practice_biokin_physical_enhance",
       "practice_biokin_overcome_pain",
@@ -21,28 +22,13 @@
       "practice_biokin_perfected_motion",
       "practice_biokin_hurricane_blows"
     ],
-    "subcategory": "CSC_PRACTICE_METAPHYSICS",
-    "category": "CC_PRACTICE"
+    "subcategory": "CSC_PRACTICE_METAPHYSICS"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_overcome_pain",
     "nested_name": "contemplation: overcome pain",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to resist pain.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:biokin_overcome_pain>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -59,27 +45,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to resist pain.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:biokin_overcome_pain>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_physical_enhance",
     "nested_name": "contemplation: physical enhancement",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to enhance your physical strength and agility.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:biokin_physical_enhance>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -96,27 +82,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to enhance your physical strength and agility.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:biokin_physical_enhance>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_breathe_skin",
     "nested_name": "contemplation: oxygen absorption",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to draw any possible oxygen from the environment.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:biokin_breathe_skin>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -133,27 +119,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to draw any possible oxygen from the environment.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:biokin_breathe_skin>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_dash",
     "nested_name": "contemplation: burst of speed",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to cross distances in moments.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:biokin_dash>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -170,35 +156,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to cross distances in moments.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:biokin_dash>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_armor_skin",
     "nested_name": "contemplation: armor skin",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_biokin_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to harden your flesh against incoming damage.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:biokin_armor_skin>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -215,35 +193,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_biokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to harden your flesh against incoming damage.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:biokin_armor_skin>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_climate_control",
     "nested_name": "contemplation: temperature adaptability",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_biokin_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to withstand temperature variations.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:biokin_climate_control>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -260,35 +238,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_biokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to withstand temperature variations.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:biokin_climate_control>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_adrenaline",
     "nested_name": "contemplation: adrenaline trigger",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_biokin_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to trigger a burst of adrenaline on command.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:biokin_adrenaline>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -305,35 +283,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_biokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to trigger a burst of adrenaline on command.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:biokin_adrenaline>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_enhance_mobility",
     "nested_name": "contemplation: enhance mobility",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_biokin_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to deal with encumbering gear.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:biokin_enhance_mobility>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -350,35 +328,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_biokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to deal with encumbering gear.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:biokin_enhance_mobility>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_hammerhand",
     "nested_name": "contemplation: hammerhand",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_biokin_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to eschew the use of tools, using your own body in place of a hammer or wrench.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:biokin_hammerhand>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -395,35 +373,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_biokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to eschew the use of tools, using your own body in place of a hammer or wrench.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:biokin_hammerhand>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_reflex_enhance",
     "nested_name": "contemplation: heightened reflexes",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_biokin_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to enhance your reflexes.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:biokin_reflex_enhance>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -440,35 +418,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_biokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to enhance your reflexes.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:biokin_reflex_enhance>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_sealed_system",
     "nested_name": "contemplation: sealed system",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_biokin_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to hermetically seal your body.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:biokin_sealed_system>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -485,35 +463,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_biokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to hermetically seal your body.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:biokin_sealed_system>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_metabolism_enhance",
     "nested_name": "contemplation: metabolic hyperefficiency",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_biokin_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to extract every possible nutrient from your food and water.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:biokin_metabolism_enhance>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -530,35 +508,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_biokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to extract every possible nutrient from your food and water.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:biokin_metabolism_enhance>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_combat_dance",
     "nested_name": "contemplation: combat dance",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_biokin_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your overall combat prowess.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:biokin_combat_dance>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -575,35 +553,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_biokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your overall combat prowess.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:biokin_combat_dance>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_perfected_motion",
     "nested_name": "contemplation: perfected motion",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_biokin_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to outrun a racehorse.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:biokin_perfected_motion>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -620,35 +598,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_biokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to outrun a racehorse.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:biokin_perfected_motion>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "biokin_hurricane_blows",
     "nested_name": "contemplation: hurricane blows",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_biokin_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to strike your opponents faster than thought.\n\nPower Difficulty: 10\n\nCurrent Power Level: <u_spell_level:biokin_hurricane_blows>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -665,6 +643,28 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_biokin_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to strike your opponents faster than thought.\n\nPower Difficulty: 10\n\nCurrent Power Level: <u_spell_level:biokin_hurricane_blows>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   }
 ]

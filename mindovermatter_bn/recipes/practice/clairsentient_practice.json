@@ -4,6 +4,7 @@
     "id": "clairsentient_practice",
     "nested_name": "contemplation: clairsentience",
     "description": "Recipes related to practicing clairsentience.",
+    "category": "CC_PRACTICE",
     "nested_category_data": [
       "practice_clair_better_senses",
       "practice_clair_danger_sense",
@@ -24,28 +25,13 @@
       "practice_clair_group_tactics",
       "practice_clair_omniscience"
     ],
-    "subcategory": "CSC_PRACTICE_METAPHYSICS",
-    "category": "CC_PRACTICE"
+    "subcategory": "CSC_PRACTICE_METAPHYSICS"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_better_senses",
     "nested_name": "contemplation: heightened senses",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to enhance your mundane senses.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:clair_better_senses>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -62,27 +48,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to enhance your mundane senses.\n\nPower Difficulty: 1\n\nCurrent Power Level: <u_spell_level:clair_better_senses>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_speed_reading",
     "nested_name": "contemplation: speed reading",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to comprehend books.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:clair_speed_reading>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -99,27 +85,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to comprehend books.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:clair_speed_reading>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_danger_sense",
     "nested_name": "contemplation: premonition",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your sense of nearby danger.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:clair_danger_sense>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -136,27 +122,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your sense of nearby danger.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:clair_danger_sense>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_night_vision",
     "nested_name": "contemplation: night eyes",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to sense your surroundings in the dark.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:clair_night_vision>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -173,27 +159,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to sense your surroundings in the dark.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:clair_night_vision>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_spot_weakness",
     "nested_name": "contemplation: discern weakness",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your sense of the vulnerabilities of your enemies.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:clair_spot_weakness>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -210,27 +196,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your sense of the vulnerabilities of your enemies.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:clair_spot_weakness>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_sense_rads",
     "nested_name": "contemplation: sense radiation",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to detect radiation.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:clair_sense_rads>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -247,27 +233,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to detect radiation.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:clair_sense_rads>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_aura_sight",
     "nested_name": "contemplation: aura sight",
-    "skill_used": "metaphysics",
-    "description": "Contemplate your powers and improve your ability to see others' emotional states.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:clair_see_auras>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -284,35 +270,27 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to see others' emotional states.\n\nPower Difficulty: 3\n\nCurrent Power Level: <u_spell_level:clair_see_auras>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_ranged_enhance",
     "nested_name": "contemplation: marksman's eye",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_clair_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to aim ranged weapons with precision.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:clair_ranged_enhance>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -329,35 +307,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_clair_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to aim ranged weapons with precision.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:clair_ranged_enhance>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_examine_item",
     "nested_name": "contemplation: psychometry",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_clair_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to determine hidden aspects of items.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:clair_examine_item>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -374,35 +352,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_clair_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to determine hidden aspects of items.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:clair_examine_item>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_voyance",
     "nested_name": "contemplation: clairvoyance",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_clair_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to extend your senses beyond your body.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:clair_voyance>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -419,35 +397,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_clair_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to extend your senses beyond your body.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:clair_voyance>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_dodge_power",
     "nested_name": "contemplation: combat sense",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_clair_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to see into the very near-term future.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:clair_dodge_power>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -464,35 +442,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_clair_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to see into the very near-term future.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:clair_dodge_power>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_craft_bonus",
     "nested_name": "contemplation: intuitive artisan",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_clair_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to determine exactly how you should build that thing you're working on.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:clair_craft_bonus>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -509,35 +487,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_clair_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to determine exactly how you should build that thing you're working on.\n\nPower Difficulty: 6\n\nCurrent Power Level: <u_spell_level:clair_craft_bonus>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_see_map",
     "nested_name": "contemplation: satellite view",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_clair_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to extend your senses over a vast distance.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:clair_see_map>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -554,35 +532,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_clair_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to extend your senses over a vast distance.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:clair_see_map>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_perfect_shot",
     "nested_name": "contemplation: one perfect shot",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_clair_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to only need one shot.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:clair_perfect_shot>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -599,35 +577,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_clair_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to only need one shot.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:clair_perfect_shot>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_clear_sight",
     "nested_name": "contemplation: clarity",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_clair_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to remove all barriers from your senses.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:clair_clear_sight>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -644,35 +622,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_clair_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to remove all barriers from your senses.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:clair_clear_sight>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_astral_projection",
     "nested_name": "contemplation: astral projection",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_clair_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to cast your spirit forth from your body.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:clair_astral_projection>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -689,35 +667,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_clair_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to cast your spirit forth from your body.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:clair_astral_projection>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_group_tactics",
     "nested_name": "contemplation: prescient tactics",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_clair_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to use foresight to advise your allies.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:clair_group_tactics>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -734,35 +712,35 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_clair_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to use foresight to advise your allies.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:clair_group_tactics>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   },
   {
     "type": "recipe",
     "result": "practice",
     "id_suffix": "clair_omniscience",
     "nested_name": "contemplation: omniscience",
-    "skill_used": "metaphysics",
-    "components": [
-      [
-        [
-          "matrix_crystal_clair_dust",
-          1
-        ]
-      ]
-    ],
-    "description": "Contemplate your powers and improve your ability to see everything.  <color_red>EVERYTHING</color>.\n\nPower Difficulty: 10\n\nCurrent Power Level: <u_spell_level:clair_omniscience>",
-    "subcategory": "CSC_*_NESTED",
-    "category": "CC_*",
-    "autolearn": false,
-    "difficulty": 0,
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
     "time": "0 s",
     "tools": [
       [
@@ -779,6 +757,28 @@
           -1
         ]
       ]
-    ]
+    ],
+    "autolearn": false,
+    "components": [
+      [
+        [
+          "matrix_crystal_clair_dust",
+          1
+        ]
+      ]
+    ],
+    "subcategory": "CSC_*_NESTED",
+    "flags": [
+      "SECRET",
+      "BLIND_EASY",
+      "NO_MANIP",
+      "AFFECTED_BY_PAIN",
+      "NO_BENCH",
+      "NO_ENCHANTMENT"
+    ],
+    "description": "Contemplate your powers and improve your ability to see everything.  <color_red>EVERYTHING</color>.\n\nPower Difficulty: 10\n\nCurrent Power Level: <u_spell_level:clair_omniscience>",
+    "difficulty": 0,
+    "category": "CC_*",
+    "skill_used": "metaphysics"
   }
 ]

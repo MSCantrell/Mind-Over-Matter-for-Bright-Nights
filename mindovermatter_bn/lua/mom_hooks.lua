@@ -91,12 +91,17 @@ return function(mod)
     return params.effect:get_id():str()
   end
 
+  -- Every add/remove the hooks see invalidates mom_math's turn-scoped
+  -- maintained_count cache (perf fix 2026-08-14) — this is what catches a
+  -- flagged maintained effect expiring naturally, which no Lua write path sees.
   function mod.on_effect_added(params)
+    mod.math.maintained_dirty()
     local h = mod.effect_added_handlers[effect_key(params)]
     if h then return h(params.char or params.character, params.effect) end
   end
 
   function mod.on_effect_removed(params)
+    mod.math.maintained_dirty()
     local h = mod.effect_removed_handlers[effect_key(params)]
     if h then return h(params.char or params.character, params.effect) end
   end
@@ -105,11 +110,13 @@ return function(mod)
   -- handler tables serve both, so a marker landing on a monster dispatches
   -- its EOC with you = the monster.
   function mod.on_mon_effect_added(params)
+    mod.math.maintained_dirty()
     local h = mod.effect_added_handlers[effect_key(params)]
     if h then return h(params.mon, params.effect) end
   end
 
   function mod.on_mon_effect_removed(params)
+    mod.math.maintained_dirty()
     local h = mod.effect_removed_handlers[effect_key(params)]
     if h then return h(params.mon, params.effect) end
   end
@@ -987,12 +994,35 @@ return function(mod)
 
   -- Recurring EOCs from the transpiler (upstream "recurrence"): randomized
   -- cadence handled by the on_every_x drainer above.
+  --
+  -- Cadence overrides (perf fix 2026-08-14) for upstream recurrence-1 EOCs
+  -- whose effect is a status the player can't perceive at 1-second resolution.
+  -- DDA runs these through its C++ EOC scheduler where a per-second no-op is
+  -- cheap; here each firing is a Lua dispatch plus its full condition chain:
+  --   * CONCENTRATION_LIMIT_INSTANT_UPDATER only toggles the
+  --     effect_psi_intense_concentration warning marker (the real gameplay
+  --     check, EOC_PSIONICS_CHANNEL_MAINTENANCE_CHECK, fires per cast, not
+  --     here).  Its chain cost ~10 has_trait + three maintained_count walks +
+  --     the ~35-term concentration_trait_bonuses formula EVERY turn for any
+  --     psion maintaining a power.  A 5-turn cadence makes the warning appear
+  --     or clear at most 5 seconds late — imperceptible.
+  --   * GRANT_GROUNDING_MEDITATION is a one-shot recipe grant (metaphysics 4+
+  --     psions), but once its condition held it called learn_recipe() every
+  --     single turn forever.  Not deactivated outright (mod.recurring is
+  --     per-VM: a new character in the same session must still be able to
+  --     earn it) — a 10-minute cadence keeps the grant while removing the
+  --     per-turn cost.
+  local RECURRING_CADENCE = {
+    EOC_CONCENTRATION_LIMIT_INSTANT_UPDATER = { min_turns = 5, max_turns = 5 },
+    EOC_MOM_GRANT_GROUNDING_MEDITATION_TO_PSIONS = { min_turns = 500, max_turns = 700 },
+  }
   for _, r in ipairs(mod.gen_recurring or {}) do
     if mod.eoc[r.id] then
+      local o = RECURRING_CADENCE[r.id]
       mod.recurring[r.id] = {
         fn = function(you) return mod.eoc[r.id](you, nil, {}) end,
-        min_turns = r.min_turns,
-        max_turns = r.max_turns,
+        min_turns = o and o.min_turns or r.min_turns,
+        max_turns = o and o.max_turns or r.max_turns,
       }
     end
   end
@@ -1033,6 +1063,17 @@ return function(mod)
     EOC_MOM_GAME_ONGOING_GRANT_PYROKINETIC_CRAFTING_PROFICIENCY = true,
     EOC_MOM_GAME_ONGOING_GRANT_TELEPORTATION_CRAFTING_PROFICIENCY = true,
     EOC_MOM_GAME_ONGOING_GRANT_VITAKINETIC_CRAFTING_PROFICIENCY = true,
+    -- Portal-storm awakening pollers (perf fix 2026-08-14): BN has NO portal
+    -- storms (see BN CONTENT GAPS in HANDOFF.md), so each condition's
+    -- U.is_weather('[close_/distant_]portal_storm') can never be true — those
+    -- weather ids never occur in BN, so mod.current_weather never matches.
+    -- They were still paying a U.is_outside() map call every 1-10 minutes
+    -- forever.  The rest of the dead awakening cluster (gen_jmath fns, the
+    -- reducer/countup EOCs) stays in place per HANDOFF — nothing triggers it;
+    -- these three were the only entries with a live scheduler registration.
+    EOC_PORTAL_STORM_PSION_AWAKENING_CLOSE = true,
+    EOC_PORTAL_STORM_PSION_AWAKENING_MEDIUM = true,
+    EOC_PORTAL_STORM_PSION_AWAKENING_DISTANT = true,
   }
   for id in pairs(DEAD_RECURRING) do mod.recurring[id] = nil end
 

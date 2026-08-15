@@ -133,9 +133,13 @@ return function(mod)
   -- ---- effects
   -- add_effect(id, dur[, bp[, intensity]]) — catalua_bindings_creature.cpp:281.
   -- dur == 'PERMANENT' -> long duration + set_permanent on the live effect.
+  -- Uses the U.eid memo (488 transpiled call sites re-add the same handful of
+  -- ids) and bumps mom_math's maintained_count generation — adding an effect
+  -- is one of the two Lua-side writes that can change the maintained-power
+  -- count mid-turn (perf fix 2026-08-14).
   function U.add_effect(who, eff_id, dur, bp, intensity)
     if not who then return end
-    local eid = EffectTypeId.new(eff_id)
+    local eid = U.eid(eff_id)
     local permanent = (dur == 'PERMANENT')
     if permanent then dur = TimeDuration.from_days(30) end
     local bpid = nil
@@ -144,6 +148,7 @@ return function(mod)
         function() return BodyPartTypeId.new(bp) end, nil)
     end
     who:add_effect(eid, dur, bpid, intensity)
+    m.maintained_dirty()
     if permanent then
       guarded("set_permanent", function()
         who:get_effect(eid):set_permanent(true)
@@ -154,7 +159,8 @@ return function(mod)
 
   function U.set_effect_intensity(who, eff_id, v)
     v = U.round(v)
-    local eid = EffectTypeId.new(eff_id)
+    local eid = U.eid(eff_id)
+    m.maintained_dirty()
     if v <= 0 then
       who:remove_effect(eid)
       return
@@ -386,7 +392,7 @@ return function(mod)
   -- covers both and self-heals if the item is somehow lost, which an event hook
   -- would not.
   local INTEGRATED_ARMOR = {
-    -- Photon Regulation. Carries quality GLARE 1 (weld without goggles) and the
+    -- Photon Regulation. Carries quality GLARE 2 (weld without goggles) and the
     -- SUN_GLASSES flag; the fork's night_vision_range override already lives on
     -- the trait itself, so only the glare half needs the item. PERSONAL layer, so
     -- it does not fight actual eyewear.

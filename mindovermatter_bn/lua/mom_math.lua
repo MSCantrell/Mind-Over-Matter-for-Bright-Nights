@@ -205,12 +205,36 @@ end
 -- call, so the id lookup MUST be pre-resolved (M.maintenance_eid), not
 -- reconstructed here; that used to be a fresh EffectTypeId.new() per entry
 -- per call and was the single largest per-cast cost for a psion.
+--
+-- Turn-scoped avatar cache (perf fix 2026-08-14): even pre-resolved, the walk
+-- is ~68 has_effect boundary calls, and the concentration updater chain alone
+-- calls this three times per tick (its own gate + the VS_LIMIT condition's two
+-- reads), with ~33 more call sites across the per-cast spellcasting_finish /
+-- opens_spellbook EOCs.  The count only changes when an effect is added or
+-- removed, so cache it for the current turn and let every write path bump a
+-- generation counter: U.add_effect / U.set_effect_intensity (the transpiled
+-- add/removal verbs) and the four effect add/remove hooks in mom_hooks (which
+-- also catch natural expiry of any flagged effect).  A maintained effect that
+-- expires through a path none of those see goes stale for AT MOST the rest of
+-- the current turn -- the turn key refreshes it on the next tick.
+local _mc_turn, _mc_gen_seen, _mc_val = -1, -1, 0
+local _mc_gen = 0
+function M.maintained_dirty() _mc_gen = _mc_gen + 1 end
 function M.maintained_count(you)
+  local avatar = you.is_avatar ~= nil and you:is_avatar()
+  local turn
+  if avatar then
+    turn = gapi.current_turn():to_turn()
+    if _mc_turn == turn and _mc_gen_seen == _mc_gen then return _mc_val end
+  end
   local n = 0
   for _, id in ipairs(M.maintenance_effects) do
     if you:has_effect(M.maintenance_eid[id]) then
       n = n + (M.maintenance_weight[id] or 1)
     end
+  end
+  if avatar then
+    _mc_turn, _mc_gen_seen, _mc_val = turn, _mc_gen, n
   end
   return n
 end

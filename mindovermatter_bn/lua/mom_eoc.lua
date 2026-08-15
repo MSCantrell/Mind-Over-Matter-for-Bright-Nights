@@ -87,6 +87,9 @@ return function(mod)
   -- mom_hooks' on_every_x (like the contemplation grind's per-turn tick).
   -- ==========================================================================
   local NOGO_EFFECT = "effect_telekinetic_nogozone"
+  -- Pre-resolved: the TICK below runs from on_every_x EVERY turn, and a fresh
+  -- EffectTypeId.new() per turn is a needless boundary cost (perf 2026-08-14).
+  local NOGO_EID = EffectTypeId.new(NOGO_EFFECT)
   local NOGO_SPELL = "telekinetic_nogozone"
   m.register_maintenance(NOGO_EFFECT)
 
@@ -97,7 +100,7 @@ return function(mod)
   end
 
   local function nogo_drain(you)
-    if not you:has_effect(EffectTypeId.new(NOGO_EFFECT)) then return end  -- ended
+    if not you:has_effect(NOGO_EID) then return end  -- ended
     util.channel_surge(you, 3, m)          -- channeled-power difficulty = 3
     m.gain_spell_exp(you, NOGO_SPELL, 50)  -- maintaining it trains the power
     util.queue_eoc(nogo_drain, you, nogo_drain_delay(m.spell_level(you, NOGO_SPELL)))
@@ -108,7 +111,7 @@ return function(mod)
   -- shove those.  U.shove is obstacle-aware: a monster backed against a wall
   -- simply isn't moved that turn (rare corner case, acceptable).
   M.EOC_TELEKIN_NOGOZONE_TICK = function(you, npc, ctx)
-    if not you:has_effect(EffectTypeId.new(NOGO_EFFECT)) then return false end
+    if not you:has_effect(NOGO_EID) then return false end
     local origin = you:get_pos_ms()
     for _, mon in ipairs(gapi.get_all_monsters()) do
       if mon:get_hp() > 0 and mon.friendly == 0
@@ -120,7 +123,7 @@ return function(mod)
   end
 
   M.EOC_TELEKIN_NOGOZONE_INITIATE = function(you, npc, ctx)
-    local eid = EffectTypeId.new(NOGO_EFFECT)
+    local eid = NOGO_EID
     if you:has_effect(eid) then            -- re-cast toggles the power off
       return M.EOC_TELEKIN_REMOVE_NOGOZONE(you, npc, ctx)
     end
@@ -133,7 +136,7 @@ return function(mod)
   end
 
   M.EOC_TELEKIN_REMOVE_NOGOZONE = function(you, npc, ctx)
-    local eid = EffectTypeId.new(NOGO_EFFECT)
+    local eid = NOGO_EID
     if you:has_effect(eid) then
       you:remove_effect(eid)  -- remove_message comes from the effect JSON
     end
@@ -556,20 +559,26 @@ return function(mod)
   -- under the 240 overdose threshold (character.cpp:5862).  Runs every turn --
   -- painkiller decays each turn, so a coarser sweep would let the mask flicker.
   local REDUCE_PAIN_EID = EffectTypeId.new("effect_electrokin_reduce_pain")
+  -- Named body + gate OUTSIDE the pcall (perf 2026-08-14): this entry fires
+  -- every turn for everyone, and the old shape allocated a fresh closure per
+  -- tick just to discover the effect wasn't up.  Now the common case is one
+  -- has_effect and out; the pcall (against a prebuilt function) only runs
+  -- while the power is actually held.
+  local function reduce_pain_mask_body(you)
+    local pain = you:get_pain()
+    if pain <= 0 then return end
+    -- upstream: min((level*0.02 + 0.15) * psionic_power_modifiers, 0.5)
+    local lvl = math.max(m.spell_level(you, "electrokinetic_reduce_pain"), 0)
+    local factor = math.min((lvl * 0.02 + 0.15)
+                            * J.psionic_power_modifiers(you, nil, {}), 0.5)
+    local floor = math.min(U.round(pain * factor), 200)
+    if you:get_painkiller() < floor then you:set_painkiller(floor) end
+  end
   mod.recurring["_mom_reduce_pain_mask"] = {
     min_turns = 1, max_turns = 1,
     fn = function(you)
-      pcall(function()
-        if not you:has_effect(REDUCE_PAIN_EID) then return end
-        local pain = you:get_pain()
-        if pain <= 0 then return end
-        -- upstream: min((level*0.02 + 0.15) * psionic_power_modifiers, 0.5)
-        local lvl = math.max(m.spell_level(you, "electrokinetic_reduce_pain"), 0)
-        local factor = math.min((lvl * 0.02 + 0.15)
-                                * J.psionic_power_modifiers(you, nil, {}), 0.5)
-        local floor = math.min(U.round(pain * factor), 200)
-        if you:get_painkiller() < floor then you:set_painkiller(floor) end
-      end)
+      if not you or not you:has_effect(REDUCE_PAIN_EID) then return end
+      pcall(reduce_pain_mask_body, you)
     end,
   }
 

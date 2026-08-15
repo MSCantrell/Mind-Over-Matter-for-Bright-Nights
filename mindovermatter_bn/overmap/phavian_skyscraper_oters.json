@@ -20,7 +20,6 @@
     "color": "light_blue",
     "see_cost": 5,
     "flags": [
-      "NO_ROTATE",
       "RISK_HIGH"
     ]
   },
@@ -37,8 +36,7 @@
     "color": "i_light_gray",
     "see_cost": 5,
     "flags": [
-      "SIDEWALK",
-      "NO_ROTATE"
+      "SIDEWALK"
     ],
     "mondensity": 2
   },
@@ -54,8 +52,6 @@
     "sym": "t",
     "color": "i_light_gray",
     "see_cost": 5,
-    "flags": [
-      "NO_ROTATE"
-    ]
+    "flags": []
   }
 ]

@@ -21,7 +21,8 @@
       "OUTER",
       "SEMITANGIBLE",
       "WATER_FRIENDLY",
-      "NO_DROP"
+      "NO_DROP",
+      "POWERARMOR_COMPATIBLE"
     ],
     "qualities": [
       [
@@ -81,7 +82,8 @@
     "flags": [
       "RAD_DETECT",
       "PERSONAL",
-      "ZERO_WEIGHT"
+      "ZERO_WEIGHT",
+      "POWERARMOR_COMPATIBLE"
     ]
   },
   {
@@ -106,7 +108,8 @@
       "PADDED",
       "SEMITANGIBLE",
       "WATER_FRIENDLY",
-      "NO_DROP"
+      "NO_DROP",
+      "POWERARMOR_COMPATIBLE"
     ],
     "environmental_protection": 0
   },
@@ -164,7 +167,8 @@
       "NO_UNLOAD",
       "NO_RELOAD",
       "INTEGRATED",
-      "MAGICAL"
+      "MAGICAL",
+      "POWERARMOR_COMPATIBLE"
     ],
     "qualities": [],
     "use_action": "MOM_HACK"
@@ -310,7 +314,8 @@
       "SEMITANGIBLE",
       "NO_DROP",
       "INTEGRATED",
-      "PADDED"
+      "PADDED",
+      "POWERARMOR_COMPATIBLE"
     ],
     "use_action": [
       {
@@ -344,7 +349,8 @@
       "ZERO_WEIGHT",
       "NO_DROP",
       "INTEGRATED",
-      "PADDED"
+      "PADDED",
+      "POWERARMOR_COMPATIBLE"
     ]
   },
   {
@@ -365,7 +371,7 @@
     "qualities": [
       [
         "GLARE",
-        1
+        2
       ]
     ],
     "flags": [
@@ -377,7 +383,8 @@
       "NO_REPAIR",
       "NO_SALVAGE",
       "PERSONAL",
-      "SEMITANGIBLE"
+      "SEMITANGIBLE",
+      "POWERARMOR_COMPATIBLE"
     ],
     "armor_portion_data": [
       {
@@ -411,7 +418,8 @@
       "ZERO_WEIGHT",
       "MUNDANE",
       "FIRE",
-      "NO_DROP"
+      "NO_DROP",
+      "POWERARMOR_COMPATIBLE"
     ],
     "qualities": [],
     "use_action": [
@@ -523,7 +531,8 @@
       "FIRE",
       "NO_DROP",
       "NO_UNLOAD",
-      "NO_RELOAD"
+      "NO_RELOAD",
+      "POWERARMOR_COMPATIBLE"
     ],
     "charges_per_use": 0,
     "qualities": [

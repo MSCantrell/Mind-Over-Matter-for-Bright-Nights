@@ -346,6 +346,28 @@ return function(mod)
       local hit_me = is_you(victim)
       local hit_you = (not hit_me) and is_you(attacker)
       if not (hit_me or hit_you) then return end
+
+      -- character_takes_damage event-EOC dispatch (2026-08-16).  DDA fires
+      -- this for any damage source; BN has no such hook at all (checked
+      -- catalua_hooks.cpp) so it stayed on the dead-events list ([[
+      -- reference_mom_event_eoc_dispatch_gap]]).  This melee hit is the only
+      -- damage source BN's Lua layer can see at all, so it's the only source
+      -- covered here -- ranged, thrown, fire, falls, and monster special
+      -- attacks still don't fire it.  Six EOCs key off this event: Mind Cry
+      -- perk, Photokinetic Dodge cancel, the "canceled by engaging in
+      -- combat" maintained-power group (Speed Reader/Aura Sight/Intuitive
+      -- Artisan/etc, via EOC_CONDITION_LIST_OF_POWERS_CANCELLED_BY_COMBAT),
+      -- Mesmerism/Obscurity breaking on the mesmerized-or-hidden party
+      -- getting hit, and the Return From Death HP tracker -- all currently
+      -- no-ops without this.  npc=you: two of the six gate on `npc ~= nil`
+      -- then read npc's own effects, expecting u and npc to be the same
+      -- character (see the doc comment above fire_event_eocs).  Avatar-only,
+      -- matching this hook's existing melee-aura scope above -- an NPC or
+      -- monster on the receiving end of a hit doesn't run any of this yet.
+      if hit_me then
+        mod.fire_event_eocs("character_takes_damage", you, {}, you)
+      end
+
       local foe = hit_me and attacker or victim
       for _, aura in ipairs(mod.melee_auras) do
         local dir_ok = (hit_me and aura.hit_me) or (hit_you and aura.hit_you)
@@ -494,15 +516,20 @@ return function(mod)
 
   -- Event-EOC dispatch (DDA `eoc_type: EVENT` keyed by `required_event`).  All
   -- such EOCs are transpiled into mod.eoc; the transpiler groups their ids by
-  -- event in mod.gen_events.  DDA semantics: u = the avatar, no beta talker,
-  -- each EOC self-gates.  Defined here (ahead of the cast-map loop) so the cast
-  -- handlers below can fire per-cast events; the game_start/game_begin callers
-  -- further down capture this same local.
-  local function fire_event_eocs(event, you, ctx)
+  -- event in mod.gen_events.  DDA semantics: u = the avatar, no beta talker
+  -- (npc is nil) for most events -- BUT a few single-actor events (confirmed
+  -- for character_takes_damage, 2026-08-16: EOC_PSI_NO_COMBAT_POWER_CHARACTER_
+  -- DAMAGE_CHECK and EOC_TELEPATH_OBSCURITY_REMOVAL_CHARACTER both gate on
+  -- `npc ~= nil` then read npc:has_effect(...)) were authored expecting u and
+  -- npc to be the SAME character, so callers for those pass npc=you.  Each EOC
+  -- self-gates regardless.  Defined here (ahead of the cast-map loop) so the
+  -- cast handlers below can fire per-cast events; the game_start/game_begin
+  -- callers further down capture this same local.
+  local function fire_event_eocs(event, you, ctx, npc)
     for _, id in ipairs((mod.gen_events or {})[event] or {}) do
       local fn = mod.eoc[id]
       if fn then
-        local ok, err = pcall(fn, you, nil, ctx or {})
+        local ok, err = pcall(fn, you, npc, ctx or {})
         if not ok then
           gdebug.log_error("MoM-BN: event " .. event .. " -> " .. id ..
                            ": " .. tostring(err))
@@ -1600,8 +1627,12 @@ return function(mod)
   -- + opens_spellbook (2026-07-14, the Nether Attunement / power-cost /
   -- metaphysics-XP event class — see fire_spell_cast_events and the cast-map
   -- loop above, which detect casts via caster-side markers since BN fires no
-  -- spell event).  Remaining events (avatar_moves, …) stay dormant until their
-  -- dispatch lands (spec §12).
+  -- spell event) and, avatar-only and melee-hits-only, character_takes_damage
+  -- (2026-08-16, from mod.on_melee_attacked's hit_me branch — see the comment
+  -- there; BN has no generic "took damage" hook, so ranged/thrown/fire/fall
+  -- damage still doesn't fire it).  Remaining events (avatar_moves, …) stay
+  -- dormant until their dispatch lands (spec §12);
+  -- [[reference_mom_event_eoc_dispatch_gap]] has the full dead-events list.
   -- DDA event semantics here: u = the avatar, no beta talker.  Each EOC
   -- carries its own trait/spell-level conditions, so dispatch is
   -- unconditional and pcall-guarded per EOC.

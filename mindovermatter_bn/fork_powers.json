@@ -178,8 +178,8 @@
     "id": "clair_see_mechanisms",
     "type": "SPELL",
     "name": "[\u03a8]See Mechanisms",
-    "description": "Open your inner eye to the hidden workings of locks: the pins of a deadbolt, the wards of a padlock, the tumblers turning behind a safe's dial.  With their secret geometry laid bare, you spring them open by pure understanding -- instantly, silently, and without fail.  No picks, no tools, no telltale scratches; you even see the alarm wiring in time to leave it be.\n\nAffects nearby MECHANICAL locks: keyed and deadbolt doors, barred doors, chain gates, dial safes, mechanical gun safes, and locked display cases.  It has no purchase on electronic locks and card readers -- a circuit has no moving mechanism to see.  The reach grows with your mastery, from the lock right in front of you to everything in a small area around you.",
-    "//": "ORIGINAL Bright Nights fork power (NOT in upstream MoM).  Clairsentient utility: fast, reliable mechanical lockpicking + safecracking.  Logic in lua/mom_hooks.lua (cast-marker handler 'mom_cast_clair_see_mechanisms' -> see_mechanisms_sweep + learner).  BN can't run map terrain/furniture edits from spell JSON, and lockpick_result isn't exposed to Lua, so the locked->unlocked remap is a hardcoded table mirroring each terrain/furniture's own lockpick_result (safes use their crack/pry result f_safe_o).  Electronic locks are deliberately left to the Electrokinetic's MOM_HACK bridge -- clean path separation.  Follows the circuit_sense/nogozone fork template: target_attack applies a mom_cast_* marker (EFFECT_LUA_ON_ADDED), STAMINA cost, scale_int, no magic_type.",
+    "description": "Open your inner eye to the hidden workings of a lock: the pins of a deadbolt, the wards of a padlock, the tumblers turning behind a safe's dial.  Seeing the answer isn't the same as acting on it, though -- picking a door still takes a lockpick in your hand and a few moments' work, guided so surely it can never fail or trip an alarm.  A safe's dial, once you've read it, just needs your hand to turn it the right way the first time -- no tool, no time at all.\n\nAffects one MECHANICAL lock at a time, right next to you: a keyed or deadbolt door, a barred door, a chain gate, a dial safe, a mechanical gun safe, or a locked display case.  It has no purchase on electronic locks and card readers -- a circuit has no moving mechanism to see.",
+    "//": "ORIGINAL Bright Nights fork power (NOT in upstream MoM).  Clairsentient utility: guaranteed-success mechanical lockpicking + safecracking, single-target, adjacent-only (2026-08-15 redesign -- the original area-sweep let 'seeing' a lock also silently open it with no tool and no distance limit, which is the exact telekinesis-flavored bug this rewrite removes).  Logic in lua/mom_hooks.lua (cast-marker handler 'mom_cast_clair_see_mechanisms' -> see_mechanisms_pick, which uses gapi.choose_adjacent_highlight to pick ONE target, then branches: doors need a real LOCKPICK-quality item and a timed ACT_LOCKPICK-typed Lua activity; safes need nothing and resolve instantly).  BN can't run map terrain/furniture edits from spell JSON, and lockpick_result isn't exposed to Lua, so the locked->unlocked remap is a hardcoded table mirroring each terrain/furniture's own lockpick_result (safes use their crack/pry result f_safe_o).  Electronic locks are deliberately left to the Electrokinetic's MOM_HACK bridge -- clean path separation.  Single-level power: max_level 1, since neither branch has anything left for mastery to scale once learned.  Follows the circuit_sense/nogozone fork template otherwise: target_attack applies a mom_cast_* marker (EFFECT_LUA_ON_ADDED), STAMINA cost, scale_int, no magic_type.",
     "message": "",
     "valid_targets": [
       "self"
@@ -193,17 +193,13 @@
       "NO_EXPLOSION_VFX"
     ],
     "difficulty": 4,
-    "max_level": 15,
+    "max_level": 1,
     "effect": "target_attack",
     "effect_str": "mom_cast_clair_see_mechanisms",
     "min_duration": 100,
     "max_duration": 100,
     "base_energy_cost": 3500,
-    "energy_increment": -120.0,
-    "final_energy_cost": 1500,
     "base_casting_time": 150,
-    "casting_time_increment": -6.0,
-    "final_casting_time": 40,
     "energy_source": "STAMINA",
     "scale_int": true
   },

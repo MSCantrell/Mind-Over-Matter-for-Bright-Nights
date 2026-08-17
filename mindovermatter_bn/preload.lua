@@ -79,6 +79,15 @@ game.add_hook("on_craft_result", function(params)
   if mod.on_craft_result then return mod.on_craft_result(params) end
 end)
 
+-- See Mechanisms (Clairsentient): the lockpicking half is a real, timed,
+-- interruptible activity (Character:assign_lua_activity, reusing the native
+-- ACT_LOCKPICK activity_type) rather than an instant map edit, so it needs a
+-- finish callback registered the same way vanilla's own Plumbing mod does
+-- (CBN/data/json/lua/plumbing.lua -> game.activity_functions["PLUMBING_FINISH_WASH"]).
+game.activity_functions["MOM_SEE_MECHANISMS_LOCKPICK_FINISH"] = function(params)
+  if mod.see_mechanisms_lockpick_finish then return mod.see_mechanisms_lockpick_finish(params) end
+end
+
 -- Bootstrap (power-list registration, save migration).
 game.add_hook("on_game_started", function(...)
   if mod.on_game_started then return mod.on_game_started(...) end

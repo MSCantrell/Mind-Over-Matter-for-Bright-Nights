@@ -871,18 +871,27 @@ return function(mod)
     end,
   }
 
-  -- See Mechanisms (original fork power, 2026-07-13): the Clairsentient's fast,
-  -- reliable MECHANICAL lockpicking + safecracking.  BN can't edit map terrain/
-  -- furniture from spell JSON, and the ter_t/furn_t Lua binding does not expose
-  -- `lockpick_result`, so the locked->open remap is a hardcoded table mirroring
-  -- each object's own lockpick/crack result (furniture_and_terrain/*.json;
-  -- safes use their pry/oxytorch result f_safe_o).  Electronic card readers and
-  -- keypads are deliberately left to the Electrokinetic's MOM_HACK bridge --
-  -- clean path separation, and a circuit has no moving mechanism to "see".  No
-  -- roll: the sweep always succeeds and never trips an alarm (t_door_locked_alarm
-  -- transforms straight to t_door_c, skipping the lockpick-failure alarm path).
-  -- The spell's own cast can still fail at low skill -- that's the "reliable
-  -- once mastered" part.  Follows the circuit_sense/nogozone marker template.
+  -- See Mechanisms (original fork power, 2026-07-13; single-target redesign
+  -- 2026-08-15): "seeing" the tumblers only tells you the answer -- it can't
+  -- move a physical mechanism for you, so both branches below still require
+  -- a hand on the lock.  Lockpicking needs a real LOCKPICK-quality item and
+  -- takes real time (a genuine ACT_LOCKPICK-typed activity); safecracking
+  -- needs only your hand on the dial, so it's instant.  One target per cast,
+  -- picked with gapi.choose_adjacent_highlight (the same UI vanilla
+  -- lockpicking itself uses to prompt for a direction) -- adjacent only, no
+  -- exceptions, since neither branch has any business working at a distance.
+  -- No roll ever: once the tool/adjacency gate is cleared, both branches
+  -- always succeed and never trip an alarm.  Single-level power (max_level 1
+  -- in fork_powers.json) -- there's nothing left for mastery to scale.
+  --
+  -- BN can't edit map terrain/furniture from spell JSON, and the ter_t/furn_t
+  -- Lua binding does not expose `lockpick_result`, so the locked->open remap
+  -- is a hardcoded table mirroring each object's own lockpick/crack result
+  -- (furniture_and_terrain/*.json; safes use their pry/oxytorch result
+  -- f_safe_o).  Electronic card readers and keypads are deliberately left to
+  -- the Electrokinetic's MOM_HACK bridge -- clean path separation, and a
+  -- circuit has no moving mechanism to "see".  Follows the
+  -- circuit_sense/nogozone marker template.
   local seem_ids
   local function get_seem_ids()
     if seem_ids then return seem_ids end
@@ -907,52 +916,119 @@ return function(mod)
     return seem_ids
   end
 
-  local function see_mechanisms_sweep(you)
-    local ids = get_seem_ids()
-    local map = gapi.get_map()
-    local o = you:get_pos_ms()
-    local lvl = math.max(mod.math.spell_level(you, "clair_see_mechanisms"), 0)
-    -- reach grows with mastery: adjacent (r1) -> small area (r3)
-    local R = math.max(1, math.min(1 + math.floor(lvl / 5), 3))
-    local doors, safes = 0, 0
-    for dx = -R, R do
-      for dy = -R, R do
-        local p = TripointBubMs.new(o.x + dx, o.y + dy, o.z)
-        local t = map:get_ter_at(p)
-        local hit = false
-        for _, pr in ipairs(ids.ter) do
-          if t == pr[1] then
-            map:set_ter_at(p, pr[2]); doors = doors + 1; hit = true; break
-          end
-        end
-        if not hit then
-          local f = map:get_furn_at(p)
-          for _, pr in ipairs(ids.furn) do
-            if f == pr[1] then
-              map:set_furn_at(p, pr[2]); safes = safes + 1; break
-            end
-          end
-        end
+  local function is_door_target(map, p)
+    local t = map:get_ter_at(p)
+    for _, pr in ipairs(get_seem_ids().ter) do
+      if t == pr[1] then return pr end
+    end
+    return nil
+  end
+
+  local function is_safe_target(map, p)
+    local f = map:get_furn_at(p)
+    for _, pr in ipairs(get_seem_ids().furn) do
+      if f == pr[1] then return pr end
+    end
+    return nil
+  end
+
+  -- Real BN items carrying LOCKPICK quality (tool_qualities.json items with
+  -- "qualities":[["LOCKPICK",n]]).  Lua has no get_quality/get_use binding
+  -- for items or Character at all (checked catalua_bindings_item.cpp -- both
+  -- are absent), so this reimplements the check as an itype allow-list, the
+  -- same workaround the Electrokinetic hacking bridge above uses for its own
+  -- native-system gap.  Roster: bone_skewer, hairpin_picklock, crude_picklock,
+  -- picklocks (locksmith kit), iceaxe, pseudo_bio_picklock (bionic).
+  local lockpick_itypes
+  local function get_lockpick_itypes()
+    if lockpick_itypes then return lockpick_itypes end
+    lockpick_itypes = {
+      ItypeId.new("bone_skewer"),
+      ItypeId.new("hairpin_picklock"),
+      ItypeId.new("crude_picklock"),
+      ItypeId.new("picklocks"),
+      ItypeId.new("iceaxe"),
+      ItypeId.new("pseudo_bio_picklock"),
+    }
+    return lockpick_itypes
+  end
+
+  local function has_lockpick(you)
+    for _, it in ipairs(you:all_items(true)) do
+      local t = it:get_type()
+      for _, lp in ipairs(get_lockpick_itypes()) do
+        if t == lp then return true end
       end
     end
-    if doors > 0 and safes > 0 then
-      gapi.add_msg(MsgType.good,
-        "Pins align and tumblers fall -- every mechanical lock around you gives way.")
-    elseif doors > 0 then
-      gapi.add_msg(MsgType.good, doors == 1
-        and "The lock's pins align in your mind's eye and the door falls open."
-        or "Deadbolts and latches click open one after another around you.")
-    elseif safes > 0 then
-      gapi.add_msg(MsgType.good,
-        "You read the safe's dial like a book; the tumblers drop and it swings open.")
+    return false
+  end
+
+  local ACT_LOCKPICK = ActivityTypeId.new("ACT_LOCKPICK")
+
+  local function crack_safe(you, map, p)
+    local pr = is_safe_target(map, p)
+    if not pr then return end -- changed underfoot between pick and resolve
+    map:set_furn_at(p, pr[2])
+    mod.u.msg(you,
+      "You read the safe's dial like a book; the tumblers drop and it swings open.",
+      MsgType.good, nil)
+  end
+
+  local function start_lockpick(you, map, p)
+    if not has_lockpick(you) then
+      mod.u.msg(you,
+        "You see exactly how the pins would fall -- but seeing isn't turning.  "
+        .. "You need something to actually work the lock with.", MsgType.info, nil)
+      return
+    end
+    -- Reuses BN's real ACT_LOCKPICK activity_type (player_activities.json)
+    -- purely for its verb/UI and its "rooted":true -- that field is what
+    -- cancels the activity if you walk away, the same protection vanilla
+    -- lockpicking gets against acting at a distance.  The finish callback
+    -- below (not the native actor) is what actually resolves it, so there is
+    -- no skill roll and no alarm path.
+    you:assign_lua_activity({
+      type = ACT_LOCKPICK,
+      duration = TimeDuration.from_seconds(20),
+      on_finish = "MOM_SEE_MECHANISMS_LOCKPICK_FINISH",
+      pos = p,
+      name = "clair_see_mechanisms",
+    })
+    mod.u.msg(you,
+      "You set to work on the lock, guided by an inner eye that already knows "
+      .. "exactly where every pin needs to fall.", MsgType.good, nil)
+  end
+
+  -- game.activity_functions trampoline target; registered in preload.lua.
+  mod.see_mechanisms_lockpick_finish = function(params)
+    local you = params.user
+    local map = gapi.get_map()
+    local p = params.pos and map:abs_to_bub(params.pos) or you:get_pos_ms()
+    local pr = is_door_target(map, p)
+    if not pr then return end -- door changed underfoot; say nothing
+    map:set_ter_at(p, pr[2])
+    mod.u.msg(you, "The lock's pins align in your mind's eye and the door falls open.",
+      MsgType.good, nil)
+  end
+
+  local function see_mechanisms_pick(you)
+    if not mod.u.is_avatar(you) then return end -- UI prompt: player-only
+    local map = gapi.get_map()
+    local target = gapi.choose_adjacent_highlight(
+      "See which lock?",
+      "There is no mechanical lock within your reach.",
+      function(p) return is_door_target(map, p) ~= nil or is_safe_target(map, p) ~= nil end,
+      false)
+    if not target then return end
+    if is_safe_target(map, target) then
+      crack_safe(you, map, target)
     else
-      gapi.add_msg(MsgType.info,
-        "You reach out with your senses, but there are no mechanical locks within your grasp.")
+      start_lockpick(you, map, target)
     end
   end
 
   mod.effect_added_handlers["mom_cast_clair_see_mechanisms"] = function(you, _eff)
-    local ok, err = pcall(see_mechanisms_sweep, you)
+    local ok, err = pcall(see_mechanisms_pick, you)
     if not ok then gdebug.log_error("MoM-BN: see_mechanisms: " .. tostring(err)) end
     consume_marker(you, "mom_cast_clair_see_mechanisms")
     return true

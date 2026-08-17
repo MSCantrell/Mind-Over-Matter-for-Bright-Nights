@@ -3,6 +3,13 @@
 return function(mod)
   local util = mod.util
 
+  -- Intuitive Artisan (Clairsentient) polling ids, hoisted once -- see the
+  -- on_every_x block below for why this is polled instead of event-dispatched.
+  local CRAFT_BONUS_EID = mod.u.eid('effect_clair_craft_bonus')
+  local CRAFT_BONUS_BLINDNESS_EID = mod.u.eid('effect_clair_craft_bonus_blindness')
+  local ACT_CRAFT = ActivityTypeId.new('ACT_CRAFT')
+  local ACT_MULTIPLE_CRAFT = ActivityTypeId.new('ACT_MULTIPLE_CRAFT')
+
   -- Recurring-EOC registry: id -> {fn, min_turns, max_turns, next_turn, deactivate}
   mod.recurring = mod.recurring or {}
 
@@ -43,6 +50,29 @@ return function(mod)
     -- effect_psi_studying_power, so this is a no-op the rest of the time.
     if mod.eoc['EOC_PSI_STUDYING_POWER'] then
       mod.eoc['EOC_PSI_STUDYING_POWER'](you, nil, {})
+    end
+
+    -- Intuitive Artisan (Clairsentient): DDA drives "blind while crafting" off
+    -- character_starts_activity / character_finished_activity EOC events.
+    -- BN's Lua layer has no native hook for either at all (checked
+    -- catalua_hooks.cpp -- neither exists), so the transpiled
+    -- EOC_CLAIR_CRAFTING_ADD/REMOVE_BLINDNESS_WHEN_CRAFTING pair sat in
+    -- mod.gen_events completely undispatched -- the same "remaining events
+    -- ... stay dormant" gap noted by the event-dispatch comment further down
+    -- (spec §12), not something specific to this power.  Polled here instead,
+    -- the same way EOC_PSI_STUDYING_POWER above is: cheap, because it's
+    -- gated on effect_clair_craft_bonus first, so it's a single has_effect
+    -- check for every psion who isn't channeling Intuitive Artisan.
+    -- Edge-triggered off the blindness effect itself so the ADD/REMOVE
+    -- messages fire once per transition, not every tick at the workbench.
+    if you:has_effect(CRAFT_BONUS_EID) then
+      local crafting = you:has_activity(ACT_CRAFT) or you:has_activity(ACT_MULTIPLE_CRAFT)
+      local blind = you:has_effect(CRAFT_BONUS_BLINDNESS_EID)
+      if crafting and not blind and mod.eoc['EOC_CLAIR_CRAFTING_ADD_BLINDNESS_WHEN_CRAFTING'] then
+        mod.eoc['EOC_CLAIR_CRAFTING_ADD_BLINDNESS_WHEN_CRAFTING'](you, nil, { activity = 'ACT_CRAFT' })
+      elseif not crafting and blind and mod.eoc['EOC_CLAIR_CRAFTING_REMOVE_BLINDNESS_WHEN_DONE_CRAFTING'] then
+        mod.eoc['EOC_CLAIR_CRAFTING_REMOVE_BLINDNESS_WHEN_DONE_CRAFTING'](you, nil, { activity = 'ACT_CRAFT' })
+      end
     end
 
     -- No Go Zone (original fork power): per-turn telekinetic exclusion field.

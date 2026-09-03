@@ -199,9 +199,14 @@ Please check here first — these are known and do not need new reports.
   burst into flame, a telepath should scream in your head, a telekinetic should shove
   everything back, and the three anti-psi zombies should take their nullifying field with
   them. Please confirm you now see (and feel) these.
-- **Oubliette / Banish** (Teleportation) — newly working: a target the power overwhelms is now
-  actually banished (it dies and the kill is credited to you) instead of just being told about
-  it. The Abjuration Stone is on the same code path and now banishes Nether creatures only.
+- **Abjuration Stone** — newly working: its "Nether creatures only" filter was already in place,
+  but the banish it wraps went through a Lua helper BN can't back (`U.die`), so the stone
+  cleared nothing. It should now clear Nether creatures out to ~25 tiles and leave everything
+  else — including your allies — alone. (Oubliette is unaffected: it has its own hand-written
+  implementation and has always worked.)
+- **Light Army** (Photokinetics) — the *dismissal* half ran through that same dead helper, so
+  the duplicates never went away when you dropped the power, and the concentration cost stayed
+  with them. They should now vanish on cue.
 - **Sensor Jamming** (Photokinetics) — newly working: robots and drones caught in the burst
   should be stunned for the power's duration. Non-robots are unaffected, by design.
 - **Hammerhand** (Biokinesis) — its upkeep now actually runs. Previously it cost no calories,

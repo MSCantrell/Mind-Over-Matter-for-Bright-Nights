@@ -1632,16 +1632,21 @@ return function(mod)
   end
 
   -- Kill `who` outright.  BN binds NO die()/kill() on Creature, Character or
-  -- monster (checked every catalua_bindings_*.cpp), so the old `who:die(nil)`
-  -- was an unconditional pcall failure that `guarded` swallowed -- and with it
-  -- went every "and then it dies" payload the transpiler emitted: Oubliette
-  -- (teleport_banish) never actually banished a target it had already decided
-  -- to kill, the Photokinetic light army's duplicates never vanished when the
-  -- power ended, astral projection's abandoned body and the abjuration stone's
-  -- victim both survived.  Fall back to the same route the u_die dialogue
-  -- bridge in mom_hooks already uses: armour-agnostic damage far past any
-  -- creature's HP.  `source`, when given, takes the kill credit (so a banished
-  -- monster counts as the caster's kill and prints the normal kill message).
+  -- monster (the only "die" string in the whole BN source tree is in a pinyin
+  -- table), so the old `who:die(nil)` was an unconditional pcall failure that
+  -- `guarded` swallowed.  Two live callers depended on it:
+  --   * the hand-written Abjuration Stone handler in mom_eoc, which does its
+  --     own NETHER species filter correctly and then asked U.die to do the
+  --     banishing -- so the stone filtered, and then killed nothing;
+  --   * EOC_PHOTOKIN_LIGHT_ARMY_DISAPPEAR_MONSTERS, the dismissal half of the
+  --     Photokinetic light army.  Its images are spawned as plain friendly
+  --     monsters with no lifetime of their own, so they simply never left.
+  -- (NOT Oubliette: EOC_TELEPORTER_OUBLIETTE_HANDLING is hand-overridden in
+  -- mom_eoc and banishes via death_drops = false + set_hp(0).  The generated
+  -- _HANDLING_2 that calls U.die is dead code behind that override.)
+  -- Fall back to the same route the u_die dialogue bridge in mom_hooks already
+  -- uses: armour-agnostic damage far past any creature's HP.  `source`, when
+  -- given, takes the kill credit.
   function U.die(who, source)
     if not who then return end
     U.deal_flat_damage(who, 1000000, source)

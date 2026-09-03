@@ -1259,7 +1259,7 @@ M['EOC_BIOKIN_BREATHE_SKIN_INITIATE'] = function(you, npc, ctx)
   U.msg(you, 'As you seal your lips, your chest still rises and falls.', MsgType.good, ctx)
   M['EOC_POWER_MAINTENANCE_PLUS_ONE'](you, npc, ctx)
   U.add_effect(you, 'effect_biokin_breathe_skin', 'PERMANENT', nil, nil)
-  you:remove_effect(U.eid('biokin_sealed_system'))
+  you:remove_effect(U.eid('effect_biokin_sealed'))  -- HAND FIX: upstream typo, effect is effect_biokin_sealed
   util.queue_eoc(function(y) M['EOC_BIOKIN_BREATH_SKIN_DRAIN'](y, npc, ctx) end, you, U.rng((((m.spell_level(you, 'biokin_breathe_skin') * 36) + 180) * J.psionic_power_modifiers(you, npc, ctx)), (((m.spell_level(you, 'biokin_breathe_skin') * 72) + 540) * J.psionic_power_modifiers(you, npc, ctx))))
   return true
 end
@@ -1333,7 +1333,7 @@ M['EOC_BIOKIN_CLIMATE_CONTROL_INITIATE'] = function(you, npc, ctx)
   U.msg(you, 'You feel much more comfortable.', MsgType.good, ctx)
   M['EOC_POWER_MAINTENANCE_PLUS_ONE'](you, npc, ctx)
   U.add_effect(you, 'effect_biokin_climate_control', 'PERMANENT', nil, nil)
-  you:remove_effect(U.eid('biokin_sealed_system'))
+  you:remove_effect(U.eid('effect_biokin_sealed'))  -- HAND FIX: upstream typo, effect is effect_biokin_sealed
   util.queue_eoc(function(y) M['EOC_BIOKIN_CLIMATE_CONTROL_DRAIN'](y, npc, ctx) end, you, U.rng((((m.spell_level(you, 'biokin_climate_control') * 180) + 300) * J.psionic_power_modifiers(you, npc, ctx)), (((m.spell_level(you, 'biokin_climate_control') * 360) + 600) * J.psionic_power_modifiers(you, npc, ctx))))
   return true
 end
@@ -1464,7 +1464,7 @@ M['EOC_BIOKIN_GUIDED_EVOLUTION_NETHER_ATTUNEMENT_BACKFIRE'] = function(you, npc,
 end
 C['EOC_BIOKIN_HAMMERHAND_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return you:has_effect(U.eid('biokin_hammerhand'))
+  return you:has_effect(U.eid('effect_biokin_hammerhand'))  -- HAND FIX: upstream typo, effect is effect_biokin_hammerhand
 end
 M['EOC_BIOKIN_HAMMERHAND_DRAIN'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -1900,7 +1900,7 @@ M['EOC_BIOKIN_OVERCOME_PAIN_DRAIN'] = function(you, npc, ctx)
   M['EOC_PSI_MAINTENANCE_CALORIE_COST_CALCULATOR'](you, npc, ctx)
   m.gain_spell_exp(you, 'biokin_overcome_pain', U.round(J.psionic_power_experience_formula(you, npc, ctx)))
   M['EOC_POWER_MAINTENANCE_CONCENTRATION_CHECK'](you, npc, ctx)
-  util.queue_eoc(function(y) M['EOC_BIOKIN_OVERCOME_PAIN_DRAIN'](y, npc, ctx) end, you, U.rng((((m.spell_level(you, 'biokin_overcome_pain') * 20) + 600) * J.psionic_power_modifiers(you, npc, ctx)), (((m.spell_level(you, 'spell: biokin_overcome_pain') * 75) + 2100) * J.psionic_power_modifiers(you, npc, ctx))))
+  util.queue_eoc(function(y) M['EOC_BIOKIN_OVERCOME_PAIN_DRAIN'](y, npc, ctx) end, you, U.rng((((m.spell_level(you, 'biokin_overcome_pain') * 20) + 600) * J.psionic_power_modifiers(you, npc, ctx)), (((m.spell_level(you, 'biokin_overcome_pain') * 75) + 2100) * J.psionic_power_modifiers(you, npc, ctx))))
   return true
 end
 C['EOC_BIOKIN_OVERCOME_PAIN_SWITCHER'] = function(you, npc, ctx)
@@ -2424,7 +2424,7 @@ M['EOC_CHANNEL_TELEPORTER_POWERS_WHILE_THE_HOUNDS_ARE_WATCHING'] = function(you,
   U.add_effect(you, 'tindrift', TimeDuration.from_days(1), nil, nil)
   U.spawn_monster(you, 'mon_hound_tindalos', U.round(1), U.round(8), false, false)
   if (U.rng(0, 100) >= 96) then
-    U.spawn_monster(you, 'mon_tindalos', U.round(1), U.round(4), false, false)
+    U.spawn_monster(you, 'mon_hound_tindalos', U.round(1), U.round(4), false, false)  -- HAND FIX: BN has no separate mon_tindalos
   end
   return true
 end
@@ -21675,7 +21675,8 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_INATTENTIVE_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_LIAR_01'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and (m.skill(you, 'social') >= 6) and (not you:has_trait(U.mid('LIAR'))) and (not you:has_trait(U.mid('TRUTHTELLER'))))
+  -- HAND FIX: BN's skill id is 'speech'; DDA renamed the same skill 'social'.
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 70) and (m.skill(you, 'speech') >= 6) and (not you:has_trait(U.mid('LIAR'))) and (not you:has_trait(U.mid('TRUTHTELLER'))))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_LIAR_01'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22366,7 +22367,8 @@ M['EOC_TELEPATH_MENTAL_ENGINEERING_TABLEMANNERS_02'] = function(you, npc, ctx)
 end
 C['EOC_TELEPATH_MENTAL_ENGINEERING_TRUTHTELLER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
-  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and (m.skill(you, 'social') >= 3) and you:has_trait(U.mid('TRUTHTELLER')))
+  -- HAND FIX: BN's skill id is 'speech'; DDA renamed the same skill 'social'.
+  return ((U.spell_level_sum(you, tostring('TELEPATH')) >= 60) and (m.skill(you, 'speech') >= 3) and you:has_trait(U.mid('TRUTHTELLER')))
 end
 M['EOC_TELEPATH_MENTAL_ENGINEERING_TRUTHTELLER_02'] = function(you, npc, ctx)
   ctx = ctx or {}
@@ -22997,14 +22999,14 @@ M['EOC_TELEPORTER_OUBLIETTE_HANDLING_2'] = function(you, npc, ctx)
     V.uset(you, 'health_comparison', ((((((U.hp(you, 'arm_l') + U.hp(you, 'arm_r')) + U.hp(you, 'leg_l')) + U.hp(you, 'leg_r')) + U.hp(you, 'torso')) + U.hp(you, 'head')) / 3))
     if (V.uget(you, 'psi_teleporter_damage') > V.uget(you, 'health_comparison')) then
       U.msg(npc, 'With a tremendous mental exertion, you hurl your target…elsewhere.', MsgType.neutral, ctx)
-      U.die(you)
+      U.die(you, npc)
     end
     return false
   end
   V.uset(you, 'psi_teleporter_damage', U.rng((((15 + (m.spell_level(npc, 'teleport_banish') * 15)) * ((m.int(npc) + 10) / 20)) * V.uget(npc, 'nether_attunement_power_scaling')), (((350 + (m.spell_level(npc, 'teleport_banish') * 35)) * ((m.int(npc) + 10) / 20)) * V.uget(npc, 'nether_attunement_power_scaling'))))
   V.uset(you, 'health_comparison', U.hp(you, 'ALL'))
   if (V.uget(you, 'psi_teleporter_damage') > V.uget(you, 'health_comparison')) then
-    U.die(you)
+    U.die(you, npc)
     U.msg(npc, 'With a tremendous mental exertion, you hurl your target…elsewhere.', MsgType.neutral, ctx)
   end
   return true

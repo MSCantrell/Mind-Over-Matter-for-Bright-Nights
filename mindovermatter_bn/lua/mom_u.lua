@@ -1599,11 +1599,20 @@ return function(mod)
     end, nil)
   end
 
-  function U.die(who)
-    guarded("die", function()
-      who:die(nil)
-      return true
-    end, nil)
+  -- Kill `who` outright.  BN binds NO die()/kill() on Creature, Character or
+  -- monster (checked every catalua_bindings_*.cpp), so the old `who:die(nil)`
+  -- was an unconditional pcall failure that `guarded` swallowed -- and with it
+  -- went every "and then it dies" payload the transpiler emitted: Oubliette
+  -- (teleport_banish) never actually banished a target it had already decided
+  -- to kill, the Photokinetic light army's duplicates never vanished when the
+  -- power ended, astral projection's abandoned body and the abjuration stone's
+  -- victim both survived.  Fall back to the same route the u_die dialogue
+  -- bridge in mom_hooks already uses: armour-agnostic damage far past any
+  -- creature's HP.  `source`, when given, takes the kill credit (so a banished
+  -- monster counts as the caster's kill and prints the normal kill message).
+  function U.die(who, source)
+    if not who then return end
+    U.deal_flat_damage(who, 1000000, source)
   end
 
   function U.cancel_activity(who)

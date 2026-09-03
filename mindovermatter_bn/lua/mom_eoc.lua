@@ -1177,5 +1177,31 @@ return function(mod)
     return gen_study_drain(you, npc, ctx)
   end
 
+  -- ==========================================================================
+  -- Abjuration Stone: banish only NETHER creatures (2026-09-03).
+  -- Upstream's spell restricts itself with `targeted_monster_species`:
+  -- [NETHER, NETHER_EMANATION, NETHER_BURROWING]; BN's spell loader has no
+  -- such field (magic.cpp reads only targeted_monster_ids), so the port's
+  -- copy of the spell lost the filter and its blast (aoe 15-25, valid_targets
+  -- hostile AND ally) marks every creature in a quarter-screen radius.  That
+  -- was harmless only while U.die was a silent no-op; now that it kills, the
+  -- filter has to exist somewhere, so re-impose it here -- the same "BN can't
+  -- express it in JSON, so do it in Lua" route the rest of the port uses.
+  -- NETHER_BURROWING has no BN counterpart; NETHER and NETHER_EMANATION both
+  -- exist (base BN and monsters/species_overrides.json respectively).
+  local ABJURE_SPECIES = { "NETHER", "NETHER_EMANATION" }
+  M.EOC_MOM_ABJURATION_STONE_SPELL_EFFECTS = function(you, npc, ctx)
+    if not you then return true end
+    local nether = false
+    pcall(function()
+      for _, sp in ipairs(ABJURE_SPECIES) do
+        if you:in_species(SpeciesTypeId.new(sp)) then nether = true return end
+      end
+    end)
+    if not nether then return false end   -- not of the Nether: unharmed
+    U.die(you, npc)
+    return true
+  end
+
   return M
 end

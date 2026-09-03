@@ -7,8 +7,11 @@ return function(mod)
   -- on_every_x block below for why this is polled instead of event-dispatched.
   local CRAFT_BONUS_EID = mod.u.eid('effect_clair_craft_bonus')
   local CRAFT_BONUS_BLINDNESS_EID = mod.u.eid('effect_clair_craft_bonus_blindness')
+  -- ACT_CRAFT covers every craft in BN; there is no ACT_MULTIPLE_CRAFT here
+  -- (BN's ACT_MULTIPLE_* family is construction/mining/butchery/farming only,
+  -- player_activities.json), so the second id this used to build never matched
+  -- anything and only cost a lookup.
   local ACT_CRAFT = ActivityTypeId.new('ACT_CRAFT')
-  local ACT_MULTIPLE_CRAFT = ActivityTypeId.new('ACT_MULTIPLE_CRAFT')
 
   -- Recurring-EOC registry: id -> {fn, min_turns, max_turns, next_turn, deactivate}
   mod.recurring = mod.recurring or {}
@@ -66,7 +69,7 @@ return function(mod)
     -- Edge-triggered off the blindness effect itself so the ADD/REMOVE
     -- messages fire once per transition, not every tick at the workbench.
     if you:has_effect(CRAFT_BONUS_EID) then
-      local crafting = you:has_activity(ACT_CRAFT) or you:has_activity(ACT_MULTIPLE_CRAFT)
+      local crafting = you:has_activity(ACT_CRAFT)
       local blind = you:has_effect(CRAFT_BONUS_BLINDNESS_EID)
       if crafting and not blind and mod.eoc['EOC_CLAIR_CRAFTING_ADD_BLINDNESS_WHEN_CRAFTING'] then
         mod.eoc['EOC_CLAIR_CRAFTING_ADD_BLINDNESS_WHEN_CRAFTING'](you, nil, { activity = 'ACT_CRAFT' })
@@ -155,7 +158,13 @@ return function(mod)
   -- eoc?, message? } (from DDA death_function objects BN's loader can't hold).
   -- Fired by preload's on_mon_death hook; guarded so a dying-monster edge case
   -- never surfaces a debugmsg.
-  local U = mod.U
+  -- `mod.u`, NOT `mod.U`: main.lua stores the U runtime as mod.u (lowercase).
+  -- This read was nil, and since every death payload below is pcall-wrapped,
+  -- the resulting "index a nil value" was swallowed -- the 17 death SPELLS in
+  -- gen_mon_death (every feral psychic's dying blast, the photokinetic image
+  -- explosion, the three nullifier-field cleanups) silently did nothing, while
+  -- their death MESSAGES still printed, so the log looked correct.
+  local U = mod.u
   local mon_death = require("lua/gen_mon_death")
   function mod.on_mon_death(params)
     local mon = params.mon
@@ -831,6 +840,36 @@ return function(mod)
     return true
   end
 
+  -- Sensor Jamming (photokinetic_stun_robots).  The spell is a faithful port
+  -- and still applies upstream's `sensor_stun`, but that effect is DDA core
+  -- (C++-driven: robot sensors report false readings) and BN has neither the
+  -- effect nor any code that reads it -- so before 2026-09-03 the power landed
+  -- an unknown effect id and did nothing whatsoever.  effects_psionic.json now
+  -- defines sensor_stun with EFFECT_LUA_ON_ADDED, and this handler supplies the
+  -- mechanical half: a ROBOT / ROBOT_FLYING target gets BN's own `stunned` for
+  -- what remains of the jamming, everything else shrugs it off (the power
+  -- overloads machine sensors, not eyes).  The character/monster add hooks share
+  -- this table, so `who` is a monster on every real cast.
+  local SENSOR_STUN_SPECIES = { "ROBOT", "ROBOT_FLYING" }
+  mod.effect_added_handlers["sensor_stun"] = function(who, eff)
+    if not who then return end
+    local ok, err = pcall(function()
+      local robot = false
+      for _, sp in ipairs(SENSOR_STUN_SPECIES) do
+        if who:in_species(SpeciesTypeId.new(sp)) then robot = true break end
+      end
+      if not robot then
+        who:remove_effect(EffectTypeId.new("sensor_stun"))
+        return
+      end
+      -- Mirror the jamming's own remaining duration (the spell sets it).
+      local dur = eff and eff:get_duration() or TimeDuration.from_turns(30)
+      who:add_effect(EffectTypeId.new("stunned"), dur, nil, nil)
+    end)
+    if not ok then gdebug.log_error("MoM-BN: sensor_stun: " .. tostring(err)) end
+    return true
+  end
+
   -- Dialogue-effect bridge (Phase 5B).  BN dialogue can't run inline math or
   -- run_eocs, so the psi-attack responses in npcs/dialogue/*.json apply a 1-turn
   -- marker (effects/mom_dialogue_bridge_effects.json) to the target NPC instead;
@@ -994,17 +1033,22 @@ return function(mod)
   -- for items or Character at all (checked catalua_bindings_item.cpp -- both
   -- are absent), so this reimplements the check as an itype allow-list, the
   -- same workaround the Electrokinetic hacking bridge above uses for its own
-  -- native-system gap.  Roster: bone_skewer, hairpin_picklock, crude_picklock,
-  -- picklocks (locksmith kit), iceaxe, pseudo_bio_picklock (bionic).
+  -- native-system gap.
+  -- Roster re-derived from BN's own data 2026-09-03 (every item whose JSON
+  -- carries a ["LOCKPICK", n] quality) -- it is exactly these five.  The old
+  -- list had two errors that pulled in opposite directions: `bone_skewer` is
+  -- DDA's id for the bone pick (BN calls it `skewer_bone`), so the commonest
+  -- improvised lockpick never satisfied the gate; and `iceaxe`, which carries
+  -- no LOCKPICK quality in BN at all, did -- so an ice axe let you open a lock
+  -- that vanilla lockpicking would refuse.
   local lockpick_itypes
   local function get_lockpick_itypes()
     if lockpick_itypes then return lockpick_itypes end
     lockpick_itypes = {
-      ItypeId.new("bone_skewer"),
+      ItypeId.new("skewer_bone"),
       ItypeId.new("hairpin_picklock"),
       ItypeId.new("crude_picklock"),
       ItypeId.new("picklocks"),
-      ItypeId.new("iceaxe"),
       ItypeId.new("pseudo_bio_picklock"),
     }
     return lockpick_itypes

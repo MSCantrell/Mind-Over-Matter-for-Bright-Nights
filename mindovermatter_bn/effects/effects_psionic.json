@@ -161,5 +161,23 @@
       ]
     },
     "//": "Per-tick burn from standing in fd_pyrokinetic_aura (upstream effects_psionic.json). immune_flags dropped: unsupported in BN; fire immunity is gated at the field via has_fire."
+  },
+  {
+    "//": "Sensor Jamming (photokinetic_stun_robots) applies this.  DDA's core `sensor_stun` is a C++-driven robot scrambler that BN has neither the effect nor the handling for, so the spell landed a nonexistent effect id and the power did nothing at all.  Kept under the upstream id (the spell is otherwise a 1:1 port); the mechanical half is the EFFECT_LUA_ON_ADDED handler in mom_hooks.lua, which converts it into BN's own `stunned` for the same duration -- but only on ROBOT / ROBOT_FLYING targets, since only machine sensors are what the power overloads.",
+    "type": "effect_type",
+    "id": "sensor_stun",
+    "name": [
+      "Sensor scrambling"
+    ],
+    "desc": [
+      "Your artificial senses are scrambled and report false readings."
+    ],
+    "apply_message": "You're stunned!",
+    "rating": "bad",
+    "show_in_info": true,
+    "max_duration": "30 m",
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
   }
 ]

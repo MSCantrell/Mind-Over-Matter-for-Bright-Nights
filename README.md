@@ -193,6 +193,21 @@ Please check here first — these are known and do not need new reports.
 - **Photon Regulation** (Photokinetics) — newly working as of this build. You should acquire a
   worn "photon regulation" item you can't take off, which should let you look at the sun
   without pain and **weld without goggles**. Please confirm both.
+- **Feral psychic death effects** — newly firing as of this build (the Lua bridge that runs
+  them was reading the wrong runtime handle, so every dying feral's parting shot was silently
+  swallowed). A dying photokinetic feral should flash-blind you, a pyrokinetic one should
+  burst into flame, a telepath should scream in your head, a telekinetic should shove
+  everything back, and the three anti-psi zombies should take their nullifying field with
+  them. Please confirm you now see (and feel) these.
+- **Oubliette / Banish** (Teleportation) — newly working: a target the power overwhelms is now
+  actually banished (it dies and the kill is credited to you) instead of just being told about
+  it. The Abjuration Stone is on the same code path and now banishes Nether creatures only.
+- **Sensor Jamming** (Photokinetics) — newly working: robots and drones caught in the burst
+  should be stunned for the power's duration. Non-robots are unaffected, by design.
+- **Hammerhand** (Biokinesis) — its upkeep now actually runs. Previously it cost no calories,
+  built no Nether Attunement, never rolled a concentration break, and never gained XP from
+  being held. It should now behave like every other maintained power; say so if it now feels
+  too expensive.
 - **Lifting Field** — confirmed working: the `[Ψ]lifting field` aura appears, raises your
   carrying capacity, and is taken back when you stop concentrating. See
   [Fork changes](#fork-changes-deliberate-differences-from-dda) for how it differs from DDA.

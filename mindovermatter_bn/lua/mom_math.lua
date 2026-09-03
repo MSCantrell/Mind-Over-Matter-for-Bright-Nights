@@ -220,6 +220,22 @@ end
 local _mc_turn, _mc_gen_seen, _mc_val = -1, -1, 0
 local _mc_gen = 0
 function M.maintained_dirty() _mc_gen = _mc_gen + 1 end
+-- Same, but only when the effect that changed is one of the ~68 the count
+-- actually walks.  The blanket version fired on EVERY effect add and remove --
+-- `winded` from a sprint, a fresh `bleed`, any of the dozens of ambient effects
+-- a turn can bring -- and each one threw away a cache whose value could not
+-- have changed, forcing the next reader to re-walk all 68 has_effect calls.
+-- Callers that know the id (the four effect hooks, U.add_effect,
+-- U.set_effect_intensity) should use this; maintained_dirty() stays for the
+-- callers that don't.
+function M.maintained_dirty_id(id)
+  if id ~= nil and M.maintenance_weight[id] == nil then return end
+  _mc_gen = _mc_gen + 1
+end
+-- Read the generation counter.  Other turn-scoped caches (the concentration
+-- formulas in mom_hooks) hang off the same "an effect was added or removed"
+-- signal, so they read this rather than each keeping their own hook.
+function M.maintained_gen() return _mc_gen end
 function M.maintained_count(you)
   local avatar = you.is_avatar ~= nil and you:is_avatar()
   local turn

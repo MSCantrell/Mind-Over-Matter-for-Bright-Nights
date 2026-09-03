@@ -54,6 +54,38 @@ return function(mod)
     return v
   end
 
+  -- "Does this character belong to any psionic school?" -- the single most
+  -- repeated predicate in the whole runtime.  The transpiled conditions spell
+  -- it out as a ten-way has_trait or-chain (EOC_CONDITION_SPELLCASTING_FINISH_
+  -- TRAIT_AND_SCHOOL_LIST, EOC_CONCENTRATION_LIMIT_INSTANT_UPDATER and friends),
+  -- and the spellcasting_finish / opens_spellbook event class alone re-evaluates
+  -- it SIXTEEN times per cast -- ~96 has_trait boundary crossings for a
+  -- Telekinetic, ~160 for a knack-only character, because the or-chain has to
+  -- walk to whichever school actually matches.  School traits change about
+  -- twice per character (awakening, and again if a second path opens), so a
+  -- turn-scoped cache is exact in every case that matters and at worst a single
+  -- second stale on the turn a path is granted.  Avatar-only, mirroring
+  -- mom_math.maintained_count: NPCs and monsters take the uncached walk.
+  U.PSI_SCHOOL_TRAITS = { 'BIOKINETIC', 'CLAIRSENTIENT', 'ELECTROKINETIC',
+    'PHOTOKINETIC', 'PYROKINETIC', 'TELEKINETIC', 'TELEPATH', 'TELEPORTER',
+    'VITAKINETIC', 'PSYCHIC_KNACK' }
+  local _psion_turn, _psion_val = -1, false
+  local function psion_walk(who)
+    for _, t in ipairs(U.PSI_SCHOOL_TRAITS) do
+      if who:has_trait(U.mid(t)) then return true end
+    end
+    return false
+  end
+  function U.is_psion(who)
+    if not who or who.has_trait == nil then return false end
+    local avatar = who.is_avatar ~= nil and who:is_avatar()
+    if not avatar then return psion_walk(who) end
+    local turn = gapi.current_turn():to_turn()
+    if _psion_turn == turn then return _psion_val end
+    _psion_turn, _psion_val = turn, psion_walk(who)
+    return _psion_val
+  end
+
   -- Sentinel thrown when the player cancels an interactive target/tile pick
   -- (Esc).  It unwinds the whole cast so no downstream effects or "you did the
   -- thing" messages run -- an aborted Phase must not announce "you are somewhere
@@ -148,7 +180,7 @@ return function(mod)
         function() return BodyPartTypeId.new(bp) end, nil)
     end
     who:add_effect(eid, dur, bpid, intensity)
-    m.maintained_dirty()
+    m.maintained_dirty_id(eff_id)
     if permanent then
       guarded("set_permanent", function()
         who:get_effect(eid):set_permanent(true)
@@ -160,7 +192,7 @@ return function(mod)
   function U.set_effect_intensity(who, eff_id, v)
     v = U.round(v)
     local eid = U.eid(eff_id)
-    m.maintained_dirty()
+    m.maintained_dirty_id(eff_id)
     if v <= 0 then
       who:remove_effect(eid)
       return

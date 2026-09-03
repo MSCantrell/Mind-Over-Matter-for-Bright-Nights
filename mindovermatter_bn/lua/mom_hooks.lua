@@ -127,15 +127,20 @@ return function(mod)
   -- Every add/remove the hooks see invalidates mom_math's turn-scoped
   -- maintained_count cache (perf fix 2026-08-14) — this is what catches a
   -- flagged maintained effect expiring naturally, which no Lua write path sees.
+  -- Pass the id (2026-09-03): only the ~68 registered maintenance effects can
+  -- change the count, so an unrelated add/remove no longer throws away a cache
+  -- that would have to be rebuilt with 68 has_effect calls.
   function mod.on_effect_added(params)
-    mod.math.maintained_dirty()
-    local h = mod.effect_added_handlers[effect_key(params)]
+    local key = effect_key(params)
+    mod.math.maintained_dirty_id(key)
+    local h = mod.effect_added_handlers[key]
     if h then return h(params.char or params.character, params.effect) end
   end
 
   function mod.on_effect_removed(params)
-    mod.math.maintained_dirty()
-    local h = mod.effect_removed_handlers[effect_key(params)]
+    local key = effect_key(params)
+    mod.math.maintained_dirty_id(key)
+    local h = mod.effect_removed_handlers[key]
     if h then return h(params.char or params.character, params.effect) end
   end
 
@@ -143,14 +148,16 @@ return function(mod)
   -- handler tables serve both, so a marker landing on a monster dispatches
   -- its EOC with you = the monster.
   function mod.on_mon_effect_added(params)
-    mod.math.maintained_dirty()
-    local h = mod.effect_added_handlers[effect_key(params)]
+    local key = effect_key(params)
+    mod.math.maintained_dirty_id(key)
+    local h = mod.effect_added_handlers[key]
     if h then return h(params.mon, params.effect) end
   end
 
   function mod.on_mon_effect_removed(params)
-    mod.math.maintained_dirty()
-    local h = mod.effect_removed_handlers[effect_key(params)]
+    local key = effect_key(params)
+    mod.math.maintained_dirty_id(key)
+    local h = mod.effect_removed_handlers[key]
     if h then return h(params.mon, params.effect) end
   end
 
@@ -1204,6 +1211,80 @@ return function(mod)
     end
   end
 
+  -- === Turn-scoped caches on the hot concentration path (perf 2026-09-03) ====
+  -- Measured with an offline harness that loads this runtime against stub
+  -- bindings and counts engine-boundary calls.  A Telekinetic holding three
+  -- maintained powers spent 369 boundary calls on ONE psi cast, and two shapes
+  -- accounted for ~250 of them:
+  --   * EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST -- "is a psion,
+  --     and is this a psi school" -- re-evaluated 16 times per cast, each time
+  --     walking a ten-way has_trait or-chain (96 has_trait for a Telekinetic;
+  --     more for a school later in the chain).
+  --   * concentration_calculations() and its concentration_trait_bonuses(),
+  --     4 calls per cast, each a 33-term walk of traits and effect intensities.
+  --     EOC_POWER_MAINTENANCE_CONCENTRATION_CHECK's condition asks for it three
+  --     times inside a single expression.
+  -- Both are pure reads of state that cannot change inside one turn except via
+  -- an effect add/remove -- which mom_math's maintained generation counter
+  -- already tracks -- so key the cache on (turn, generation).  Same staleness
+  -- contract the maintained_count cache already ships with: at worst one game
+  -- second behind, and only for the avatar; NPC and monster callers (feral
+  -- psychics run these same conditions) always take the uncached path.
+  --
+  -- These wrap rather than edit the generated tables on purpose: mod.jmath and
+  -- mod.eoc_conds are the same table objects gen_jmath/gen_eoc closed over, so
+  -- replacing a field here redirects every generated call site, and a
+  -- regenerated gen_*.lua can't clobber the optimisation.
+  local function turn_cached(fn)
+    local c_turn, c_gen, c_val = -1, -1, nil
+    return function(who, npc, ctx)
+      local avatar = who ~= nil and who.is_avatar ~= nil and who:is_avatar()
+      if not avatar then return fn(who, npc, ctx) end
+      local turn = gapi.current_turn():to_turn()
+      local gen = mod.math.maintained_gen()
+      if c_turn == turn and c_gen == gen then return c_val end
+      c_val = fn(who, npc, ctx)
+      c_turn, c_gen = turn, gen
+      return c_val
+    end
+  end
+  if mod.jmath then
+    if mod.jmath.concentration_trait_bonuses then
+      mod.jmath.concentration_trait_bonuses = turn_cached(mod.jmath.concentration_trait_bonuses)
+    end
+    if mod.jmath.concentration_calculations then
+      mod.jmath.concentration_calculations = turn_cached(mod.jmath.concentration_calculations)
+    end
+  end
+
+  -- The two ten-way school-trait or-chains, rewritten onto U.is_psion (which
+  -- caches the same walk per turn).  Semantics are unchanged, including the
+  -- cheap half first: a non-psi `school` in ctx short-circuits before any
+  -- has_trait at all, which is the common case for the artifact and monster
+  -- casts that share these events.
+  local PSI_SCHOOLS = {}
+  for _, sc in ipairs({ 'BIOKINETIC', 'CLAIRSENTIENT', 'ELECTROKINETIC',
+                        'PHOTOKINETIC', 'PYROKINETIC', 'TELEKINETIC', 'TELEPATH',
+                        'TELEPORTER', 'VITAKINETIC', 'PSYCHIC_KNACK' }) do
+    PSI_SCHOOLS[sc] = true
+  end
+  local gen_conds = mod.eoc_conds
+  if gen_conds then
+    if gen_conds['EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST'] then
+      gen_conds['EOC_CONDITION_SPELLCASTING_FINISH_TRAIT_AND_SCHOOL_LIST'] =
+        function(you, _npc, ctx)
+          ctx = ctx or {}
+          return PSI_SCHOOLS[tostring(ctx['school'] or '')] == true
+                 and mod.u.is_psion(you)
+        end
+    end
+    if gen_conds['EOC_CONCENTRATION_LIMIT_INSTANT_UPDATER'] then
+      gen_conds['EOC_CONCENTRATION_LIMIT_INSTANT_UPDATER'] = function(you, _npc, _ctx)
+        return mod.u.is_psion(you) and mod.math.maintained_count(you) >= 1
+      end
+    end
+  end
+
   -- === Auto-learn: replace the DDA power-acquisition grind (2026-07-16) ======
   -- Upstream learns each power through three stacked timers (a 12h-7day "ready"
   -- counter, a per-power 12h-7day checker gated on a 1-in-20/40/80 roll OR the
@@ -1281,13 +1362,17 @@ return function(mod)
     return false
   end
 
+  -- mod.u.mid / the cast-map ids are memoised; MutationBranchId.new and
+  -- SpellTypeId.new here were not, so every poll rebuilt ~120 school-trait ids
+  -- and one spell id per learn-map entry from scratch (~350 boundary crossings
+  -- a poll).  Same ids, resolved once per session now.
   local function autolearn_eligible(you, e)
     local has = false
     for _, t in ipairs(e.traits) do
-      if you:has_trait(MutationBranchId.new(t)) then has = true break end
+      if you:has_trait(mod.u.mid(t)) then has = true break end
     end
     if not has then return false end
-    if you:get_magic():knows_spell(SpellTypeId.new(e.target)) then return false end
+    if mod.math.spell_level(you, e.target) >= 0 then return false end
     return prereqs_met(you, e)
   end
 

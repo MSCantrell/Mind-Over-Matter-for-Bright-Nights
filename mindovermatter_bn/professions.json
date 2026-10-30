@@ -75,6 +75,34 @@
   },
   {
     "type": "profession",
+    "id": "psi_psychic_patient",
+    "name": "Unwilling Psionic",
+    "description": "You were a human guinea pig, experimented on by sadistic scientists to unveil the reality-bending power of psionics.",
+    "starting_cash": 0,
+    "points": 1,
+    "skills": [
+      {
+        "level": 2,
+        "name": "metaphysics"
+      }
+    ],
+    "traits": [
+      "ALWAYS_GAIN_PSIONICS" 
+    ],
+    "items": { "both": { "entries": [
+      {
+        "item": "subsuit_xl"
+      },
+      {
+        "item": "matrix_crystal_coruscating"
+      } 
+      ]
+      }, "male": [ "briefs" ], "female": [ "bra", "panties" ]
+    },
+    "flags": [ "SCEN_ONLY" ]
+  },
+  {
+    "type": "profession",
     "id": "psi_biokinetic_athlete",
     "name": "Star Athlete",
     "description": "You were always good at athletics.  People praised your effort and hard work, but the truth was you barely needed to practice.  It all just came naturally to you, as naturally as breathing.  That kept you safe during the Cataclysm--you outran the dead and worse things that chased you and made it out of the cities, and they're certainly the thing that will keep you going, especially since now, you're stronger and faster than you've ever been.",

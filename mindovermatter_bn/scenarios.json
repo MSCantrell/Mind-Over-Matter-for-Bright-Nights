@@ -79,6 +79,14 @@
   },
   {
     "type": "scenario",
+    "id": "lab_chal",
+    "copy-from": "lab_chal",
+    "extend": {
+      "professions": [ "psi_psychic_patient" ]
+    }
+  },
+  {
+    "type": "scenario",
     "id": "challenge_scen_firestarter",
     "name": "Challenge - Heart of Fire",
     "points": 0,

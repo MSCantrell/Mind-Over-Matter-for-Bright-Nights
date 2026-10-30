@@ -52,6 +52,10 @@
       {
         "group": "dist_meditation_books_int",
         "prob": 4
+      },
+      {
+        "group": "mom_psion_journals_any",
+        "prob": 3
       }
     ],
     "subtype": "distribution"

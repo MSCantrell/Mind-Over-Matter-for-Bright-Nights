@@ -1,0 +1,181 @@
+[
+  {
+    "//": "HAND-AUTHORED (2026-10-16): journals of the awakened psions who died in, or left, the boarded-up psion houses.  Placed by mapgen/psion_house/ and, rarely, by homebooks.",
+    "type": "GENERIC",
+    "id": "mom_journal_telekinesis",
+    "category": "books",
+    "name": {
+      "str": "spiral notebook"
+    },
+    "description": "A spiral notebook with a grocery list on the first page and a lot more than that after it.  The handwriting gets bigger and messier toward the end.\n\nDay 3.  Boards up on every window.  The Wilsons next door aren't the Wilsons anymore.  My therapist kept telling me to journal.  I figure the end of the world is a good time to start taking her advice.\n\nDay 5.  The yellow rock.  There's a whole patch of them out by the quarry, sticking up out of the dirt like teeth.  I pocketed one because it was pretty.  Tonight I held it up to the candle and it got warm, then hot, then it went black, like a bulb burning out.  Then the remote slid across the coffee table into my hand.  I did not touch the remote.\n\nDay 6.  It's real.  Pens.  Spoons.  The cat's bowl (no cat).  It works better if I picture a hand, an extra one, a long way out.  Shoving is easier than pulling.  Gave myself a nosebleed trying to lift the recliner.\n\nDay 9.  Pulling works now, if I can see the thing.  I can see a lot through the gaps in the boards.  Mrs. Alvarez had a whole case of canned tomatoes on her porch.  Had.  Sorry, Mrs. Alvarez.  You don't need them where you are.\n\nDay 12.  Did the mailbox.  The whole mailbox, post and all, across the street and down the cellar steps.  No reason.  Just to see if I could.  Couldn't feel my teeth for an hour afterward.\n\nDay 15.  The basement is full.  Lamps.  A toaster.  Somebody's kid's bike helmet.  Forty-one rolls of paper towels off the delivery van on the corner.  I keep pulling.  When I stop, my head gets loud.  When I'm pulling, it's quiet.\n\nDay 17.  Broke the dresser.  Didn't mean to.  I was holding it up and thinking about the Wilsons and it just came apart, all at once, like something huge had stepped on it.  That's the third piece of furniture.  The couch is probably next.\n\nDay 18.  When I push really hard there's something about the air down here.  A pressure change, like before a storm.  Like something on the other side of the wall is leaning in to listen.  Stopped for the night.  Couldn't sleep anyway.\n\nDay 19.  Found another yellow rock in my coat pocket.  Must have grabbed two at the quarry.  I'm scared to hold it.  What if the next one doesn't stop at the remote?\n\nDay 20.  Lots of junk, no water.  Funny.  The Hendersons have a truck with a full tank and a cooler in the back, and it's too far to pull from here.  So I'm going to go get closer.  If you're reading this and I'm not around, help yourself to anything down here.  Most of it wasn't mine anyway.",
+    "symbol": ",",
+    "color": "white",
+    "material": [
+      "paper"
+    ],
+    "weight": "120 g",
+    "volume": "250 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "to_hit": -2,
+    "flags": [
+      "TRADER_AVOID"
+    ]
+  },
+  {
+    "type": "GENERIC",
+    "id": "mom_journal_pyrokinesis",
+    "category": "books",
+    "name": {
+      "str": "soot-stained composition book"
+    },
+    "description": "A composition book, its cover gone soft and gray with soot.  The corners of the pages are singed, but the writing inside is careful and neat.\n\nDay 2.  Power's out.  Water still runs.  Boarded the windows with the shelves from the garage.  Mom's house still smells like her.\n\nDay 4.  The red crystal.  I found it in the storm drain on Elm, glowing like a coal.  I held it at the kitchen table to look at it.  It burned cold, then hot, and then it was just a black stone in my palm.  And I could feel every flame in the house.  The pilot light.  The candle on the sill.  Like they were all leaning toward me.\n\nDay 5.  I can't light anything.  I can only make what's already burning burn harder.  Learned that the hard way with the candle.  The drapes are gone, and so is most of the living room ceiling paint.  Moved everything to the basement.  Concrete doesn't burn.\n\nDay 6.  RULES.\n  1. Never practice upstairs.\n  2. Extinguisher within reach.  Always.\n  3. Never when angry.\n\nDay 9.  Two braziers from the patio store.  Fuel is the problem.  I go through sticks like nothing.  Paper goes fastest and brightest.  I've started on the paperbacks.  Sorry, Mom.  Your romance novels make beautiful fire.\n\nDay 11.  I can hold the heat now, wrap it around me like a blanket.  Haven't needed a coat in three days.  Broke rule 3.  Something was scratching at the boards on the back door and I made the brazier roar so loud I couldn't hear for a minute.  The ceiling over it is black now.\n\nDay 12.  Another red stone, in the same storm drain.  I left it on the shelf by the braziers.  I'm not sure the first one is finished with me yet.\n\nDay 13.  When I really push, the fire goes the wrong color for a second.  Blue-white, and then something underneath it that isn't a color at all.  And I get this feeling of being noticed.  Like when you open the oven door and the heat looks at you.\n\nDay 14.  There are at least thirty of them on the street now.  They come to the light through the cracks.  I've been thinking about the gas in the shed.\n\nDay 15.  Two cans.  It's enough for the street, if I can turn one spark into a wall.  If it works, I'll come back for the rest of the books.  If it doesn't, whoever finds this: rule 1.  Never practice upstairs.",
+    "symbol": ",",
+    "color": "white",
+    "material": [
+      "paper"
+    ],
+    "weight": "120 g",
+    "volume": "250 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "to_hit": -2,
+    "flags": [
+      "TRADER_AVOID"
+    ]
+  },
+  {
+    "type": "GENERIC",
+    "id": "mom_journal_electrokinesis",
+    "category": "books",
+    "name": {
+      "str": "notebook with a lightning-bolt sticker",
+      "str_pl": "notebooks with lightning-bolt stickers"
+    },
+    "description": "A cheap notebook with a peeling lightning-bolt sticker on the cover and a faint burnt-plastic smell.  Several pages are fused together at one corner.\n\nday 2.  no power no internet no nothing.  boarded up the windows with dad's plywood.  dad isn't coming back i think.  not going to think about it.\n\nday 4.  found a crystal in the storm drain, glowing cyan.  touched it and every light bulb in the house popped at the same time.  there IS no power.  the crystal's black now.  i'm not.\n\nday 5.  i can see electricity.  like heat shimmer.  the dead batteries are dark.  the car battery in the garage looks like a little sun.\n\nday 6.  put my hand on the laptop to see if i could charge it.  fried it.  smoke and everything.  tried the phone.  fried.  the tv.  fried.  the radio.  fried.  there is a pattern here and i don't like it.\n\nday 8.  dragged the generator down the stairs.  it's been out of gas for days.  put both hands on it and it STARTED.  ran for twenty minutes on nothing, then something inside melted.  basement smelled like a burnt penny for a whole day.\n\nday 10.  figured out \"controlled.\"  small.  the trick is wanting less.  i can jump a spark across the room to a wire now.  took apart every gadget in the house for parts.  stripped copper is easier to hold onto, like it wants to be held.\n\nday 12.  the hum.  when i'm charged up there's a hum, low, under everything, and it doesn't come from me.  like standing under a power line, except the line is somewhere you can't point at.  it gets louder the more i do.  it doesn't get quieter when i stop anymore.\n\nday 13.  zapped one of them through the gap in the boards.  it dropped and twitched for a while.  then it got up.  i threw up.\n\nday 14.  found a second crystal in the gutter out back, same color.  haven't touched it.  not sure i want to know what two does.\n\nday 15.  there's a substation three blocks over.  if i could get the grid back up, even just for this street.  i know that's stupid.  i'm going anyway.  if you're reading this: the stuff on the bench mostly still works.  the stuff on the floor doesn't.  don't touch the generator.",
+    "symbol": ",",
+    "color": "white",
+    "material": [
+      "paper"
+    ],
+    "weight": "120 g",
+    "volume": "250 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "to_hit": -2,
+    "flags": [
+      "TRADER_AVOID"
+    ]
+  },
+  {
+    "type": "GENERIC",
+    "id": "mom_journal_biokinesis",
+    "category": "books",
+    "name": {
+      "str": "water-stained diary",
+      "str_pl": "water-stained diaries"
+    },
+    "description": "A small locking diary whose lock has been snapped off.  The pages are stiff from getting wet and drying again.\n\nDay 3.  Bad knee, bad back, forty-four years old, and the world ended on a Tuesday.  Nailed plywood over the windows and then sat down on the floor for an hour because I couldn't get back up.\n\nDay 6.  Pink crystal, in the hedge by the bus stop.  I held it and it went black and I felt it go INTO me, like warm water going down the wrong pipe.  Stood up off the floor without using my hands.  First time in six years.\n\nDay 7.  My knee doesn't hurt.  My back doesn't hurt.  I can feel my heartbeat in my fingertips, and if I lean on it, it slows down.  Or speeds up.  I held my breath for four minutes in the bathtub.  I wasn't trying to.  I just forgot to breathe and nothing bad happened.\n\nDay 9.  Cut my hand opening a can.  Watched it close.  Not fast, about as fast as a flower opening, but I watched it.\n\nDay 11.  Ran around the block.  Ran.  Outran three of them without trying, came back in through the window, and I wasn't even winded.  Got cocky and hit one on the way back.  My hand went hard as stone right before it landed.  I don't know how I did that.  I want to know how I did that.\n\nDay 13.  Haven't eaten in four days.  I'm not hungry.  That scares me more than anything outside.\n\nDay 15.  There's a funny feeling at the back of my skull when I push my body past where it should go.  A tingle, and then a pressure, like the whole world just turned its head to look at me.  It goes away if I rest.  It goes away slower each time.\n\nDay 16.  Saw smoke from the high school.  Somebody's alive over there.  I could have helped my sister, before.  Maybe I can help somebody now.  Going.",
+    "symbol": ",",
+    "color": "white",
+    "material": [
+      "paper"
+    ],
+    "weight": "120 g",
+    "volume": "250 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "to_hit": -2,
+    "flags": [
+      "TRADER_AVOID"
+    ]
+  },
+  {
+    "type": "GENERIC",
+    "id": "mom_journal_clairsentience",
+    "category": "books",
+    "name": {
+      "str": "dog-eared day planner"
+    },
+    "description": "A day planner from last year, repurposed.  Most of the appointments are crossed out and written over.  Some of the entries are dated days after the last one.\n\nDay 2.  Boarded up.  Tested every window twice.  The street is quiet, which is the worst kind of loud.\n\nDay 5.  Gray crystal.  Found it by the mailboxes.  It was cold the whole way home, then it went black in my hand and the room got very, very big.  I could see the back of my own head.  I could see the mouse in the wall.\n\nDay 6.  It's not seeing.  It's knowing where things are, without the trouble of eyes.  Two of them in the house across the street.  One in the bushes.  None in the basement, which is why I'm writing this in the basement.\n\nDay 8.  Found a deck of those psychic test cards in the hall closet, the ones with the stars and the wavy lines.  Twenty-five cards.  Got nine right the first time, chance is five.  Got twenty-three tonight.\n\nDay 10.  I knew the shelf would fall about a second before it fell.  I was already out of the way.  It's not a picture, it's a flinch.  My body knows first and tells me later.\n\nDay 12.  Twenty-five out of twenty-five.  Twice.  I don't need the cards anymore.  I can see the card in my hand while it's face down, and I can see the card in the next deck in the next house, and the fingers that dropped it.\n\nDay 14.  The further I look, the more something looks back.  Out past the edge of town there's a place where everything I see is turned slightly wrong, like a reflection in a spoon.  I stopped looking that way.\n\nDay 16.  I know how this ends.  Not the details, just the shape.  I'm going anyway, because the other shapes are worse.  Planner, if you're reading this: I'm sorry I couldn't see who you'd be.",
+    "symbol": ",",
+    "color": "white",
+    "material": [
+      "paper"
+    ],
+    "weight": "120 g",
+    "volume": "250 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "to_hit": -2,
+    "flags": [
+      "TRADER_AVOID"
+    ]
+  },
+  {
+    "type": "GENERIC",
+    "id": "mom_journal_photokinesis",
+    "category": "books",
+    "name": {
+      "str": "sketchbook"
+    },
+    "description": "An artist's sketchbook.  The charcoal drawings start as studies of hands and windows and slowly become something else: shapes made of light, and people who aren't quite there.\n\nDay 1.  Boarded the studio windows.  Gallery opening's canceled, I guess.\n\nDay 4.  A golden crystal, out in the lot behind the hardware store.  I wanted to draw it.  I held it up to the window to see the light come through and the light came through ME instead.  Then the crystal was black.  Then the room was brighter than the sun outside.\n\nDay 5.  I can make light.  A little ball of it, floating over my palm like a candle with no candle.  I can bend it, too.  If I squint, I can fold the light around my hand and my hand isn't there anymore.  I drew the hand that wasn't there.  It's the best thing I've ever drawn.\n\nDay 7.  Walked down to the corner and back to see if it worked on THEM.  They couldn't see me.  One walked right past close enough to touch.  Smelled like old meat and pennies.\n\nDay 9.  Made a copy of myself out of light, standing in the doorway.  It was wrong in the face.  They went for it anyway.  I left it there and walked out the back.\n\nDay 11.  Main Street.  The whole length of it, twice, invisible.  I took a can of peaches from the grocery and a set of good pencils from the drugstore and nobody stopped me, living or dead.\n\nDay 13.  When I hold the light too long, the edges of it go dark.  Not shadow-dark.  A color behind black.  It's beautiful, honestly, and I know that's the problem.\n\nDay 15.  I keep thinking about the people in the shelter downtown.  If they can't see me, they can't see the people I'm leading, either.  Packing the good pencils.",
+    "symbol": ",",
+    "color": "white",
+    "material": [
+      "paper"
+    ],
+    "weight": "120 g",
+    "volume": "250 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "to_hit": -2,
+    "flags": [
+      "TRADER_AVOID"
+    ]
+  },
+  {
+    "type": "GENERIC",
+    "id": "mom_journal_telepathy",
+    "category": "books",
+    "name": {
+      "str": "hardcover journal"
+    },
+    "description": "A hardcover journal with someone else's name embossed on the cover.  The entries inside are written in pencil and erased in places.\n\nDay 3.  Boarded up.  Alone in the house.  Alone on the street, as far as I can tell.\n\nDay 6.  White crystal.  Found it in the crack of the sidewalk outside the church.  It went black when I held it, and then it got loud.  Not my ears.  Behind my eyes.  Fragments.  Somebody counting cans.  Somebody singing to a baby.  Then nothing.\n\nDay 7.  The dead have no thoughts.  I knew that, I guess, but now I can HEAR it.  There's a silence where each of them is, like a hole cut in the sound.  The street is full of holes.\n\nDay 9.  I can make a wild dog calm down by thinking at it.  It sat on the porch for an hour while I talked to it through the boards.  Then it left.  I wanted it to stay.  I almost made it stay.  I didn't.\n\nDay 11.  There's a mind on the other side of town.  Just one.  Tired.  Scared.  She thinks in lists, the way I do.  I think she can almost hear me back.\n\nDay 12.  Pushed too hard trying to reach her.  Nosebleed, and then the feeling that the silence between minds isn't empty.  That something is sitting in it, and it noticed me reaching.\n\nDay 14.  I've been talking to her every night.  I don't know her name.  She doesn't know mine.  She dreams about her kitchen.  I know where she is: a brick house with a green door, past the overpass.\n\nDay 15.  Going to go find her.  If you're reading this and you can hear me: I'm sorry for the noise.",
+    "symbol": ",",
+    "color": "white",
+    "material": [
+      "paper"
+    ],
+    "weight": "120 g",
+    "volume": "250 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "to_hit": -2,
+    "flags": [
+      "TRADER_AVOID"
+    ]
+  },
+  {
+    "type": "GENERIC",
+    "id": "mom_journal_teleportation",
+    "category": "books",
+    "name": {
+      "str": "battered pocket notebook"
+    },
+    "description": "A pocket notebook with a broken pencil tucked into the spiral.  A few pages have small, perfectly round holes in them, as if a piece of the paper simply went somewhere else.\n\nDay 2.  Boarded every window.  The dead keep walking past.  One of them is wearing my neighbor's bathrobe.\n\nDay 5.  Blue crystal, in the creek bed behind the house.  I held it and it went black, and then I was standing on the other side of the kitchen.  I hadn't moved.  The coffee in my hand hadn't spilled.\n\nDay 6.  It's not moving.  It's being somewhere else instead.  Short hops are easy, just the room, just the yard.  I left the house without opening a single board.\n\nDay 8.  Tried to go further.  Came out in the neighbor's hedge with half my sleeve missing.  Not torn.  Missing.  Clean edges.  I don't know where the sleeve went.  I don't want to know.\n\nDay 10.  Practicing \"blinks\" in the basement until I can do ten in a row without throwing up.  Got to seven.\n\nDay 12.  Something came back with me.  I came through from the yard and there was a sound behind me, like a dog's nails on tile, in a place that doesn't have tile.  Then nothing.  I'm sleeping with the light on.\n\nDay 13.  I hear it when I hop now.  Every time.  It's further away when I stay still.  It's closer when I've been doing a lot.\n\nDay 15.  I can't stay in one place too long anymore.  Every hop leaves a door open a crack, and something's learning the way.  If I keep moving, maybe it loses the scent.  Leaving tonight.  Not coming back here.  Don't wait up.",
+    "symbol": ",",
+    "color": "white",
+    "material": [
+      "paper"
+    ],
+    "weight": "120 g",
+    "volume": "250 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "to_hit": -2,
+    "flags": [
+      "TRADER_AVOID"
+    ]
+  }
+]

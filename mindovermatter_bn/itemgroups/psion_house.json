@@ -1,0 +1,462 @@
+[
+  {
+    "type": "item_group",
+    "id": "mom_psion_journals_any",
+    "subtype": "distribution",
+    "//": "HAND-AUTHORED (2026-10-16), psion house content.",
+    "items": [
+      [
+        "mom_journal_telekinesis",
+        1
+      ],
+      [
+        "mom_journal_pyrokinesis",
+        1
+      ],
+      [
+        "mom_journal_electrokinesis",
+        1
+      ],
+      [
+        "mom_journal_biokinesis",
+        1
+      ],
+      [
+        "mom_journal_clairsentience",
+        1
+      ],
+      [
+        "mom_journal_photokinesis",
+        1
+      ],
+      [
+        "mom_journal_telepathy",
+        1
+      ],
+      [
+        "mom_journal_teleportation",
+        1
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "mom_psion_tk_yoink",
+    "subtype": "distribution",
+    "items": [
+      {
+        "group": "livingroom",
+        "prob": 30
+      },
+      {
+        "group": "kitchen",
+        "prob": 30
+      },
+      {
+        "group": "bedroom",
+        "prob": 20
+      },
+      {
+        "group": "tools_home",
+        "prob": 15
+      },
+      {
+        "group": "dining",
+        "prob": 15
+      },
+      {
+        "group": "cleaning",
+        "prob": 15
+      },
+      {
+        "group": "toy_box",
+        "prob": 10
+      },
+      {
+        "group": "dresser",
+        "prob": 15
+      },
+      {
+        "group": "cannedfood",
+        "prob": 10
+      },
+      {
+        "group": "softdrugs",
+        "prob": 5
+      },
+      {
+        "item": "toaster",
+        "prob": 5
+      },
+      {
+        "item": "television",
+        "prob": 4
+      },
+      {
+        "item": "helmet_bike",
+        "prob": 3
+      },
+      {
+        "item": "basketball",
+        "prob": 3
+      },
+      {
+        "item": "rollerskates",
+        "prob": 2
+      },
+      {
+        "item": "clock",
+        "prob": 4
+      },
+      {
+        "item": "pillow",
+        "prob": 4
+      },
+      {
+        "item": "blanket",
+        "prob": 3
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "mom_psion_tk_wreckage",
+    "subtype": "distribution",
+    "items": [
+      [
+        "splinter",
+        50
+      ],
+      [
+        "2x4",
+        25
+      ],
+      [
+        "nail",
+        15
+      ],
+      [
+        "scrap",
+        10
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "mom_psion_pk_fuel",
+    "subtype": "distribution",
+    "items": [
+      {
+        "item": "stick",
+        "prob": 40,
+        "count": [
+          2,
+          6
+        ]
+      },
+      {
+        "item": "paper",
+        "prob": 25,
+        "count": [
+          5,
+          20
+        ]
+      },
+      {
+        "group": "novels",
+        "prob": 25
+      },
+      {
+        "item": "tinder",
+        "prob": 15,
+        "charges": [
+          50,
+          200
+        ]
+      },
+      {
+        "item": "charcoal",
+        "prob": 5,
+        "charges": [
+          10,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "mom_psion_pk_gas",
+    "subtype": "collection",
+    "items": [
+      {
+        "item": "gasoline",
+        "container-item": "jerrycan",
+        "charges": [
+          6000,
+          10000
+        ],
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "mom_psion_ek_fried",
+    "subtype": "distribution",
+    "items": [
+      {
+        "item": "laptop",
+        "prob": 15,
+        "damage": [
+          3,
+          4
+        ]
+      },
+      {
+        "item": "smart_phone",
+        "prob": 15,
+        "damage": [
+          3,
+          4
+        ]
+      },
+      {
+        "item": "cell_phone",
+        "prob": 10,
+        "damage": [
+          3,
+          4
+        ]
+      },
+      {
+        "item": "television",
+        "prob": 10,
+        "damage": [
+          3,
+          4
+        ]
+      },
+      {
+        "item": "radio",
+        "prob": 10,
+        "damage": [
+          3,
+          4
+        ]
+      },
+      {
+        "item": "stereo",
+        "prob": 8,
+        "damage": [
+          3,
+          4
+        ]
+      },
+      {
+        "item": "microwave",
+        "prob": 6,
+        "damage": [
+          3,
+          4
+        ]
+      },
+      {
+        "item": "flashlight",
+        "prob": 10,
+        "damage": [
+          3,
+          4
+        ]
+      },
+      {
+        "item": "hotplate",
+        "prob": 5,
+        "damage": [
+          3,
+          4
+        ]
+      },
+      {
+        "item": "soldering_iron",
+        "prob": 5,
+        "damage": [
+          3,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "mom_psion_ek_parts",
+    "subtype": "distribution",
+    "items": [
+      [
+        "e_scrap",
+        30
+      ],
+      [
+        "circuit",
+        20
+      ],
+      [
+        "power_supply",
+        12
+      ],
+      [
+        "amplifier",
+        10
+      ],
+      [
+        "transponder",
+        6
+      ],
+      [
+        "RAM",
+        8
+      ],
+      [
+        "processor",
+        6
+      ],
+      {
+        "item": "cable",
+        "prob": 20,
+        "charges": [
+          5,
+          30
+        ]
+      },
+      {
+        "item": "solder_wire",
+        "prob": 8,
+        "charges": [
+          10,
+          50
+        ]
+      },
+      [
+        "soldering_iron",
+        4
+      ]
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "mom_psion_remains_telekinesis",
+    "subtype": "collection",
+    "items": [
+      {
+        "item": "corpse_bloody",
+        "prob": 100
+      },
+      {
+        "item": "matrix_crystal_telekinesis",
+        "prob": 100
+      },
+      {
+        "item": "jeans",
+        "prob": 60,
+        "damage": [
+          1,
+          3
+        ]
+      },
+      {
+        "item": "hoodie",
+        "prob": 60,
+        "damage": [
+          1,
+          3
+        ]
+      },
+      {
+        "item": "sneakers",
+        "prob": 50,
+        "damage": [
+          0,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "mom_psion_remains_pyrokinesis",
+    "subtype": "collection",
+    "items": [
+      {
+        "item": "corpse_scorched",
+        "prob": 100
+      },
+      {
+        "item": "matrix_crystal_pyrokinesis",
+        "prob": 100
+      },
+      {
+        "item": "jeans",
+        "prob": 60,
+        "damage": [
+          1,
+          3
+        ]
+      },
+      {
+        "item": "hoodie",
+        "prob": 60,
+        "damage": [
+          1,
+          3
+        ]
+      },
+      {
+        "item": "sneakers",
+        "prob": 50,
+        "damage": [
+          0,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "mom_psion_remains_electrokinesis",
+    "subtype": "collection",
+    "items": [
+      {
+        "item": "corpse_painful",
+        "prob": 100
+      },
+      {
+        "item": "matrix_crystal_electrokinesis",
+        "prob": 100
+      },
+      {
+        "item": "jeans",
+        "prob": 60,
+        "damage": [
+          1,
+          3
+        ]
+      },
+      {
+        "item": "hoodie",
+        "prob": 60,
+        "damage": [
+          1,
+          3
+        ]
+      },
+      {
+        "item": "sneakers",
+        "prob": 50,
+        "damage": [
+          0,
+          2
+        ]
+      }
+    ]
+  }
+]

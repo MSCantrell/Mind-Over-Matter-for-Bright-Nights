@@ -1,0 +1,657 @@
+[
+  {
+    "//": "HAND-AUTHORED (2026-10-16): the psion house.  An awakened psion boarded themselves in and practiced in the basement; the basement's 12x12 practice room picks one school.  Shell footprint x3..20, y2..17; stairs at (5,15) on both floors.",
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [
+      "mom_psion_house"
+    ],
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "........................",
+        "........................",
+        "...||o|o|||o||||o|o||...",
+        "...|@@  d|t S|1FO5 C|...",
+        "...o     |   |      o...",
+        "...|d    |BB |      |...",
+        "...|     |   |      o...",
+        "...|||+||||+||      |...",
+        "...|         |JJJ||||...",
+        "...|HH              |...",
+        "...o               Ro...",
+        "...|     hss        |...",
+        "...oH     ssh       |...",
+        "...|&&             Eo...",
+        "...|          Y     |...",
+        "...| >              =...",
+        "...|                |...",
+        "...|||o|o||=|||o||o||...",
+        "........._____..........",
+        "........._____..........",
+        "........................",
+        "........................",
+        "........................",
+        "........................"
+      ],
+      "palettes": [
+        "standard_domestic_palette"
+      ],
+      "terrain": {
+        "o": [
+          [
+            "t_window_boarded",
+            3
+          ],
+          [
+            "t_window_boarded_noglass",
+            1
+          ]
+        ],
+        "=": "t_door_boarded",
+        "_": "t_concrete",
+        "&": "t_floor",
+        "C": "t_floor",
+        "@": "t_floor"
+      },
+      "furniture": {
+        "&": "f_makeshift_bed",
+        "C": "f_cupboard"
+      },
+      "place_items": [
+        {
+          "item": "trash",
+          "x": [
+            4,
+            19
+          ],
+          "y": [
+            9,
+            16
+          ],
+          "chance": 70,
+          "repeat": [
+            6,
+            12
+          ]
+        },
+        {
+          "item": "cannedfood",
+          "x": [
+            4,
+            6
+          ],
+          "y": [
+            12,
+            14
+          ],
+          "chance": 40,
+          "repeat": [
+            1,
+            2
+          ]
+        }
+      ],
+      "place_item": [
+        {
+          "item": "can_food",
+          "x": [
+            4,
+            8
+          ],
+          "y": [
+            11,
+            14
+          ],
+          "repeat": [
+            3,
+            7
+          ]
+        },
+        {
+          "item": "bottle_plastic",
+          "x": [
+            4,
+            8
+          ],
+          "y": [
+            11,
+            14
+          ],
+          "repeat": [
+            2,
+            5
+          ]
+        },
+        {
+          "item": "candle",
+          "x": 6,
+          "y": 13,
+          "repeat": 1
+        },
+        {
+          "item": "blanket",
+          "x": 4,
+          "y": 13,
+          "repeat": 1
+        }
+      ],
+      "place_monsters": [
+        {
+          "monster": "GROUP_ZOMBIE",
+          "x": [
+            4,
+            19
+          ],
+          "y": [
+            9,
+            16
+          ],
+          "chance": 3
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [
+      "mom_psion_house_roof"
+    ],
+    "object": {
+      "fill_ter": "t_open_air",
+      "rows": [
+        "                        ",
+        "                        ",
+        "   ------------------   ",
+        "   -................-   ",
+        "   -................-   ",
+        "   -................-   ",
+        "   -....~...........-   ",
+        "   -................-   ",
+        "   -................-   ",
+        "   -................-   ",
+        "   -...........&....-   ",
+        "   -................-   ",
+        "   -................-   ",
+        "   -................-   ",
+        "   -................-   ",
+        "   -................-   ",
+        "   -................-   ",
+        "   ----------------5-   ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "palettes": [
+        "roof_palette"
+      ],
+      "terrain": {
+        ".": "t_shingle_flat_roof",
+        "&": "t_shingle_flat_roof",
+        "~": "t_shingle_flat_roof"
+      }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [
+      "mom_psion_house_basement"
+    ],
+    "object": {
+      "fill_ter": "t_thconc_floor",
+      "rows": [
+        "                        ",
+        "                        ",
+        "   ||||||||||||||||||   ",
+        "   |U.1.............|   ",
+        "   |U...............|   ",
+        "   |................|   ",
+        "   |................|   ",
+        "   |................|   ",
+        "   |................|   ",
+        "   |................|   ",
+        "   |................|   ",
+        "   |................|   ",
+        "   |................|   ",
+        "   |................|   ",
+        "   |................|   ",
+        "   |.<..............|   ",
+        "   |..............Fg|   ",
+        "   ||||||||||||||||||   ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "palettes": [
+        "basement_empty"
+      ],
+      "nested": {
+        "1": {
+          "chunks": [
+            [
+              "mom_psion_practice_telekinesis",
+              1
+            ],
+            [
+              "mom_psion_practice_pyrokinesis",
+              1
+            ],
+            [
+              "mom_psion_practice_electrokinesis",
+              1
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "nested_mapgen_id": "mom_psion_practice_telekinesis",
+    "object": {
+      "mapgensize": [
+        12,
+        12
+      ],
+      "rows": [
+        "ww.HH..w.pp.",
+        "w..........w",
+        ".....xx....p",
+        "ww...xx.....",
+        "....r......w",
+        "F...rT.....w",
+        "F..........E",
+        "..w.....ww..",
+        "w.......w...",
+        "..1.........",
+        "ww.....w..ww",
+        "w...ww....ww"
+      ],
+      "terrain": {
+        ".": "t_thconc_floor"
+      },
+      "furniture": {
+        "w": "f_wreckage",
+        "p": "f_mailbox",
+        "H": "f_sofa",
+        "x": "f_dresser",
+        "F": "f_fridge",
+        "r": "f_desk",
+        "T": "f_chair",
+        "E": "f_armchair"
+      },
+      "place_items": [
+        {
+          "item": "mom_psion_tk_yoink",
+          "x": [
+            0,
+            11
+          ],
+          "y": [
+            0,
+            11
+          ],
+          "chance": 100,
+          "repeat": [
+            25,
+            40
+          ]
+        },
+        {
+          "item": "mom_psion_tk_wreckage",
+          "x": [
+            0,
+            11
+          ],
+          "y": [
+            0,
+            11
+          ],
+          "chance": 100,
+          "repeat": [
+            8,
+            14
+          ]
+        }
+      ],
+      "place_item": [
+        {
+          "item": "mom_journal_telekinesis",
+          "x": 4,
+          "y": 4,
+          "repeat": 1
+        }
+      ],
+      "nested": {
+        "1": {
+          "chunks": [
+            [
+              "null",
+              1
+            ],
+            [
+              "mom_psion_remains_telekinesis_chunk",
+              1
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "nested_mapgen_id": "mom_psion_remains_telekinesis_chunk",
+    "object": {
+      "mapgensize": [
+        1,
+        1
+      ],
+      "rows": [
+        "."
+      ],
+      "place_items": [
+        {
+          "item": "mom_psion_remains_telekinesis",
+          "x": 0,
+          "y": 0,
+          "chance": 100
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 0,
+          "y": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "nested_mapgen_id": "mom_psion_practice_pyrokinesis",
+    "object": {
+      "mapgensize": [
+        12,
+        12
+      ],
+      "rows": [
+        "aa......aa..",
+        "a..........U",
+        "...B....B..U",
+        "......a.....",
+        "..a.........",
+        "......r.....",
+        "......T.a...",
+        "..a.........",
+        "aa.......P..",
+        "....1....PP.",
+        "..a.........",
+        "a........aaa"
+      ],
+      "terrain": {
+        ".": "t_thconc_floor"
+      },
+      "furniture": {
+        "a": "f_ash",
+        "B": "f_brazier",
+        "U": "f_utility_shelf",
+        "r": "f_desk",
+        "T": "f_chair",
+        "P": "f_bookcase"
+      },
+      "place_items": [
+        {
+          "item": "mom_psion_pk_fuel",
+          "x": [
+            0,
+            11
+          ],
+          "y": [
+            0,
+            11
+          ],
+          "chance": 100,
+          "repeat": [
+            12,
+            20
+          ]
+        },
+        {
+          "item": "mom_psion_pk_fuel",
+          "x": [
+            8,
+            11
+          ],
+          "y": [
+            7,
+            10
+          ],
+          "chance": 100,
+          "repeat": [
+            6,
+            10
+          ]
+        },
+        {
+          "item": "mom_psion_pk_gas",
+          "x": 11,
+          "y": [
+            1,
+            2
+          ],
+          "chance": 100,
+          "repeat": 2
+        }
+      ],
+      "place_item": [
+        {
+          "item": "mom_journal_pyrokinesis",
+          "x": 6,
+          "y": 5,
+          "repeat": 1
+        },
+        {
+          "item": "extinguisher",
+          "x": 7,
+          "y": 5,
+          "repeat": 1
+        },
+        {
+          "item": "bucket",
+          "x": 2,
+          "y": 3,
+          "repeat": 1
+        },
+        {
+          "item": "ash",
+          "x": [
+            0,
+            11
+          ],
+          "y": [
+            0,
+            11
+          ],
+          "repeat": [
+            4,
+            8
+          ]
+        }
+      ],
+      "nested": {
+        "1": {
+          "chunks": [
+            [
+              "null",
+              1
+            ],
+            [
+              "mom_psion_remains_pyrokinesis_chunk",
+              1
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "nested_mapgen_id": "mom_psion_remains_pyrokinesis_chunk",
+    "object": {
+      "mapgensize": [
+        1,
+        1
+      ],
+      "rows": [
+        "."
+      ],
+      "place_items": [
+        {
+          "item": "mom_psion_remains_pyrokinesis",
+          "x": 0,
+          "y": 0,
+          "chance": 100
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 0,
+          "y": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "nested_mapgen_id": "mom_psion_practice_electrokinesis",
+    "object": {
+      "mapgensize": [
+        12,
+        12
+      ],
+      "rows": [
+        "MM..CC....SS",
+        "..........S.",
+        "............",
+        "...G........",
+        "............",
+        ".....NNN....",
+        ".....rT.....",
+        "............",
+        "..a.......a.",
+        "....1.......",
+        "MC.........M",
+        "............"
+      ],
+      "terrain": {
+        ".": "t_thconc_floor",
+        "G": "t_generator_broken"
+      },
+      "furniture": {
+        "M": "f_machinery_electronic",
+        "C": "f_console_broken",
+        "S": "f_server",
+        "N": "f_workbench",
+        "r": "f_desk",
+        "T": "f_chair",
+        "a": "f_ash"
+      },
+      "place_items": [
+        {
+          "item": "mom_psion_ek_fried",
+          "x": [
+            0,
+            11
+          ],
+          "y": [
+            0,
+            11
+          ],
+          "chance": 100,
+          "repeat": [
+            10,
+            16
+          ]
+        },
+        {
+          "item": "mom_psion_ek_parts",
+          "x": [
+            5,
+            7
+          ],
+          "y": 5,
+          "chance": 100,
+          "repeat": [
+            10,
+            18
+          ]
+        }
+      ],
+      "place_item": [
+        {
+          "item": "mom_journal_electrokinesis",
+          "x": 5,
+          "y": 6,
+          "repeat": 1
+        }
+      ],
+      "nested": {
+        "1": {
+          "chunks": [
+            [
+              "null",
+              1
+            ],
+            [
+              "mom_psion_remains_electrokinesis_chunk",
+              1
+            ]
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "nested_mapgen_id": "mom_psion_remains_electrokinesis_chunk",
+    "object": {
+      "mapgensize": [
+        1,
+        1
+      ],
+      "rows": [
+        "."
+      ],
+      "place_items": [
+        {
+          "item": "mom_psion_remains_electrokinesis",
+          "x": 0,
+          "y": 0,
+          "chance": 100
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 0,
+          "y": 0
+        }
+      ]
+    }
+  }
+]

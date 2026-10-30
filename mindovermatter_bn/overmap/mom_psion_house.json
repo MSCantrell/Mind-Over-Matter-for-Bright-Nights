@@ -1,0 +1,64 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "mom_psion_house",
+    "copy-from": "generic_city_house",
+    "name": "boarded-up house",
+    "//": "HAND-AUTHORED (2026-10-16): psion house, see mapgen/psion_house/."
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "mom_psion_house_roof",
+    "copy-from": "generic_city_house_roof"
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "mom_psion_house_basement",
+    "copy-from": "generic_city_house_basement"
+  },
+  {
+    "type": "city_building",
+    "id": "mom_psion_house",
+    "locations": [
+      "land"
+    ],
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "mom_psion_house_north"
+      },
+      {
+        "point": [
+          0,
+          0,
+          1
+        ],
+        "overmap": "mom_psion_house_roof_north"
+      },
+      {
+        "point": [
+          0,
+          0,
+          -1
+        ],
+        "overmap": "mom_psion_house_basement_north"
+      }
+    ]
+  },
+  {
+    "type": "region_overlay",
+    "regions": [
+      "all"
+    ],
+    "//": "Separate from gen_region_overlay.json (port_region_overlay owns that file).",
+    "city": {
+      "houses": {
+        "mom_psion_house": 25
+      }
+    }
+  }
+]

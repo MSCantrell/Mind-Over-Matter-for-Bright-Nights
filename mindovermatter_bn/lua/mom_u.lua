@@ -1005,7 +1005,7 @@ return function(mod)
   function U.has_field(pos, field_id)
     if not pos then return false end
     return guarded("has_field:" .. field_id, function()
-      return gapi.get_map():has_field_at(pos, FieldTypeId.new(field_id))
+      return gapi.get_map():has_field_at(pos, FieldTypeId.new(field_id):int_id())
     end, false)
   end
 
@@ -1016,7 +1016,7 @@ return function(mod)
     if not pos then return end
     guarded("set_field:" .. field_id, function()
       local map = gapi.get_map()
-      local fid = FieldTypeId.new(field_id)
+      local fid = FieldTypeId.new(field_id):int_id()
       local r = math.max(0, U.round(radius or 0))
       local inten = math.max(1, U.round(intensity or 1))
       for dx = -r, r do
@@ -1056,8 +1056,8 @@ return function(mod)
     end, nil)
     return guarded("quell_fire_sweep", function()
       local map = gapi.get_map()
-      local mark = FieldTypeId.new("fd_mom_quench_marker")
-      local fire = FieldTypeId.new("fd_fire")
+      local mark = FieldTypeId.new("fd_mom_quench_marker"):int_id()
+      local fire = FieldTypeId.new("fd_fire"):int_id()
       local pos = who:get_pos_ms()
       local r = math.max(0, U.round(radius or 24))
       local lim = map:get_map_size() - 1

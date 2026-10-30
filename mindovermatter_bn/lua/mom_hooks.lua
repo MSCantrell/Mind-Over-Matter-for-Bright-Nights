@@ -505,8 +505,11 @@ return function(mod)
     "effect_psi_null_unbound", -- same, minus the self-removal
     "effect_psi_neutralized",  -- 24h "something is interfering with your psionics"
   }
-  -- The other NO_PSIONICS carriers are deliberately NOT here.  psi_stunned and
-  -- effect_psi_too_much_pain_cant_channel already have their own gates,
+  -- The other NO_PSIONICS carriers are deliberately NOT here.
+  -- effect_psi_too_much_pain_cant_channel has its own gate (PAIN_GATE_EOCS below).
+  -- psi_stunned is NOT gated anywhere: its NO_SPELLCASTING/NO_PSIONICS flags are
+  -- DDA engine flags BN doesn't have, so a psi-stunned player can still cast.
+  -- Add it to NULLIFY_EFFECTS (with a stun message) if that should change.
   -- effect_clair_astral_projection is supposed to leave some powers usable,
   -- effect_psi_turn_off_powers lasts one second and only exists to drop
   -- maintained powers, and effect_monster_telekinetic_aegis is a monster effect.
@@ -518,6 +521,38 @@ return function(mod)
       if you:has_effect(eid) then return true end
     end
     return false
+  end
+
+  -- Pain gate.  Upstream hangs EOC_PAIN_DISABLES_PSI (and the Heart of Fire
+  -- scenario's variant) on opens_spellbook: past the pain threshold it adds the
+  -- 0-second effect_psi_too_much_pain_cant_channel, whose NO_PSIONICS flag DDA's
+  -- engine honors for the cast being started.  BN has no such flag, and the port
+  -- fires opens_spellbook from on_spell_cast -- AFTER the cast resolves -- so the
+  -- message appeared but the power went off anyway.  Run the gate EOCs here,
+  -- before the cast, and refuse it if the effect is on.  The effect's own
+  -- apply_message is the player-facing line; a 0-duration effect is still added
+  -- (and shown) and BN clears it on the next turn.
+  local PAIN_GATE_EOCS = { "EOC_PAIN_DISABLES_PSI",
+                           "EOC_MOM_SCEN_HEART_OF_FIRE_PAIN_DISABLES_PSI" }
+  local PAIN_EID = EffectTypeId.new("effect_psi_too_much_pain_cant_channel")
+
+  local function pain_blocks(who)
+    -- Already on (a second try in the same turn): the gate EOCs skip, so say it.
+    if who:has_effect(PAIN_EID) then
+      mod.u.msg(who, "You're in so much pain you can't concentrate to use your powers!",
+                MsgType.bad, nil)
+      return true
+    end
+    for _, id in ipairs(PAIN_GATE_EOCS) do
+      local fn = mod.eoc[id]
+      if fn then
+        local ok, err = pcall(fn, who, nil, {})
+        if not ok then
+          gdebug.log_error("MoM-BN: pain gate " .. id .. ": " .. tostring(err))
+        end
+      end
+    end
+    return who:has_effect(PAIN_EID)
   end
 
   -- params: char (the caster), spell (Spell).  Return false to refuse; return
@@ -532,6 +567,7 @@ return function(mod)
         .. "Your psionics are nullified.", MsgType.bad, nil)
       return false
     end
+    if pain_blocks(who) then return false end
   end
 
   -- Legacy migration: saves made under the old spellbook-emptying scheme may

@@ -898,6 +898,19 @@ return function(mod)
     return true
   end
 
+  -- Psionic Alliance "Green Pin" quest (npcs/psi_alliance.json): a recruit settling
+  -- into the quarry.  The dialogue already moved them to psi_alliance and set them to
+  -- guard; this drops them from the player's follower list, which no JSON effect can do
+  -- without talk_function::leave's throwaway lone-wolf faction.
+  mod.effect_added_handlers["mom_psi_alliance_settle"] = function(you, _eff)
+    pcall(function()
+      local guy = you and you:as_npc()
+      if guy then gapi.remove_npc_follower(guy) end
+    end)
+    consume_marker(you, "mom_psi_alliance_settle")
+    return true
+  end
+
   -- When the Circuit Sense buff ends by ANY means (re-cast toggle, concentration
   -- break, or the 7-day stand-in expiring), strip the hidden +3 carrier trait so
   -- the Electronics bonus can never outlive the power.  (Effect carries

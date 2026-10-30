@@ -6,7 +6,7 @@
     "type": "talk_topic",
     "responses": [
       {
-        "text": "[Telepathy] *Read <npc_name>'s mind*",
+        "text": "[Telepathy] *Read their mind*",
         "topic": "TALK_FRIEND_FOLLOWER_scan",
         "condition": {
           "or": [
@@ -361,7 +361,7 @@
     "dynamic_line": "You're going to what?  How are you going to do that?",
     "responses": [
       {
-        "text": "You've seen what I can do, right?  Let me try.  (Note: By doing this you will absorb <npc_name>'s disease into yourself.)",
+        "text": "You've seen what I can do, right?  Let me try.  (Note: By doing this you will absorb their disease into yourself.)",
         "trial": {
           "type": "PERSUADE",
           "difficulty": 0,
@@ -423,7 +423,7 @@
     ],
     "responses": [
       {
-        "text": "Hold still.  *Remove <npc_name>'s cold*",
+        "text": "Hold still.  *Remove their cold*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -443,7 +443,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s cold*",
+        "text": "Hold still.  *Remove their cold*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -463,7 +463,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s flu*",
+        "text": "Hold still.  *Remove their flu*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -483,7 +483,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s flu*",
+        "text": "Hold still.  *Remove their flu*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -503,7 +503,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s pinkeye*",
+        "text": "Hold still.  *Remove their pinkeye*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -523,7 +523,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s pinkeye*",
+        "text": "Hold still.  *Remove their pinkeye*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -543,7 +543,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s pinkeye*",
+        "text": "Hold still.  *Remove their pinkeye*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -563,7 +563,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s pinkeye*",
+        "text": "Hold still.  *Remove their pinkeye*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -583,7 +583,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s asthma*",
+        "text": "Hold still.  *Remove their asthma*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -612,7 +612,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s asthma*",
+        "text": "Hold still.  *Remove their asthma*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -640,7 +640,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s chemical imbalance*",
+        "text": "Hold still.  *Remove their chemical imbalance*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -664,7 +664,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s kaluptic psychosis*",
+        "text": "Hold still.  *Remove their kaluptic psychosis*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -688,7 +688,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s muscle jitters*",
+        "text": "Hold still.  *Remove their muscle jitters*",
         "topic": "TALK_DONE",
         "condition": {
           "npc_has_trait": "JITTERY"
@@ -703,7 +703,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s mood swings*",
+        "text": "Hold still.  *Remove their mood swings*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -727,7 +727,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s weakening sickness*",
+        "text": "Hold still.  *Remove their weakening sickness*",
         "topic": "TALK_DONE",
         "condition": {
           "npc_has_trait": "ROT1"
@@ -742,7 +742,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s narcolepsy*",
+        "text": "Hold still.  *Remove their narcolepsy*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -766,7 +766,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s seasonal allergies*",
+        "text": "Hold still.  *Remove their seasonal allergies*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -790,7 +790,7 @@
         ]
       },
       {
-        "text": "Hold still.  *Remove <npc_name>'s seasonal affective disorder*",
+        "text": "Hold still.  *Remove their seasonal affective disorder*",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -819,4 +819,4 @@
       }
     ]
   }
-]
+]

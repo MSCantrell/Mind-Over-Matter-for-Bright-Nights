@@ -161,42 +161,7 @@
     "casting_time_increment": -5,
     "range_increment": 0.6,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_electrokinetic_paralysis",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for electrokinetic_paralysis (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_electrokinetic_paralysis",
-    "type": "SPELL",
-    "name": {
-      "str": "electrokinetic_paralysis cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_electrokinetic_paralysis",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "electrokinetic_reduce_pain",
@@ -272,42 +237,7 @@
     "damage_increment": 2.0,
     "range_increment": 0.7,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_electrokinetic_lightning_bolt",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for electrokinetic_lightning_bolt (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_electrokinetic_lightning_bolt",
-    "type": "SPELL",
-    "name": {
-      "str": "electrokinetic_lightning_bolt cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_electrokinetic_lightning_bolt",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "electrokinetic_pain_immune",
@@ -374,42 +304,7 @@
     "casting_time_increment": -5.5,
     "final_casting_time": 82,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_electrokinetic_speed_boost",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for electrokinetic_speed_boost (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_electrokinetic_speed_boost",
-    "type": "SPELL",
-    "name": {
-      "str": "electrokinetic_speed_boost cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_electrokinetic_speed_boost",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "electrokinetic_kill_robot",
@@ -445,42 +340,7 @@
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_electrokinetic_kill_robot",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for electrokinetic_kill_robot (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_electrokinetic_kill_robot",
-    "type": "SPELL",
-    "name": {
-      "str": "electrokinetic_kill_robot cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_electrokinetic_kill_robot",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "electrokinetic_kill_robot_sparks",
@@ -712,10 +572,6 @@
       {
         "id": "electrokinetic_lightning_blast_trail",
         "hit_self": false
-      },
-      {
-        "id": "momfincast_electrokinetic_lightning_blast",
-        "hit_self": true
       }
     ],
     "damage_type": "ELECTRIC",
@@ -742,35 +598,6 @@
     "max_aoe": 5,
     "energy_source": "STAMINA",
     "scale_int": true
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for electrokinetic_lightning_blast (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_electrokinetic_lightning_blast",
-    "type": "SPELL",
-    "name": {
-      "str": "electrokinetic_lightning_blast cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_electrokinetic_lightning_blast",
-    "min_duration": 100,
-    "max_duration": 100
   },
   {
     "id": "electrokinetic_lightning_blast_trail",
@@ -842,10 +669,6 @@
       {
         "id": "electrokinetic_revive_debuff",
         "hit_self": false
-      },
-      {
-        "id": "momfincast_electrokinetic_revive",
-        "hit_self": true
       }
     ],
     "min_range": 2,
@@ -859,35 +682,6 @@
     "range_increment": 0.25,
     "energy_source": "STAMINA",
     "scale_int": true
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for electrokinetic_revive (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_electrokinetic_revive",
-    "type": "SPELL",
-    "name": {
-      "str": "electrokinetic_revive cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_electrokinetic_revive",
-    "min_duration": 100,
-    "max_duration": 100
   },
   {
     "id": "electrokinetic_revive_charm",

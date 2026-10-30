@@ -98,42 +98,7 @@
     "range_increment": 1.2,
     "duration_increment": 75.0,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_teleport_slow",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for teleport_slow (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_teleport_slow",
-    "type": "SPELL",
-    "name": {
-      "str": "teleport_slow cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_teleport_slow",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "teleport_phase",
@@ -288,42 +253,7 @@
     "casting_time_increment": -2.5,
     "range_increment": 1.5,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_teleport_transpose",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for teleport_transpose (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_teleport_transpose",
-    "type": "SPELL",
-    "name": {
-      "str": "teleport_transpose cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_teleport_transpose",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "teleport_displacement",
@@ -356,42 +286,7 @@
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_teleport_displacement",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for teleport_displacement (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_teleport_displacement",
-    "type": "SPELL",
-    "name": {
-      "str": "teleport_displacement cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_teleport_displacement",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "teleport_reactive_displacement",
@@ -455,42 +350,7 @@
     "energy_source": "NONE",
     "min_duration": 100,
     "max_duration": 100,
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_teleport_reactive_displacement_teleport",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for teleport_reactive_displacement_teleport (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_teleport_reactive_displacement_teleport",
-    "type": "SPELL",
-    "name": {
-      "str": "teleport_reactive_displacement_teleport cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_teleport_reactive_displacement_teleport",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "teleport_collapse",
@@ -1048,42 +908,7 @@
     "min_range": 1,
     "max_range": 80,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_teleport_farstep_real",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for teleport_farstep_real (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_teleport_farstep_real",
-    "type": "SPELL",
-    "name": {
-      "str": "teleport_farstep_real cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_teleport_farstep_real",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "teleport_banish",
@@ -1118,42 +943,7 @@
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_teleport_banish",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for teleport_banish (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_teleport_banish",
-    "type": "SPELL",
-    "name": {
-      "str": "teleport_banish cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_teleport_banish",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "teleport_loci_establishment",
@@ -1311,42 +1101,7 @@
     "energy_source": "NONE",
     "min_duration": 100,
     "max_duration": 100,
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_teleport_dilated_gateway_teleport_others",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for teleport_dilated_gateway_teleport_others (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_teleport_dilated_gateway_teleport_others",
-    "type": "SPELL",
-    "name": {
-      "str": "teleport_dilated_gateway_teleport_others cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_teleport_dilated_gateway_teleport_others",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "teleport_dilated_gateway_teleport_self",
@@ -1413,42 +1168,7 @@
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_teleport_summon",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for teleport_summon (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_teleport_summon",
-    "type": "SPELL",
-    "name": {
-      "str": "teleport_summon cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_teleport_summon",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "teleport_warper_combat",
@@ -1511,42 +1231,7 @@
     "max_aoe": 2,
     "min_range": 4,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_teleport_warper_combat_warp_chance_attacker",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for teleport_warper_combat_warp_chance_attacker (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_teleport_warper_combat_warp_chance_attacker",
-    "type": "SPELL",
-    "name": {
-      "str": "teleport_warper_combat_warp_chance_attacker cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_teleport_warper_combat_warp_chance_attacker",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "teleport_warper_combat_warp_chance_attacked",
@@ -1575,42 +1260,7 @@
     "min_aoe": 1,
     "max_aoe": 2,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_teleport_warper_combat_warp_chance_attacked",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for teleport_warper_combat_warp_chance_attacked (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_teleport_warper_combat_warp_chance_attacked",
-    "type": "SPELL",
-    "name": {
-      "str": "teleport_warper_combat_warp_chance_attacked cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_teleport_warper_combat_warp_chance_attacked",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "teleport_reality_tear",

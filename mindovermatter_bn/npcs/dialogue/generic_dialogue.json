@@ -120,7 +120,7 @@
         }
       },
       {
-        "text": "[Brilliant Flash Check] *blind <npc_name>*",
+        "text": "[Brilliant Flash Check] *blind them*",
         "condition": {
           "and": [
             {
@@ -206,7 +206,7 @@
         }
       },
       {
-        "text": "[Sensory Deprivation Check] *Shut off <npc_name>'s senses*.",
+        "text": "[Sensory Deprivation Check] *Shut off their senses*.",
         "condition": {
           "u_has_trait": "TELEPATH"
         },
@@ -235,7 +235,7 @@
         }
       },
       {
-        "text": "[Neural Spasms Check] *Paralyze <npc_name>*.",
+        "text": "[Neural Spasms Check] *Paralyze them*.",
         "condition": {
           "u_has_trait": "ELECTROKINETIC"
         },
@@ -260,7 +260,7 @@
         }
       },
       {
-        "text": "[Synaptic Overload Check] *Attack <npc_name>'s mind*.",
+        "text": "[Synaptic Overload Check] *Attack their mind*.",
         "condition": {
           "and": [
             {
@@ -410,4 +410,4 @@
       }
     ]
   }
-]
+]

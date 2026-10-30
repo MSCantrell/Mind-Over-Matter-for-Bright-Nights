@@ -129,42 +129,7 @@
     "casting_time_increment": -4.5,
     "range_increment": 0.5,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_biokin_dash",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for biokin_dash (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_biokin_dash",
-    "type": "SPELL",
-    "name": {
-      "str": "biokin_dash cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_biokin_dash",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "biokin_armor_skin",
@@ -388,10 +353,6 @@
       {
         "id": "biokin_sealed_remove_breathe_skin",
         "hit_self": true
-      },
-      {
-        "id": "momfincast_biokin_sealed_system",
-        "hit_self": true
       }
     ],
     "min_duration": 6000,
@@ -405,35 +366,6 @@
     "duration_increment": 800.0,
     "energy_source": "STAMINA",
     "scale_int": true
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for biokin_sealed_system (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_biokin_sealed_system",
-    "type": "SPELL",
-    "name": {
-      "str": "biokin_sealed_system cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_biokin_sealed_system",
-    "min_duration": 100,
-    "max_duration": 100
   },
   {
     "id": "biokin_sealed_remove_climate",
@@ -615,10 +547,6 @@
       {
         "id": "biokin_hurricane_blows_2",
         "hit_self": true
-      },
-      {
-        "id": "momfincast_biokin_hurricane_blows",
-        "hit_self": true
       }
     ],
     "min_duration": 100,
@@ -631,35 +559,6 @@
     "casting_time_increment": -3,
     "energy_source": "STAMINA",
     "scale_int": true
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for biokin_hurricane_blows (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_biokin_hurricane_blows",
-    "type": "SPELL",
-    "name": {
-      "str": "biokin_hurricane_blows cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_biokin_hurricane_blows",
-    "min_duration": 100,
-    "max_duration": 100
   },
   {
     "id": "biokin_hurricane_blows_2",

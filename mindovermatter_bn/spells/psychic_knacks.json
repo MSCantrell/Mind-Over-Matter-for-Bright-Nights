@@ -358,42 +358,7 @@
     "aoe_increment": 0.25,
     "duration_increment": 50.0,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_pyrokinetic_flash_knack",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_flash_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_pyrokinetic_flash_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "pyrokinetic_flash_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_pyrokinetic_flash_knack",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "type": "SPELL",
@@ -463,42 +428,7 @@
     "range_increment": 0.25,
     "id": "pyrokinetic_eruption_knack",
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_pyrokinetic_eruption_knack",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_eruption_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_pyrokinetic_eruption_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "pyrokinetic_eruption_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_pyrokinetic_eruption_knack",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "type": "SPELL",
@@ -608,42 +538,7 @@
     "range_increment": 0.3,
     "aoe_increment": 3.0,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_pyrokinetic_flamethrower_knack",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_flamethrower_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_pyrokinetic_flamethrower_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "pyrokinetic_flamethrower_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_pyrokinetic_flamethrower_knack",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "type": "SPELL",
@@ -722,42 +617,7 @@
     "range_increment": 0.9,
     "aoe_increment": 0.4,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_pyrokinetic_blast_knack",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_blast_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_pyrokinetic_blast_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "pyrokinetic_blast_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_pyrokinetic_blast_knack",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "//": "power ID exists for legacy reasons",
@@ -825,42 +685,7 @@
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telekinetic_push_knack",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_push_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telekinetic_push_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_push_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telekinetic_push_knack",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "type": "SPELL",
@@ -902,42 +727,7 @@
     "duration_increment": 25.0,
     "range_increment": 0.5,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telekinetic_slam_down_knack",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_slam_down_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telekinetic_slam_down_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_slam_down_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telekinetic_slam_down_knack",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "type": "SPELL",
@@ -970,42 +760,7 @@
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telekinetic_wave_knack",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_wave_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telekinetic_wave_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_wave_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telekinetic_wave_knack",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "type": "SPELL",
@@ -1101,42 +856,7 @@
     "casting_time_increment": -9.5,
     "final_casting_time": 158,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telepathic_morale_knack",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_morale_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_morale_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_morale_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_morale_knack",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "type": "SPELL",
@@ -1175,42 +895,7 @@
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telepathic_mesmerize_knack",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_mesmerize_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_mesmerize_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_mesmerize_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_mesmerize_knack",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "type": "SPELL",
@@ -1247,42 +932,7 @@
     "damage_increment": 2.25,
     "range_increment": 1.1,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telepathic_blast_knack",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_blast_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_blast_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_blast_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_blast_knack",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "type": "SPELL",
@@ -1316,42 +966,7 @@
     "id": "telepathic_animal_mind_control_knack",
     "range_increment": 1.0,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telepathic_animal_mind_control_knack",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_animal_mind_control_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_animal_mind_control_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_animal_mind_control_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_animal_mind_control_knack",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "type": "SPELL",
@@ -1377,14 +992,6 @@
       {
         "id": "telepathic_invisibility_self",
         "hit_self": true
-      },
-      {
-        "id": "momfincast_telepathic_invisibility",
-        "hit_self": true
-      },
-      {
-        "id": "momfincast_telepathic_invisibility_knack",
-        "hit_self": true
       }
     ],
     "min_duration": 12700,
@@ -1405,35 +1012,6 @@
     "max_aoe": 2,
     "energy_source": "STAMINA",
     "scale_int": true
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_invisibility_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_invisibility_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_invisibility_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_invisibility_knack",
-    "min_duration": 100,
-    "max_duration": 100
   },
   {
     "type": "SPELL",
@@ -1461,14 +1039,6 @@
       {
         "id": "telepathic_blast_radius_guaranteed",
         "hit_self": false
-      },
-      {
-        "id": "momfincast_telepathic_blast_radius",
-        "hit_self": true
-      },
-      {
-        "id": "momfincast_telepathic_blast_radius_knack",
-        "hit_self": true
       }
     ],
     "damage_type": "PSI",
@@ -1487,35 +1057,6 @@
     "max_aoe": 20,
     "energy_source": "STAMINA",
     "scale_int": true
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_blast_radius_knack (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_blast_radius_knack",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_blast_radius_knack cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_blast_radius_knack",
-    "min_duration": 100,
-    "max_duration": 100
   },
   {
     "type": "SPELL",

@@ -66,42 +66,7 @@
     "max_field_intensity": 1,
     "field_chance": 4,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_pyrokinetic_intensify_flames_target_creature",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_intensify_flames_target_creature (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_pyrokinetic_intensify_flames_target_creature",
-    "type": "SPELL",
-    "name": {
-      "str": "pyrokinetic_intensify_flames_target_creature cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_pyrokinetic_intensify_flames_target_creature",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "pyrokinetic_eruption",
@@ -140,42 +105,7 @@
     "effect_str": "ter_pyrokin_molten_land",
     "range_increment": 0.25,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_pyrokinetic_eruption",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_eruption (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_pyrokinetic_eruption",
-    "type": "SPELL",
-    "name": {
-      "str": "pyrokinetic_eruption cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_pyrokinetic_eruption",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "pyrokinetic_flash",
@@ -217,42 +147,7 @@
     "aoe_increment": 0.25,
     "duration_increment": 50.0,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_pyrokinetic_flash",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_flash (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_pyrokinetic_flash",
-    "type": "SPELL",
-    "name": {
-      "str": "pyrokinetic_flash cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_pyrokinetic_flash",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "pyrokinetic_cauterize",
@@ -342,10 +237,6 @@
       {
         "id": "pyrokinetic_quell_flames_self",
         "hit_self": true
-      },
-      {
-        "id": "momfincast_pyrokinetic_quell_flames",
-        "hit_self": true
       }
     ],
     "min_range": 3,
@@ -366,35 +257,6 @@
     "aoe_increment": 0.5,
     "energy_source": "STAMINA",
     "scale_int": true
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_quell_flames (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_pyrokinetic_quell_flames",
-    "type": "SPELL",
-    "name": {
-      "str": "pyrokinetic_quell_flames cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_pyrokinetic_quell_flames",
-    "min_duration": 100,
-    "max_duration": 100
   },
   {
     "id": "pyrokinetic_quell_flames_self",
@@ -503,42 +365,7 @@
     "range_increment": 0.3,
     "aoe_increment": 3.0,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_pyrokinetic_flamethrower",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_flamethrower (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_pyrokinetic_flamethrower",
-    "type": "SPELL",
-    "name": {
-      "str": "pyrokinetic_flamethrower cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_pyrokinetic_flamethrower",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "pyrokinetic_lance",
@@ -867,42 +694,7 @@
     "range_increment": 0.9,
     "aoe_increment": 0.4,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_pyrokinetic_blast",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_blast (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_pyrokinetic_blast",
-    "type": "SPELL",
-    "name": {
-      "str": "pyrokinetic_blast cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_pyrokinetic_blast",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "pyrokinetic_incineration",
@@ -947,41 +739,6 @@
     "damage_increment": 10.0,
     "range_increment": 0.5,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_pyrokinetic_incineration",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for pyrokinetic_incineration (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_pyrokinetic_incineration",
-    "type": "SPELL",
-    "name": {
-      "str": "pyrokinetic_incineration cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_pyrokinetic_incineration",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   }
 ]

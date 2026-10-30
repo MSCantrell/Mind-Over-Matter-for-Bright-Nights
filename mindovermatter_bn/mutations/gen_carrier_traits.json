@@ -50,6 +50,28 @@
   },
   {
     "type": "mutation",
+    "id": "MOM_CAR_mom_artifact_increase_pain_L0",
+    "name": "Sensitive",
+    "points": 0,
+    "description": "Carrier trait for effect_mom_artifact_increase_pain (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": 0.2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
     "id": "MOM_CAR_mom_artifact_hardened_skin_L0",
     "name": "Hardened Skin",
     "points": 0,
@@ -62,6 +84,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.2
+          },
           {
             "value": "ARMOR_BASH",
             "add": -6
@@ -223,6 +249,76 @@
           {
             "value": "MENDING_MULT",
             "multiply": 15.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_force_field_generated_L0",
+    "name": "Rippling Air",
+    "points": 0,
+    "description": "Carrier trait for force_field_generated (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "FORCEFIELD_BASH",
+            "add": 0.94
+          },
+          {
+            "value": "FORCEFIELD_CUT",
+            "add": 0.94
+          },
+          {
+            "value": "FORCEFIELD_DARK",
+            "add": 0.94
+          },
+          {
+            "value": "FORCEFIELD_LIGHT",
+            "add": 0.94
+          },
+          {
+            "value": "FORCEFIELD_PSI",
+            "add": 0.94
+          },
+          {
+            "value": "FORCEFIELD_STAB",
+            "add": 0.94
+          },
+          {
+            "value": "FORCEFIELD_BULLET",
+            "add": 0.94
+          },
+          {
+            "value": "FORCEFIELD_HEAT",
+            "add": 0.94
+          },
+          {
+            "value": "FORCEFIELD_COLD",
+            "add": 0.94
+          },
+          {
+            "value": "FORCEFIELD_ELECTRIC",
+            "add": 0.94
+          },
+          {
+            "value": "FORCEFIELD_ACID",
+            "add": 0.94
+          },
+          {
+            "value": "FORCEFIELD_BIOLOGICAL",
+            "add": 0.94
+          },
+          {
+            "value": "FORCEFIELD_TRUE",
+            "add": 0.94
           }
         ]
       }
@@ -1273,10 +1369,6 @@
             "multiply": 0.2
           },
           {
-            "value": "HEALTH_POINTS_HAND",
-            "multiply": 0.2
-          },
-          {
             "value": "HEALTH_POINTS_LEG",
             "multiply": 0.2
           }
@@ -2067,6 +2159,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": 0
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -2096,6 +2192,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.02
+          },
           {
             "value": "ARMOR_BASH",
             "add": -6
@@ -2127,6 +2227,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.04
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -2156,6 +2260,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.06
+          },
           {
             "value": "ARMOR_BASH",
             "add": -6
@@ -2187,6 +2295,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.08
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -2216,6 +2328,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.1
+          },
           {
             "value": "ARMOR_BASH",
             "add": -6
@@ -2247,6 +2363,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.12
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -2276,6 +2396,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.14
+          },
           {
             "value": "ARMOR_BASH",
             "add": -6
@@ -2307,6 +2431,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.16
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -2336,6 +2464,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.18
+          },
           {
             "value": "ARMOR_BASH",
             "add": -6
@@ -2367,6 +2499,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.2
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -2396,6 +2532,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.22
+          },
           {
             "value": "ARMOR_BASH",
             "add": -6
@@ -2427,6 +2567,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.24
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -2456,6 +2600,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.26
+          },
           {
             "value": "ARMOR_BASH",
             "add": -6
@@ -2487,6 +2635,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.28
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -2516,6 +2668,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.3
+          },
           {
             "value": "ARMOR_BASH",
             "add": -6
@@ -3380,6 +3536,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.15
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -3390,6 +3550,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4
+          },
+          {
+            "value": "OVERKILL",
+            "add": -50
           },
           {
             "value": "RANGED_RECOIL",
@@ -3423,6 +3587,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.18
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -3433,6 +3601,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4
+          },
+          {
+            "value": "OVERKILL",
+            "add": -55
           },
           {
             "value": "RANGED_RECOIL",
@@ -3466,6 +3638,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.21
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -3476,6 +3652,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4
+          },
+          {
+            "value": "OVERKILL",
+            "add": -60
           },
           {
             "value": "RANGED_RECOIL",
@@ -3509,6 +3689,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.24
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -3519,6 +3703,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4
+          },
+          {
+            "value": "OVERKILL",
+            "add": -65
           },
           {
             "value": "RANGED_RECOIL",
@@ -3552,6 +3740,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.27
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -3562,6 +3754,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4
+          },
+          {
+            "value": "OVERKILL",
+            "add": -70
           },
           {
             "value": "RANGED_RECOIL",
@@ -3595,6 +3791,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.3
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -3605,6 +3805,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4
+          },
+          {
+            "value": "OVERKILL",
+            "add": -75
           },
           {
             "value": "RANGED_RECOIL",
@@ -3638,6 +3842,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.33
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -3648,6 +3856,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4
+          },
+          {
+            "value": "OVERKILL",
+            "add": -80
           },
           {
             "value": "RANGED_RECOIL",
@@ -3681,6 +3893,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.36
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -3691,6 +3907,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4
+          },
+          {
+            "value": "OVERKILL",
+            "add": -85
           },
           {
             "value": "RANGED_RECOIL",
@@ -3724,6 +3944,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.39
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -3734,6 +3958,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4
+          },
+          {
+            "value": "OVERKILL",
+            "add": -90
           },
           {
             "value": "RANGED_RECOIL",
@@ -3767,6 +3995,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.42
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -3777,6 +4009,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4
+          },
+          {
+            "value": "OVERKILL",
+            "add": -95
           },
           {
             "value": "RANGED_RECOIL",
@@ -3810,6 +4046,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.45
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6
           },
@@ -3820,6 +4060,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4
+          },
+          {
+            "value": "OVERKILL",
+            "add": -100
           },
           {
             "value": "RANGED_RECOIL",
@@ -3853,6 +4097,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.48
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6.3
           },
@@ -3863,6 +4111,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4.2
+          },
+          {
+            "value": "OVERKILL",
+            "add": -105
           },
           {
             "value": "RANGED_RECOIL",
@@ -3896,6 +4148,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.51
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6.6
           },
@@ -3906,6 +4162,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4.4
+          },
+          {
+            "value": "OVERKILL",
+            "add": -110
           },
           {
             "value": "RANGED_RECOIL",
@@ -3939,6 +4199,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.54
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -6.9
           },
@@ -3949,6 +4213,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4.6
+          },
+          {
+            "value": "OVERKILL",
+            "add": -115
           },
           {
             "value": "RANGED_RECOIL",
@@ -3982,6 +4250,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.57
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -7.2
           },
@@ -3992,6 +4264,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -4.8
+          },
+          {
+            "value": "OVERKILL",
+            "add": -120
           },
           {
             "value": "RANGED_RECOIL",
@@ -4025,6 +4301,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "PAIN_GAIN",
+            "multiply": -0.6
+          },
+          {
             "value": "ARMOR_BASH",
             "add": -7.5
           },
@@ -4035,6 +4315,10 @@
           {
             "value": "ARMOR_CUT",
             "add": -5
+          },
+          {
+            "value": "OVERKILL",
+            "add": -125
           },
           {
             "value": "RANGED_RECOIL",
@@ -4809,6 +5093,11 @@
             "multiply": 0
           }
         ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
+        ]
       }
     ]
   },
@@ -4838,6 +5127,11 @@
             "value": "HEARING",
             "multiply": 0.25
           }
+        ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
         ]
       }
     ]
@@ -4869,6 +5163,11 @@
             "multiply": 0.5
           }
         ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
+        ]
       }
     ]
   },
@@ -4898,6 +5197,11 @@
             "value": "HEARING",
             "multiply": 0.75
           }
+        ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
         ]
       }
     ]
@@ -4929,6 +5233,11 @@
             "multiply": 1.0
           }
         ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
+        ]
       }
     ]
   },
@@ -4958,6 +5267,11 @@
             "value": "HEARING",
             "multiply": 1.25
           }
+        ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
         ]
       }
     ]
@@ -4989,6 +5303,11 @@
             "multiply": 1.5
           }
         ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
+        ]
       }
     ]
   },
@@ -5018,6 +5337,11 @@
             "value": "HEARING",
             "multiply": 1.75
           }
+        ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
         ]
       }
     ]
@@ -5049,6 +5373,11 @@
             "multiply": 2.0
           }
         ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
+        ]
       }
     ]
   },
@@ -5078,6 +5407,11 @@
             "value": "HEARING",
             "multiply": 2.25
           }
+        ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
         ]
       }
     ]
@@ -5109,6 +5443,11 @@
             "multiply": 2.5
           }
         ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
+        ]
       }
     ]
   },
@@ -5138,6 +5477,11 @@
             "value": "HEARING",
             "multiply": 2.75
           }
+        ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
         ]
       }
     ]
@@ -5169,6 +5513,11 @@
             "multiply": 3.0
           }
         ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
+        ]
       }
     ]
   },
@@ -5198,6 +5547,11 @@
             "value": "HEARING",
             "multiply": 3.25
           }
+        ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
         ]
       }
     ]
@@ -5229,6 +5583,11 @@
             "multiply": 3.5
           }
         ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
+        ]
       }
     ]
   },
@@ -5258,6 +5617,11 @@
             "value": "HEARING",
             "multiply": 3.75
           }
+        ]
+      },
+      {
+        "special_vision": [
+          "MOM_VIS_clair_better_senses_0_D2"
         ]
       }
     ]
@@ -5843,7 +6207,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -5865,7 +6229,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -5887,7 +6251,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -5909,7 +6273,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -5931,7 +6295,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -5953,7 +6317,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -5975,7 +6339,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -5997,7 +6361,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -6019,7 +6383,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -6041,7 +6405,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -6063,7 +6427,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -6085,7 +6449,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -6107,7 +6471,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -6129,7 +6493,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -6151,7 +6515,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -6173,7 +6537,7 @@
         "condition": "ALWAYS",
         "values": [
           {
-            "value": "GROUNDED_CREATURE_SIGHT",
+            "value": "MOTION_ALARM",
             "max": 25
           }
         ]
@@ -8806,8 +9170,278 @@
     "player_display": false,
     "mut_enchantments": [
       {
-        "flags": [
-          "ELECTROSENSE"
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D6"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L1",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 1).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D8"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L2",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 2).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D9"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L3",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 3).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D10"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L4",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 4).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D12"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L5",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 5).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D14"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L6",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 6).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D15"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L7",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 7).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D16"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L8",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 8).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D18"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L9",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 9).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D20"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L10",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 10).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D21"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L11",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 11).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D22"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L12",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 12).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D24"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L13",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 13).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D26"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L14",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 14).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D27"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_electrokin_see_electricity_L15",
+    "name": "Spark Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_electrokin_see_electricity (level 15).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "special_vision": [
+          "MOM_VIS_electrokin_see_electricity_0_D28"
         ]
       }
     ]
@@ -8822,7 +9456,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.1
+    "pain_recovery": 0.1,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.15
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8834,7 +9479,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.12
+    "pain_recovery": 0.12,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.17
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8846,7 +9502,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.14
+    "pain_recovery": 0.14,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.19
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8858,7 +9525,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.16
+    "pain_recovery": 0.16,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.21
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8870,7 +9548,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.18
+    "pain_recovery": 0.18,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.23
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8882,7 +9571,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.2
+    "pain_recovery": 0.2,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.25
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8894,7 +9594,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.22
+    "pain_recovery": 0.22,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.27
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8906,7 +9617,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.24
+    "pain_recovery": 0.24,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.29
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8918,7 +9640,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.26
+    "pain_recovery": 0.26,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.31
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8930,7 +9663,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.28
+    "pain_recovery": 0.28,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.33
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8942,7 +9686,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.3
+    "pain_recovery": 0.3,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.35
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8954,7 +9709,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.32
+    "pain_recovery": 0.32,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.37
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8966,7 +9732,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.34
+    "pain_recovery": 0.34,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.39
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8978,7 +9755,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.36
+    "pain_recovery": 0.36,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.41
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -8990,7 +9778,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.38
+    "pain_recovery": 0.38,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.43
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -9002,7 +9801,18 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
-    "pain_recovery": 0.4
+    "pain_recovery": 0.4,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_GAIN",
+            "multiply": -0.45
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -15508,6 +16318,422 @@
   },
   {
     "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L0",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 1
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L1",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 1).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 1.2
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 1.2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L2",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 2).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 1.4
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 1.4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L3",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 3).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 1.6
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 1.6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L4",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 4).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 1.8
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 1.8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L5",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 5).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 2
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L6",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 6).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 2.2
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 2.2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L7",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 7).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 2.4
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 2.4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L8",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 8).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 2.6
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 2.6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L9",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 9).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 2.8
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 2.8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L10",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 10).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 3
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L11",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 11).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 3.2
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 3.2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L12",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 12).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 3.4
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 3.4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L13",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 13).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 3.6
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 3.6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L14",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 14).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 3.8
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 3.8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_teleport_warped_strikes_L15",
+    "name": "Warped Strikes",
+    "points": 0,
+    "description": "Carrier trait for effect_teleport_warped_strikes (level 15).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "REACH_RANGE_UNARMED",
+            "max": 4
+          },
+          {
+            "value": "REACH_RANGE_ARMED",
+            "max": 4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
     "id": "MOM_CAR_teleport_warper_combat_L0",
     "name": "Flickerflash Stance",
     "points": 0,
@@ -15520,6 +16746,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "MELEE_HIT",
+            "add": 0
+          },
           {
             "value": "BONUS_DODGE",
             "add": 1
@@ -15547,6 +16777,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "MELEE_HIT",
+            "add": 0.2
+          },
+          {
             "value": "BONUS_DODGE",
             "add": 1.25
           },
@@ -15572,6 +16806,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "MELEE_HIT",
+            "add": 0.4
+          },
           {
             "value": "BONUS_DODGE",
             "add": 1.5
@@ -15599,6 +16837,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "MELEE_HIT",
+            "add": 0.6
+          },
+          {
             "value": "BONUS_DODGE",
             "add": 1.75
           },
@@ -15624,6 +16866,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "MELEE_HIT",
+            "add": 0.8
+          },
           {
             "value": "BONUS_DODGE",
             "add": 2
@@ -15651,6 +16897,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "MELEE_HIT",
+            "add": 1
+          },
+          {
             "value": "BONUS_DODGE",
             "add": 2.25
           },
@@ -15676,6 +16926,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "MELEE_HIT",
+            "add": 1.2
+          },
           {
             "value": "BONUS_DODGE",
             "add": 2.5
@@ -15703,6 +16957,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "MELEE_HIT",
+            "add": 1.4
+          },
+          {
             "value": "BONUS_DODGE",
             "add": 2.75
           },
@@ -15728,6 +16986,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "MELEE_HIT",
+            "add": 1.6
+          },
           {
             "value": "BONUS_DODGE",
             "add": 3
@@ -15755,6 +17017,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "MELEE_HIT",
+            "add": 1.8
+          },
+          {
             "value": "BONUS_DODGE",
             "add": 3.25
           },
@@ -15780,6 +17046,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "MELEE_HIT",
+            "add": 2
+          },
           {
             "value": "BONUS_DODGE",
             "add": 3.5
@@ -15807,6 +17077,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "MELEE_HIT",
+            "add": 2.2
+          },
+          {
             "value": "BONUS_DODGE",
             "add": 3.75
           },
@@ -15832,6 +17106,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "MELEE_HIT",
+            "add": 2.4
+          },
           {
             "value": "BONUS_DODGE",
             "add": 4
@@ -15859,6 +17137,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "MELEE_HIT",
+            "add": 2.6
+          },
+          {
             "value": "BONUS_DODGE",
             "add": 4
           },
@@ -15885,6 +17167,10 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "MELEE_HIT",
+            "add": 2.8
+          },
+          {
             "value": "BONUS_DODGE",
             "add": 4
           },
@@ -15910,6 +17196,10 @@
       {
         "condition": "ALWAYS",
         "values": [
+          {
+            "value": "MELEE_HIT",
+            "add": 3
+          },
           {
             "value": "BONUS_DODGE",
             "add": 4
@@ -16956,6 +18246,44 @@
   },
   {
     "type": "mutation",
+    "id": "MOM_CAR_vita_super_heal_pain_allayed_L0",
+    "name": "Overflowing Vitality",
+    "points": 0,
+    "description": "Carrier trait for effect_vita_super_heal_pain_allayed (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PAIN_PENALTY_STR",
+            "multiply": -0.5
+          },
+          {
+            "value": "PAIN_PENALTY_DEX",
+            "multiply": -0.5
+          },
+          {
+            "value": "PAIN_PENALTY_INT",
+            "multiply": -0.5
+          },
+          {
+            "value": "PAIN_PENALTY_PER",
+            "multiply": -0.5
+          },
+          {
+            "value": "PAIN_PENALTY_SPD",
+            "multiply": -0.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
     "id": "MOM_CAR_scenario_heart_of_fire_need_to_channel_L0",
     "name": "Let the Fire Burn",
     "points": 0,
@@ -16979,5 +18307,303 @@
         ]
       }
     ]
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_clair_better_senses_0_D2",
+    "desc": "Psionic sense (effect_clair_better_senses)",
+    "distance": 2,
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something moving here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D10",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 10,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D12",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 12,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D14",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 14,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D15",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 15,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D16",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 16,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D18",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 18,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D20",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 20,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D21",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 21,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D22",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 22,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D24",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 24,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D26",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 26,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D27",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 27,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D28",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 28,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D6",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 6,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D8",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 8,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
+  },
+  {
+    "type": "enchantment_vision",
+    "id": "MOM_VIS_electrokin_see_electricity_0_D9",
+    "desc": "Psionic sense (effect_electrokin_see_electricity)",
+    "distance": 9,
+    "show_with_species": [
+      "ROBOT",
+      "ROBOT_FLYING"
+    ],
+    "show_with_flag": [
+      "ELECTRIC",
+      "ELECTRONIC"
+    ],
+    "vision_desc": {
+      "tile_id": "infrared_creature",
+      "description": "You sense something emitting electricity here."
+    }
   }
 ]

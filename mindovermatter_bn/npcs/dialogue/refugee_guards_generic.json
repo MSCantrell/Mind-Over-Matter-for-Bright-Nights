@@ -20,7 +20,7 @@
         }
       },
       {
-        "text": "[Sense Hostility] *Determine if <npc_name> is a threat*",
+        "text": "[Sense Hostility] *Determine if they're a threat*",
         "topic": "TALK_GUARD_GENERIC_REFUGEE_sense_hostility",
         "condition": {
           "not": {
@@ -29,7 +29,7 @@
         }
       },
       {
-        "text": "[Telepathy] *Read <npc_name>'s mind*",
+        "text": "[Telepathy] *Read their mind*",
         "topic": "TALK_GUARD_GENERIC_REFUGEE_scan",
         "condition": {
           "or": [
@@ -62,7 +62,7 @@
       "TALK_GUARD_GENERIC_REFUGEE_sense_hostility"
     ],
     "type": "talk_topic",
-    "dynamic_line": "&A quick check reveals nothing out of the ordinary.  To <npc_name>, you're just another face in the crowd.",
+    "dynamic_line": "&A quick check reveals nothing out of the ordinary.  To them, you're just another face in the crowd.",
     "responses": [
       {
         "text": "\u2026",
@@ -95,7 +95,7 @@
     "type": "talk_topic",
     "responses": [
       {
-        "text": "[Premonition] *Determine if <npc_name> is a threat*",
+        "text": "[Premonition] *Determine if they're a threat*",
         "topic": "TALK_EVAC_GUARD1_danger_sense",
         "condition": {
           "or": [
@@ -109,7 +109,7 @@
         }
       },
       {
-        "text": "[Telepathy] *Read <npc_name>'s mind*",
+        "text": "[Telepathy] *Read their mind*",
         "topic": "TALK_EVAC_GUARD1_scan",
         "condition": {
           "or": [
@@ -129,7 +129,7 @@
       "TALK_EVAC_GUARD1_danger_sense"
     ],
     "type": "talk_topic",
-    "dynamic_line": "&You open your senses, alert for danger, but don't sense anything.  <npc_name> bears you no ill will at all.",
+    "dynamic_line": "&You open your senses, alert for danger, but don't sense anything.  They bear you no ill will at all.",
     "responses": [
       {
         "text": "\u2026",
@@ -191,7 +191,7 @@
     "type": "talk_topic",
     "responses": [
       {
-        "text": "[Premonition] *Determine if <npc_name> is a threat*",
+        "text": "[Premonition] *Determine if they're a threat*",
         "topic": "TALK_EVAC_GUARD2_danger_sense",
         "condition": {
           "or": [
@@ -205,7 +205,7 @@
         }
       },
       {
-        "text": "[Telepathy] *Read <npc_name>'s mind*",
+        "text": "[Telepathy] *Read their mind*",
         "topic": "TALK_EVAC_GUARD2_scan",
         "condition": {
           "or": [
@@ -225,7 +225,7 @@
       "TALK_EVAC_GUARD2_danger_sense"
     ],
     "type": "talk_topic",
-    "dynamic_line": "&You open your senses, alert for danger, but don't sense anything.  <npc_name> is sincere in their friendliness, or least isn't hiding a dagger behind their back.",
+    "dynamic_line": "&You open your senses, alert for danger, but don't sense anything.  They are sincere in their friendliness, or at least aren't hiding a dagger behind their back.",
     "responses": [
       {
         "text": "\u2026",
@@ -265,4 +265,4 @@
       }
     ]
   }
-]
+]

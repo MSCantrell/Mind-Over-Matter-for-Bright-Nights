@@ -2102,6 +2102,10 @@
     "apply_message": "",
     "remove_message": "The prickling sensation of your skin disappears.",
     "rating": "bad",
+    "flags": [
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
+    ],
     "//src": "effects_artifact.json"
   },
   {
@@ -4876,7 +4880,9 @@
     "rating": "good",
     "max_duration": "7 days",
     "flags": [
-      "MUSCLE_VEH_BOOST"
+      "MUSCLE_VEH_BOOST",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_psionic.json"
   },
@@ -5204,6 +5210,10 @@
     "max_duration": 300,
     "max_intensity": 10,
     "int_dur_factor": 30,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
+    ],
     "//src": "effects_psionic.json"
   },
   {
@@ -5777,6 +5787,10 @@
     "remove_message": "The world snaps back into focus.",
     "rating": "good",
     "max_duration": "1 minutes",
+    "flags": [
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
+    ],
     "//src": "effects_items.json"
   },
   {

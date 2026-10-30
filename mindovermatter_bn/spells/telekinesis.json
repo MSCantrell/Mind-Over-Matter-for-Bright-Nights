@@ -134,42 +134,7 @@
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telekinetic_push",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_push (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telekinetic_push",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_push cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telekinetic_push",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telekinetic_force_shove_real",
@@ -236,42 +201,7 @@
     "damage_increment": 0.5,
     "range_increment": 0.9,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telekinetic_noise",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_noise (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telekinetic_noise",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_noise cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telekinetic_noise",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telekinetic_slam_down",
@@ -313,42 +243,7 @@
     "duration_increment": 25.0,
     "range_increment": 0.5,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telekinetic_slam_down",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_slam_down (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telekinetic_slam_down",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_slam_down cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telekinetic_slam_down",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telekinetic_momentum",
@@ -412,42 +307,7 @@
     "casting_time_increment": -4.5,
     "duration_increment": 100.0,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telekinetic_slowfall",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_slowfall (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telekinetic_slowfall",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_slowfall cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telekinetic_slowfall",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telekinetic_wave",
@@ -481,42 +341,7 @@
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telekinetic_wave",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_wave (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telekinetic_wave",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_wave cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telekinetic_wave",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telekinetic_lifting_field",
@@ -594,7 +419,8 @@
     "flags": [
       "RANDOM_DAMAGE",
       "NO_HANDS",
-      "NO_LEGS"
+      "NO_LEGS",
+      "DAMAGE_TERRAIN"
     ],
     "difficulty": 5,
     "max_level": 15,
@@ -615,74 +441,7 @@
     "damage_increment": 1.25,
     "range_increment": 0.9,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "telekinetic_hammer_bn_bash"
-      },
-      {
-        "id": "momfincast_telekinetic_hammer",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED terrain-bash companion for telekinetic_hammer (DDA bash_scaling port).",
-    "id": "telekinetic_hammer_bn_bash",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_hammer terrain bash",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden terrain-bash companion.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "ground",
-      "hostile",
-      "ally",
-      "item"
-    ],
-    "skill": "metaphysics",
-    "effect": "bash",
-    "flags": [
-      "RANDOM_DAMAGE"
-    ],
-    "max_level": 15,
-    "min_damage": 18,
-    "damage_increment": 1.25,
-    "max_damage": 108
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_hammer (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telekinetic_hammer",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_hammer cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telekinetic_hammer",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telekinetic_vehicle_lift",
@@ -767,7 +526,8 @@
       "NO_HANDS",
       "NO_LEGS",
       "IGNORE_WALLS",
-      "NO_EXPLOSION_VFX"
+      "NO_EXPLOSION_VFX",
+      "DAMAGE_TERRAIN"
     ],
     "difficulty": 7,
     "max_level": 15,
@@ -791,77 +551,7 @@
     "range_increment": 0.9,
     "aoe_increment": 0.3,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "telekinetic_explosion_bn_bash"
-      },
-      {
-        "id": "momfincast_telekinetic_explosion",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED terrain-bash companion for telekinetic_explosion (DDA bash_scaling port).",
-    "id": "telekinetic_explosion_bn_bash",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_explosion terrain bash",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden terrain-bash companion.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "ground",
-      "hostile",
-      "ally",
-      "item"
-    ],
-    "skill": "metaphysics",
-    "effect": "bash",
-    "flags": [
-      "RANDOM_DAMAGE"
-    ],
-    "max_level": 15,
-    "min_damage": 22,
-    "damage_increment": 3.0,
-    "max_damage": 212,
-    "min_aoe": 2,
-    "aoe_increment": 0.3,
-    "max_aoe": 6
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_explosion (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telekinetic_explosion",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_explosion cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telekinetic_explosion",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telekinetic_levitation",
@@ -927,42 +617,7 @@
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telekinetic_move_large_weight",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_move_large_weight (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telekinetic_move_large_weight",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_move_large_weight cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telekinetic_move_large_weight",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telekinetic_aegis",
@@ -995,42 +650,7 @@
     "casting_time_increment": -5,
     "duration_increment": 20.0,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telekinetic_aegis",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_aegis (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telekinetic_aegis",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_aegis cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telekinetic_aegis",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telekinetic_earthshaker",
@@ -1064,10 +684,6 @@
       {
         "id": "telekinetic_earthshaker_spawn_rubble",
         "hit_self": false
-      },
-      {
-        "id": "momfincast_telekinetic_earthshaker",
-        "hit_self": true
       }
     ],
     "min_duration": 200,
@@ -1086,35 +702,6 @@
     "aoe_increment": 0.8,
     "energy_source": "STAMINA",
     "scale_int": true
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telekinetic_earthshaker (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telekinetic_earthshaker",
-    "type": "SPELL",
-    "name": {
-      "str": "telekinetic_earthshaker cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telekinetic_earthshaker",
-    "min_duration": 100,
-    "max_duration": 100
   },
   {
     "id": "telekinetic_earthshaker_bash_terrain",

@@ -196,42 +196,7 @@
     "casting_time_increment": -5,
     "range_increment": 1.1,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_photokinetic_light_up_enemy",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for photokinetic_light_up_enemy (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_photokinetic_light_up_enemy",
-    "type": "SPELL",
-    "name": {
-      "str": "photokinetic_light_up_enemy cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_photokinetic_light_up_enemy",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "photokinetic_snuff_light",
@@ -274,42 +239,7 @@
     "aoe_increment": 0.8,
     "max_aoe": 13,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_photokinetic_snuff_light",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for photokinetic_snuff_light (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_photokinetic_snuff_light",
-    "type": "SPELL",
-    "name": {
-      "str": "photokinetic_snuff_light cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_photokinetic_snuff_light",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "photokinetic_light_dodge",
@@ -383,42 +313,7 @@
     "damage_increment": 1.5,
     "range_increment": 0.6,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_photokinetic_light_beam",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for photokinetic_light_beam (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_photokinetic_light_beam",
-    "type": "SPELL",
-    "name": {
-      "str": "photokinetic_light_beam cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_photokinetic_light_beam",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "photokinetic_camouflage",
@@ -519,42 +414,7 @@
     "casting_time_increment": -7,
     "duration_increment": 800.0,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_photokinetic_light_arms",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for photokinetic_light_arms (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_photokinetic_light_arms",
-    "type": "SPELL",
-    "name": {
-      "str": "photokinetic_light_arms cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_photokinetic_light_arms",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "photokinetic_hide_ugly",
@@ -621,42 +481,7 @@
     "range_increment": 0.7,
     "aoe_increment": 0.5,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_photokinetic_flash_bang",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for photokinetic_flash_bang (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_photokinetic_flash_bang",
-    "type": "SPELL",
-    "name": {
-      "str": "photokinetic_flash_bang cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_photokinetic_flash_bang",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "photokinetic_light_image",
@@ -701,42 +526,7 @@
     "range_increment": 0.8,
     "damage_increment": 0.33,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_photokinetic_light_image",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for photokinetic_light_image (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_photokinetic_light_image",
-    "type": "SPELL",
-    "name": {
-      "str": "photokinetic_light_image cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_photokinetic_light_image",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "photokinetic_radio",
@@ -837,42 +627,7 @@
     "range_increment": 0.8,
     "aoe_increment": 0.25,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_photokinetic_stun_robots",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for photokinetic_stun_robots (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_photokinetic_stun_robots",
-    "type": "SPELL",
-    "name": {
-      "str": "photokinetic_stun_robots cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_photokinetic_stun_robots",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "photokinetic_invisibility",
@@ -948,42 +703,7 @@
     "range_increment": 0.6,
     "aoe_increment": 0.3,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_photokinetic_light_flash",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for photokinetic_light_flash (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_photokinetic_light_flash",
-    "type": "SPELL",
-    "name": {
-      "str": "photokinetic_light_flash cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_photokinetic_light_flash",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "photokinetic_blinding_glare",
@@ -1051,42 +771,7 @@
     "damage_increment": 5.5,
     "range_increment": 0.8,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_photokinetic_light_disintegrate",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for photokinetic_light_disintegrate (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_photokinetic_light_disintegrate",
-    "type": "SPELL",
-    "name": {
-      "str": "photokinetic_light_disintegrate cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_photokinetic_light_disintegrate",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "photokinetic_light_army",
@@ -1154,41 +839,6 @@
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_photokinetic_light_army_remove",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for photokinetic_light_army_remove (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_photokinetic_light_army_remove",
-    "type": "SPELL",
-    "name": {
-      "str": "photokinetic_light_army_remove cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_photokinetic_light_army_remove",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   }
 ]

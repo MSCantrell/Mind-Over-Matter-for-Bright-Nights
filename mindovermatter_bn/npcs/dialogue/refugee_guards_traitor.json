@@ -20,7 +20,7 @@
         }
       },
       {
-        "text": "[Sense Hostility] *Determine if <npc_name> is a threat*",
+        "text": "[Sense Hostility] *Determine if they're a threat*",
         "topic": "TALK_EVAC_GUARD3_sense_hostility",
         "condition": {
           "not": {
@@ -29,7 +29,7 @@
         }
       },
       {
-        "text": "[Telepathy] *Read <npc_name>'s mind*",
+        "text": "[Telepathy] *Read their mind*",
         "topic": "TALK_EVAC_GUARD3_scan",
         "condition": {
           "or": [
@@ -70,7 +70,7 @@
       "TALK_EVAC_GUARD3_sense_hostility"
     ],
     "type": "talk_topic",
-    "dynamic_line": "&You barely open up your senses before you're met with an overpowering sense of menace.  <npc_name> isn't planning to kill you at this exact second but that could change at any moment.",
+    "dynamic_line": "&You barely open up your senses before you're met with an overpowering sense of menace.  They aren't planning to kill you at this exact second but that could change at any moment.",
     "responses": [
       {
         "text": "\u2026",
@@ -115,7 +115,7 @@
     "dynamic_line": "&It's only a moment, but that's enough.  You are looking from behind a tree onto a road where a crude roadblock has been set up.  There's a refugee bus, one of the same ones parked outside the refugee center, stopped at the roadblock, and as the driver gets out to look at the roadblock, there's a loud crack and two spots of red appear on his chest and leg.  As he begins to fall and the people in the bus start screaming, the raiders emerge from the trees, already running with guns raised.",
     "responses": [
       {
-        "text": "*Withdraw from <npc_name>'s mind*.",
+        "text": "*Withdraw from their mind*.",
         "effect": {
           "u_add_var": "dialogue_refugee_center_traitor_deep_scanned_evac_guard_3",
           "value": "yes"
@@ -129,7 +129,7 @@
       "TALK_EVAC_GUARD3_post_scan"
     ],
     "type": "talk_topic",
-    "dynamic_line": "&Only a few moments have passed.  <npc_name> hasn't noticed anything amiss.",
+    "dynamic_line": "&Only a few moments have passed.  They haven't noticed anything amiss.",
     "responses": [
       {
         "text": "\u2026",
@@ -153,7 +153,7 @@
     "dynamic_line": "What the hell are you talking about?",
     "responses": [
       {
-        "text": "He was only a child, <npc_name>, and you killed him.  Do you remember the blood on his Superman shirt?",
+        "text": "He was only a child, and you killed him.  Do you remember the blood on his Superman shirt?",
         "topic": "TALK_EVAC_GUARD3_witch",
         "opinion": {
           "fear": 4
@@ -166,7 +166,7 @@
       "TALK_EVAC_GUARD3_witch"
     ],
     "type": "talk_topic",
-    "dynamic_line": "I didn't tell you my na-\"  <npc_name>'s face goes white.  \"What the fuck!  You some kind of freak?",
+    "dynamic_line": "I didn't tell you my na-\"  Their face goes white.  \"What the fuck!  You some kind of freak?",
     "responses": [
       {
         "text": "It's over.  Give up.",
@@ -182,7 +182,7 @@
     "type": "talk_topic",
     "responses": [
       {
-        "text": "[Telekinesis Check] *Try to rip <npc_name>'s weapon away*",
+        "text": "[Telekinesis Check] *Try to rip their weapon away*",
         "condition": {
           "u_has_trait": "TELEKINETIC"
         },
@@ -205,7 +205,7 @@
         }
       },
       {
-        "text": "[Brilliant Flash Check] *blind <npc_name>*",
+        "text": "[Brilliant Flash Check] *blind them*",
         "condition": {
           "and": [
             {
@@ -246,7 +246,7 @@
         }
       },
       {
-        "text": "[Sensory Deprivation Check] *Shut off <npc_name>'s senses*.",
+        "text": "[Sensory Deprivation Check] *Shut off their senses*.",
         "condition": {
           "u_has_trait": "TELEPATH"
         },
@@ -276,7 +276,7 @@
         }
       },
       {
-        "text": "[Synaptic Overload Check] *Attack <npc_name>'s mind*.",
+        "text": "[Synaptic Overload Check] *Attack their mind*.",
         "condition": {
           "and": [
             {
@@ -310,7 +310,7 @@
         }
       },
       {
-        "text": "[Transposition Check] *Teleport away <npc_name>'s weapon*.",
+        "text": "[Transposition Check] *Teleport away their weapon*.",
         "condition": {
           "u_has_trait": "TELEPORTER"
         },
@@ -364,7 +364,7 @@
         }
       },
       {
-        "text": "[Oubliette Check] *Banish <npc_name> to another dimension*.",
+        "text": "[Oubliette Check] *Banish them to another dimension*.",
         "condition": {
           "u_has_trait": "TELEPORTER"
         },
@@ -522,4 +522,4 @@
     "object": {},
     "method": "json"
   }
-]
+]

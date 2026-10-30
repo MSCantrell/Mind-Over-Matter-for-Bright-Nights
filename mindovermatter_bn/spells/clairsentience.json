@@ -459,42 +459,7 @@
     "final_casting_time": 35,
     "casting_time_increment": -4.5,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_clair_perfect_shot",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for clair_perfect_shot (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_clair_perfect_shot",
-    "type": "SPELL",
-    "name": {
-      "str": "clair_perfect_shot cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_clair_perfect_shot",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "clair_see_map",
@@ -522,42 +487,7 @@
     "base_casting_time": 6000,
     "aoe_increment": 0.5,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_clair_see_map",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for clair_see_map (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_clair_see_map",
-    "type": "SPELL",
-    "name": {
-      "str": "clair_see_map cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_clair_see_map",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "clair_clear_sight",
@@ -655,41 +585,6 @@
     "casting_time_increment": -3.5,
     "duration_increment": 75.0,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_clair_omniscience",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for clair_omniscience (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_clair_omniscience",
-    "type": "SPELL",
-    "name": {
-      "str": "clair_omniscience cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_clair_omniscience",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   }
 ]

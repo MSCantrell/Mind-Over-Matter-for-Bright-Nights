@@ -43,20 +43,6 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_biokin_dash",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_biokin_armor_skin",
     "name": [
       ""
@@ -141,20 +127,6 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_biokin_sealed_system",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_biokin_sealed_remove_climate",
     "name": [
       ""
@@ -212,20 +184,6 @@
   {
     "type": "effect_type",
     "id": "mom_cast_biokin_perfected_motion",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_biokin_hurricane_blows",
     "name": [
       ""
     ],
@@ -435,34 +393,6 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_clair_perfect_shot",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_clair_see_map",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_clair_clear_sight",
     "name": [
       ""
@@ -478,20 +408,6 @@
   {
     "type": "effect_type",
     "id": "mom_cast_clair_group_tactics",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_clair_omniscience",
     "name": [
       ""
     ],
@@ -575,35 +491,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_electrokinetic_paralysis",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_electrokinetic_reduce_pain",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_electrokinetic_lightning_bolt",
     "name": [
       ""
     ],
@@ -645,35 +533,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_electrokinetic_speed_boost",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_electrokinetic_kill_robot",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_electrokinetic_kill_robot",
     "name": [
       ""
     ],
@@ -702,34 +562,6 @@
   {
     "type": "effect_type",
     "id": "mom_cast_electrokinetic_lightning_aura",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_electrokinetic_lightning_blast",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_electrokinetic_revive",
     "name": [
       ""
     ],
@@ -785,49 +617,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_photokinetic_light_up_enemy",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_photokinetic_snuff_light",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_photokinetic_light_dodge",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_photokinetic_light_beam",
     "name": [
       ""
     ],
@@ -869,49 +659,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_photokinetic_light_arms",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_photokinetic_hide_ugly",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_photokinetic_flash_bang",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_photokinetic_light_image",
     "name": [
       ""
     ],
@@ -953,20 +701,6 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_photokinetic_stun_robots",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_photokinetic_invisibility",
     "name": [
       ""
@@ -981,35 +715,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_photokinetic_light_flash",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_photokinetic_blinding_glare",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_photokinetic_light_disintegrate",
     "name": [
       ""
     ],
@@ -1051,63 +757,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_photokinetic_light_army_remove",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_pyrokinetic_intensify_flames",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_pyrokinetic_intensify_flames_target_creature",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_pyrokinetic_eruption",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_pyrokinetic_flash",
     "name": [
       ""
     ],
@@ -1149,35 +799,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_pyrokinetic_quell_flames",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_pyrokinetic_cloak",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_pyrokinetic_flamethrower",
     "name": [
       ""
     ],
@@ -1247,34 +869,6 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_pyrokinetic_blast",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_pyrokinetic_incineration",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_telekinetic_pull",
     "name": [
       ""
@@ -1303,48 +897,6 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_telekinetic_push",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telekinetic_noise",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telekinetic_slam_down",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_telekinetic_momentum",
     "name": [
       ""
@@ -1359,35 +911,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_telekinetic_slowfall",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_telekinetic_wave",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telekinetic_wave",
     "name": [
       ""
     ],
@@ -1429,20 +953,6 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_telekinetic_hammer",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_telekinetic_vehicle_lift",
     "name": [
       ""
@@ -1471,20 +981,6 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_telekinetic_explosion",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_telekinetic_levitation",
     "name": [
       ""
@@ -1500,48 +996,6 @@
   {
     "type": "effect_type",
     "id": "mom_cast_telekinetic_move_large_weight",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telekinetic_move_large_weight",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telekinetic_aegis",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telekinetic_earthshaker",
     "name": [
       ""
     ],
@@ -1611,49 +1065,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_telepathic_mesmerize",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_telepathic_morale",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telepathic_morale",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telepathic_blast",
     "name": [
       ""
     ],
@@ -1681,34 +1093,6 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_telepathic_animal_mind_control",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telepathic_confusion",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_telepathic_fear",
     "name": [
       ""
@@ -1723,77 +1107,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_telepathic_fear",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telepathic_invisibility",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telepathic_blast_radius",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_telepathic_beast_taming",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telepathic_beast_taming",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telepathic_mind_control",
     "name": [
       ""
     ],
@@ -1822,20 +1136,6 @@
   {
     "type": "effect_type",
     "id": "mom_cast_teleport_blink",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_teleport_slow",
     "name": [
       ""
     ],
@@ -1891,35 +1191,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_teleport_transpose",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_teleport_displacement",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_teleport_displacement",
     "name": [
       ""
     ],
@@ -1948,20 +1220,6 @@
   {
     "type": "effect_type",
     "id": "mom_cast_teleport_reactive_displacement_teleport",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_teleport_reactive_displacement_teleport",
     "name": [
       ""
     ],
@@ -2031,35 +1289,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_teleport_farstep_real",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_teleport_banish",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_teleport_banish",
     "name": [
       ""
     ],
@@ -2143,20 +1373,6 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_teleport_dilated_gateway_teleport_others",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_teleport_dilated_gateway_teleport_self",
     "name": [
       ""
@@ -2185,49 +1401,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_teleport_summon",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_teleport_warper_combat",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_teleport_warper_combat_warp_chance_attacker",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_teleport_warper_combat_warp_chance_attacked",
     "name": [
       ""
     ],
@@ -2465,35 +1639,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_pyrokinetic_flash_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_pyrokinetic_intensify_flames_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_pyrokinetic_eruption_knack",
     "name": [
       ""
     ],
@@ -2535,35 +1681,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_pyrokinetic_flamethrower_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_pyrokinetic_aura_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_pyrokinetic_blast_knack",
     "name": [
       ""
     ],
@@ -2605,49 +1723,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_telekinetic_push_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telekinetic_slam_down_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_telekinetic_wave_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telekinetic_wave_knack",
     "name": [
       ""
     ],
@@ -2703,20 +1779,6 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_telepathic_morale_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_telepathic_mesmerize_knack",
     "name": [
       ""
@@ -2731,77 +1793,7 @@
   },
   {
     "type": "effect_type",
-    "id": "momfin_telepathic_mesmerize_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telepathic_blast_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
     "id": "mom_cast_telepathic_animal_mind_control_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telepathic_animal_mind_control_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telepathic_invisibility_knack",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
-    "type": "effect_type",
-    "id": "momfin_telepathic_blast_radius_knack",
     "name": [
       ""
     ],

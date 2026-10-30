@@ -544,43 +544,14 @@ return function(mod)
     end,
   }
 
-  -- Pain Suppression (electrokinetic_reduce_pain) -- perceived-pain reduction.
-  -- BN has no PAIN enchantment value (port_carriers ENCH_VALUE_DROP), so the
-  -- generated carrier trait only carries the weak PAIN_REMOVE -> pain_recovery
-  -- bump; upstream's *main* effect -- a PAIN multiply that scales *perceived*
-  -- pain down 15%..50% by level -- was dropped, leaving the power near-inert.
-  -- Reproduce it in Lua: BN's get_perceived_pain() = max(pain - painkiller, 0)
-  -- (character.cpp:1126), so holding painkiller at pain*factor while the effect
-  -- is up yields perceived = pain - pain*factor = pain*(1-factor), exactly the
-  -- upstream multiply.  Only ever RAISE pkill to that floor (never lower) so a
-  -- drug's painkiller is preserved and we merely top it up.  On power-end we
-  -- touch nothing: painkiller decays ~1/turn (character.cpp:5754), so the pain
-  -- "surges back", matching the effect's remove_message.  Capped at 200, well
-  -- under the 240 overdose threshold (character.cpp:5862).  Runs every turn --
-  -- painkiller decays each turn, so a coarser sweep would let the mask flicker.
-  local REDUCE_PAIN_EID = EffectTypeId.new("effect_electrokin_reduce_pain")
-  -- Named body + gate OUTSIDE the pcall (perf 2026-08-14): this entry fires
-  -- every turn for everyone, and the old shape allocated a fresh closure per
-  -- tick just to discover the effect wasn't up.  Now the common case is one
-  -- has_effect and out; the pcall (against a prebuilt function) only runs
-  -- while the power is actually held.
-  local function reduce_pain_mask_body(you)
-    local pain = you:get_pain()
-    if pain <= 0 then return end
-    -- upstream: min((level*0.02 + 0.15) * psionic_power_modifiers, 0.5)
-    local lvl = math.max(m.spell_level(you, "electrokinetic_reduce_pain"), 0)
-    local factor = math.min((lvl * 0.02 + 0.15)
-                            * J.psionic_power_modifiers(you, nil, {}), 0.5)
-    local floor = math.min(U.round(pain * factor), 200)
-    if you:get_painkiller() < floor then you:set_painkiller(floor) end
-  end
-  mod.recurring["_mom_reduce_pain_mask"] = {
-    min_turns = 1, max_turns = 1,
-    fn = function(you)
-      if not you or not you:has_effect(REDUCE_PAIN_EID) then return end
-      pcall(reduce_pain_mask_body, you)
-    end,
-  }
+  -- Pain Suppression (electrokinetic_reduce_pain): upstream's main effect is a
+  -- PAIN multiply (-15%..-50% by level) on pain GAINED.  BN had no PAIN
+  -- enchantment value, so this file used to hold painkiller at pain*factor
+  -- every turn to fake it.  BN nightly 2026-09 (#10089) added PAIN_GAIN -- the
+  -- same hook as DDA's (Character::mod_pain, increases only) -- and
+  -- port_carriers now emits it on the power's carrier traits, so the per-turn
+  -- mask is gone.  (Behaviour note: the native value blunts NEW pain as it
+  -- arrives, as upstream does, rather than masking pain already taken.)
 
   -- ==========================================================================
   -- Hand ports for monster-target EOC spells whose numbers can't be fitted

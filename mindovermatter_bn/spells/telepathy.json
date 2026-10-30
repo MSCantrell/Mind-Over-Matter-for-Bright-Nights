@@ -127,42 +127,7 @@
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telepathic_mesmerize",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_mesmerize (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_mesmerize",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_mesmerize cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_mesmerize",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telepathic_morale",
@@ -198,42 +163,7 @@
     "casting_time_increment": -9.5,
     "final_casting_time": 158,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telepathic_morale",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_morale (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_morale",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_morale cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_morale",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telepathic_blast",
@@ -270,42 +200,7 @@
     "damage_increment": 1.5,
     "range_increment": 1.1,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telepathic_blast",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_blast (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_blast",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_blast cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_blast",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telepathic_animal_mind_control",
@@ -339,42 +234,7 @@
     "effect_str": "mom_cast_telepathic_animal_mind_control",
     "range_increment": 1.0,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telepathic_animal_mind_control",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_animal_mind_control (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_animal_mind_control",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_animal_mind_control cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_animal_mind_control",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telepathic_confusion",
@@ -402,10 +262,6 @@
         "id": "telepathic_confusion_blind",
         "hit_self": false,
         "max_level": 20
-      },
-      {
-        "id": "momfincast_telepathic_confusion",
-        "hit_self": true
       }
     ],
     "min_duration": 200,
@@ -422,35 +278,6 @@
     "range_increment": 1.1,
     "energy_source": "STAMINA",
     "scale_int": true
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_confusion (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_confusion",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_confusion cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_confusion",
-    "min_duration": 100,
-    "max_duration": 100
   },
   {
     "id": "telepathic_confusion_blind",
@@ -518,42 +345,7 @@
     "min_duration": 100,
     "max_duration": 100,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telepathic_fear",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_fear (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_fear",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_fear cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_fear",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telepathic_invisibility",
@@ -580,10 +372,6 @@
       {
         "id": "telepathic_invisibility_self",
         "hit_self": true
-      },
-      {
-        "id": "momfincast_telepathic_invisibility",
-        "hit_self": true
       }
     ],
     "min_duration": 12700,
@@ -603,35 +391,6 @@
     "max_aoe": 2,
     "energy_source": "STAMINA",
     "scale_int": true
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_invisibility (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_invisibility",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_invisibility cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_invisibility",
-    "min_duration": 100,
-    "max_duration": 100
   },
   {
     "id": "telepathic_invisibility_self",
@@ -686,10 +445,6 @@
       {
         "id": "telepathic_blast_radius_guaranteed",
         "hit_self": false
-      },
-      {
-        "id": "momfincast_telepathic_blast_radius",
-        "hit_self": true
       }
     ],
     "damage_type": "PSI",
@@ -707,35 +462,6 @@
     "max_aoe": 20,
     "energy_source": "STAMINA",
     "scale_int": true
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_blast_radius (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_blast_radius",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_blast_radius cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_blast_radius",
-    "min_duration": 100,
-    "max_duration": 100
   },
   {
     "id": "telepathic_blast_radius_guaranteed",
@@ -798,42 +524,7 @@
     "effect_str": "mom_cast_telepathic_beast_taming",
     "range_increment": 1.0,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telepathic_beast_taming",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_beast_taming (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_beast_taming",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_beast_taming cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_beast_taming",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telepathic_mind_control",
@@ -873,42 +564,7 @@
     "duration_increment": 150.0,
     "range_increment": 1.0,
     "energy_source": "STAMINA",
-    "scale_int": true,
-    "extra_effects": [
-      {
-        "id": "momfincast_telepathic_mind_control",
-        "hit_self": true
-      }
-    ]
-  },
-  {
-    "//": "GENERATED spellcasting_finish caster-tag for telepathic_mind_control (Nether Attunement / power-cost event bridge; see mom_hooks.lua).",
-    "id": "momfincast_telepathic_mind_control",
-    "type": "SPELL",
-    "name": {
-      "str": "telepathic_mind_control cast tag",
-      "//~": "NO_I18N"
-    },
-    "description": {
-      "str": "Hidden nether-attunement cast tag.  It's a bug if you can cast it directly.",
-      "//~": "NO_I18N"
-    },
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "max_level": 40,
-    "effect": "target_attack",
-    "effect_str": "momfin_telepathic_mind_control",
-    "min_duration": 100,
-    "max_duration": 100
+    "scale_int": true
   },
   {
     "id": "telepathic_network",

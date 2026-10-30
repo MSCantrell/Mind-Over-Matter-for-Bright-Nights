@@ -82,15 +82,6 @@ return function(mod)
       mod.eoc['EOC_TELEKIN_NOGOZONE_TICK'](you, nil, {})
     end
 
-    -- Warped Strikes (teleport): keep the wielded weapon's reach flags in sync
-    -- with the buff.  BN has no MELEE_RANGE_MODIFIER enchantment, so reach must
-    -- be maintained on the item itself; see mod.warped_strikes_maintain below.
-    -- Self-gates cheaply for non-teleporters, so it's ~free the rest of the time.
-    if mod.warped_strikes_maintain then
-      local ok, err = pcall(mod.warped_strikes_maintain, you)
-      if not ok then gdebug.log_error("MoM-BN: warped_strikes: " .. tostring(err)) end
-    end
-
     -- Integrated armor (trait -> worn item): BN has no `integrated_armor`
     -- mutation field, so traits that work by granting a worn item need the
     -- garment put on from here.  Self-throttles to one sweep a minute and gates
@@ -100,12 +91,9 @@ return function(mod)
       if not ok then gdebug.log_error("MoM-BN: integrated_armor: " .. tostring(err)) end
     end
 
-    -- Nullification.  pcall-guarded: this one touches the spellbook, so a bad
-    -- turn must never escape and take on_every_x (and the restore) down with it.
-    if mod.nullification_poll then
-      local ok, err = pcall(mod.nullification_poll, you)
-      if not ok then gdebug.log_error("MoM-BN: nullification: " .. tostring(err)) end
-    end
+    -- Nullification is no longer polled here: since BN's on_spell_try_cast
+    -- hook (nightly 2026-09, #10372) it is a cast-time gate -- see
+    -- mod.on_spell_try_cast below.
   end
 
   -- effect_type-linked EOC dispatch tables, keyed by effect type id string.
@@ -383,93 +371,29 @@ return function(mod)
   end
 
   -- Warped Strikes (teleport_warped_strikes) --------------------------------
-  -- DDA delivered this power's melee-reach extension through an effect
-  -- enchantment on MELEE_RANGE_MODIFIER.  This BN build has NO such enchantment
-  -- value: item::reach_range() (item.cpp) reads ONLY the wielded weapon's own
-  -- REACH_ATTACK / REACH3 flags, so the ported effect applied but did nothing.
-  -- Reimplement it by stamping those flags onto the wielded weapon while the
-  -- buff is up, quantized to BN's two reach tiers (DDA's smooth per-level
-  -- scaling can't be represented; 2->3 tiles is the whole range BN supports):
-  --   spell level 0-4  -> REACH_ATTACK          (reach 2)
-  --   spell level 5+   -> REACH_ATTACK + REACH3  (reach 3)
-  -- Unarmed is not covered -- reach lives on the weapon item and fists are a
-  -- transient pseudo-weapon -- so this is wielded-weapons-only, matching where
-  -- BN keeps reach at all.
-  --
-  -- Lifecycle safety (the "never weld a flag onto a real weapon" requirement):
-  -- we record EXACTLY the flags we add in an item var (mom_warped_flags) and
-  -- only ever strip those, so a weapon that NATIVELY carries REACH_ATTACK (a
-  -- spear, a naginata) is never harmed.  Every turn we re-reconcile: the wielded
-  -- weapon is re-stamped to the current tier (so a spell-level change is picked
-  -- up), and any OTHER item still carrying our var -- a weapon swapped away into
-  -- the pack, or anything at all once the buff ends -- is stripped.  So the
-  -- flags cannot outlive the effect on any item that stays with the character.
-  -- Only teleporters ever run the reconcile (gated below); a persisted var lets
-  -- everyone else skip it entirely.
-  local WARPED_EFFECT = "effect_teleport_warped_strikes"
-  local WARPED_EID = EffectTypeId.new(WARPED_EFFECT)
+  -- Now a native enchantment: BN nightly 2026-09 (#10089) added REACH_RANGE,
+  -- and port_carriers maps DDA's MELEE_RANGE_MODIFIER onto REACH_RANGE_ARMED +
+  -- REACH_RANGE_UNARMED on the power's carrier traits (+1..+4 tiles by level,
+  -- armed AND unarmed, as upstream).  Until then this file stamped
+  -- REACH_ATTACK/REACH3 onto the wielded weapon every turn and recorded what
+  -- it added in the item var mom_warped_flags.  Saves from that era can still
+  -- hold a weapon carrying our flags, so strip them once on load.
   local warped_flag_cache = {}
   local function warped_fid(name)
     local f = warped_flag_cache[name]
     if not f then f = JsonFlagId.new(name); warped_flag_cache[name] = f end
     return f
   end
-  -- Remove only the flags WE added (per the item's own record); leave natives.
-  local function warped_strip(it)
-    local rec = it:get_var_str("mom_warped_flags", "")
-    if rec == "" then return false end
-    for name in rec:gmatch("[^,]+") do it:unset_flag(warped_fid(name)) end
-    it:set_var_str("mom_warped_flags", "")
-    return true
-  end
-  -- Add the wanted flags the item lacks; record just those (warped_strip having
-  -- already cleared last tick's record) so a native reach flag is never logged
-  -- as ours and thus never stripped later.
-  local function warped_apply(it, want)
-    local added = {}
-    for _, name in ipairs(want) do
-      if not it:has_flag(warped_fid(name)) then
-        it:set_flag(warped_fid(name))
-        added[#added + 1] = name
-      end
-    end
-    it:set_var_str("mom_warped_flags", table.concat(added, ","))
-    return #added > 0
-  end
-
-  function mod.warped_strikes_maintain(you)
-    if not you then return end
-    local active = you:has_effect(WARPED_EID)
-    -- Fast path: skip the inventory scan unless the buff is up or
-    -- mom_warped_managing says a previous tick left residue to clean up.
-    -- mom_warped_managing is set to 1 on every tick that stamps or finds a
-    -- managed item and 0 otherwise (see the end of this function), so it
-    -- already fully answers "might a weapon still carry our flags" -- a
-    -- second check against the TELEPORTER trait added nothing but forced
-    -- EVERY teleporter to pay a full all_items() scan on EVERY turn forever,
-    -- even one who has never cast this power (perf fix 2026-08-08; this was
-    -- the single biggest per-tick cost for teleporters specifically).
-    if not active and V.uget(you, "mom_warped_managing") ~= 1 then
-      return
-    end
-    local want
-    if active then
-      local lvl = math.max(m.spell_level(you, "teleport_warped_strikes"), 0)
-      want = (lvl >= 5) and { "REACH_ATTACK", "REACH3" } or { "REACH_ATTACK" }
-    end
-    local any = false
+  function mod.warped_strikes_legacy_cleanup(you)
+    if not you or V.uget(you, "mom_warped_managing") ~= 1 then return end
     for _, it in ipairs(you:all_items(false)) do
-      if active and you:is_wielding(it) then
-        warped_strip(it)                 -- clear last tick's flags, then...
-        warped_apply(it, want)           -- ...re-stamp to the current tier
-        any = true                       -- a weapon is under management
-      else
-        warped_strip(it)                 -- stowed swap / buff ended -> clean it
+      local rec = it:get_var_str("mom_warped_flags", "")
+      if rec ~= "" then
+        for name in rec:gmatch("[^,]+") do it:unset_flag(warped_fid(name)) end
+        it:set_var_str("mom_warped_flags", "")
       end
     end
-    -- Keep the managing flag up for the whole buff (even a turn with no weapon
-    -- wielded) so the post-expiry cleanup sweep is guaranteed to run once.
-    V.uset(you, "mom_warped_managing", (active or any) and 1 or 0)
+    V.uset(you, "mom_warped_managing", 0)
   end
 
   -- Marker-bridge dispatch (Phase 2): an EOC-backed spell applies its
@@ -560,32 +484,20 @@ return function(mod)
 
   mod.cast_map = require("lua/gen_cast_map")
 
-  -- ---- Nullification: empty the spellbook while a NO_PSIONICS effect is on ----
+  -- ---- Nullification: refuse psi casts while a NO_PSIONICS effect is on ----
   --
-  -- "You can't use your powers" is unenforceable in BN by any other route.
-  -- spell::can_cast (magic/magic.cpp:781) checks ONLY spell components and
-  -- energy -- no flag, no effect -- and BN has no spell-cast hook to intercept
-  -- (see fire_spell_cast_events below, same problem).  Forcing a guaranteed
-  -- miss is also out: spell_fail's effective_skill is
-  -- `2*(spell_level - difficulty) + INT + metaphysics`, and ported powers reach
-  -- max_level 40 against a median difficulty of 1, so the level term alone hits
-  -- +78 before stats.  The only enchantable inputs BN offers are INTELLIGENCE
-  -- and SKILL_LEVEL (all skills), so driving that below zero needs roughly -100
-  -- and would nullify a novice while leaving a veteran untouched.
+  -- "You can't use your powers."  Until BN nightly 2026-09 this was
+  -- unenforceable: spell::can_cast checks only components and energy, and
+  -- there was no spell-cast hook, so the port emptied the spellbook every turn
+  -- (forget_spell + an xp stash restored on exit).  BN #10372 added the
+  -- on_spell_try_cast hook (handle_action.cpp try_cast_spell): returning false
+  -- refuses the cast before the casting activity starts.  So the powers simply
+  -- stay in the book and the cast is refused -- no per-turn poll, no spellbook
+  -- surgery, nothing to restore, nothing to lose on a crash.
   --
-  -- So: take the powers out of the spellbook.  Lossless, because
-  -- spell::get_level() is derived purely from experience
-  -- (`floor(log(experience + a)/b + c)`, magic.cpp) -- restore the xp and the
-  -- level comes back with it.
-  --
-  -- Structured as an idempotent per-turn POLL rather than paired
-  -- effect_added/effect_removed handlers, on purpose.  A paired design loses the
-  -- powers permanently if the removal half ever fails to run -- mid-cast effect
-  -- expiry, a save reloaded while nullified, a crash.  The poll makes recovery
-  -- automatic instead: the stash lives in a character value (so it survives
-  -- saving), and the very next turn after the effect is gone the restore branch
-  -- fires no matter HOW it went away.  That is the same cold-boot-rearm
-  -- reasoning as the maintained-power drain loops.
+  -- Scope: only casts the player starts from the spell menu go through
+  -- try_cast_spell; NPC and item/fake-spell casts don't.  That matches the old
+  -- poll, which only ever ran on the avatar.
   mod.psi_powers = require("lua/gen_psi_powers")
 
   local NULLIFY_EFFECTS = {
@@ -598,31 +510,8 @@ return function(mod)
   -- effect_clair_astral_projection is supposed to leave some powers usable,
   -- effect_psi_turn_off_powers lasts one second and only exists to drop
   -- maintained powers, and effect_monster_telekinetic_aegis is a monster effect.
-  -- Emptying a spellbook for any of those would be a much larger behaviour
-  -- change than the nullifier fields this was built for.
-  -- Pre-resolve once: nullify_active runs from nullification_poll on EVERY
-  -- turn for EVERY character (not just psions), so these three must not be
-  -- reconstructed per call (perf fix 2026-08-08).
   local NULLIFY_EIDS = {}
   for _, id in ipairs(NULLIFY_EFFECTS) do NULLIFY_EIDS[#NULLIFY_EIDS + 1] = EffectTypeId.new(id) end
-  local STASH_KEY = "mom_nullified_powers"
-  local GRACE_KEY = "mom_nullified_grace"
-  -- Turns of UNINTERRUPTED non-nullification required before handing the powers
-  -- back.  A restore the instant the effect drops is wrong, because the effect
-  -- is not continuous even while you stand in the field: effect_psi_null caps at
-  -- max_duration 1 minute and the field re-applies it each turn, so any hitch
-  -- that costs a tick of field processing -- reloading a save taken inside the
-  -- field being the reproducible one -- leaves a gap the restore branch races
-  -- into.  Playtest 2026-07-29 hit exactly that: reload inside the field handed
-  -- the powers back, then the next field tick stripped them again.  Waiting a
-  -- few turns costs nothing when you have genuinely walked out (the field decays
-  -- in ~3 turns now) and absorbs every one-tick gap.
-  local GRACE_TURNS = 5
-  -- Activities that resolve a spell BY ID when they finish, so forgetting the
-  -- spell out from under one makes BN debugmsg "Tried to get unknown spell" and
-  -- fall back to a garbage spell (activity_handlers.cpp:4757 for the cast,
-  -- :2195 for study).  Playtest hit this too.  Cancel them instead.
-  local SPELL_ACTIVITIES = { ACT_SPELLCASTING = true, ACT_STUDY_SPELL = true }
 
   local function nullify_active(you)
     for _, eid in ipairs(NULLIFY_EIDS) do
@@ -631,73 +520,34 @@ return function(mod)
     return false
   end
 
-  -- Abort an in-flight cast/study before its spell disappears.
-  local function cancel_spell_activity(you)
-    if not you.get_activity then return end
-    local act = you:get_activity()
-    if act and act.id_str and SPELL_ACTIVITIES[act:id_str()] then
-      you:cancel_activity()
-      mod.u.msg(you, "Your concentration is severed.", MsgType.bad, nil)
+  -- params: char (the caster), spell (Spell).  Return false to refuse; return
+  -- nothing otherwise (a non-false result never blocks).
+  function mod.on_spell_try_cast(params)
+    local who, sp = params.char, params.spell
+    if not (who and sp) then return end
+    local ok, key = pcall(function() return sp.id:str() end)
+    if not ok or not mod.psi_powers[key] then return end
+    if nullify_active(who) then
+      mod.u.msg(who, "You reach for the power, but something smothers it.  "
+        .. "Your psionics are nullified.", MsgType.bad, nil)
+      return false
     end
   end
 
-  function mod.nullification_poll(you)
+  -- Legacy migration: saves made under the old spellbook-emptying scheme may
+  -- still hold a stash of forgotten powers (character value
+  -- mom_nullified_powers, "spell=xp;...").  Hand them back once on load.
+  -- spell::get_level() is derived purely from xp, so restoring the xp restores
+  -- the level.  Clear the stash FIRST so a throw partway can't double-restore.
+  local STASH_KEY = "mom_nullified_powers"
+  function mod.nullification_restore_legacy(you)
     if not you or not you.get_magic then return end
     local stash = you:get_value(STASH_KEY) or ""
-    local active = nullify_active(you)
-    -- Cheap gate first (perf fix 2026-08-09): get_magic() used to run for
-    -- EVERY character on EVERY turn, even mundane ones who were never
-    -- nullified and have nothing stashed.  Only fetch the spellbook once
-    -- there's actually work to do.
-    if not active and stash == "" then return end
+    if stash == "" then return end
     local km = you:get_magic()
     if not km then return end
-    local powers = mod.psi_powers or {}
-
-    if active then
-      -- Sweep every turn, not just on the first: a power learned WHILE nullified
-      -- would otherwise stay castable until the effect ended.  After the first
-      -- sweep there is normally nothing left to find, so this costs one
-      -- knows_spell per known power.
-      local taken = {}
-      for _, sid in ipairs(km:spells()) do
-        local key = sid:str()
-        if powers[key] then
-          table.insert(taken, key .. "=" .. tostring(km:get_spell(sid):xp()))
-        end
-      end
-      you:set_value(GRACE_KEY, "0")
-      if #taken > 0 then
-        cancel_spell_activity(you)
-        for _, rec in ipairs(taken) do
-          local key = rec:match("^([^=]+)=")
-          km:forget_spell(SpellTypeId.new(key))
-        end
-        -- Append rather than overwrite: a mid-effect top-up must not discard the
-        -- xp recorded by the first sweep.
-        you:set_value(STASH_KEY,
-          (stash ~= "" and (stash .. ";") or "") .. table.concat(taken, ";"))
-        if stash == "" then
-          mod.u.msg(you, "Your powers slip out of reach.", MsgType.bad, nil)
-        end
-      end
-      return
-    end
-
-    -- Not nullified, but wait out the grace window before believing it.
-    -- (stash is guaranteed non-empty here: the gate above already returned
-    -- for the not-active-and-no-stash case.)
-    local grace = tonumber(you:get_value(GRACE_KEY) or "0") or 0
-    if grace < GRACE_TURNS then
-      you:set_value(GRACE_KEY, tostring(grace + 1))
-      return
-    end
-    you:set_value(GRACE_KEY, "0")
-    -- Restore.  Clear the stash FIRST: if learn_spell were to throw partway
-    -- through, a surviving stash would be re-restored next turn and re-apply xp
-    -- to powers that already got it.  Losing the tail of one restore is
-    -- recoverable; an unbounded retry loop against a live spellbook is not.
     you:set_value(STASH_KEY, "")
+    you:set_value("mom_nullified_grace", "")
     local n = 0
     for key, xp in stash:gmatch("([^=;]+)=(%-?%d+)") do
       local sid = SpellTypeId.new(key)
@@ -705,8 +555,7 @@ return function(mod)
         km:learn_spell(sid, you, true)  -- force: skips the class-trait gate
       end
       if km:knows_spell(sid) then
-        -- math.floor at the binding boundary: set_exp binds void(int) and sol2
-        -- rejects a number carrying decimals (same trap as gain_exp in mom_math).
+        -- math.floor: set_exp binds void(int) and sol2 rejects decimals.
         km:get_spell(sid):set_exp(math.floor(tonumber(xp) or 0))
         n = n + 1
       end
@@ -742,17 +591,23 @@ return function(mod)
   end
 
   -- Path B: offensive / non-self top-level psi powers can't tag the caster via
-  -- their INITIATE marker (it lands on the target, or there is none), so the
-  -- generator hangs a self-cast finish-tag off their extra_effects that lands
-  -- marker momfin_<spell> on the caster.  Fire the per-cast events when it does.
-  for spell_id, entry in pairs(mod.cast_map) do
-    if entry.finish == "tag" then
-      local marker = "momfin_" .. spell_id
-      mod.effect_added_handlers[marker] = function(you, _eff)
-        fire_spell_cast_events(you, entry, spell_id)
-        consume_marker(you, marker)
-        return true
-      end
+  -- their INITIATE marker (it lands on the target, or there is none).  Until
+  -- BN nightly 2026-09 the generator hung a hidden self-cast finish-tag spell
+  -- (momfincast_<id>) off each one's extra_effects to land a momfin_<id>
+  -- marker on the caster.  BN #10372's on_spell_cast hook reports every
+  -- successful cast directly (after effects, cost and xp -- the same point the
+  -- extra_effects tag used to fire), so the 72 tag spells + 72 marker effects
+  -- are gone and this is a table lookup.  "initiate" entries are untouched:
+  -- their marker also runs the power's INITIATE EOC, and the events must
+  -- follow it (opens_spellbook/spellcasting_finish read state it sets).
+  function mod.on_spell_cast(params)
+    local who, sp = params.char, params.spell
+    if not (who and sp) then return end
+    local ok, key = pcall(function() return sp.id:str() end)
+    if not ok then return end
+    local entry = mod.cast_map[key]
+    if entry and entry.finish == "tag" then
+      fire_spell_cast_events(who, entry, key)
     end
   end
 
@@ -819,8 +674,8 @@ return function(mod)
   -- `who` is a Character on the player path and a monster on the triffid path.
   -- U.quell_fire strips the caster's own `onfire` and then quenches every tile
   -- the parent spell painted with fd_mom_quench_marker.  No fire_spell_cast_
-  -- events call here: the generated momfincast_pyrokinetic_quell_flames tag
-  -- still rides the player power's extra_effects and fires them as before.
+  -- events call here: the player power is a finish="tag" cast_map entry, so
+  -- mod.on_spell_cast fires them when the cast resolves.
   mod.effect_added_handlers["mom_cast_mom_quell_fire"] = function(who, _eff)
     local put_out = mod.u.quell_fire(who, 24)
     consume_marker(who, "mom_cast_mom_quell_fire")
@@ -1952,6 +1807,8 @@ return function(mod)
     fire_game_start_once(you)
     fire_event_eocs("game_begin", you)
     sonar_reconcile(you)  -- restart the Mind Sonar pulse if its effect survived
+    pcall(mod.nullification_restore_legacy, you)  -- pre-2026-10 save migration
+    pcall(mod.warped_strikes_legacy_cleanup, you) -- ditto
   end
 
   function mod.on_game_save() end

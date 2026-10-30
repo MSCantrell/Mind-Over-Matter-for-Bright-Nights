@@ -4,6 +4,8 @@ local mod = game.mod_runtime[game.current_mod]
 
 -- Hook registrations only; implementations live in main.lua's requires.
 -- Valid hook names: CBN src/catalua_hooks.cpp (there is NO "on_every_x" hook).
+-- Requires a BN nightly from 2026-09-27 or later (on_spell_try_cast /
+-- on_spell_cast, #10372; REACH_RANGE / PAIN enchantments, #10089).
 
 -- Periodic dispatcher: recurring-EOC cadences + the queue_eocs scheduler.
 -- Runs every turn; per-entry cadence is handled inside mod.on_every_x.
@@ -87,6 +89,19 @@ end)
 game.activity_functions["MOM_SEE_MECHANISMS_LOCKPICK_FINISH"] = function(params)
   if mod.see_mechanisms_lockpick_finish then return mod.see_mechanisms_lockpick_finish(params) end
 end
+
+-- Spell-cast hooks (BN #10372, nightly 2026-09).  on_spell_try_cast runs when
+-- the player starts a cast from the spell menu; returning false refuses it
+-- (Nullification).  on_spell_cast runs after a SUCCESSFUL cast resolves
+-- (activity_handlers spellcasting_finish), and drives the per-cast
+-- opens_spellbook / spellcasting_finish event EOCs.  Only ever return false
+-- from try_cast to block -- any other result is ignored.
+game.add_hook("on_spell_try_cast", function(params)
+  if mod.on_spell_try_cast then return mod.on_spell_try_cast(params) end
+end)
+game.add_hook("on_spell_cast", function(params)
+  if mod.on_spell_cast then mod.on_spell_cast(params) end
+end)
 
 -- Bootstrap (power-list registration, save migration).
 game.add_hook("on_game_started", function(...)

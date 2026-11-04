@@ -669,9 +669,9 @@ return function(mod)
            and mod.math.spell_level(you, "telekinetic_push") >= 3
            and not km:knows_spell(SpellTypeId.new("telekinetic_nogozone")) then
           mod.u.set_spell_level(you, "telekinetic_nogozone", 1)
-          mod.u.msg(you, "A new configuration of force resolves in your mind: "
+          mod.u.power_learned_msg(you, "A new configuration of force resolves in your mind: "
             .. "you could hold a clear space around yourself at will.  "
-            .. "(Learned No Go Zone.)", MsgType.good, nil)
+            .. "(Learned No Go Zone.)")
         end
       end)
     end,
@@ -798,6 +798,11 @@ return function(mod)
       local guy = you and you:as_npc()
       if guy then gapi.remove_npc_follower(guy) end
     end)
+    -- ...and a card on the green pin map (lua/mom_psi_alliance.lua).
+    pcall(function()
+      local guy = you and you:as_npc()
+      if guy and mod.psi_record_green_pin then mod.psi_record_green_pin(guy) end
+    end)
     consume_marker(you, "mom_psi_alliance_settle")
     return true
   end
@@ -824,9 +829,9 @@ return function(mod)
            and mod.math.spell_level(you, "electrokinetic_see_electric") >= 3
            and not km:knows_spell(SpellTypeId.new("electrokinetic_circuit_sense")) then
           mod.u.set_spell_level(you, "electrokinetic_circuit_sense", 1)
-          mod.u.msg(you, "The current speaks to you more clearly now -- you find "
+          mod.u.power_learned_msg(you, "The current speaks to you more clearly now -- you find "
             .. "you can hold your senses open to the workings of any circuit at "
-            .. "will.  (Learned Circuit Sense.)", MsgType.good, nil)
+            .. "will.  (Learned Circuit Sense.)")
         end
       end)
     end,
@@ -1009,10 +1014,10 @@ return function(mod)
            and mod.math.spell_level(you, "clair_better_senses") >= 3
            and not km:knows_spell(SpellTypeId.new("clair_see_mechanisms")) then
           mod.u.set_spell_level(you, "clair_see_mechanisms", 1)
-          mod.u.msg(you, "You turn your heightened senses inward on the world's "
+          mod.u.power_learned_msg(you, "You turn your heightened senses inward on the world's "
             .. "locks and feel their hidden mechanisms lay themselves bare -- "
             .. "pins, wards, and tumblers, all plain to your inner eye.  "
-            .. "(Learned See Mechanisms.)", MsgType.good, nil)
+            .. "(Learned See Mechanisms.)")
         end
       end)
     end,
@@ -1157,7 +1162,7 @@ return function(mod)
       for _, s in ipairs(e.also) do mod.u.set_spell_level(you, s, 1) end
     end
     local nm = (mod.spell_names and mod.spell_names[e.target]) or e.target
-    mod.u.msg(you, e.msg .. "  (Learned: " .. nm .. ".)", MsgType.good, nil)
+    mod.u.power_learned_msg(you, e.msg .. "  (Learned: " .. nm .. ".)")
   end
 
   mod.recurring["MOM_AUTOLEARN"] = {
@@ -1827,6 +1832,7 @@ return function(mod)
     cold_boot_rearm(you)  -- claim the per-VM re-arm slot (no-op for a new char)
     fire_game_start_once(you)
     fire_event_eocs("game_begin", you)
+    mod.u.discard_power_news()  -- starting powers aren't news
   end
 
   function mod.on_game_load()
@@ -1845,6 +1851,7 @@ return function(mod)
     sonar_reconcile(you)  -- restart the Mind Sonar pulse if its effect survived
     pcall(mod.nullification_restore_legacy, you)  -- pre-2026-10 save migration
     pcall(mod.warped_strikes_legacy_cleanup, you) -- ditto
+    mod.u.discard_power_news()  -- re-arms/migrations on load aren't news
   end
 
   function mod.on_game_save() end

@@ -47,6 +47,53 @@
   },
   {
     "type": "furniture",
+    "id": "f_mom_green_pin_map",
+    "name": "pinned road map",
+    "description": "A road map of New England, gone soft from handling and shingled with sticky notes.  Red pins: hordes, each with a date.  Blue pins: crystals, most of them crossed out.  Green pins are rarer, and each one has an index card tacked beside it.  A few of the pins have been painted black.  Examine it to read the cards.",
+    "symbol": "6",
+    "color": "light_green",
+    "move_cost_mod": -1,
+    "coverage": 75,
+    "required_str": -1,
+    "examine_action": "lua:mom_psi_green_pin_map",
+    "flags": [
+      "FLAMMABLE",
+      "NOITEM",
+      "ORGANIC",
+      "TRANSPARENT"
+    ],
+    "bash": {
+      "str_min": 6,
+      "str_max": 40,
+      "sound": "crunch!",
+      "sound_fail": "whump.",
+      "items": [
+        {
+          "item": "2x4",
+          "count": [
+            0,
+            3
+          ]
+        },
+        {
+          "item": "nail",
+          "charges": [
+            4,
+            6
+          ]
+        },
+        {
+          "item": "splinter",
+          "count": [
+            1,
+            4
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
     "id": "f_mom_granite_blocks",
     "name": "stack of granite blocks",
     "description": "Rough-cut granite blocks, each the size of a footlocker, stacked with a precision no forklift ever managed.  Leftover quarry stock.",

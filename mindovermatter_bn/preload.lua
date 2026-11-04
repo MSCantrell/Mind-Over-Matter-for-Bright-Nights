@@ -12,6 +12,9 @@ local mod = game.mod_runtime[game.current_mod]
 -- A callback that returns false would be unregistered, so never return false.
 gapi.add_on_every_x_hook(TimeDuration.from_turns(1), function()
   if mod.on_every_x then mod.on_every_x() end
+  -- New-power popup (mom_u U.flush_power_news): its own pcall, so a failed
+  -- tick above can't swallow it and a failed popup can't break the tick.
+  if mod.u and mod.u.flush_power_news then pcall(mod.u.flush_power_news) end
 end)
 
 -- Effect-linked EOCs.  NOTE: these only fire for effects whose JSON carries
@@ -41,6 +44,12 @@ end)
 -- port_monsters routes those to lua/gen_mon_death.lua and we dispatch here.
 game.add_hook("on_mon_death", function(params)
   if mod.on_mon_death then return mod.on_mon_death(params) end
+end)
+
+-- Character deaths (params: char, killer; Character::die in character.cpp, which
+-- npc::die calls).  The green pin map uses it to paint a dead psion's pin black.
+game.add_hook("on_character_death", function(params)
+  if mod.on_character_death then return mod.on_character_death(params) end
 end)
 
 -- Melee combat auras (Blinding Radiance &c.): re-create the enchantment

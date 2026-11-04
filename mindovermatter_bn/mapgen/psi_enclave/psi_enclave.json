@@ -698,12 +698,12 @@
         "\"\".\".\".\"\"\".\"..\"\"..\"\".\"'.",
         "\"\"\"\"\"\"\".\"\"..'.\"\"\".\".\"...",
         "\"\"||ww|||||www||www|||\"\"",
-        "\".|Ac::Bb|ZZ?ZZ:ZZZ:N|\"\"",
+        "\".|Ac::Bb|ZZCZZ:ZZZ:N|\"\"",
         "\".|:::::a|::c:c:c:c::|.\"",
         "\"\"w:Dc:::|::TTTTTTT::w..",
         "..w::::::|::TTTTTTT::w\"\"",
         "\"'|:::::l+::c:c:c:c::|\".",
-        "\"\"|C:::::|D:c:::::::R|\"\"",
+        "\"\"|E:::::|D:c:::::::R|\"\"",
         "\"'|||||||||+||||||||||.\"",
         ".\"|bb::St|::::|BBBBBB|.\"",
         "\"\"|?:::::|:}::|?:::::|.\"",
@@ -731,6 +731,7 @@
         "B": "t_floor",
         "C": "t_floor",
         "D": "t_floor",
+        "E": "t_floor",
         "K": "t_floor",
         "N": "t_floor",
         "R": "t_floor",
@@ -750,8 +751,9 @@
         "?": "f_sign",
         "A": "f_telepathic_amplifier",
         "B": "f_bookcase",
-        "C": "f_cupboard",
+        "C": "f_mom_green_pin_map",
         "D": "f_desk",
+        "E": "f_cupboard",
         "K": "f_counter",
         "N": "f_psi_noetic_resonance_detector",
         "R": "f_rack",
@@ -765,11 +767,6 @@
         "t": "f_toilet"
       },
       "place_signs": [
-        {
-          "signage": "A road map of New England, gone soft from handling and shingled with sticky notes.  Red pins: hordes, each with a date.  Blue pins: crystals, most of them crossed out.  Green pins are rarer.  The newest green one has a note in careful block capitals: AWAKENED?  MOVING.  SEND SOMEONE.",
-          "x": 12,
-          "y": 4
-        },
         {
           "signage": "DAYS WITHOUT A DEATH: 11.  (Above it, someone has crossed out a 4, and then a 0.)",
           "x": 3,

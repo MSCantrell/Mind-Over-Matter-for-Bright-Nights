@@ -579,6 +579,57 @@ return function(mod)
   -- ---- spells
   local function km_of(who) return who:get_magic() end
 
+  -- New-power announcements (2026-11-03, user request 2026-08-08): gaining a
+  -- power used to be one easy-to-miss line in the message log.  Every grant
+  -- funnels through U.set_spell_level, so a genuinely NEW spell for the avatar
+  -- is queued here and U.flush_power_news (called once a turn from preload's
+  -- tick) shows ONE modal popup listing everything learned that turn.  Batching
+  -- matters: awakening swaps several knacks for their full powers at once.
+  -- Grants made while the game is starting/loading are discarded
+  -- (U.discard_power_news from on_game_started/on_game_load).
+  U.power_news = { names = {}, seen = {}, flavor = {} }
+
+  function U.discard_power_news()
+    U.power_news = { names = {}, seen = {}, flavor = {} }
+  end
+
+  local function queue_power_news(spell_id)
+    local n = U.power_news
+    if n.seen[spell_id] then return end
+    n.seen[spell_id] = true
+    n.names[#n.names + 1] = U.spell_name(spell_id)
+  end
+
+  -- Log a power-grant line AND keep it as the popup's flavor text.  Use this
+  -- instead of U.msg at hand-written grant sites.  The trailing "(Learned ...)"
+  -- tag is left in the log but dropped from the popup, which lists names itself.
+  function U.power_learned_msg(who, text)
+    U.msg(who, text, MsgType.good, nil)
+    if U.is_avatar(who) then
+      local f = U.interp(who, nil, text):gsub("<[%w_:%s]->", "")
+      f = f:gsub("%s*%(Learned:? .*%)%s*$", "")    -- greedy: names can hold "(C)"
+      if f ~= "" then U.power_news.flavor[#U.power_news.flavor + 1] = f end
+    end
+  end
+
+  local function join_names(names)
+    if #names == 1 then return names[1] end
+    return table.concat(names, ", ", 1, #names - 1) .. " and " .. names[#names]
+  end
+
+  function U.flush_power_news()
+    local n = U.power_news
+    if #n.names == 0 then
+      if #n.flavor > 0 then n.flavor = {} end
+      return
+    end
+    U.discard_power_news()
+    local parts = { #n.names == 1 and "NEW POWER" or "NEW POWERS" }
+    for _, f in ipairs(n.flavor) do parts[#parts + 1] = f end
+    parts[#parts + 1] = "You have learned " .. join_names(n.names) .. "."
+    U.popup(table.concat(parts, "\n\n"))
+  end
+
   function U.set_spell_level(who, spell_id, v)
     v = U.round(v)
     local sid = SpellTypeId.new(spell_id)
@@ -597,7 +648,10 @@ return function(mod)
         if km:knows_spell(sid) then km:forget_spell(sid) end
         return true
       end
-      if not km:knows_spell(sid) then km:learn_spell(sid, who, true) end
+      if not km:knows_spell(sid) then
+        km:learn_spell(sid, who, true)
+        if U.is_avatar(who) then queue_power_news(spell_id) end
+      end
       km:get_spell(sid):set_level(v)
       return true
     end, nil)

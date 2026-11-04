@@ -13236,7 +13236,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 15
+            "add": 1
           }
         ]
       }
@@ -13258,7 +13258,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 18
+            "add": 1
           }
         ]
       }
@@ -13280,7 +13280,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 21
+            "add": 1
           }
         ]
       }
@@ -13302,7 +13302,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 24
+            "add": 1
           }
         ]
       }
@@ -13324,7 +13324,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 27
+            "add": 2
           }
         ]
       }
@@ -13346,7 +13346,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 30
+            "add": 2
           }
         ]
       }
@@ -13368,7 +13368,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 33
+            "add": 2
           }
         ]
       }
@@ -13390,7 +13390,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 36
+            "add": 2
           }
         ]
       }
@@ -13412,7 +13412,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 39
+            "add": 3
           }
         ]
       }
@@ -13434,7 +13434,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 42
+            "add": 3
           }
         ]
       }
@@ -13456,7 +13456,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 45
+            "add": 3
           }
         ]
       }
@@ -13478,7 +13478,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 48
+            "add": 3
           }
         ]
       }
@@ -13500,7 +13500,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 51
+            "add": 4
           }
         ]
       }
@@ -13522,7 +13522,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 54
+            "add": 4
           }
         ]
       }
@@ -13544,7 +13544,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 57
+            "add": 4
           }
         ]
       }
@@ -13566,7 +13566,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 60
+            "add": 5
           }
         ]
       }

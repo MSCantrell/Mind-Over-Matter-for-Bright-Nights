@@ -34,6 +34,9 @@ end)
 game.add_hook("on_mon_effect_added", function(params)
   if mod.on_mon_effect_added then return mod.on_mon_effect_added(params) end
 end)
+game.add_hook("on_mon_effect", function(params)
+  if mod.on_mon_effect then return mod.on_mon_effect(params) end
+end)
 game.add_hook("on_mon_effect_removed", function(params)
   if mod.on_mon_effect_removed then return mod.on_mon_effect_removed(params) end
 end)
@@ -50,6 +53,13 @@ end)
 -- npc::die calls).  The green pin map uses it to paint a dead psion's pin black.
 game.add_hook("on_character_death", function(params)
   if mod.on_character_death then return mod.on_character_death(params) end
+end)
+
+-- Survivor graffiti (lua/mom_graffiti.lua): params map (MapgenConstructor), omt
+-- (TripointAbsOmt), when.  Registering this hook makes BN queue a deferred call for every
+-- generated overmap tile, so the handler bails out fast for tiles it doesn't want.
+game.add_hook("on_mapgen_postprocess", function(params)
+  if mod.on_mapgen_postprocess then return mod.on_mapgen_postprocess(params) end
 end)
 
 -- Melee combat auras (Blinding Radiance &c.): re-create the enchantment

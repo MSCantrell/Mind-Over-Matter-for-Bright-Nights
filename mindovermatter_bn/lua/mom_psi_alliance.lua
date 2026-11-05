@@ -112,7 +112,6 @@ return function(mod)
   -- record per line, tab-separated:   P <name> <school> <date>  |  D <name> <date>
   ---------------------------------------------------------------------------
   local PINS_KEY = "mom_psi_green_pins"
-  local GREEN_PIN_MISSION = "MISSION_PSI_ALLIANCE_GREEN_PIN"
 
   -- trait id, card label, Wren's note on who in camp took them in
   local SCHOOLS = {
@@ -127,6 +126,18 @@ return function(mod)
   }
   local SCHOOL_NOTE = {}
   for _, s in ipairs(SCHOOLS) do SCHOOL_NOTE[s[2]] = s[3] end
+  -- The resident each note names, and what Wren writes instead once they're gone
+  -- (2026-11-04: residents die, and a recruit's card kept saying "Marcus has them
+  -- stacking blocks" after Marcus's pin went black).  Clairsentient names nobody.
+  local SCHOOL_RESIDENT = {
+    biokinetic = { "Theo Lindqvist", "They found Theo's notes on the clinic desk and have been reading them every night." },
+    electrokinetic = { "Eli Navarro", "They sat by Eli's battery bank the whole first night.  Nobody had the heart to tell them it's dead." },
+    photokinetic = { "Priya Raman", "They found Priya's lamps in the basement and turned every one of them on." },
+    pyrokinetic = { "Dana Okafor", "They keep the forge lit now.  Nobody asked them to." },
+    telekinetic = { "Marcus Bell", "They stack Marcus's blocks every morning.  Small ones first, the way he did." },
+    telepath = { "Constance Hale", "I sat up with them the first night.  Constance always did that.  I see why now." },
+    teleporter = { "Jules Ferreira", "They redraw Jules's circles every morning.  Somebody has to." },
+  }
 
   -- In pin order.  `dead` cards were already black when the game started.
   local HISTORY = {
@@ -212,6 +223,16 @@ return function(mod)
       if guy:has_trait(MutationBranchId.new(s[1])) then school = s[2]; break end
     end
     append_record({ "P", name, school, today() })
+    -- Bringing home a psion of a school unlocks that school's services
+    -- (lua/mom_psi_services.lua).
+    if mod.psi_service_unlock then mod.psi_service_unlock(school, name) end
+  end
+
+  -- Schools you've brought home at least one psion of (set of school labels).
+  function mod.psi_green_pin_schools()
+    local set = {}
+    for _, p in ipairs((load_pins())) do set[p.school] = true end
+    return set
   end
 
   -- Anyone with a card who dies gets a black pin.  NPCs only: the avatar's death
@@ -231,10 +252,20 @@ return function(mod)
   end
 
   -- The open Green Pin, if the player is on one, and roughly where it is.
+  -- Matched by NAME, not id: BN's reg_mission_type re-registers MissionTypeId
+  -- as a bare usertype with no methods (catalua_bindings_mission.cpp:199), so
+  -- m:mission_id():str() throws "attempt to index a sol.string_id<mission_type>"
+  -- and mission_type exposes no id field either.  "Green Pin" is unique.
+  local GREEN_PIN_NAME = "Green Pin"
+  local function is_green_pin(m)
+    local ok, nm = pcall(function() return m:name() end)
+    return ok and nm == GREEN_PIN_NAME
+  end
+
   local function open_pin_line()
     local you = gapi.get_avatar()
     for _, m in ipairs(you:get_active_missions()) do
-      if m:mission_id():str() == GREEN_PIN_MISSION then
+      if is_green_pin(m) then
         local where = ""
         pcall(function()
           local here = coords.project_to_omt(you:abs_pos())
@@ -253,17 +284,22 @@ return function(mod)
     return "There's no new pin up.  Wren checks the map anyway, every time she passes it."
   end
 
-  local function pin_map_text()
+  -- The board as data: header, one entry per card, and the closing lines.  Shared by
+  -- the scrollable catalog (examine) and the flat-text fallback.
+  local INTRO = "Every green pin has an index card tacked beside it, in Wren's small, "
+    .. "slanted hand.  The black pins kept their cards."
+  local WREN_CARD = "At the edge of the map is one more card, with no pin: \"I'm the one "
+    .. "holding them.  -W\""
+
+  local function pin_map_cards()
     local pins, dead = load_pins()
-    local lines = {}
-    local n, blacks = 0, 0
+    local cards = {}
+    local blacks = 0
     local function card(name, school, body, is_dead, died)
-      n = n + 1
       if is_dead then blacks = blacks + 1 end
       local text = body
       if died then text = text .. "  Died " .. died .. "." end
-      lines[#lines + 1] = string.format("%d. [%s pin]  %s -- %s.  %s", n,
-        is_dead and "black" or "green", name:upper(), school, text)
+      cards[#cards + 1] = { name = name:upper(), school = school, text = text, dead = is_dead }
     end
     for _, h in ipairs(HISTORY) do
       card(h.name, h.school, h.text, h.dead or dead[h.name] ~= nil, dead[h.name])
@@ -271,21 +307,67 @@ return function(mod)
     for _, p in ipairs(pins) do
       local died = dead[p.name]
       local body = "Brought home by you, " .. p.date .. "."
-      if not died and SCHOOL_NOTE[p.school] then body = body .. "  " .. SCHOOL_NOTE[p.school] end
+      if not died and SCHOOL_NOTE[p.school] then
+        local res = SCHOOL_RESIDENT[p.school]
+        local gone = res and (dead[res[1]] ~= nil)
+        body = body .. "  " .. (gone and res[2] or SCHOOL_NOTE[p.school])
+      end
       card(p.name, p.school, body, died ~= nil, died)
     end
-    return "THE GREEN PINS\n\n"
-      .. "Every green pin has an index card tacked beside it, in Wren's small, slanted "
-      .. "hand.  The black pins kept their cards.\n\n"
-      .. table.concat(lines, "\n\n")
-      .. string.format("\n\n%d pins, %d of them black.", n, blacks)
-      .. "  At the edge of the map is one more card, with no pin: \"I'm the one holding "
-      .. "them.  -W\"\n\n" .. open_pin_line()
+    local ok, newest = pcall(open_pin_line)
+    if not ok then
+      gdebug.log_warn("MoM-BN: green pin open-pin line failed: " .. tostring(newest))
+      newest = ""
+    end
+    local summary = string.format("%d pins, %d of them black.", #cards, blacks)
+    return cards, summary, newest
+  end
+
+  local function pin_map_text()
+    local cards, summary, newest = pin_map_cards()
+    local lines = {}
+    for i, c in ipairs(cards) do
+      lines[#lines + 1] = string.format("%d. [%s pin]  %s -- %s.  %s", i,
+        c.dead and "black" or "green", c.name, c.school, c.text)
+    end
+    return "THE GREEN PINS\n\n" .. INTRO .. "\n\n" .. table.concat(lines, "\n\n")
+      .. "\n\n" .. summary .. "  " .. WREN_CARD .. "\n\n" .. newest
+  end
+
+  -- Scrollable catalog (2026-11-04: the flat popup ran off the bottom of the screen
+  -- once the player had brought a few people home).  One entry per card, colored by
+  -- pin; the highlighted card's full text shows in the lower box (BN sizes it to the
+  -- longest card).  Enter or Esc closes.
+  local function color(name)
+    local ok, c = pcall(function() return Color[name] end)
+    return ok and c or nil
+  end
+
+  local function show_catalog()
+    local cards, summary, newest = pin_map_cards()
+    local green, gray = color("c_light_green"), color("c_dark_gray")
+    local ui = UiList.new()
+    ui:title("THE GREEN PINS")
+    ui:text(INTRO .. "  " .. summary)
+    ui:desc_enabled(true)
+    for i, c in ipairs(cards) do
+      ui:add_w_desc(i, string.format("%2d. %s -- %s%s", i, c.name, c.school,
+        c.dead and "  (black pin)" or ""), c.text)
+      local col = c.dead and gray or green
+      if col then pcall(function() ui.entries[#ui.entries]:txt_color(col) end) end
+    end
+    local n = #cards
+    ui:add_w_desc(n + 1, "The card with no pin", WREN_CARD)
+    if newest ~= "" then ui:add_w_desc(n + 2, "The newest pin", newest) end
+    ui:query()   -- browse with the arrow keys; Enter or Esc puts the board down
   end
 
   game.examine_functions["mom_psi_green_pin_map"] = function(_params)
-    local ok, text = pcall(pin_map_text)
-    if not ok then
+    local ok, err = pcall(show_catalog)
+    if ok then return end
+    gdebug.log_warn("MoM-BN: green pin catalog failed: " .. tostring(err))
+    local ok2, text = pcall(pin_map_text)
+    if not ok2 then
       gdebug.log_warn("MoM-BN: green pin map failed: " .. tostring(text))
       text = "The cards are too faded to read."
     end

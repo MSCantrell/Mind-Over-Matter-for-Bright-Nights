@@ -428,10 +428,6 @@
         "level": 15
       },
       {
-        "id": "telekinetic_aegis",
-        "level": 15
-      },
-      {
         "id": "telekinetic_earthshaker",
         "level": 15
       },
@@ -1625,6 +1621,54 @@
           },
           {
             "item": "mom_fusion_pistol",
+            "custom-flags": [
+              "no_auto_equip"
+            ]
+          },
+          {
+            "item": "mom_journal_biokinesis",
+            "custom-flags": [
+              "no_auto_equip"
+            ]
+          },
+          {
+            "item": "mom_journal_clairsentience",
+            "custom-flags": [
+              "no_auto_equip"
+            ]
+          },
+          {
+            "item": "mom_journal_electrokinesis",
+            "custom-flags": [
+              "no_auto_equip"
+            ]
+          },
+          {
+            "item": "mom_journal_photokinesis",
+            "custom-flags": [
+              "no_auto_equip"
+            ]
+          },
+          {
+            "item": "mom_journal_pyrokinesis",
+            "custom-flags": [
+              "no_auto_equip"
+            ]
+          },
+          {
+            "item": "mom_journal_telekinesis",
+            "custom-flags": [
+              "no_auto_equip"
+            ]
+          },
+          {
+            "item": "mom_journal_telepathy",
+            "custom-flags": [
+              "no_auto_equip"
+            ]
+          },
+          {
+            "item": "mom_journal_teleportation",
             "custom-flags": [
               "no_auto_equip"
             ]

@@ -121,8 +121,27 @@ return function(mod)
     return guarded("is_avatar", function() return who:is_avatar() end, true)
   end
 
-  function U.msg(who, text, mtype, ctx)
+  -- <u_name>/<npc_name>: DDA talker names.  The transpiler passes both talkers (u, n)
+  -- only for messages that use the tags (eoc_transpile, 2026-11-04).  disp_name gives
+  -- "the wolf" for monsters and the plain name for NPCs; the avatar is "you".
+  local function talker_name(c)
+    if not c then return "someone" end
+    return guarded("talker_name", function()
+      if c:is_avatar() then return "you" end
+      return c:disp_name(false, false)
+    end, "someone")
+  end
+  local function name_interp(text, u, n)
+    if text == "<u_name> vanishes!" and u and U.is_avatar(u) then return "You vanish!" end
+    text = text:gsub("Some <npc_name>", function() return "<npc_name>" end)  -- "Some the zombie"
+    text = text:gsub("<u_name>", function() return talker_name(u) end)
+    text = text:gsub("<npc_name>", function() return talker_name(n) end)
+    return (text:gsub("^%l", string.upper))
+  end
+
+  function U.msg(who, text, mtype, ctx, u, n)
     if not U.is_avatar(who) then return end
+    if (u or n) and type(text) == "string" then text = name_interp(text, u, n) end
     text = U.interp(who, ctx, text)
     text = text:gsub("<[%w_:%s]->", "")  -- strip any tag interp left unresolved
     gapi.add_msg(mtype or MsgType.neutral, text)
@@ -1412,6 +1431,11 @@ return function(mod)
         name = "channeling",
         interruptable = true,
       })
+      -- Tie the starter's own queued "finished" EOC to THIS activity run
+      -- (mom_util.bind_next_queue): a re-cast makes the old callback stale.
+      if mod.util and mod.util.bind_next_queue and U.is_avatar(who) then
+        mod.util.bind_next_queue(act_id)
+      end
       return true
     end, nil)
   end

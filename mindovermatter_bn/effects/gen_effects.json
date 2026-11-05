@@ -2394,7 +2394,8 @@
     "show_in_info": true,
     "flags": [
       "EFFECT_LUA_ON_ADDED",
-      "EFFECT_LUA_ON_REMOVED"
+      "EFFECT_LUA_ON_REMOVED",
+      "EFFECT_LUA_ON_TICK"
     ],
     "//src": "effects_monster.json"
   },
@@ -2417,6 +2418,11 @@
       "EFFECT_LUA_ON_ADDED",
       "EFFECT_LUA_ON_REMOVED"
     ],
+    "base_mods": {
+      "speed_mod": [
+        17
+      ]
+    },
     "//src": "effects_monster.json"
   },
   {
@@ -2438,6 +2444,11 @@
       "EFFECT_LUA_ON_ADDED",
       "EFFECT_LUA_ON_REMOVED"
     ],
+    "base_mods": {
+      "speed_mod": [
+        35
+      ]
+    },
     "//src": "effects_monster.json"
   },
   {
@@ -2453,7 +2464,8 @@
     "flags": [
       "TELEKIN_SHIELD",
       "EFFECT_LUA_ON_ADDED",
-      "EFFECT_LUA_ON_REMOVED"
+      "EFFECT_LUA_ON_REMOVED",
+      "EFFECT_LUA_ON_TICK"
     ],
     "//src": "effects_monster.json"
   },
@@ -2470,7 +2482,8 @@
     "flags": [
       "TELEKIN_SHIELD",
       "EFFECT_LUA_ON_ADDED",
-      "EFFECT_LUA_ON_REMOVED"
+      "EFFECT_LUA_ON_REMOVED",
+      "EFFECT_LUA_ON_TICK"
     ],
     "removes_effects": [
       "effect_monster_inertial_barrier"
@@ -2491,6 +2504,11 @@
       "EFFECT_LUA_ON_ADDED",
       "EFFECT_LUA_ON_REMOVED"
     ],
+    "base_mods": {
+      "speed_mod": [
+        3
+      ]
+    },
     "//src": "effects_monster.json"
   },
   {
@@ -2507,6 +2525,11 @@
       "EFFECT_LUA_ON_ADDED",
       "EFFECT_LUA_ON_REMOVED"
     ],
+    "base_mods": {
+      "speed_mod": [
+        25
+      ]
+    },
     "//src": "effects_monster.json"
   },
   {
@@ -2523,6 +2546,11 @@
       "EFFECT_LUA_ON_ADDED",
       "EFFECT_LUA_ON_REMOVED"
     ],
+    "base_mods": {
+      "speed_mod": [
+        40
+      ]
+    },
     "//src": "effects_monster.json"
   },
   {
@@ -2570,7 +2598,8 @@
     ],
     "flags": [
       "EFFECT_LUA_ON_ADDED",
-      "EFFECT_LUA_ON_REMOVED"
+      "EFFECT_LUA_ON_REMOVED",
+      "EFFECT_LUA_ON_TICK"
     ],
     "//src": "effects_monster.json"
   },
@@ -2590,7 +2619,8 @@
       "CANNOT_ATTACK",
       "NO_PSIONICS",
       "EFFECT_LUA_ON_ADDED",
-      "EFFECT_LUA_ON_REMOVED"
+      "EFFECT_LUA_ON_REMOVED",
+      "EFFECT_LUA_ON_TICK"
     ],
     "//src": "effects_monster.json"
   },
@@ -3468,7 +3498,6 @@
       "effect_telekinetic_strength",
       "effect_telekinetic_armor",
       "effect_telekinetic_levitation",
-      "effect_telekinetic_aegis",
       "effect_telepathic_learning_bonus",
       "effect_telepathic_morale",
       "effect_telepath_network_effect",
@@ -4263,30 +4292,6 @@
       "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_potions.json"
-  },
-  {
-    "type": "effect_type",
-    "id": "effect_telekinetic_aegis",
-    "name": [
-      "Aegis"
-    ],
-    "desc": [
-      "You are nearly invincible."
-    ],
-    "apply_message": "",
-    "remove_message": "The air loses its structure and you are vulnerable once again.",
-    "rating": "good",
-    "max_duration": "20 seconds",
-    "removes_effects": [
-      "grabbed"
-    ],
-    "flags": [
-      "EFFECT_LIMB_SCORE_MOD",
-      "EFFECT_IMPEDING",
-      "EFFECT_LUA_ON_ADDED",
-      "EFFECT_LUA_ON_REMOVED"
-    ],
-    "//src": "effects_psionic.json"
   },
   {
     "type": "effect_type",

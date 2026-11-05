@@ -139,7 +139,6 @@ return {
   ["pyrokinetic_quell_flames"] = true,
   ["pyrokinetic_quell_flames_self"] = true,
   ["pyrokinetic_thermogenesis"] = true,
-  ["telekinetic_aegis"] = true,
   ["telekinetic_earthshaker"] = true,
   ["telekinetic_earthshaker_bash_terrain"] = true,
   ["telekinetic_earthshaker_spawn_rubble"] = true,

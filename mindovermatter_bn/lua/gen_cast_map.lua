@@ -156,7 +156,6 @@ return {
   ["silent_one_detect_psionic_activity"] = { eoc = "EOC_SILENT_ONE_DETECT_PSIONIC_ACTIVITY", marker = "mom_cast_silent_one_detect_psionic_activity", psionic = false, self = false, school = nil, difficulty = 0, finish = nil, duration_moves = nil },
   ["silent_one_detect_psionic_activity_aggressive"] = { eoc = "EOC_SILENT_ONE_DETECT_PSIONIC_ACTIVITY_AGGRESSIVE", marker = "mom_cast_silent_one_detect_psionic_activity_aggressive", psionic = false, self = false, school = nil, difficulty = 0, finish = nil, duration_moves = nil },
   ["silent_one_drain_monster"] = { eoc = "EOC_SILENT_ONE_DRAINING_POWER", marker = "mom_cast_silent_one_drain_monster", psionic = false, self = false, school = nil, difficulty = 0, finish = nil, duration_moves = nil },
-  ["telekinetic_aegis"] = { eoc = nil, marker = nil, psionic = true, self = false, school = "TELEKINETIC", difficulty = 9, finish = "tag", duration_moves = nil },
   ["telekinetic_earthshaker"] = { eoc = nil, marker = nil, psionic = true, self = false, school = "TELEKINETIC", difficulty = 10, finish = "tag", duration_moves = nil },
   ["telekinetic_earthshaker_monster_real"] = { eoc = nil, marker = nil, psionic = true, self = false, school = nil, difficulty = 0, finish = nil, duration_moves = nil },
   ["telekinetic_explosion"] = { eoc = nil, marker = nil, psionic = true, self = false, school = "TELEKINETIC", difficulty = 7, finish = "tag", duration_moves = nil },

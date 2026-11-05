@@ -98,7 +98,7 @@
   {
     "type": "SPELL",
     "name": "[\u03a8]Psychometry",
-    "description": "You can examine an item and use your enhanced senses to determine its properties that may not be obvious to the eye.",
+    "description": "Close your hand around an object and read the impressions left by whoever carried it before you.  At first you catch only a <color_light_green>feeling and a fragment</color> of what they lived through; with practice you learn <color_light_green>who they were</color>, and in time <color_light_green>what they feared and how it ended</color>.  The same object always tells the same story, and what you learn is written into its note.  Things you made, or have carried since the start, hold only you.\n\nArtifacts answer differently: you sense their hidden properties instead.",
     "message": "",
     "valid_targets": [
       "self"

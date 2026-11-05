@@ -14118,40 +14118,6 @@
   },
   {
     "type": "mutation",
-    "id": "MOM_CAR_telekinetic_aegis_L0",
-    "name": "Aegis",
-    "points": 0,
-    "description": "Carrier trait for effect_telekinetic_aegis (level 0).  Hidden.",
-    "starting_trait": false,
-    "purifiable": false,
-    "valid": false,
-    "player_display": false,
-    "mut_enchantments": [
-      {
-        "condition": "ALWAYS",
-        "values": [
-          {
-            "value": "ARMOR_BASH",
-            "add": -100000
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -100000
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -100000
-          },
-          {
-            "value": "ARMOR_BULLET",
-            "add": -100000
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "type": "mutation",
     "id": "MOM_CAR_telepathic_learning_bonus_L0",
     "name": "Trance State",
     "points": 0,

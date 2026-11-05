@@ -486,13 +486,24 @@ return function(mod)
     return U.clamp(U.round(lvl), 0, ent.max_level)
   end
 
+  -- BN monsters can't hold mutations (U.set_mutation on one errors).  Monster-side
+  -- carriers (gen_carrier_map `mon` entries, port_carriers.MONSTER_EFFECT_FILES)
+  -- get their speed from the effect's native speed_mod and their armor/heat from
+  -- the per-tick handler below; nothing to grant here.
+  local function is_monster(who)
+    local ok, yes = pcall(function() return who:is_monster() end)
+    return ok and yes
+  end
+
   local function grant_carrier(who, eff, ent)
+    if is_monster(who) then return end
     local lvl = carrier_level(who, ent)
     U.set_mutation(who, ent.prefix .. lvl)
     V.uset(who, "_car_" .. eff, lvl)
   end
 
   local function remove_carrier(who, eff, ent)
+    if is_monster(who) then return end
     local lvl = V.uget(who, "_car_" .. eff)
     if lvl == nil then lvl = carrier_level(who, ent) end
     U.unset_mutation(who, ent.prefix .. U.round(lvl))
@@ -513,6 +524,59 @@ return function(mod)
     mod.effect_removed_handlers[eff] = function(who)
       remove_carrier(who, eff, ent)
       if U.is_avatar(who) then avatar_carriers[eff] = nil end
+    end
+  end
+
+  -- Monster-side carriers, re-applied every turn (EFFECT_LUA_ON_TICK ->
+  -- on_mon_effect).  Creature::process_turn runs reset_bonuses() BEFORE
+  -- process_effects(), so the armor bonuses start each turn at 0 and this sets
+  -- the TOTAL across every monster carrier the monster holds -- idempotent when two
+  -- effects tick in the same turn.  Covers bash/cut/bullet (the only monster armor
+  -- bonus fields; stab has none).  heat_immune approximates fire immunity: BN has no
+  -- Lua path to MF_FIREPROOF (monster_flags is unbound), so strip `onfire` and refund
+  -- HP lost since the last tick while standing in fire (capped per turn).
+  mod.effect_tick_handlers = mod.effect_tick_handlers or {}
+  local mon_carriers = {}
+  for eff, ent in pairs(carriers) do
+    if ent.mon and next(ent.mon) then mon_carriers[eff] = ent.mon end
+  end
+  local ONFIRE = EffectTypeId.new("onfire")
+  local FIRE_REFUND_CAP = 60
+  local function apply_monster_carriers(mon)
+    local bash, cut, bullet, heat = 0, 0, 0, false
+    for eff, st in pairs(mon_carriers) do
+      if mon:has_effect(carrier_eid[eff]) then
+        bash = bash + (st.bash or 0)
+        cut = cut + (st.cut or 0)
+        bullet = bullet + (st.bullet or 0)
+        heat = heat or st.heat_immune == true
+      end
+    end
+    mon:set_armor_bash_bonus(bash)
+    mon:set_armor_cut_bonus(cut)
+    mon:set_armor_bullet_bonus(bullet)
+    if heat then
+      if mon:has_effect(ONFIRE) then mon:remove_effect(ONFIRE) end
+      local hp = mon:get_hp()
+      local prev = tonumber(mon:get_value("mom_fireimm_hp") or "")
+      if prev and hp < prev and U.has_field(mon:get_pos_ms(), "fd_fire") then
+        local m2 = mon:as_monster()
+        if m2 then
+          hp = math.min(prev, hp + FIRE_REFUND_CAP)
+          m2:set_hp(hp)
+        end
+      end
+      mon:set_value("mom_fireimm_hp", tostring(hp))
+    end
+  end
+  local mon_tick_warned = false
+  for eff in pairs(mon_carriers) do
+    mod.effect_tick_handlers[eff] = function(mon)
+      local ok, err = pcall(apply_monster_carriers, mon)
+      if not ok and not mon_tick_warned then
+        mon_tick_warned = true
+        gdebug.log_warn("MoM-BN: monster carrier tick failed: " .. tostring(err))
+      end
     end
   end
 
@@ -1020,6 +1084,16 @@ return function(mod)
     local report = U.item_is_artifact(it) and U.artifact_report(it) or nil
     if report then
       U.popup(report)
+    elseif mod.psychometry_read then
+      -- Item history (lua/mom_psychometry.lua, 2026-11-04): who carried it before.
+      local ok, text = pcall(mod.psychometry_read, you, it)
+      if ok then
+        U.popup(text)
+      else
+        gdebug.log_warn("MoM-BN: psychometry read failed: " .. tostring(text))
+        U.msg(you, "You focus on " .. U.item_name(it) ..
+              ", but the impressions slip away.", MsgType.neutral)
+      end
     else
       U.msg(you, "You focus on " .. U.item_name(it) ..
             ", but sense nothing unusual about it.", MsgType.neutral)

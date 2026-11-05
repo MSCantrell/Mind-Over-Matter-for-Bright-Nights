@@ -213,6 +213,8 @@
       },
       { "text": "Can I rest here?", "topic": "TALK_PSI_ALLIANCE_LEADER_REST" },
       { "text": "What's in the old magazine up on the rim?", "topic": "TALK_PSI_ALLIANCE_LEADER_VAULT" },
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}]}},
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE_LOCKED", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"not": {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"not": {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"not": {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"not": {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"not": {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"not": {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"not": {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"not": {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}]}},
       { "text": "I should be going.", "topic": "TALK_DONE" }
     ]
   },
@@ -311,6 +313,8 @@
     "responses": [
       { "text": "Where do I find Constance?", "topic": "TALK_PSI_ALLIANCE_WHERE_LEADER", "condition": { "not": { "u_has_var": "psi_alliance_met_leader", "type": "dialogue", "context": "psi_alliance", "value": "yes" } } },
       { "text": "Why is the charcoal only for guests?", "topic": "TALK_PSI_ALLIANCE_DANA_ABOUT" },
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}]}},
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE_LOCKED", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"not": {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"not": {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"not": {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"not": {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"not": {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"not": {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"not": {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"not": {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}]}},
       { "text": "See you around.", "topic": "TALK_DONE" }
     ]
   },
@@ -341,6 +345,8 @@
     "responses": [
       { "text": "Where do I find Constance?", "topic": "TALK_PSI_ALLIANCE_WHERE_LEADER", "condition": { "not": { "u_has_var": "psi_alliance_met_leader", "type": "dialogue", "context": "psi_alliance", "value": "yes" } } },
       { "text": "Did you build all this?", "topic": "TALK_PSI_ALLIANCE_MARCUS_ABOUT" },
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}]}},
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE_LOCKED", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"not": {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"not": {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"not": {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"not": {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"not": {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"not": {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"not": {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"not": {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}]}},
       { "text": "See you around.", "topic": "TALK_DONE" }
     ]
   },
@@ -371,6 +377,8 @@
     "responses": [
       { "text": "Where do I find Constance?", "topic": "TALK_PSI_ALLIANCE_WHERE_LEADER", "condition": { "not": { "u_has_var": "psi_alliance_met_leader", "type": "dialogue", "context": "psi_alliance", "value": "yes" } } },
       { "text": "How do plants grow down here?", "topic": "TALK_PSI_ALLIANCE_PRIYA_ABOUT" },
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}]}},
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE_LOCKED", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"not": {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"not": {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"not": {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"not": {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"not": {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"not": {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"not": {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"not": {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}]}},
       { "text": "See you around.", "topic": "TALK_DONE" }
     ]
   },
@@ -401,6 +409,8 @@
     "responses": [
       { "text": "Where do I find Constance?", "topic": "TALK_PSI_ALLIANCE_WHERE_LEADER", "condition": { "not": { "u_has_var": "psi_alliance_met_leader", "type": "dialogue", "context": "psi_alliance", "value": "yes" } } },
       { "text": "So... about the cage around your bed.", "topic": "TALK_PSI_ALLIANCE_ELI_ABOUT" },
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}]}},
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE_LOCKED", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"not": {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"not": {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"not": {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"not": {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"not": {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"not": {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"not": {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"not": {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}]}},
       { "text": "See you around.", "topic": "TALK_DONE" }
     ]
   },
@@ -444,6 +454,8 @@
         "condition": { "and": [ { "u_has_var": "psi_alliance_met_leader", "type": "dialogue", "context": "psi_alliance", "value": "yes" }, "has_no_available_mission", "has_no_assigned_mission" ] },
         "effect": { "add_mission": "MISSION_PSI_ALLIANCE_GREEN_PIN" }
       },
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}]}},
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE_LOCKED", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"not": {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"not": {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"not": {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"not": {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"not": {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"not": {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"not": {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"not": {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}]}},
       { "text": "See you around.", "topic": "TALK_DONE" }
     ]
   },
@@ -474,6 +486,8 @@
     "responses": [
       { "text": "Where do I find Constance?", "topic": "TALK_PSI_ALLIANCE_WHERE_LEADER", "condition": { "not": { "u_has_var": "psi_alliance_met_leader", "type": "dialogue", "context": "psi_alliance", "value": "yes" } } },
       { "text": "What's wrong with standing in the circles?", "topic": "TALK_PSI_ALLIANCE_JULES_ABOUT" },
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}]}},
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE_LOCKED", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"not": {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"not": {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"not": {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"not": {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"not": {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"not": {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"not": {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"not": {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}]}},
       { "text": "See you around.", "topic": "TALK_DONE" }
     ]
   },
@@ -504,6 +518,8 @@
     "responses": [
       { "text": "Where do I find Constance?", "topic": "TALK_PSI_ALLIANCE_WHERE_LEADER", "condition": { "not": { "u_has_var": "psi_alliance_met_leader", "type": "dialogue", "context": "psi_alliance", "value": "yes" } } },
       { "text": "You're the doctor?", "topic": "TALK_PSI_ALLIANCE_THEO_ABOUT" },
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}]}},
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE_LOCKED", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"not": {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"not": {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"not": {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"not": {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"not": {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"not": {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"not": {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"not": {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}]}},
       { "text": "See you around.", "topic": "TALK_DONE" }
     ]
   },
@@ -534,6 +550,8 @@
     "responses": [
       { "text": "Where do I find Constance?", "topic": "TALK_PSI_ALLIANCE_WHERE_LEADER", "condition": { "not": { "u_has_var": "psi_alliance_met_leader", "type": "dialogue", "context": "psi_alliance", "value": "yes" } } },
       { "text": "What's with the tally board?", "topic": "TALK_PSI_ALLIANCE_RAY_ABOUT" },
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}]}},
+      {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE_LOCKED", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"not": {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"not": {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"not": {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"not": {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"not": {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"not": {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"not": {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"not": {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}]}},
       { "text": "See you around.", "topic": "TALK_DONE" }
     ]
   },
@@ -566,8 +584,8 @@
       "om_terrain": "field",
       "reveal_radius": 1,
       "random": true,
-      "search_range": 40,
-      "min_distance": 8
+      "search_range": 120,
+      "min_distance": 24
     },
     "update_mapgen": {
       "place_npcs": [
@@ -1274,6 +1292,8 @@
     "Constance asked what I could do, and then she just nodded.  Like it was normal.  Like I was normal."
   ],
   "responses": [
+    {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}]}},
+    {"text": "Could you use your gift to help me with something?", "topic": "TALK_PSI_SERVICE_LOCKED", "condition": {"or": [{"and": [{"npc_has_trait": "BIOKINETIC"}, {"not": {"u_has_var": "svc_biokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "CLAIRSENTIENT"}, {"not": {"u_has_var": "svc_clairsentient", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "ELECTROKINETIC"}, {"not": {"u_has_var": "svc_electrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PHOTOKINETIC"}, {"not": {"u_has_var": "svc_photokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "PYROKINETIC"}, {"not": {"u_has_var": "svc_pyrokinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEKINETIC"}, {"not": {"u_has_var": "svc_telekinetic", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPATH"}, {"not": {"u_has_var": "svc_telepath", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}, {"and": [{"npc_has_trait": "TELEPORTER"}, {"not": {"u_has_var": "svc_teleporter", "type": "dialogue", "context": "psi_alliance", "value": "yes"}}]}]}},
     {
       "text": "Glad you're settling in.",
       "topic": "TALK_DONE"
@@ -1305,6 +1325,412 @@
     {
       "text": "I'm on it.",
       "topic": "TALK_DONE"
+    }
+  ]
+},
+
+{
+  "//": "Teleporter service (2026-11-04 L): the target is one of the player's own map notes; lua/mom_psi_services.lua S.send lists them and lands you within 3 OMT of the pick, warning if that circle holds lake/river.",
+  "type": "talk_topic",
+  "id": "TALK_PSI_SERVICE_SEND",
+  "dynamic_line": "Mark it on your map first.  Put a note on the spot, any note, and I'll find it.  But I can't land you on a pin.  You'll come down somewhere within about three map squares of your mark, and I don't get to choose where.  So think about what's inside that circle.  Especially water.",
+  "responses": [
+    { "text": "I've marked it.  Send me.", "effect": { "npc_add_effect": "mom_psi_svc_send", "duration": 2 }, "topic": "TALK_DONE" },
+    { "text": "What's wrong with water?", "topic": "TALK_PSI_SERVICE_SEND_WATER" },
+    { "text": "I'll go mark it first.", "topic": "TALK_DONE" }
+  ]
+},
+{
+  "type": "talk_topic",
+  "id": "TALK_PSI_SERVICE_SEND_WATER",
+  "dynamic_line": "If there's a lake or a river inside three squares of your mark, you might come down in the middle of it, with everything you own on your back.  People don't swim out of that.  If you want to go somewhere near the coast or a river, put the mark inland, a few squares back from the shore, and walk the rest.  I'll warn you if I can feel water out there, but I'd rather you aimed right in the first place.",
+  "responses": [
+    { "text": "Understood.  I've marked it.  Send me.", "effect": { "npc_add_effect": "mom_psi_svc_send", "duration": 2 }, "topic": "TALK_DONE" },
+    { "text": "I'd better move my mark.", "topic": "TALK_DONE" }
+  ]
+},
+
+{
+  "//": "Green Pin payoff (2026-11-04).  Any psi_alliance psion of an UNLOCKED school (you've brought home at least one of that school; dialogue var svc_<school>, set by lua/mom_psi_services.lua) offers that school's service.  Each response drops a 2-second marker effect on the NPC; mom_psi_services.lua does the work and owns the per-psion cooldowns.  Bionic surgery is BN's native talk functions (they charge BN's usual price, no cooldown).",
+  "type": "talk_topic",
+  "id": "TALK_PSI_SERVICE",
+  "dynamic_line": {
+    "npc_has_trait": "BIOKINETIC",
+    "yes": "Where does it hurt?  Show me.",
+    "no": {
+      "npc_has_trait": "ELECTROKINETIC",
+      "yes": "*sparks crawl over their knuckles.*  What needs juice?",
+      "no": {
+        "npc_has_trait": "TELEKINETIC",
+        "yes": "Broke something?  Let's see it.",
+        "no": {
+          "npc_has_trait": "PYROKINETIC",
+          "yes": "You look cold.  Everyone always looks cold.",
+          "no": {
+            "npc_has_trait": "PHOTOKINETIC",
+            "yes": "The basement's doing well.  Hungry?",
+            "no": {
+              "npc_has_trait": "CLAIRSENTIENT",
+              "yes": "Tell me what you're looking for.",
+              "no": {
+                "npc_has_trait": "TELEPORTER",
+                "yes": "Going somewhere?",
+                "no": {
+                  "npc_has_trait": "TELEPATH",
+                  "yes": "You're thinking very loudly.  Sit down.",
+                  "no": "What do you need?"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "responses": [
+    {
+      "text": "Can you patch me up?",
+      "condition": {
+        "npc_has_trait": "BIOKINETIC"
+      },
+      "effect": {
+        "npc_add_effect": "mom_psi_svc_heal",
+        "duration": 2
+      },
+      "topic": "TALK_DONE"
+    },
+    {
+      "text": "I have a bionic I need put in.",
+      "condition": {
+        "npc_has_trait": "BIOKINETIC"
+      },
+      "effect": "bionic_install",
+      "topic": "TALK_DONE"
+    },
+    {
+      "text": "I want a bionic taken out.",
+      "condition": {
+        "npc_has_trait": "BIOKINETIC"
+      },
+      "effect": "bionic_remove",
+      "topic": "TALK_DONE"
+    },
+    {
+      "text": "Can you charge my gear?",
+      "condition": {
+        "npc_has_trait": "ELECTROKINETIC"
+      },
+      "effect": {
+        "npc_add_effect": "mom_psi_svc_charge",
+        "duration": 2
+      },
+      "topic": "TALK_DONE"
+    },
+    {
+      "text": "Could you fix up my gear?",
+      "condition": {
+        "npc_has_trait": "TELEKINETIC"
+      },
+      "effect": {
+        "npc_add_effect": "mom_psi_svc_repair",
+        "duration": 2
+      },
+      "topic": "TALK_DONE"
+    },
+    {
+      "text": "I'm chilled through.  Can you warm me up?",
+      "condition": {
+        "npc_has_trait": "PYROKINETIC"
+      },
+      "effect": {
+        "npc_add_effect": "mom_psi_svc_warm",
+        "duration": 2
+      },
+      "topic": "TALK_DONE"
+    },
+    {
+      "text": "Anything growing in the basement?",
+      "condition": {
+        "npc_has_trait": "PHOTOKINETIC"
+      },
+      "effect": {
+        "npc_add_effect": "mom_psi_svc_produce",
+        "duration": 2
+      },
+      "topic": "TALK_DONE"
+    },
+    {
+      "text": "Could you look for a place for me?",
+      "condition": {
+        "npc_has_trait": "CLAIRSENTIENT"
+      },
+      "effect": {
+        "npc_add_effect": "mom_psi_svc_scout",
+        "duration": 2
+      },
+      "topic": "TALK_DONE"
+    },
+    {
+      "text": "Can you send me somewhere?",
+      "condition": {
+        "npc_has_trait": "TELEPORTER"
+      },
+      "topic": "TALK_PSI_SERVICE_SEND"
+    },
+    {
+      "text": "My head's a mess.  Can you help?",
+      "condition": {
+        "npc_has_trait": "TELEPATH"
+      },
+      "effect": {
+        "npc_add_effect": "mom_psi_svc_calm",
+        "duration": 2
+      },
+      "topic": "TALK_DONE"
+    },
+    {
+      "text": "Never mind.",
+      "topic": "TALK_DONE"
+    }
+  ]
+},
+
+{
+  "type": "effect_type",
+  "id": "mom_psi_svc_heal",
+  "name": [
+    ""
+  ],
+  "desc": [
+    ""
+  ],
+  "max_duration": "2 seconds",
+  "flags": [
+    "EFFECT_LUA_ON_ADDED"
+  ],
+  "//": "Psion-service markers (lua/mom_psi_services.lua).  Land on the NPC; the effect-added hook queues the service for the avatar."
+},
+
+{
+  "type": "effect_type",
+  "id": "mom_psi_svc_charge",
+  "name": [
+    ""
+  ],
+  "desc": [
+    ""
+  ],
+  "max_duration": "2 seconds",
+  "flags": [
+    "EFFECT_LUA_ON_ADDED"
+  ]
+},
+
+{
+  "type": "effect_type",
+  "id": "mom_psi_svc_repair",
+  "name": [
+    ""
+  ],
+  "desc": [
+    ""
+  ],
+  "max_duration": "2 seconds",
+  "flags": [
+    "EFFECT_LUA_ON_ADDED"
+  ]
+},
+
+{
+  "type": "effect_type",
+  "id": "mom_psi_svc_warm",
+  "name": [
+    ""
+  ],
+  "desc": [
+    ""
+  ],
+  "max_duration": "2 seconds",
+  "flags": [
+    "EFFECT_LUA_ON_ADDED"
+  ]
+},
+
+{
+  "type": "effect_type",
+  "id": "mom_psi_svc_produce",
+  "name": [
+    ""
+  ],
+  "desc": [
+    ""
+  ],
+  "max_duration": "2 seconds",
+  "flags": [
+    "EFFECT_LUA_ON_ADDED"
+  ]
+},
+
+{
+  "type": "effect_type",
+  "id": "mom_psi_svc_scout",
+  "name": [
+    ""
+  ],
+  "desc": [
+    ""
+  ],
+  "max_duration": "2 seconds",
+  "flags": [
+    "EFFECT_LUA_ON_ADDED"
+  ]
+},
+
+{
+  "type": "effect_type",
+  "id": "mom_psi_svc_send",
+  "name": [
+    ""
+  ],
+  "desc": [
+    ""
+  ],
+  "max_duration": "2 seconds",
+  "flags": [
+    "EFFECT_LUA_ON_ADDED"
+  ]
+},
+
+{
+  "type": "effect_type",
+  "id": "mom_psi_svc_calm",
+  "name": [
+    ""
+  ],
+  "desc": [
+    ""
+  ],
+  "max_duration": "2 seconds",
+  "flags": [
+    "EFFECT_LUA_ON_ADDED"
+  ]
+},
+
+{
+  "//": "Pyrokinetic 'warm you through' service.  The effect is the visible indicator; while it's up, mom_psi_services grants the hidden trait MOM_PSI_WARMED (bodytemp_modifiers, same shape as base-game DOWN/fur), stripped on removal.",
+  "type": "effect_type",
+  "id": "mom_psi_warmed",
+  "name": [
+    "Warmed Through"
+  ],
+  "desc": [
+    "A pyrokinetic's heat is still in you, keeping the cold out."
+  ],
+  "max_duration": "12 hours",
+  "rating": "good",
+  "apply_message": "Warmth spreads through you and stays.",
+  "remove_message": "The borrowed warmth finally fades.",
+  "flags": [
+    "EFFECT_LUA_ON_ADDED",
+    "EFFECT_LUA_ON_REMOVED"
+  ]
+},
+
+{
+  "type": "mutation",
+  "id": "MOM_PSI_WARMED",
+  "name": "Warmed Through",
+  "points": 0,
+  "description": "Hidden carrier for the mom_psi_warmed effect.",
+  "valid": false,
+  "purifiable": false,
+  "player_display": false,
+  "bodytemp_modifiers": [
+    250,
+    500
+  ]
+},
+
+{
+  "//": "Telepath 'calm your mind' service: +30 for 24 h.",
+  "type": "morale_type",
+  "id": "morale_mom_psi_calm",
+  "text": "Quiet Mind"
+},
+
+{
+  "//": "Locked-school hint (2026-11-04): a psion whose school's service isn't unlocked yet explains what would open it, i.e. bring home another psion of their school from one of Wren's green pins.",
+  "type": "talk_topic",
+  "id": "TALK_PSI_SERVICE_LOCKED",
+  "dynamic_line": {
+    "npc_has_trait": "BIOKINETIC",
+    "yes": "I'd love to.  But I'm one pair of hands for the whole camp, and they're already full.  If you ever find another one like me out there, bring them home.  Then I'd have time to patch you up too.",
+    "no": {
+      "npc_has_trait": "CLAIRSENTIENT",
+      "yes": "Not yet.  All I can see right now is the next pin.  Bring home another clairsentient and the two of us can look a great deal farther.  Then I'll look for whatever you need.",
+      "no": {
+        "npc_has_trait": "ELECTROKINETIC",
+        "yes": "Every spark I've got goes into the battery bank.  Bring me someone else who can make a current, and I'll have charge to spare for your gear.",
+        "no": {
+          "npc_has_trait": "PHOTOKINETIC",
+          "yes": "The basement takes everything I have just to keep the tomatoes alive.  Bring home another photokinetic, and there'll be enough to send some with you.",
+          "no": {
+            "npc_has_trait": "PYROKINETIC",
+            "yes": "The forge eats all the heat I can make.  Find me another fire-starter, and I'll have warmth to spare for you.",
+            "no": {
+              "npc_has_trait": "TELEKINETIC",
+              "yes": "I'm holding half this quarry up as it is.  Literally, some days.  Bring home another telekinetic, and I'll start fixing your things too.",
+              "no": {
+                "npc_has_trait": "TELEPATH",
+                "yes": "My head is full of everyone here already.  Bring home another telepath, someone to share the noise with, and I'll have room for yours.",
+                "no": {
+                  "npc_has_trait": "TELEPORTER",
+                  "yes": "I'm running every supply run there is, alone.  Find another jumper and bring them home.  With help, I could send you places.",
+                  "no": "Maybe someday."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "responses": [
+    {
+      "text": "Where would I find one?",
+      "topic": "TALK_PSI_SERVICE_LOCKED_WHERE"
+    },
+    {
+      "text": "I'll keep an eye out.",
+      "topic": "TALK_DONE"
+    }
+  ]
+},
+
+{
+  "type": "talk_topic",
+  "id": "TALK_PSI_SERVICE_LOCKED_WHERE",
+  "dynamic_line": {
+    "npc_has_trait": "CLAIRSENTIENT",
+    "yes": "That's my job.  Every time someone wakes up out there, I put a green pin on the map and ask somebody to go and get them.  Ask me for the next one.  I can't promise what they'll be, but sooner or later one will be like me.",
+    "no": "Ask Wren.  Every time someone wakes up out there, she puts a green pin on the map.  You can't choose what they'll be when you find them, but sooner or later one of them will be like me."
+  },
+  "responses": [
+    {
+      "text": "I'll talk to Wren.",
+      "topic": "TALK_DONE",
+      "condition": {
+        "not": {
+          "npc_has_trait": "CLAIRSENTIENT"
+        }
+      }
+    },
+    {
+      "text": "Then give me a pin.",
+      "topic": "TALK_PSI_ALLIANCE_WREN",
+      "condition": {
+        "npc_has_trait": "CLAIRSENTIENT"
+      }
     }
   ]
 }

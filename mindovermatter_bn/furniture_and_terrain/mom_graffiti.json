@@ -1,0 +1,16 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_mom_graffiti",
+    "//": "Fork-original (2026-11-03), HAND-AUTHORED: survivor graffiti.  Placed by lua/mom_graffiti.lua from on_mapgen_postprocess; the message lives in the furniture var 'mom_graffiti' and is shown by the Lua examine.  BN's native set_graffiti/set_signage are not exposed to Lua, hence a furniture.",
+    "name": "scrawled message",
+    "description": "Words left behind by some earlier survivor.  Examine it to read them.",
+    "symbol": "~",
+    "color": "light_red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "examine_action": "lua:mom_graffiti",
+    "flags": [ "TRANSPARENT", "NOCOLLIDE" ],
+    "deconstruct": { "items": [  ] }
+  }
+]

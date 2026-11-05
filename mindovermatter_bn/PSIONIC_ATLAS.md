@@ -24,7 +24,7 @@ Reading the trees:
 ## Disciplines
 
 - [Biokinesis](#biokinesis) — 20 powers
-- [Telekinesis](#telekinesis) — 18 powers
+- [Telekinesis](#telekinesis) — 17 powers
 - [Pyrokinesis](#pyrokinesis) — 15 powers
 - [Electrokinesis](#electrokinesis) — 16 powers
 - [Photokinesis](#photokinesis) — 20 powers
@@ -124,13 +124,12 @@ graph TD
 
 *Move matter by will alone: shove, crush, shield, and take to the air.*
 
-**18** powers · **3** known at start · **15** trainable
+**17** powers · **3** known at start · **14** trainable
 
 **Foundations:** Far Hand · Force Shove · No Go Zone (C)
 
 ```mermaid
 graph TD
-  n_telekinetic_aegis["Aegis"]:::apex
   n_telekinetic_earthshaker["Earthshaker"]:::apex
   n_telekinetic_explosion["Wrecking Ball"]:::power
   n_telekinetic_hammer["Mindhammer"]:::power
@@ -148,11 +147,6 @@ graph TD
   n_telekinetic_strength["Enhance Strength (C)"]:::power
   n_telekinetic_vehicle_lift["Lift Vehicle (C)"]:::power
   n_telekinetic_wave["Wave of Force"]:::power
-  n_telekinetic_shield -->|L7| n_telekinetic_aegis
-  n_telekinetic_slowfall -.->|L9| n_telekinetic_aegis
-  n_telekinetic_wave -.->|L8| n_telekinetic_aegis
-  n_telekinetic_strength -.->|L8| n_telekinetic_aegis
-  n_telekinetic_momentum -.->|L12| n_telekinetic_aegis
   n_telekinetic_explosion -.->|L8| n_telekinetic_earthshaker
   n_telekinetic_hammer -.->|L9| n_telekinetic_earthshaker
   n_telekinetic_wave -.->|L13| n_telekinetic_earthshaker

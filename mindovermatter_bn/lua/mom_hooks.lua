@@ -19,12 +19,38 @@ return function(mod)
     local turn = gapi.current_turn():to_turn()
     local you = gapi.get_avatar()
 
-    -- Drain the queue_eocs scheduler.
+    -- Drain the queue_eocs scheduler.  Entries bound to an activity run that has
+    -- since been restarted are dropped (mom_util.entry_is_stale).
     local q = util.queue
     for i = #q, 1, -1 do
-      if turn >= q[i].fire_turn then
+      if util.entry_is_stale(q[i]) then
+        table.remove(q, i)
+      elseif turn >= q[i].fire_turn then
         local entry = table.remove(q, i)
         entry.fn(entry.you or you)
+      end
+    end
+
+    -- character_finished_activity (restored 2026-11-04).  BN has no Lua hook for an
+    -- activity ending, so the six upstream "cancelling X cancels X" EOCs in
+    -- mod.gen_events (Gateway attuning, healing trance, sterilization, vitaminosis,
+    -- study/learning, Intuitive Artisan) never ran: cancelling a channel left its
+    -- effect up, and the queued completion fired later anyway.  Poll the avatar's
+    -- activity once a turn and fire the event on any change away from a real
+    -- activity.  Runs AFTER the queue drain, so a completion EOC due on the same
+    -- turn the activity naturally ends still sees its channeling effect.
+    if you then
+      local ok, cur = pcall(function()
+        local a = you:get_activity()
+        return a and a:id_str() or "ACT_NULL"
+      end)
+      if ok then
+        if cur == "" then cur = "ACT_NULL" end
+        local last = mod._mom_last_activity
+        if last and last ~= cur and last ~= "ACT_NULL" and mod.fire_event_eocs then
+          mod.fire_event_eocs("character_finished_activity", you, { activity = last })
+        end
+        mod._mom_last_activity = cur
       end
     end
 
@@ -130,6 +156,14 @@ return function(mod)
   function mod.on_mon_effect_added(params)
     mod.math.maintained_dirty()
     local h = mod.effect_added_handlers[effect_key(params)]
+    if h then return h(params.mon, params.effect) end
+  end
+
+  -- Per-tick effect hook for monsters (effects flagged EFFECT_LUA_ON_TICK,
+  -- monster.cpp process_one_effect).  Used by the monster-side carriers (mom_eoc).
+  mod.effect_tick_handlers = mod.effect_tick_handlers or {}
+  function mod.on_mon_effect(params)
+    local h = mod.effect_tick_handlers[effect_key(params)]
     if h then return h(params.mon, params.effect) end
   end
 
@@ -799,10 +833,11 @@ return function(mod)
       if guy then gapi.remove_npc_follower(guy) end
     end)
     -- ...and a card on the green pin map (lua/mom_psi_alliance.lua).
-    pcall(function()
+    local ok, err = pcall(function()
       local guy = you and you:as_npc()
       if guy and mod.psi_record_green_pin then mod.psi_record_green_pin(guy) end
     end)
+    if not ok then gdebug.log_warn("MoM-BN: green pin card record failed: " .. tostring(err)) end
     consume_marker(you, "mom_psi_alliance_settle")
     return true
   end
@@ -1277,6 +1312,10 @@ return function(mod)
       -- the in-progress craft item — without this guard, merely browsing
       -- the menu grants XP / runs study EOCs / queues sweeps.
       if not (params and params.craft) then return end
+      -- Psychometry: a crafted item's only impression is its maker's.
+      if disp_item and mod.psy_stamp_crafted then
+        mod.psy_stamp_crafted(disp_item, params.crafter)
+      end
       if not rec then return end
       local ident = rec:ident():str()
       local you = params.crafter or gapi.get_avatar()

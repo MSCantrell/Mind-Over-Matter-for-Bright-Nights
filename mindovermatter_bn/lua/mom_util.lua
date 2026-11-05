@@ -7,12 +7,43 @@ local M = {}
 -- plain ints sidestep that (TODO 4 resolved, catalua_bindings.cpp:971).
 M.queue = {}
 
+-- Activity binding (2026-11-04, Gateway double-attune bug).  DDA's channeled powers
+-- (Gateway attune, healing trances, sterilization...) do: assign an activity, then
+-- queue the "finished" EOC for when it should end.  Nothing ties the queued EOC to that
+-- particular activity, so a cast cancelled and then re-cast left the first cast's
+-- callback live, and it fired inside the second one.  U.assign_activity now bumps a
+-- per-activity generation and arms `pending_bind`; the next queue_eoc in the same turn
+-- (the starter's own) takes the binding, and the drainer (mom_hooks.on_every_x) drops
+-- an entry whose activity has since been started again.  Cancel-without-restart is
+-- handled by the restored character_finished_activity event (same drainer), which
+-- strips the channeling effect the queued EOC's own condition checks.
+M.act_gen = {}
+M.pending_bind = nil
+
+function M.bind_next_queue(act_id)
+  M.act_gen[act_id] = (M.act_gen[act_id] or 0) + 1
+  M.pending_bind = { act = act_id, gen = M.act_gen[act_id],
+                     turn = gapi.current_turn():to_turn() }
+end
+
+function M.entry_is_stale(entry)
+  local b = entry.bind
+  return b ~= nil and M.act_gen[b.act] ~= b.gen
+end
+
 -- delay is in turns (1 turn = 1 second in BN).
 function M.queue_eoc(fn, you, delay)
+  local now = gapi.current_turn():to_turn()
+  local bind = M.pending_bind
+  if bind then
+    M.pending_bind = nil
+    if bind.turn ~= now then bind = nil end
+  end
   table.insert(M.queue, {
-    fire_turn = gapi.current_turn():to_turn() + math.floor(delay),
+    fire_turn = now + math.floor(delay),
     fn = fn,
     you = you,
+    bind = bind,
   })
 end
 

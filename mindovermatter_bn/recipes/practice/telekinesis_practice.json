@@ -21,7 +21,6 @@
       "practice_telekinetic_explosion",
       "practice_telekinetic_levitation",
       "practice_telekinetic_move_large_weight",
-      "practice_telekinetic_aegis",
       "practice_telekinetic_earthshaker"
     ],
     "subcategory": "CSC_PRACTICE_METAPHYSICS"
@@ -653,51 +652,6 @@
       "NO_ENCHANTMENT"
     ],
     "description": "Contemplate your powers and improve your ability to move truly enormous amounts of weight.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:telekinetic_move_large_weight>",
-    "difficulty": 0,
-    "category": "CC_*",
-    "skill_used": "metaphysics"
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "telekinetic_aegis",
-    "nested_name": "contemplation: aegis",
-    "time": "0 s",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_telekinesis",
-          -1
-        ]
-      ]
-    ],
-    "autolearn": false,
-    "components": [
-      [
-        [
-          "matrix_crystal_telekin_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "description": "Contemplate your powers and improve your ability to shield yourself from all harm.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:telekinetic_aegis>",
     "difficulty": 0,
     "category": "CC_*",
     "skill_used": "metaphysics"

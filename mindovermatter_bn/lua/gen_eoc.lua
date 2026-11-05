@@ -9,7 +9,7 @@ local SCHOOL_SPELLS = {
   PHOTOKINETIC = {'photokinetic_light_local', 'photokinetic_create_light', 'photokinetic_light_up_enemy', 'photokinetic_snuff_light', 'photokinetic_light_dodge', 'photokinetic_light_beam', 'photokinetic_camouflage', 'photokinetic_rad_immunity', 'photokinetic_light_arms', 'photokinetic_hide_ugly', 'photokinetic_flash_bang', 'photokinetic_light_image', 'photokinetic_radio', 'photokinetic_sterilize_food', 'photokinetic_stun_robots', 'photokinetic_invisibility', 'photokinetic_light_flash', 'photokinetic_blinding_glare', 'photokinetic_light_disintegrate', 'photokinetic_light_army', 'photokinetic_light_army_remove'},
   PSYCHIC_KNACK = {'biokin_adrenaline_knack', 'clair_better_senses_knack', 'clair_danger_sense_knack', 'clair_examine_item_knack', 'electrokinetic_see_electric_knack', 'electrokinetic_pain_immune_knack', 'electrokinetic_hacking_interface_knack', 'photokinetic_camouflage_knack', 'photokinetic_hide_ugly_knack', 'photokinetic_radio_knack', 'pyrokinetic_flash_knack', 'pyrokinetic_intensify_flames_knack', 'pyrokinetic_eruption_knack', 'pyrokinetic_call_flames_knack', 'pyrokinetic_cloak_knack', 'pyrokinetic_flamethrower_knack', 'pyrokinetic_aura_knack', 'pyrokinetic_blast_knack', 'telekinetic_pull_knack', 'telekinetic_push_knack', 'telekinetic_slam_down_knack', 'telekinetic_wave_knack', 'telepathic_shield_knack', 'telepathic_mind_sense_knack', 'telepathic_morale_knack', 'telepathic_mesmerize_knack', 'telepathic_blast_knack', 'telepathic_animal_mind_control_knack', 'telepathic_invisibility_knack', 'telepathic_blast_radius_knack', 'vita_health_power_knack', 'vita_remove_poison_knack'},
   PYROKINETIC = {'pyrokinetic_intensify_flames', 'pyrokinetic_intensify_flames_target_creature', 'pyrokinetic_eruption', 'pyrokinetic_flash', 'pyrokinetic_cauterize', 'pyrokinetic_call_flames', 'pyrokinetic_quell_flames', 'pyrokinetic_cloak', 'pyrokinetic_flamethrower', 'pyrokinetic_lance', 'pyrokinetic_thermogenesis', 'pyrokinetic_aura', 'pyrokinetic_flame_immunity', 'pyrokinetic_blast', 'pyrokinetic_incineration'},
-  TELEKINETIC = {'telekinetic_pull', 'telekinetic_push', 'telekinetic_noise', 'telekinetic_slam_down', 'telekinetic_momentum', 'telekinetic_slowfall', 'telekinetic_wave', 'telekinetic_lifting_field', 'telekinetic_strength', 'telekinetic_hammer', 'telekinetic_vehicle_lift', 'telekinetic_shield', 'telekinetic_explosion', 'telekinetic_levitation', 'telekinetic_move_large_weight', 'telekinetic_aegis', 'telekinetic_earthshaker'},
+  TELEKINETIC = {'telekinetic_pull', 'telekinetic_push', 'telekinetic_noise', 'telekinetic_slam_down', 'telekinetic_momentum', 'telekinetic_slowfall', 'telekinetic_wave', 'telekinetic_lifting_field', 'telekinetic_strength', 'telekinetic_hammer', 'telekinetic_vehicle_lift', 'telekinetic_shield', 'telekinetic_explosion', 'telekinetic_levitation', 'telekinetic_move_large_weight', 'telekinetic_earthshaker'},
   TELEPATH = {'telepathic_concentration', 'telepathic_shield', 'telepathic_mind_sense', 'telepathic_mesmerize', 'telepathic_morale', 'telepathic_blast', 'telepathic_animal_mind_control', 'telepathic_confusion', 'telepathic_fear', 'telepathic_invisibility', 'telepathic_blast_radius', 'telepathic_beast_taming', 'telepathic_mind_control', 'telepathic_network'},
   TELEPORTER = {'teleport_blink', 'teleport_slow', 'teleport_phase', 'teleport_item_apport', 'teleport_stride', 'teleport_transpose', 'teleport_displacement', 'teleport_reactive_displacement', 'teleport_reactive_displacement_teleport', 'teleport_collapse', 'teleport_relocation', 'teleport_warped_strikes', 'teleport_farstep', 'teleport_farstep_real', 'teleport_banish', 'teleport_loci_establishment', 'teleport_loci_technique', 'teleport_gateway', 'teleport_dilated_gateway', 'teleport_dilated_gateway_teleport_others', 'teleport_dilated_gateway_teleport_self', 'teleport_summon', 'teleport_warper_combat', 'teleport_warper_combat_warp_chance_attacker', 'teleport_warper_combat_warp_chance_attacked', 'teleport_reality_tear'},
 }
@@ -587,7 +587,6 @@ local RECURRING = {
   {id = 'EOC_PYROKIN_LEARNING_QUELL_FLAMES', min_turns = 3600, max_turns = 3600},
   {id = 'EOC_PYROKIN_LEARNING_THERMOGENESIS', min_turns = 3600, max_turns = 3600},
   {id = 'EOC_RESET_TELEPATHIC_STEALING_TIMER', min_turns = 72000, max_turns = 100800},
-  {id = 'EOC_TELEKIN_LEARNING_AEGIS', min_turns = 3600, max_turns = 3600},
   {id = 'EOC_TELEKIN_LEARNING_EARTHSHAKER', min_turns = 3600, max_turns = 3600},
   {id = 'EOC_TELEKIN_LEARNING_EXPLOSION', min_turns = 3600, max_turns = 3600},
   {id = 'EOC_TELEKIN_LEARNING_HAMMER', min_turns = 3600, max_turns = 3600},
@@ -3386,18 +3385,6 @@ M['EOC_CHECK_GAMEBEGIN_PYROKIN_RECIPE_THERMOGENESIS'] = function(you, npc, ctx)
     return false
   end
   you:learn_recipe(RecipeId.new('practice_pyrokinetic_thermogenesis'))
-  return true
-end
-C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_AEGIS'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  return (you:has_trait(U.mid('TELEKINETIC')) and (m.spell_level(you, 'telekinetic_aegis') >= 0))
-end
-M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_AEGIS'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  if not C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_AEGIS'](you, npc, ctx) then
-    return false
-  end
-  you:learn_recipe(RecipeId.new('practice_telekinetic_aegis'))
   return true
 end
 C['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_EARTHSHAKER'] = function(you, npc, ctx)
@@ -7497,7 +7484,7 @@ end
 M['EOC_FEAR_PARALYZE1'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_FEAR_PARALYZE1'](you, npc, ctx) then
-    U.msg(you, 'Some <npc_name> tries to intrude into your thoughts, but your telepathic shield reflects it!', MsgType.warning, ctx)
+    U.msg(you, 'Some <npc_name> tries to intrude into your thoughts, but your telepathic shield reflects it!', MsgType.warning, ctx, you, npc)
     return false
   end
   U.unported('EOC_FEAR_PARALYZE1', 'run unknown EOC_FEAR_PARALYZE2')
@@ -14333,39 +14320,6 @@ M['EOC_PRACTICE_PYROKIN_THERMOGENESIS_LEARNING'] = function(you, npc, ctx)
   M['EOC_PRACTICE_PSIONICS_FINAL_LEARNING_CHECK'](you, npc, ctx)
   return true
 end
-C['EOC_PRACTICE_TELEKIN_AEGIS'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  return you:has_trait(U.mid('TELEKINETIC'))
-end
-M['EOC_PRACTICE_TELEKIN_AEGIS'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  if not C['EOC_PRACTICE_TELEKIN_AEGIS'](you, npc, ctx) then
-    return false
-  end
-  V.usets(you, 'latest_studied_power_name', 'telekinetic_aegis')
-  M['EOC_PSI_STUDYING_TELEKIN_POWER_SETUP'](you, npc, ctx)
-  if (m.spell_level(you, 'telekinetic_aegis') >= 1) then
-    M['EOC_PSI_STUDYING_POWER_BEGIN'](you, npc, ctx)
-    M['EOC_PSI_STUDYING_POWER_SIDE_EFFECTS'](you, npc, ctx)
-  else
-    M['EOC_PSI_STUDYING_POWER_INITIAL_SETUP'](you, npc, ctx)
-    M['EOC_PSI_PRACTICE_FOCUS_MOD'](you, npc, ctx)
-    util.queue_eoc(function(y) M['EOC_PRACTICE_TELEKIN_AEGIS_LEARNING'](y, npc, ctx) end, you, U.rng(J.learn_new_power_lower_time_bound(you, npc, ctx, V.uget(you, 'latest_studied_power_difficulty')), J.learn_new_power_upper_time_bound(you, npc, ctx, V.uget(you, 'latest_studied_power_difficulty'))))
-  end
-  return true
-end
-C['EOC_PRACTICE_TELEKIN_AEGIS_LEARNING'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  return (('telekinetic_aegis' == V.ustr(you, 'latest_studied_power_name')) and U.test_eoc(C, 'EOC_CONDITION_PSI_REQUIRED_FOR_LEARNING_NEW_POWER', you, npc, ctx))
-end
-M['EOC_PRACTICE_TELEKIN_AEGIS_LEARNING'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  if not C['EOC_PRACTICE_TELEKIN_AEGIS_LEARNING'](you, npc, ctx) then
-    return false
-  end
-  M['EOC_PRACTICE_PSIONICS_FINAL_LEARNING_CHECK'](you, npc, ctx)
-  return true
-end
 C['EOC_PRACTICE_TELEKIN_BARRIER'] = function(you, npc, ctx)
   ctx = ctx or {}
   return you:has_trait(U.mid('TELEKINETIC'))
@@ -19544,7 +19498,7 @@ M['EOC_STARE1'] = function(you, npc, ctx)
     U.unported('EOC_STARE1', 'run unknown EOC_STARE2')
     return false
   end
-  U.msg(you, 'You sense <npc_name> trying to enter your mind, but you repel it!', MsgType.warning, ctx)
+  U.msg(you, 'You sense <npc_name> trying to enter your mind, but you repel it!', MsgType.warning, ctx, you, npc)
   return true
 end
 C['EOC_STARE1_5'] = function(you, npc, ctx)
@@ -19557,7 +19511,7 @@ M['EOC_STARE1_5'] = function(you, npc, ctx)
     U.unported('EOC_STARE1_5', 'run unknown EOC_STARE2')
     return false
   end
-  U.msg(you, 'You sense <npc_name> trying to enter your mind, but you repel it!', MsgType.warning, ctx)
+  U.msg(you, 'You sense <npc_name> trying to enter your mind, but you repel it!', MsgType.warning, ctx, you, npc)
   return true
 end
 C['EOC_TEACH_BIOKIN_CONTEMPLATE_RECIPES'] = function(you, npc, ctx)
@@ -19831,7 +19785,7 @@ M['EOC_TEACH_TELEKIN_CONTEMPLATE_RECIPES'] = function(you, npc, ctx)
   M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_SHIELD'](you, npc, ctx)
   M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_EXPLOSION'](you, npc, ctx)
   M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_LEVITATION'](you, npc, ctx)
-  M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_AEGIS'](you, npc, ctx)
+  -- dropped EOC EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_AEGIS (power cut from port)
   M['EOC_CHECK_GAMEBEGIN_TELEKIN_RECIPE_EARTHSHAKER'](you, npc, ctx)
   return true
 end
@@ -20199,20 +20153,6 @@ M['EOC_TELEKIN_CRYSTAL_DRAINING'] = function(you, npc, ctx)
   end
   U.unported('EOC_TELEKIN_CRYSTAL_DRAINING', 'u_consume_item')
   you:create_item(ItypeId.new('matrix_crystal_drained'), U.round(1))
-  return true
-end
-C['EOC_TELEKIN_LEARNING_AEGIS'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  return (you:has_trait(U.mid('TELEKINETIC')) and (V.uget(you, 'psi_learning_counter') == 1) and (U.test_eoc(C, 'EOC_CONDITION_ODDS_OF_RANDOM_TIER_THREE_POWER_INSIGHT', you, npc, ctx) or (((m.spell_level(you, 'telekinetic_wave') >= 8) or (m.spell_level(you, 'telekinetic_slowfall') >= 9)) and ((m.spell_level(you, 'telekinetic_momentum') >= 12) or (m.spell_level(you, 'telekinetic_strength') >= 8)) and (m.spell_level(you, 'telekinetic_shield') >= 7))) and U.test_eoc(C, 'EOC_PSI_LEARNING_BANNED_EFFECTS', you, npc, ctx) and (m.spell_level(you, 'telekinetic_aegis') <= 0) and (not you:knows_recipe(RecipeId.new('practice_telekinetic_aegis'))))
-end
-M['EOC_TELEKIN_LEARNING_AEGIS'] = function(you, npc, ctx)
-  ctx = ctx or {}
-  if not C['EOC_TELEKIN_LEARNING_AEGIS'](you, npc, ctx) then
-    return false
-  end
-  V.uset(you, 'psi_learning_counter', 0)
-  you:learn_recipe(RecipeId.new('practice_telekinetic_aegis'))
-  U.msg(you, 'Use of your powers has led to an insight.  You could take all the energy of a telekinetic shield and pour it into a single instant, forming a barrier strong enough to repel a ballistic missile, if you can figure out the proper technique.', MsgType.neutral, ctx)
   return true
 end
 C['EOC_TELEKIN_LEARNING_EARTHSHAKER'] = function(you, npc, ctx)
@@ -23117,7 +23057,7 @@ M['EOC_TELEPORT_DISPLACEMENT_CHECK'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_TELEPORT_DISPLACEMENT_CHECK'](you, npc, ctx) then
     if (not npc:has_effect(U.eid('effect_teleport_reactive_displacement'))) then
-      U.msg(npc, 'You touch <u_name> but nothing happens at all.', MsgType.bad, ctx)
+      U.msg(npc, 'You touch <u_name> but nothing happens at all.', MsgType.bad, ctx, you, npc)
     end
     return false
   end
@@ -23127,14 +23067,14 @@ M['EOC_TELEPORT_DISPLACEMENT_CHECK'] = function(you, npc, ctx)
   if ((U.volume(you) <= ((((V.uget(you, 'teleportation_intelligence_power_level') * 12500) + 25000) * V.uget(you, 'teleportation_intelligence')) * V.uget(you, 'nether_attunement_teleportation_scaling'))) and (U.volume(you) > 0)) then
     U.cast_spell(you, 'teleport_blink_real', 10, nil)
     if npc:has_effect(U.eid('effect_teleport_reactive_displacement')) then
-      U.msg(npc, 'As <u_name> strikes you, they are suddenly somewhere else', MsgType.good, ctx)
+      U.msg(npc, 'As <u_name> strikes you, they are suddenly somewhere else', MsgType.good, ctx, you, npc)
     else
-      U.msg(npc, 'You touch <u_name> and they are suddenly somewhere else', MsgType.good, ctx)
+      U.msg(npc, 'You touch <u_name> and they are suddenly somewhere else', MsgType.good, ctx, you, npc)
     end
   else
     if npc:has_effect(U.eid('effect_teleport_reactive_displacement')) then
     else
-      U.msg(npc, 'You touch <u_name> but nothing happens.  They are too big to teleport.', MsgType.bad, ctx)
+      U.msg(npc, 'You touch <u_name> but nothing happens.  They are too big to teleport.', MsgType.bad, ctx, you, npc)
     end
   end
   return true
@@ -23146,7 +23086,7 @@ end
 M['EOC_TELEPORT_EXTERNAL_TELEPORT'] = function(you, npc, ctx)
   ctx = ctx or {}
   U.teleport_to_saved(you, npc, 'dilated_gateway_location')
-  U.msg(you, '<u_name> vanishes!', MsgType.neutral, ctx)
+  U.msg(you, '<u_name> vanishes!', MsgType.neutral, ctx, you, npc)
   return true
 end
 C['EOC_TELEPORT_FARSTEP_INITIATE'] = function(you, npc, ctx)

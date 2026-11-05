@@ -249,7 +249,7 @@
     "id": "telekinetic_momentum",
     "type": "SPELL",
     "name": "[\u03a8]Momentum Alteration (C)",
-    "description": "Edit the momentum of yourself and nearby objects to your benefit, slowing damaging force and slightly increasing your speed.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 12 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\nLevel 5 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\nLevel 10 leads to Inertial Barrier with Wave of Force 8.\nLevel 5 leads to Lifting Field with Lift Vehicle 3 OR Far Hand 7 + Momentum Alteration 5.\nLevel 10 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.\nLevel 6 leads to Slowfall.",
+    "description": "Edit the momentum of yourself and nearby objects to your benefit, slowing damaging force and slightly increasing your speed.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 5 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\nLevel 10 leads to Inertial Barrier with Wave of Force 8.\nLevel 5 leads to Lifting Field with Lift Vehicle 3 OR Far Hand 7 + Momentum Alteration 5.\nLevel 10 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.\nLevel 6 leads to Slowfall.",
     "message": "",
     "valid_targets": [
       "self"
@@ -280,7 +280,7 @@
     "id": "telekinetic_slowfall",
     "type": "SPELL",
     "name": "[\u03a8]Slowfall",
-    "description": "Counteract the pull of gravity with telekinetic force, greatly reducing or even eliminating damage from falling and becoming much more buoyant.\n\nLevel 9 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\nLevel 9 leads to Levitation.\nLevel 8 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10.",
+    "description": "Counteract the pull of gravity with telekinetic force, greatly reducing or even eliminating damage from falling and becoming much more buoyant.\n\nLevel 9 leads to Levitation.\nLevel 8 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10.",
     "message": "You feel lighter.",
     "valid_targets": [
       "self"
@@ -313,7 +313,7 @@
     "id": "telekinetic_wave",
     "type": "SPELL",
     "name": "[\u03a8]Wave of Force",
-    "description": "Unleash a telekinetic wave around you that indiscriminately knocks everything back.\n\nLevel 8 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\nLevel 13 leads to Earthshaker with Megakinesis 5 + Wrecking Ball 8 OR Mindhammer 9 + Wrecking Ball 8 OR Megakinesis 5 + Wave of Force 13 OR Mindhammer 9 + Wave of Force 13.\nLevel 8 leads to Inertial Barrier with Momentum Alteration 10.\nLevel 4 leads to Mindhammer with Knockdown 6 + Wave of Force 4 OR Force Shove 8 + Knockdown 6.",
+    "description": "Unleash a telekinetic wave around you that indiscriminately knocks everything back.\n\nLevel 13 leads to Earthshaker with Megakinesis 5 + Wrecking Ball 8 OR Mindhammer 9 + Wrecking Ball 8 OR Megakinesis 5 + Wave of Force 13 OR Mindhammer 9 + Wave of Force 13.\nLevel 8 leads to Inertial Barrier with Momentum Alteration 10.\nLevel 4 leads to Mindhammer with Knockdown 6 + Wave of Force 4 OR Force Shove 8 + Knockdown 6.",
     "message": "You knock everything nearby backwards!",
     "valid_targets": [
       "hostile",
@@ -378,7 +378,7 @@
     "id": "telekinetic_strength",
     "type": "SPELL",
     "name": "[\u03a8]Enhance Strength (C)",
-    "description": "Focus your powers to allow you to move much heavier objects and smash through walls.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.\n\nLevel 8 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\nLevel 10 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10.",
+    "description": "Focus your powers to allow you to move much heavier objects and smash through walls.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.\n\nLevel 10 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10.",
     "message": "",
     "valid_targets": [
       "self"
@@ -479,7 +479,7 @@
     "id": "telekinetic_shield",
     "type": "SPELL",
     "name": "[\u03a8]Inertial Barrier (C)",
-    "description": "Create a telekinetic barrier around yourself to protect you from damage.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 7 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.",
+    "description": "Create a telekinetic barrier around yourself to protect you from damage.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
     "message": "",
     "valid_targets": [
       "self"
@@ -616,39 +616,6 @@
     "range_increment": 0.9,
     "min_duration": 100,
     "max_duration": 100,
-    "energy_source": "STAMINA",
-    "scale_int": true
-  },
-  {
-    "id": "telekinetic_aegis",
-    "type": "SPELL",
-    "name": "[\u03a8]Aegis",
-    "description": "Create a shield impenetrable to physical damage around yourself.  It will <color_yellow>only last a few moments</color>.  You will be <color_red>unable to move</color> while the power is in effect.",
-    "message": "The air around you becomes as hard as adamant.",
-    "valid_targets": [
-      "self"
-    ],
-    "spell_class": "TELEKINETIC",
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "RANDOM_DURATION"
-    ],
-    "difficulty": 9,
-    "max_level": 15,
-    "effect": "target_attack",
-    "effect_str": "effect_telekinetic_aegis",
-    "min_duration": 100,
-    "max_duration": 500,
-    "base_energy_cost": 9500,
-    "final_energy_cost": 5500,
-    "energy_increment": -225,
-    "base_casting_time": 125,
-    "final_casting_time": 55,
-    "casting_time_increment": -5,
-    "duration_increment": 20.0,
     "energy_source": "STAMINA",
     "scale_int": true
   },

@@ -565,7 +565,7 @@
     "type": "recipe",
     "result": "practice",
     "id_suffix": "pyrokinetic_aoe_blast",
-    "nested_name": "contemplation: hellfire",
+    "nested_name": "contemplation: mass hydrothermosis",
     "time": "0 s",
     "tools": [
       [
@@ -601,7 +601,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "description": "Contemplate your powers and improve your ability to call down sheets of fire on everything around you.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:pyrokinetic_aoe_blast>",
+    "description": "Contemplate your powers and improve your ability to boil the fluids inside every creature you can see.\n\nPower Difficulty: 9\n\nCurrent Power Level: <u_spell_level:pyrokinetic_aoe_blast>",
     "difficulty": 0,
     "category": "CC_*",
     "skill_used": "metaphysics"

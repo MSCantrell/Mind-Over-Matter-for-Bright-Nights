@@ -1222,5 +1222,46 @@ return function(mod)
     return gen_study_drain(you, npc, ctx)
   end
 
+  -- ==========================================================================
+  -- Sensor Jamming (photokinetic_stun_robots) -> effect `sensor_stun` (2026-11-05).
+  -- DDA's sensor_stun is a base-game effect BN lacks (debugmsg "Invalid effect,
+  -- ID: sensor_stun"); the mod now defines it (effects/mom_engine_effects.json).
+  -- DDA's engine reads it in gun_actor::call (mattack_actors.cpp: a jammed
+  -- monster can't fire) -- robots and turrets lose their guns, keep moving and
+  -- meleeing; on anything else it does nothing.  BN has no such gate, so: while a
+  -- ROBOT / ROBOT_FLYING carries the effect, its special attacks are disabled
+  -- (Monster:set_special_attack_enabled, serialized with the save).  On removal
+  -- every special is re-enabled: nothing else in the mod disables them, and that
+  -- stays correct across a save/load mid-jam, which a remembered list wouldn't.
+  local SENSOR_STUN = "sensor_stun"
+  local function jam_robot(mon, on)
+    local ok, robot = pcall(function()
+      return mon:in_species(SpeciesTypeId.new("ROBOT"))
+          or mon:in_species(SpeciesTypeId.new("ROBOT_FLYING"))
+    end)
+    if not (ok and robot) then return false end
+    local ids = mon:get_special_attack_ids()
+    for _, id in ipairs(ids) do mon:set_special_attack_enabled(id, not on) end
+    return #ids > 0
+  end
+  mod.effect_added_handlers[SENSOR_STUN] = function(mon)
+    if not mon or not mon.get_special_attack_ids then return true end
+    local ok, jammed = pcall(jam_robot, mon, true)
+    if ok and jammed then
+      pcall(function()
+        if gapi.get_avatar():sees(mon:get_pos_ms()) then
+          gapi.add_msg(MsgType.good, "The " .. mon:get_name() .. "'s sensors flood with static.")
+        end
+      end)
+    elseif not ok then
+      gdebug.log_warn("MoM-BN: sensor jamming failed: " .. tostring(jammed))
+    end
+    return true
+  end
+  mod.effect_removed_handlers[SENSOR_STUN] = function(mon)
+    if mon and mon.get_special_attack_ids then pcall(jam_robot, mon, false) end
+    return true
+  end
+
   return M
 end

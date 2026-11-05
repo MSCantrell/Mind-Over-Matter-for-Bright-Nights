@@ -1,0 +1,12 @@
+[
+  {
+    "//": "HAND-AUTHORED (2026-11-05). DDA base-game effects that MoM content uses but BN doesn't define. sensor_stun: Sensor Jamming's effect_str (photokinetic_stun_robots). Behaviour lives in lua/mom_eoc.lua (robots' special attacks are disabled while it's up, matching DDA's gun_actor gate).",
+    "type": "effect_type",
+    "id": "sensor_stun",
+    "name": [ "Sensor scrambling" ],
+    "desc": [ "Its sensors are scrambled and report false readings." ],
+    "rating": "bad",
+    "show_in_info": true,
+    "flags": [ "EFFECT_LUA_ON_ADDED", "EFFECT_LUA_ON_REMOVED" ]
+  }
+]

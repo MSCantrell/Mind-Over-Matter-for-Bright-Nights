@@ -1166,7 +1166,11 @@ return function(mod)
     local iv = 172800 - 10350 * P
     if iv < 3600 then iv = 3600 end
     if iv > 172800 then iv = 172800 end
-    return iv
+    -- Integer, always: 1.5 * Metaphysics makes P (and iv) a float, and
+    -- gapi.rng is bound as int(int, int) -- sol rejects 38250.0, so every poll
+    -- between the clamps threw and auto-learn never fired (2026-11-05 player
+    -- report; only the clamped 3600/172800 literals stayed integers).
+    return math.floor(iv)
   end
 
   local function prereqs_met(you, e)
@@ -1200,10 +1204,14 @@ return function(mod)
     mod.u.power_learned_msg(you, e.msg .. "  (Learned: " .. nm .. ".)")
   end
 
+  -- Errors used to be swallowed by a bare pcall, so a broken grant looked exactly
+  -- like bad luck (2026-11-05, player report).  Now logged, once per distinct
+  -- message per session, so a per-poll failure can't flood debug.log.
+  local autolearn_logged = {}
   mod.recurring["MOM_AUTOLEARN"] = {
     min_turns = 800, max_turns = 1200,
     fn = function(you)
-      pcall(function()
+      local ok, err = pcall(function()
         if not you then return end
         local map = mod.gen_learn_map
         if not map then return end
@@ -1218,6 +1226,13 @@ return function(mod)
           autolearn_grant(you, elig[gapi.rng(1, #elig)])
         end
       end)
+      if not ok then
+        local msg = tostring(err)
+        if not autolearn_logged[msg] then
+          autolearn_logged[msg] = true
+          gdebug.log_error("MoM-BN: auto-learn poll failed: " .. msg)
+        end
+      end
     end,
   }
 

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mindovermatter_bn\n"
-"POT-Creation-Date: 2026-11-01 16:12+0300\n"
+"POT-Creation-Date: 2026-11-06 20:31+0300\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -485,7 +485,7 @@ msgstr ""
 #. ~ Description for Mind Over Matter (BN)
 #: ./modinfo.json
 msgid ""
-"Psionics: eight psychic power paths, 141 powers that unlock through use.  A "
+"Psionics: eight psychic power paths, 140 powers that unlock through use.  A "
 "Lua-based port of the Mind Over Matter mod from Cataclysm: DDA.  Pinned "
 "upstream: CDDA master 69df2e4 (2026-07-04)."
 msgstr ""
@@ -4249,16 +4249,6 @@ msgstr ""
 msgid "Yellow Elixir Aftereffects"
 msgstr ""
 
-#. ~ desc of effect 'effect_telekinetic_aegis'
-#: ./effects/gen_effects.json
-msgid "You are nearly invincible."
-msgstr ""
-
-#. ~ Remove message for effect(s) 'Aegis'.
-#: ./effects/gen_effects.json
-msgid "The air loses its structure and you are vulnerable once again."
-msgstr ""
-
 #. ~ Remove message for effect(s) 'Inertial Barrier'.
 #: ./effects/gen_effects.json
 msgid "The barrier of force around you falls apart."
@@ -5145,6 +5135,15 @@ msgstr ""
 msgid "You have left your dying world behind."
 msgstr ""
 
+#: ./effects/mom_engine_effects.json
+msgid "Sensor scrambling"
+msgstr ""
+
+#. ~ desc of effect 'sensor_stun'
+#: ./effects/mom_engine_effects.json
+msgid "Its sensors are scrambled and report false readings."
+msgstr ""
+
 #: ./furniture_and_terrain/appliances_as_furniture.json
 msgid "standing matrix lamp (off)"
 msgstr ""
@@ -5207,6 +5206,7 @@ msgstr ""
 #: ./furniture_and_terrain/appliances_as_furniture.json
 #: ./furniture_and_terrain/bn_machine_shims.json
 #: ./furniture_and_terrain/furniture.json
+#: ./furniture_and_terrain/psi_enclave.json
 #: ./furniture_and_terrain/terrain_alien.json
 #: ./furniture_and_terrain/terrain_flora.json
 msgid "crunch!"
@@ -5373,6 +5373,15 @@ msgstr ""
 msgid "a hard, ringing clonk as the crystal holds!"
 msgstr ""
 
+#: ./furniture_and_terrain/mom_graffiti.json
+msgid "scrawled message"
+msgstr ""
+
+#. ~ Description for scrawled message
+#: ./furniture_and_terrain/mom_graffiti.json
+msgid "Words left behind by some earlier survivor.  Examine it to read them."
+msgstr ""
+
 #: ./furniture_and_terrain/psi_enclave.json
 msgid "chalk circle"
 msgstr ""
@@ -5402,6 +5411,20 @@ msgstr ""
 
 #: ./furniture_and_terrain/psi_enclave.json
 msgid "whump."
+msgstr ""
+
+#: ./furniture_and_terrain/psi_enclave.json
+msgid "pinned road map"
+msgstr ""
+
+#. ~ Description for pinned road map
+#: ./furniture_and_terrain/psi_enclave.json
+msgid ""
+"A road map of New England, gone soft from handling and shingled with sticky "
+"notes.  Red pins: hordes, each with a date.  Blue pins: crystals, most of "
+"them crossed out.  Green pins are rarer, and each one has an index card "
+"tacked beside it.  A few of the pins have been painted black.  Examine it to"
+" read the cards."
 msgstr ""
 
 #: ./furniture_and_terrain/psi_enclave.json
@@ -9271,15 +9294,6 @@ msgstr ""
 #. ~ Sign
 #: ./mapgen/psi_enclave/psi_enclave.json
 msgid ""
-"A road map of New England, gone soft from handling and shingled with sticky "
-"notes.  Red pins: hordes, each with a date.  Blue pins: crystals, most of "
-"them crossed out.  Green pins are rarer.  The newest green one has a note in"
-" careful block capitals: AWAKENED?  MOVING.  SEND SOMEONE."
-msgstr ""
-
-#. ~ Sign
-#: ./mapgen/psi_enclave/psi_enclave.json
-msgid ""
 "DAYS WITHOUT A DEATH: 11.  (Above it, someone has crossed out a 4, and then "
 "a 0.)"
 msgstr ""
@@ -12699,6 +12713,10 @@ msgid "What's in the old magazine up on the rim?"
 msgstr ""
 
 #: ./npcs/psi_alliance.json
+msgid "Could you use your gift to help me with something?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
 msgid "I should be going."
 msgstr ""
 
@@ -13322,6 +13340,227 @@ msgstr ""
 
 #: ./npcs/psi_alliance.json
 msgid "I'm on it."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid ""
+"Mark it on your map first.  Put a note on the spot, any note, and I'll find "
+"it.  But I can't land you on a pin.  You'll come down somewhere within about"
+" three map squares of your mark, and I don't get to choose where.  So think "
+"about what's inside that circle.  Especially water."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "I've marked it.  Send me."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "What's wrong with water?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "I'll go mark it first."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid ""
+"If there's a lake or a river inside three squares of your mark, you might "
+"come down in the middle of it, with everything you own on your back.  People"
+" don't swim out of that.  If you want to go somewhere near the coast or a "
+"river, put the mark inland, a few squares back from the shore, and walk the "
+"rest.  I'll warn you if I can feel water out there, but I'd rather you aimed"
+" right in the first place."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Understood.  I've marked it.  Send me."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "I'd better move my mark."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Where does it hurt?  Show me."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "*sparks crawl over their knuckles.*  What needs juice?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Broke something?  Let's see it."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "You look cold.  Everyone always looks cold."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "The basement's doing well.  Hungry?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Tell me what you're looking for."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Going somewhere?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "You're thinking very loudly.  Sit down."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "What do you need?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Can you patch me up?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "I have a bionic I need put in."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "I want a bionic taken out."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Can you charge my gear?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Could you fix up my gear?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "I'm chilled through.  Can you warm me up?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Anything growing in the basement?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Could you look for a place for me?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Can you send me somewhere?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "My head's a mess.  Can you help?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Warmed Through"
+msgstr ""
+
+#. ~ desc of effect 'mom_psi_warmed'
+#: ./npcs/psi_alliance.json
+msgid "A pyrokinetic's heat is still in you, keeping the cold out."
+msgstr ""
+
+#. ~ Apply message for effect(s) 'Warmed Through'.
+#: ./npcs/psi_alliance.json
+msgid "Warmth spreads through you and stays."
+msgstr ""
+
+#. ~ Remove message for effect(s) 'Warmed Through'.
+#: ./npcs/psi_alliance.json
+msgid "The borrowed warmth finally fades."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Quiet Mind"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid ""
+"I'd love to.  But I'm one pair of hands for the whole camp, and they're "
+"already full.  If you ever find another one like me out there, bring them "
+"home.  Then I'd have time to patch you up too."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid ""
+"Not yet.  All I can see right now is the next pin.  Bring home another "
+"clairsentient and the two of us can look a great deal farther.  Then I'll "
+"look for whatever you need."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid ""
+"Every spark I've got goes into the battery bank.  Bring me someone else who "
+"can make a current, and I'll have charge to spare for your gear."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid ""
+"The basement takes everything I have just to keep the tomatoes alive.  Bring"
+" home another photokinetic, and there'll be enough to send some with you."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid ""
+"The forge eats all the heat I can make.  Find me another fire-starter, and "
+"I'll have warmth to spare for you."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid ""
+"I'm holding half this quarry up as it is.  Literally, some days.  Bring home"
+" another telekinetic, and I'll start fixing your things too."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid ""
+"My head is full of everyone here already.  Bring home another telepath, "
+"someone to share the noise with, and I'll have room for yours."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid ""
+"I'm running every supply run there is, alone.  Find another jumper and bring"
+" them home.  With help, I could send you places."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Maybe someday."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Where would I find one?"
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "I'll keep an eye out."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid ""
+"That's my job.  Every time someone wakes up out there, I put a green pin on "
+"the map and ask somebody to go and get them.  Ask me for the next one.  I "
+"can't promise what they'll be, but sooner or later one will be like me."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid ""
+"Ask Wren.  Every time someone wakes up out there, she puts a green pin on "
+"the map.  You can't choose what they'll be when you find them, but sooner or"
+" later one of them will be like me."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "I'll talk to Wren."
+msgstr ""
+
+#: ./npcs/psi_alliance.json
+msgid "Then give me a pin."
 msgstr ""
 
 #: ./npcs/psi_civilians.json
@@ -15584,7 +15823,7 @@ msgstr ""
 
 #: ./recipes/practice/pyrokinesis_practice.json
 msgid ""
-"Contemplate your powers and improve your ability to call down sheets of fire on everything around you.\n"
+"Contemplate your powers and improve your ability to boil the fluids inside every creature you can see.\n"
 "\n"
 "Power Difficulty: 9\n"
 "\n"
@@ -15743,15 +15982,6 @@ msgid ""
 "Power Difficulty: 8\n"
 "\n"
 "Current Power Level: <u_spell_level:telekinetic_move_large_weight>"
-msgstr ""
-
-#: ./recipes/practice/telekinesis_practice.json
-msgid ""
-"Contemplate your powers and improve your ability to shield yourself from all harm.\n"
-"\n"
-"Power Difficulty: 9\n"
-"\n"
-"Current Power Level: <u_spell_level:telekinetic_aegis>"
 msgstr ""
 
 #: ./recipes/practice/telekinesis_practice.json
@@ -17652,8 +17882,9 @@ msgstr ""
 #. ~ Description for [Ψ]Psychometry
 #: ./spells/clairsentience.json ./spells/psychic_knacks.json
 msgid ""
-"You can examine an item and use your enhanced senses to determine its "
-"properties that may not be obvious to the eye."
+"Close your hand around an object and read the impressions left by whoever carried it before you.  At first you catch only a <color_light_green>feeling and a fragment</color> of what they lived through; with practice you learn <color_light_green>who they were</color>, and in time <color_light_green>what they feared and how it ended</color>.  The same object always tells the same story, and what you learn is written into its note.  Things you made, or have carried since the start, hold only you.\n"
+"\n"
+"Artifacts answer differently: you sense their hidden properties instead."
 msgstr ""
 
 #: ./spells/clairsentience.json
@@ -19029,7 +19260,6 @@ msgid ""
 "\n"
 "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
 "\n"
-"Level 12 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\n"
 "Level 5 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\n"
 "Level 10 leads to Inertial Barrier with Wave of Force 8.\n"
 "Level 5 leads to Lifting Field with Lift Vehicle 3 OR Far Hand 7 + Momentum Alteration 5.\n"
@@ -19046,7 +19276,6 @@ msgstr ""
 msgid ""
 "Counteract the pull of gravity with telekinetic force, greatly reducing or even eliminating damage from falling and becoming much more buoyant.\n"
 "\n"
-"Level 9 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\n"
 "Level 9 leads to Levitation.\n"
 "Level 8 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10."
 msgstr ""
@@ -19061,7 +19290,6 @@ msgstr ""
 msgid ""
 "Unleash a telekinetic wave around you that indiscriminately knocks everything back.\n"
 "\n"
-"Level 8 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\n"
 "Level 13 leads to Earthshaker with Megakinesis 5 + Wrecking Ball 8 OR Mindhammer 9 + Wrecking Ball 8 OR Megakinesis 5 + Wave of Force 13 OR Mindhammer 9 + Wave of Force 13.\n"
 "Level 8 leads to Inertial Barrier with Momentum Alteration 10.\n"
 "Level 4 leads to Mindhammer with Knockdown 6 + Wave of Force 4 OR Force Shove 8 + Knockdown 6."
@@ -19092,7 +19320,6 @@ msgid ""
 "\n"
 "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.\n"
 "\n"
-"Level 8 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\n"
 "Level 10 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10."
 msgstr ""
 
@@ -19143,9 +19370,7 @@ msgstr ""
 msgid ""
 "Create a telekinetic barrier around yourself to protect you from damage.\n"
 "\n"
-"This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
-"\n"
-"Level 7 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9."
+"This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>."
 msgstr ""
 
 #: ./spells/telekinesis.json
@@ -19187,23 +19412,6 @@ msgid ""
 "Telekinesis on a grand scale, this power allows you to move truly enormous amounts of weight, hurling a human-sized target at lethal speeds or picking up and throwing something monstrously large.  The amount of weight you can move is dependent on the power level.\n"
 "\n"
 "Level 5 leads to Earthshaker with Megakinesis 5 + Wrecking Ball 8 OR Mindhammer 9 + Wrecking Ball 8 OR Megakinesis 5 + Wave of Force 13 OR Mindhammer 9 + Wave of Force 13."
-msgstr ""
-
-#: ./spells/telekinesis.json
-msgid "[Ψ]Aegis"
-msgstr ""
-
-#. ~ Description for [Ψ]Aegis
-#: ./spells/telekinesis.json
-msgid ""
-"Create a shield impenetrable to physical damage around yourself.  It will "
-"<color_yellow>only last a few moments</color>.  You will be "
-"<color_red>unable to move</color> while the power is in effect."
-msgstr ""
-
-#. ~ Message for SPELL '[Ψ]Aegis'
-#: ./spells/telekinesis.json
-msgid "The air around you becomes as hard as adamant."
 msgstr ""
 
 #: ./spells/telekinesis.json

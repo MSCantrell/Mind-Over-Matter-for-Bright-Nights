@@ -338,7 +338,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "description": "Contemplate your powers and improve your ability to confound your enemies's senses.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:telepathic_confusion>",
+    "description": "Contemplate your powers and improve your ability to confound your enemies' senses.\n\nPower Difficulty: 5\n\nCurrent Power Level: <u_spell_level:telepathic_confusion>",
     "difficulty": 0,
     "category": "CC_*",
     "skill_used": "metaphysics"

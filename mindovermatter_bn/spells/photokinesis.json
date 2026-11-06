@@ -166,7 +166,7 @@
     "id": "photokinetic_light_up_enemy",
     "type": "SPELL",
     "name": "[\u03a8]Illuminate",
-    "description": "Surround a single target with a outline of line that follows them as they move, revealing their position at all times.\n\nLevel 6 leads to Flashbang with Field of Light 9 + Illuminate 6 OR Illuminate 6 + Photon Beam 5.\nLevel 9 leads to Gamma Sterilization with Chameleoflage 4 + Lucent Barrier 7 + Star Flash 3 OR Chameleoflage 4 + Illuminate 9 + Lucent Barrier 7 OR Chameleoflage 4 + Lucent Barrier 7 + Photon Beam 5.",
+    "description": "Surround a single target with an outline of line that follows them as they move, revealing their position at all times.\n\nLevel 6 leads to Flashbang with Field of Light 9 + Illuminate 6 OR Illuminate 6 + Photon Beam 5.\nLevel 9 leads to Gamma Sterilization with Chameleoflage 4 + Lucent Barrier 7 + Star Flash 3 OR Chameleoflage 4 + Illuminate 9 + Lucent Barrier 7 OR Chameleoflage 4 + Lucent Barrier 7 + Photon Beam 5.",
     "message": "Your target is outlined in light.",
     "valid_targets": [
       "ally",
@@ -245,7 +245,7 @@
     "id": "photokinetic_light_dodge",
     "type": "SPELL",
     "name": "[\u03a8]Trick of the Light (C)",
-    "description": "Manipulate the light around your body, creating shifting illusions, blurring your outline and position, and becoming harder to hit.  An enemy successfully hitting you will pinpoint your location and <color_red>disrupt the power</color>.\n\nhis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 6 leads to Chameleoflage.\nLevel 9 leads to Lucent Barrier with Trick of the Light 9 OR Blackout 6 + Chameleoflage 5.\nLevel 8 leads to Refracted Arms with Candle's Glow 6 + Chameleoflage 6.",
+    "description": "Manipulate the light around your body, creating shifting illusions, blurring your outline and position, and becoming harder to hit.  An enemy successfully hitting you will pinpoint your location and <color_red>disrupt the power</color>.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 6 leads to Chameleoflage.\nLevel 9 leads to Lucent Barrier with Trick of the Light 9 OR Blackout 6 + Chameleoflage 5.\nLevel 8 leads to Refracted Arms with Candle's Glow 6 + Chameleoflage 6.",
     "message": "",
     "valid_targets": [
       "self"
@@ -564,7 +564,7 @@
     "id": "photokinetic_sterilize_food",
     "type": "SPELL",
     "name": "[\u03a8]Gamma Sterilization",
-    "description": "Use a focused emission of high-power radiation to eliminating microorganisms in food and allowing it to last much longer before rotting.  This power is <color_red>extremely taxing</color>.",
+    "description": "Use a focused emission of high-power radiation to eliminate microorganisms in food and allow it to last much longer before rotting.  This power is <color_red>extremely taxing</color>.",
     "message": "",
     "valid_targets": [
       "self"

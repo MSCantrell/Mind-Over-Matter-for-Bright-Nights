@@ -186,7 +186,7 @@
     "name": {
       "str": "active null grenade"
     },
-    "description": "This null grenade is activate and ready to unleash its pulse.  You'd better throw it!",
+    "description": "This null grenade is active and ready to unleash its pulse.  You'd better throw it!",
     "weight": "397 g",
     "volume": "270 ml",
     "price": "0 cent",

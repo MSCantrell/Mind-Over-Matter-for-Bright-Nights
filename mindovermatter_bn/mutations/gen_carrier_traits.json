@@ -80,6 +80,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -87,18 +94,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.2
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -387,6 +382,25 @@
             "value": "ARMOR_BULLET",
             "add": 0
           }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_psi_blind_L0",
+    "name": "Blind",
+    "points": 0,
+    "description": "Carrier trait for psi_blind (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "BLIND"
         ]
       }
     ]
@@ -831,6 +845,25 @@
   },
   {
     "type": "mutation",
+    "id": "MOM_CAR_nether_attunement_clair_blurred_sight_L0",
+    "name": "Blurred Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_nether_attunement_clair_blurred_sight (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
     "id": "MOM_CAR_nether_attunement_pyrokinetic_fever_L0",
     "name": "Feverish",
     "points": 0,
@@ -907,6 +940,25 @@
   },
   {
     "type": "mutation",
+    "id": "MOM_CAR_blind_clair_overload_L0",
+    "name": "Blind",
+    "points": 0,
+    "description": "Carrier trait for blind_clair_overload (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "BLIND"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
     "id": "MOM_CAR_electrokin_overload_L0",
     "name": "Jerky",
     "points": 0,
@@ -945,6 +997,44 @@
             "value": "LUMINATION",
             "max": 50
           }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_photokin_myopia_overload_L0",
+    "name": "Blurred Sight",
+    "points": 0,
+    "description": "Carrier trait for effect_photokin_myopia_overload (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_blind_photokin_overload_L0",
+    "name": "Blind",
+    "points": 0,
+    "description": "Carrier trait for blind_photokin_overload (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "BLIND"
         ]
       }
     ]
@@ -1098,6 +1188,12 @@
             "add": -4
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "immune_effects": [
+          "bleed"
+        ]
       }
     ]
   },
@@ -1150,6 +1246,34 @@
             "max": 8
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "SLEEP_SIGHT"
+        ],
+        "immune_effects": [
+          "deaf"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_potion_comedown_L0",
+    "name": "Gray Elixir Aftereffects",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_potion_comedown (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -1194,6 +1318,12 @@
             "value": "LUMINATION",
             "max": 10
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "ANTIGLARE"
         ]
       }
     ]
@@ -1242,6 +1372,7 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "temperature_speed_modifier": 0.2,
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -1372,6 +1503,18 @@
             "value": "HEALTH_POINTS_LEG",
             "multiply": 0.2
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "FOOD_PARASITE_IMMUNE"
+        ],
+        "immune_effects": [
+          "common_cold",
+          "flu",
+          "bite",
+          "infected"
         ]
       }
     ]
@@ -2154,6 +2297,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2161,18 +2311,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": 0
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2188,6 +2326,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2195,18 +2340,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.02
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2222,6 +2355,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2229,18 +2369,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.04
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2256,6 +2384,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2263,18 +2398,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.06
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2290,6 +2413,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2297,18 +2427,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.08
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2324,6 +2442,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2331,18 +2456,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.1
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2358,6 +2471,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2365,18 +2485,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.12
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2392,6 +2500,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2399,18 +2514,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.14
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2426,6 +2529,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2433,18 +2543,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.16
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2460,6 +2558,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2467,18 +2572,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.18
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2494,6 +2587,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2501,18 +2601,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.2
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2528,6 +2616,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2535,18 +2630,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.22
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2562,6 +2645,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2569,18 +2659,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.24
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2596,6 +2674,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2603,18 +2688,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.26
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2630,6 +2703,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2637,18 +2717,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.28
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -2664,6 +2732,13 @@
     "purifiable": false,
     "valid": false,
     "player_display": false,
+    "armor": [
+      {
+        "parts": "ALL",
+        "bash": 6,
+        "cut": 4
+      }
+    ],
     "mut_enchantments": [
       {
         "condition": "ALWAYS",
@@ -2671,18 +2746,6 @@
           {
             "value": "PAIN_GAIN",
             "multiply": -0.3
-          },
-          {
-            "value": "ARMOR_BASH",
-            "add": -6
-          },
-          {
-            "value": "ARMOR_STAB",
-            "add": -3
-          },
-          {
-            "value": "ARMOR_CUT",
-            "add": -4
           }
         ]
       }
@@ -3100,6 +3163,963 @@
             "value": "CLIMATE_CONTROL_HEATING",
             "add": 127.5
           }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L0",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L1",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 1).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -1
+      ],
+      [
+        "head",
+        -1
+      ],
+      [
+        "eyes",
+        -1
+      ],
+      [
+        "mouth",
+        -1
+      ],
+      [
+        "arm_l",
+        -1
+      ],
+      [
+        "arm_r",
+        -1
+      ],
+      [
+        "hand_l",
+        -1
+      ],
+      [
+        "hand_r",
+        -1
+      ],
+      [
+        "leg_l",
+        -1
+      ],
+      [
+        "leg_r",
+        -1
+      ],
+      [
+        "foot_l",
+        -1
+      ],
+      [
+        "foot_r",
+        -1
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L2",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 2).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -2
+      ],
+      [
+        "head",
+        -2
+      ],
+      [
+        "eyes",
+        -2
+      ],
+      [
+        "mouth",
+        -2
+      ],
+      [
+        "arm_l",
+        -2
+      ],
+      [
+        "arm_r",
+        -2
+      ],
+      [
+        "hand_l",
+        -2
+      ],
+      [
+        "hand_r",
+        -2
+      ],
+      [
+        "leg_l",
+        -2
+      ],
+      [
+        "leg_r",
+        -2
+      ],
+      [
+        "foot_l",
+        -2
+      ],
+      [
+        "foot_r",
+        -2
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L3",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 3).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -3
+      ],
+      [
+        "head",
+        -3
+      ],
+      [
+        "eyes",
+        -3
+      ],
+      [
+        "mouth",
+        -3
+      ],
+      [
+        "arm_l",
+        -3
+      ],
+      [
+        "arm_r",
+        -3
+      ],
+      [
+        "hand_l",
+        -3
+      ],
+      [
+        "hand_r",
+        -3
+      ],
+      [
+        "leg_l",
+        -3
+      ],
+      [
+        "leg_r",
+        -3
+      ],
+      [
+        "foot_l",
+        -3
+      ],
+      [
+        "foot_r",
+        -3
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L4",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 4).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -4
+      ],
+      [
+        "head",
+        -4
+      ],
+      [
+        "eyes",
+        -4
+      ],
+      [
+        "mouth",
+        -4
+      ],
+      [
+        "arm_l",
+        -4
+      ],
+      [
+        "arm_r",
+        -4
+      ],
+      [
+        "hand_l",
+        -4
+      ],
+      [
+        "hand_r",
+        -4
+      ],
+      [
+        "leg_l",
+        -4
+      ],
+      [
+        "leg_r",
+        -4
+      ],
+      [
+        "foot_l",
+        -4
+      ],
+      [
+        "foot_r",
+        -4
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L5",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 5).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -5
+      ],
+      [
+        "head",
+        -5
+      ],
+      [
+        "eyes",
+        -5
+      ],
+      [
+        "mouth",
+        -5
+      ],
+      [
+        "arm_l",
+        -5
+      ],
+      [
+        "arm_r",
+        -5
+      ],
+      [
+        "hand_l",
+        -5
+      ],
+      [
+        "hand_r",
+        -5
+      ],
+      [
+        "leg_l",
+        -5
+      ],
+      [
+        "leg_r",
+        -5
+      ],
+      [
+        "foot_l",
+        -5
+      ],
+      [
+        "foot_r",
+        -5
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L6",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 6).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -6
+      ],
+      [
+        "head",
+        -6
+      ],
+      [
+        "eyes",
+        -6
+      ],
+      [
+        "mouth",
+        -6
+      ],
+      [
+        "arm_l",
+        -6
+      ],
+      [
+        "arm_r",
+        -6
+      ],
+      [
+        "hand_l",
+        -6
+      ],
+      [
+        "hand_r",
+        -6
+      ],
+      [
+        "leg_l",
+        -6
+      ],
+      [
+        "leg_r",
+        -6
+      ],
+      [
+        "foot_l",
+        -6
+      ],
+      [
+        "foot_r",
+        -6
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L7",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 7).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -7
+      ],
+      [
+        "head",
+        -7
+      ],
+      [
+        "eyes",
+        -7
+      ],
+      [
+        "mouth",
+        -7
+      ],
+      [
+        "arm_l",
+        -7
+      ],
+      [
+        "arm_r",
+        -7
+      ],
+      [
+        "hand_l",
+        -7
+      ],
+      [
+        "hand_r",
+        -7
+      ],
+      [
+        "leg_l",
+        -7
+      ],
+      [
+        "leg_r",
+        -7
+      ],
+      [
+        "foot_l",
+        -7
+      ],
+      [
+        "foot_r",
+        -7
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L8",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 8).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -8
+      ],
+      [
+        "head",
+        -8
+      ],
+      [
+        "eyes",
+        -8
+      ],
+      [
+        "mouth",
+        -8
+      ],
+      [
+        "arm_l",
+        -8
+      ],
+      [
+        "arm_r",
+        -8
+      ],
+      [
+        "hand_l",
+        -8
+      ],
+      [
+        "hand_r",
+        -8
+      ],
+      [
+        "leg_l",
+        -8
+      ],
+      [
+        "leg_r",
+        -8
+      ],
+      [
+        "foot_l",
+        -8
+      ],
+      [
+        "foot_r",
+        -8
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L9",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 9).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -9
+      ],
+      [
+        "head",
+        -9
+      ],
+      [
+        "eyes",
+        -9
+      ],
+      [
+        "mouth",
+        -9
+      ],
+      [
+        "arm_l",
+        -9
+      ],
+      [
+        "arm_r",
+        -9
+      ],
+      [
+        "hand_l",
+        -9
+      ],
+      [
+        "hand_r",
+        -9
+      ],
+      [
+        "leg_l",
+        -9
+      ],
+      [
+        "leg_r",
+        -9
+      ],
+      [
+        "foot_l",
+        -9
+      ],
+      [
+        "foot_r",
+        -9
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L10",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 10).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -10
+      ],
+      [
+        "head",
+        -10
+      ],
+      [
+        "eyes",
+        -10
+      ],
+      [
+        "mouth",
+        -10
+      ],
+      [
+        "arm_l",
+        -10
+      ],
+      [
+        "arm_r",
+        -10
+      ],
+      [
+        "hand_l",
+        -10
+      ],
+      [
+        "hand_r",
+        -10
+      ],
+      [
+        "leg_l",
+        -10
+      ],
+      [
+        "leg_r",
+        -10
+      ],
+      [
+        "foot_l",
+        -10
+      ],
+      [
+        "foot_r",
+        -10
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L11",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 11).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -11
+      ],
+      [
+        "head",
+        -11
+      ],
+      [
+        "eyes",
+        -11
+      ],
+      [
+        "mouth",
+        -11
+      ],
+      [
+        "arm_l",
+        -11
+      ],
+      [
+        "arm_r",
+        -11
+      ],
+      [
+        "hand_l",
+        -11
+      ],
+      [
+        "hand_r",
+        -11
+      ],
+      [
+        "leg_l",
+        -11
+      ],
+      [
+        "leg_r",
+        -11
+      ],
+      [
+        "foot_l",
+        -11
+      ],
+      [
+        "foot_r",
+        -11
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L12",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 12).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -12
+      ],
+      [
+        "head",
+        -12
+      ],
+      [
+        "eyes",
+        -12
+      ],
+      [
+        "mouth",
+        -12
+      ],
+      [
+        "arm_l",
+        -12
+      ],
+      [
+        "arm_r",
+        -12
+      ],
+      [
+        "hand_l",
+        -12
+      ],
+      [
+        "hand_r",
+        -12
+      ],
+      [
+        "leg_l",
+        -12
+      ],
+      [
+        "leg_r",
+        -12
+      ],
+      [
+        "foot_l",
+        -12
+      ],
+      [
+        "foot_r",
+        -12
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L13",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 13).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -13
+      ],
+      [
+        "head",
+        -13
+      ],
+      [
+        "eyes",
+        -13
+      ],
+      [
+        "mouth",
+        -13
+      ],
+      [
+        "arm_l",
+        -13
+      ],
+      [
+        "arm_r",
+        -13
+      ],
+      [
+        "hand_l",
+        -13
+      ],
+      [
+        "hand_r",
+        -13
+      ],
+      [
+        "leg_l",
+        -13
+      ],
+      [
+        "leg_r",
+        -13
+      ],
+      [
+        "foot_l",
+        -13
+      ],
+      [
+        "foot_r",
+        -13
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L14",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 14).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -14
+      ],
+      [
+        "head",
+        -14
+      ],
+      [
+        "eyes",
+        -14
+      ],
+      [
+        "mouth",
+        -14
+      ],
+      [
+        "arm_l",
+        -14
+      ],
+      [
+        "arm_r",
+        -14
+      ],
+      [
+        "hand_l",
+        -14
+      ],
+      [
+        "hand_r",
+        -14
+      ],
+      [
+        "leg_l",
+        -14
+      ],
+      [
+        "leg_r",
+        -14
+      ],
+      [
+        "foot_l",
+        -14
+      ],
+      [
+        "foot_r",
+        -14
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_enhance_mobility_L15",
+    "name": "Enhanced Mobility",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_enhance_mobility (level 15).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "encumbrance_always": [
+      [
+        "torso",
+        -15
+      ],
+      [
+        "head",
+        -15
+      ],
+      [
+        "eyes",
+        -15
+      ],
+      [
+        "mouth",
+        -15
+      ],
+      [
+        "arm_l",
+        -15
+      ],
+      [
+        "arm_r",
+        -15
+      ],
+      [
+        "hand_l",
+        -15
+      ],
+      [
+        "hand_r",
+        -15
+      ],
+      [
+        "leg_l",
+        -15
+      ],
+      [
+        "leg_r",
+        -15
+      ],
+      [
+        "foot_l",
+        -15
+      ],
+      [
+        "foot_r",
+        -15
+      ]
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_biokin_sealed_L0",
+    "name": "Sealed System",
+    "points": 0,
+    "description": "Carrier trait for effect_biokin_sealed (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "scent_modifier": 0.0,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "immune_fields": [
+          "fd_smoke",
+          "fd_toxic_gas",
+          "fd_tear_gas",
+          "fd_nuke_gas",
+          "fd_gas_vent",
+          "fd_pollen_triffid",
+          "fd_relax_gas",
+          "fd_swamp_gas",
+          "fd_fungal_haze",
+          "fd_migo_atmosphere",
+          "fd_fungicidal_gas",
+          "fd_insecticidal_gas"
         ]
       }
     ]
@@ -4353,6 +5373,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.5
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4375,6 +5399,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.515
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4397,6 +5425,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.53
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4419,6 +5451,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.545
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4441,6 +5477,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.56
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4463,6 +5503,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.575
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4485,6 +5529,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.59
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4507,6 +5555,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.605
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4529,6 +5581,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.62
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4551,6 +5607,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.635
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4573,6 +5633,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.65
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4595,6 +5659,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.665
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4617,6 +5685,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.68
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4639,6 +5711,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.695
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4661,6 +5737,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.71
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -4683,6 +5763,10 @@
           {
             "value": "MOVE_COST",
             "multiply": -0.725
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -5062,6 +6146,28 @@
             "value": "RANGED_RANGE",
             "multiply": -1.99
           }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_passive_sense_protection_L0",
+    "name": "effect_clair_passive_sense_protection",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_passive_sense_protection (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "ANTIGLARE"
+        ],
+        "immune_effects": [
+          "deaf"
         ]
       }
     ]
@@ -5622,6 +6728,44 @@
       {
         "special_vision": [
           "MOM_VIS_clair_better_senses_0_D2"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_better_senses_eye_membrane_L0",
+    "name": "effect_clair_better_senses_eye_membrane",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_better_senses_eye_membrane (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "UNDERWATER_SIGHT"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_better_senses_see_sleep_L0",
+    "name": "effect_clair_better_senses_see_sleep",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_better_senses_see_sleep (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "SLEEP_SIGHT"
         ]
       }
     ]
@@ -7837,6 +8981,12 @@
             "multiply": 0.04
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -7862,6 +9012,12 @@
             "value": "CRAFTING_SPEED",
             "multiply": 0.05
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -7889,6 +9045,12 @@
             "multiply": 0.06
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -7914,6 +9076,12 @@
             "value": "CRAFTING_SPEED",
             "multiply": 0.07
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -7941,6 +9109,12 @@
             "multiply": 0.08
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -7966,6 +9140,12 @@
             "value": "CRAFTING_SPEED",
             "multiply": 0.09
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -7993,6 +9173,12 @@
             "multiply": 0.1
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -8018,6 +9204,12 @@
             "value": "CRAFTING_SPEED",
             "multiply": 0.11
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -8045,6 +9237,12 @@
             "multiply": 0.12
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -8070,6 +9268,12 @@
             "value": "CRAFTING_SPEED",
             "multiply": 0.13
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -8097,6 +9301,12 @@
             "multiply": 0.14
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -8122,6 +9332,12 @@
             "value": "CRAFTING_SPEED",
             "multiply": 0.15
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -8149,6 +9365,12 @@
             "multiply": 0.16
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -8174,6 +9396,12 @@
             "value": "CRAFTING_SPEED",
             "multiply": 0.17
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -8201,6 +9429,12 @@
             "multiply": 0.18
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -8226,6 +9460,31 @@
             "value": "CRAFTING_SPEED",
             "multiply": 0.19
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_clair_craft_bonus_blindness_L0",
+    "name": "effect_clair_craft_bonus_blindness",
+    "points": 0,
+    "description": "Carrier trait for effect_clair_craft_bonus_blindness (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "BLIND"
         ]
       }
     ]
@@ -10291,6 +11550,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10313,6 +11576,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10335,6 +11602,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10357,6 +11628,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10379,6 +11654,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10401,6 +11680,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10423,6 +11706,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10445,6 +11732,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10467,6 +11758,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10489,6 +11784,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10511,6 +11810,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10533,6 +11836,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10555,6 +11862,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10577,6 +11888,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10599,6 +11914,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10621,6 +11940,10 @@
           {
             "value": "BONUS_DODGE",
             "add": 0.85
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -10837,7 +12160,16 @@
             "max": 15
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "ANTIGLARE"
+        ]
       }
+    ],
+    "flags": [
+      "NO_RADIATION"
     ]
   },
   {
@@ -11034,6 +12366,25 @@
   },
   {
     "type": "mutation",
+    "id": "MOM_CAR_photokin_blind_L0",
+    "name": "Blind",
+    "points": 0,
+    "description": "Carrier trait for effect_photokin_blind (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "BLIND"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
     "id": "MOM_CAR_photokin_blinding_glare_L0",
     "name": "Blinding Radiance",
     "points": 0,
@@ -11050,6 +12401,25 @@
             "value": "LUMINATION",
             "max": 10001
           }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MOM_CAR_pyrokinetic_flash_L0",
+    "name": "Blind",
+    "points": 0,
+    "description": "Carrier trait for effect_pyrokinetic_flash (level 0).  Hidden.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "player_display": false,
+    "mut_enchantments": [
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "BLIND"
         ]
       }
     ]
@@ -14139,6 +15509,12 @@
             "multiply": 3.0
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -14164,6 +15540,12 @@
             "value": "MOVE_COST",
             "multiply": 3.0
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -14191,6 +15573,12 @@
             "multiply": 3.0
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -14216,6 +15604,12 @@
             "value": "MOVE_COST",
             "multiply": 3.0
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -14243,6 +15637,12 @@
             "multiply": 3.0
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -14268,6 +15668,12 @@
             "value": "MOVE_COST",
             "multiply": 3.0
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -14295,6 +15701,12 @@
             "multiply": 3.0
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -14320,6 +15732,12 @@
             "value": "MOVE_COST",
             "multiply": 3.0
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -14347,6 +15765,12 @@
             "multiply": 3.0
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -14372,6 +15796,12 @@
             "value": "MOVE_COST",
             "multiply": 3.0
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -14399,6 +15829,12 @@
             "multiply": 3.0
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -14424,6 +15860,12 @@
             "value": "MOVE_COST",
             "multiply": 3.0
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -14451,6 +15893,12 @@
             "multiply": 3.0
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -14476,6 +15924,12 @@
             "value": "MOVE_COST",
             "multiply": 3.0
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -14503,6 +15957,12 @@
             "multiply": 3.0
           }
         ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
+        ]
       }
     ]
   },
@@ -14528,6 +15988,12 @@
             "value": "MOVE_COST",
             "multiply": 3.0
           }
+        ]
+      },
+      {
+        "condition": "ALWAYS",
+        "flags": [
+          "NEARSIGHTED"
         ]
       }
     ]
@@ -14613,6 +16079,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.05
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -14699,6 +16169,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.055
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -14785,6 +16259,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.06
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -14871,6 +16349,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.065
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -14957,6 +16439,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.07
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -15043,6 +16529,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.075
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -15129,6 +16619,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.08
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -15215,6 +16709,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.085
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -15301,6 +16799,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.09
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -15387,6 +16889,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.095
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -15473,6 +16979,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.1
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -15559,6 +17069,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.105
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -15645,6 +17159,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.11
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -15731,6 +17249,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.115
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -15817,6 +17339,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.12
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }
@@ -15903,6 +17429,10 @@
           {
             "value": "RANGED_DAMAGE_TRUE",
             "multiply": 0.125
+          },
+          {
+            "value": "UNCANNY_DODGE",
+            "add": 1
           }
         ]
       }

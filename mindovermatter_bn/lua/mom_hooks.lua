@@ -938,17 +938,19 @@ return function(mod)
   -- for items or Character at all (checked catalua_bindings_item.cpp -- both
   -- are absent), so this reimplements the check as an itype allow-list, the
   -- same workaround the Electrokinetic hacking bridge above uses for its own
-  -- native-system gap.  Roster: bone_skewer, hairpin_picklock, crude_picklock,
-  -- picklocks (locksmith kit), iceaxe, pseudo_bio_picklock (bionic).
+  -- native-system gap.  Roster = every BN item with LOCKPICK (re-derived from
+  -- CBN/data/json 2026-11-06): skewer_bone, hairpin_picklock, crude_picklock,
+  -- picklocks (locksmith kit), pseudo_bio_picklock (bionic).  The old list had
+  -- "bone_skewer" (DDA spelling -> "Missing item definition" debugmsg) and
+  -- iceaxe (PRY/HAMMER only in BN, not a lockpick).
   local lockpick_itypes
   local function get_lockpick_itypes()
     if lockpick_itypes then return lockpick_itypes end
     lockpick_itypes = {
-      ItypeId.new("bone_skewer"),
+      ItypeId.new("skewer_bone"),
       ItypeId.new("hairpin_picklock"),
       ItypeId.new("crude_picklock"),
       ItypeId.new("picklocks"),
-      ItypeId.new("iceaxe"),
       ItypeId.new("pseudo_bio_picklock"),
     }
     return lockpick_itypes

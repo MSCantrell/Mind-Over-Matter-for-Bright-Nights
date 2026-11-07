@@ -852,12 +852,6 @@
             ]
           },
           {
-            "item": "chaos_stone",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
             "item": "clair_sense_rad_item",
             "custom-flags": [
               "no_auto_equip"

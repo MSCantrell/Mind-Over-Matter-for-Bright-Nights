@@ -67,7 +67,9 @@
     "show_in_info": true,
     "flags": [
       "BLIND",
-      "EFFECT_LIMB_SCORE_MOD"
+      "EFFECT_LIMB_SCORE_MOD",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_penalty.json"
   },
@@ -89,7 +91,9 @@
     "show_in_info": true,
     "flags": [
       "BLIND",
-      "EFFECT_LIMB_SCORE_MOD"
+      "EFFECT_LIMB_SCORE_MOD",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_penalty.json"
   },
@@ -109,7 +113,9 @@
     "int_dur_factor": "100 s",
     "flags": [
       "DEAF",
-      "EFFECT_LIMB_SCORE_MOD"
+      "EFFECT_LIMB_SCORE_MOD",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_penalty.json"
   },
@@ -289,6 +295,10 @@
     "remove_message": "Your gear suddenly seems to weigh you down.",
     "rating": "good",
     "max_duration": "7 days",
+    "flags": [
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
+    ],
     "//src": "effects_psionic.json"
   },
   {
@@ -857,7 +867,7 @@
     "//": "Gills here because they're holding their breath",
     "flags": [
       "NO_SCENT",
-      "ELECTRIC_IMMUNE",
+      "EFFECT_ELECTRIC_IMMUNE",
       "RAD_RESIST",
       "GILLS",
       "WALK_UNDERWATER",
@@ -981,7 +991,7 @@
     "flags": [
       "ETHEREAL",
       "EFFECT_INVISIBLE",
-      "FEATHER_FALL",
+      "EFFECT_FEATHER_FALL",
       "CLIMB_FLYING",
       "LEVITATION",
       "ITEM_WATERPROOFING",
@@ -1022,7 +1032,9 @@
       ""
     ],
     "flags": [
-      "EYE_MEMBRANE"
+      "EYE_MEMBRANE",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_psionic.json"
   },
@@ -1083,7 +1095,9 @@
       ""
     ],
     "flags": [
-      "SEESLEEP"
+      "SEESLEEP",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_psionic.json"
   },
@@ -1152,7 +1166,9 @@
       ""
     ],
     "flags": [
-      "BLIND"
+      "BLIND",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_psionic.json"
   },
@@ -1296,7 +1312,9 @@
     ],
     "flags": [
       "GLARE_RESIST",
-      "IMMUNE_HEARING_DAMAGE"
+      "IMMUNE_HEARING_DAMAGE",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_psionic.json"
   },
@@ -1378,7 +1396,9 @@
     },
     "flags": [
       "HYPEROPIC",
-      "MYOPIC"
+      "MYOPIC",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_potions.json"
   },
@@ -1558,7 +1578,9 @@
       "CANNOT_MOVE",
       "CANNOT_ATTACK",
       "NO_PSIONICS",
-      "NO_SPELLCASTING"
+      "NO_SPELLCASTING",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_psionic.json"
   },
@@ -1745,7 +1767,7 @@
     "int_dur_factor": "17 s",
     "flags": [
       "EMP_IMMUNE",
-      "ELECTRIC_IMMUNE"
+      "EFFECT_ELECTRIC_IMMUNE"
     ],
     "//src": "effects_psionic.json"
   },
@@ -1766,7 +1788,7 @@
     "dur_add_perc": 0,
     "flags": [
       "EMP_IMMUNE",
-      "ELECTRIC_IMMUNE"
+      "EFFECT_ELECTRIC_IMMUNE"
     ],
     "//src": "effects_psionic.json"
   },
@@ -1800,7 +1822,9 @@
       "effect_electrokinetic_speed_boost"
     ],
     "flags": [
-      "PAIN_IMMUNE"
+      "PAIN_IMMUNE",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_psionic.json"
   },
@@ -2154,7 +2178,9 @@
       "LEVITATION",
       "CLIMB_FLYING",
       "ITEM_WATERPROOFING",
-      "WATERWALKING"
+      "WATERWALKING",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_artifact.json"
   },
@@ -2677,7 +2703,9 @@
     "flags": [
       "EFFECT_LIMB_SCORE_MOD",
       "HYPEROPIC",
-      "MYOPIC_SUPERNATURAL"
+      "MYOPIC_SUPERNATURAL",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_nether_attunement.json"
   },
@@ -2948,7 +2976,9 @@
     "rating": "bad",
     "show_in_info": true,
     "flags": [
-      "BLIND"
+      "BLIND",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "max_duration": "3 d",
     "//src": "effects_psionic.json"
@@ -3175,7 +3205,9 @@
     },
     "flags": [
       "MYOPIC_SUPERNATURAL",
-      "EFFECT_LIMB_SCORE_MOD"
+      "EFFECT_LIMB_SCORE_MOD",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_penalty.json"
   },
@@ -3928,7 +3960,7 @@
       "blisters"
     ],
     "flags": [
-      "HEAT_IMMUNE",
+      "EFFECT_HEAT_IMMUNE",
       "EFFECT_LUA_ON_ADDED",
       "EFFECT_LUA_ON_REMOVED"
     ],
@@ -3954,7 +3986,9 @@
     "max_duration": "15 minutes",
     "show_in_info": true,
     "flags": [
-      "BLIND"
+      "BLIND",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_psionic.json"
   },
@@ -4203,7 +4237,7 @@
       ""
     ],
     "flags": [
-      "HEAT_IMMUNE"
+      "EFFECT_HEAT_IMMUNE"
     ],
     "//src": "effects_items.json"
   },
@@ -4759,7 +4793,7 @@
     "max_duration": "30 hours",
     "max_intensity": 1,
     "flags": [
-      "FEATHER_FALL"
+      "EFFECT_FEATHER_FALL"
     ],
     "//src": "effects_potions.json"
   },
@@ -5911,7 +5945,9 @@
     "show_in_info": true,
     "flags": [
       "EFFECT_LIMB_SCORE_MOD",
-      "BLIND"
+      "BLIND",
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
     ],
     "//src": "effects_monster.json"
   },

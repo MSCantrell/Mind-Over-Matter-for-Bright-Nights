@@ -111,11 +111,30 @@ M.SKILL_CAPS = { metaphysics = 15 }
 -- internal scaling (the EOC math already multiplies by
 -- game_option('SKILL_TRAINING_SPEED') itself), so skip_scaling=true here
 -- mirrors that: it adds straight to _exercise (skill.cpp:237).
+-- Raw-grant rate cut (2026-11-07, playtest: Metaphysics climbed far too fast).
+-- DDA counts exercise in 10000*(lvl+1)^2 units, BN in 100*(lvl+1)^2, so the
+-- transpiled raw grants (cast success/failure, maintained-power ticks, power
+-- study ticks -- the ONLY callers of gain_skill_exp) land 100x stronger than
+-- upstream intended.  Design call: scale them to 1/4 rather than full DDA
+-- parity.  Engine-side sources (practice recipes, metaphysics crafting, books)
+-- go through BN's own practice() and are untouched.  Fractions are rolled
+-- (3.75 -> 3 or 4) so small grants keep their average instead of rounding away.
+M.RAW_SKILL_EXP_MULT = { metaphysics = 0.25 }
+
 function M.gain_skill_exp(you, skill_id, amount)
   local sid = skill_tid(skill_id)
   local cap = M.SKILL_CAPS[skill_id]
   if cap and you:get_skill_level(sid) >= cap then return end   -- already at ceiling
-  you:get_skill_level_object(sid):train(math.floor(amount + 0.5), true)
+  local mult = M.RAW_SKILL_EXP_MULT[skill_id]
+  if mult then
+    local scaled = amount * mult
+    amount = math.floor(scaled)
+    if gapi.rng(1, 1000000) <= (scaled - amount) * 1000000 then amount = amount + 1 end
+  else
+    amount = math.floor(amount + 0.5)
+  end
+  if amount <= 0 then return end
+  you:get_skill_level_object(sid):train(amount, true)
   -- A single large grant can vault multiple levels at once; clamp any overshoot
   -- so the ceiling is exact, not "the last level before a big grant".
   if cap and you:get_skill_level(sid) > cap then

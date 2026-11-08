@@ -737,6 +737,125 @@ return function(mod)
     return ok
   end
 
+  -- Kinetic Trap / Pyrolytic Trap (original fork powers, 2026-11-07).
+  --
+  -- Cast: the spell is a do-nothing ground target_attack (range 1); its
+  -- `components` requirement has already eaten the scrap / fuel by the time
+  -- on_spell_cast fires.  Here we place the tier trap at target_pos and fire the
+  -- per-cast attunement events (not in the transpiled cast_map, so by hand --
+  -- same synthetic entry shape as Mass Hydrothermosis).
+  --
+  -- Trigger: the traps use BN's `spell` trap action, NOT `lua` -- trapfunc::lua
+  -- dereferences target->as_character() unchecked, so a monster stepping on a
+  -- lua trap would crash.  The trigger spell lands mom_primed_trap_hit on the
+  -- victim; the handler below reads the trap under it, spares the avatar and
+  -- anything Friendly to the avatar (followers, pets), and otherwise removes the
+  -- trap and detonates.  The traps have no remove_on_trigger, so a spared ally
+  -- leaves the trap armed.  Damage is a typed DamageInstance (armor applies);
+  -- shrapnel is DT_BULLET, which is what BN's own explosion fragments deal.
+  local PRIMED_TRAPS = {
+    mom_tr_kinetic_1   = { kind = "kinetic", dmg = 20, name = "Kinetic Trap" },
+    mom_tr_kinetic_2   = { kind = "kinetic", dmg = 35, name = "Strong Kinetic Trap" },
+    mom_tr_kinetic_3   = { kind = "kinetic", dmg = 50, name = "Powerful Kinetic Trap" },
+    mom_tr_pyrolytic_1 = { kind = "pyrolytic", dmg = 20, fire = 1, name = "Pyrolytic Trap" },
+    mom_tr_pyrolytic_2 = { kind = "pyrolytic", dmg = 35, fire = 2, name = "Strong Pyrolytic Trap" },
+    mom_tr_pyrolytic_3 = { kind = "pyrolytic", dmg = 50, fire = 3, name = "Powerful Pyrolytic Trap" },
+  }
+  local TRAP_POWERS = {
+    telekinetic_kinetic_trap = { kind = "kinetic", school = "TELEKINETIC",
+      what = "scrap" },
+    pyrokinetic_pyrolytic_trap = { kind = "pyrolytic", school = "PYROKINETIC",
+      what = "fuel" },
+  }
+  -- Tiles a trap can't sit on (the cast's materials are already spent, so say so).
+  local TRAP_BLOCK_FLAGS = { "WALL", "TREE", "NO_FLOOR", "DEEP_WATER" }
+
+  local function place_primed_trap(you, spell_id, pos)
+    local tp = TRAP_POWERS[spell_id]
+    if not (tp and you and pos) then return end
+    local map = gapi.get_map()
+    local blocked = false
+    for _, f in ipairs(TRAP_BLOCK_FLAGS) do
+      if map:has_flag_at(f, pos) then blocked = true; break end
+    end
+    local existing = map:get_trap_at(pos):str_id():str()
+    if blocked or (existing ~= "tr_null" and existing ~= "") then
+      mod.u.msg(you, "The energy has nothing stable to settle into, and the " .. tp.what
+        .. " is spent for nothing.", MsgType.bad, nil)
+      return
+    end
+    local lvl = math.max(mod.math.spell_level(you, spell_id), 0)
+    local tier = (lvl >= 10) and 3 or ((lvl >= 5) and 2 or 1)
+    local trap_id = "mom_tr_" .. tp.kind .. "_" .. tier
+    map:set_trap_at(pos, TrapId.new(trap_id):int_id())
+    mod.u.msg(you, "The " .. PRIMED_TRAPS[trap_id].name
+      .. " is set.  It will hold for you and your allies.", MsgType.good, nil)
+  end
+
+  do
+    local prev_on_spell_cast = mod.on_spell_cast
+    function mod.on_spell_cast(params)
+      if prev_on_spell_cast then prev_on_spell_cast(params) end
+      local who, sp = params.char, params.spell
+      if not (who and sp) then return end
+      local ok, key = pcall(function() return sp.id:str() end)
+      if not ok or not TRAP_POWERS[key] then return end
+      local placed, err = pcall(place_primed_trap, who, key,
+        params.target_pos and TripointBubMs.new(params.target_pos.x,
+          params.target_pos.y, params.target_pos.z))
+      if not placed then gdebug.log_error("MoM-BN: primed trap: " .. tostring(err)) end
+      fire_spell_cast_events(who,
+        { school = TRAP_POWERS[key].school, difficulty = 4, finish = "tag" }, key)
+    end
+  end
+
+  mod.effect_added_handlers["mom_primed_trap_hit"] = function(who, _eff)
+    consume_marker(who, "mom_primed_trap_hit")
+    if not who then return true end
+    local ok, err = pcall(function()
+      local map = gapi.get_map()
+      local pos = who:get_pos_ms()
+      local tid = map:get_trap_at(pos):str_id():str()
+      local t = PRIMED_TRAPS[tid]
+      if not t then return end
+      local avatar = gapi.get_avatar()
+      if who:is_avatar() or who:attitude_to(avatar) == Attitude.Friendly then
+        mod.u.msg(who, "The primed trap shivers under your weight, then settles.  "
+          .. "It knows you.", MsgType.info, nil)
+        return
+      end
+      map:remove_trap_at(pos)
+      local seen = avatar:sees(pos)
+      local name = who:disp_name(false, false)
+      local di
+      if t.kind == "kinetic" then
+        di = DamageInstance.new(DamageType.DT_BASH, t.dmg, 0, 1, 1)
+        di:add_damage(DamageType.DT_BULLET, t.dmg, 0, 1, 1)
+        if seen then
+          gapi.add_msg(MsgType.good, "The primed scrap bursts apart under " .. name
+            .. " in a blast of force and shrapnel!")
+        end
+      else
+        -- Heat burst only; the fd_fire left on the tile (below) does its own damage.
+        di = DamageInstance.new(DamageType.DT_HEAT, t.dmg, 0, 1, 1)
+        if seen then
+          gapi.add_msg(MsgType.good, "The primed fuel erupts around " .. name
+            .. " in a flash of heat and flame!")
+        end
+      end
+      pcall(function()
+        Spell.new(SpellTypeId.new("mom_" .. t.kind .. "_trap_noise"), 0):cast(who, pos)
+      end)
+      who:deal_damage(avatar, BodyPartTypeId.new("torso"):int_id(), di)
+      if t.fire then
+        map:add_field_at(pos, FieldTypeId.new("fd_fire"):int_id(), t.fire,
+          TimeDuration.from_turns(0))
+      end
+    end)
+    if not ok then gdebug.log_error("MoM-BN: primed trap hit: " .. tostring(err)) end
+    return true
+  end
+
   -- Quell Fire (fork repair 2026-07-24).  ONE handler for every caster: the
   -- player power's hit_self sub-spell (pyrokinetic_quell_flames_self) and the
   -- flamebreaker triffid's relay (mom_quell_fire_monster_trigger) both land the

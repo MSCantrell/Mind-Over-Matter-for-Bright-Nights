@@ -1357,5 +1357,47 @@ return function(mod)
     return true
   end
 
+  -- ==========================================================================
+  -- Network Effect ally gate (fixed 2026-11-08).  Upstream gates the cast on
+  -- DDA's `npc_allies: 1`, which the transpiler couldn't express, so the
+  -- generated handler hit U.badcond -> false and the power ALWAYS failed with
+  -- "no nearby allies".  Hand version: count NPCs Friendly to the caster within
+  -- the real spell's blast radius (telepathic_network_real aoe 60), same
+  -- z-level.  Friendly is exactly BN's spell `ally` test (magic_spell_effect.cpp
+  -- A_FRIENDLY), so the gate passes iff the blast will link someone.  NPCs only:
+  -- monsters can't hold the carrier traits that make the effect do anything.
+  -- ==========================================================================
+  local NETWORK_RADIUS = 60
+  local function network_has_ally(you)
+    local origin = you:get_pos_ms()
+    for _, cr in ipairs(gapi.get_all_creatures()) do
+      local ok, yes = pcall(function()
+        if not cr:is_npc() then return false end
+        local p = cr:get_pos_ms()
+        return p.z == origin.z and U.dist(origin, p) <= NETWORK_RADIUS
+          and cr:attitude_to(you) == Attitude.Friendly
+      end)
+      if ok and yes then return true end
+    end
+    return false
+  end
+
+  M.EOC_TELEPATH_NETWORK_ALLY_CHECK = function(you, npc, ctx)
+    ctx = ctx or {}
+    local ok, has = pcall(network_has_ally, you)
+    if not ok then
+      gdebug.log_warn("MoM-BN: network ally scan failed: " .. tostring(has))
+      has = false
+    end
+    if not has then
+      U.msg(you, "With no nearby allies, there is no one to network with.", MsgType.bad, ctx)
+      return false
+    end
+    U.cast_spell(you, "telepathic_network_real", nil, nil)
+    U.msg(you, "You now have an instinctive awareness of your allies, and they of you.",
+      MsgType.neutral, ctx)
+    return true
+  end
+
   return M
 end

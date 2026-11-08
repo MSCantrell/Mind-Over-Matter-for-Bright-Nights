@@ -937,7 +937,7 @@
   {
     "type": "SPELL",
     "name": "[\u03a8]Beastmaster",
-    "description": "Take control of an animal's mind, forcing it to obey you.  This power will not work on insects, spiders, or similar beings.  This also works on feral humans.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.",
+    "description": "Take control of an animal's mind, forcing it to obey you.  This also works on feral humans.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.\n\n<color_light_green>Pack Leader:</color> once you know this power, every pet you have deals <color_light_green>25%</color> more melee damage.  Pets fighting within 12 tiles of you also gain a compounding <color_light_green>15%</color> for each packmate beyond the first, counting up to 8 pets (x3.33 at 8).  Pets near you also hold their nerve and will not flee until badly wounded.  Pets that wander off will find their way back to your side.  Pets that stray too far break off their hunt and return.  Guns, psionic powers and a few hard-wired abilities are not boosted.",
     "message": "You reach out to the animal's mind and twist.",
     "valid_targets": [
       "hostile"

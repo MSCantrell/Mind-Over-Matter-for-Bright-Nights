@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mindovermatter_bn\n"
-"POT-Creation-Date: 2026-11-06 20:31+0300\n"
+"POT-Creation-Date: 2026-11-09 09:27+0300\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -346,6 +346,69 @@ msgstr ""
 msgid "You reach into every creature in sight and boil them from within!"
 msgstr ""
 
+#: ./fork_powers.json
+msgid "[Ψ]Kinetic Trap"
+msgstr ""
+
+#. ~ Description for [Ψ]Kinetic Trap
+#: ./fork_powers.json
+msgid ""
+"Pour kinetic energy into a pile of scrap metal and wind it tighter and tighter, until the metal is holding far more force than it should and is only barely stable.  Leave it on the ground beside you.  The next enemy to disturb it gets the whole store at once: a hammer-blow of force and a spray of shredded metal.\n"
+"\n"
+"Consumes <color_yellow>4 scrap metal</color> each cast.  The trap is visible to you, and <color_yellow>you and your allies can walk over it safely</color>.  Below level 5 it leaves a Kinetic Trap (20 bash + 20 shrapnel); from level 5 a Strong Kinetic Trap (35 + 35); from level 10 a Powerful Kinetic Trap (50 + 50)."
+msgstr ""
+
+#. ~ Message for SPELL '[Ψ]Kinetic Trap'
+#: ./fork_powers.json
+msgid "You wind force into the scrap until it trembles."
+msgstr ""
+
+#: ./fork_powers.json
+msgid "[Ψ]Pyrolytic Trap"
+msgstr ""
+
+#. ~ Description for [Ψ]Pyrolytic Trap
+#: ./fork_powers.json
+msgid ""
+"Soak a splash of fuel or oil with heat, far past the point where it should have ignited, and hold it there, a hair's breadth from bursting into flame.  Leave it on the ground beside you.  The next enemy to disturb it is caught in a flash of heat and left standing in the fire that follows.\n"
+"\n"
+"Consumes <color_yellow>50 mL of fuel, oil or alcohol fuel</color> each cast (gasoline, diesel, biodiesel, avgas, JP8, lamp oil, motor oil, ethanol, methanol, denatured alcohol, or vegetable or animal cooking oil).  The trap is visible to you, and <color_yellow>you and your allies can walk over it safely</color>.  Below level 5 it leaves a Pyrolytic Trap (20 heat, small fire); from level 5 a Strong Pyrolytic Trap (35 heat, fire); from level 10 a Powerful Pyrolytic Trap (50 heat, large fire)."
+msgstr ""
+
+#. ~ Message for SPELL '[Ψ]Pyrolytic Trap'
+#: ./fork_powers.json
+msgid "You pour heat into the fuel until it shimmers on the edge of igniting."
+msgstr ""
+
+#. ~ Description for {'str': 'Kinetic trap trigger', '//~': 'NO_I18N'}
+#. ~ Description for {'str': 'Pyrolytic trap trigger', '//~': 'NO_I18N'}
+#: ./fork_powers.json
+msgid ""
+"Cast by a primed psionic trap on whatever set it off.  Applies "
+"mom_primed_trap_hit; mom_hooks' handler spares the caster and allies and "
+"detonates for everyone else."
+msgstr ""
+
+#. ~ Description for {'str': 'mom_kinetic_trap_noise', '//~': 'NO_I18N'}
+#. ~ Description for {'str': 'mom_pyrolytic_trap_noise', '//~': 'NO_I18N'}
+#: ./fork_powers.json
+msgid ""
+"Detonation noise for a primed psionic trap; cast from Lua with the victim as"
+" source."
+msgstr ""
+
+#. ~ Description for the sound of spell '{'str': 'mom_kinetic_trap_noise',
+#. '//~': 'NO_I18N'}'
+#: ./fork_powers.json
+msgid "a shriek of tearing metal!"
+msgstr ""
+
+#. ~ Description for the sound of spell '{'str': 'mom_pyrolytic_trap_noise',
+#. '//~': 'NO_I18N'}'
+#: ./fork_powers.json
+msgid "a deep, roaring whoomph!"
+msgstr ""
+
 #: ./gen_activities.json
 msgid "channeling"
 msgstr ""
@@ -485,7 +548,7 @@ msgstr ""
 #. ~ Description for Mind Over Matter (BN)
 #: ./modinfo.json
 msgid ""
-"Psionics: eight psychic power paths, 140 powers that unlock through use.  A "
+"Psionics: eight psychic power paths, 139 powers that unlock through use.  A "
 "Lua-based port of the Mind Over Matter mod from Cataclysm: DDA.  Pinned "
 "upstream: CDDA master 69df2e4 (2026-07-04)."
 msgstr ""
@@ -2203,10 +2266,10 @@ msgid "Away from civilization"
 msgstr ""
 
 #: ./skills.json
-msgid "metaphysics"
+msgid "Metaphysics"
 msgstr ""
 
-#. ~ Description for {'str': 'metaphysics'}
+#. ~ Description for {'str': 'Metaphysics'}
 #: ./skills.json
 msgid ""
 "Your ability to manipulate forces of energy often considered supernatural."
@@ -2214,6 +2277,30 @@ msgstr ""
 
 #: ./traps.json
 msgid "Dead Fifth Sun Achievement Trap"
+msgstr ""
+
+#: ./traps.json
+msgid "Kinetic Trap"
+msgstr ""
+
+#: ./traps.json
+msgid "Strong Kinetic Trap"
+msgstr ""
+
+#: ./traps.json
+msgid "Powerful Kinetic Trap"
+msgstr ""
+
+#: ./traps.json
+msgid "Pyrolytic Trap"
+msgstr ""
+
+#: ./traps.json
+msgid "Strong Pyrolytic Trap"
+msgstr ""
+
+#: ./traps.json
+msgid "Powerful Pyrolytic Trap"
 msgstr ""
 
 #: ./effects/effects_psionic.json
@@ -5142,6 +5229,17 @@ msgstr ""
 #. ~ desc of effect 'sensor_stun'
 #: ./effects/mom_engine_effects.json
 msgid "Its sensors are scrambled and report false readings."
+msgstr ""
+
+#: ./effects/mom_engine_effects.json
+msgid "Psi Pack"
+msgstr ""
+
+#. ~ desc of effect 'mom_pack_tactics_bash'
+#: ./effects/mom_engine_effects.json
+msgid ""
+"A psion's mind guides this creature's attacks, showing it where the dead are"
+" weakest."
 msgstr ""
 
 #: ./furniture_and_terrain/appliances_as_furniture.json
@@ -9054,20 +9152,6 @@ msgid ""
 "A tall floor lamp that provides illumination when plugged into a power "
 "outlet.  This lamp is enhanced with matrix technology, making it far more "
 "power efficient."
-msgstr ""
-
-#: ./items/tools/nether_items.json
-msgid "compressed chaos"
-msgid_plural "compressed chaos"
-msgstr[0] ""
-msgstr[1] ""
-
-#. ~ Description for {'str_sp': 'compressed chaos'}
-#: ./items/tools/nether_items.json
-msgid ""
-"This defies easy description, it feels solid but the surface is yielding.  "
-"Looking at it you are reminded of the electric tingle in the air before a "
-"portal storm."
 msgstr ""
 
 #: ./items/tools/nether_items.json
@@ -18933,9 +19017,11 @@ msgstr ""
 #. ~ Description for [Ψ]Beastmaster
 #: ./spells/psychic_knacks.json
 msgid ""
-"Take control of an animal's mind, forcing it to obey you.  This power will not work on insects, spiders, or similar beings.  This also works on feral humans.\n"
+"Take control of an animal's mind, forcing it to obey you.  This also works on feral humans.\n"
 "\n"
-"<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>."
+"<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.\n"
+"\n"
+"<color_light_green>Pack Leader:</color> once you know this power, every pet you have deals <color_light_green>25%</color> more melee damage.  Pets fighting within 12 tiles of you also gain a compounding <color_light_green>15%</color> for each packmate beyond the first, counting up to 8 pets (x3.33 at 8).  Pets near you also hold their nerve and will not flee until badly wounded.  Pets that wander off will find their way back to your side.  Pets that stray too far break off their hunt and return.  Guns, psionic powers and a few hard-wired abilities are not boosted."
 msgstr ""
 
 #. ~ Message for SPELL '[Ψ]Beastmaster'
@@ -19063,6 +19149,7 @@ msgid ""
 "Level 6 leads to Cloak of Warmth with Banked Flames 6 OR Molten Land 6.\n"
 "Level 7 leads to Flamethrower with Brilliant Flash 5.\n"
 "Level 6 leads to Incandescent Lance with Molten Land 9 + Quell Fire 6 OR Banked Flames 6.\n"
+"Level 6 leads to Pyrolytic Trap.\n"
 "Level 5 leads to Quell Fire with Intensify Flames 6.\n"
 "Level 10 leads to Thermogenesis with Banked Flames 10 + Brilliant Flash 7 OR Banked Flames 10 + Intensify Flames 8 OR Brilliant Flash 7 + Cloak of Warmth 6 OR Cloak of Warmth 6 + Intensify Flames 8."
 msgstr ""
@@ -19195,6 +19282,7 @@ msgid ""
 "Pickup items at a distance or push them away from you.\n"
 "\n"
 "Level 6 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\n"
+"Level 5 leads to Kinetic Trap with Force Shove 5.\n"
 "Level 8 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10.\n"
 "Level 7 leads to Lifting Field with Lift Vehicle 3 OR Far Hand 7 + Momentum Alteration 5.\n"
 "Level 15 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.\n"
@@ -19208,6 +19296,7 @@ msgid ""
 "Shove a target away or pull it towards you with a burst of psionic force.  The distance the target can be moved depends on its weight versus your power level; heavier things will not go as far, and if your target is too heavy, you may not be able to move it at all.\n"
 "\n"
 "Level 6 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\n"
+"Level 5 leads to Kinetic Trap with Far Hand 5.\n"
 "Level 4 leads to Knockdown with Force Shove 4 OR Noisemaker 1.\n"
 "Level 15 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.\n"
 "Level 8 leads to Mindhammer with Knockdown 6 + Wave of Force 4 OR Force Shove 8 + Knockdown 6.\n"
@@ -19502,9 +19591,11 @@ msgstr ""
 #. ~ Description for [Ψ]Beastmaster
 #: ./spells/telepathy.json
 msgid ""
-"Take control of an animal's mind, forcing it to obey you.  This power will not work on insects, spiders, or similar beings.  This also works on feral humans.\n"
+"Take control of an animal's mind, forcing it to obey you.  This also works on feral humans.\n"
 "\n"
 "<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.\n"
+"\n"
+"<color_light_green>Pack Leader:</color> once you know this power, every pet you have deals <color_light_green>25%</color> more melee damage.  Pets fighting within 12 tiles of you also gain a compounding <color_light_green>15%</color> for each packmate beyond the first, counting up to 8 pets (x3.33 at 8).  Pets near you also hold their nerve and will not flee until badly wounded.  Pets that wander off will find their way back to your side.  Pets that stray too far break off their hunt and return.  Guns, psionic powers and a few hard-wired abilities are not boosted.\n"
 "\n"
 "Level 10 leads to Beast Tamer.\n"
 "Level 8 leads to Mind Control with Mood Stabilization 12 + Primal Terror 5 OR Beastmaster 8 + Mood Stabilization 12 OR Mood Stabilization 12 + Sensory Deprivation 7 OR Obscurity 6 + Primal Terror 5 OR Beastmaster 8 + Obscurity 6 OR Obscurity 6 + Sensory Deprivation 7."

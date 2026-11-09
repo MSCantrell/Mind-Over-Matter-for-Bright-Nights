@@ -311,5 +311,262 @@
     "max_range": 0,
     "min_duration": 100,
     "max_duration": 100
+  },
+  {
+    "id": "telekinetic_kinetic_trap",
+    "type": "SPELL",
+    "name": "[\u03a8]Kinetic Trap",
+    "description": "Pour kinetic energy into a pile of scrap metal and wind it tighter and tighter, until the metal is holding far more force than it should and is only barely stable.  Leave it on the ground beside you.  The next enemy to disturb it gets the whole store at once: a hammer-blow of force and a spray of shredded metal.\n\nConsumes <color_yellow>4 scrap metal</color> each cast.  The trap is visible to you, and <color_yellow>you and your allies can walk over it safely</color>.  Below level 5 it leaves a Kinetic Trap (20 bash + 20 shrapnel); from level 5 a Strong Kinetic Trap (35 + 35); from level 10 a Powerful Kinetic Trap (50 + 50).",
+    "message": "You wind force into the scrap until it trembles.",
+    "//": "ORIGINAL Bright Nights fork power (2026-11-07), not upstream MoM.  Marker-free Lua bridge: target_attack on a ground tile does nothing itself; mom_hooks' mod.on_spell_cast places the tier trap (traps.json mom_tr_*) at target_pos and fires the per-cast attunement events.  components = materials consumed per cast (spell::use_components).  Learned via gen_learn_map FORK_LEARN_OVERRIDES.",
+    "valid_targets": [
+      "ground",
+      "self"
+    ],
+    "spell_class": "TELEKINETIC",
+    "skill": "metaphysics",
+    "components": "mom_kinetic_trap_materials",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "min_range": 1,
+    "max_range": 1,
+    "base_energy_cost": 3500,
+    "final_energy_cost": 1500,
+    "energy_increment": -150.0,
+    "base_casting_time": 500,
+    "casting_time_increment": -20.0,
+    "final_casting_time": 200,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "pyrokinetic_pyrolytic_trap",
+    "type": "SPELL",
+    "name": "[\u03a8]Pyrolytic Trap",
+    "description": "Soak a splash of fuel or oil with heat, far past the point where it should have ignited, and hold it there, a hair's breadth from bursting into flame.  Leave it on the ground beside you.  The next enemy to disturb it is caught in a flash of heat and left standing in the fire that follows.\n\nConsumes <color_yellow>50 mL of fuel, oil or alcohol fuel</color> each cast (gasoline, diesel, biodiesel, avgas, JP8, lamp oil, motor oil, ethanol, methanol, denatured alcohol, or vegetable or animal cooking oil).  The trap is visible to you, and <color_yellow>you and your allies can walk over it safely</color>.  Below level 5 it leaves a Pyrolytic Trap (20 heat, small fire); from level 5 a Strong Pyrolytic Trap (35 heat, fire); from level 10 a Powerful Pyrolytic Trap (50 heat, large fire).",
+    "message": "You pour heat into the fuel until it shimmers on the edge of igniting.",
+    "//": "ORIGINAL Bright Nights fork power (2026-11-07), not upstream MoM.  Marker-free Lua bridge: target_attack on a ground tile does nothing itself; mom_hooks' mod.on_spell_cast places the tier trap (traps.json mom_tr_*) at target_pos and fires the per-cast attunement events.  components = materials consumed per cast (spell::use_components).  Learned via gen_learn_map FORK_LEARN_OVERRIDES.",
+    "valid_targets": [
+      "ground",
+      "self"
+    ],
+    "spell_class": "PYROKINETIC",
+    "skill": "metaphysics",
+    "components": "mom_pyrolytic_trap_materials",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 4,
+    "max_level": 15,
+    "effect": "target_attack",
+    "min_range": 1,
+    "max_range": 1,
+    "base_energy_cost": 3500,
+    "final_energy_cost": 1500,
+    "energy_increment": -150.0,
+    "base_casting_time": 500,
+    "casting_time_increment": -20.0,
+    "final_casting_time": 200,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "id": "mom_kinetic_trap_trigger",
+    "type": "SPELL",
+    "name": {
+      "str": "Kinetic trap trigger",
+      "//~": "NO_I18N"
+    },
+    "description": "Cast by a primed psionic trap on whatever set it off.  Applies mom_primed_trap_hit; mom_hooks' handler spares the caster and allies and detonates for everyone else.",
+    "valid_targets": [
+      "hostile",
+      "ally",
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 1,
+    "effect": "target_attack",
+    "effect_str": "mom_primed_trap_hit",
+    "min_duration": 1,
+    "max_duration": 1,
+    "min_range": 0,
+    "max_range": 0
+  },
+  {
+    "id": "mom_pyrolytic_trap_trigger",
+    "type": "SPELL",
+    "name": {
+      "str": "Pyrolytic trap trigger",
+      "//~": "NO_I18N"
+    },
+    "description": "Cast by a primed psionic trap on whatever set it off.  Applies mom_primed_trap_hit; mom_hooks' handler spares the caster and allies and detonates for everyone else.",
+    "valid_targets": [
+      "hostile",
+      "ally",
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 1,
+    "effect": "target_attack",
+    "effect_str": "mom_primed_trap_hit",
+    "min_duration": 1,
+    "max_duration": 1,
+    "min_range": 0,
+    "max_range": 0
+  },
+  {
+    "id": "mom_kinetic_trap_noise",
+    "type": "SPELL",
+    "name": {
+      "str": "mom_kinetic_trap_noise",
+      "//~": "NO_I18N"
+    },
+    "description": "Detonation noise for a primed psionic trap; cast from Lua with the victim as source.",
+    "valid_targets": [
+      "ground",
+      "self",
+      "ally",
+      "hostile"
+    ],
+    "flags": [
+      "LOUD",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 1,
+    "effect": "noise",
+    "min_damage": 70,
+    "max_damage": 70,
+    "sound_type": "combat",
+    "sound_description": "a shriek of tearing metal!"
+  },
+  {
+    "id": "mom_pyrolytic_trap_noise",
+    "type": "SPELL",
+    "name": {
+      "str": "mom_pyrolytic_trap_noise",
+      "//~": "NO_I18N"
+    },
+    "description": "Detonation noise for a primed psionic trap; cast from Lua with the victim as source.",
+    "valid_targets": [
+      "ground",
+      "self",
+      "ally",
+      "hostile"
+    ],
+    "flags": [
+      "LOUD",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 1,
+    "effect": "noise",
+    "min_damage": 60,
+    "max_damage": 60,
+    "sound_type": "combat",
+    "sound_description": "a deep, roaring whoomph!"
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_primed_trap_hit",
+    "//": "Marker landed by the mom_*_trap_trigger spells on whatever stepped on a primed trap.  mom_hooks' effect_added handler reads the trap under the victim, spares the avatar and anything Friendly to it, otherwise removes the trap and detonates.",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "type": "requirement",
+    "id": "mom_kinetic_trap_materials",
+    "//": "Kinetic Trap: 4 scrap metal per cast at every level (skill, not material, scales it).",
+    "components": [
+      [
+        [
+          "scrap",
+          4
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "requirement",
+    "id": "mom_pyrolytic_trap_materials",
+    "//": "Pyrolytic Trap: 50 mL of any fuel per cast.  Fuels in BN fuel.json are 1 charge = 1 mL (biodiesel/methanol/denat_alcohol copy diesel/ethanol); cooking oils are 16 charges per 250 mL, so 3 charges ~= 47 mL.",
+    "components": [
+      [
+        [
+          "gasoline",
+          50
+        ],
+        [
+          "diesel",
+          50
+        ],
+        [
+          "biodiesel",
+          50
+        ],
+        [
+          "avgas",
+          50
+        ],
+        [
+          "jp8",
+          50
+        ],
+        [
+          "lamp_oil",
+          50
+        ],
+        [
+          "motor_oil",
+          50
+        ],
+        [
+          "chem_ethanol",
+          50
+        ],
+        [
+          "chem_methanol",
+          50
+        ],
+        [
+          "denat_alcohol",
+          50
+        ],
+        [
+          "cooking_oil",
+          3
+        ],
+        [
+          "cooking_oil2",
+          3
+        ]
+      ]
+    ]
   }
 ]

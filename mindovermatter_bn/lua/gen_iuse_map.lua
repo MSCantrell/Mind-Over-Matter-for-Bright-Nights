@@ -5,7 +5,6 @@ return {
   ['abjuration_stone'] = { eocs = { 'EOC_MOM_ABJURATION_STONE_EFFECTS' }, consume = true, need_wielding = false },
   ['cards_zener'] = { eocs = { 'EOC_ZENER_DECK' }, consume = false, need_wielding = false },
   ['cascade_stone'] = { eocs = { 'EOC_MOM_CASCADE_STONE_EFFECTS' }, consume = true, need_wielding = false },
-  ['chaos_stone'] = { eocs = { 'EOC_CAUSE_PORTAL_STORM' }, consume = true, need_wielding = false },
   ['force_field_generator'] = { eocs = { 'EOC_FORCE_FIELD_GENERATOR_ACTIVATION' }, consume = false, need_wielding = false },
   ['matrix_crystal_biokinesis'] = { eocs = { 'EOC_BIOKIN_MATRIX_AWAKENING' }, consume = true, need_wielding = true },
   ['matrix_crystal_clairsentience'] = { eocs = { 'EOC_CLAIR_MATRIX_AWAKENING' }, consume = true, need_wielding = true },

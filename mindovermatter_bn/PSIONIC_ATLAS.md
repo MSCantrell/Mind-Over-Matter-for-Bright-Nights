@@ -408,9 +408,9 @@ graph TD
 
 *Perception unbound from the eyes: the unseen, the distant, the yet-to-come.*
 
-**18** powers · **4** known at start · **14** trainable
+**17** powers · **3** known at start · **14** trainable
 
-**Foundations:** Heightened Senses (C) · Radiation Sense · See Mechanisms · Speed Reader (C)
+**Foundations:** Heightened Senses (C) · Radiation Sense · Speed Reader (C)
 
 ```mermaid
 graph TD
@@ -427,7 +427,7 @@ graph TD
   n_clair_ranged_enhance["Marksman's Eye (C)"]:::power
   n_clair_see_auras["Aura Sight (C)"]:::power
   n_clair_see_map["Satellite View"]:::power
-  n_clair_see_mechanisms["See Mechanisms"]:::start
+  n_clair_see_mechanisms["See Mechanisms"]:::power
   n_clair_sense_rads["Radiation Sense"]:::start
   n_clair_speed_reading["Speed Reader (C)"]:::start
   n_clair_voyance["Clairvoyance"]:::power
@@ -452,6 +452,7 @@ graph TD
   n_clair_clear_sight -->|L5| n_clair_omniscience
   n_clair_ranged_enhance -->|L9| n_clair_perfect_shot
   n_clair_better_senses -->|L5| n_clair_see_auras
+  n_clair_better_senses -->|L3| n_clair_see_mechanisms
   n_clair_voyance -->|L8| n_clair_see_map
   n_clair_danger_sense -.->|L6| n_clair_see_map
   n_clair_danger_sense -->|L6| n_clair_voyance

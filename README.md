@@ -1,6 +1,6 @@
 # Mind Over Matter (BN)
 
-Psionics for **Cataclysm: Bright Nights** — eight psychic power paths and 140 powers that
+Psionics for **Cataclysm: Bright Nights** — eight psychic power paths and 139 powers that
 unlock through use rather than study.
 
 This is a Lua-based port of [Mind Over Matter](https://github.com/CleverRaven/Cataclysm-DDA/tree/master/data/mods/MindOverMatter)
@@ -89,7 +89,7 @@ grind is removed here — see [Fork changes](#fork-changes-deliberate-difference
 | Path | Powers | From start | Theme |
 |---|---:|---:|---|
 | **Biokinesis** | 20 | 5 | Control of the body and its own repair — strength, speed, armored skin, sealed physiology, accelerated healing |
-| **Clairsentience** | 18 | 4 | Senses beyond the body — night vision, danger sense, seeing through walls |
+| **Clairsentience** | 17 | 3 | Senses beyond the body — night vision, danger sense, seeing through walls |
 | **Electrokinesis** | 16 | 3 | Electricity — shocks, charging batteries, short-circuiting machines |
 | **Photokinesis** | 20 | 2 | Light — illumination, blinding glare, invisibility |
 | **Pyrokinesis** | 15 | 2 | Fire and heat — ignition, heat immunity, lava, boiling a target from within |
@@ -97,7 +97,7 @@ grind is removed here — see [Fork changes](#fork-changes-deliberate-difference
 | **Telepathy** | 14 | 2 | Mind — persuasion, concealment, seizing control of an enemy |
 | **Teleportation** | 20 | 4 | Moving without crossing the distance — escapes, long jumps, banishment |
 
-**140 powers** in total: 25 are foundations you get the moment you take up a school, and
+**139 powers** in total: 24 are foundations you get the moment you take up a school, and
 the remaining **115** unlock through play. Plus **psychic knacks** — talents that start at level 6 and
 don't advance any further. *(Vitakinesis merged into Biokinesis 2026-08-07 — BN makes
 healing hard enough to come by that a standalone healer path read as underpowered; 5 of
@@ -154,9 +154,6 @@ worked poorly, this port diverges on purpose:
 Please check here first — these are known and do not need new reports.
 
 **Powers that don't work correctly yet**
-- **Displacement / Reactive Displacement** don't teleport the target monster.
-- **Beast Tamer** can't extend an already-friendly animal's duration (BN's charm only
-  applies to non-friendly monsters).
 - **Maintained-power costs are enforced but not yet tuned.** As of `2026.8.1` all 66 maintained
   powers count toward concentration-break odds and calorie drain (previously only 3 did, so the
   cap was effectively free). The numbers behind it are still first-pass — opinions welcome on

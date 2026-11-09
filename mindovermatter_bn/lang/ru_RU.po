@@ -390,7 +390,7 @@ msgstr ""
 "\n"
 "Затраты огромны; применить способность дважды подряд не получится. \n"
 "\n"
-"Достигнув 6-го уровня, вы сможете освоить «Горнило» при сочетании «Пожар» 10-го уровня + «Массовый гидротермоз» 6-го уровня + «Расплавленная земля» 14-го уровня ИЛИ «Пожар» 10-го уровня + «Огнемёт» 10-го уровня + «Массовый гидротермоз» 6-го уровня."
+"На 6-м уровне открывается «Горнило»; условия: «Пожар» 10-го уровня + «Массовый гидротермоз» 6-го уровня + «Расплавленная земля» 14-го уровня ИЛИ «Пожар» 10-го уровня + «Огнемёт» 10-го уровня + «Массовый гидротермоз» 6-го уровня."
 
 #. ~ Description for the sound of spell '[Ψ]Mass Hydrothermosis'
 #: fork_powers.json
@@ -13949,7 +13949,7 @@ msgstr "%1$s машет крыльями в сторону цели (<npcname>)!
 #. ~ MONSTER 'mon_spawn_raptor_teke_push': extend.special_attacks.hit_dmg_u
 #: monsters/zombies.json
 msgid "%1$s hits your %2$s with a burst of telekinetic force!"
-msgstr "%1$s бьёт вас в %2$s всплеском телекинетической силы!"
+msgstr "%1$s наносит вам телекинетический удар в %2$s!"
 
 #. ~ MONSTER 'mon_spawn_raptor_teke_push': extend.special_attacks.hit_dmg_npc
 #: monsters/zombies.json
@@ -13961,8 +13961,7 @@ msgstr "%1$s наносит цели (<npcname>) телекинетически�
 msgid ""
 "%1$s hits your %2$s with a burst of telekinetic force, but fails to "
 "penetrate armor."
-msgstr ""
-"%1$s бьёт вас в %2$s всплеском телекинетической силы, но не пробивает броню."
+msgstr "%1$s наносит вам телекинетический удар в %2$s, но не пробивает броню."
 
 #. ~ MONSTER 'mon_spawn_raptor_teke_push':
 #. extend.special_attacks.no_dmg_msg_npc

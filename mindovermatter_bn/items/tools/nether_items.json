@@ -1,22 +1,6 @@
 [
   {
     "type": "TOOL",
-    "id": "chaos_stone",
-    "name": {
-      "str_sp": "compressed chaos"
-    },
-    "color": "magenta",
-    "use_action": "MOM_EOC_ITEM",
-    "volume": "250 ml",
-    "weight": "10 g",
-    "symbol": "@",
-    "description": "This defies easy description, it feels solid but the surface is yielding.  Looking at it you are reminded of the electric tingle in the air before a portal storm.",
-    "flags": [
-      "SINGLE_USE"
-    ]
-  },
-  {
-    "type": "TOOL",
     "id": "translation_stone",
     "name": {
       "str_sp": "crystallized motion"

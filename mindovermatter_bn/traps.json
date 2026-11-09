@@ -10,5 +10,101 @@
     "avoidance": 99,
     "difficulty": 99,
     "action": "none"
+  },
+  {
+    "type": "trap",
+    "id": "mom_tr_kinetic_1",
+    "name": "Kinetic Trap",
+    "color": "light_gray",
+    "symbol": "^",
+    "visibility": -1,
+    "avoidance": 14,
+    "difficulty": 6,
+    "trigger_weight": "100 kg",
+    "action": "spell",
+    "spell_data": {
+      "id": "mom_kinetic_trap_trigger"
+    },
+    "//": "MoM fork primed trap (2026-11-07).  visibility -1 = every character sees it.  action spell -> mom_kinetic_trap_trigger -> mom_primed_trap_hit marker -> Lua (allies spared; trap removed + damage on anyone else).  No remove_on_trigger: Lua removes it only when it actually detonates.  trigger_weight high so dropped items don't matter (item-only triggers no-op anyway)."
+  },
+  {
+    "type": "trap",
+    "id": "mom_tr_kinetic_2",
+    "name": "Strong Kinetic Trap",
+    "color": "light_gray",
+    "symbol": "^",
+    "visibility": -1,
+    "avoidance": 14,
+    "difficulty": 6,
+    "trigger_weight": "100 kg",
+    "action": "spell",
+    "spell_data": {
+      "id": "mom_kinetic_trap_trigger"
+    },
+    "//": "MoM fork primed trap (2026-11-07).  visibility -1 = every character sees it.  action spell -> mom_kinetic_trap_trigger -> mom_primed_trap_hit marker -> Lua (allies spared; trap removed + damage on anyone else).  No remove_on_trigger: Lua removes it only when it actually detonates.  trigger_weight high so dropped items don't matter (item-only triggers no-op anyway)."
+  },
+  {
+    "type": "trap",
+    "id": "mom_tr_kinetic_3",
+    "name": "Powerful Kinetic Trap",
+    "color": "light_gray",
+    "symbol": "^",
+    "visibility": -1,
+    "avoidance": 14,
+    "difficulty": 6,
+    "trigger_weight": "100 kg",
+    "action": "spell",
+    "spell_data": {
+      "id": "mom_kinetic_trap_trigger"
+    },
+    "//": "MoM fork primed trap (2026-11-07).  visibility -1 = every character sees it.  action spell -> mom_kinetic_trap_trigger -> mom_primed_trap_hit marker -> Lua (allies spared; trap removed + damage on anyone else).  No remove_on_trigger: Lua removes it only when it actually detonates.  trigger_weight high so dropped items don't matter (item-only triggers no-op anyway)."
+  },
+  {
+    "type": "trap",
+    "id": "mom_tr_pyrolytic_1",
+    "name": "Pyrolytic Trap",
+    "color": "light_red",
+    "symbol": "^",
+    "visibility": -1,
+    "avoidance": 14,
+    "difficulty": 6,
+    "trigger_weight": "100 kg",
+    "action": "spell",
+    "spell_data": {
+      "id": "mom_pyrolytic_trap_trigger"
+    },
+    "//": "MoM fork primed trap (2026-11-07).  visibility -1 = every character sees it.  action spell -> mom_pyrolytic_trap_trigger -> mom_primed_trap_hit marker -> Lua (allies spared; trap removed + damage on anyone else).  No remove_on_trigger: Lua removes it only when it actually detonates.  trigger_weight high so dropped items don't matter (item-only triggers no-op anyway)."
+  },
+  {
+    "type": "trap",
+    "id": "mom_tr_pyrolytic_2",
+    "name": "Strong Pyrolytic Trap",
+    "color": "light_red",
+    "symbol": "^",
+    "visibility": -1,
+    "avoidance": 14,
+    "difficulty": 6,
+    "trigger_weight": "100 kg",
+    "action": "spell",
+    "spell_data": {
+      "id": "mom_pyrolytic_trap_trigger"
+    },
+    "//": "MoM fork primed trap (2026-11-07).  visibility -1 = every character sees it.  action spell -> mom_pyrolytic_trap_trigger -> mom_primed_trap_hit marker -> Lua (allies spared; trap removed + damage on anyone else).  No remove_on_trigger: Lua removes it only when it actually detonates.  trigger_weight high so dropped items don't matter (item-only triggers no-op anyway)."
+  },
+  {
+    "type": "trap",
+    "id": "mom_tr_pyrolytic_3",
+    "name": "Powerful Pyrolytic Trap",
+    "color": "light_red",
+    "symbol": "^",
+    "visibility": -1,
+    "avoidance": 14,
+    "difficulty": 6,
+    "trigger_weight": "100 kg",
+    "action": "spell",
+    "spell_data": {
+      "id": "mom_pyrolytic_trap_trigger"
+    },
+    "//": "MoM fork primed trap (2026-11-07).  visibility -1 = every character sees it.  action spell -> mom_pyrolytic_trap_trigger -> mom_primed_trap_hit marker -> Lua (allies spared; trap removed + damage on anyone else).  No remove_on_trigger: Lua removes it only when it actually detonates.  trigger_weight high so dropped items don't matter (item-only triggers no-op anyway)."
   }
 ]

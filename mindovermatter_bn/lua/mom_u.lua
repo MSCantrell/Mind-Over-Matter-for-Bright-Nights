@@ -1457,6 +1457,51 @@ return function(mod)
   -- lookup. Session-only, unbounded but tiny (a handful of bytes per
   -- distinct key ever queried) -- not worth pruning for a single session.
   local near_om_cache = {}
+
+  -- One native proximity query, shared by both helpers below.
+  -- Fix 2026-11-06 (residual first-cast freeze, 7.7s here / ~20s reported):
+  --  * range 0 means "this very tile" in the DDA source, but BN's
+  --    find_closest reads search_range max 0 as "default radius" = OMAPX*5
+  --    (overmapbuffer.cpp ~1356) -- a 9x9-overmap scan, synchronous (the Lua
+  --    binding forces force_sync), that GENERATES every missing overmap.
+  --    EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION has two range-0 checks for
+  --    DDA-only types (corpse_surface, corpse_tentacle_surface_entry) that can
+  --    never match, so they always ran to the worst case.  Range <= 0 is now a
+  --    single-tile check_ot.
+  --  * existing_only = true: "is a nether site near me" must never create
+  --    overmaps just to look at them.  Ranges here are <= 8 OMT, inside the
+  --    already-generated area around the player.
+  -- The first OM_SCAN_LOG scans of a session are bracketed in debug.log
+  -- ("MoM-BN: om scan") so the log's millisecond timestamps time them; BN's
+  -- Lua has no os.clock.
+  local OM_SCAN_LOG = 40
+  local om_scans = 0
+  local function om_scan(omt, types, range)
+    local r = math.floor(range or 0)
+    om_scans = om_scans + 1
+    local log = om_scans <= OM_SCAN_LOG
+    local tag = table.concat(types, ",") .. " r=" .. r
+    if log then gdebug.log_info("MoM-BN: om scan " .. om_scans .. " begin " .. tag) end
+    local found = false
+    if r <= 0 then
+      for _, loc in ipairs(types) do
+        if overmapbuffer.check_ot(loc, OtMatchType.TYPE, omt) then found = true; break end
+      end
+    else
+      local params = OmtFindParams.new()
+      -- NB: BN registers enum keys from io::enum_to_string, so the member is
+      -- OtMatchType.TYPE, not .type (overmap.cpp:7413).  Lowercase reads nil
+      -- and every near_om_location silently returned false.
+      for _, loc in ipairs(types) do params:add_type(loc, OtMatchType.TYPE) end
+      params:set_search_range(0, r)
+      params.max_results = 1
+      params.existing_only = true
+      found = overmapbuffer.find_closest(omt, params) ~= nil
+    end
+    if log then gdebug.log_info("MoM-BN: om scan " .. om_scans .. " end -> " .. tostring(found)) end
+    return found
+  end
+
   function U.near_om_location(who, loc, range)
     local abs = gapi.bub_to_abs(who:get_pos_ms())
     local omt = coords.project_to_omt(abs)
@@ -1464,15 +1509,7 @@ return function(mod)
     local cached = near_om_cache[key]
     if cached ~= nil then return cached end
     local result = guarded("near_om_location:" .. loc, function()
-      local params = OmtFindParams.new()
-      -- NB: BN registers enum keys from io::enum_to_string, so the member is
-      -- OtMatchType.TYPE, not .type (overmap.cpp:7413).  Lowercase reads nil
-      -- and every near_om_location silently returned false.
-      params:add_type(loc, OtMatchType.TYPE)
-      params:set_search_range(0, math.floor(range))
-      params.max_results = 1
-      local found = overmapbuffer.find_closest(omt, params)
-      return found ~= nil
+      return om_scan(omt, { loc }, range)
     end, false)
     near_om_cache[key] = result
     return result
@@ -1501,11 +1538,7 @@ return function(mod)
     end
     if #uncached == 0 then return false end
     local found = guarded("near_any_om_location", function()
-      local params = OmtFindParams.new()
-      for _, loc in ipairs(uncached) do params:add_type(loc, OtMatchType.TYPE) end
-      params:set_search_range(0, math.floor(range))
-      params.max_results = 1
-      return overmapbuffer.find_closest(omt, params) ~= nil
+      return om_scan(omt, uncached, range)
     end, false)
     if not found then
       for _, loc in ipairs(uncached) do near_om_cache[key_for(loc)] = false end
@@ -1611,8 +1644,30 @@ return function(mod)
     end, false)
   end
 
+  -- DDA `u_has_flag` / `npc_has_flag`.  Until 2026-11-06 this was a stub that
+  -- always answered false, so every MoM check on TEEPSHIELD, TELEPORT_LOCK,
+  -- DIMENSIONAL_ANCHOR, PHOTOKIN_CHAR_IMMUNE, PAIN_IMMUNE ... was dead (Psi
+  -- Armor never blocked telepathy, teleport locks never locked).  DDA's
+  -- Character::has_flag = trait flags | bionic flags | effect flags | ...; a
+  -- monster talker checks its type's flags only (talker_monster.cpp:106).
+  -- BN binds has_effect_with_flag + has_trait_flag (Character) and
+  -- monster:has_flag(MonsterFlag); bionic flags are unbound (none of MoM's
+  -- queried flags live on bionics).
+  local flag_ids, trait_flag_ids = {}, {}
   function U.has_creature_flag(who, flag)
-    return U.badcond("has_creature_flag", flag)
+    if not who then return false end
+    return guarded("has_creature_flag:" .. flag, function()
+      if who:is_monster() then
+        local mf = MonsterFlag[flag]
+        return mf ~= nil and who:as_monster():has_flag(mf)
+      end
+      local fid = flag_ids[flag]
+      if not fid then fid = JsonFlagId.new(flag); flag_ids[flag] = fid end
+      if who:has_effect_with_flag(fid) then return true end
+      local tid = trait_flag_ids[flag]
+      if not tid then tid = JsonTraitFlagId.new(flag); trait_flag_ids[flag] = tid end
+      return who:has_trait_flag(tid)
+    end, false)
   end
 
   -- current weather is tracked by preload.lua's on_weather_changed hook;

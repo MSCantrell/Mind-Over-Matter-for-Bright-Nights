@@ -441,23 +441,111 @@ return function(mod)
   -- Clairvoyance was hand-reworked (SPELL_REWRITE, no upstream enchantment).
   -- Perfected Motion / Marksman's Eye are now generated per-level carriers
   -- (see the generalized bridge below), so their hand entries are retired.
+  -- Literal-trait capabilities (GILLS, NOPAIN, DEAF, HYPEROPIC) are generated:
+  -- port_carriers EFFECT_FLAG_MAP real_traits -> lua/gen_trait_bridge.lua,
+  -- merged in below.  Only hand-built bridges stay in this table.
   local TRAIT_BRIDGE = {
-    effect_biokin_breathe_skin = { "GILLS" },  -- [Ψ]Oxygen Absorption
     -- [Ψ]Clairvoyance: self see-through-walls (CLAIRVOYANCE=radius enchantment).
     effect_clair_voyance = { "MOM_CLAIRVOYANCE" },
     -- [Ψ]Levitation: BN's can_fly() reads MUTATION_FLIGHT off traits only, so
     -- the effect's DDA LEVITATION/CLIMB_FLYING flags do nothing — grant a
     -- hidden MUTATION_FLIGHT carrier for real (limited) flight, like Bird Wings.
     effect_telekinetic_levitation = { "MOM_LEVITATION_FLIGHT" },
+    -- Levitation artifact: same DDA LEVITATION/CLIMB_FLYING flags, same fix
+    -- (it flew in DDA and did nothing here before 2026-11-06).
+    effect_mom_artifact_levitation = { "MOM_LEVITATION_FLIGHT" },
   }
+  for eff_id, traits in pairs(require("lua/gen_trait_bridge")) do
+    local merged = TRAIT_BRIDGE[eff_id] or {}
+    for _, t in ipairs(traits) do merged[#merged + 1] = t end
+    TRAIT_BRIDGE[eff_id] = merged
+  end
+  -- Ownership: a bridged trait is only granted if the character lacks it, and
+  -- only removed if WE granted it and no other bridged effect still needs it.
+  -- Before 2026-11-06 the removal was unconditional, so a mutant with real
+  -- GILLS lost them when Oxygen Absorption ended, and ending one of two
+  -- GILLS-bridging powers stripped the other's.
+  local bridge_eid = {}
+  for eff_id in pairs(TRAIT_BRIDGE) do bridge_eid[eff_id] = EffectTypeId.new(eff_id) end
+  local function bridge_still_needed(who, trait, except)
+    for other, ts in pairs(TRAIT_BRIDGE) do
+      if other ~= except and who:has_effect(bridge_eid[other]) then
+        for _, t in ipairs(ts) do if t == trait then return true end end
+      end
+    end
+    return false
+  end
   for eff_id, traits in pairs(TRAIT_BRIDGE) do
     mod.effect_added_handlers[eff_id] = function(who)
-      for _, t in ipairs(traits) do U.set_mutation(who, t) end
+      if who:is_monster() then return end  -- monsters can't hold traits
+      for _, t in ipairs(traits) do
+        if not who:has_trait(MutationBranchId.new(t)) then
+          U.set_mutation(who, t)
+          V.usets(who, "_br_" .. t, "1")
+        end
+      end
     end
     mod.effect_removed_handlers[eff_id] = function(who)
-      for _, t in ipairs(traits) do U.unset_mutation(who, t) end
+      if who:is_monster() then return end
+      for _, t in ipairs(traits) do
+        if V.uhas(who, "_br_" .. t) and not bridge_still_needed(who, t, eff_id) then
+          U.unset_mutation(who, t)
+          V.usets(who, "_br_" .. t, "")
+        end
+      end
     end
   end
+
+  -- Neural Spasms paralysis (effect_electrokin_paralysis).  DDA's CANNOT_MOVE /
+  -- CANNOT_ATTACK flags have no BN counterpart, so the effect did nothing;
+  -- per user call 2026-11-06 it now stuns (BN's native random-movement stun,
+  -- works on monsters and NPCs) for the paralysis duration.  Only tops the stun
+  -- up to that length, so repeat zaps don't stack it beyond one paralysis.
+  local PARALYSIS_EID = EffectTypeId.new("effect_electrokin_paralysis")
+  local STUNNED_EID = EffectTypeId.new("stunned")
+  mod.effect_added_handlers["effect_electrokin_paralysis"] = function(who, eff)
+    if not who then return end
+    local ok, err = pcall(function()
+      local want = (eff and eff:get_duration() or who:get_effect_dur(PARALYSIS_EID)):to_turns()
+      local have = who:get_effect_dur(STUNNED_EID):to_turns()
+      if want > have then
+        who:add_effect(STUNNED_EID, TimeDuration.from_turns(math.floor(want - have)))
+      end
+    end)
+    if not ok then gdebug.log_error("MoM-BN: paralysis stun: " .. tostring(err)) end
+  end
+
+  -- Sealed System RAD_RESIST.  BN reads RAD_RESIST off worn items only
+  -- (suffer.cpp:1300/1788: rads /= 4), never effects or traits, so filter in
+  -- Lua: while sealed, keep only a quarter of any radiation gain (remainder
+  -- carried so slow +1 trickles still quarter correctly).  Decreases (Purge
+  -- Radiation, Prussian blue) pass through untouched.  Avatar only.
+  local SEALED_EID = EffectTypeId.new("effect_biokin_sealed")
+  mod.recurring = mod.recurring or {}
+  mod.recurring["_mom_sealed_rad"] = {
+    min_turns = 5, max_turns = 5,
+    fn = function(you)
+      if not you:has_effect(SEALED_EID) then
+        if V.uhas(you, "_sealed_rad") then V.usets(you, "_sealed_rad", "") end
+        return
+      end
+      local rad = you:get_rad()
+      if not V.uhas(you, "_sealed_rad") then
+        V.uset(you, "_sealed_rad", rad)
+        V.uset(you, "_sealed_rad_acc", 0)
+        return
+      end
+      local base = math.floor(V.uget(you, "_sealed_rad"))
+      if rad > base then
+        local acc = V.uget(you, "_sealed_rad_acc") + (rad - base)
+        local keep = math.floor(acc / 4)
+        V.uset(you, "_sealed_rad_acc", acc - keep * 4)
+        rad = base + keep
+        you:set_rad(math.floor(rad))
+      end
+      V.uset(you, "_sealed_rad", rad)
+    end,
+  }
 
   -- ==========================================================================
   -- Generalized carrier-trait bridge (Phase 4, SCALED-CARRIER-TRAITS-SPEC.md).
@@ -516,12 +604,18 @@ return function(mod)
   -- avatar (mom_hooks.on_every_x), so a single flat set keyed by effect id
   -- is enough -- no per-character indexing needed.
   local avatar_carriers = {}
+  -- Chain onto any TRAIT_BRIDGE handler for the same effect (Sealed System
+  -- has both a carrier tier and a real GILLS grant) instead of replacing it.
   for eff, ent in pairs(carriers) do
-    mod.effect_added_handlers[eff] = function(who)
+    local prev_add = mod.effect_added_handlers[eff]
+    local prev_rem = mod.effect_removed_handlers[eff]
+    mod.effect_added_handlers[eff] = function(who, e)
+      if prev_add then prev_add(who, e) end
       grant_carrier(who, eff, ent)
       if ent.spell and U.is_avatar(who) then avatar_carriers[eff] = true end
     end
-    mod.effect_removed_handlers[eff] = function(who)
+    mod.effect_removed_handlers[eff] = function(who, e)
+      if prev_rem then prev_rem(who, e) end
       remove_carrier(who, eff, ent)
       if U.is_avatar(who) then avatar_carriers[eff] = nil end
     end
@@ -1260,6 +1354,48 @@ return function(mod)
   end
   mod.effect_removed_handlers[SENSOR_STUN] = function(mon)
     if mon and mon.get_special_attack_ids then pcall(jam_robot, mon, false) end
+    return true
+  end
+
+  -- ==========================================================================
+  -- Network Effect ally gate (fixed 2026-11-08).  Upstream gates the cast on
+  -- DDA's `npc_allies: 1`, which the transpiler couldn't express, so the
+  -- generated handler hit U.badcond -> false and the power ALWAYS failed with
+  -- "no nearby allies".  Hand version: count NPCs Friendly to the caster within
+  -- the real spell's blast radius (telepathic_network_real aoe 60), same
+  -- z-level.  Friendly is exactly BN's spell `ally` test (magic_spell_effect.cpp
+  -- A_FRIENDLY), so the gate passes iff the blast will link someone.  NPCs only:
+  -- monsters can't hold the carrier traits that make the effect do anything.
+  -- ==========================================================================
+  local NETWORK_RADIUS = 60
+  local function network_has_ally(you)
+    local origin = you:get_pos_ms()
+    for _, cr in ipairs(gapi.get_all_creatures()) do
+      local ok, yes = pcall(function()
+        if not cr:is_npc() then return false end
+        local p = cr:get_pos_ms()
+        return p.z == origin.z and U.dist(origin, p) <= NETWORK_RADIUS
+          and cr:attitude_to(you) == Attitude.Friendly
+      end)
+      if ok and yes then return true end
+    end
+    return false
+  end
+
+  M.EOC_TELEPATH_NETWORK_ALLY_CHECK = function(you, npc, ctx)
+    ctx = ctx or {}
+    local ok, has = pcall(network_has_ally, you)
+    if not ok then
+      gdebug.log_warn("MoM-BN: network ally scan failed: " .. tostring(has))
+      has = false
+    end
+    if not has then
+      U.msg(you, "With no nearby allies, there is no one to network with.", MsgType.bad, ctx)
+      return false
+    end
+    U.cast_spell(you, "telepathic_network_real", nil, nil)
+    U.msg(you, "You now have an instinctive awareness of your allies, and they of you.",
+      MsgType.neutral, ctx)
     return true
   end
 

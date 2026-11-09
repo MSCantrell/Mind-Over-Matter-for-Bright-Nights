@@ -3,10 +3,108 @@
     "//": "HAND-AUTHORED (2026-11-05). DDA base-game effects that MoM content uses but BN doesn't define. sensor_stun: Sensor Jamming's effect_str (photokinetic_stun_robots). Behaviour lives in lua/mom_eoc.lua (robots' special attacks are disabled while it's up, matching DDA's gun_actor gate).",
     "type": "effect_type",
     "id": "sensor_stun",
-    "name": [ "Sensor scrambling" ],
-    "desc": [ "Its sensors are scrambled and report false readings." ],
+    "name": [
+      "Sensor scrambling"
+    ],
+    "desc": [
+      "Its sensors are scrambled and report false readings."
+    ],
     "rating": "bad",
     "show_in_info": true,
-    "flags": [ "EFFECT_LUA_ON_ADDED", "EFFECT_LUA_ON_REMOVED" ]
+    "flags": [
+      "EFFECT_LUA_ON_ADDED",
+      "EFFECT_LUA_ON_REMOVED"
+    ]
+  },
+  {
+    "//": "HAND-AUTHORED (2026-11-07). DDA base-game mindsight-range markers (MIND_SEEING monsters: hidebehind, eater, etc.). BN has no MIND_SEEING mechanic, so these are inert; defined only so add_effect stops logging 'Invalid effect'.",
+    "type": "effect_type",
+    "id": "eff_mind_seeing_bonus_5",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_mind_seeing_bonus_10",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_mind_seeing_bonus_20",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_mind_seeing_bonus_30",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ]
+  },
+  {
+    "type": "effect_type",
+    "rating": "good",
+    "show_in_info": true,
+    "max_intensity": 500,
+    "max_duration": "30 turns",
+    "//": "HAND-AUTHORED (2026-11-07). Pack Leader (Beastmaster passive), lua/mom_pack.lua. Intensity == flat bash bonus to standard melee hits (bash_mod base 1 + scaling 1 per intensity above 1). Refreshed every 10 turns; max_duration keeps re-adds from stacking duration.",
+    "id": "mom_pack_tactics_bash",
+    "name": [
+      "Psi Pack"
+    ],
+    "desc": [
+      "A psion's mind guides this creature's attacks, showing it where the dead are weakest."
+    ],
+    "base_mods": {
+      "bash_mod": [
+        1
+      ]
+    },
+    "scaling_mods": {
+      "bash_mod": [
+        1
+      ]
+    }
+  },
+  {
+    "type": "effect_type",
+    "rating": "good",
+    "show_in_info": false,
+    "max_intensity": 500,
+    "max_duration": "30 turns",
+    "//": "Cut-damage twin of mom_pack_tactics_bash; hidden so the pet shows one entry.",
+    "id": "mom_pack_tactics_cut",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "base_mods": {
+      "cut_mod": [
+        1
+      ]
+    },
+    "scaling_mods": {
+      "cut_mod": [
+        1
+      ]
+    }
   }
 ]

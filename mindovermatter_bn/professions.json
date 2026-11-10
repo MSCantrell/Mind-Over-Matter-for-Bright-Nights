@@ -1899,7 +1899,7 @@
     "type": "profession",
     "id": "mid_electrokinetic",
     "name": "Arising Electrokinetic",
-    "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You an hurl lightning bolts from your hands, like some kind of superhero, and your smartphone still has a full charge even though you haven't plugged it in weeks.  Some kind of huge wasp attacked you in the woods and there was a crackle like thunder and it fell to the ground twitching.  You didn't stop to check if it would move again.",
+    "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You can hurl lightning bolts from your hands, like some kind of superhero, and your smartphone still has a full charge even though you haven't plugged it in weeks.  Some kind of huge wasp attacked you in the woods and there was a crackle like thunder and it fell to the ground twitching.  You didn't stop to check if it would move again.",
     "points": 6,
     "traits": [
       "ELECTROKINETIC",
@@ -3037,7 +3037,7 @@
     "type": "profession",
     "id": "mid_teleporter",
     "name": "Arising Teleporter",
-    "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You can step through walls, and once you were surrounded by a horde and looked up and a nearby rooftop and\u2026 there you were, safe and out of the zombies' line of sight.  The rule of the zombie apocalypse is \"keep moving\", and you're the best you've ever been at that.",
+    "description": "Something happened during the storms that raged during the Cataclysm, and now you can do things that would have once seemed impossible.  You can step through walls, and once you were surrounded by a horde and looked up at a nearby rooftop and… there you were, safe and out of the zombies' line of sight.  The rule of the zombie apocalypse is \"keep moving\", and you're the best you've ever been at that.",
     "points": 6,
     "traits": [
       "TELEPORTER",

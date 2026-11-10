@@ -23,7 +23,7 @@
     "name": {
       "str": "transporter remote"
     },
-    "description": "A blocky item, like an old feature cellphone crossed with a radio.  A matrix channeling array is stick out of the side like an antenna.  There is a small screen on the front, currently off.",
+    "description": "A blocky item, like an old feature cellphone crossed with a radio.  A matrix channeling array is sticking out of the side like an antenna.  There is a small screen on the front, currently off.",
     "weight": "500 g",
     "volume": "350 ml",
     "material": [

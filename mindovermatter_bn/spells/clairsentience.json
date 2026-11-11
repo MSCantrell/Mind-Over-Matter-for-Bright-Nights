@@ -164,7 +164,7 @@
     "id": "clair_sense_rads",
     "type": "SPELL",
     "name": "[\u03a8]Radiation Sense",
-    "description": "You can open your tenses to the tell-tale glow of radiation.",
+    "description": "You can open your senses to the tell-tale glow of radiation.",
     "message": "",
     "valid_targets": [
       "self"
@@ -335,7 +335,7 @@
     "id": "clair_voyance",
     "type": "SPELL",
     "name": "[\u03a8]Clairvoyance",
-    "description": "The classic example of a clairsentient's powers, you can see through walls and reveal everything nearby.\n\nLevel 6 leads to Combat Sense with Premonition 10.\nLevel 14 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\nLevel 8 leads to Satellite View.",
+    "description": "The classic example of a clairsentient's powers, you can see through walls and reveal everything nearby.\n\nLevel 6 leads to Combat Sense with Premonition 10.\nLevel 14 leads to Omniscience with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\nLevel 8 leads to Satellite View.",
     "message": "You open your inner eye.",
     "valid_targets": [
       "self"
@@ -465,7 +465,7 @@
     "id": "clair_see_map",
     "type": "SPELL",
     "name": "[\u03a8]Satellite View",
-    "description": "You can extend your senses over the landscape, becoming aware of every hill, building, and valley within a large area.\n\nLevel 8 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.",
+    "description": "You can extend your senses over the landscape, becoming aware of every hill, building, and valley within a large area.\n\nLevel 8 leads to Omniscience with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.",
     "message": "You close your eyes and concentrate, and you can see the landscape spread out as though you were a bird on the wing.",
     "valid_targets": [
       "none"
@@ -493,7 +493,7 @@
     "id": "clair_clear_sight",
     "type": "SPELL",
     "name": "[\u03a8]Clarity (C)",
-    "description": "Thanks to your powers, nothing can stop you from seeing the world as it is.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 5 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\nLevel 5 leads to Prescient Tactician with Combat Sense 8 + Marksman's Eye 7.",
+    "description": "Thanks to your powers, nothing can stop you from seeing the world as it is.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 5 leads to Omniscience with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\nLevel 5 leads to Prescient Tactician with Combat Sense 8 + Marksman's Eye 7.",
     "message": "",
     "valid_targets": [
       "self"
@@ -556,7 +556,7 @@
   {
     "id": "clair_omniscience",
     "type": "SPELL",
-    "name": "[\u03a8]Omniscence",
+    "name": "[Ψ]Omniscience",
     "description": "Extend your senses to a supernal degree, perceiving everything within the nearby area.  Every creature, every object, every blade of grass, everything.  <color_red>EVERYTHING</color>.",
     "message": "You can see forever.",
     "valid_targets": [

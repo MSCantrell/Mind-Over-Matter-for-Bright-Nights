@@ -3,7 +3,7 @@
     "id": "vita_health_power",
     "type": "SPELL",
     "name": "[\u03a8]Healthy Glow (C)",
-    "description": "Your powers can keep you in the bloom of health.  This can also stop or prevent an asthma attack.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  Healthy Glow <color_red>cannot be active</color> with Leucocyte Acculumation",
+    "description": "Your powers can keep you in the bloom of health.  This can also stop or prevent an asthma attack.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  Healthy Glow <color_red>cannot be active</color> with Leucocyte Accumulation",
     "message": "",
     "valid_targets": [
       "self"

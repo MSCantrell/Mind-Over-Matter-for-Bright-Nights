@@ -135,7 +135,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "description": "Contemplate your powers and improve your ability to travel short distances in a controlled matter without crossing the intervening space.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:teleport_phase>",
+    "description": "Contemplate your powers and improve your ability to travel short distances in a controlled manner without crossing the intervening space.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:teleport_phase>",
     "difficulty": 0,
     "category": "CC_*",
     "skill_used": "metaphysics"

@@ -720,7 +720,7 @@
     "id": "mon_feral_human_photokin3",
     "type": "MONSTER",
     "name": "atom splitter",
-    "description": "This feral glows brighter than streetlamp, casting their surroundings into sharp relief amid the glow.  They are clearly still lucid but their expression is blank and their eyes are unfocused.",
+    "description": "This feral glows brighter than a streetlamp, casting their surroundings into sharp relief amid the glow.  They are clearly still lucid but their expression is blank and their eyes are unfocused.",
     "copy-from": "mon_feral_psion_default",
     "material": [
       "flesh"
@@ -1021,7 +1021,7 @@
     "id": "mon_feral_human_telekin",
     "type": "MONSTER",
     "name": "feral PKer",
-    "description": "Though they still have a maniacal expression, this feral human is distinguished by the rocks floating in the around around them.",
+    "description": "Though they still have a maniacal expression, this feral human is distinguished by the rocks floating in the air around them.",
     "copy-from": "mon_feral_psion_default",
     "color": "yellow",
     "symbol": "@",

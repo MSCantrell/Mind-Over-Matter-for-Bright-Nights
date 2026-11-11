@@ -205,7 +205,10 @@ return function(mod)
     local ok, yes = pcall(function()
       local cur = it:ammo_current()
       if cur and cur:str() == "battery" then return true end
-      local mag = it:get_type():obj().slot_magazine
+      -- slot_magazine is a bound FUNCTION (VALUE_PTR_MEMB_N, catalua_bindings_item.cpp:655),
+      -- not a field: `.slot_magazine` returned the function itself, `.default_ammo` on it
+      -- threw, and every fully drained cell (ammo_current() == null) was skipped. 2026-11-08.
+      local mag = it:get_type():obj():slot_magazine()
       return mag ~= nil and mag.default_ammo:str() == "battery"
     end)
     return ok and yes
@@ -454,14 +457,15 @@ return function(mod)
         .. "(Open your map and add a note to the spot you want to reach.)"
     end
     local labels = {}
+    -- No cap (was 40, nearest-first: a dense map never showed anything past ~35 OMT,
+    -- player report 2026-11-09).  uilist scrolls, and '/' filters by text.
     for i, n in ipairs(notes) do
-      if i > 40 then break end
       labels[i] = n.label .. "  (" .. n.d .. " tiles" .. (n.dir ~= "" and " " .. n.dir or "") .. ")"
     end
     local mark, tiles
     while not mark do
       local pick = U.select_menu(name .. " chalks a circle around your feet.  \"Show me where.  "
-        .. "Just the one way, mind.\"", labels, nil, nil, nil)
+        .. "Just the one way, mind.\"\n(Type / to search your notes.)", labels, nil, nil, nil)
       if not pick then return nil end
       local wet
       tiles, wet = scatter_tiles(notes[pick].p)

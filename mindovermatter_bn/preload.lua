@@ -55,6 +55,12 @@ game.add_hook("on_character_death", function(params)
   if mod.on_character_death then return mod.on_character_death(params) end
 end)
 
+-- Named weapons (lua/mom_named_weapons.lua): params shooter (Character), target_pos,
+-- shots, gun (item), ammo.  Stamps the shooter so on_mon_death can credit the gun.
+game.add_hook("on_shoot", function(params)
+  if mod.on_shoot then return mod.on_shoot(params) end
+end)
+
 -- Survivor graffiti (lua/mom_graffiti.lua): params map (MapgenConstructor), omt
 -- (TripointAbsOmt), when.  Registering this hook makes BN queue a deferred call for every
 -- generated overmap tile, so the handler bails out fast for tiles it doesn't want.

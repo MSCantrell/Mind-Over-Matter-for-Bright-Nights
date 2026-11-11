@@ -219,6 +219,102 @@
     ]
   },
   {
+    "id": "clair_locate_item",
+    "type": "SPELL",
+    "name": "[\u03a8]Locate Item",
+    "description": "Hold an object firmly in your mind -- a wrench, a can of beans, a coil of rope -- and feel for the nearest one.  Your senses ripple outward through walls and floors until they snag on it, and you know which way it lies and how far.\n\nName what you are looking for when you cast.  It matches the item's name the way your own search does, so \"rope\" finds any rope and \"9mm\" any 9mm ammunition.  Reaches <color_yellow>6 tiles, +2 per level</color> (36 at level 15); from level 5 it also reaches one floor up and down, and from level 10 two.  You learn the direction and distance of the nearest match, and of more matches as you improve.\n\nIt feels objects lying loose or stored in furniture, but not what is packed inside bags and boxes, nor anything stowed in a vehicle.\n\nLevel 8 leads to Locate Items Thoroughly.",
+    "//": "ORIGINAL Bright Nights fork power (2026-11-10), not upstream MoM.  Clairsentient tier-1 item finding: live scan of the reality bubble (Lua's map can't see past it -- the C++ mapbuffer isn't bound).  Logic in lua/mom_locate.lua (cast marker mom_cast_clair_locate_item -> prompt for a name, substring match on tname like the V-menu filter).  Learned via gen_learn_map FORK_LEARN_OVERRIDES.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 3,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_locate_item",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 2500,
+    "final_energy_cost": 1000,
+    "energy_increment": -100.0,
+    "base_casting_time": 200,
+    "final_casting_time": 100,
+    "casting_time_increment": -7.0,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_cast_clair_locate_item",
+    "//": "Cast marker: applied to the caster on cast; lua/mom_locate.lua's effect_added handler runs the live item sense, then consumes the marker.  Same shape as the other mom_cast_* markers.",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
+    "id": "clair_locate_items_thoroughly",
+    "type": "SPELL",
+    "name": "[\u03a8]Locate Items Thoroughly",
+    "description": "A Clairsentient's mind never really stops listening.  Every place you have passed through has left an impression of what was lying there, and with practice you can finally search that memory: name an object, and recall every place you have sensed one.\n\nCasting first sweeps everything around you (your floor and the floors above and below), then searches your memory of places up to <color_yellow>20 map tiles away, +10 per level</color>.  Results are listed nearest first, with how long ago you sensed each one -- someone may have taken it since.  Choose a result to mark it on your map.\n\nYour mind has been gathering these impressions since you awakened as a Clairsentient, from about one map tile around wherever you go.  Like Locate Item, it does not feel what is packed inside bags and boxes, nor anything stowed in a vehicle.",
+    "//": "ORIGINAL Bright Nights fork power (2026-11-10), not upstream MoM.  Clairsentient tier-2 item finding: queries the passive item memory lua/mom_locate.lua keeps for every CLAIRSENTIENT avatar (per-OMT interned itype lists in game.mod_storage, since Lua can't read unloaded submaps).  Cast marker mom_cast_clair_locate_items_thoroughly.  Learned via gen_learn_map FORK_LEARN_OVERRIDES.",
+    "message": "",
+    "valid_targets": [
+      "self"
+    ],
+    "spell_class": "CLAIRSENTIENT",
+    "skill": "metaphysics",
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "difficulty": 6,
+    "max_level": 15,
+    "effect": "target_attack",
+    "effect_str": "mom_cast_clair_locate_items_thoroughly",
+    "min_duration": 100,
+    "max_duration": 100,
+    "base_energy_cost": 5000,
+    "final_energy_cost": 2500,
+    "energy_increment": -170.0,
+    "base_casting_time": 600,
+    "final_casting_time": 300,
+    "casting_time_increment": -20.0,
+    "energy_source": "STAMINA",
+    "scale_int": true
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_cast_clair_locate_items_thoroughly",
+    "//": "Cast marker: applied to the caster on cast; lua/mom_locate.lua's effect_added handler runs the memory search, then consumes the marker.  Same shape as the other mom_cast_* markers.",
+    "name": [
+      ""
+    ],
+    "desc": [
+      ""
+    ],
+    "max_intensity": 1,
+    "flags": [
+      "EFFECT_LUA_ON_ADDED"
+    ]
+  },
+  {
     "id": "pyrokinetic_aoe_blast",
     "type": "SPELL",
     "name": "[\u03a8]Mass Hydrothermosis",
@@ -316,8 +412,8 @@
     "id": "telekinetic_kinetic_trap",
     "type": "SPELL",
     "name": "[\u03a8]Kinetic Trap",
-    "description": "Pour kinetic energy into a pile of scrap metal and wind it tighter and tighter, until the metal is holding far more force than it should and is only barely stable.  Leave it on the ground beside you.  The next enemy to disturb it gets the whole store at once: a hammer-blow of force and a spray of shredded metal.\n\nConsumes <color_yellow>4 scrap metal</color> each cast.  The trap is visible to you, and <color_yellow>you and your allies can walk over it safely</color>.  Below level 5 it leaves a Kinetic Trap (20 bash + 20 shrapnel); from level 5 a Strong Kinetic Trap (35 + 35); from level 10 a Powerful Kinetic Trap (50 + 50).",
-    "message": "You wind force into the scrap until it trembles.",
+    "description": "Pour kinetic energy into a pile of scrap metal and wind it tighter and tighter, until the metal is holding far more force than it should and is only barely stable.  Telekinesis reaches past your arms: set it on any tile within range (3 tiles, +1 per level to 12), even through a wall.  The next enemy to disturb it gets the whole store at once: a hammer-blow of force and a spray of shredded metal.\n\nConsumes <color_yellow>4 scrap metal</color> each cast.  The trap is visible to you, and <color_yellow>you and your allies can walk over it safely</color>.  Below level 5 it leaves a Kinetic Trap (20 bash + 20 shrapnel); from level 5 a Strong Kinetic Trap (35 + 35, shrapnel hits enemies within 1 tile); from level 10 a Powerful Kinetic Trap (50 + 50, shrapnel within 2 tiles).",
+    "message": "You wind up tension and strain in the terrain until it's barely stable, and you add some scrap metal for good measure.",
     "//": "ORIGINAL Bright Nights fork power (2026-11-07), not upstream MoM.  Marker-free Lua bridge: target_attack on a ground tile does nothing itself; mom_hooks' mod.on_spell_cast places the tier trap (traps.json mom_tr_*) at target_pos and fires the per-cast attunement events.  components = materials consumed per cast (spell::use_components).  Learned via gen_learn_map FORK_LEARN_OVERRIDES.",
     "valid_targets": [
       "ground",
@@ -335,8 +431,12 @@
     "difficulty": 4,
     "max_level": 15,
     "effect": "target_attack",
-    "min_range": 1,
-    "max_range": 1,
+    "min_range": 3,
+    "range_increment": 1.0,
+    "max_range": 12,
+    "field_id": "fd_mom_trap_marker",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
     "base_energy_cost": 3500,
     "final_energy_cost": 1500,
     "energy_increment": -150.0,
@@ -371,6 +471,9 @@
     "effect": "target_attack",
     "min_range": 1,
     "max_range": 1,
+    "field_id": "fd_mom_trap_marker",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
     "base_energy_cost": 3500,
     "final_energy_cost": 1500,
     "energy_increment": -150.0,
@@ -431,6 +534,62 @@
     "effect_str": "mom_primed_trap_hit",
     "min_duration": 1,
     "max_duration": 1,
+    "min_range": 0,
+    "max_range": 0
+  },
+  {
+    "id": "mom_kinetic_trap_shrapnel_2",
+    "type": "SPELL",
+    "name": {
+      "str": "Kinetic trap shrapnel 2",
+      "//~": "NO_I18N"
+    },
+    "description": "Shrapnel burst of a tier-2 Kinetic Trap; cast from Lua (mom_hooks primed-trap hit) with the AVATAR as caster so kills are credited and only hostiles are hit.  Blast area respects walls.",
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "max_level": 1,
+    "effect": "target_attack",
+    "damage_type": "bullet",
+    "min_damage": 35,
+    "max_damage": 35,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "min_accuracy": 60,
+    "max_accuracy": 60,
+    "min_range": 0,
+    "max_range": 0
+  },
+  {
+    "id": "mom_kinetic_trap_shrapnel_3",
+    "type": "SPELL",
+    "name": {
+      "str": "Kinetic trap shrapnel 3",
+      "//~": "NO_I18N"
+    },
+    "description": "Shrapnel burst of a tier-3 Kinetic Trap; cast from Lua (mom_hooks primed-trap hit) with the AVATAR as caster so kills are credited and only hostiles are hit.  Blast area respects walls.",
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "max_level": 1,
+    "effect": "target_attack",
+    "damage_type": "bullet",
+    "min_damage": 50,
+    "max_damage": 50,
+    "min_aoe": 2,
+    "max_aoe": 2,
+    "min_accuracy": 60,
+    "max_accuracy": 60,
     "min_range": 0,
     "max_range": 0
   },

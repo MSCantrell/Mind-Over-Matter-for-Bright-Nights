@@ -142,6 +142,12 @@ return function(mod)
     end
     return true
   end
+  -- "Stop concentrating" menu condition (eoc_transpile _add_menu_entry): list
+  -- No Go Zone only while it's up, like the transpiled REMOVE entries.
+  mod.eoc_conds = mod.eoc_conds or {}
+  mod.eoc_conds.EOC_TELEKIN_REMOVE_NOGOZONE = function(you)
+    return you:has_effect(NOGO_EID)
+  end
 
   -- ==========================================================================
   -- [Ψ]Circuit Sense (C): ORIGINAL fork power (NOT upstream MoM).  A maintained
@@ -192,6 +198,12 @@ return function(mod)
     end
     U.unset_mutation(you, CIRCUIT_TRAIT)  -- belt-and-suspenders (idempotent)
     return true
+  end
+  -- "Stop concentrating" menu condition (eoc_transpile _add_menu_entry): list
+  -- Circuit Sense only while it's up, like the transpiled REMOVE entries.
+  mod.eoc_conds = mod.eoc_conds or {}
+  mod.eoc_conds.EOC_ELECTROKIN_REMOVE_CIRCUIT_SENSE = function(you)
+    return you:has_effect(EffectTypeId.new(CIRCUIT_EFFECT))
   end
 
   -- Restart re-arm registration.  These three hand pilots drive their XP DRAIN

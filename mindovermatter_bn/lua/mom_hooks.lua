@@ -515,6 +515,7 @@ return function(mod)
     fire_event_eocs("opens_spellbook", you, ctx)
     fire_event_eocs("spellcasting_finish", you, ctx)
   end
+  mod.fire_spell_cast_events = fire_spell_cast_events  -- for hand modules (mom_locate)
 
   mod.cast_map = require("lua/gen_cast_map")
 
@@ -755,17 +756,23 @@ return function(mod)
   -- shrapnel is DT_BULLET, which is what BN's own explosion fragments deal.
   local PRIMED_TRAPS = {
     mom_tr_kinetic_1   = { kind = "kinetic", dmg = 20, name = "Kinetic Trap" },
-    mom_tr_kinetic_2   = { kind = "kinetic", dmg = 35, name = "Strong Kinetic Trap" },
-    mom_tr_kinetic_3   = { kind = "kinetic", dmg = 50, name = "Powerful Kinetic Trap" },
+    -- shrapnel = blast spell (fork_powers.json, aoe 1 / 2) that carries the
+    -- bullet half of the damage to every hostile in the radius.
+    mom_tr_kinetic_2   = { kind = "kinetic", dmg = 35, name = "Strong Kinetic Trap",
+                           shrapnel = "mom_kinetic_trap_shrapnel_2" },
+    mom_tr_kinetic_3   = { kind = "kinetic", dmg = 50, name = "Powerful Kinetic Trap",
+                           shrapnel = "mom_kinetic_trap_shrapnel_3" },
     mom_tr_pyrolytic_1 = { kind = "pyrolytic", dmg = 20, fire = 1, name = "Pyrolytic Trap" },
     mom_tr_pyrolytic_2 = { kind = "pyrolytic", dmg = 35, fire = 2, name = "Strong Pyrolytic Trap" },
     mom_tr_pyrolytic_3 = { kind = "pyrolytic", dmg = 50, fire = 3, name = "Powerful Pyrolytic Trap" },
   }
+  -- reach = marker search radius; keep it >= the spell's max_range in
+  -- fork_powers.json (Kinetic Trap 3 + 1/level to 12; Pyrolytic adjacent-only).
   local TRAP_POWERS = {
     telekinetic_kinetic_trap = { kind = "kinetic", school = "TELEKINETIC",
-      what = "scrap" },
+      what = "scrap", reach = 12 },
     pyrokinetic_pyrolytic_trap = { kind = "pyrolytic", school = "PYROKINETIC",
-      what = "fuel" },
+      what = "fuel", reach = 1 },
   }
   -- Tiles a trap can't sit on (the cast's materials are already spent, so say so).
   local TRAP_BLOCK_FLAGS = { "WALL", "TREE", "NO_FLOOR", "DEEP_WATER" }
@@ -792,6 +799,50 @@ return function(mod)
       .. " is set.  It will hold for you and your allies.", MsgType.good, nil)
   end
 
+  -- Where the trap goes.  BN (ce8a10d) pushes on_spell_cast's target_pos as a
+  -- raw coord_point POINTER, which the Lua coord wrapper doesn't cover: any
+  -- index (.x) throws "attempt to index a sol.coords::coord_point<...>*".  So
+  -- the trap spells drop an invisible fd_mom_trap_marker on their target tile
+  -- (field_id; cast_all_effects runs before the hook), and we find it within
+  -- the power's reach of the caster (nearest first) and clear it.  The target_pos
+  -- read stays as a first try in case BN fixes the binding.
+  local TRAP_MARKER = FieldTypeId.new("fd_mom_trap_marker"):int_id()
+  local function find_trap_target(you, params, reach)
+    local ok, pos = pcall(function()
+      local t = params.target_pos
+      return TripointBubMs.new(t.x, t.y, t.z)
+    end)
+    if ok and pos then return pos end
+    local map = gapi.get_map()
+    local c = you:get_pos_ms()
+    local found, best
+    reach = reach or 1
+    -- BN spell targeting can pick a tile on another z-level (fixed 2026-11-10:
+    -- this scanned only the caster's z, so up/down casts lost their marker).
+    -- Walk z-layers outward from the caster's (0, -1, +1, -2, ...) within reach
+    -- and BN's z bounds; stop once a layer is farther than the best hit.
+    local zs = { c.z }
+    for k = 1, reach do
+      if c.z - k >= -10 then zs[#zs + 1] = c.z - k end
+      if c.z + k <= 10 then zs[#zs + 1] = c.z + k end
+    end
+    for _, z in ipairs(zs) do
+      local dz = math.abs(z - c.z)
+      if best and dz > best then break end
+      for dx = -reach, reach do
+        for dy = -reach, reach do
+          local p = TripointBubMs.new(c.x + dx, c.y + dy, z)
+          if map:has_field_at(p, TRAP_MARKER) then
+            map:remove_field_at(p, TRAP_MARKER)
+            local d = math.max(math.abs(dx), math.abs(dy), dz)
+            if not best or d < best then found, best = p, d end
+          end
+        end
+      end
+    end
+    return found
+  end
+
   do
     local prev_on_spell_cast = mod.on_spell_cast
     function mod.on_spell_cast(params)
@@ -800,9 +851,15 @@ return function(mod)
       if not (who and sp) then return end
       local ok, key = pcall(function() return sp.id:str() end)
       if not ok or not TRAP_POWERS[key] then return end
-      local placed, err = pcall(place_primed_trap, who, key,
-        params.target_pos and TripointBubMs.new(params.target_pos.x,
-          params.target_pos.y, params.target_pos.z))
+      local placed, err = pcall(function()
+        local pos = find_trap_target(who, params, TRAP_POWERS[key].reach)
+        if not pos then
+          mod.u.msg(who, "The energy finds nowhere to settle, and the " .. TRAP_POWERS[key].what
+            .. " is spent for nothing.", MsgType.bad, nil)
+          return
+        end
+        place_primed_trap(who, key, pos)
+      end)
       if not placed then gdebug.log_error("MoM-BN: primed trap: " .. tostring(err)) end
       fire_spell_cast_events(who,
         { school = TRAP_POWERS[key].school, difficulty = 4, finish = "tag" }, key)
@@ -830,7 +887,15 @@ return function(mod)
       local di
       if t.kind == "kinetic" then
         di = DamageInstance.new(DamageType.DT_BASH, t.dmg, 0, 1, 1)
-        di:add_damage(DamageType.DT_BULLET, t.dmg, 0, 1, 1)
+        -- Tiers 2-3: the shrapnel spell (cast below, avatar as caster) hits
+        -- every hostile in its radius, the triggerer included, so the direct
+        -- hit is bash only.  Its "hostile" test is avatar:attitude_to(target);
+        -- a non-hostile triggerer (neutral wildlife) would be skipped, so it
+        -- gets its shrapnel directly instead.
+        local spray = t.shrapnel and avatar:attitude_to(who) == Attitude.Hostile
+        if not spray then
+          di:add_damage(DamageType.DT_BULLET, t.dmg, 0, 1, 1)
+        end
         if seen then
           gapi.add_msg(MsgType.good, "The primed scrap bursts apart under " .. name
             .. " in a blast of force and shrapnel!")
@@ -847,6 +912,12 @@ return function(mod)
         Spell.new(SpellTypeId.new("mom_" .. t.kind .. "_trap_noise"), 0):cast(who, pos)
       end)
       who:deal_damage(avatar, BodyPartTypeId.new("torso"):int_id(), di)
+      if t.shrapnel then
+        local sok, serr = pcall(function()
+          Spell.new(SpellTypeId.new(t.shrapnel), 0):cast(avatar, pos)
+        end)
+        if not sok then gdebug.log_error("MoM-BN: trap shrapnel: " .. tostring(serr)) end
+      end
       if t.fire then
         map:add_field_at(pos, FieldTypeId.new("fd_fire"):int_id(), t.fire,
           TimeDuration.from_turns(0))

@@ -3,7 +3,7 @@
     "id": "clair_better_senses",
     "type": "SPELL",
     "name": "[\u03a8]Heightened Senses (C)",
-    "description": "All of your senses are heightened, allowing you to see further and hear better, and at higher levels even see in murky water or use minor vibrations and small sounds to determine moving creatures nearby.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 5 leads to Aura Sight.\nLevel 8 leads to Night Eyes.\nLevel 6 leads to Premonition.\nLevel 3 leads to See Mechanisms.",
+    "description": "All of your senses are heightened, allowing you to see further and hear better, and at higher levels even see in murky water or use minor vibrations and small sounds to determine moving creatures nearby.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 5 leads to Aura Sight.\nLevel 4 leads to Locate Item.\nLevel 8 leads to Night Eyes.\nLevel 6 leads to Premonition.\nLevel 3 leads to See Mechanisms.",
     "message": "",
     "valid_targets": [
       "self"

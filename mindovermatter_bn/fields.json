@@ -1132,5 +1132,13 @@
     "priority": -1,
     "half_life": "50 minutes",
     "phase": "gas"
+  },
+  {
+    "id": "fd_mom_trap_marker",
+    "type": "field_type",
+    "//": "Invisible one-tile marker the primed-trap spells (telekinetic_kinetic_trap, pyrokinetic_pyrolytic_trap) drop on their target tile via field_id.  BN passes on_spell_cast's target_pos as a raw coord pointer Lua cannot read (ce8a10d), so mom_hooks finds the tile by this marker instead and removes it.  Short half-life in case Lua ever misses one.",
+    "intensity_levels": [ { "name": "settling force" } ],
+    "half_life": "6 seconds",
+    "display_field": false
   }
 ]

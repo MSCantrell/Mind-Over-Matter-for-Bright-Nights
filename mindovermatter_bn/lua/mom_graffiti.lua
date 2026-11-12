@@ -20,16 +20,33 @@ return function(mod)
   local FURN = "f_mom_graffiti"
   local VAR_MEDIUM, VAR_TEXT = "mom_graffiti_medium", "mom_graffiti_text"
 
-  -- Percent chance per overmap tile, and max messages per tile.  "Occasional": a handful
-  -- per town.  Shelters are where people waited, so they're dense.
-  G.RATE = { street = 6, building = 3, country = 2, shelter = 50 }
-  G.MAX_PER_TILE = { street = 1, building = 1, country = 1, shelter = 3 }
+  -- Percent chance per overmap tile, and max messages per tile.  Tripled 2026-11-12 (user:
+  -- "haven't seen a single one"); was street 6 / building 3 / country 2 / shelter 50 max 3.
+  -- Shelters are where people waited, so they're dense.
+  G.RATE = { street = 18, building = 9, country = 6, shelter = 100 }
+  G.MAX_PER_TILE = { street = 1, building = 1, country = 1, shelter = 5 }
 
+  -- BN's PREFIX match (overmap.cpp is_ot_prefix) needs the id to equal the prefix or continue
+  -- with '_', so a prefix must NOT end in '_' ("s_" only matched "s__...": never).  Shop ids
+  -- are s_<kind>[_n]; the list below is every BN s_ kind except lots/fields/airport/parking.
+  local SHOP_PREFIXES = { "s_antique", "s_arcade", "s_bike", "s_bookstore", "s_butcher",
+    "s_clothes", "s_daycare", "s_dive", "s_electronics", "s_games", "s_garage", "s_gardening",
+    "s_gas", "s_grocery", "s_gun", "s_hardware", "s_hunting", "s_jewelry", "s_laundromat",
+    "s_library", "s_lightindustry", "s_liquor", "s_music", "s_petstore", "s_pharm", "s_pizza",
+    "s_restaurant", "s_reststop", "s_shoppingplaza", "s_sports", "s_teashop", "s_thrift", "s_vfw" }
+  local function concat(a, b)
+    local t = {}
+    for _, v in ipairs(a) do t[#t + 1] = v end
+    for _, v in ipairs(b) do t[#t + 1] = v end
+    return t
+  end
   local SHELTER_PREFIXES = { "evac_center", "shelter", "fema" }
-  local BUILDING_PREFIXES = { "house", "s_", "office", "church", "school", "bar", "cafe",
-    "restaurant", "police", "fire_station", "library", "motel", "hotel", "apartment", "bank",
-    "pawn", "cabin", "farm", "gym", "mall", "diner", "garage", "warehouse", "museum" }
-  local TOWN_PREFIXES = { "house", "s_" }   -- a road with these within 2 tiles is a town street
+  local BUILDING_PREFIXES = concat({ "house", "office", "church", "school", "bar", "police",
+    "fire_station", "motel", "hotel", "apartments", "bank", "pawn", "cabin", "farm", "gym",
+    "mall", "garage", "warehouse", "museum", "bakery" }, SHOP_PREFIXES)
+  -- a road with one of these within 2 tiles is a town street
+  local TOWN_PREFIXES = concat({ "house" }, SHOP_PREFIXES)
+  G.SHOP_PREFIXES, G.BUILDING_PREFIXES, G.TOWN_PREFIXES = SHOP_PREFIXES, BUILDING_PREFIXES, TOWN_PREFIXES
 
   -- ------------------------------------------------------------------ content tables
   -- Status lines are per place and match how BN GENERATES it (checked against CBN mapgen
@@ -72,14 +89,14 @@ return function(mod)
       "DON'T GO {DIR}. THERE'S A LAB.",
       "LAB {WHERE}. SEALED. KEEP IT THAT WAY.",
       "{DIR} = LAB = NO." } },
-    { p = { "mil_", "bunker" }, lines = {
+    { p = { "mil_base", "mil_airfield", "mil_blacksite", "outpost", "bunker" }, lines = {
       "SOLDIERS {WHERE}. THEY SHOOT FIRST.",
       "THE BASE {DIR} WENT QUIET ON DAY 2.",
       "DON'T TRUST THE ARMY {DIR}. NOBODY CAME BACK." } },
-    { p = { "fungal_" }, lines = {
+    { p = { "fungal" }, lines = {
       "MUSHROOM PEOPLE {DIR}. DON'T BREATHE IT IN.",
       "THE GROUND IS FUZZY {WHERE}. TURN BACK." } },
-    { p = { "triffid_" }, lines = {
+    { p = { "triffid" }, lines = {
       "PLANTS THAT WALK. {WHERE}. NOT A JOKE.",
       "DON'T GO IN THE GROVE {DIR}." } },
     { p = { "anthill", "acid_anthill" }, lines = {
@@ -163,6 +180,16 @@ return function(mod)
   -- ------------------------------------------------------------------ pure helpers
   local function pick(t) return t[gapi.rng(1, #t)] end
 
+  local function shuffled(t)
+    local s = {}
+    for i, v in ipairs(t) do s[i] = v end
+    for i = #s, 2, -1 do
+      local j = gapi.rng(1, i)
+      s[i], s[j] = s[j], s[i]
+    end
+    return s
+  end
+
   local function weighted(w)
     local total = 0
     for _, v in pairs(w) do total = total + v end
@@ -205,23 +232,16 @@ return function(mod)
 
   -- ------------------------------------------------------------------ world queries
   -- Closest existing overmap tile whose id starts with one of `prefixes`, within `range`
-  -- tiles on the same z-level.  Returns dx, dy or nil.
+  -- tiles on the same z-level.  Returns dx, dy or nil.  One scan with every prefix as a type
+  -- (was one scan per prefix; the shop list made that ~35 scans per road tile).
   function G.find_near(origin, prefixes, range)
-    local best, bd
-    for _, pre in ipairs(prefixes) do
-      local fp = OmtFindParams.new()
-      fp:add_type(pre, OtMatchType.PREFIX)
-      fp:set_search_range(1, range)
-      fp:set_search_layers(origin.z, origin.z)
-      fp.existing_only = true
-      local hit = overmapbuffer.find_closest(origin, fp)
-      if hit then
-        local dx, dy = hit.x - origin.x, hit.y - origin.y
-        local d = math.max(math.abs(dx), math.abs(dy))
-        if not bd or d < bd then best, bd = { dx, dy }, d end
-      end
-    end
-    if best then return best[1], best[2] end
+    local fp = OmtFindParams.new()
+    for _, pre in ipairs(prefixes) do fp:add_type(pre, OtMatchType.PREFIX) end
+    fp:set_search_range(1, range)
+    fp:set_search_layers(origin.z, origin.z)
+    fp.existing_only = true
+    local hit = overmapbuffer.find_closest(origin, fp)
+    if hit then return hit.x - origin.x, hit.y - origin.y end
     return nil
   end
 
@@ -251,9 +271,11 @@ return function(mod)
                    D = tostring(gapi.rng(3, 19)), DIR = G.compass(gapi.rng(-3, 3), gapi.rng(-3, 3)) }
     if base.DIR == "HERE" then base.DIR = "NORTH" end
     local text
+    -- Supplies/danger try EVERY kind in random order until one is in range (was 3 random
+    -- picks / 1 pick, so a town missing a few kinds mostly fell back to personal notes).
+    -- Only runs for the few tiles that won the RATE roll, so the extra scans are cheap.
     if kind == "supplies" then
-      for _ = 1, 3 do
-        local s = pick(SUPPLIES)
+      for _, s in ipairs(shuffled(SUPPLIES)) do
         local dx, dy = near(s.p, RANGE.supplies)
         if dx then
           text = fill(pick(SUPPLY_LINES), { HOOK = pick(s.hook), WHAT = s.what,
@@ -262,10 +284,12 @@ return function(mod)
         end
       end
     elseif kind == "danger" then
-      local d = pick(DANGERS)
-      local dx, dy = near(d.p, RANGE.danger)
-      if dx then
-        text = fill(pick(d.lines), { DIR = G.compass(dx, dy), WHERE = G.where(dx, dy, place) })
+      for _, d in ipairs(shuffled(DANGERS)) do
+        local dx, dy = near(d.p, RANGE.danger)
+        if dx then
+          text = fill(pick(d.lines), { DIR = G.compass(dx, dy), WHERE = G.where(dx, dy, place) })
+          break
+        end
       end
     elseif kind == "psi" then
       local dx, dy = near({ "mom_psi_enclave" }, RANGE.psi)
@@ -327,6 +351,11 @@ return function(mod)
       map:set_furn_at(p, FURN_INT)
       map:set_furn_var_at(p, VAR_MEDIUM, medium)
       map:set_furn_var_at(p, VAR_TEXT, text)
+      -- One INFO line per message so a playtest can confirm placement from debug.log
+      -- (grep "MoM-BN: graffiti"); never seen in play as of 2026-11-12.
+      G.placed = (G.placed or 0) + 1
+      gdebug.log_info(string.format("MoM-BN: graffiti #%d (%s) at omt %d,%d: %s",
+        G.placed, place, omt.x, omt.y, text))
     end
   end
 

@@ -594,6 +594,35 @@
     "max_range": 0
   },
   {
+    "id": "mom_molten_land_marker",
+    "type": "SPELL",
+    "name": {
+      "str": "Molten Land marker",
+      "//~": "NO_I18N"
+    },
+    "description": "Hidden companion of Molten Land (pyrokinetic_eruption + _knack, wired via extra_effects in strip_spell_math._rewrite_molten_land).  Drops an invisible fd_mom_trap_marker on the target tile so mom_hooks can find it (on_spell_cast target_pos is unreadable in BN) and report whether the tile actually melted.  It's a bug if you can cast it directly.",
+    "message": "",
+    "valid_targets": [
+      "ground",
+      "hostile",
+      "ally",
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_EXPLOSION_VFX"
+    ],
+    "max_level": 15,
+    "effect": "target_attack",
+    "field_id": "fd_mom_trap_marker",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "min_range": 0,
+    "max_range": 0
+  },
+  {
     "id": "mom_kinetic_trap_noise",
     "type": "SPELL",
     "name": {

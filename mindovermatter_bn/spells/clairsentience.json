@@ -556,7 +556,7 @@
   {
     "id": "clair_omniscience",
     "type": "SPELL",
-    "name": "[Ψ]Omniscience",
+    "name": "[\u03a8]Omniscience",
     "description": "Extend your senses to a supernal degree, perceiving everything within the nearby area.  Every creature, every object, every blade of grass, everything.  <color_red>EVERYTHING</color>.",
     "message": "You can see forever.",
     "valid_targets": [

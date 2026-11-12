@@ -866,6 +866,40 @@ return function(mod)
     end
   end
 
+  -- Molten Land outcome (2026-11-12).  The native ter_transform melts only the
+  -- ground ids in ter_transform/molten_land.json and silently skips anything else,
+  -- while BN prints the spell message on every cast -- a downspout "ran molten" and
+  -- stayed a downspout.  The spell now only says it's trying; its hidden
+  -- extra_effects companion mom_molten_land_marker drops a marker on the target
+  -- tile (any z within range), and here we look at what that tile became.
+  local MOLTEN_LAND = { pyrokinetic_eruption = true, pyrokinetic_eruption_knack = true }
+  local MOLTEN_REACH = 5   -- spell max_range (strip_spell_math._rewrite_molten_land)
+  mod.molten_land_outcome = function(who, pos)
+    local map = gapi.get_map()
+    local ter = map:get_ter_at(pos)
+    if ter:str_id():str() == "t_lava" then
+      mod.u.msg(who, "The ground splits and runs molten!", MsgType.good, nil)
+    else
+      mod.u.msg(who, "The " .. ter:obj():name() .. " won't melt.  Molten Land unmakes "
+        .. "bare ground, not what is built on it.", MsgType.bad, nil)
+    end
+  end
+  do
+    local prev_on_spell_cast = mod.on_spell_cast
+    function mod.on_spell_cast(params)
+      if prev_on_spell_cast then prev_on_spell_cast(params) end
+      local who, sp = params.char, params.spell
+      if not (who and sp) then return end
+      local ok, key = pcall(function() return sp.id:str() end)
+      if not ok or not MOLTEN_LAND[key] then return end
+      local done, err = pcall(function()
+        local pos = find_trap_target(who, params, MOLTEN_REACH)
+        if pos then mod.molten_land_outcome(who, pos) end
+      end)
+      if not done then gdebug.log_error("MoM-BN: molten land outcome: " .. tostring(err)) end
+    end
+  end
+
   mod.effect_added_handlers["mom_primed_trap_hit"] = function(who, _eff)
     consume_marker(who, "mom_primed_trap_hit")
     if not who then return true end

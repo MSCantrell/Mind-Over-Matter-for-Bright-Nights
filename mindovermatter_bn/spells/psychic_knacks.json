@@ -395,7 +395,7 @@
     "type": "SPELL",
     "name": "[\u03a8]Molten Land",
     "description": "You reach into the ground and unmake it, pouring your will into the stone until it runs like water.  A single tile of <color_light_green>ground</color> -- soil, sand, rock, pavement, flooring, or the low growth on top of it -- becomes a pool of <color_red>molten lava</color>.\n\n<color_yellow>This does not touch walls, doors, windows or fences.</color>  It melts the land, not what is built on it.\n\n<color_red>The lava is permanent.</color>  It will not cool, and anything that steps into it is grievously burned.  Be certain before you unmake the floor you are standing near.",
-    "message": "The ground splits and runs molten!",
+    "message": "You pour your will into the ground.",
     "valid_targets": [
       "ground",
       "hostile",
@@ -424,6 +424,11 @@
     "sound_type": "combat",
     "sound_id": "fire_spell",
     "sound_description": "a deep, grinding roar!",
+    "extra_effects": [
+      {
+        "id": "mom_molten_land_marker"
+      }
+    ],
     "effect_str": "ter_pyrokin_molten_land",
     "range_increment": 0.25,
     "id": "pyrokinetic_eruption_knack",

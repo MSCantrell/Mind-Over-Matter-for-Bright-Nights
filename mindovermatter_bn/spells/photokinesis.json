@@ -166,7 +166,7 @@
     "id": "photokinetic_light_up_enemy",
     "type": "SPELL",
     "name": "[\u03a8]Illuminate",
-    "description": "Surround a single target with an outline of line that follows them as they move, revealing their position at all times.\n\nLevel 6 leads to Flashbang with Field of Light 9 + Illuminate 6 OR Illuminate 6 + Photon Beam 5.\nLevel 9 leads to Gamma Sterilization with Chameleoflage 4 + Lucent Barrier 7 + Star Flash 3 OR Chameleoflage 4 + Illuminate 9 + Lucent Barrier 7 OR Chameleoflage 4 + Lucent Barrier 7 + Photon Beam 5.",
+    "description": "Surround a single target with an outline of light that follows them as they move, revealing their position at all times.\n\nLevel 6 leads to Flashbang with Field of Light 9 + Illuminate 6 OR Illuminate 6 + Photon Beam 5.\nLevel 9 leads to Gamma Sterilization with Chameleoflage 4 + Lucent Barrier 7 + Star Flash 3 OR Chameleoflage 4 + Illuminate 9 + Lucent Barrier 7 OR Chameleoflage 4 + Lucent Barrier 7 + Photon Beam 5.",
     "message": "Your target is outlined in light.",
     "valid_targets": [
       "ally",

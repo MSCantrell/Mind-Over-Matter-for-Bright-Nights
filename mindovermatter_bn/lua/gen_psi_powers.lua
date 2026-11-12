@@ -81,6 +81,7 @@ return {
   ["mom_kinetic_trap_shrapnel_2"] = true,
   ["mom_kinetic_trap_shrapnel_3"] = true,
   ["mom_kinetic_trap_trigger"] = true,
+  ["mom_molten_land_marker"] = true,
   ["mom_pyrolytic_trap_noise"] = true,
   ["mom_pyrolytic_trap_trigger"] = true,
   ["mom_quell_fire_monster_trigger"] = true,

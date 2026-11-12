@@ -274,14 +274,6 @@
         "prob": 50
       },
       {
-        "group": "tools_common_small",
-        "count": [
-          1,
-          2
-        ],
-        "prob": 10
-      },
-      {
         "group": "default_zombie_items_pockets",
         "count": [
           1,
@@ -315,14 +307,6 @@
       {
         "group": "default_zombie_items_bags_small",
         "prob": 50
-      },
-      {
-        "group": "tools_common_small",
-        "count": [
-          1,
-          2
-        ],
-        "prob": 10
       },
       {
         "group": "default_zombie_items_pockets",

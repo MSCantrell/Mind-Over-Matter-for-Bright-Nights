@@ -558,18 +558,9 @@
           "aluminum",
           "copper",
           "bronze",
-          "fancy_bronze",
           "silver",
           "gold",
-          "budget_steel",
-          "lc_steel",
-          "mc_steel",
-          "hc_steel",
-          "ch_steel",
-          "lc_steel_chain",
-          "mc_steel_chain",
-          "hc_steel_chain",
-          "ch_steel_chain",
+          "budget_steel",
           "platinum",
           "superalloy"
         ],

@@ -1379,7 +1379,7 @@ M['EOC_BIOKIN_CRYSTAL_DRAINING'] = function(you, npc, ctx)
     return false
   end
   U.unported('EOC_BIOKIN_CRYSTAL_DRAINING', 'u_consume_item')
-  you:create_item(ItypeId.new('matrix_crystal_drained'), U.round(1))
+  U.give_item(you, 'matrix_crystal_drained', U.round(1))
   return true
 end
 C['EOC_BIOKIN_ENHANCE_MOBILITY_DRAIN'] = function(you, npc, ctx)
@@ -1491,7 +1491,7 @@ M['EOC_BIOKIN_HAMMERHAND_INITIATE'] = function(you, npc, ctx)
   U.msg(you, 'You flex your fingers.', MsgType.good, ctx)
   M['EOC_POWER_MAINTENANCE_PLUS_ONE'](you, npc, ctx)
   U.add_effect(you, 'effect_biokin_hammerhand', 'PERMANENT', nil, nil)
-  you:create_item(ItypeId.new('biokin_hammerhand_item'), U.round(1))
+  U.give_item(you, 'biokin_hammerhand_item', U.round(1))
   util.queue_eoc(function(y) M['EOC_BIOKIN_HAMMERHAND_DRAIN'](y, npc, ctx) end, you, U.rng((((m.spell_level(you, 'biokin_hammerhand') * 450) + 1800) * J.psionic_power_modifiers(you, npc, ctx)), (((m.spell_level(you, 'biokin_hammerhand') * 750) + 5400) * J.psionic_power_modifiers(you, npc, ctx))))
   return true
 end
@@ -4375,8 +4375,8 @@ M['EOC_CLAIR_ASTRAL_PROJECTION_INITIATE_POST_VEHICLE_CHECK'] = function(you, npc
   U.add_effect(you, 'incorporeal', 'PERMANENT', nil, nil)
   U.msg(you, 'As you meditate, you feel your spirit slipping free from your body.', MsgType.good, ctx)
   U.set_mutation(you, 'CLAIR_ASTRAL_PROJECTION_APPEARANCE')
-  you:create_item(ItypeId.new('body_astral_projection'), U.round(1))
-  you:create_item(ItypeId.new('item_clair_astral_projection_cord'), U.round(1))
+  U.give_item(you, 'body_astral_projection', U.round(1))
+  U.give_item(you, 'item_clair_astral_projection_cord', U.round(1))
   U.set_spell_level(you, 'clair_astral_projection_return', 0)
   return true
 end
@@ -4566,7 +4566,7 @@ M['EOC_CLAIR_CRYSTAL_DRAINING'] = function(you, npc, ctx)
     return false
   end
   U.unported('EOC_CLAIR_CRYSTAL_DRAINING', 'u_consume_item')
-  you:create_item(ItypeId.new('matrix_crystal_drained'), U.round(1))
+  U.give_item(you, 'matrix_crystal_drained', U.round(1))
   return true
 end
 C['EOC_CLAIR_DANGER_SENSE_DRAIN'] = function(you, npc, ctx)
@@ -5769,7 +5769,7 @@ M['EOC_CORUSCATING_CRYSTAL_DRAINING'] = function(you, npc, ctx)
     return false
   end
   U.unported('EOC_CORUSCATING_CRYSTAL_DRAINING', 'u_consume_item')
-  you:create_item(ItypeId.new('matrix_crystal_drained'), U.round(1))
+  U.give_item(you, 'matrix_crystal_drained', U.round(1))
   return true
 end
 C['EOC_CORUSCATING_MATRIX'] = function(you, npc, ctx)
@@ -6192,29 +6192,29 @@ M['EOC_ELECTROKIN_HACKING_INTERFACE_SWITCHER'] = function(you, npc, ctx)
   ctx = ctx or {}
   local _sw = ((m.spell_level(you, 'electrokinetic_hacking_interface') + m.spell_level(you, 'electrokinetic_hacking_interface_knack')) * J.psionic_power_modifiers(you, npc, ctx))
   if _sw >= 44 then
-    you:create_item(ItypeId.new('electrokinetic_electrohack_12'), U.round(1))
+    U.give_item(you, 'electrokinetic_electrohack_12', U.round(1))
   elseif _sw >= 40 then
-    you:create_item(ItypeId.new('electrokinetic_electrohack_11'), U.round(1))
+    U.give_item(you, 'electrokinetic_electrohack_11', U.round(1))
   elseif _sw >= 36 then
-    you:create_item(ItypeId.new('electrokinetic_electrohack_10'), U.round(1))
+    U.give_item(you, 'electrokinetic_electrohack_10', U.round(1))
   elseif _sw >= 32 then
-    you:create_item(ItypeId.new('electrokinetic_electrohack_9'), U.round(1))
+    U.give_item(you, 'electrokinetic_electrohack_9', U.round(1))
   elseif _sw >= 28 then
-    you:create_item(ItypeId.new('electrokinetic_electrohack_8'), U.round(1))
+    U.give_item(you, 'electrokinetic_electrohack_8', U.round(1))
   elseif _sw >= 24 then
-    you:create_item(ItypeId.new('electrokinetic_electrohack_7'), U.round(1))
+    U.give_item(you, 'electrokinetic_electrohack_7', U.round(1))
   elseif _sw >= 20 then
-    you:create_item(ItypeId.new('electrokinetic_electrohack_6'), U.round(1))
+    U.give_item(you, 'electrokinetic_electrohack_6', U.round(1))
   elseif _sw >= 16 then
-    you:create_item(ItypeId.new('electrokinetic_electrohack_5'), U.round(1))
+    U.give_item(you, 'electrokinetic_electrohack_5', U.round(1))
   elseif _sw >= 12 then
-    you:create_item(ItypeId.new('electrokinetic_electrohack_4'), U.round(1))
+    U.give_item(you, 'electrokinetic_electrohack_4', U.round(1))
   elseif _sw >= 8 then
-    you:create_item(ItypeId.new('electrokinetic_electrohack_3'), U.round(1))
+    U.give_item(you, 'electrokinetic_electrohack_3', U.round(1))
   elseif _sw >= 4 then
-    you:create_item(ItypeId.new('electrokinetic_electrohack_2'), U.round(1))
+    U.give_item(you, 'electrokinetic_electrohack_2', U.round(1))
   elseif _sw >= 0 then
-    you:create_item(ItypeId.new('electrokinetic_electrohack_1'), U.round(1))
+    U.give_item(you, 'electrokinetic_electrohack_1', U.round(1))
   end
   return true
 end
@@ -7134,7 +7134,7 @@ M['EOC_ELECTRO_CRYSTAL_DRAINING'] = function(you, npc, ctx)
     return false
   end
   U.unported('EOC_ELECTRO_CRYSTAL_DRAINING', 'u_consume_item')
-  you:create_item(ItypeId.new('matrix_crystal_drained'), U.round(1))
+  U.give_item(you, 'matrix_crystal_drained', U.round(1))
   return true
 end
 C['EOC_ELECTRO_MATRIX_AWAKENING'] = function(you, npc, ctx)
@@ -7645,7 +7645,7 @@ M['EOC_FORCE_FIELD_GENERATOR_ACTIVATION_2'] = function(you, npc, ctx)
     U.msg(you, 'The device makes a whining sound and there is a sharp smell of burnt plastic!', MsgType.bad, ctx)
     U.unported('EOC_FORCE_FIELD_GENERATOR_ACTIVATION_2', 'u_consume_item')
     U.unported('EOC_FORCE_FIELD_GENERATOR_ACTIVATION_2', 'u_consume_item')
-    you:create_item(ItypeId.new('force_field_generator_broken'), U.round(1))
+    U.give_item(you, 'force_field_generator_broken', U.round(1))
     return false
   end
   U.unported('EOC_FORCE_FIELD_GENERATOR_ACTIVATION_2', 'u_consume_item')
@@ -7743,7 +7743,7 @@ M['EOC_MATRIX_DRAIN_MEDITATION'] = function(you, npc, ctx)
   ctx = ctx or {}
   U.msg(you, 'You channel all of your powers into the drained matrix crystal in your hands.  As you do, the faint light in its depths grows steadily brighter and the crystal begins to feel warm in your hands.  Suddenly, the crystal shatters…and with it, the strange feelings caused by using your powers vanish.', MsgType.neutral, ctx)
   U.attunement_set(you, 0)
-  you:create_item(ItypeId.new('matrix_crystal_drained_dust'), U.round(10))
+  U.give_item(you, 'matrix_crystal_drained_dust', U.round(10))
   U.add_effect(you, 'effect_noetic_resilience', TimeDuration.from_hours(24), nil, nil)
   return true
 end
@@ -9622,7 +9622,7 @@ M['EOC_PHOTOKIN_CRYSTAL_DRAINING'] = function(you, npc, ctx)
     return false
   end
   U.unported('EOC_PHOTOKIN_CRYSTAL_DRAINING', 'u_consume_item')
-  you:create_item(ItypeId.new('matrix_crystal_drained'), U.round(1))
+  U.give_item(you, 'matrix_crystal_drained', U.round(1))
   return true
 end
 C['EOC_PHOTOKIN_DODGE_CANCEL_ATTACKED'] = function(you, npc, ctx)
@@ -10292,7 +10292,7 @@ M['EOC_PHOTOKIN_RADIO_INITIATE'] = function(you, npc, ctx)
   U.msg(you, 'You attune your senses to passing radio waves.', MsgType.good, ctx)
   U.add_effect(you, 'effect_photokinetic_radio', 'PERMANENT', nil, nil)
   M['EOC_POWER_MAINTENANCE_PLUS_ONE'](you, npc, ctx)
-  you:create_item(ItypeId.new('item_photokinetic_radio_on'), U.round(1))
+  U.give_item(you, 'item_photokinetic_radio_on', U.round(1))
   util.queue_eoc(function(y) M['EOC_PHOTOKIN_RADIO_DRAIN'](y, npc, ctx) end, you, U.rng(((((m.spell_level(you, 'photokinetic_radio') + m.spell_level(you, 'photokinetic_radio_knack')) * 126) + 1456) * J.psionic_power_modifiers(you, npc, ctx)), ((((m.spell_level(you, 'photokinetic_radio') + m.spell_level(you, 'photokinetic_radio_knack')) * 772) + 5220) * J.psionic_power_modifiers(you, npc, ctx))))
   return true
 end
@@ -17707,7 +17707,7 @@ M['EOC_PSI_STUDYING_DUST_CONVERSION'] = function(you, npc, ctx)
   if not C['EOC_PSI_STUDYING_DUST_CONVERSION'](you, npc, ctx) then
     return false
   end
-  you:create_item(ItypeId.new('matrix_crystal_drained_dust'), U.round(1))
+  U.give_item(you, 'matrix_crystal_drained_dust', U.round(1))
   return true
 end
 C['EOC_PSI_STUDYING_ELECTROKIN_POWER_SETUP'] = function(you, npc, ctx)
@@ -18058,7 +18058,7 @@ M['EOC_PSI_TRANSPORTER_REMOTE_TELEPORT_TRANSPORT_YES'] = function(you, npc, ctx)
     return false
   end
   U.unported('EOC_PSI_TRANSPORTER_REMOTE_TELEPORT_TRANSPORT_YES', 'u_consume_item')
-  you:create_item(ItypeId.new('psionic_transporter_remote_broken'), U.round(1))
+  U.give_item(you, 'psionic_transporter_remote_broken', U.round(1))
   M['EOC_PSI_TRANSPORTER_REMOTE_TELEPORT_TRANSPORT_YES_2'](you, npc, ctx)
   return true
 end
@@ -18230,7 +18230,7 @@ M['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM'] = function(you, npc, ctx)
     M['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM_2'](you, npc, ctx)
     return false
   end
-  you:create_item(ItypeId.new('pyrokinetic_fire_tool_eight_arms'), U.round(1))
+  U.give_item(you, 'pyrokinetic_fire_tool_eight_arms', U.round(1))
   return true
 end
 C['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM_2'] = function(you, npc, ctx)
@@ -18243,7 +18243,7 @@ M['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM_2'] = function(you, npc, ctx)
     M['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM_3'](you, npc, ctx)
     return false
   end
-  you:create_item(ItypeId.new('pyrokinetic_fire_tool_six_arms'), U.round(1))
+  U.give_item(you, 'pyrokinetic_fire_tool_six_arms', U.round(1))
   return true
 end
 C['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM_3'] = function(you, npc, ctx)
@@ -18253,10 +18253,10 @@ end
 M['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM_3'] = function(you, npc, ctx)
   ctx = ctx or {}
   if not C['EOC_PYROKIN_CALL_FLAME_GRANT_ITEM_3'](you, npc, ctx) then
-    you:create_item(ItypeId.new('pyrokinetic_fire_tool'), U.round(1))
+    U.give_item(you, 'pyrokinetic_fire_tool', U.round(1))
     return false
   end
-  you:create_item(ItypeId.new('pyrokinetic_fire_tool_four_arms'), U.round(1))
+  U.give_item(you, 'pyrokinetic_fire_tool_four_arms', U.round(1))
   return true
 end
 C['EOC_PYROKIN_CALL_FLAME_INITIATE'] = function(you, npc, ctx)
@@ -18669,7 +18669,7 @@ M['EOC_PYROKIN_CRYSTAL_DRAINING'] = function(you, npc, ctx)
     return false
   end
   U.unported('EOC_PYROKIN_CRYSTAL_DRAINING', 'u_consume_item')
-  you:create_item(ItypeId.new('matrix_crystal_drained'), U.round(1))
+  U.give_item(you, 'matrix_crystal_drained', U.round(1))
   return true
 end
 C['EOC_PYROKIN_FLAME_IMMUNITY_DRAIN'] = function(you, npc, ctx)
@@ -19067,7 +19067,7 @@ M['EOC_PYROKIN_TORCH_WELD_INITIATE'] = function(you, npc, ctx)
   U.msg(you, 'A searing line of flame springs forth from your finger.', MsgType.good, ctx)
   M['EOC_POWER_MAINTENANCE_PLUS_ONE'](you, npc, ctx)
   U.add_effect(you, 'effect_pyrokinetic_torch_weld', 'PERMANENT', nil, nil)
-  you:create_item(ItypeId.new('pyrokinetic_torch_weld'), U.round(1))
+  U.give_item(you, 'pyrokinetic_torch_weld', U.round(1))
   util.queue_eoc(function(y) M['EOC_PYROKIN_TORCH_WELD_DRAIN'](y, npc, ctx) end, you, U.rng((((m.spell_level(you, 'pyrokinetic_lance') * 114) + 205) * J.psionic_power_modifiers(you, npc, ctx)), (((m.spell_level(you, 'pyrokinetic_lance') * 492) + 2460) * J.psionic_power_modifiers(you, npc, ctx))))
   return true
 end
@@ -20152,7 +20152,7 @@ M['EOC_TELEKIN_CRYSTAL_DRAINING'] = function(you, npc, ctx)
     return false
   end
   U.unported('EOC_TELEKIN_CRYSTAL_DRAINING', 'u_consume_item')
-  you:create_item(ItypeId.new('matrix_crystal_drained'), U.round(1))
+  U.give_item(you, 'matrix_crystal_drained', U.round(1))
   return true
 end
 C['EOC_TELEKIN_LEARNING_EARTHSHAKER'] = function(you, npc, ctx)
@@ -20899,45 +20899,45 @@ M['EOC_TELEKIN_SUMMON_JACKING_TOOL_SWITCHER'] = function(you, npc, ctx)
   ctx = ctx or {}
   local _sw = m.spell_level(you, 'telekinetic_vehicle_lift')
   if _sw >= 20 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_20'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_20', U.round(1))
   elseif _sw >= 19 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_19'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_19', U.round(1))
   elseif _sw >= 18 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_18'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_18', U.round(1))
   elseif _sw >= 17 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_17'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_17', U.round(1))
   elseif _sw >= 16 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_16'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_16', U.round(1))
   elseif _sw >= 15 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_15'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_15', U.round(1))
   elseif _sw >= 14 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_14'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_14', U.round(1))
   elseif _sw >= 13 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_13'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_13', U.round(1))
   elseif _sw >= 12 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_12'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_12', U.round(1))
   elseif _sw >= 11 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_11'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_11', U.round(1))
   elseif _sw >= 10 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_10'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_10', U.round(1))
   elseif _sw >= 9 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_9'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_9', U.round(1))
   elseif _sw >= 8 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_8'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_8', U.round(1))
   elseif _sw >= 7 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_7'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_7', U.round(1))
   elseif _sw >= 6 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_6'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_6', U.round(1))
   elseif _sw >= 5 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_5'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_5', U.round(1))
   elseif _sw >= 4 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_4'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_4', U.round(1))
   elseif _sw >= 3 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_3'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_3', U.round(1))
   elseif _sw >= 2 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_2'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_2', U.round(1))
   elseif _sw >= 1 then
-    you:create_item(ItypeId.new('telekin_lifting_jack_1'), U.round(1))
+    U.give_item(you, 'telekin_lifting_jack_1', U.round(1))
   end
   return true
 end
@@ -21168,7 +21168,7 @@ M['EOC_TELEPATH_CRYSTAL_DRAINING'] = function(you, npc, ctx)
     return false
   end
   U.unported('EOC_TELEPATH_CRYSTAL_DRAINING', 'u_consume_item')
-  you:create_item(ItypeId.new('matrix_crystal_drained'), U.round(1))
+  U.give_item(you, 'matrix_crystal_drained', U.round(1))
   return true
 end
 C['EOC_TELEPATH_LEARNING_AOE_BLAST'] = function(you, npc, ctx)
@@ -23046,7 +23046,7 @@ M['EOC_TELEPORT_CRYSTAL_DRAINING'] = function(you, npc, ctx)
     return false
   end
   U.unported('EOC_TELEPORT_CRYSTAL_DRAINING', 'u_consume_item')
-  you:create_item(ItypeId.new('matrix_crystal_drained'), U.round(1))
+  U.give_item(you, 'matrix_crystal_drained', U.round(1))
   return true
 end
 C['EOC_TELEPORT_DISPLACEMENT_CHECK'] = function(you, npc, ctx)
@@ -25947,7 +25947,7 @@ M['EOC_VITAKIN_CRYSTAL_DRAINING'] = function(you, npc, ctx)
     return false
   end
   U.unported('EOC_VITAKIN_CRYSTAL_DRAINING', 'u_consume_item')
-  you:create_item(ItypeId.new('matrix_crystal_drained'), U.round(1))
+  U.give_item(you, 'matrix_crystal_drained', U.round(1))
   return true
 end
 C['EOC_VITAKIN_CURE_DISEASE_CHECKS'] = function(you, npc, ctx)

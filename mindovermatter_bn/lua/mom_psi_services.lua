@@ -281,7 +281,7 @@ return function(mod)
     local got = {}
     for _ = 1, gapi.rng(4, 7) do
       local id = PRODUCE[gapi.rng(1, #PRODUCE)]
-      local ok = pcall(function() you:create_item(ItypeId.new(id), 1) end)
+      local ok = pcall(function() U.give_item(you, id, 1) end)
       if ok then got[id] = (got[id] or 0) + 1 end
     end
     local names = {}

@@ -14,22 +14,6 @@
         ]
       },
       {
-        "group": "banknotes",
-        "prob": 80,
-        "count": [
-          1,
-          20
-        ]
-      },
-      {
-        "group": "coins",
-        "prob": 80,
-        "count": [
-          1,
-          10
-        ]
-      },
-      {
         "item": "id_science",
         "prob": 100
       },
@@ -82,22 +66,6 @@
         "prob": 100
       },
       {
-        "group": "banknotes",
-        "prob": 80,
-        "count": [
-          1,
-          20
-        ]
-      },
-      {
-        "group": "coins",
-        "prob": 80,
-        "count": [
-          1,
-          10
-        ]
-      },
-      {
         "group": "discount_cards",
         "prob": 40,
         "count": [
@@ -139,22 +107,6 @@
         "charges": [
           10000,
           50000
-        ]
-      },
-      {
-        "group": "banknotes",
-        "prob": 80,
-        "count": [
-          1,
-          20
-        ]
-      },
-      {
-        "group": "coins",
-        "prob": 80,
-        "count": [
-          1,
-          10
         ]
       },
       {

@@ -90,6 +90,41 @@ return function(mod)
     return math.floor(x + 0.5)
   end
 
+  -- BN's create_item(type, n) -- both gapi.create_item and Character:create_item --
+  -- passes n straight through as the new item's CHARGES (item::item, item.cpp:303),
+  -- not as a count.  A chargeless item (armor, food, most GENERIC) made with n = 1
+  -- is saved with a stray charge, and every load then debugmsgs "Item X was loaded
+  -- with charges, but can not have any!" (savegame_json.cpp:2914; player report
+  -- 2026-11-12, integrated_photo_eyes).  These two helpers give the charges argument
+  -- BN expects.
+  --
+  -- Charges argument for ONE new item: n for anything that can hold charges (kept
+  -- as it was, e.g. the weld torch's 1 noetic charge), -1 = the type's defaults
+  -- for everything else.
+  function U.new_item_charges(itype_id, n)
+    local ok, holds = pcall(function()
+      local ty = itype_id:obj()
+      return ty:is_stackable() or ty:can_have_charges()
+    end)
+    if not ok then return n end
+    return holds and n or -1
+  end
+
+  -- DDA u_spawn_item semantics: `n` of the item.  Stackable (count-by-charges)
+  -- items come as one stack of n; anything else as n separate items.
+  function U.give_item(who, id, n)
+    n = math.floor(n or 1)
+    if n < 1 then return end
+    local t = ItypeId.new(id)
+    local ok, stack = pcall(function() return t:obj():is_stackable() end)
+    if ok and stack then
+      who:create_item(t, n)
+      return
+    end
+    local ch = U.new_item_charges(t, 1)
+    for _ = 1, n do who:create_item(t, ch) end
+  end
+
   function U.rng(a, b)
     a, b = math.floor(a), math.floor(b)
     if b < a then a, b = b, a end
@@ -572,7 +607,8 @@ return function(mod)
           -- wear_detached takes ownership: on failure the detached item is
           -- destroyed with it, so a refused wear leaks nothing.
           local worn_ok = guarded("integrated_armor:" .. e.item, function()
-            local det = gapi.create_item(ItypeId.new(e.item), 1)
+            local t = ItypeId.new(e.item)
+            local det = gapi.create_item(t, U.new_item_charges(t, 1))
             return who:wear_detached(det, false) and true or false
           end, false)
           if worn_ok then

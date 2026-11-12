@@ -20,9 +20,9 @@
 --   * melee: on_creature_melee_attacked fires after the blow lands
 --     (melee.cpp:1778); a target at <= 0 HP was killed by it, credit the
 --     attacker's wielded item on the spot.
---   * guns: on_shoot (ranged.cpp:1579) stamps the shooter with the turn;
---     on_mon_death (monster.cpp:3823) with that shooter as killer within a
---     turn credits the wielded gun.
+--   * guns: on_mon_death (monster.cpp:3823) parks a kill by a gun-wielder;
+--     the on_shoot that follows in the same turn (ranged.cpp:1579, which
+--     runs AFTER the projectiles land) credits the gun.  See NW.pending.
 --   * NOT counted: thrown items, psionic powers, traps, fire, pets' kills.
 --
 -- Item vars: mom_nw_kills (num), mom_nw_first / mom_nw_best ("foe|date"),
@@ -37,7 +37,7 @@ return function(mod)
   mod.named_weapons = NW
 
   NW.NOTE_AT, NW.NAME_AT, NW.STEP = 10, 250, 250
-  local SHOT_KEY, CREDITED_KEY = "mom_nw_shot", "mom_nw_credited"
+  local PENDING_KEY, CREDITED_KEY = "mom_nw_pending", "mom_nw_credited"
 
   -- ---------------------------------------------------------------- word banks
   -- Base name: DF-style compound of two plain words (Copperbelt, Ashfang).
@@ -261,16 +261,51 @@ return function(mod)
       local mon = victim:as_monster()
       if mon:get_value(CREDITED_KEY) == "1" then return end
       mon:set_value(CREDITED_KEY, "1")
+      -- the blow already killed it (on_mon_death ran first); a gun used as a
+      -- club would have parked the kill as a pending shot -- withdraw it.
+      local token = mon:get_value(PENDING_KEY)
+      if token ~= "" then NW.pending[token] = nil end
       NW.credit(ch, wielded(ch), mon)
     end)
     if not ok then gdebug.log_error("MoM-BN named weapons (melee): " .. tostring(err)) end
   end
 
+  -- Gun kills (fixed 2026-11-12): a projectile kills its target mid-shot
+  -- (Creature::deal_projectile_attack -> check_dead_state -> die, so on_mon_death
+  -- fires), and BN runs on_shoot only after the whole shot is done
+  -- (ranged.cpp:1579).  So a death by a gun-wielder is parked here, and the
+  -- on_shoot that follows in the same turn credits it.  Entries hold only plain
+  -- data (the monster is freed at end of turn); a melee kill made with a gun in
+  -- hand withdraws its entry so it isn't counted twice; stale entries (a kill by
+  -- a power or fire with no shot after it) are dropped by the turn check.
+  NW.pending, NW.next_token = {}, 0
+
+  local function char_key(ch)
+    if ch:is_avatar() then return "you" end
+    local ok, id = pcall(function() return ch:getID():get_value() end)
+    return ok and ("npc" .. tostring(id)) or nil
+  end
+
   function mod.on_shoot(params)
-    pcall(function()
+    local ok, err = pcall(function()
       local ch = params.shooter
-      if ch and counts(ch) then ch:set_value(SHOT_KEY, tostring(turn_now())) end
+      if not ch or not counts(ch) then return end
+      local key, now = char_key(ch), turn_now()
+      -- the wielded gun, not params.gun: an underbarrel mod's kills go to its host
+      local gun = wielded(ch)
+      local keep = {}
+      for token, p in pairs(NW.pending) do
+        if p.turn ~= now then
+          -- stale: not a gun kill
+        elseif p.who == key then
+          if gun and eligible(gun) then NW.record(ch, gun, p.foe, p.diff) end
+        else
+          keep[token] = p
+        end
+      end
+      NW.pending = keep
     end)
+    if not ok then gdebug.log_error("MoM-BN named weapons (shot): " .. tostring(err)) end
   end
 
   local prev_death = mod.on_mon_death
@@ -279,16 +314,18 @@ return function(mod)
     local ok, err = pcall(function()
       local mon, killer = params.mon, params.killer
       if not mon or not killer or killer:is_monster() then return end
-      if mon:get_value(CREDITED_KEY) == "1" then return end
+      if mon:get_value(CREDITED_KEY) == "1" or mon:is_hallucination() then return end
       local ch = killer:as_character()
       if not ch or not counts(ch) then return end
-      local shot = tonumber(ch:get_value(SHOT_KEY))
-      if not shot or turn_now() - shot > 1 then return end
       local it = wielded(ch)
-      if it and it:is_gun() then
-        mon:set_value(CREDITED_KEY, "1")
-        NW.credit(ch, it, mon)
-      end
+      if not (it and it:is_gun()) then return end
+      local key = char_key(ch)
+      if not key then return end
+      local mt = mon:get_type():obj()
+      NW.next_token = NW.next_token + 1
+      local token = tostring(NW.next_token)
+      NW.pending[token] = { who = key, turn = turn_now(), foe = mt:nname(1), diff = mt.difficulty or 0 }
+      mon:set_value(PENDING_KEY, token)
     end)
     if not ok then gdebug.log_error("MoM-BN named weapons (death): " .. tostring(err)) end
   end

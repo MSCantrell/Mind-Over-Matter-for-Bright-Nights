@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mindovermatter_bn\n"
-"POT-Creation-Date: 2026-11-09 09:27+0300\n"
+"POT-Creation-Date: 2026-11-13 21:31+0300\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -175,6 +175,10 @@ msgstr ""
 msgid "chill air"
 msgstr ""
 
+#: ./fields.json
+msgid "settling force"
+msgstr ""
+
 #. ~ info for JSON flag 'SINGLE_USE'
 #: ./flags_psionic.json
 msgid "This item is consumed on use."
@@ -321,6 +325,36 @@ msgid ""
 msgstr ""
 
 #: ./fork_powers.json
+msgid "[Ψ]Locate Item"
+msgstr ""
+
+#. ~ Description for [Ψ]Locate Item
+#: ./fork_powers.json
+msgid ""
+"Hold an object firmly in your mind -- a wrench, a can of beans, a coil of rope -- and feel for the nearest one.  Your senses ripple outward through walls and floors until they snag on it, and you know which way it lies and how far.\n"
+"\n"
+"Name what you are looking for when you cast.  It matches the item's name the way your own search does, so \"rope\" finds any rope and \"9mm\" any 9mm ammunition.  Reaches <color_yellow>6 tiles, +2 per level</color> (36 at level 15); from level 5 it also reaches one floor up and down, and from level 10 two.  You learn the direction and distance of the nearest match, and of more matches as you improve.\n"
+"\n"
+"It feels objects lying loose or stored in furniture, but not what is packed inside bags and boxes, nor anything stowed in a vehicle.\n"
+"\n"
+"Level 8 leads to Locate Items Thoroughly."
+msgstr ""
+
+#: ./fork_powers.json
+msgid "[Ψ]Locate Items Thoroughly"
+msgstr ""
+
+#. ~ Description for [Ψ]Locate Items Thoroughly
+#: ./fork_powers.json
+msgid ""
+"A Clairsentient's mind never really stops listening.  Every place you have passed through has left an impression of what was lying there, and with practice you can finally search that memory: name an object, and recall every place you have sensed one.\n"
+"\n"
+"Casting first sweeps everything around you (your floor and the floors above and below), then searches your memory of places up to <color_yellow>20 map tiles away, +10 per level</color>.  Results are listed nearest first, with how long ago you sensed each one -- someone may have taken it since.  Choose a result to mark it on your map.\n"
+"\n"
+"Your mind has been gathering these impressions since you awakened as a Clairsentient, from about one map tile around wherever you go.  Like Locate Item, it does not feel what is packed inside bags and boxes, nor anything stowed in a vehicle."
+msgstr ""
+
+#: ./fork_powers.json
 msgid "[Ψ]Mass Hydrothermosis"
 msgstr ""
 
@@ -353,14 +387,16 @@ msgstr ""
 #. ~ Description for [Ψ]Kinetic Trap
 #: ./fork_powers.json
 msgid ""
-"Pour kinetic energy into a pile of scrap metal and wind it tighter and tighter, until the metal is holding far more force than it should and is only barely stable.  Leave it on the ground beside you.  The next enemy to disturb it gets the whole store at once: a hammer-blow of force and a spray of shredded metal.\n"
+"Pour kinetic energy into a pile of scrap metal and wind it tighter and tighter, until the metal is holding far more force than it should and is only barely stable.  Telekinesis reaches past your arms: set it on any tile within range (3 tiles, +1 per level to 12), even through a wall.  The next enemy to disturb it gets the whole store at once: a hammer-blow of force and a spray of shredded metal.\n"
 "\n"
-"Consumes <color_yellow>4 scrap metal</color> each cast.  The trap is visible to you, and <color_yellow>you and your allies can walk over it safely</color>.  Below level 5 it leaves a Kinetic Trap (20 bash + 20 shrapnel); from level 5 a Strong Kinetic Trap (35 + 35); from level 10 a Powerful Kinetic Trap (50 + 50)."
+"Consumes <color_yellow>4 scrap metal</color> each cast.  The trap is visible to you, and <color_yellow>you and your allies can walk over it safely</color>.  Below level 5 it leaves a Kinetic Trap (20 bash + 20 shrapnel); from level 5 a Strong Kinetic Trap (35 + 35, shrapnel hits enemies within 1 tile); from level 10 a Powerful Kinetic Trap (50 + 50, shrapnel within 2 tiles)."
 msgstr ""
 
 #. ~ Message for SPELL '[Ψ]Kinetic Trap'
 #: ./fork_powers.json
-msgid "You wind force into the scrap until it trembles."
+msgid ""
+"You wind up tension and strain in the terrain until it's barely stable, and "
+"you add some scrap metal for good measure."
 msgstr ""
 
 #: ./fork_powers.json
@@ -387,6 +423,32 @@ msgid ""
 "Cast by a primed psionic trap on whatever set it off.  Applies "
 "mom_primed_trap_hit; mom_hooks' handler spares the caster and allies and "
 "detonates for everyone else."
+msgstr ""
+
+#. ~ Description for {'str': 'Kinetic trap shrapnel 2', '//~': 'NO_I18N'}
+#: ./fork_powers.json
+msgid ""
+"Shrapnel burst of a tier-2 Kinetic Trap; cast from Lua (mom_hooks primed-"
+"trap hit) with the AVATAR as caster so kills are credited and only hostiles "
+"are hit.  Blast area respects walls."
+msgstr ""
+
+#. ~ Description for {'str': 'Kinetic trap shrapnel 3', '//~': 'NO_I18N'}
+#: ./fork_powers.json
+msgid ""
+"Shrapnel burst of a tier-3 Kinetic Trap; cast from Lua (mom_hooks primed-"
+"trap hit) with the AVATAR as caster so kills are credited and only hostiles "
+"are hit.  Blast area respects walls."
+msgstr ""
+
+#. ~ Description for {'str': 'Molten Land marker', '//~': 'NO_I18N'}
+#: ./fork_powers.json
+msgid ""
+"Hidden companion of Molten Land (pyrokinetic_eruption + _knack, wired via "
+"extra_effects in strip_spell_math._rewrite_molten_land).  Drops an invisible"
+" fd_mom_trap_marker on the target tile so mom_hooks can find it "
+"(on_spell_cast target_pos is unreadable in BN) and report whether the tile "
+"actually melted.  It's a bug if you can cast it directly."
 msgstr ""
 
 #. ~ Description for {'str': 'mom_kinetic_trap_noise', '//~': 'NO_I18N'}
@@ -1364,7 +1426,7 @@ msgstr ""
 msgctxt "prof_desc_male"
 msgid ""
 "Something happened during the storms that raged during the Cataclysm, and "
-"now you can do things that would have once seemed impossible.  You an hurl "
+"now you can do things that would have once seemed impossible.  You can hurl "
 "lightning bolts from your hands, like some kind of superhero, and your "
 "smartphone still has a full charge even though you haven't plugged it in "
 "weeks.  Some kind of huge wasp attacked you in the woods and there was a "
@@ -1377,7 +1439,7 @@ msgstr ""
 msgctxt "prof_desc_female"
 msgid ""
 "Something happened during the storms that raged during the Cataclysm, and "
-"now you can do things that would have once seemed impossible.  You an hurl "
+"now you can do things that would have once seemed impossible.  You can hurl "
 "lightning bolts from your hands, like some kind of superhero, and your "
 "smartphone still has a full charge even though you haven't plugged it in "
 "weeks.  Some kind of huge wasp attacked you in the woods and there was a "
@@ -1875,7 +1937,7 @@ msgctxt "prof_desc_male"
 msgid ""
 "Something happened during the storms that raged during the Cataclysm, and "
 "now you can do things that would have once seemed impossible.  You can step "
-"through walls, and once you were surrounded by a horde and looked up and a "
+"through walls, and once you were surrounded by a horde and looked up at a "
 "nearby rooftop and… there you were, safe and out of the zombies' line of "
 "sight.  The rule of the zombie apocalypse is \"keep moving\", and you're the"
 " best you've ever been at that."
@@ -1887,7 +1949,7 @@ msgctxt "prof_desc_female"
 msgid ""
 "Something happened during the storms that raged during the Cataclysm, and "
 "now you can do things that would have once seemed impossible.  You can step "
-"through walls, and once you were surrounded by a horde and looked up and a "
+"through walls, and once you were surrounded by a horde and looked up at a "
 "nearby rooftop and… there you were, safe and out of the zombies' line of "
 "sight.  The rule of the zombie apocalypse is \"keep moving\", and you're the"
 " best you've ever been at that."
@@ -2241,7 +2303,7 @@ msgid ""
 "watching the flames.  That fire awakened in you during the Cataclysm, "
 "powerful and almost uncontrollable.  You can call up flames from thin air, "
 "burn zombies to ash with a thought, surround yourself in a blazing inferno, "
-"but the fire demands release.  It's like a internal pressure, growing as "
+"but the fire demands release.  It's like an internal pressure, growing as "
 "long as you don't use your powers, until it flows out as the flames rise.  "
 "Can you survive in the new world without burning yourself to ash?"
 msgstr ""
@@ -2254,7 +2316,7 @@ msgid ""
 "watching the flames.  That fire awakened in you during the Cataclysm, "
 "powerful and almost uncontrollable.  You can call up flames from thin air, "
 "burn zombies to ash with a thought, surround yourself in a blazing inferno, "
-"but the fire demands release.  It's like a internal pressure, growing as "
+"but the fire demands release.  It's like an internal pressure, growing as "
 "long as you don't use your powers, until it flows out as the flames rise.  "
 "Can you survive in the new world without burning yourself to ash?"
 msgstr ""
@@ -2974,7 +3036,7 @@ msgid "Omniscience"
 msgstr ""
 
 #. ~ desc of effect 'effect_clair_omniscence'
-#. ~ Message for SPELL '[Ψ]Omniscence'
+#. ~ Message for SPELL '[Ψ]Omniscience'
 #: ./effects/gen_effects.json ./spells/clairsentience.json
 msgid "You can see forever."
 msgstr ""
@@ -5714,8 +5776,8 @@ msgid ""
 "A massive deciduous tree belonging to the 'Quercus' genus, commonly found "
 "throughout the New England region.  If you look closely, you can see some "
 "acorns the squirrels haven't gotten yet.  If you look near the top, you can "
-"see a gigantic birds nest.  There are large bones sticking out of the edges "
-"of the nest."
+"see a gigantic bird's nest.  There are large bones sticking out of the edges"
+" of the nest."
 msgstr ""
 
 #: ./furniture_and_terrain/terrain_tanks.json
@@ -5867,7 +5929,7 @@ msgstr[1] ""
 #. ~ Description for {'str': 'Ikpitikayotecontli System CBM'}
 #: ./items/bionics.json
 msgid ""
-"An extremely-efficent form of bionic power storage, using integral matrix "
+"An extremely-efficient form of bionic power storage, using integral matrix "
 "dust to increase the efficiency of possible storage multiple times."
 msgstr ""
 
@@ -5978,7 +6040,7 @@ msgstr[1] ""
 #: ./items/books.json
 msgid ""
 "This notebook is mostly a series of fanciful speculations about something "
-"the author alternately calls \"Matrix Mechanics,\", \"Dimensional "
+"the author alternately calls \"Matrix Mechanics,\" \"Dimensional "
 "Metaphysics,\" or \"Netherium Mathematics,\" sometimes using more than one "
 "in the same sentence.  Most of it is incoherent, but there is some "
 "experimental data about \"Conscious redirection of nether energy\" that "
@@ -6107,7 +6169,7 @@ msgid ""
 "underneath.  According to the summary, the report details how a powerful "
 "GRAY DAWN participant may use a specifically attuned focusing tool to allow "
 "themselves to induce permanent changes in their personality and other "
-"segments of their brain.  The report details little success in GRAY DAWN "
+"segments of their brain.  The report details little success in a GRAY DAWN "
 "participant applying this process to others."
 msgstr ""
 
@@ -8675,7 +8737,7 @@ msgstr[1] ""
 #. ~ Description for {'str': 'active null grenade'}
 #: ./items/weapons.json
 msgid ""
-"This null grenade is activate and ready to unleash its pulse.  You'd better "
+"This null grenade is active and ready to unleash its pulse.  You'd better "
 "throw it!"
 msgstr ""
 
@@ -9038,7 +9100,7 @@ msgstr[1] ""
 msgid ""
 "A precise arrangement of cut crystal pieces from the crystal outgrowths left"
 " by the portal storms.  The air in the center shimmers like a summer heat "
-"gaze when you look through the focal point of the apparatus."
+"haze when you look through the focal point of the apparatus."
 msgstr ""
 
 #: ./items/tools/crafting_tools.json
@@ -9252,7 +9314,7 @@ msgstr ""
 #: ./items/tools/travel.json
 msgid ""
 "A blocky item, like an old feature cellphone crossed with a radio.  A matrix"
-" channeling array is stick out of the side like an antenna.  There is a "
+" channeling array is sticking out of the side like an antenna.  There is a "
 "small screen on the front, currently off."
 msgstr ""
 
@@ -9453,7 +9515,7 @@ msgstr[1] ""
 msgid ""
 "A four-legged creature with bulbous body and a small head with a fanged maw,"
 " with three multi-jointed limbs waving above it in the air.  The limbs emit "
-"a soft glow, occasionally brightening into a eye-searing flare."
+"a soft glow, occasionally brightening into an eye-searing flare."
 msgstr ""
 
 #. ~ Attack message of monster "{'str': 'radiant amalgamation'}"'s spell
@@ -10766,8 +10828,8 @@ msgstr[1] ""
 #. ~ Description for atom splitter
 #: ./monsters/feral_psychics.json
 msgid ""
-"This feral glows brighter than streetlamp, casting their surroundings into "
-"sharp relief amid the glow.  They are clearly still lucid but their "
+"This feral glows brighter than a streetlamp, casting their surroundings into"
+" sharp relief amid the glow.  They are clearly still lucid but their "
 "expression is blank and their eyes are unfocused."
 msgstr ""
 
@@ -10903,7 +10965,7 @@ msgstr[1] ""
 #: ./monsters/feral_psychics.json
 msgid ""
 "Though they still have a maniacal expression, this feral human is "
-"distinguished by the rocks floating in the around around them."
+"distinguished by the rocks floating in the air around them."
 msgstr ""
 
 #: ./monsters/feral_psychics.json
@@ -12263,7 +12325,7 @@ msgstr ""
 #: ./mutations/gen_granted_traits.json
 msgid ""
 "You can draw deeply on the Nether, increasing the strength of your powers "
-"but making making them harder to initiate and control."
+"but making them harder to initiate and control."
 msgstr ""
 
 #: ./mutations/gen_granted_traits.json
@@ -14731,7 +14793,7 @@ msgstr ""
 
 #: ./recipes/psionics_practice.json
 msgid ""
-"Focus on your inner metal strength, making it easy to call forth your "
+"Focus on your inner mental strength, making it easy to call forth your "
 "psionic gifts."
 msgstr ""
 
@@ -15412,7 +15474,7 @@ msgstr ""
 
 #: ./recipes/practice/photokinesis_practice.json
 msgid ""
-"Contemplate your powers and improve your ability use focused radiation to make food last longer.\n"
+"Contemplate your powers and improve your ability to use focused radiation to make food last longer.\n"
 "\n"
 "Power Difficulty: 5\n"
 "\n"
@@ -15584,7 +15646,7 @@ msgstr ""
 
 #: ./recipes/practice/psychic_knacks.json
 msgid ""
-"Contemplate your powers and improve your ability increase the strength of existing flames.\n"
+"Contemplate your powers and improve your ability to increase the strength of existing flames.\n"
 "\n"
 "Power Difficulty: 1\n"
 "\n"
@@ -15799,7 +15861,7 @@ msgstr ""
 
 #: ./recipes/practice/pyrokinesis_practice.json
 msgid ""
-"Contemplate your powers and improve your ability increase the strength of existing flames.\n"
+"Contemplate your powers and improve your ability to increase the strength of existing flames.\n"
 "\n"
 "Power Difficulty: 1\n"
 "\n"
@@ -16152,7 +16214,7 @@ msgstr ""
 
 #: ./recipes/practice/telepathy_practice.json
 msgid ""
-"Contemplate your powers and improve your ability to confound your enemies's senses.\n"
+"Contemplate your powers and improve your ability to confound your enemies' senses.\n"
 "\n"
 "Power Difficulty: 5\n"
 "\n"
@@ -16243,7 +16305,7 @@ msgstr ""
 
 #: ./recipes/practice/teleportation_practice.json
 msgid ""
-"Contemplate your powers and improve your ability to travel short distances in a controlled matter without crossing the intervening space.\n"
+"Contemplate your powers and improve your ability to travel short distances in a controlled manner without crossing the intervening space.\n"
 "\n"
 "Power Difficulty: 2\n"
 "\n"
@@ -17870,6 +17932,7 @@ msgid ""
 "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
 "\n"
 "Level 5 leads to Aura Sight.\n"
+"Level 4 leads to Locate Item.\n"
 "Level 8 leads to Night Eyes.\n"
 "Level 6 leads to Premonition.\n"
 "Level 3 leads to See Mechanisms."
@@ -17941,7 +18004,7 @@ msgstr ""
 
 #. ~ Description for [Ψ]Radiation Sense
 #: ./spells/clairsentience.json
-msgid "You can open your tenses to the tell-tale glow of radiation."
+msgid "You can open your senses to the tell-tale glow of radiation."
 msgstr ""
 
 #: ./spells/clairsentience.json
@@ -17981,7 +18044,7 @@ msgid ""
 "The classic example of a clairsentient's powers, you can see through walls and reveal everything nearby.\n"
 "\n"
 "Level 6 leads to Combat Sense with Premonition 10.\n"
-"Level 14 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\n"
+"Level 14 leads to Omniscience with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\n"
 "Level 8 leads to Satellite View."
 msgstr ""
 
@@ -18036,7 +18099,7 @@ msgstr ""
 msgid ""
 "You can extend your senses over the landscape, becoming aware of every hill, building, and valley within a large area.\n"
 "\n"
-"Level 8 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5."
+"Level 8 leads to Omniscience with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5."
 msgstr ""
 
 #. ~ Message for SPELL '[Ψ]Satellite View'
@@ -18057,7 +18120,7 @@ msgid ""
 "\n"
 "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
 "\n"
-"Level 5 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\n"
+"Level 5 leads to Omniscience with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\n"
 "Level 5 leads to Prescient Tactician with Combat Sense 8 + Marksman's Eye 7."
 msgstr ""
 
@@ -18074,10 +18137,10 @@ msgid ""
 msgstr ""
 
 #: ./spells/clairsentience.json
-msgid "[Ψ]Omniscence"
+msgid "[Ψ]Omniscience"
 msgstr ""
 
-#. ~ Description for [Ψ]Omniscence
+#. ~ Description for [Ψ]Omniscience
 #: ./spells/clairsentience.json
 msgid ""
 "Extend your senses to a supernal degree, perceiving everything within the "
@@ -18398,7 +18461,7 @@ msgstr ""
 #. ~ Description for [Ψ]Illuminate
 #: ./spells/photokinesis.json
 msgid ""
-"Surround a single target with a outline of line that follows them as they move, revealing their position at all times.\n"
+"Surround a single target with an outline of light that follows them as they move, revealing their position at all times.\n"
 "\n"
 "Level 6 leads to Flashbang with Field of Light 9 + Illuminate 6 OR Illuminate 6 + Photon Beam 5.\n"
 "Level 9 leads to Gamma Sterilization with Chameleoflage 4 + Lucent Barrier 7 + Star Flash 3 OR Chameleoflage 4 + Illuminate 9 + Lucent Barrier 7 OR Chameleoflage 4 + Lucent Barrier 7 + Photon Beam 5."
@@ -18436,7 +18499,7 @@ msgstr ""
 msgid ""
 "Manipulate the light around your body, creating shifting illusions, blurring your outline and position, and becoming harder to hit.  An enemy successfully hitting you will pinpoint your location and <color_red>disrupt the power</color>.\n"
 "\n"
-"his power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
+"This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
 "\n"
 "Level 6 leads to Chameleoflage.\n"
 "Level 9 leads to Lucent Barrier with Trick of the Light 9 OR Blackout 6 + Chameleoflage 5.\n"
@@ -18597,8 +18660,8 @@ msgstr ""
 #. ~ Description for [Ψ]Gamma Sterilization
 #: ./spells/photokinesis.json
 msgid ""
-"Use a focused emission of high-power radiation to eliminating microorganisms"
-" in food and allowing it to last much longer before rotting.  This power is "
+"Use a focused emission of high-power radiation to eliminate microorganisms "
+"in food and allow it to last much longer before rotting.  This power is "
 "<color_red>extremely taxing</color>."
 msgstr ""
 
@@ -18810,7 +18873,7 @@ msgstr ""
 
 #. ~ Message for SPELL '[Ψ]Molten Land'
 #: ./spells/psychic_knacks.json ./spells/pyrokinesis.json
-msgid "The ground splits and runs molten!"
+msgid "You pour your will into the ground."
 msgstr ""
 
 #: ./spells/psychic_knacks.json ./spells/pyrokinesis.json
@@ -18895,7 +18958,7 @@ msgstr ""
 
 #. ~ Description for [Ψ]Far Hand
 #: ./spells/psychic_knacks.json
-msgid "Pickup items at a distance or push them away from you."
+msgid "Pick up items at a distance or push them away from you."
 msgstr ""
 
 #: ./spells/psychic_knacks.json ./spells/telekinesis.json
@@ -19072,7 +19135,7 @@ msgstr ""
 msgid ""
 "Your powers can keep you in the bloom of health.  This can also stop or prevent an asthma attack.\n"
 "\n"
-"This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  Healthy Glow <color_red>cannot be active</color> with Leucocyte Acculumation"
+"This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  Healthy Glow <color_red>cannot be active</color> with Leucocyte Accumulation"
 msgstr ""
 
 #: ./spells/psychic_knacks.json ./spells/vitakinesis.json
@@ -19279,7 +19342,7 @@ msgstr ""
 #. ~ Description for [Ψ]Far Hand
 #: ./spells/telekinesis.json
 msgid ""
-"Pickup items at a distance or push them away from you.\n"
+"Pick up items at a distance or push them away from you.\n"
 "\n"
 "Level 6 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\n"
 "Level 5 leads to Kinetic Trap with Force Shove 5.\n"
@@ -19990,7 +20053,7 @@ msgstr ""
 #. ~ Description for [Ψ]Flickerflash Stance
 #: ./spells/teleportation.json
 msgid ""
-"Through constant contraction and expansion of nearby space, as well as near-constant micro-teleports less than decimeter in distance, you can increase the effective momentum behind your strikes, make your exact position nearly impossible to determine, and your blows nearly impossible to stop.\n"
+"Through constant contraction and expansion of nearby space, as well as near-constant micro-teleports less than a decimeter in distance, you can increase the effective momentum behind your strikes, make your exact position nearly impossible to determine, and your blows nearly impossible to stop.\n"
 "\n"
 "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It requires <color_yellow>even more concentration</color> than usual."
 msgstr ""

@@ -566,11 +566,11 @@
   },
 
 {
-  "//": "GREEN PIN -- the repeating fetch quest.  Wren offers it (mission_offered); `followup` names the mission itself, so turning one in (talk_function::clear_mission) queues the next.  Goal MGOAL_RECRUIT_NPC: done when the target NPC placed by update_mapgen (target:true) is the player's ally.  The end phase sets psi_alliance_recruit_delivered, which unlocks the recruit's 'settle in' line.",
+  "//": "GREEN PIN -- the repeating fetch quest.  Wren offers it (mission_offered); `followup` names the mission itself, so turning one in (talk_function::clear_mission) queues the next.  Goal MGOAL_RECRUIT_NPC: done when the target NPC placed by update_mapgen (target:true) is the player's ally.  The end phase sets psi_alliance_recruit_delivered, which unlocks the recruit's 'settle in' line.  2026-11-13: the loop now CYCLES through hiding places (followup chain below, 14 variants, all named \"Green Pin\" -- lua/mom_psi_alliance.lua matches by name); lua tucks the recruit into a fitting spot (closet, riverbank, cave mouth...) before you see them and the board card records where.",
   "type": "mission_definition",
   "id": "MISSION_PSI_ALLIANCE_GREEN_PIN",
   "name": "Green Pin",
-  "description": "Wren felt someone awaken.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.",
+  "description": "Wren felt someone awaken out in the open, with nowhere to hide.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.",
   "goal": "MGOAL_RECRUIT_NPC",
   "difficulty": 3,
   "value": 0,
@@ -578,7 +578,7 @@
   "origins": [
     "ORIGIN_SECONDARY"
   ],
-  "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN",
+  "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN_HOUSE",
   "start": {
     "assign_mission_target": {
       "om_terrain": "field",
@@ -676,6 +676,32 @@
     "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."
   }
 },
+
+{"type": "mission_definition", "id": "MISSION_PSI_ALLIANCE_GREEN_PIN_HOUSE", "name": "Green Pin", "description": "Wren felt someone awaken in a house, hiding.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.", "goal": "MGOAL_RECRUIT_NPC", "difficulty": 3, "value": 0, "has_generic_rewards": false, "origins": ["ORIGIN_SECONDARY"], "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN_RIVER", "start": {"assign_mission_target": {"om_terrain": "house", "reveal_radius": 1, "random": true, "search_range": 120, "min_distance": 24, "om_terrain_match_type": "PREFIX"}, "update_mapgen": {"place_npcs": [{"class": {"distribution": [["psi_awakened_biokin", 1], ["psi_awakened_clair", 1], ["psi_awakened_electro", 1], ["psi_awakened_photo", 1], ["psi_awakened_pyro", 1], ["psi_awakened_telekin", 1], ["psi_awakened_telepath", 1], ["psi_awakened_teleport", 1]]}, "x": 12, "y": 12, "target": true}], "place_monsters": [{"monster": "GROUP_ZOMBIE", "x": [0, 23], "y": [0, 23], "chance": 60, "repeat": [1, 3]}]}}, "end": {"effect": [{"u_faction_rep": 3}, {"u_add_var": "psi_alliance_recruit_delivered", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, "dialogue": {"describe": "Someone woke up out there.", "offer": "There's a new green pin.  Someone awakened in the last day or so, and they're alone, and they're frightened.  I've marked where I felt them.  Will you go and bring them home?", "accepted": "Thank you.  Be gentle.  Whatever they can do, they can't control it yet.", "rejected": "That's all right.  Jules will go when he's back.  If he's back.", "advice": "Don't startle them.  If you're one of us, let them feel it; that does more than talking ever will.  If you're not, talk slowly, and keep your hands where they can see them.", "inquire": "Did you find them?", "success": "You brought them.  I can feel them from here, quieter already.  Thank you.  That's one less person going through this alone.", "success_lie": "No.  I'd feel them if they were here.  Go back.", "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."}},
+
+{"type": "mission_definition", "id": "MISSION_PSI_ALLIANCE_GREEN_PIN_RIVER", "name": "Green Pin", "description": "Wren felt someone awaken down by the river.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.", "goal": "MGOAL_RECRUIT_NPC", "difficulty": 3, "value": 0, "has_generic_rewards": false, "origins": ["ORIGIN_SECONDARY"], "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN_LIBRARY", "start": {"assign_mission_target": {"om_terrain": "river", "reveal_radius": 1, "random": true, "search_range": 120, "min_distance": 24}, "update_mapgen": {"place_npcs": [{"class": {"distribution": [["psi_awakened_biokin", 1], ["psi_awakened_clair", 1], ["psi_awakened_electro", 1], ["psi_awakened_photo", 1], ["psi_awakened_pyro", 1], ["psi_awakened_telekin", 1], ["psi_awakened_telepath", 1], ["psi_awakened_teleport", 1]]}, "x": 12, "y": 12, "target": true}], "place_monsters": [{"monster": "GROUP_ZOMBIE", "x": [0, 23], "y": [0, 23], "chance": 60, "repeat": [1, 3]}]}}, "end": {"effect": [{"u_faction_rep": 3}, {"u_add_var": "psi_alliance_recruit_delivered", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, "dialogue": {"describe": "Someone woke up out there.", "offer": "There's a new green pin.  Someone awakened in the last day or so, and they're alone, and they're frightened.  I've marked where I felt them.  Will you go and bring them home?", "accepted": "Thank you.  Be gentle.  Whatever they can do, they can't control it yet.", "rejected": "That's all right.  Jules will go when he's back.  If he's back.", "advice": "Don't startle them.  If you're one of us, let them feel it; that does more than talking ever will.  If you're not, talk slowly, and keep your hands where they can see them.", "inquire": "Did you find them?", "success": "You brought them.  I can feel them from here, quieter already.  Thank you.  That's one less person going through this alone.", "success_lie": "No.  I'd feel them if they were here.  Go back.", "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."}},
+
+{"type": "mission_definition", "id": "MISSION_PSI_ALLIANCE_GREEN_PIN_LIBRARY", "name": "Green Pin", "description": "Wren felt someone awaken in a library, among a great many books.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.", "goal": "MGOAL_RECRUIT_NPC", "difficulty": 3, "value": 0, "has_generic_rewards": false, "origins": ["ORIGIN_SECONDARY"], "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN_HOUSE2", "start": {"assign_mission_target": {"om_terrain": "s_library", "reveal_radius": 1, "random": true, "search_range": 120, "min_distance": 24, "om_terrain_match_type": "PREFIX"}, "update_mapgen": {"place_npcs": [{"class": {"distribution": [["psi_awakened_biokin", 1], ["psi_awakened_clair", 1], ["psi_awakened_electro", 1], ["psi_awakened_photo", 1], ["psi_awakened_pyro", 1], ["psi_awakened_telekin", 1], ["psi_awakened_telepath", 1], ["psi_awakened_teleport", 1]]}, "x": 12, "y": 12, "target": true}], "place_monsters": [{"monster": "GROUP_ZOMBIE", "x": [0, 23], "y": [0, 23], "chance": 60, "repeat": [1, 3]}]}}, "end": {"effect": [{"u_faction_rep": 3}, {"u_add_var": "psi_alliance_recruit_delivered", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, "dialogue": {"describe": "Someone woke up out there.", "offer": "There's a new green pin.  Someone awakened in the last day or so, and they're alone, and they're frightened.  I've marked where I felt them.  Will you go and bring them home?", "accepted": "Thank you.  Be gentle.  Whatever they can do, they can't control it yet.", "rejected": "That's all right.  Jules will go when he's back.  If he's back.", "advice": "Don't startle them.  If you're one of us, let them feel it; that does more than talking ever will.  If you're not, talk slowly, and keep your hands where they can see them.", "inquire": "Did you find them?", "success": "You brought them.  I can feel them from here, quieter already.  Thank you.  That's one less person going through this alone.", "success_lie": "No.  I'd feel them if they were here.  Go back.", "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."}},
+
+{"type": "mission_definition", "id": "MISSION_PSI_ALLIANCE_GREEN_PIN_HOUSE2", "name": "Green Pin", "description": "Wren felt someone awaken in somebody's house, keeping very still.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.", "goal": "MGOAL_RECRUIT_NPC", "difficulty": 3, "value": 0, "has_generic_rewards": false, "origins": ["ORIGIN_SECONDARY"], "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN_FOREST", "start": {"assign_mission_target": {"om_terrain": "house", "reveal_radius": 1, "random": true, "search_range": 120, "min_distance": 24, "om_terrain_match_type": "PREFIX"}, "update_mapgen": {"place_npcs": [{"class": {"distribution": [["psi_awakened_biokin", 1], ["psi_awakened_clair", 1], ["psi_awakened_electro", 1], ["psi_awakened_photo", 1], ["psi_awakened_pyro", 1], ["psi_awakened_telekin", 1], ["psi_awakened_telepath", 1], ["psi_awakened_teleport", 1]]}, "x": 12, "y": 12, "target": true}], "place_monsters": [{"monster": "GROUP_ZOMBIE", "x": [0, 23], "y": [0, 23], "chance": 60, "repeat": [1, 3]}]}}, "end": {"effect": [{"u_faction_rep": 3}, {"u_add_var": "psi_alliance_recruit_delivered", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, "dialogue": {"describe": "Someone woke up out there.", "offer": "There's a new green pin.  Someone awakened in the last day or so, and they're alone, and they're frightened.  I've marked where I felt them.  Will you go and bring them home?", "accepted": "Thank you.  Be gentle.  Whatever they can do, they can't control it yet.", "rejected": "That's all right.  Jules will go when he's back.  If he's back.", "advice": "Don't startle them.  If you're one of us, let them feel it; that does more than talking ever will.  If you're not, talk slowly, and keep your hands where they can see them.", "inquire": "Did you find them?", "success": "You brought them.  I can feel them from here, quieter already.  Thank you.  That's one less person going through this alone.", "success_lie": "No.  I'd feel them if they were here.  Go back.", "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."}},
+
+{"type": "mission_definition", "id": "MISSION_PSI_ALLIANCE_GREEN_PIN_FOREST", "name": "Green Pin", "description": "Wren felt someone awaken deep in the trees.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.", "goal": "MGOAL_RECRUIT_NPC", "difficulty": 3, "value": 0, "has_generic_rewards": false, "origins": ["ORIGIN_SECONDARY"], "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN_BANK", "start": {"assign_mission_target": {"om_terrain": "forest_thick", "reveal_radius": 1, "random": true, "search_range": 120, "min_distance": 24}, "update_mapgen": {"place_npcs": [{"class": {"distribution": [["psi_awakened_biokin", 1], ["psi_awakened_clair", 1], ["psi_awakened_electro", 1], ["psi_awakened_photo", 1], ["psi_awakened_pyro", 1], ["psi_awakened_telekin", 1], ["psi_awakened_telepath", 1], ["psi_awakened_teleport", 1]]}, "x": 12, "y": 12, "target": true}], "place_monsters": [{"monster": "GROUP_ZOMBIE", "x": [0, 23], "y": [0, 23], "chance": 60, "repeat": [1, 3]}]}}, "end": {"effect": [{"u_faction_rep": 3}, {"u_add_var": "psi_alliance_recruit_delivered", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, "dialogue": {"describe": "Someone woke up out there.", "offer": "There's a new green pin.  Someone awakened in the last day or so, and they're alone, and they're frightened.  I've marked where I felt them.  Will you go and bring them home?", "accepted": "Thank you.  Be gentle.  Whatever they can do, they can't control it yet.", "rejected": "That's all right.  Jules will go when he's back.  If he's back.", "advice": "Don't startle them.  If you're one of us, let them feel it; that does more than talking ever will.  If you're not, talk slowly, and keep your hands where they can see them.", "inquire": "Did you find them?", "success": "You brought them.  I can feel them from here, quieter already.  Thank you.  That's one less person going through this alone.", "success_lie": "No.  I'd feel them if they were here.  Go back.", "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."}},
+
+{"type": "mission_definition", "id": "MISSION_PSI_ALLIANCE_GREEN_PIN_BANK", "name": "Green Pin", "description": "Wren felt someone awaken in a bank, behind a lot of locked doors.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.", "goal": "MGOAL_RECRUIT_NPC", "difficulty": 3, "value": 0, "has_generic_rewards": false, "origins": ["ORIGIN_SECONDARY"], "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN_FIELD2", "start": {"assign_mission_target": {"om_terrain": "bank", "reveal_radius": 1, "random": true, "search_range": 120, "min_distance": 24, "om_terrain_match_type": "PREFIX"}, "update_mapgen": {"place_npcs": [{"class": {"distribution": [["psi_awakened_biokin", 1], ["psi_awakened_clair", 1], ["psi_awakened_electro", 1], ["psi_awakened_photo", 1], ["psi_awakened_pyro", 1], ["psi_awakened_telekin", 1], ["psi_awakened_telepath", 1], ["psi_awakened_teleport", 1]]}, "x": 12, "y": 12, "target": true}], "place_monsters": [{"monster": "GROUP_ZOMBIE", "x": [0, 23], "y": [0, 23], "chance": 60, "repeat": [1, 3]}]}}, "end": {"effect": [{"u_faction_rep": 3}, {"u_add_var": "psi_alliance_recruit_delivered", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, "dialogue": {"describe": "Someone woke up out there.", "offer": "There's a new green pin.  Someone awakened in the last day or so, and they're alone, and they're frightened.  I've marked where I felt them.  Will you go and bring them home?", "accepted": "Thank you.  Be gentle.  Whatever they can do, they can't control it yet.", "rejected": "That's all right.  Jules will go when he's back.  If he's back.", "advice": "Don't startle them.  If you're one of us, let them feel it; that does more than talking ever will.  If you're not, talk slowly, and keep your hands where they can see them.", "inquire": "Did you find them?", "success": "You brought them.  I can feel them from here, quieter already.  Thank you.  That's one less person going through this alone.", "success_lie": "No.  I'd feel them if they were here.  Go back.", "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."}},
+
+{"type": "mission_definition", "id": "MISSION_PSI_ALLIANCE_GREEN_PIN_FIELD2", "name": "Green Pin", "description": "Wren felt someone awaken in the middle of a field, in plain sight.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.", "goal": "MGOAL_RECRUIT_NPC", "difficulty": 3, "value": 0, "has_generic_rewards": false, "origins": ["ORIGIN_SECONDARY"], "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN_CABIN", "start": {"assign_mission_target": {"om_terrain": "field", "reveal_radius": 1, "random": true, "search_range": 120, "min_distance": 24}, "update_mapgen": {"place_npcs": [{"class": {"distribution": [["psi_awakened_biokin", 1], ["psi_awakened_clair", 1], ["psi_awakened_electro", 1], ["psi_awakened_photo", 1], ["psi_awakened_pyro", 1], ["psi_awakened_telekin", 1], ["psi_awakened_telepath", 1], ["psi_awakened_teleport", 1]]}, "x": 12, "y": 12, "target": true}], "place_monsters": [{"monster": "GROUP_ZOMBIE", "x": [0, 23], "y": [0, 23], "chance": 60, "repeat": [1, 3]}]}}, "end": {"effect": [{"u_faction_rep": 3}, {"u_add_var": "psi_alliance_recruit_delivered", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, "dialogue": {"describe": "Someone woke up out there.", "offer": "There's a new green pin.  Someone awakened in the last day or so, and they're alone, and they're frightened.  I've marked where I felt them.  Will you go and bring them home?", "accepted": "Thank you.  Be gentle.  Whatever they can do, they can't control it yet.", "rejected": "That's all right.  Jules will go when he's back.  If he's back.", "advice": "Don't startle them.  If you're one of us, let them feel it; that does more than talking ever will.  If you're not, talk slowly, and keep your hands where they can see them.", "inquire": "Did you find them?", "success": "You brought them.  I can feel them from here, quieter already.  Thank you.  That's one less person going through this alone.", "success_lie": "No.  I'd feel them if they were here.  Go back.", "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."}},
+
+{"type": "mission_definition", "id": "MISSION_PSI_ALLIANCE_GREEN_PIN_CABIN", "name": "Green Pin", "description": "Wren felt someone awaken in a cabin, far from anyone.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.", "goal": "MGOAL_RECRUIT_NPC", "difficulty": 3, "value": 0, "has_generic_rewards": false, "origins": ["ORIGIN_SECONDARY"], "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN_HOUSE3", "start": {"assign_mission_target": {"om_terrain": "cabin", "reveal_radius": 1, "random": true, "search_range": 120, "min_distance": 24, "om_terrain_match_type": "PREFIX"}, "update_mapgen": {"place_npcs": [{"class": {"distribution": [["psi_awakened_biokin", 1], ["psi_awakened_clair", 1], ["psi_awakened_electro", 1], ["psi_awakened_photo", 1], ["psi_awakened_pyro", 1], ["psi_awakened_telekin", 1], ["psi_awakened_telepath", 1], ["psi_awakened_teleport", 1]]}, "x": 12, "y": 12, "target": true}], "place_monsters": [{"monster": "GROUP_ZOMBIE", "x": [0, 23], "y": [0, 23], "chance": 60, "repeat": [1, 3]}]}}, "end": {"effect": [{"u_faction_rep": 3}, {"u_add_var": "psi_alliance_recruit_delivered", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, "dialogue": {"describe": "Someone woke up out there.", "offer": "There's a new green pin.  Someone awakened in the last day or so, and they're alone, and they're frightened.  I've marked where I felt them.  Will you go and bring them home?", "accepted": "Thank you.  Be gentle.  Whatever they can do, they can't control it yet.", "rejected": "That's all right.  Jules will go when he's back.  If he's back.", "advice": "Don't startle them.  If you're one of us, let them feel it; that does more than talking ever will.  If you're not, talk slowly, and keep your hands where they can see them.", "inquire": "Did you find them?", "success": "You brought them.  I can feel them from here, quieter already.  Thank you.  That's one less person going through this alone.", "success_lie": "No.  I'd feel them if they were here.  Go back.", "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."}},
+
+{"type": "mission_definition", "id": "MISSION_PSI_ALLIANCE_GREEN_PIN_HOUSE3", "name": "Green Pin", "description": "Wren felt someone awaken in a house, in the dark.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.", "goal": "MGOAL_RECRUIT_NPC", "difficulty": 3, "value": 0, "has_generic_rewards": false, "origins": ["ORIGIN_SECONDARY"], "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN_CAVE", "start": {"assign_mission_target": {"om_terrain": "house", "reveal_radius": 1, "random": true, "search_range": 120, "min_distance": 24, "om_terrain_match_type": "PREFIX"}, "update_mapgen": {"place_npcs": [{"class": {"distribution": [["psi_awakened_biokin", 1], ["psi_awakened_clair", 1], ["psi_awakened_electro", 1], ["psi_awakened_photo", 1], ["psi_awakened_pyro", 1], ["psi_awakened_telekin", 1], ["psi_awakened_telepath", 1], ["psi_awakened_teleport", 1]]}, "x": 12, "y": 12, "target": true}], "place_monsters": [{"monster": "GROUP_ZOMBIE", "x": [0, 23], "y": [0, 23], "chance": 60, "repeat": [1, 3]}]}}, "end": {"effect": [{"u_faction_rep": 3}, {"u_add_var": "psi_alliance_recruit_delivered", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, "dialogue": {"describe": "Someone woke up out there.", "offer": "There's a new green pin.  Someone awakened in the last day or so, and they're alone, and they're frightened.  I've marked where I felt them.  Will you go and bring them home?", "accepted": "Thank you.  Be gentle.  Whatever they can do, they can't control it yet.", "rejected": "That's all right.  Jules will go when he's back.  If he's back.", "advice": "Don't startle them.  If you're one of us, let them feel it; that does more than talking ever will.  If you're not, talk slowly, and keep your hands where they can see them.", "inquire": "Did you find them?", "success": "You brought them.  I can feel them from here, quieter already.  Thank you.  That's one less person going through this alone.", "success_lie": "No.  I'd feel them if they were here.  Go back.", "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."}},
+
+{"type": "mission_definition", "id": "MISSION_PSI_ALLIANCE_GREEN_PIN_CAVE", "name": "Green Pin", "description": "Wren felt someone awaken in a cave, or near enough to one.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.", "goal": "MGOAL_RECRUIT_NPC", "difficulty": 3, "value": 0, "has_generic_rewards": false, "origins": ["ORIGIN_SECONDARY"], "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN_CHURCH", "start": {"assign_mission_target": {"om_terrain": "cave", "reveal_radius": 1, "random": true, "search_range": 120, "min_distance": 24}, "update_mapgen": {"place_npcs": [{"class": {"distribution": [["psi_awakened_biokin", 1], ["psi_awakened_clair", 1], ["psi_awakened_electro", 1], ["psi_awakened_photo", 1], ["psi_awakened_pyro", 1], ["psi_awakened_telekin", 1], ["psi_awakened_telepath", 1], ["psi_awakened_teleport", 1]]}, "x": 12, "y": 12, "target": true}], "place_monsters": [{"monster": "GROUP_ZOMBIE", "x": [0, 23], "y": [0, 23], "chance": 60, "repeat": [1, 3]}]}}, "end": {"effect": [{"u_faction_rep": 3}, {"u_add_var": "psi_alliance_recruit_delivered", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, "dialogue": {"describe": "Someone woke up out there.", "offer": "There's a new green pin.  Someone awakened in the last day or so, and they're alone, and they're frightened.  I've marked where I felt them.  Will you go and bring them home?", "accepted": "Thank you.  Be gentle.  Whatever they can do, they can't control it yet.", "rejected": "That's all right.  Jules will go when he's back.  If he's back.", "advice": "Don't startle them.  If you're one of us, let them feel it; that does more than talking ever will.  If you're not, talk slowly, and keep your hands where they can see them.", "inquire": "Did you find them?", "success": "You brought them.  I can feel them from here, quieter already.  Thank you.  That's one less person going through this alone.", "success_lie": "No.  I'd feel them if they were here.  Go back.", "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."}},
+
+{"type": "mission_definition", "id": "MISSION_PSI_ALLIANCE_GREEN_PIN_CHURCH", "name": "Green Pin", "description": "Wren felt someone awaken in a church.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.", "goal": "MGOAL_RECRUIT_NPC", "difficulty": 3, "value": 0, "has_generic_rewards": false, "origins": ["ORIGIN_SECONDARY"], "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN_PHARMACY", "start": {"assign_mission_target": {"om_terrain": "church", "reveal_radius": 1, "random": true, "search_range": 120, "min_distance": 24, "om_terrain_match_type": "PREFIX"}, "update_mapgen": {"place_npcs": [{"class": {"distribution": [["psi_awakened_biokin", 1], ["psi_awakened_clair", 1], ["psi_awakened_electro", 1], ["psi_awakened_photo", 1], ["psi_awakened_pyro", 1], ["psi_awakened_telekin", 1], ["psi_awakened_telepath", 1], ["psi_awakened_teleport", 1]]}, "x": 12, "y": 12, "target": true}], "place_monsters": [{"monster": "GROUP_ZOMBIE", "x": [0, 23], "y": [0, 23], "chance": 60, "repeat": [1, 3]}]}}, "end": {"effect": [{"u_faction_rep": 3}, {"u_add_var": "psi_alliance_recruit_delivered", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, "dialogue": {"describe": "Someone woke up out there.", "offer": "There's a new green pin.  Someone awakened in the last day or so, and they're alone, and they're frightened.  I've marked where I felt them.  Will you go and bring them home?", "accepted": "Thank you.  Be gentle.  Whatever they can do, they can't control it yet.", "rejected": "That's all right.  Jules will go when he's back.  If he's back.", "advice": "Don't startle them.  If you're one of us, let them feel it; that does more than talking ever will.  If you're not, talk slowly, and keep your hands where they can see them.", "inquire": "Did you find them?", "success": "You brought them.  I can feel them from here, quieter already.  Thank you.  That's one less person going through this alone.", "success_lie": "No.  I'd feel them if they were here.  Go back.", "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."}},
+
+{"type": "mission_definition", "id": "MISSION_PSI_ALLIANCE_GREEN_PIN_PHARMACY", "name": "Green Pin", "description": "Wren felt someone awaken in a pharmacy.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.", "goal": "MGOAL_RECRUIT_NPC", "difficulty": 3, "value": 0, "has_generic_rewards": false, "origins": ["ORIGIN_SECONDARY"], "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN_MOTEL", "start": {"assign_mission_target": {"om_terrain": "s_pharm", "reveal_radius": 1, "random": true, "search_range": 120, "min_distance": 24, "om_terrain_match_type": "PREFIX"}, "update_mapgen": {"place_npcs": [{"class": {"distribution": [["psi_awakened_biokin", 1], ["psi_awakened_clair", 1], ["psi_awakened_electro", 1], ["psi_awakened_photo", 1], ["psi_awakened_pyro", 1], ["psi_awakened_telekin", 1], ["psi_awakened_telepath", 1], ["psi_awakened_teleport", 1]]}, "x": 12, "y": 12, "target": true}], "place_monsters": [{"monster": "GROUP_ZOMBIE", "x": [0, 23], "y": [0, 23], "chance": 60, "repeat": [1, 3]}]}}, "end": {"effect": [{"u_faction_rep": 3}, {"u_add_var": "psi_alliance_recruit_delivered", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, "dialogue": {"describe": "Someone woke up out there.", "offer": "There's a new green pin.  Someone awakened in the last day or so, and they're alone, and they're frightened.  I've marked where I felt them.  Will you go and bring them home?", "accepted": "Thank you.  Be gentle.  Whatever they can do, they can't control it yet.", "rejected": "That's all right.  Jules will go when he's back.  If he's back.", "advice": "Don't startle them.  If you're one of us, let them feel it; that does more than talking ever will.  If you're not, talk slowly, and keep your hands where they can see them.", "inquire": "Did you find them?", "success": "You brought them.  I can feel them from here, quieter already.  Thank you.  That's one less person going through this alone.", "success_lie": "No.  I'd feel them if they were here.  Go back.", "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."}},
+
+{"type": "mission_definition", "id": "MISSION_PSI_ALLIANCE_GREEN_PIN_MOTEL", "name": "Green Pin", "description": "Wren felt someone awaken in a motel room, with the door barricaded.  Find the new psion where she marked your map and bring them back to the quarry, before they have to figure it out alone.", "goal": "MGOAL_RECRUIT_NPC", "difficulty": 3, "value": 0, "has_generic_rewards": false, "origins": ["ORIGIN_SECONDARY"], "followup": "MISSION_PSI_ALLIANCE_GREEN_PIN", "start": {"assign_mission_target": {"om_terrain": "motel", "reveal_radius": 1, "random": true, "search_range": 120, "min_distance": 24, "om_terrain_match_type": "PREFIX"}, "update_mapgen": {"place_npcs": [{"class": {"distribution": [["psi_awakened_biokin", 1], ["psi_awakened_clair", 1], ["psi_awakened_electro", 1], ["psi_awakened_photo", 1], ["psi_awakened_pyro", 1], ["psi_awakened_telekin", 1], ["psi_awakened_telepath", 1], ["psi_awakened_teleport", 1]]}, "x": 12, "y": 12, "target": true}], "place_monsters": [{"monster": "GROUP_ZOMBIE", "x": [0, 23], "y": [0, 23], "chance": 60, "repeat": [1, 3]}]}}, "end": {"effect": [{"u_faction_rep": 3}, {"u_add_var": "psi_alliance_recruit_delivered", "type": "dialogue", "context": "psi_alliance", "value": "yes"}]}, "dialogue": {"describe": "Someone woke up out there.", "offer": "There's a new green pin.  Someone awakened in the last day or so, and they're alone, and they're frightened.  I've marked where I felt them.  Will you go and bring them home?", "accepted": "Thank you.  Be gentle.  Whatever they can do, they can't control it yet.", "rejected": "That's all right.  Jules will go when he's back.  If he's back.", "advice": "Don't startle them.  If you're one of us, let them feel it; that does more than talking ever will.  If you're not, talk slowly, and keep your hands where they can see them.", "inquire": "Did you find them?", "success": "You brought them.  I can feel them from here, quieter already.  Thank you.  That's one less person going through this alone.", "success_lie": "No.  I'd feel them if they were here.  Go back.", "failure": "I felt it when they went out.  Like a candle.  ...We'll get to the next one sooner."}},
 
 {
   "type": "npc_class",
@@ -1117,11 +1143,199 @@
   },
   "responses": [
     {
+      "text": "*Roll up your sleeve and let them watch an old scar on your forearm smooth itself away.*  Mine heals right too.  You get used to it.",
+      "condition": {
+        "and": [
+          {
+            "not": "npc_following"
+          },
+          {
+            "u_has_trait": "BIOKINETIC"
+          },
+          {
+            "npc_has_trait": "BIOKINETIC"
+          }
+        ]
+      },
+      "trial": {
+        "type": "NONE"
+      },
+      "success": {
+        "topic": "TALK_PSI_AWAKENED_KIN_BIOKINETIC",
+        "effect": "follow"
+      }
+    },
+    {
+      "text": "*Close your eyes and let your sight drift loose, until you are looking at the two of you from across the road.*  I saw you too, before I got here.",
+      "condition": {
+        "and": [
+          {
+            "not": "npc_following"
+          },
+          {
+            "u_has_trait": "CLAIRSENTIENT"
+          },
+          {
+            "npc_has_trait": "CLAIRSENTIENT"
+          }
+        ]
+      },
+      "trial": {
+        "type": "NONE"
+      },
+      "success": {
+        "topic": "TALK_PSI_AWAKENED_KIN_CLAIRSENTIENT",
+        "effect": "follow"
+      }
+    },
+    {
+      "text": "*Hold out a bare hand and let the charge build until it crackles between your fingers.*  Go on.  It won't hurt us.",
+      "condition": {
+        "and": [
+          {
+            "not": "npc_following"
+          },
+          {
+            "u_has_trait": "ELECTROKINETIC"
+          },
+          {
+            "npc_has_trait": "ELECTROKINETIC"
+          }
+        ]
+      },
+      "trial": {
+        "type": "NONE"
+      },
+      "success": {
+        "topic": "TALK_PSI_AWAKENED_KIN_ELECTROKINETIC",
+        "effect": "follow"
+      }
+    },
+    {
+      "text": "*Let your own light come up, soft and slow, until the two of you are glowing together.*  There.  Now nobody can tell which of us is which.",
+      "condition": {
+        "and": [
+          {
+            "not": "npc_following"
+          },
+          {
+            "u_has_trait": "PHOTOKINETIC"
+          },
+          {
+            "npc_has_trait": "PHOTOKINETIC"
+          }
+        ]
+      },
+      "trial": {
+        "type": "NONE"
+      },
+      "success": {
+        "topic": "TALK_PSI_AWAKENED_KIN_PHOTOKINETIC",
+        "effect": "follow"
+      }
+    },
+    {
+      "text": "*Step close enough to feel their heat, and let your own rise to meet it.  The grass between you does not burn.*  Breathe.  It listens when you breathe.",
+      "condition": {
+        "and": [
+          {
+            "not": "npc_following"
+          },
+          {
+            "u_has_trait": "PYROKINETIC"
+          },
+          {
+            "npc_has_trait": "PYROKINETIC"
+          }
+        ]
+      },
+      "trial": {
+        "type": "NONE"
+      },
+      "success": {
+        "topic": "TALK_PSI_AWAKENED_KIN_PYROKINETIC",
+        "effect": "follow"
+      }
+    },
+    {
+      "text": "*Reach out without moving and gently unbend the road sign until it stands straight again.*  It's the same as yours.  Just a hand nobody else can see.",
+      "condition": {
+        "and": [
+          {
+            "not": "npc_following"
+          },
+          {
+            "u_has_trait": "TELEKINETIC"
+          },
+          {
+            "npc_has_trait": "TELEKINETIC"
+          }
+        ]
+      },
+      "trial": {
+        "type": "NONE"
+      },
+      "success": {
+        "topic": "TALK_PSI_AWAKENED_KIN_TELEKINETIC",
+        "effect": "follow"
+      }
+    },
+    {
+      "text": "*Don't say anything out loud.  Just think it, quiet and clear: I hear it too.  I can show you how to turn it down.*",
+      "condition": {
+        "and": [
+          {
+            "not": "npc_following"
+          },
+          {
+            "u_has_trait": "TELEPATH"
+          },
+          {
+            "npc_has_trait": "TELEPATH"
+          }
+        ]
+      },
+      "trial": {
+        "type": "NONE"
+      },
+      "success": {
+        "topic": "TALK_PSI_AWAKENED_KIN_TELEPATH",
+        "effect": "follow"
+      }
+    },
+    {
+      "text": "*Blink out, and step back into the world right beside them, close enough to touch.*  It stops being scary when you choose where you land.",
+      "condition": {
+        "and": [
+          {
+            "not": "npc_following"
+          },
+          {
+            "u_has_trait": "TELEPORTER"
+          },
+          {
+            "npc_has_trait": "TELEPORTER"
+          }
+        ]
+      },
+      "trial": {
+        "type": "NONE"
+      },
+      "success": {
+        "topic": "TALK_PSI_AWAKENED_KIN_TELEPORTER",
+        "effect": "follow"
+      }
+    },
+    {
       "text": "*Let a little of your own power show.*  You're not the only one.  There's a place for people like us.",
       "condition": {
         "and": [
           {
             "not": "npc_following"
+          },
+          {
+            "//": "Same school as you? The KIN responses above replace this one.",
+            "not": {"or": [{"and": [{"u_has_trait": "BIOKINETIC"}, {"npc_has_trait": "BIOKINETIC"}]}, {"and": [{"u_has_trait": "CLAIRSENTIENT"}, {"npc_has_trait": "CLAIRSENTIENT"}]}, {"and": [{"u_has_trait": "ELECTROKINETIC"}, {"npc_has_trait": "ELECTROKINETIC"}]}, {"and": [{"u_has_trait": "PHOTOKINETIC"}, {"npc_has_trait": "PHOTOKINETIC"}]}, {"and": [{"u_has_trait": "PYROKINETIC"}, {"npc_has_trait": "PYROKINETIC"}]}, {"and": [{"u_has_trait": "TELEKINETIC"}, {"npc_has_trait": "TELEKINETIC"}]}, {"and": [{"u_has_trait": "TELEPATH"}, {"npc_has_trait": "TELEPATH"}]}, {"and": [{"u_has_trait": "TELEPORTER"}, {"npc_has_trait": "TELEPORTER"}]}]}
           },
           {
             "u_has_any_trait": [
@@ -1185,6 +1399,103 @@
       "condition": {
         "not": "npc_following"
       },
+      "topic": "TALK_DONE"
+    }
+  ]
+},
+
+{
+  "//": "Same-school first contact (2026-11-13, user): sharing their school is more intimate than a generic show of power.",
+  "type": "talk_topic",
+  "id": "TALK_PSI_AWAKENED_KIN_BIOKINETIC",
+  "dynamic_line": "&They stare at your arm, then at their own, and slowly stop holding it like it belongs to someone else.  \"It's the same.  It's the same thing.  I thought I was the only one in the world whose body wouldn't stay broken.\"  They let out a shaky breath.  \"Okay.  Where are we going?\"",
+  "responses": [
+    {
+      "text": "Stay close.",
+      "topic": "TALK_DONE"
+    }
+  ]
+},
+
+{
+  "type": "talk_topic",
+  "id": "TALK_PSI_AWAKENED_KIN_CLAIRSENTIENT",
+  "dynamic_line": "&Their eyes unfocus, and for a moment you can feel them out there with you, looking from the same empty place across the road.  \"You're here.  You're HERE too.  I thought I was the only one who'd come loose from my own head.\"  Their eyes come back.  \"Don't tell me where we're going.  I want to see it first.\"",
+  "responses": [
+    {
+      "text": "Stay close.",
+      "topic": "TALK_DONE"
+    }
+  ]
+},
+
+{
+  "type": "talk_topic",
+  "id": "TALK_PSI_AWAKENED_KIN_ELECTROKINETIC",
+  "dynamic_line": "&They hesitate, then lay their palm against yours.  The sparks jump between you and go still, two currents finding the same ground.  \"It didn't hurt.\"  They don't let go.  \"Nobody's been able to touch me since it started.  Nobody.\"",
+  "responses": [
+    {
+      "text": "Stay close.",
+      "topic": "TALK_DONE"
+    }
+  ]
+},
+
+{
+  "type": "talk_topic",
+  "id": "TALK_PSI_AWAKENED_KIN_PHOTOKINETIC",
+  "dynamic_line": "&Their glow flickers, uncertain, then steadies to match yours, and for a moment you are just two lamps left on in the same room.  \"You too.  You're lit up too.\"  They laugh, and it comes out half a sob.  \"I thought I was the only thing out here shining.\"",
+  "responses": [
+    {
+      "text": "Stay close.",
+      "topic": "TALK_DONE"
+    }
+  ]
+},
+
+{
+  "type": "talk_topic",
+  "id": "TALK_PSI_AWAKENED_KIN_PYROKINETIC",
+  "dynamic_line": "&Their shoulders drop.  The heat rolling off them draws in, slowly, the way yours does.  \"You're warm.  You're warm like me, and nothing's on fire.\"  They look down at the unburnt grass.  \"Teach me that.  Wherever you're going, I'm coming.\"",
+  "responses": [
+    {
+      "text": "Stay close.",
+      "topic": "TALK_DONE"
+    }
+  ]
+},
+
+{
+  "type": "talk_topic",
+  "id": "TALK_PSI_AWAKENED_KIN_TELEKINETIC",
+  "dynamic_line": "&They watch the sign straighten, and then you feel them reach out too, clumsy and careful, until their unseen grip rests on the sign beside yours.  \"I can feel you holding it.\"  They let go first.  \"I thought it was just me breaking things.  Okay.  Okay, I'll come.\"",
+  "responses": [
+    {
+      "text": "Stay close.",
+      "topic": "TALK_DONE"
+    }
+  ]
+},
+
+{
+  "type": "talk_topic",
+  "id": "TALK_PSI_AWAKENED_KIN_TELEPATH",
+  "dynamic_line": "&Their head snaps up.  Then, under all the noise, you feel them reach back, and hold on.  \"You're quiet.  You're the only quiet thing out here.\"  Their voice is shaking.  \"Stay where I can hear you.  Please.  I'll go wherever you go.\"",
+  "responses": [
+    {
+      "text": "Stay close.",
+      "topic": "TALK_DONE"
+    }
+  ]
+},
+
+{
+  "type": "talk_topic",
+  "id": "TALK_PSI_AWAKENED_KIN_TELEPORTER",
+  "dynamic_line": "&They flinch, then laugh, high and cracked.  \"You did it too.  You did it on PURPOSE.\"  They grab your sleeve as if you might vanish again, or they might.  \"Show me how.  Please.  I'll follow you anywhere, as long as it's on purpose.\"",
+  "responses": [
+    {
+      "text": "Stay close.",
       "topic": "TALK_DONE"
     }
   ]

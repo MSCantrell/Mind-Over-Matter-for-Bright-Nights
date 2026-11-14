@@ -188,7 +188,7 @@ return function(mod)
       local f = {}
       for field in line:gmatch("[^\t]+") do f[#f + 1] = field end
       if f[1] == "P" and f[2] then
-        pins[#pins + 1] = { name = f[2], school = f[3] or "psion", date = f[4] or "" }
+        pins[#pins + 1] = { name = f[2], school = f[3] or "psion", date = f[4] or "", where = f[5] }
       elseif f[1] == "D" and f[2] then
         dead[f[2]] = f[3] or ""
       end
@@ -222,7 +222,11 @@ return function(mod)
     for _, s in ipairs(SCHOOLS) do
       if guy:has_trait(MutationBranchId.new(s[1])) then school = s[2]; break end
     end
-    append_record({ "P", name, school, today() })
+    local where = ""
+    pcall(function() where = clean(guy:get_value("mom_pin_hideout") or "") end)
+    local rec = { "P", name, school, today() }
+    if where ~= "" then rec[5] = where end   -- older records have 4 fields
+    append_record(rec)
     -- Bringing home a psion of a school unlocks that school's services
     -- (lua/mom_psi_services.lua).
     if mod.psi_service_unlock then mod.psi_service_unlock(school, name) end
@@ -262,6 +266,143 @@ return function(mod)
     return ok and nm == GREEN_PIN_NAME
   end
 
+  ---------------------------------------------------------------------------
+  -- Hiding places (2026-11-13, user: "they're almost all out in fields").  The
+  -- Green Pin missions now cycle through hiding-place variants (houses, river,
+  -- library, bank, cave... see the MISSION_PSI_ALLIANCE_GREEN_PIN* followup chain
+  -- in npcs/psi_alliance.json).  update_mapgen can only drop the recruit at a
+  -- fixed tile (12,12), which in a building may be a wall or the middle of a
+  -- room, so when you get within a couple of OMTs and they're out of your sight
+  -- this moves them somewhere a frightened person would actually be: a closet or
+  -- alcove indoors, the bank of the river, a thicket, the back of the cave.  The
+  -- place is stamped on the recruit (creature var mom_pin_hideout) and the board
+  -- card says where you found them.
+  ---------------------------------------------------------------------------
+  local HIDE_KEY = "mom_pin_hideout"
+  local KINDS = {   -- first match wins; order matters only for overlapping prefixes
+    { "house", "PREFIX", "house" }, { "s_library", "PREFIX", "library" },
+    { "bank", "PREFIX", "bank" }, { "cabin", "PREFIX", "cabin" },
+    { "church", "PREFIX", "church" }, { "s_pharm", "PREFIX", "pharmacy" },
+    { "motel", "PREFIX", "motel" }, { "cave", "TYPE", "cave" },
+    { "river", "TYPE", "river" }, { "forest_thick", "TYPE", "forest" },
+  }
+  local INDOOR_KIND = { house = 45, library = 30, bank = 30, cabin = 35, church = 30,
+                        pharmacy = 30, motel = 40 }   -- % chance of a closet, if one exists
+  local OMT = 24
+
+  local function kind_of(omt)
+    for _, k in ipairs(KINDS) do
+      if overmapbuffer.check_ot(k[1], OtMatchType[k[2]], omt) then return k[3] end
+    end
+    return "field"
+  end
+
+  local function blocked(map, p)
+    local t = map:get_ter_at(p)
+    if not t or t:obj():get_movecost() <= 0 then return true end
+    local f = map:get_furn_at(p)
+    return f and f:obj():get_movecost() < 0
+  end
+
+  local function free(map, p)
+    return not blocked(map, p) and not gapi.get_creature_at(p)
+  end
+
+  local ORTH = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } }
+  local ALL8 = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 }, { 1, 1 }, { 1, -1 }, { -1, 1 }, { -1, -1 } }
+  local function count(map, p, dirs, test)
+    local n = 0
+    for _, d in ipairs(dirs) do
+      if test(map, TripointBubMs.new(p.x + d[1], p.y + d[2], p.z)) then n = n + 1 end
+    end
+    return n
+  end
+  local function wet(map, p) return map:has_ter_flag_at("LIQUID", p) end
+
+  -- Returns bub point, spot label ("closet" / "" ) or nil.
+  function mod.psi_pin_pick_spot(map, o, kind)
+    local best, closets, cands = {}, {}, {}
+    for dx = 1, OMT - 2 do
+      for dy = 1, OMT - 2 do
+        local p = TripointBubMs.new(o.x + dx, o.y + dy, o.z)
+        if free(map, p) then
+          if INDOOR_KIND[kind] then
+            if map:has_ter_flag_at("INDOORS", p) then
+              local walls = count(map, p, ORTH, blocked)
+              cands[#cands + 1] = p
+              if walls >= 3 then closets[#closets + 1] = p
+              elseif walls >= 2 then best[#best + 1] = p end
+            end
+          elseif kind == "river" then
+            if not wet(map, p) and count(map, p, ALL8, wet) > 0 then best[#best + 1] = p end
+          else   -- forest / cave: the most enclosed open tile
+            local n = count(map, p, ALL8, blocked)
+            if n >= (kind == "cave" and 5 or 3) then best[#best + 1] = p end
+            if n >= 2 then cands[#cands + 1] = p end
+          end
+        end
+      end
+    end
+    local function any(t) return t[gapi.rng(1, #t)] end
+    if #closets > 0 and gapi.rng(1, 100) <= (INDOOR_KIND[kind] or 0) then return any(closets), "closet" end
+    if #best > 0 then return any(best), "" end
+    if #closets > 0 then return any(closets), "closet" end
+    if #cands > 0 then return any(cands), "" end
+    return nil
+  end
+
+  local function same_omt(a, b) return a.x == b.x and a.y == b.y and a.z == b.z end
+
+  function mod.psi_pin_hide_tick(you, m)
+    local there = m:get_target_point()
+    local here = coords.project_to_omt(you:abs_pos())
+    if math.max(math.abs(there.x - here.x), math.abs(there.y - here.y)) > 2 or there.z ~= here.z then return end
+    local map = gapi.get_map()
+    local o = map:abs_to_bub(coords.project_to_ms(there))
+    local size = map:get_map_size()
+    if o.x < 0 or o.y < 0 or o.x + OMT > size or o.y + OMT > size then return end
+    for _, guy in ipairs(gapi.get_all_npcs()) do
+      if (guy:get_value(HIDE_KEY) or "") == "" and not guy:is_following()
+          and same_omt(coords.project_to_omt(guy:abs_pos()), there) then
+        local school = false
+        for _, s in ipairs(SCHOOLS) do
+          if guy:has_trait(MutationBranchId.new(s[1])) then school = true; break end
+        end
+        if school then
+          local kind = kind_of(there)
+          local key = kind
+          local pos = guy:get_pos_ms()
+          if kind ~= "field" and (not you:sees(pos) or blocked(map, pos)) then
+            local p, spot = mod.psi_pin_pick_spot(map, o, kind)
+            if p then
+              guy:set_pos_ms(p)
+              if spot == "closet" then key = kind .. "_closet" end
+            end
+          end
+          guy:set_value(HIDE_KEY, key)
+          gdebug.log_info("MoM-BN: green pin recruit " .. tostring(guy.name) .. " hidden: " .. key)
+        end
+      end
+    end
+  end
+
+  mod.recurring = mod.recurring or {}
+  mod.recurring["MOM_GREEN_PIN_HIDE"] = {
+    min_turns = 5, max_turns = 5,
+    fn = function(you)
+      local ok, err = pcall(function()
+        if not you then return end
+        for _, m in ipairs(you:get_active_missions()) do
+          if is_green_pin(m) then mod.psi_pin_hide_tick(you, m) end
+        end
+      end)
+      if not ok and not mod._pin_hide_warned then
+        mod._pin_hide_warned = true
+        gdebug.log_warn("MoM-BN: green pin hiding failed (further errors suppressed): " .. tostring(err))
+      end
+    end,
+  }
+
   local function open_pin_line()
     local you = gapi.get_avatar()
     for _, m in ipairs(you:get_active_missions()) do
@@ -291,6 +432,76 @@ return function(mod)
   local WREN_CARD = "At the edge of the map is one more card, with no pin: \"I'm the one "
     .. "holding them.  -W\""
 
+  -- Where you found them (2026-11-13), keyed by the hideout stamp (kind, or
+  -- kind_closet).  One line per card, chosen by a hash of the name so it never
+  -- changes between looks.  Records from before this have no stamp: no line.
+  local FOUND = {
+    house_closet = {
+      "In a hall closet, behind the winter coats.  They'd been in there two days.",
+      "Wedged into a bedroom closet, holding the door shut from inside.",
+      "In a linen closet, sitting on the towels, making themselves very small.",
+    },
+    house = {
+      "In somebody's house, under the kitchen table, with every light off.",
+      "In a stranger's house, in the corner furthest from every window.",
+      "In a house that wasn't theirs.  They'd laid the table for a family that wasn't coming back.",
+    },
+    library_closet = { "In a library supply closet, between the mop bucket and the returns cart." },
+    library = {
+      "In a library, between the stacks, reading.  Looking up what they were, they said.  Nothing on the shelves was any help.",
+      "In the children's section of a library, because nobody would look for them there.",
+    },
+    bank_closet = { "Shut in a bank's back office no bigger than a closet, with the deadbolt thrown." },
+    bank = {
+      "In a bank, behind the teller counter.  Of all the safe places to pick.",
+      "In a bank, sitting with their back against the vault door.  It was the thickest wall they could find.",
+    },
+    cabin_closet = { "In a cabin's storage cupboard, under a pile of quilts." },
+    cabin = {
+      "In a cabin a long way from anywhere, which was the whole point.",
+      "In a hunting cabin with the shutters nailed closed.  From the inside.",
+    },
+    church_closet = { "In a church vestry, among the robes, with the door pulled to." },
+    church = {
+      "In a church, in the last pew, praying to nobody in particular.",
+      "In a church.  Sanctuary, they said.  It had seemed worth a try.",
+    },
+    pharmacy_closet = { "In a pharmacy stockroom, reading every label for something that would make it stop." },
+    pharmacy = {
+      "Behind a pharmacy counter, reading every label for something that would make it stop.",
+      "In a pharmacy, with three kinds of sleeping pill lined up and none of them opened.  Good.",
+    },
+    motel_closet = { "In a motel bathroom, in the tub, with the door locked." },
+    motel = {
+      "In a motel room with the bed pushed up against the door.",
+      "In a motel room with the TV on and no signal, just for the noise.",
+    },
+    river = {
+      "Down at the river, in the reeds, half in the water.",
+      "On the riverbank, watching the water as if it might explain things.",
+    },
+    forest = {
+      "Deep in the woods, curled up in a thicket.",
+      "In the trees, where nobody could see them and they couldn't see anybody.",
+    },
+    cave = {
+      "In the mouth of a cave, as far back as the light reached.",
+      "In a cave.  The only place quiet enough, they said.",
+    },
+    field = {
+      "Out in an open field.  Nowhere to hide, so they'd stopped trying.",
+      "Standing in the middle of a field, in plain sight of everything.",
+    },
+  }
+  local function found_line(name, where)
+    if not where or where == "" then return nil end
+    local list = FOUND[where] or FOUND[where:gsub("_closet$", "")]
+    if not list then return nil end
+    local h = 5381
+    for i = 1, #name do h = (h * 33 + name:byte(i)) % 2147483647 end
+    return list[h % #list + 1]
+  end
+
   local function pin_map_cards()
     local pins, dead = load_pins()
     local cards = {}
@@ -307,6 +518,8 @@ return function(mod)
     for _, p in ipairs(pins) do
       local died = dead[p.name]
       local body = "Brought home by you, " .. p.date .. "."
+      local found = found_line(p.name, p.where)
+      if found then body = found .. "  " .. body end
       if not died and SCHOOL_NOTE[p.school] then
         local res = SCHOOL_RESIDENT[p.school]
         local gone = res and (dead[res[1]] ~= nil)

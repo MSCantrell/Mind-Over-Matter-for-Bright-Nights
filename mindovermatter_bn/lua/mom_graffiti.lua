@@ -160,7 +160,9 @@ return function(mod)
   local MEDIUM = {
     street = { "Spray-painted across the pavement:", "Spray-painted in dripping letters:" },
     country = { "Spray-painted on the road in huge letters:",
-                "Painted on a sheet of plywood propped beside the road:" },
+                "Painted across the road in dripping letters:" },
+    -- outdoors, but it landed on a building wall rather than the pavement
+    outdoor_wall = { "Spray-painted across the wall:", "Spray-painted on the wall in dripping letters:" },
     building = { "Written on the wall in marker:", "Scrawled on the wall in lipstick:",
                  "Scratched into the wall:" },
     shelter = { "Scrawled on the wall in marker:", "Written on the wall, gone over again and again:",
@@ -318,39 +320,93 @@ return function(mod)
     return t and t:obj():get_movecost() > 0 and not map:has_ter_flag_at("LIQUID", p)
   end
 
-  -- Indoors: a floor tile beside a wall.  Outdoors: open ground.  nil if none found.
-  function G.find_spot(map, indoor)
-    local size = map:get_map_size()
-    for _ = 1, 60 do
+  -- Since 2026-11-13 the message is written ON a wall or the pavement, the way BN's native
+  -- graffiti is (user: the old '~' furniture on the floor looked nothing like it).  Native
+  -- graffiti can't be set from Lua, so each writable surface has a red-background copy in
+  -- furniture_and_terrain/mom_graffiti_terrain.json (t_mom_scrawled_<base minus t_>) and the
+  -- text lives in terrain vars.  Keep these lists in step with that file.
+  local WALLS = { "t_wall", "t_wall_w", "t_wall_b", "t_wall_g", "t_wall_p", "t_wall_P", "t_wall_r",
+    "t_wall_y", "t_wall_paintable", "t_brick_wall", "t_concrete_wall", "t_strconc_wall",
+    "t_sconc_wall", "t_wall_metal", "t_wall_wood", "t_wall_log", "t_adobe_brick_wall",
+    "t_rock_wall", "t_drystone_wall", "t_scrap_wall", "t_junk_wall", "t_wall_rammed_earth",
+    "t_screened_porch_wall" }
+  local GROUND = { "t_pavement", "t_pavement_y", "t_sidewalk", "t_concrete" }
+  local SCRAWL          -- base ter str id -> scrawled TerIntId (built lazily)
+  local function scrawl_map()
+    if SCRAWL then return SCRAWL end
+    SCRAWL = {}
+    for _, list in ipairs({ WALLS, GROUND }) do
+      for _, id in ipairs(list) do
+        SCRAWL[id] = TerId.new("t_mom_scrawled_" .. id:sub(3)):int_id()
+      end
+    end
+    return SCRAWL
+  end
+  local IS_WALL = {}
+  for _, id in ipairs(WALLS) do IS_WALL[id] = true end
+
+  local function ter_str(map, p)
+    local t = map:get_ter_at(p)
+    return t and t:str_id():str()
+  end
+
+  -- A wall we have a copy of, with a walkable tile beside it that is indoors (or outdoors,
+  -- for street/country) so it can be read from where people actually stand.
+  local function find_wall(map, size, indoor)
+    for _ = 1, 80 do
       local x, y = gapi.rng(1, size - 2), gapi.rng(1, size - 2)
       local p = PointOmtMs.new(x, y)
-      if passable(map, p) and is_null_furn(map, p)
-          and map:has_ter_flag_at("INDOORS", p) == indoor then
-        if not indoor then return p end
+      if IS_WALL[ter_str(map, p)] then
         for _, d in ipairs({ { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } }) do
-          if map:has_ter_flag_at("WALL", PointOmtMs.new(x + d[1], y + d[2])) then return p end
+          local q = PointOmtMs.new(x + d[1], y + d[2])
+          if passable(map, q) and map:has_ter_flag_at("INDOORS", q) == indoor then return p end
         end
       end
     end
     return nil
   end
 
-  local FURN_INT
+  local function find_ground(map, size)
+    local S = scrawl_map()
+    for _ = 1, 60 do
+      local p = PointOmtMs.new(gapi.rng(1, size - 2), gapi.rng(1, size - 2))
+      local id = ter_str(map, p)
+      if id and S[id] and not IS_WALL[id] and is_null_furn(map, p)
+          and not map:has_ter_flag_at("INDOORS", p) then return p end
+    end
+    return nil
+  end
+
+  -- Returns point, surface ("wall"/"ground") or nil.  Indoors: walls only.  Outdoors: the
+  -- road/sidewalk first (that's what a street message is), a building wall as the fallback.
+  function G.find_spot(map, indoor)
+    local size = map:get_map_size()
+    if indoor then
+      local p = find_wall(map, size, true)
+      return p, p and "wall"
+    end
+    local p = find_ground(map, size)
+    if p then return p, "ground" end
+    p = find_wall(map, size, false)
+    return p, p and "wall"
+  end
+
   function G.postprocess(params)
     local omt, map = params.omt, params.map
     if not (omt and map) then return end
     local place = G.classify(omt)
     if not place or gapi.rng(1, 100) > G.RATE[place] then return end
-    FURN_INT = FURN_INT or FurnId.new(FURN):int_id()
+    local S = scrawl_map()
     local near = function(prefixes, range) return G.find_near(omt, prefixes, range) end
     local indoor = (place == "building" or place == "shelter")
     for _ = 1, gapi.rng(1, G.MAX_PER_TILE[place]) do
-      local p = G.find_spot(map, indoor)
+      local p, surface = G.find_spot(map, indoor)
       if not p then return end
       local medium, text = G.compose(place, near)
-      map:set_furn_at(p, FURN_INT)
-      map:set_furn_var_at(p, VAR_MEDIUM, medium)
-      map:set_furn_var_at(p, VAR_TEXT, text)
+      if not indoor and surface == "wall" then medium = pick(MEDIUM.outdoor_wall) end
+      map:set_ter_at(p, S[ter_str(map, p)])
+      map:set_ter_var_at(p, VAR_MEDIUM, medium)
+      map:set_ter_var_at(p, VAR_TEXT, text)
       -- One INFO line per message so a playtest can confirm placement from debug.log
       -- (grep "MoM-BN: graffiti"); never seen in play as of 2026-11-12.
       G.placed = (G.placed or 0) + 1
@@ -373,8 +429,11 @@ return function(mod)
   game.examine_functions["mom_graffiti"] = function(params)
     local ok, text = pcall(function()
       local m = gapi.get_map()
-      local medium = m:get_furn_var_at(params.pos, VAR_MEDIUM, "Scrawled here:")
-      local words = m:get_furn_var_at(params.pos, VAR_TEXT, "")
+      -- terrain vars since 2026-11-13; furniture vars for the old '~' ones in existing saves
+      local get = m.get_ter_var_at
+      if not m:has_ter_var_at(params.pos, VAR_TEXT) then get = m.get_furn_var_at end
+      local medium = get(m, params.pos, VAR_MEDIUM, "Scrawled here:")
+      local words = get(m, params.pos, VAR_TEXT, "")
       if words == "" then return "Whatever was written here has been scrubbed away." end
       return medium .. "\n\n\"" .. words .. "\""
     end)

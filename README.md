@@ -105,6 +105,10 @@ its powers, including Anabolic Rejuvenation, moved into Biokinesis instead.)*
 
 ### Reference documents
 
+- **[Player's Guide](mindovermatter_bn/PLAYER_GUIDE.txt)** — how psionics work in this port:
+  becoming a psion, Stamina and failure, concentration, learning powers, Nether Attunement,
+  training, the eight schools, the Psionic Alliance, troubleshooting. Mild spoilers at most.
+  Also ships inside the mod folder.
 - **[Psionic Discipline Atlas](mindovermatter_bn/PSIONIC_ATLAS.md)** — the full
   power-acquisition tree for all eight schools, with every prerequisite and minimum level.
   Renders as diagrams directly on GitHub. Start here if you want to plan a build.

@@ -1,0 +1,783 @@
+===============================================================================
+                MIND OVER MATTER (BN) -- A PLAYER'S GUIDE
+                  Psionics for Cataclysm: Bright Nights
+                     Written against mod version 2026.11.7
+===============================================================================
+
+This guide explains how psionic powers work in the Bright Nights port of Mind
+Over Matter: how you get them, what they cost, how they grow, and what can go
+wrong. It isn't a full spoiler list. For the complete unlock trees, see the
+Psionic Discipline Atlas (PSIONIC_ATLAS.md, in the mod folder).
+
+-------------------------------------------------------------------------------
+ CONTENTS
+-------------------------------------------------------------------------------
+  1. Quick start
+  2. Becoming a psion
+  3. Casting powers: Stamina, levels and failure
+  4. Concentration (maintained) powers
+  5. Learning new powers
+  6. Nether Attunement: the price of power
+  7. Training: meditation and contemplation
+  8. The eight schools
+  9. Psychic knacks
+ 10. Matrix crystals and elixirs
+ 11. The Psionic Alliance
+ 12. Troubleshooting
+ 13. Tips and tricks
+
+
+===============================================================================
+ 1. QUICK START
+===============================================================================
+
+  * Make a NEW world with "Mind Over Matter (BN)" enabled.
+  * Pick a psionic profession. Each school has a themed one (list in
+    Section 2), or take "Awakening Psion" for a random school.
+  * Powers are cast like spells: open your spell menu and pick one. They cost
+    STAMINA, not mana.
+  * Using your powers levels them up. When the right powers reach the right
+    levels, a NEW power arrives on its own with a popup to notify you.
+  * Using powers builds NETHER ATTUNEMENT. Past a point, bad things start to
+    happen. Let it fade with time, or burn it off with a grounding meditation.
+  * INTELLIGENCE and the METAPHYSICS skill are a psion's core stats. Int sets
+    how many powers you can hold at once; Metaphysics controls how fast new
+    powers arrive.
+
+  >> TIPS:
+
+The 'Mindhunted' start gives a bunch of character creation points- enough to afford
+the 'Ascended <psion>' professions, which start with most of their powers 
+unlocked and leveled up. The Mindhunter is a serious problem. He'll tank
+7.62 and grenades without a problem, and he's got spells that include yoinking 
+you down from your roof, tree, vehicle, etc. He's intentionally very hard to kill.
+On the other hand, you CAN just drive away. He'll find you again later. 
+
+
+As you progress, you'll benefit from mutations and bionics that add Int and 
+Stamina (yay Respirator!). 
+
+
+===============================================================================
+ 2. BECOMING A PSION
+===============================================================================
+
+There are eight schools ("paths"). Most characters start with one. You can add
+more later, but each extra one is harder to get than the last.
+
+STARTING PROFESSIONS
+  Profession                          School           Notes
+  ----------------------------------  ---------------  ------------------------
+  Star Athlete                        Biokinesis       athletic skills
+  Doomseer                            Clairsentience   starts SCHIZOPHRENIC
+  Electrical Engineer                 Electrokinesis   Electronics 8, Computers
+  Magician                            Photokinesis     Fast Reflexes, Speech
+  Firestarter                         Pyrokinesis      starts PYROMANIA
+  Test Subject, Project ONYX LIGHTNING Telekinesis     combat skills
+  Government Interrogator (DECEASED)  Telepathy        Speech 6
+  Itzcuauhtli Corps Liaison           Teleportation    15 points, Metaphysics 7
+  Awakening Psion                     random           first crystal certain
+  Unwilling Psionic                   random           first crystal certain
+
+  There are also generic "newly / mid / late" versions of each school with
+  more starting powers and Metaphysics, plus "random psychic knack"
+  professions (see Section 9).
+
+SCENARIOS
+  * Challenge - Heart of Fire: a raw, barely controlled pyrokinetic. You will
+    never gain a second school.
+  * Challenge - Mindhunter: something huge and psychic hunts you, all game.
+  * Dimension-Lost: you are a stranded traveler from another Earth.
+
+AWAKENING MID-GAME
+  Colored "matrix crystals" turn up in places touched by the Nether
+  and on psychic ferals. Wield one and activate it to try to awaken that
+  crystal's school. The first crystal is a 55% chance of success. Each school you already
+  have roughly halves your odds of getting the next school. See Section 10.
+
+
+===============================================================================
+ 3. CASTING POWERS: STAMINA, LEVELS AND FAILURE
+===============================================================================
+
+STAMINA IS YOUR MANA
+  Every power costs Stamina. Cheap utility powers (Blink, Far Hand, Candle's
+  Glow) cost little. Capstones (Crucible, Dilated Gateway, Anabolic
+  Rejuvenation) can empty most of your bar. As a power levels up, its cost
+  drops (often by half or more) and it usually casts faster too.
+
+  Running out of Stamina mid-fight is a huge problem. Remember that you 
+won't be able to do lots of melee and THEN cast an important spell to escape.
+
+POWER LEVELS
+  Most powers go up to level 15. A power gains XP each time you cast it, and
+  if it's a concentration power then it also gains XP while you hold it. 
+Higher levels mean more damage, range and duration, and a lower cost. 
+Many powers scale with your Int too. Every power's description says what it does and
+  what it leads to.
+
+FAILURE
+  Each power has a difficulty. Low Metaphysics plus a difficult power means the
+  cast can fail: you pay the cost and get nothing, or worse. Metaphysics rises
+  as you use your powers. The meditation recipes in Section 7 help too.
+
+SILENT, HANDS-FREE
+  Most powers need no hands and make no casting noise. You can
+  use them while grabbed or encumbered.
+
+===============================================================================
+ 4. CONCENTRATION (MAINTAINED) POWERS
+===============================================================================
+
+Powers marked (C) are CONCENTRATION powers. They stay on until you stop
+holding them, instead of having a fixed duration. Examples: Personal
+Enhancement, Night Eyes, Veil of Light, Lifting Field, Telepathic Shield.
+
+HOW MANY CAN YOU HOLD?
+  Your concentration limit is roughly:
+
+      Intelligence / 4   +   concentration bonuses   -   distractions
+
+  So Int 8 holds about 2 powers comfortably and Int 12 about 3. Some powers
+  count as more than one. Personal Enhancement, for example, counts as 4
+  toward several of the costs below.
+
+  Bonuses:   the Good Concentration trait, the chess-player professions,
+             the "concentration" practice recipes (Section 7), and a few
+             school traits.
+  Penalties: being winded, dazed, downed, nauseous, too hot or cold,
+             asthmatic, gassed or hallucinating, mid-study, or carrying
+             heavy Nether Attunement.
+
+WHAT HAPPENS AT THE LIMIT
+  Casting ANY power while you're at or over your limit forces a
+  concentration check. If it fails, "Your concentration breaks!"; you lose
+  your held powers and take extra Nether Attunement. The more you were
+  holding, the more attunement you take.
+
+ONGOING COSTS
+  Every power you hold:
+    * burns extra calories,
+    * raises the chance each cast adds Nether Attunement (Section 6),
+    * makes each attunement gain bigger.
+
+STOPPING
+  Use the "Stop Concentrating" power to drop everything, or
+  "Stop Concentrating (Individual)" to drop one. Summoned tools tied to a
+  concentration power (Hammerhand, the hacking interface, Banked Flames'
+  fire, the radio) vanish when you stop holding it. That's intended.
+
+
+===============================================================================
+ 5. LEARNING NEW POWERS
+===============================================================================
+
+There are no skill books to grind and no 16-hour meditations. Powers
+surface on their own.
+
+HOW IT WORKS
+  1. Every power (apart from your starting ones) has PREREQUISITES: other
+     powers at minimum levels. Often there are several alternative routes.
+     Example: Oxygen Absorption needs Personal Enhancement 4 + Overcome
+     Pain 3.
+  2. Once you meet a power's prerequisites, you're ELIGIBLE. The game checks
+     about every 15 minutes and may grant one eligible power.
+  3. When it does, the game pauses with a "NEW POWER" popup.
+
+  Every power's description ends with lines like:
+      "Level 6 leads to Hammerhand with Hardened Skin 6."
+  That's your roadmap, with no wiki needed.
+
+HOW FAST?
+  The average wait once you're eligible depends on Intelligence and
+  Metaphysics:
+
+      P    = (Int - 8) + 1.5 x Metaphysics      (Int below 8 counts as 8)
+      wait = about 48 hours - 2.9 hours per point of P   (minimum 1 hour)
+
+    Int  8, Metaphysics 0   ->  about 48 hours
+    Int 10, Metaphysics 2   ->  about 34 hours
+    Int 12, Metaphysics 4   ->  about 19 hours
+    Int 14, Metaphysics 6   ->  about  5 hours
+    Int 16+, Metaphysics 6+ ->  about  1 hour (the floor)
+
+  The timer has no memory. Being eligible longer doesn't "fill a bar". Each check 
+is a fresh roll at your CURRENT stats. Raising Int or Metaphysics 
+speeds it up right away. If several powers are eligible at
+  once, one is picked at random.
+
+  >> TIPS (build planning, which routes are fastest):
+Another efficient way to pass the time is cast, cast, cast your powers to 
+level them up, with "Wait until you catch your breath" each time your stamina runs out. 
+Most powers are easy to do this way, like just turning Night Eyes on and off again. 
+Some are harder because they require a hostile target, like Oubliette. 
+
+
+===============================================================================
+ 6. NETHER ATTUNEMENT: THE PRICE OF POWER
+===============================================================================
+
+Psionics draw on the Nether, and the Nether notices. Heavy use builds a
+hidden meter, NETHER ATTUNEMENT (0 to 250). Once it is high enough you see a
+"Nether-Attunement" status effect, which gets stronger as the meter climbs.
+
+HOW IT RISES
+  * Every cast has a chance to add some, shown by the message "you feel a
+    strange tingling sensation." The chance goes up with:
+      - the power's DIFFICULTY (this counts most: harder powers are much
+        riskier),
+      - casting repeatedly in quick succession,
+      - how many concentration powers you're holding.
+  * Holding concentration powers can raise it while you just stand there.
+  * A broken concentration adds a lump.
+  * Crystalline elixirs raise it the whole time they're active.
+  * Contemplation practice adds some.
+
+HOW IT FALLS
+  * Naturally: about 1 point every 5 minutes (roughly 12 an hour).
+  * Grounding meditation: a craftable "recipe" in the psionic crafting tab
+    (Metaphysics 2, 15 minutes, no tools). It vents attunement and briefly
+    shields you. You're going to want to add this to the 'favorites' in
+    the crafting menu.
+  * Incandescent meditation (Heart of Fire only): gaze into a fire for 20
+    minutes.
+  * Channeling protocol PGS38: learned from a Phavian research report.
+    Pours attunement into a drained matrix crystal (Metaphysics 7, 1 hour).
+    This is more of a desperate measure. You could do 4 Grounding Meditations
+    in the same amount of time and not use up a black crystal. 
+
+WHAT IT DOES TO YOU
+  From an attunement of 15, every cast can trigger a CONSEQUENCE. One also
+  rolls every ~5 minutes while you're above 15, even if you stop casting, so
+  you can't just sit on a full meter. Consequences get nastier the higher you
+  go. In rough order of severity:
+
+    Mild:      headaches, nosebleeds, stamina loss, sudden sleepiness,
+               vomiting, blurred vision, extra hunger, a cold wind,
+               "you feel like you're being watched". Blood loss from the head 
+		and hypothermia can get serious if you ignore them.
+    Serious:   stabbing feedback pain, mind-shock stun, weakness, fever,
+               trouble breathing, a force wave that knocks you flat,
+               your powers resisting control, being teleport-locked
+    Severe:    a misjump that flings you somewhere unfamiliar, an EMP burst,
+               nether lightning, a tear in reality, your powers cut off
+               entirely for a while, a MUTATION
+    Worst:     "a horrible sensation of watching eyes" -- the Nether's
+               hounds come for you or a full RIFT opening nearby
+
+  A few consequences are actually helpful (a surge of strength, a burst of
+  vigor). Don't count on them.
+
+  Rule of thumb: keep the meter low when it doesn't matter, so you have room
+  to spike it when it does.
+
+
+===============================================================================
+ 7. TRAINING: MEDITATION AND CONTEMPLATION
+===============================================================================
+
+These live in your crafting menu (practice / psionic tabs) and work like
+BN's practice recipes.
+
+MEDITATION (trains Metaphysics)
+  meditation (beginner)       Metaphysics 0  -- self-taught at Metaphysics 1,
+                                                or from a meditation manual
+  meditation (intermediate)   Metaphysics 3  -- intermediate meditation manual
+  concentration (beginner)    Metaphysics 2  -- raises your concentration limit
+  concentration (expert)      Metaphysics 5  -- raises it further
+  thought-form exercises      Metaphysics 4  -- psionic ritual manual
+  	neling          Metaphysics 0  -- advanced manual or matrix
+                                                schematics
+  psionic cultivation         Metaphysics 6  -- advanced psionics manual
+
+  Meditation is "blind-easy" and needs no hands, but pain interferes.
+
+CONTEMPLATION (levels one power without casting it)
+  "contemplation: <power>" recipes appear for powers you already know. They
+  need a matrix crystal (a drained one works) as a focus. While you
+  contemplate, the power gains XP over time (up to a 24-hour session) and
+  you train Metaphysics. It adds Nether Attunement. Most uses up a crystal dust.
+
+  It's the only way to level a power you can't safely/easily practice in the field,
+  like Gateway, Oubliette, or Reality Tear.
+
+  >> TIPS:
+
+There's often a period in the first day or two where you've established a 
+little safety and it's time to heal your wounds and maybe wait for darkness. 
+A batch of 6 "concentration (beginner)" recipes unlocks that trait and can 
+be a useful way to pass the time. Craft "concentration (expert)" 8 times to 
+unlock it. 
+
+
+===============================================================================
+ 8. THE EIGHT SCHOOLS
+===============================================================================
+
+(C) = concentration power.  [start] = known as soon as you take up the school.
+* = a power that works differently from the original DDA mod.
+
+-------------------------------------------------------------------------------
+ BIOKINESIS -- the body as an instrument
+-------------------------------------------------------------------------------
+  Strength, speed, armor and self-healing. The best melee and survival
+  school, and since Vitakinesis was folded in, the healer too.
+
+  Personal Enhancement (C) [start]*  +1 to +10 to STR, DEX, INT and PER
+                                     together. Scales with level AND Int.
+                                     Heavy to hold (counts as 4).
+  Overcome Pain (C) [start]          Pain hurts your performance less.
+  Healthy Glow (C) [start]           Keeps you healthy; stops asthma attacks.
+  Staunch Wound [start]              Closes wounds, stops bleeding.
+  Radiation Decontamination [start]  Flushes radiation. Side effects at high
+                                     doses.
+  Detoxification                     Sweats out poison; your flesh is toxic to
+                                     biters meanwhile.
+  Oxygen Absorption (C)              Breathe through your skin: underwater, in
+                                     thin air (but worse against toxic gas).
+  Burst of Speed                     Instantly dash a short distance.
+  Hardened Skin (C)                  Skin like armor.
+  Adrenaline Trigger                 Speed boost now, crash later.
+  Temperature Adaptability (C)       Shrug off heat and cold.
+  Enhance Mobility (C)               Ignore much of your encumbrance.
+  Hammerhand (C)                     Your hands work as hammer, pry bar, etc.
+                                     Can pry doors and pull nails.
+  Heightened Reflexes (C)            Increased Speed and Per, and cures temp
+				     blindness/deafness. 
+  Sealed System                      Nothing gets in or out: gas, poison,
+                                     electricity. Cancels Temp. Adaptability
+                                     and Oxygen Absorption.
+  Metabolic Hyperefficiency (C)      Eat, drink and sleep far less.
+  Combat Dance (C)  [capstone]       Big combat boost.
+  Perfected Motion (C) [capstone]    Huge movement speed; run across water.
+  Hurricane Blows   [capstone]       Several strikes in an instant. Moving
+                                     ends it.
+  Anabolic Rejuvenation (C) [cap.]   Heal a hundred times faster, fueled by
+                                     your body's reserves (eat first).
+
+  >> TIPS:
+Personal Enhancement makes everything easier, including your other powers.
+
+Anabolic Rejuvenation is faster than Repair Nanobots, but takes an extreme amount of 
+food. Get ready to turn it on and off to eat. 
+
+
+-------------------------------------------------------------------------------
+ CLAIRSENTIENCE -- senses beyond the body
+-------------------------------------------------------------------------------
+  Scouting, information and precision. Weak in a brawl, but you rarely get
+  surprised.
+
+  Heightened Senses (C) [start]      See and hear further; later, sense
+                                     movement.
+  Speed Reader (C) [start]           Read faster and retain more.
+  Radiation Sense [start]            Sense radiation on you and around you.
+  See Mechanisms*                    Read one adjacent mechanical lock. Doors
+                                     still need a lockpick and ~20 seconds,
+                                     but the pick CAN'T fail and never trips
+                                     alarms. Dial safes open by hand,
+                                     instantly. No effect on electronic
+                                     locks. Arrives once Heightened Senses
+                                     reaches level 3.
+  Premonition (C)                    Warning of nearby danger, similar to the
+				     Alarm System CBM. 
+  Night Eyes (C)                     Like the High Night Vision CBM.
+  Aura Sight (C)                     Better persuasion of NPCs.
+  Marksman's Eye (C)                 Better ranged range and accuracy.
+  Psychometry*                       Read an object's history. More detail at
+                                     higher levels. The same item always tells
+                                     the same story; it's written into the
+                                     item's note.
+  Clairvoyance                       See through walls nearby. 
+  Combat Sense (C)                   Dodge by glimpsing the next second.
+                                     Two bonuses: your dodge skill rises
+                                     (+0 at level 1, +4 at level 8, +7 at
+                                     15), and you get extra dodge attempts
+                                     each turn (+1 at level 1, up to +4 at
+                                     15), so a crowd can't wear you down as
+                                     fast. It also stops you being grabbed.
+  Intuitive Artisan (C)              Craft better, but you're blind to the
+                                     world while crafting.
+  One Perfect Shot                   One guaranteed-quality ranged attack.
+  Satellite View                     Reveal a large area of the map.
+  Clarity (C)                        Cures and prevents blind, deaf, stunned, dazed,
+				     glare, magical darkness, hallucinations, drunk/high. 
+  Prescient Tactician (C)            Your followers dodge much better; you
+                                     dodge worse.
+  Omniscience       [capstone]       FULL clairvoyance. 
+
+  >> TIPS:
+
+Walking on the ground above labs lets you see where all the armories, etc, are. 
+Same with checking for the gun/chem/electronics basements in town.
+Clairvoyance has really strong synergies with the Teleport powers. 
+
+-------------------------------------------------------------------------------
+ ELECTROKINESIS -- lightning and machines
+-------------------------------------------------------------------------------
+  Ranged lightning, batteries, robots and pain control.
+
+  Lightning Strike [start]*          Long-range bolt; from level 9 it also
+                                     hits the ring around the target.
+  Spark Sight (C) [start]            See electric creatures and robots.
+  Circuit Sense (C) [start]*         +3 effective Electronics skill.
+  Electrical Discharge (C)           Zap anyone who hits you; EMP-proof.
+  Electron Overflow (C)              Recharge battery devices you carry.
+  Pain Suppression (C)               Turn down your own pain.
+  Hacking Interface (C)*             Hack card readers and electronic gun
+                                     safes. Rolls your power level + Int.
+                                     A bad roll sets off an alarm.
+  Neural Spasms                      Briefly incapacitate anything with
+                                     nerves.
+  Electrocutioner                    Lightning bolt at a nearby target.
+  Analgesic Block                    Feel NO pain for a while. It all comes
+                                     back, and more.
+  Neuro-acceleration                 Faster reactions and learning (self or
+                                     ally).
+  Short Circuit                      Disable a robot or cyborg.
+  Robotic Interface                  Hack a robot remotely (needs skill).
+  Galvanic Aura (C)*                 Repeatedly zap everyone nearby.
+                                     Needs line of sight: works down
+                                     stairwells and off roofs, but not through
+                                     walls.
+  Ion Blast                          Lightning plus a secondary explosion.
+  Revivification    [capstone]       Raise a corpse to fight for you,
+                                     briefly.
+
+  >> TIPS:
+
+Galvanic Aura is a slow-and-steady crowd killer if you can dodge, walk, or get 
+a safe spot on a roof. 
+Electrocutioner is a powerful way to clear an alleyway. 
+
+-------------------------------------------------------------------------------
+ PHOTOKINESIS -- light, illusion and stealth
+-------------------------------------------------------------------------------
+  The stealth school. Every photokinetic has Photon Regulation, which gives
+  good night vision, lets you look at the sun and lets you weld without
+  goggles.
+
+  Candle's Glow (C) [start]          A patch of light to read or work by.
+  Field of Light [start]             Light up a whole area.
+  Illuminate                         Outline one target so you can always see
+                                     it.
+  Blackout                           Create darkness.
+  Trick of the Light (C)             Blurred outline: harder to hit. A hit on
+                                     you ends it.
+  Photon Beam                        A fairly strong single-line laser.
+  Chameleoflage (C)                  Much harder to spot at a distance.
+  Lucent Barrier (C)                 Protection from radiation and light
+                                     damage.
+  Refracted Arms                     Illusory arms throw enemies off balance.
+  Mirror-Mask (C)                    Hide mutations and bionics from normal
+                                     humans.
+  Flashbang                          Flash plus bang.
+  Lucid Shadows                      Decoy images of you.
+  Radio Transception (C)             Listen to and send radio.
+  Gamma Sterilization                Make food last far longer. Very taxing.
+  Sensor Jamming                     Overload electronic sensors nearby.
+  Veil of Light (C)                  INVISIBILITY. Moving fast may break it;
+                                     melee always does.
+  Star Flash                         A 3-wide line of destructive light. Big killer. 
+  Blinding Radiance (C)              Attackers risk being blinded.
+  Luminous Disintegration [cap.]     Disintegrate one target.
+  Phantom Legion (C) [capstone]      A crowd of illusions that explode into
+                                     blinding flashes when hit.
+
+  >> TIPS:
+Veil of Light lets you loot towns almost indiscriminately. Zombies still follow your scent,
+so draw them away (preferably into pits or fire) with Lucid Shadows. 
+
+
+-------------------------------------------------------------------------------
+ PYROKINESIS -- fire and heat
+-------------------------------------------------------------------------------
+  Devastating area damage, utility fire and heat protection. Watch where
+  the fire goes.
+
+  Brilliant Flash [start]            A burst of light.
+  Intensify Flames [start]           Make a fire bigger; extra damage to
+                                     burning targets.
+  Molten Land*                       Turn one tile of ground into PERMANENT
+                                     lava. A zoning tool. think before you
+                                     pave your base with it.
+  Cauterize                          Sear a wound shut. Painful; better with
+                                     First Aid skill.
+  Banked Flames (C)                  Fire in your hand: cook, boil, light.
+  Quell Fire                         Put out fires in an area.
+  Cloak of Warmth (C)                Stay warm; resist flames.
+  Flamethrower                       A cone of fire.
+  Incandescent Lance (C)             Cut or weld metal.
+  Thermogenesis                      Heat the air around you; winter becomes
+                                     summer.
+  Blazing Aura (C)                   Burn anyone in melee with you; gives
+                                     light.
+  Flameshield (C)                    Walk through fire unharmed.
+  Conflagration                      An expanding fireball.
+  Crucible          [capstone]       Volcano heat on one target.
+  Mass Hydrothermosis [capstone]*    Boil the insides of EVERY hostile you
+                                     can see. No ground fire. Spares your
+                                     companions. Very expensive: you won't
+                                     cast it twice in a row.
+
+  >> TIPS:
+Climb a tree and cast Molten Land almost all the way around the base. Crowds of zombie will incinerate themselves below you.
+
+
+
+-------------------------------------------------------------------------------
+ TELEKINESIS -- force at a distance
+-------------------------------------------------------------------------------
+  Crowd control, hauling, and knocking things (and buildings) down.
+
+  Far Hand [start]                   Pick up or push items at a distance.
+  Force Shove [start]                Push or pull a target. Heavy things move
+                                     less.
+  No Go Zone (C) [start]*            Enemies can't stay next to you; they get
+                                     shoved back, stunned and downed. Works
+                                     best if you KEEP MOVING.
+  Noisemaker                         Make a loud noise somewhere (a
+                                     distraction).
+  Knockdown                          Slam a target to the ground.
+  Momentum Alteration (C)            Soften incoming force; slight speed
+                                     boost.
+  Slowfall                           Little or no fall damage.
+  Wave of Force                      Knock back EVERYTHING around you.
+  Lifting Field (C)*                 More carrying capacity: +2 kg at first,
+                                     well over 400 kg mastered. Weight only,
+                                     not bulk.
+  Enhance Strength (C)               Move heavy things, smash walls.
+  Mindhammer                         A telekinetic fist on a target or small
+                                     area.
+  Lift Vehicle (C)                   Jack up a vehicle for repairs.
+  Inertial Barrier (C)               A damage-absorbing shield. It takes a
+                                     flat amount off every physical hit, on
+                                     every body part, on top of your armor.
+                                     Strongest against narrow force:
+                                                  Lv 1   Lv 8   Lv 15
+                                       bash        2.5      6     9.5
+                                       cut          4      11     18
+                                       stab        6.5     17    27.5
+                                       bullet     14.5     32    49.5
+                                     No help against fire, acid, cold or
+                                     electricity.
+  Wrecking Ball                      Shatter terrain and whatever's in it.
+  Levitation (C)                     Cross open air; descend safely.
+  Megakinesis       [capstone]       Hurl huge weights, including people.
+  Earthshaker       [capstone]       Topple buildings and knock everyone down.
+
+  >> TIPS:
+Far Hand grabs all the loot on one tile and brings it to you. This can be a great way to
+get the best thing a crowd just dropped, and use it on the rest of the crowd. 
+
+Mindhammer, Wrecking Ball, and Earthshaker can break doors and walls so you can get into 
+buildings. 
+
+Wrecking Ball hits a crowd like a grenade. 
+
+
+-------------------------------------------------------------------------------
+ TELEPATHY -- the mind
+-------------------------------------------------------------------------------
+  Control, stealth and support. NOTE: zombies, robots, plants, worms and
+  slimes have no mind, so they are IMMUNE to telepathic attacks. Play
+  telepaths against animals, ferals, humans and Nether things.
+
+  Concentration Trance (C) [start]   Learn faster. Adds +2.5 focus per level
+                                     (+37 at level 15) whenever the game
+                                     works out how much you learn from
+                                     reading, practice or crafting. The
+                                     cost: you're nearsighted, walking takes
+                                     4x as long, and combat cancels it.
+                                     Cast it, then sit down with a book.
+  Mind Sonar (C) [start]*            Periodically sense every thinking mind
+                                     nearby: direction and distance, even
+                                     through walls.
+  Telepathic Shield (C)              Protect your mind from psychic attacks.
+  Mesmerize                          Put a target in a trance (damage breaks
+                                     it).
+  Mood Stabilization (C)             Clear bad moods (yours); calm others.
+  Synaptic Overload                  Massive brain damage to one target.
+  Beastmaster                        Control an animal or feral human.
+				     More pets give a compounding combat bonus, up to 8.
+  Sensory Deprivation                Blind and confuse a target.
+  Primal Terror                      Paralyze a target with fear.
+  Obscurity                          Become invisible to chosen minds.
+  Psychic Scream                     Hit every mind nearby, friend or foe.
+  Beast Tamer                        Make an already-friendly animal stay
+                                     friendly far longer.
+  Mind Control      [capstone]       Make a target fight for you.
+  Network Effect    [capstone]       Link you and your allies for faster
+                                     reactions (needs an ally nearby).
+                                     "Nearby" means a friendly NPC within
+                                     60 tiles on your z-level. You get: +1
+                                     Perception (+4 at level 15); +1 extra
+                                     dodge per turn (+2 from level 11); +3
+                                     tiles of gun range (+6 at 15); +5.5%
+                                     ranged damage (+12.5% at 15); and an
+                                     "uncanny dodge" against some monster
+                                     specials (spit, boomer bile, acid
+                                     vomit, a brute's smash) for 100
+                                     stamina each. Allies get the level-0
+                                     version (+1 Per, +1 dodge, +3 range,
+                                     +5% ranged damage, uncanny dodge).
+
+  >> TIPS:
+Beastmaster is your key to combat. The Dire Wolf is the premier attacker. Any type
+of pet compounds the bonus, so it helps to have a full party even if some are weak.
+A Dire Wolf plus 7 squirrels still gets a huge bonus (even though the squirrels
+stay wimpy). Watch out for pets that trample each other like moose, bears, and 
+sewer gators; they'll hit you too. 
+
+
+-------------------------------------------------------------------------------
+ TELEPORTATION -- moving without crossing the distance
+-------------------------------------------------------------------------------
+  Mobility, escape, logistics and removing problems permanently.
+
+  Blink [start]                      Pop to a random nearby spot. Your
+                                     cheapest escape.
+  Stutterstep [start]                Slow a target by stretching space around
+                                     it.
+  Farstep [start]                    Teleport to a chosen nearby spot.
+  Flickerflash Stance [start]        Micro-teleports: harder to pin down,
+                                     stronger blows.
+  Phase                              Step through a wall or up onto a roof.
+  Apportation                        Send an item you're holding somewhere
+                                     nearby.
+  Extended Stride (C)                Each step covers more ground.
+  Transposition                      Swap places with a target.
+  Displacement                       Send a target somewhere further away.
+  Reactive Displacement (C)          Fling attackers away after they hit you.
+  Warped Strikes (C)                 Melee with reach.
+  Spacial Vortex                     Pull everything toward a point.
+  Relocation                         Send held items to an attuned location.
+  Loci Establishment (C)             Mark your current spot...
+  Loci Technique                     ...and jump back to it (while you still
+                                     hold Loci Establishment).
+  Oubliette                          Banish a target to another dimension.
+                                     Can fail or backfire on very strong foes.
+  Gateway                            Travel to a place you've attuned.
+  Dilated Gateway   [capstone]       Gateway, bringing everyone adjacent.
+  Breach                             Open a door to the Nether. Something
+                                     comes through. You can't control it.
+  Reality Tear      [capstone]       Open a temporary rift. Hopefully
+                                     temporary.
+
+  >> TIPS:
+Phase is your workhorse. Popping up to a roof or down to a basement is a 
+very effective path to safety in all kinds of circumstances. 
+
+Teleporters can target bank vaults, gun stores, lab armories/libraries/finales
+much sooner and more safely than other characters. 
+
+Teleportation has great synergy with the clairvoyance school. 
+
+
+===============================================================================
+ 9. PSYCHIC KNACKS
+===============================================================================
+
+A PSYCHIC KNACK is a single wild talent taken from one of the schools (for
+example Psychometry, Far Hand, Mesmerize or Banked Flames) without the whole
+school behind it. Knacks start at level 6 and don't level up. You can get one
+from the "random psychic knack" professions.
+
+If you later awaken the matching school, the knack is replaced by the real,
+levelable power. Knacks also make crystal awakenings a little harder (they
+count toward the hidden awakening counter).
+
+
+===============================================================================
+ 10. MATRIX CRYSTALS AND ELIXIRS
+===============================================================================
+
+(Full details, with exact odds, are in MATRIX_CRYSTALS.md and
+CRYSTALLINE_ELIXIRS.md in the mod folder. Both are spoilers.)
+
+COLORED CRYSTALS -- one per school
+  Pink = Biokinesis       Gray   = Clairsentience   Cyan   = Electrokinesis
+  Golden = Photokinesis   Red    = Pyrokinesis      Yellow = Telekinesis
+  White = Telepathy       Blue   = Teleportation
+
+  Wield the crystal, then activate it. It's used up either way.
+    * First school: 55% (certain for Awakening Psion / Unwilling Psionic)
+    * Second: 31%   Third: 17%   Fourth: 9.5%   Fifth: about 5%
+    * The Noetic Flexibility trait improves every roll by about half again.
+    * Failures don't improve your next try; each roll is independent.
+
+  WARNING: activating a crystal for a school you ALREADY HAVE destroys it,
+  gives you nothing back, and gives you an hour-long psionic headache.
+
+CORUSCATING CRYSTAL (brown)
+  Picks a random school and awakens it, unless you already have that one.
+  Odds = (8 - schools you have) / 8. Far better than colored crystals once you
+  have two or more schools. It's the most valuable psionic item in the mod.
+
+CRYSTALLINE ELIXIRS
+  Brewed from refined crystal dust + clean water (Cooking 5 / Metaphysics 3 to
+  learn). Each one gives a powerful 30-hour buff themed to its school. The
+  catches:
+    * Nether Attunement climbs the WHOLE time you're dosed,
+    * a 4-hour comedown follows,
+    * non-psions get nothing but sickness.
+
+
+===============================================================================
+ 11. THE PSIONIC ALLIANCE (mild spoilers)
+===============================================================================
+
+Somewhere out there is an old quarry turned into a walled camp of psions.
+They welcome awakened psions; the rest are told to behave.
+
+  * The camp's clairsentient keeps a map of psions still lost in the
+    wilderness, marked with green pins. Bring them home -- a quest you can
+    repeat.
+  * The newly awakened are frightened and they hide: in houses (check the
+    closets), libraries, banks, churches, motels, caves, by the river, deep
+    in the woods. Now and then one is just standing in a field.
+  * If you're a psion, let them feel it. If you share their school, you
+    have a better way to say "you're not alone" than any speech.
+  * Every psion you bring home gets an index card on the green pin map,
+    including where you found them. The cards tell the camp's history too.
+  * Rescuing a psion of a school UNLOCKS that school's SERVICE in camp:
+      Biokinetic       healing, radiation removal, bionic install/removal
+      Electrokinetic   recharge every battery you carry, and your bionics
+      Telekinetic      repair your damaged gear
+      Pyrokinetic      warm you through: clears cold and frostbite
+      Photokinetic     fresh vegetables from the basement garden
+      Clairsentient    reveal the map around a kind of place you name
+      Teleporter       a one-way trip to near one of your map notes
+      Telepath         clear bad moods, plus a morale boost
+  * Services are on cooldown PER PSION. More psions of a school means more
+    help. The camp's original residents don't serve until you've brought home
+    someone of their school.
+
+===============================================================================
+ 12. TROUBLESHOOTING
+===============================================================================
+
+  * "Nothing psionic works." Check config/debug.log for the line
+        MoM-BN: main loaded (... EOC handlers)
+    If it isn't there, the Lua runtime didn't load. You need a recent BN
+    nightly with Lua support.
+  * "I updated the mod and nothing changed." Quit the game completely and
+    relaunch. Loading a save again isn't enough.
+  * "A power did nothing." First check the target. Telepathy can't affect the
+    mindless; some powers need line of sight. If it really fizzled with no
+    message, that's a bug worth reporting.
+  * "I haven't learned a new power in ages." Check the prerequisites in your
+    powers' descriptions. At low Int/Metaphysics the average wait is about
+    2 game days.
+  * Reporting bugs: include the mod version (2026.11.7 or later), your BN
+    build date, what you did, and config/debug.log.
+
+KNOWN ISSUES (as of this version)
+  * Psionic monsters only cast self-buffs once they've spotted you.
+  * Maintained-power costs are still being tuned. Feedback welcome.
+
+
+===============================================================================
+ Mind Over Matter by Standing-Storm (original DDA mod). Bright Nights port by
+ Mike Cantrell. Licensed CC BY-SA 3.0.
+===============================================================================

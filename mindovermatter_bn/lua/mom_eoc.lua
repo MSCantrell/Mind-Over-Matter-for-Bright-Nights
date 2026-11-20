@@ -183,8 +183,7 @@ return function(mod)
     if you:has_effect(eid) then            -- re-cast toggles the power off
       return M.EOC_ELECTROKIN_REMOVE_CIRCUIT_SENSE(you, npc, ctx)
     end
-    U.msg(you, "You open your senses to the flow of current; the workings of "
-          .. "every circuit feel obvious.", MsgType.good, ctx)
+    U.msg(you, locale.gettext("You open your senses to the flow of current; the workings of every circuit feel obvious."), MsgType.good, ctx)
     you:add_effect(eid, TimeDuration.from_days(7), nil, 1)  -- PERMANENT stand-in
     U.set_mutation(you, CIRCUIT_TRAIT)     -- carries +3 SKILL_LEVEL_ELECTRONICS
     util.queue_eoc(circuit_drain, you, circuit_drain_delay(m.spell_level(you, CIRCUIT_SPELL)))
@@ -337,8 +336,7 @@ return function(mod)
       end
     end
     if #candidates == 0 then
-      U.msg(you, "You have nothing you can apport.  (An item held in your hand "
-            .. "can't be apported -- stow it in a pocket or pack first.)",
+      U.msg(you, locale.gettext("You have nothing you can apport.  (An item held in your hand can't be apported -- stow it in a pocket or pack first.)"),
             MsgType.neutral, ctx)
       return true
     end
@@ -354,8 +352,7 @@ return function(mod)
 
     -- Size gate: item volume <= (lvl*2500 + 2000) mL * power modifiers.
     if U.item_volume(chosen) > cap then
-      U.msg(you, "The air around " .. nm .. " wavers, but nothing happens.  "
-            .. "It is too large to apport.", MsgType.neutral, ctx)
+      U.msg(you, string.format(locale.gettext("The air around %s wavers, but nothing happens.  It is too large to apport."), tostring(nm)), MsgType.neutral, ctx)
       return true
     end
 
@@ -390,19 +387,17 @@ return function(mod)
       got_it = vok and type(v) == "number" and v > 0
     end
     if not got_it then
-      U.msg(you, nm .. " won't come loose -- it's installed inside another item "
-            .. "(like a battery in a tool or ammo in a gun).  Take it out first, "
-            .. "then apport it as a loose item.", MsgType.bad, ctx)
+      U.msg(you, string.format(locale.gettext("%s won't come loose -- it's installed inside another item (like a battery in a tool or ammo in a gun).  Take it out first, then apport it as a loose item."), tostring(nm)), MsgType.bad, ctx)
       return true
     end
     local leftover = map:add_item(dest, detached)
     if leftover then
       map:add_item(you:get_pos_ms(), leftover)
-      U.msg(you, nm .. " resists the pull and reappears at your feet.",
+      U.msg(you, string.format(locale.gettext("%s resists the pull and reappears at your feet."), tostring(nm)),
             MsgType.bad, ctx)
       return true
     end
-    U.msg(you, nm .. " grows freezing cold for a moment before vanishing.",
+    U.msg(you, string.format(locale.gettext("%s grows freezing cold for a moment before vanishing."), tostring(nm)),
           MsgType.neutral, ctx)
     return true
   end
@@ -1034,8 +1029,7 @@ return function(mod)
                  or you:in_species(SpeciesTypeId.new("ROBOT_FLYING"))
     end)
     if not is_robot then
-      U.msg(caster, "Your power surge crackles over " .. you:get_name() ..
-            " to no effect; there's no circuitry to overload.", MsgType.warning)
+      U.msg(caster, string.format(locale.gettext("Your power surge crackles over %s to no effect; there's no circuitry to overload."), tostring(you:get_name())), MsgType.warning)
       return false
     end
     -- Flavor: the LOUD spark burst (fd_electricity field + "zzzzaaaaaapp!").
@@ -1043,8 +1037,7 @@ return function(mod)
                  math.max(m.spell_level(caster, "electrokinetic_kill_robot"), 0),
                  you:get_pos_ms())
     -- The disabling surge: upstream 150% of max HP, a guaranteed disable.
-    U.msg(caster, "You channel a massive power surge into " .. you:get_name() ..
-          " -- its systems overload and fail!", MsgType.good)
+    U.msg(caster, string.format(locale.gettext("You channel a massive power surge into %s -- its systems overload and fail!"), tostring(you:get_name())), MsgType.good)
     U.deal_flat_damage(you, U.round(U.hp_max(you) * 1.5))
     return true
   end
@@ -1130,24 +1123,20 @@ return function(mod)
              or you:in_species(SpeciesTypeId.new("ROBOT_FLYING"))
       end)
       if robot then
-        U.msg(caster, "You reach for " .. you:get_name() ..
-              "'s mind and find nothing there to seize.", MsgType.warning)
+        U.msg(caster, string.format(locale.gettext("You reach for %s's mind and find nothing there to seize."), tostring(you:get_name())), MsgType.warning)
       else
-        U.msg(caster, "You reach for " .. you:get_name() ..
-              "'s mind and it slams shut against you.", MsgType.warning)
+        U.msg(caster, string.format(locale.gettext("You reach for %s's mind and it slams shut against you."), tostring(you:get_name())), MsgType.warning)
       end
       return false
     end
     local friendly = you.friendly or 0
     if not (friendly == 0 or (friendly ~= 0 and recharm)) then
-      U.msg(caster, "Something about " .. you:get_name() ..
-            " resists your reach.", MsgType.warning)
+      U.msg(caster, string.format(locale.gettext("Something about %s resists your reach."), tostring(you:get_name())), MsgType.warning)
       return false
     end
     local threshold = U.rng(min_dmg, max_dmg)
     if you:get_hp() > threshold then
-      U.msg(caster, "The " .. you:get_name() ..
-            " resists your charm attempt.", MsgType.bad)
+      U.msg(caster, string.format(locale.gettext("The %s resists your charm attempt."), tostring(you:get_name())), MsgType.bad)
       return false
     end
     local dur_turns = U.round(U.rng(min_dur, max_dur) / 100)
@@ -1156,7 +1145,7 @@ return function(mod)
       you.friendly = -1
       U.add_effect(you, 'pet', TimeDuration.from_turns(1), nil, nil)
     end
-    U.msg(caster, "You charm the " .. you:get_name() .. "!", MsgType.good)
+    U.msg(caster, string.format(locale.gettext("You charm the %s!"), tostring(you:get_name())), MsgType.good)
     return true
   end
 
@@ -1216,8 +1205,7 @@ return function(mod)
               ", but the impressions slip away.", MsgType.neutral)
       end
     else
-      U.msg(you, "You focus on " .. U.item_name(it) ..
-            ", but sense nothing unusual about it.", MsgType.neutral)
+      U.msg(you, string.format(locale.gettext("You focus on %s, but sense nothing unusual about it."), tostring(U.item_name(it))), MsgType.neutral)
     end
     return true
   end

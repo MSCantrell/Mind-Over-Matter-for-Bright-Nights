@@ -244,8 +244,7 @@ return function(mod)
         U.effect_around(foe:get_pos_ms(), radius, "blind",
                         TimeDuration.from_turns(U.rng(5, 20)))
         if fresh then
-          U.msg(you, "Your blinding radiance floods " .. foe:get_name() ..
-                "'s eyes!", MsgType.good)
+          U.msg(you, string.format(locale.gettext("Your blinding radiance floods %s's eyes!"), tostring(foe:get_name())), MsgType.good)
         end
       end,
     },
@@ -995,9 +994,7 @@ return function(mod)
            and mod.math.spell_level(you, "telekinetic_push") >= 3
            and not km:knows_spell(SpellTypeId.new("telekinetic_nogozone")) then
           mod.u.set_spell_level(you, "telekinetic_nogozone", 1)
-          mod.u.power_learned_msg(you, "A new configuration of force resolves in your mind: "
-            .. "you could hold a clear space around yourself at will.  "
-            .. "(Learned No Go Zone.)")
+          mod.u.power_learned_msg(you, locale.gettext("A new configuration of force resolves in your mind: you could hold a clear space around yourself at will."), mod.u.spell_name("telekinetic_nogozone"))
         end
       end)
     end,
@@ -1390,9 +1387,7 @@ return function(mod)
            and mod.math.spell_level(you, "electrokinetic_see_electric") >= 3
            and not km:knows_spell(SpellTypeId.new("electrokinetic_circuit_sense")) then
           mod.u.set_spell_level(you, "electrokinetic_circuit_sense", 1)
-          mod.u.power_learned_msg(you, "The current speaks to you more clearly now -- you find "
-            .. "you can hold your senses open to the workings of any circuit at "
-            .. "will.  (Learned Circuit Sense.)")
+          mod.u.power_learned_msg(you, locale.gettext("The current speaks to you more clearly now -- you find you can hold your senses open to the workings of any circuit at will."), mod.u.spell_name("electrokinetic_circuit_sense"))
         end
       end)
     end,
@@ -1512,8 +1507,7 @@ return function(mod)
   local function start_lockpick(you, map, p)
     if not has_lockpick(you) then
       mod.u.msg(you,
-        "You see exactly how the pins would fall -- but seeing isn't turning.  "
-        .. "You need something to actually work the lock with.", MsgType.info, nil)
+        locale.gettext("You see exactly how the pins would fall -- but seeing isn't turning.  You need something to actually work the lock with."), MsgType.info, nil)
       return
     end
     -- Reuses BN's real ACT_LOCKPICK activity_type (player_activities.json)
@@ -1530,8 +1524,7 @@ return function(mod)
       name = "clair_see_mechanisms",
     })
     mod.u.msg(you,
-      "You set to work on the lock, guided by an inner eye that already knows "
-      .. "exactly where every pin needs to fall.", MsgType.good, nil)
+      locale.gettext("You set to work on the lock, guided by an inner eye that already knows exactly where every pin needs to fall."), MsgType.good, nil)
   end
 
   -- game.activity_functions trampoline target; registered in preload.lua.
@@ -1586,10 +1579,7 @@ return function(mod)
            and mod.math.spell_level(you, "clair_better_senses") >= 3
            and not km:knows_spell(SpellTypeId.new("clair_see_mechanisms")) then
           mod.u.set_spell_level(you, "clair_see_mechanisms", 1)
-          mod.u.power_learned_msg(you, "You turn your heightened senses inward on the world's "
-            .. "locks and feel their hidden mechanisms lay themselves bare -- "
-            .. "pins, wards, and tumblers, all plain to your inner eye.  "
-            .. "(Learned See Mechanisms.)")
+          mod.u.power_learned_msg(you, locale.gettext("You turn your heightened senses inward on the world's locks and feel their hidden mechanisms lay themselves bare -- pins, wards, and tumblers, all plain to your inner eye."), mod.u.spell_name("clair_see_mechanisms"))
         end
       end)
     end,
@@ -1737,8 +1727,8 @@ return function(mod)
     if e.also then
       for _, s in ipairs(e.also) do mod.u.set_spell_level(you, s, 1) end
     end
-    local nm = (mod.spell_names and mod.spell_names[e.target]) or e.target
-    mod.u.power_learned_msg(you, e.msg .. "  (Learned: " .. nm .. ".)")
+    local nm = mod.u.spell_name(e.target)
+    mod.u.power_learned_msg(you, e.msg(), nm)
   end
 
   -- Errors used to be swallowed by a bare pcall, so a broken grant looked exactly

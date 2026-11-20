@@ -297,8 +297,7 @@ return function(mod)
         end
       end
       if hit == 0 then
-        U.msg(you, "You reach out to boil the fluids around you -- but nothing "
-          .. "in sight has any to boil.", MsgType.neutral, nil)
+        U.msg(you, locale.gettext("You reach out to boil the fluids around you -- but nothing in sight has any to boil."), MsgType.neutral, nil)
       end
       return true
     end, nil)
@@ -657,19 +656,22 @@ return function(mod)
 
   -- Log a power-grant line AND keep it as the popup's flavor text.  Use this
   -- instead of U.msg at hand-written grant sites.  The trailing "(Learned ...)"
-  -- tag is left in the log but dropped from the popup, which lists names itself.
-  function U.power_learned_msg(who, text)
-    U.msg(who, text, MsgType.good, nil)
+  -- tag is added only to the log; the popup lists the learned names itself.
+  function U.power_learned_msg(who, text, learned_name)
+    local message = text
+    if learned_name then
+      message = string.format(locale.gettext("%s  (Learned: %s.)"), text, learned_name)
+    end
+    U.msg(who, message, MsgType.good, nil)
     if U.is_avatar(who) then
       local f = U.interp(who, nil, text):gsub("<[%w_:%s]->", "")
-      f = f:gsub("%s*%(Learned:? .*%)%s*$", "")    -- greedy: names can hold "(C)"
       if f ~= "" then U.power_news.flavor[#U.power_news.flavor + 1] = f end
     end
   end
 
   local function join_names(names)
     if #names == 1 then return names[1] end
-    return table.concat(names, ", ", 1, #names - 1) .. " and " .. names[#names]
+    return string.format(locale.gettext("%s and %s"), table.concat(names, ", ", 1, #names - 1), names[#names])
   end
 
   function U.flush_power_news()
@@ -679,9 +681,9 @@ return function(mod)
       return
     end
     U.discard_power_news()
-    local parts = { #n.names == 1 and "NEW POWER" or "NEW POWERS" }
+    local parts = { locale.vgettext("NEW POWER", "NEW POWERS", #n.names) }
     for _, f in ipairs(n.flavor) do parts[#parts + 1] = f end
-    parts[#parts + 1] = "You have learned " .. join_names(n.names) .. "."
+    parts[#parts + 1] = string.format(locale.gettext("You have learned %s."), join_names(n.names))
     U.popup(table.concat(parts, "\n\n"))
   end
 
@@ -764,7 +766,13 @@ return function(mod)
   function U.spell_name(id)
     if not id or id == "" then return "" end
     local nm = mod.spell_names and mod.spell_names[id]
-    if nm then return nm end
+    if nm then
+      return guarded("spell_name:" .. id, function()
+        local sid = SpellTypeId.new(id)
+        if not sid:is_valid() then return nm end
+        return Spell.new(sid, 0):name()
+      end, nm)
+    end
     return (id:gsub("_", " "))
   end
 
@@ -1483,11 +1491,6 @@ return function(mod)
   -- mapped here by eoc_transpile) and the concentration practice recipes
   -- (mom_hooks on_craft_result). Both feed this one accumulator; the trait is
   -- granted the instant the counter reaches 100 and is idempotent thereafter.
-  local PROFICIENCY_TRAIT_NAMES = {
-    PROF_CONCENTRATION_BASIC = "Concentration (Beginner)",
-    PROF_CONCENTRATION_INTERMEDIATE = "Concentration (Expert)",
-    PROF_CONCENTRATION_MASTER = "Concentration (Master)",
-  }
   -- amount   : percent-of-completion to add this call.
   -- requires : prerequisite trait id (recipe path only) -- the upstream Expert
   --            practice recipe REQUIRED the Beginner proficiency. BN can't gate
@@ -1499,13 +1502,11 @@ return function(mod)
   function U.train_proficiency(who, trait, amount, requires, announce)
     guarded("train_proficiency:" .. trait, function()
       local tid = MutationBranchId.new(trait)
-      local disp = PROFICIENCY_TRAIT_NAMES[trait] or trait
+      local disp = U.trait_name(trait)
       if who:has_trait(tid) then return true end
       if requires and not who:has_trait(MutationBranchId.new(requires)) then
         if announce then
-          U.msg(who, "You go through the motions, but without " ..
-                (PROFICIENCY_TRAIT_NAMES[requires] or requires) ..
-                " the exercise doesn't take.  Master that first.",
+          U.msg(who, string.format(locale.gettext("You go through the motions, but without %s the exercise doesn't take.  Master that first."), tostring(U.trait_name(requires))),
                 MsgType.bad, nil)
         end
         return true
@@ -1515,13 +1516,11 @@ return function(mod)
       if cur >= 100 then
         who:set_mutation(tid)
         V.uset(who, key, 100)
-        U.msg(who, "Your practice pays off -- you've internalized " ..
-              disp .. ".", MsgType.good, nil)
+        U.msg(who, string.format(locale.gettext("Your practice pays off -- you've internalized %s."), tostring(disp)), MsgType.good, nil)
       else
         V.uset(who, key, cur)
         if announce then
-          U.msg(who, "You practice your focus.  " .. disp .. ": " ..
-                math.floor(cur + 0.5) .. "%.", MsgType.info, nil)
+          U.msg(who, string.format(locale.gettext("You practice your focus.  %s: %s%%."), tostring(disp), tostring(math.floor(cur + 0.5))), MsgType.info, nil)
         end
       end
       return true

@@ -1103,6 +1103,9 @@ return function(mod)
   -- has no mechanism to enforce one, and PSIPROOF already keeps out
   -- everything upstream excluded for a reason, so nothing that used to be
   -- blocked on purpose becomes targetable just because ferals now are.
+  -- UPDATE 2026-11-16 (user decision): PSIPROOF no longer lands on ZOMBIE/
+  -- NETHER/plant/slime; only robots and deliberate psi wards keep it (see
+  -- port_monsters.PSI_WARD_IDS), so this gate now lets every living thing in.
   -- you = target creature, npc = caster (avatar).
   -- ==========================================================================
   local MOM_CHARM_PSIPROOF_FLAG = (MonsterFlag and MonsterFlag.PSIPROOF) or nil
@@ -1119,8 +1122,20 @@ return function(mod)
   local function mom_charm_attempt(you, caster, min_dmg, max_dmg,
                                     min_dur, max_dur, recharm, charm_pet)
     if mom_charm_is_mindless(you) then
-      U.msg(caster, "You reach for " .. you:get_name() ..
-            "'s mind and find nothing there to seize.", MsgType.warning)
+      -- 2026-11-16: PSIPROOF now means robot OR psi ward (zombies etc. lost
+      -- it), so say which one the caster just ran into.
+      local robot = false
+      pcall(function()
+        robot = you:in_species(SpeciesTypeId.new("ROBOT"))
+             or you:in_species(SpeciesTypeId.new("ROBOT_FLYING"))
+      end)
+      if robot then
+        U.msg(caster, "You reach for " .. you:get_name() ..
+              "'s mind and find nothing there to seize.", MsgType.warning)
+      else
+        U.msg(caster, "You reach for " .. you:get_name() ..
+              "'s mind and it slams shut against you.", MsgType.warning)
+      end
       return false
     end
     local friendly = you.friendly or 0
@@ -1169,8 +1184,8 @@ return function(mod)
   -- ==========================================================================
   -- Psychometry (clair_examine_item).  Upstream reads artifact_resonance + the
   -- FIFTH_SUN_TECHNOLOGY flag off the chosen item; BN has neither (resonance is
-  -- a DDA-only enchant value; MoM's Fifth-Sun items/flag aren't ported, and the
-  -- unregistered-flag lookup was crashing).  Reworked to the BN-native relic
+  -- a DDA-only enchant value; the Fifth-Sun lore was cut from the BN mod
+  -- 2026-11-19, and the unregistered-flag lookup was crashing).  Reworked to the BN-native relic
   -- readout: pick a carried item; if it's an artifact, show the same analysis
   -- CBN's artifact-analyzer console gives (U.artifact_report); else report
   -- nothing unusual.  (User request, 2026-07-09.)  Overrides the generated EOC.
@@ -1370,29 +1385,158 @@ return function(mod)
   end
 
   -- ==========================================================================
+  -- Psionic stun / blind / deafen bridge (2026-11-17).  DDA's ENGINE hard-codes
+  -- `psi_stunned` next to `stunned` (monmove, avatar_action, npcmove...), and
+  -- DDA monsters read the BLIND effect flag; BN does neither.  BN monsters only
+  -- react to the built-in `stunned` (stumble, monmove.cpp:1145), `blind`
+  -- (VISION_IMPAIRED, monster.cpp:4092) and `deaf` (can_hear).  So every
+  -- telepathic stun in the mod printed "You're stunned!" and did nothing --
+  -- Sensory Deprivation, the feral esper's scream, Mesmerize, the death scream.
+  -- Fix: mirror each psi effect onto its BN twin for the same duration.
+  --   psi_stunned -> stunned   (characters + monsters)
+  --   psi_deaf    -> deaf      (characters + monsters)
+  --   psi_blind   -> blind+deaf on MONSTERS (the avatar's blindness already
+  --                  works through its BLIND carrier trait).  While it lasts the
+  --                  monster is also steered to a random nearby tile every turn:
+  --                  BN monsters with no target follow SCENT, and nothing in BN
+  --                  can switch a monster's nose off, but a live wander goal
+  --                  outranks scent (monmove.cpp:1244).  So a deprived zombie
+  --                  stops homing in on you by smell.
+  -- Psi wards resist, like DDA's immune_flags: PSIPROOF monsters, and
+  -- characters with TEEPSHIELD (Telepathic Shield) shed the psi effect itself.
+  -- Removing the psi effect early (Mesmerize breaking on a hit) also ends the
+  -- twin; BN defers removal (Creature::remove_effect -> set_removed), so doing
+  -- it from inside these hooks is safe.
+  local PSI_TWINS = {
+    psi_stunned = { "stunned" },
+    psi_deaf    = { "deaf" },
+    psi_blind   = { "blind", "deaf", monsters_only = true },
+  }
+  local DEPRIVED_WANDER = 3   -- > wandf after its per-turn decrement; fades in ~3 turns
+  local function psi_warded(who)
+    if who:is_monster() then return U.has_creature_flag(who, "PSIPROOF") end
+    return U.has_creature_flag(who, "TEEPSHIELD")
+  end
+  for psi_id, twins in pairs(PSI_TWINS) do
+    local psi_eid = EffectTypeId.new(psi_id)
+    local twin_eids = {}
+    for _, t in ipairs(twins) do twin_eids[#twin_eids + 1] = EffectTypeId.new(t) end
+    local prev_add = mod.effect_added_handlers[psi_id]
+    local prev_rem = mod.effect_removed_handlers[psi_id]
+    mod.effect_added_handlers[psi_id] = function(who, eff)
+      if prev_add then prev_add(who, eff) end
+      if not who then return end
+      local ok, err = pcall(function()
+        if psi_warded(who) then
+          who:remove_effect(psi_eid)
+          if U.is_avatar(who) then
+            gapi.add_msg(MsgType.good, "Your telepathic shield turns the assault aside.")
+          end
+          return
+        end
+        if twins.monsters_only and not who:is_monster() then return end
+        local want = (eff and eff:get_duration() or who:get_effect_dur(psi_eid)):to_turns()
+        for _, teid in ipairs(twin_eids) do
+          local have = who:get_effect_dur(teid):to_turns()
+          if want > have then
+            who:add_effect(teid, TimeDuration.from_turns(math.floor(want - have)))
+          end
+        end
+      end)
+      if not ok then gdebug.log_error("MoM-BN: psi twin " .. psi_id .. ": " .. tostring(err)) end
+    end
+    mod.effect_removed_handlers[psi_id] = function(who, eff)
+      if prev_rem then prev_rem(who, eff) end
+      if not who or (twins.monsters_only and not who:is_monster()) then return end
+      pcall(function()
+        for _, teid in ipairs(twin_eids) do who:remove_effect(teid) end
+      end)
+    end
+  end
+  mod.effect_tick_handlers["psi_blind"] = function(mon)
+    if not mon or not mon.wander_to then return end
+    pcall(function()
+      local p = mon:get_pos_ms()
+      mon:wander_to(TripointBubMs.new(p.x + U.rng(-4, 4), p.y + U.rng(-4, 4), p.z),
+                    DEPRIVED_WANDER)
+    end)
+  end
+
+  -- ==========================================================================
   -- Network Effect ally gate (fixed 2026-11-08).  Upstream gates the cast on
   -- DDA's `npc_allies: 1`, which the transpiler couldn't express, so the
   -- generated handler hit U.badcond -> false and the power ALWAYS failed with
   -- "no nearby allies".  Hand version: count NPCs Friendly to the caster within
   -- the real spell's blast radius (telepathic_network_real aoe 60), same
   -- z-level.  Friendly is exactly BN's spell `ally` test (magic_spell_effect.cpp
-  -- A_FRIENDLY), so the gate passes iff the blast will link someone.  NPCs only:
-  -- monsters can't hold the carrier traits that make the effect do anything.
+  -- A_FRIENDLY), so the gate passes iff the blast will link someone.
+  --
+  -- Pets count too (user, 2026-11-18).  With telepathy reaching every living
+  -- thing, a telepath's allies are mostly a Beastmaster pack, so the capstone
+  -- must work with one.  Monsters can't hold the carrier traits (Per, dodges,
+  -- gun range), so each linked pet gets mom_network_pack instead: speed and
+  -- dodge/hit mods, which monster::process_one_effect does apply.  Same pet
+  -- test as Pack Leader (mod.pack.is_pack_pet: friendly, not PSIPROOF, not
+  -- telepathy-immune); it lasts as long as the caster's own link.
   -- ==========================================================================
   local NETWORK_RADIUS = 60
+  local NETWORK_EID = EffectTypeId.new("effect_telepath_network_effect")
+  local NETWORK_PACK_EID = EffectTypeId.new("mom_network_pack")
+
+  local function in_network_range(origin, cr)
+    local p = cr:get_pos_ms()
+    return p.z == origin.z and U.dist(origin, p) <= NETWORK_RADIUS
+  end
+
+  local function is_network_pet(mon)
+    local pk = mod.pack
+    if pk and pk.is_pack_pet then return pk.is_pack_pet(mon) end
+    return mon.friendly ~= 0 and not mon:is_dead() and not mon:is_hallucination()
+  end
+
   local function network_has_ally(you)
     local origin = you:get_pos_ms()
     for _, cr in ipairs(gapi.get_all_creatures()) do
       local ok, yes = pcall(function()
         if not cr:is_npc() then return false end
-        local p = cr:get_pos_ms()
-        return p.z == origin.z and U.dist(origin, p) <= NETWORK_RADIUS
-          and cr:attitude_to(you) == Attitude.Friendly
+        return in_network_range(origin, cr) and cr:attitude_to(you) == Attitude.Friendly
+      end)
+      if ok and yes then return true end
+    end
+    for _, mon in ipairs(gapi.get_all_monsters()) do
+      local ok, yes = pcall(function()
+        return is_network_pet(mon) and in_network_range(origin, mon)
       end)
       if ok and yes then return true end
     end
     return false
   end
+
+  -- Link every pet in range.  Intensity = spell level + 1 (speed +10 at
+  -- level 0, +25 at 15; see effects/mom_engine_effects.json).  Returns count.
+  local function link_pets(you)
+    local origin = you:get_pos_ms()
+    local dur = you:get_effect_dur(NETWORK_EID)
+    if dur:to_turns() < 1 then dur = TimeDuration.from_seconds(200) end
+    local lvl = 0
+    pcall(function() lvl = math.max(m.spell_level(you, "telepathic_network"), 0) end)
+    local inten = U.clamp(math.floor(lvl), 0, 15) + 1
+    local n = 0
+    for _, mon in ipairs(gapi.get_all_monsters()) do
+      local ok, yes = pcall(function()
+        return is_network_pet(mon) and in_network_range(origin, mon)
+      end)
+      if ok and yes then
+        pcall(function()
+          if mon:has_effect(NETWORK_PACK_EID) then mon:remove_effect(NETWORK_PACK_EID) end
+          mon:add_effect(NETWORK_PACK_EID, dur, nil, inten)
+          n = n + 1
+        end)
+      end
+    end
+    return n
+  end
+  M._network_link_pets = link_pets
 
   M.EOC_TELEPATH_NETWORK_ALLY_CHECK = function(you, npc, ctx)
     ctx = ctx or {}
@@ -1406,6 +1550,8 @@ return function(mod)
       return false
     end
     U.cast_spell(you, "telepathic_network_real", nil, nil)
+    local okp, err = pcall(link_pets, you)
+    if not okp then gdebug.log_warn("MoM-BN: network pet link failed: " .. tostring(err)) end
     U.msg(you, "You now have an instinctive awareness of your allies, and they of you.",
       MsgType.neutral, ctx)
     return true

@@ -592,6 +592,287 @@ return function(mod)
 
   -- params: char (the caster), spell (Spell).  Return false to refuse; return
   -- nothing otherwise (a non-false result never blocks).
+  -- Extended Channeling's slow cast (user report 2026-11-20: "my spells still
+  -- say 15 moves, no change with it on or off").  Upstream does it with
+  -- u_spellcasting_adjustment('casting_time', PSIONIC) = 4 (x5 total) on
+  -- opens_spellbook; BN has no spellcasting adjustments and no enchantment
+  -- that touches spell::casting_time, so the port dropped it and the power
+  -- was only ever faster-than-advertised.  Its other two halves (easier
+  -- success roll, less Nether Attunement) are in gen_jmath / gen_eoc.
+  -- BN fixes the casting activity's length from the spell type, and a cast
+  -- under ~100 moves finishes before any per-turn tick could stretch it, so
+  -- the extra 4x is spent here instead, as a move debt taken just before the
+  -- casting activity starts: you wait first, then the power resolves, the same
+  -- order as upstream.  The spell menu's time can't show it (no binding).
+  -- Base time = spell::casting_time's leveled formula; encumbrance, the
+  -- armed x1.5 and stat scaling are left out (psionic powers are mostly
+  -- NO_HANDS/NO_LEGS).  This hook only sees casts from the spell menu.
+  local EXT_CHANNEL = MutationBranchId.new("PSI_EXTENDED_CHANNELING_active")
+  mod.EXTENDED_CHANNELING_EXTRA = 4   -- extra multiples of the cast time
+  local function base_cast_moves(sp)
+    local ty = sp.id:obj()
+    local b, f = ty.base_casting_time, ty.final_casting_time
+    local t = b + ty.casting_time_increment * sp:get_level()
+    if b < f then t = math.min(f, t) elseif b > f then t = math.max(f, t) else t = b end
+    return math.max(0, math.floor(t + 0.5))
+  end
+  local function extend_channeling(who, sp)
+    local ok, err = pcall(function()
+      if not who:has_trait(EXT_CHANNEL) then return end
+      local extra = base_cast_moves(sp) * mod.EXTENDED_CHANNELING_EXTRA
+      if extra > 0 then who:mod_moves(-extra) end
+    end)
+    if not ok then gdebug.log_error("MoM-BN: extended channeling: " .. tostring(err)) end
+  end
+
+  -- ---- Extended / Torrential Channeling toggles (2026-11-20 E) -------------
+  -- Both are "active" traits the player switches on in the mutations menu.
+  -- Upstream's activated_eocs / deactivated_eocs add or remove the hidden
+  -- PSI_*_CHANNELING_active trait that every effect reads (gen_jmath success
+  -- modifiers, attunement gain, consequence thresholds, power scaling, the
+  -- Extended slow cast).  BN mutations have no activation EOCs, so the port's
+  -- EOC_PSI_*_CHANNELING_ON/OFF were never called and neither mode ever did
+  -- anything (only the Cascade Stone, which adds Torrential's _active trait
+  -- directly, could switch it on).  This polls BN's own toggle state
+  -- (has_active_mutation) every turn and at cast time and keeps the _active
+  -- traits in step, with upstream's messages and rules:
+  --   * the two are exclusive; the one switched on last wins;
+  --   * the Cascade Stone holds Torrential open: it can't be cut off, and
+  --     Extended can't start, until the stone's effect ends (its wear-off
+  --     EOC drops the _active trait; the toggle puts it back if still on).
+  local EXT_BASE = MutationBranchId.new("PSI_EXTENDED_CHANNELING")
+  local TOR_BASE = MutationBranchId.new("PSI_TORRENTIAL_CHANNELING")
+  local TOR_ACTIVE = MutationBranchId.new("PSI_TORRENTIAL_CHANNELING_active")
+  local CASCADE = EffectTypeId.new("effect_mom_cascade_stone")
+  local chan_prev = nil   -- { ext = bool, tor = bool }: toggle states last seen
+
+  local function sync_channeling(you)
+    if not you then return end
+    local ok, err = pcall(function()
+      local has_ext, has_tor = you:has_trait(EXT_BASE), you:has_trait(TOR_BASE)
+      if not (has_ext or has_tor or you:has_trait(EXT_CHANNEL) or you:has_trait(TOR_ACTIVE)) then
+        return
+      end
+      local ext = has_ext and you:has_active_mutation(EXT_BASE)
+      local tor = has_tor and you:has_active_mutation(TOR_BASE)
+      local cascade = you:has_effect(CASCADE)
+      -- first look this session: take the toggles as they are (no transition
+      -- messages for the cascade lock; the _active traits still get synced)
+      local prev = chan_prev or { ext = ext, tor = tor }
+      local msg = function(t, ty) mod.u.msg(you, t, ty, nil) end
+
+      if ext and (tor or cascade) then
+        if cascade and not prev.ext then
+          you:deactivate_mutation(EXT_BASE); ext = false
+          msg("The Nether is pouring through you too fast to slow it down.", MsgType.bad)
+        elseif prev.tor and not prev.ext then
+          you:deactivate_mutation(TOR_BASE); tor = false     -- Extended just switched on
+        else
+          you:deactivate_mutation(EXT_BASE); ext = false     -- Torrential just switched on
+        end
+      end
+      if tor and cascade and not prev.tor and you:has_trait(TOR_ACTIVE) then
+        msg("No matter how you try, you cannot draw more deeply on the Nether than you already are.", MsgType.mixed)
+      end
+      if prev.tor and not tor and cascade and has_tor then
+        msg("You attempt to cut off the flow of Nether power but it's locked open!", MsgType.bad)
+      end
+
+      local ext_now = you:has_trait(EXT_CHANNEL)
+      if ext and not ext_now then
+        mod.u.set_mutation(you, "PSI_EXTENDED_CHANNELING_active")
+        msg("You begin to take more care in channeling your powers.", MsgType.good)
+      elseif not ext and ext_now then
+        mod.u.unset_mutation(you, "PSI_EXTENDED_CHANNELING_active")
+        msg("You return to your previous speed in channeling your powers.", MsgType.neutral)
+      end
+      local tor_now = you:has_trait(TOR_ACTIVE)
+      if tor and not tor_now then
+        mod.u.set_mutation(you, "PSI_TORRENTIAL_CHANNELING_active")
+        msg("You begin drawing deeply on the Nether.", MsgType.good)
+      elseif not tor and tor_now and not cascade then
+        mod.u.unset_mutation(you, "PSI_TORRENTIAL_CHANNELING_active")
+        msg("You cut off the overflow of Nether power.", MsgType.neutral)
+      end
+      chan_prev = { ext = ext, tor = tor }
+    end)
+    if not ok then gdebug.log_error("MoM-BN: channeling sync: " .. tostring(err)) end
+  end
+  mod.sync_channeling = sync_channeling
+  mod.recurring["MOM_CHANNELING_SYNC"] = {
+    min_turns = 1, max_turns = 1,
+    fn = function(you) sync_channeling(you) end,
+  }
+
+  -- ---- Caster-level boosts: the Nether power boosts (2026-11-20) -----------
+  -- Upstream raises caster level per school with u_spellcasting_adjustment
+  -- ('caster_level', school) on opens_spellbook: +2 near a Nether-related site
+  -- (EOC_YOU_ARE_NEAR_NETHER_POWER_BOOST), +4 inside one (..._IN_NETHER_...),
+  -- +3 during a Nether Attunement power surge (EOC_NETHER_ATTUNEMENT_BOOST).
+  -- DDA sums them and clamps to 0..max level (known_magic::
+  -- evaluate_opens_spellbook_data).  The port dropped all of it ("Phase 4"):
+  -- the location checks ran on every cast and changed nothing.
+  -- BN has no temporary level adjustment, so the spell's real level is raised
+  -- for the length of the cast: set_level(L + bonus) at try_cast (before the
+  -- casting activity takes its length), held through spellcasting_finish (the
+  -- fail roll, effects, stamina cost and XP all read it, as DDA's effective
+  -- level did), and put back at on_spell_cast.  XP the cast earned is kept:
+  -- restore = xp_before + (xp_now - xp_boosted).  Because the power's own Lua
+  -- formulas read m.spell_level during the effect, the boost reaches them too;
+  -- that is stronger than DDA, where u_spell_level ignored the adjustment.
+  -- Learning must NOT see boosted levels, so the per-turn tick (autolearn and
+  -- the other learn checks) and the post-cast learning events run with the
+  -- real level.  A failed or interrupted cast never reaches on_spell_cast,
+  -- so the tick restores once the casting activity is gone.  The pending
+  -- restore is mirrored in a character value, so a save taken mid-cast is
+  -- fixed up on the next tick after loading.
+  local CL_SCHOOLS = {
+    BIOKINETIC = true, CLAIRSENTIENT = true, ELECTROKINETIC = true,
+    PHOTOKINETIC = true, PYROKINETIC = true, TELEKINETIC = true,
+    TELEPATH = true, TELEPORTER = true, VITAKINETIC = true,
+  }
+  local MATRIX_FLAG = {
+    BIOKINETIC = "MATRIX_CRYSTAL_BIOKINESIS", CLAIRSENTIENT = "MATRIX_CRYSTAL_CLAIRSENTIENCE",
+    ELECTROKINETIC = "MATRIX_CRYSTAL_ELECTROKINESIS", PHOTOKINETIC = "MATRIX_CRYSTAL_PHOTOKINESIS",
+    PYROKINETIC = "MATRIX_CRYSTAL_PYROKINESIS", TELEKINETIC = "MATRIX_CRYSTAL_TELEKINESIS",
+    TELEPATH = "MATRIX_CRYSTAL_TELEPATHY", TELEPORTER = "MATRIX_CRYSTAL_TELEPORTATION",
+    -- no VITAKINETIC: merged into Biokinesis, and there is no such crystal flag
+  }
+  local SURGE = EffectTypeId.new("effect_nether_attunement_power_surge")
+  local BOOST_VAR = "mom_caster_boost"   -- "spell_id;xp_before;xp_boosted"
+  local boost = nil                      -- { key, before, boosted, applied }
+
+  local function cond(id, you)
+    local C = mod.eoc_conds or {}
+    local f = C[id]
+    if not f then return false end
+    local ok, r = pcall(f, you, nil, {})
+    return ok and r and true or false
+  end
+
+  -- Total caster-level bonus for a school right now, plus what it came from.
+  function mod.caster_level_bonus(you, school)
+    if not CL_SCHOOLS[school] then return 0, "" end
+    local b, why = 0, {}
+    if you:has_effect(SURGE) then b = b + 3; why[#why + 1] = "surge+3" end
+    if cond("EOC_CONDITION_NEAR_NETHER_RELATED_LOCATION", you) then
+      b = b + 2; why[#why + 1] = "near+2"
+    end
+    if cond("EOC_CONDITION_YOU_ARE_IN_NETHER_LOCATION", you) then
+      b = b + 4; why[#why + 1] = "in+4"
+    end
+    -- EOC_<SCHOOL>_MATRIX_BOOST (2026-11-20 C): +6 to a school while you
+    -- WIELD its matrix crystal and have the school (u_has_wielded_with_flag;
+    -- carrying it in the pack doesn't count).
+    local flag = MATRIX_FLAG[school]
+    if flag and you:has_trait(MutationBranchId.new(school)) then
+      local ok, held = pcall(function()
+        for _, it in ipairs(you:wielded_items()) do
+          if mod.u.item_has_flag(it, flag) then return true end
+        end
+        return false
+      end)
+      if ok and held then b = b + 6; why[#why + 1] = "crystal+6" end
+    end
+    return b, table.concat(why, ",")
+  end
+
+  local function boost_spell(you, key)
+    return you:get_magic():get_spell(SpellTypeId.new(key))
+  end
+
+  local function boost_restore(you)
+    if not boost or not boost.applied then return end
+    local ok, err = pcall(function()
+      local s = boost_spell(you, boost.key)
+      local earned = s:xp() - boost.boosted
+      s:set_exp(math.floor(boost.before + math.max(earned, 0)))
+    end)
+    if not ok then gdebug.log_error("MoM-BN: caster boost restore: " .. tostring(err)) end
+    boost.applied = false
+  end
+
+  local function boost_reapply(you)
+    if not boost or boost.applied then return end
+    pcall(function() boost_spell(you, boost.key):set_exp(boost.boosted) end)
+    boost.applied = true
+  end
+
+  local function boost_clear(you)
+    boost_restore(you)
+    boost = nil
+    pcall(function() you:set_value(BOOST_VAR, "") end)
+  end
+
+  local function apply_caster_boost(you, sp, key)
+    if boost then boost_clear(you) end
+    local entry = mod.cast_map[key]
+    local school = entry and entry.school
+    local bonus, why = mod.caster_level_bonus(you, school)
+    if bonus <= 0 then return end
+    local ok, err = pcall(function()
+      local s = boost_spell(you, key)
+      local lvl = s:get_level()
+      local target = math.min(lvl + bonus, sp.id:obj().max_level)
+      if target <= lvl then return end
+      local before = s:xp()
+      s:set_level(target)
+      boost = { key = key, before = before, boosted = s:xp(), applied = true }
+      you:set_value(BOOST_VAR, key .. ";" .. before .. ";" .. boost.boosted)
+      gdebug.log_info(string.format("MoM-BN: caster boost %s %d->%d (%s)", key, lvl, target, why))
+    end)
+    if not ok then
+      gdebug.log_error("MoM-BN: caster boost: " .. tostring(err))
+      boost_clear(you)
+    end
+  end
+  mod.caster_boost_state = function() return boost end   -- tests / console
+
+  -- Learning reads real levels: unboost around the per-turn tick, and finish
+  -- the restore once the casting activity has ended (fail/interrupt path).
+  do
+    local inner_tick = mod.on_every_x
+    function mod.on_every_x(...)
+      local you = gapi.get_avatar()
+      if you and not boost then
+        -- leftover from a save made mid-cast (or a crash): restore once
+        local ok, v = pcall(function() return you:get_value(BOOST_VAR) end)
+        if ok and v and v ~= "" then
+          local key, before, boosted = v:match("^([^;]+);(%-?%d+);(%-?%d+)$")
+          if key then
+            boost = { key = key, before = tonumber(before), boosted = tonumber(boosted), applied = true }
+          end
+          boost_clear(you)
+        end
+      end
+      if you and boost then
+        local casting = false
+        pcall(function()
+          local a = you:get_activity()
+          casting = a ~= nil and a:id_str() == "ACT_SPELLCASTING"
+        end)
+        if not casting then boost_clear(you) end
+      end
+      if you then boost_restore(you) end
+      local ok, err = pcall(inner_tick, ...)
+      if you then boost_reapply(you) end
+      if not ok then error(err, 0) end
+    end
+  end
+
+  -- The post-cast learning events (insights, "level N leads to X") also run
+  -- on real levels.  Wraps the local used by every dispatch site below.
+  do
+    local inner_fire = fire_spell_cast_events
+    fire_spell_cast_events = function(you, entry, spell_id)
+      local had = boost and boost.applied
+      if had then boost_restore(you) end
+      inner_fire(you, entry, spell_id)
+      if had then boost_reapply(you) end
+    end
+    mod.fire_spell_cast_events = fire_spell_cast_events
+  end
+
   function mod.on_spell_try_cast(params)
     local who, sp = params.char, params.spell
     if not (who and sp) then return end
@@ -603,6 +884,14 @@ return function(mod)
       return false
     end
     if pain_blocks(who) then return false end
+    -- the mode toggled this turn counts for this cast, and the attunement
+    -- power scaling is set BEFORE the cast as upstream's opens_spellbook did
+    -- (fire_spell_cast_events runs it again after, which only matters for
+    -- attunement gain)
+    sync_channeling(who)
+    pcall(mod.eoc["EOC_PSIONICS_SET_NETHER_ATTUNEMENT_BOOST"], who, nil, {})
+    apply_caster_boost(who, sp, key)   -- first: the cast time below reads the level
+    extend_channeling(who, sp)
   end
 
   -- Legacy migration: saves made under the old spellbook-emptying scheme may
@@ -680,6 +969,8 @@ return function(mod)
     if entry and entry.finish == "tag" then
       fire_spell_cast_events(who, entry, key)
     end
+    -- the cast is fully resolved (cost and XP included): drop the boost
+    if boost and boost.key == key then boost_clear(who) end
   end
 
   -- No Go Zone (original fork power) isn't in the transpiled cast_map, so wire
@@ -799,21 +1090,32 @@ return function(mod)
       .. " is set.  It will hold for you and your allies.", MsgType.good, nil)
   end
 
-  -- Where the trap goes.  BN (ce8a10d) pushes on_spell_cast's target_pos as a
-  -- raw coord_point POINTER, which the Lua coord wrapper doesn't cover: any
-  -- index (.x) throws "attempt to index a sol.coords::coord_point<...>*".  So
-  -- the trap spells drop an invisible fd_mom_trap_marker on their target tile
-  -- (field_id; cast_all_effects runs before the hook), and we find it within
-  -- the power's reach of the caster (nearest first) and clear it.  The target_pos
-  -- read stays as a first try in case BN fixes the binding.
+  -- Where the trap goes (also Molten Land).  Builds before BN commit 381f0a6
+  -- (2026-11-17, PR #10920, fixing our issue #10845) push on_spell_cast's
+  -- target_pos as a raw coord_point POINTER that the Lua coord wrapper doesn't
+  -- cover: any index (.x) throws "attempt to index a sol.coords::coord_point<...>*".
+  -- From 381f0a6 on it is a proper TripointBubMs.  Both supported play builds
+  -- (CBN1112 = 84729ed, CBN1015 = ce8a10d) predate the fix, so:
+  --   1. read target_pos (works on fixed builds), and clear the marker there;
+  --   2. otherwise fall back to the marker: the trap / Molten Land marker spells
+  --      drop an invisible fd_mom_trap_marker on their target tile (field_id;
+  --      cast_all_effects runs before the hook), found within the power's reach
+  --      of the caster (nearest first) and cleared.
+  -- Once every supported build includes 381f0a6, step 2, the marker field and
+  -- the marker spells' field_id can all go.
   local TRAP_MARKER = FieldTypeId.new("fd_mom_trap_marker"):int_id()
   local function find_trap_target(you, params, reach)
+    local map = gapi.get_map()
     local ok, pos = pcall(function()
       local t = params.target_pos
       return TripointBubMs.new(t.x, t.y, t.z)
     end)
-    if ok and pos then return pos end
-    local map = gapi.get_map()
+    if ok and pos then
+      pcall(function()
+        if map:has_field_at(pos, TRAP_MARKER) then map:remove_field_at(pos, TRAP_MARKER) end
+      end)
+      return pos
+    end
     local c = you:get_pos_ms()
     local found, best
     reach = reach or 1
@@ -1117,44 +1419,50 @@ return function(mod)
   -- the Electrokinetic's MOM_HACK bridge -- clean path separation, and a
   -- circuit has no moving mechanism to "see".  Follows the
   -- circuit_sense/nogozone marker template.
+  -- Roster re-audited 2026-11-19 against every terrain/furniture carrying
+  -- lockpick_result in CBN data/json (same on CBN1112 and CBN1015).  Fixed the
+  -- user's report "fails on the metal door at Electronics Stores": s_electronics
+  -- uses t_door_metal_pickable, which the 2026-08-17 audit added to the spell
+  -- description but never to this table.  Also dropped t_door_metal_locked (no
+  -- lockpick_result in BN: an electronic door, the MOM_HACK bridge's target) and
+  -- moved f_gunsafe_ml / f_displaycase to the lockpick branch (they ARE
+  -- lockpicked in BN, and the description always said so).  f_safe_l is the one
+  -- dial safe: no lockpick_result, cracked by hand, opens to its pry result.
   local seem_ids
   local function get_seem_ids()
     if seem_ids then return seem_ids end
-    local function T(a, b) return { TerId.new(a):int_id(), TerId.new(b):int_id() } end
-    local function F(a, b) return { FurnId.new(a):int_id(), FurnId.new(b):int_id() } end
+    local function T(a, b) return { kind = "ter", from = TerId.new(a):int_id(), to = TerId.new(b):int_id() } end
+    local function F(a, b, dial)
+      return { kind = "furn", from = FurnId.new(a):int_id(), to = FurnId.new(b):int_id(), dial = dial }
+    end
     seem_ids = {
-      ter = {
-        T("t_door_locked",          "t_door_c"),
-        T("t_door_locked_interior", "t_door_c"),
-        T("t_door_locked_peep",     "t_door_c_peep"),
-        T("t_door_locked_alarm",    "t_door_c"),
-        T("t_door_metal_locked",    "t_door_metal_c"),
-        T("t_door_bar_locked",      "t_door_bar_o"),
-        T("t_chaingate_l",          "t_chaingate_c"),
-      },
-      furn = {
-        F("f_safe_l",      "f_safe_o"),       -- dial safe: crack it wide open
-        F("f_gunsafe_ml",  "f_gunsafe_o"),    -- mechanical (dial) gun safe
-        F("f_displaycase", "f_displaycase_o"),
-      },
+      T("t_door_locked",                "t_door_c"),
+      T("t_door_locked_interior",       "t_door_c"),
+      T("t_door_locked_peep",           "t_door_c_peep"),
+      T("t_door_locked_alarm",          "t_door_c"),
+      T("t_door_metal_pickable",        "t_door_metal_c"),
+      T("t_door_metal_interior_locked", "t_door_metal_c"),
+      T("t_door_bar_locked",            "t_door_bar_o"),
+      T("t_chaingate_l",                "t_chaingate_c"),
+      F("f_gunsafe_ml",  "f_gunsafe_o"),       -- mechanical gun safe: lockpick
+      F("f_displaycase", "f_displaycase_o"),   -- locked display case: lockpick
+      F("f_safe_l",      "f_safe_o", true),    -- dial safe: crack it by hand
     }
     return seem_ids
   end
 
-  local function is_door_target(map, p)
+  -- The lock at p (terrain first, then furniture), or nil.
+  local function lock_at(map, p)
     local t = map:get_ter_at(p)
-    for _, pr in ipairs(get_seem_ids().ter) do
-      if t == pr[1] then return pr end
+    local f = map:get_furn_at(p)
+    for _, e in ipairs(get_seem_ids()) do
+      if (e.kind == "ter" and t == e.from) or (e.kind == "furn" and f == e.from) then return e end
     end
     return nil
   end
 
-  local function is_safe_target(map, p)
-    local f = map:get_furn_at(p)
-    for _, pr in ipairs(get_seem_ids().furn) do
-      if f == pr[1] then return pr end
-    end
-    return nil
+  local function open_lock(map, p, e)
+    if e.kind == "ter" then map:set_ter_at(p, e.to) else map:set_furn_at(p, e.to) end
   end
 
   -- Real BN items carrying LOCKPICK quality (tool_qualities.json items with
@@ -1193,9 +1501,9 @@ return function(mod)
   local ACT_LOCKPICK = ActivityTypeId.new("ACT_LOCKPICK")
 
   local function crack_safe(you, map, p)
-    local pr = is_safe_target(map, p)
-    if not pr then return end -- changed underfoot between pick and resolve
-    map:set_furn_at(p, pr[2])
+    local e = lock_at(map, p)
+    if not (e and e.dial) then return end -- changed underfoot between pick and resolve
+    open_lock(map, p, e)
     mod.u.msg(you,
       "You read the safe's dial like a book; the tumblers drop and it swings open.",
       MsgType.good, nil)
@@ -1231,10 +1539,12 @@ return function(mod)
     local you = params.user
     local map = gapi.get_map()
     local p = params.pos and map:abs_to_bub(params.pos) or you:get_pos_ms()
-    local pr = is_door_target(map, p)
-    if not pr then return end -- door changed underfoot; say nothing
-    map:set_ter_at(p, pr[2])
-    mod.u.msg(you, "The lock's pins align in your mind's eye and the door falls open.",
+    local e = lock_at(map, p)
+    if not e or e.dial then return end -- lock changed underfoot; say nothing
+    open_lock(map, p, e)
+    mod.u.msg(you, (e.kind == "ter")
+      and "The lock's pins align in your mind's eye and the door falls open."
+      or "The lock's pins align in your mind's eye and it clicks open.",
       MsgType.good, nil)
   end
 
@@ -1244,10 +1554,11 @@ return function(mod)
     local target = gapi.choose_adjacent_highlight(
       "See which lock?",
       "There is no mechanical lock within your reach.",
-      function(p) return is_door_target(map, p) ~= nil or is_safe_target(map, p) ~= nil end,
+      function(p) return lock_at(map, p) ~= nil end,
       false)
     if not target then return end
-    if is_safe_target(map, target) then
+    local e = lock_at(map, target)
+    if e and e.dial then
       crack_safe(you, map, target)
     else
       start_lockpick(you, map, target)
@@ -1869,9 +2180,9 @@ return function(mod)
   -- roughly where -- and a level-scaled sweep RANGE (vs DDA's short continuous
   -- vision) makes it real recon.  Full census on every pulse, log only.
   --
-  -- "A mind" in BN == an NPC (is_npc) or a monster flagged HUMAN.  BN has NO
-  -- MF_HAS_MIND flag (DDA-only), so bestial/alien minds have nothing to key on;
-  -- v1 senses sapient (human) minds only.  Telepathy-immune targets
+  -- "A mind" in BN == an NPC (is_npc) or any monster WITHOUT PSIPROOF (robots
+  -- and psi-warded foes carry it; 2026-11-16 widened this from HUMAN-only to
+  -- every living thing, user decision).  Telepathy-immune targets
   -- (eff_monster_immune_to_telepathy) are skipped.
   --
   -- Driven off effect_telepath_sense_minds (EFFECT_LUA_ON_ADDED/REMOVED, set by
@@ -1882,7 +2193,7 @@ return function(mod)
   local SONAR_EFF   = "effect_telepath_sense_minds"
   local SONAR_SPELL = "telepathic_mind_sense"
   local SONAR_KNACK = "telepathic_mind_sense_knack"
-  local SONAR_HUMAN_FLAG = (MonsterFlag and MonsterFlag.HUMAN) or nil
+  local SONAR_PSIPROOF_FLAG = (MonsterFlag and MonsterFlag.PSIPROOF) or nil
 
   local function sonar_level(you)
     -- DDA summed the power's level and its knack level; clamp each to >= 0.
@@ -1929,8 +2240,14 @@ return function(mod)
         return false
       end
       if cr:is_npc() then return true end
-      if cr:is_monster() and SONAR_HUMAN_FLAG ~= nil then
-        return cr:has_flag(SONAR_HUMAN_FLAG)
+      -- 2026-11-16 (user decision): every LIVING monster registers.  PSIPROOF
+      -- now marks only robots and deliberate psi wards (port_monsters
+      -- PSI_WARD_IDS / PSI_NULL species), and both stay off the sonar.
+      if cr:is_monster() then
+        if SONAR_PSIPROOF_FLAG ~= nil and cr:has_flag(SONAR_PSIPROOF_FLAG) then
+          return false
+        end
+        return true
       end
       return false
     end)

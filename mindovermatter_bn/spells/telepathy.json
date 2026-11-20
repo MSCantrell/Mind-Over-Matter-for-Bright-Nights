@@ -65,7 +65,7 @@
     "id": "telepathic_mind_sense",
     "type": "SPELL",
     "name": "[\u03a8]Mind Sonar (C)",
-    "description": "You cast your mind outward like a sonar pulse, sweeping the area for the minds of others.  While maintained, you periodically sense every <color_light_green>sapient mind</color> around you \u2014 people and other thinking things \u2014 and learn their <color_light_green>direction and distance</color>, even through walls and in total darkness.  You cannot see them, but you know they are there.  The <color_light_green>range grows</color> as you master the power, and greater mastery <color_light_green>quickens the pulse</color> and lets you pick out <color_light_green>familiar minds by name</color>.\n\nThe walking dead, robots, and other <color_light_gray>mindless</color> things have no mind to sense.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 6 leads to Mesmerize.\nLevel 5 leads to Mood Stabilization with Concentration Trance 6.\nLevel 10 leads to Network Effect with Mind Sonar 10 + Mood Stabilization 12 + Psychic Scream 6 OR Mind Sonar 10 + Obscurity 6 + Psychic Scream 6.\nLevel 7 leads to Synaptic Overload with Mood Stabilization 4.",
+    "description": "You cast your mind outward like a sonar pulse, sweeping the area for the minds of others.  While maintained, you periodically sense every <color_light_green>living mind</color> around you \u2014 people, animals, the walking dead, anything alive \u2014 and learn their <color_light_green>direction and distance</color>, even through walls and in total darkness.  You cannot see them, but you know they are there.  The <color_light_green>range grows</color> as you master the power, and greater mastery <color_light_green>quickens the pulse</color> and lets you pick out <color_light_green>familiar minds by name</color>.\n\nThe <color_light_gray>Robots</color> have no mind to sense, and <color_light_gray>psi-null</color> creatures and enemy telepaths stay hidden behind their wards.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 6 leads to Mesmerize.\nLevel 5 leads to Mood Stabilization with Concentration Trance 6.\nLevel 10 leads to Network Effect with Mind Sonar 10 + Mood Stabilization 12 + Psychic Scream 6 OR Mind Sonar 10 + Obscurity 6 + Psychic Scream 6.\nLevel 7 leads to Synaptic Overload with Mood Stabilization 4.",
     "message": "",
     "valid_targets": [
       "self"
@@ -133,7 +133,7 @@
     "id": "telepathic_morale",
     "type": "SPELL",
     "name": "[\u03a8]Mood Stabilization (C)",
-    "description": "With the ability to edit others' thoughts comes the ability to edit your own, removing negative moods to a degree.  You have also learned to do this more subtly on others, calming their anger or assuaging their fears.\n\nWhen used on yourself, this power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 8 leads to Beastmaster.\nLevel 12 leads to Mind Control with Mood Stabilization 12 + Primal Terror 5 OR Beastmaster 8 + Mood Stabilization 12 OR Mood Stabilization 12 + Sensory Deprivation 7 OR Obscurity 6 + Primal Terror 5 OR Beastmaster 8 + Obscurity 6 OR Obscurity 6 + Sensory Deprivation 7.\nLevel 12 leads to Network Effect with Mind Sonar 10 + Mood Stabilization 12 + Psychic Scream 6 OR Mind Sonar 10 + Obscurity 6 + Psychic Scream 6.\nLevel 6 leads to Obscurity with Mood Stabilization 6 + Sensory Deprivation 8 OR Sensory Deprivation 8 + Synaptic Overload 11 OR Sensory Deprivation 8 + Telepathic Shield 8.\nLevel 8 leads to Primal Terror with Synaptic Overload 8.\nLevel 4 leads to Sensory Deprivation.\nLevel 4 leads to Synaptic Overload with Mind Sonar 7.",
+    "description": "With the ability to edit others' thoughts comes the ability to edit your own, removing negative moods to a degree.  You have also learned to do this more subtly on others, calming their anger or assuaging their fears.\n\nWhen used on yourself, this power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n\nLevel 8 leads to Beastmaster.\nLevel 12 leads to Network Effect with Mind Sonar 10 + Mood Stabilization 12 + Psychic Scream 6 OR Mind Sonar 10 + Obscurity 6 + Psychic Scream 6.\nLevel 6 leads to Obscurity with Mood Stabilization 6 + Sensory Deprivation 8 OR Sensory Deprivation 8 + Synaptic Overload 11 OR Sensory Deprivation 8 + Telepathic Shield 8.\nLevel 8 leads to Primal Terror with Synaptic Overload 8.\nLevel 4 leads to Sensory Deprivation.\nLevel 4 leads to Synaptic Overload with Mind Sonar 7.",
     "message": "",
     "valid_targets": [
       "self",
@@ -169,7 +169,7 @@
     "id": "telepathic_blast",
     "type": "SPELL",
     "name": "[\u03a8]Synaptic Overload",
-    "description": "Short-circuit and overwhelm a target's brain, causing extreme damage or death.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.\n\nLevel 11 leads to Obscurity with Mood Stabilization 6 + Sensory Deprivation 8 OR Sensory Deprivation 8 + Synaptic Overload 11 OR Sensory Deprivation 8 + Telepathic Shield 8.\nLevel 8 leads to Primal Terror with Mood Stabilization 8.\nLevel 11 leads to Psychic Scream with Synaptic Overload 11 + Telepathic Shield 5 OR Primal Terror 7 + Telepathic Shield 5.",
+    "description": "Short-circuit and overwhelm a target's brain, causing extreme damage or death.\n\n<color_yellow>This power needs a living mind to seize hold of.</color>  Anything alive will do, even the walking dead, slimes, plants and things from the Nether, but <color_light_gray>robots</color> have none, and <color_light_gray>psi-null</color> creatures and enemy telepaths ward their minds against you.\n\nLevel 11 leads to Obscurity with Mood Stabilization 6 + Sensory Deprivation 8 OR Sensory Deprivation 8 + Synaptic Overload 11 OR Sensory Deprivation 8 + Telepathic Shield 8.\nLevel 8 leads to Primal Terror with Mood Stabilization 8.\nLevel 11 leads to Psychic Scream with Synaptic Overload 11 + Telepathic Shield 5 OR Primal Terror 7 + Telepathic Shield 5.",
     "message": "You assault the mind of your target!",
     "valid_targets": [
       "hostile"
@@ -206,8 +206,8 @@
     "id": "telepathic_animal_mind_control",
     "type": "SPELL",
     "name": "[\u03a8]Beastmaster",
-    "description": "Take control of an animal's mind, forcing it to obey you.  This also works on feral humans.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.\n\n<color_light_green>Pack Leader:</color> once you know this power, every pet you have deals <color_light_green>25%</color> more melee damage.  Pets fighting within 12 tiles of you also gain a compounding <color_light_green>15%</color> for each packmate beyond the first, counting up to 8 pets (x3.33 at 8).  Pets near you also hold their nerve and will not flee until badly wounded.  Pets that wander off will find their way back to your side.  Pets that stray too far break off their hunt and return.  Guns, psionic powers and a few hard-wired abilities are not boosted.\n\nLevel 10 leads to Beast Tamer.\nLevel 8 leads to Mind Control with Mood Stabilization 12 + Primal Terror 5 OR Beastmaster 8 + Mood Stabilization 12 OR Mood Stabilization 12 + Sensory Deprivation 7 OR Obscurity 6 + Primal Terror 5 OR Beastmaster 8 + Obscurity 6 OR Obscurity 6 + Sensory Deprivation 7.",
-    "message": "You reach out to the animal's mind and twist.",
+    "description": "Seize a creature's mind and bend it to your will.  For a few minutes it fights at your side and follows where you lead.\n\n<color_yellow>This power needs a living mind to seize hold of.</color>  Anything alive will do, even the walking dead, slimes, plants and things from the Nether, but <color_light_gray>robots</color> have none, and <color_light_gray>psi-null</color> creatures and enemy telepaths ward their minds against you.\n\n<color_light_green>Pack Leader:</color> once you know this power, every pet you have deals <color_light_green>25%</color> more melee damage.  Pets fighting within 12 tiles of you also gain a compounding <color_light_green>15%</color> for each packmate beyond the first, counting up to 8 pets (x3.33 at 8).  Pets near you also hold their nerve and will not flee until badly wounded.  Pets that wander off will find their way back to your side.  Pets that stray too far break off their hunt and return.  Guns, psionic powers and a few hard-wired abilities are not boosted.\n\nLevel 10 leads to Beast Tamer.",
+    "message": "You reach out to the creature's mind and twist.",
     "valid_targets": [
       "hostile"
     ],
@@ -240,7 +240,7 @@
     "id": "telepathic_confusion",
     "type": "SPELL",
     "name": "[\u03a8]Sensory Deprivation",
-    "description": "Disconnect a target's brain from its senses, leaving it blinded and confused.\n\nLevel 7 leads to Mind Control with Mood Stabilization 12 + Primal Terror 5 OR Beastmaster 8 + Mood Stabilization 12 OR Mood Stabilization 12 + Sensory Deprivation 7 OR Obscurity 6 + Primal Terror 5 OR Beastmaster 8 + Obscurity 6 OR Obscurity 6 + Sensory Deprivation 7.\nLevel 8 leads to Obscurity with Mood Stabilization 6 + Sensory Deprivation 8 OR Sensory Deprivation 8 + Synaptic Overload 11 OR Sensory Deprivation 8 + Telepathic Shield 8.",
+    "description": "Disconnect a target's brain from its senses, leaving it blinded and confused.\n\nLevel 8 leads to Obscurity with Mood Stabilization 6 + Sensory Deprivation 8 OR Sensory Deprivation 8 + Synaptic Overload 11 OR Sensory Deprivation 8 + Telepathic Shield 8.",
     "message": "You lock your target's mind away!",
     "valid_targets": [
       "hostile"
@@ -313,7 +313,7 @@
     "id": "telepathic_fear",
     "type": "SPELL",
     "name": "[\u03a8]Primal Terror",
-    "description": "Use a target's own inner fears against them, paralyzing them with overwhelming terror.  The effect will not last long, but is completely immobilizing while it does, and it leaves a lingering horror behind in the target.\n\nLevel 5 leads to Mind Control with Mood Stabilization 12 + Primal Terror 5 OR Beastmaster 8 + Mood Stabilization 12 OR Mood Stabilization 12 + Sensory Deprivation 7 OR Obscurity 6 + Primal Terror 5 OR Beastmaster 8 + Obscurity 6 OR Obscurity 6 + Sensory Deprivation 7.\nLevel 7 leads to Psychic Scream with Synaptic Overload 11 + Telepathic Shield 5 OR Primal Terror 7 + Telepathic Shield 5.",
+    "description": "Use a target's own inner fears against them, paralyzing them with overwhelming terror.  The effect will not last long, but is completely immobilizing while it does, and it leaves a lingering horror behind in the target.\n\nLevel 7 leads to Psychic Scream with Synaptic Overload 11 + Telepathic Shield 5 OR Primal Terror 7 + Telepathic Shield 5.",
     "message": "You unleash your target's fears.",
     "valid_targets": [
       "hostile"
@@ -351,7 +351,7 @@
     "id": "telepathic_invisibility",
     "type": "SPELL",
     "name": "[\u03a8]Obscurity",
-    "description": "Use a light touch on others' minds to hide your presence.  You will be invisible to the target(s) while the power is in effect.\n\nThis power is <color_red>canceled by engaging in combat</color> with your target.\n\nLevel 6 leads to Mind Control with Mood Stabilization 12 + Primal Terror 5 OR Beastmaster 8 + Mood Stabilization 12 OR Mood Stabilization 12 + Sensory Deprivation 7 OR Obscurity 6 + Primal Terror 5 OR Beastmaster 8 + Obscurity 6 OR Obscurity 6 + Sensory Deprivation 7.\nLevel 6 leads to Network Effect with Mind Sonar 10 + Mood Stabilization 12 + Psychic Scream 6 OR Mind Sonar 10 + Obscurity 6 + Psychic Scream 6.",
+    "description": "Use a light touch on others' minds to hide your presence.  You will be invisible to the target(s) while the power is in effect.\n\nThis power is <color_red>canceled by engaging in combat</color> with your target.\n\nLevel 6 leads to Network Effect with Mind Sonar 10 + Mood Stabilization 12 + Psychic Scream 6 OR Mind Sonar 10 + Obscurity 6 + Psychic Scream 6.",
     "message": "You hide your presence from your enemies.",
     "valid_targets": [
       "hostile"
@@ -422,7 +422,7 @@
     "id": "telepathic_blast_radius",
     "type": "SPELL",
     "name": "[\u03a8]Psychic Scream",
-    "description": "Emit an uncontrolled psychic scream, attacking the mind of anyone nearby.  This power does not distinguish between friend and foe.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.\n\nLevel 6 leads to Network Effect with Mind Sonar 10 + Mood Stabilization 12 + Psychic Scream 6 OR Mind Sonar 10 + Obscurity 6 + Psychic Scream 6.",
+    "description": "Emit an uncontrolled psychic scream, attacking the mind of anyone nearby.  This power does not distinguish between friend and foe.\n\n<color_yellow>This power needs a living mind to seize hold of.</color>  Anything alive will do, even the walking dead, slimes, plants and things from the Nether, but <color_light_gray>robots</color> have none, and <color_light_gray>psi-null</color> creatures and enemy telepaths ward their minds against you.\n\nLevel 6 leads to Network Effect with Mind Sonar 10 + Mood Stabilization 12 + Psychic Scream 6 OR Mind Sonar 10 + Obscurity 6 + Psychic Scream 6.",
     "message": "You unleash a mind-piercing psionic shriek!",
     "valid_targets": [
       "hostile",
@@ -498,8 +498,8 @@
     "id": "telepathic_beast_taming",
     "type": "SPELL",
     "name": "[\u03a8]Beast Tamer",
-    "description": "Perform mental surgery on an animal, making it friendly to you for a much longer duration.  The animal must already be friendly, either naturally or through powers such as Beastmastery, in order to be tamed.  This also works on feral humans.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.",
-    "message": "The animal sniffs at your palm.",
+    "description": "Perform mental surgery on a creature's mind, making it your loyal companion for good.  The creature must already be friendly, either naturally or through Beastmaster, in order to be tamed.\n\n<color_yellow>This power needs a living mind to seize hold of.</color>  Anything alive will do, even the walking dead, slimes, plants and things from the Nether, but <color_light_gray>robots</color> have none, and <color_light_gray>psi-null</color> creatures and enemy telepaths ward their minds against you.",
+    "message": "The creature's mind settles under your hand.",
     "valid_targets": [
       "ally"
     ],
@@ -529,50 +529,10 @@
     "scale_int": true
   },
   {
-    "id": "telepathic_mind_control",
-    "type": "SPELL",
-    "name": "[\u03a8]Mind Control",
-    "description": "Seize control of the target's mind, forcing them to do your bidding.",
-    "message": "You take control of your target's mind!",
-    "valid_targets": [
-      "hostile"
-    ],
-    "spell_class": "TELEPATH",
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "RANDOM_DAMAGE",
-      "RANDOM_DURATION",
-      "NO_HANDS",
-      "NO_LEGS"
-    ],
-    "difficulty": 8,
-    "max_level": 15,
-    "effect": "charm_monster",
-    "damage_type": "PSI",
-    "min_damage": 30,
-    "max_damage": 210,
-    "min_duration": 600,
-    "max_duration": 14950,
-    "min_range": 3,
-    "max_range": 18,
-    "base_energy_cost": 7500,
-    "final_energy_cost": 3500,
-    "energy_increment": -165,
-    "base_casting_time": 120,
-    "final_casting_time": 65,
-    "casting_time_increment": -3.5,
-    "damage_increment": 4.0,
-    "duration_increment": 150.0,
-    "range_increment": 1.0,
-    "energy_source": "STAMINA",
-    "scale_int": true
-  },
-  {
     "id": "telepathic_network",
     "type": "SPELL",
     "name": "[\u03a8]Network Effect",
-    "description": "Forge an unconscious telepathic network between you and nearby allies, allowing you all to send and receive information about nearby dangers and react more quickly in combat.  The network requires at least one ally nearby to be effective.",
+    "description": "Forge an unconscious telepathic network between you and nearby allies, allowing you all to send and receive information about nearby dangers and react more quickly in combat.  The network requires at least one ally nearby to be effective; pets count, and linked pets move faster and dodge and strike more surely.",
     "message": "",
     "valid_targets": [
       "self"

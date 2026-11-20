@@ -646,7 +646,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "description": "Contemplate your powers and improve your ability to overpower the minds of animals.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telepathic_animal_mind_control_knack>",
+    "description": "Contemplate your powers and improve your ability to overpower the minds of other creatures.\n\nPower Difficulty: 2\n\nCurrent Power Level: <u_spell_level:telepathic_animal_mind_control_knack>",
     "difficulty": 0,
     "category": "CC_*",
     "skill_used": "metaphysics"

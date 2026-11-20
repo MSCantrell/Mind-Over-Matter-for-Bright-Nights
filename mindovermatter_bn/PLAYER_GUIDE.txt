@@ -75,7 +75,7 @@ STARTING PROFESSIONS
   Firestarter                         Pyrokinesis      starts PYROMANIA
   Test Subject, Project ONYX LIGHTNING Telekinesis     combat skills
   Government Interrogator (DECEASED)  Telepathy        Speech 6
-  Itzcuauhtli Corps Liaison           Teleportation    15 points, Metaphysics 7
+  Gateway Initiate                    Teleportation    Gateway 3, Metaphysics 2
   Awakening Psion                     random           first crystal certain
   Unwilling Psionic                   random           first crystal certain
 
@@ -87,7 +87,6 @@ SCENARIOS
   * Challenge - Heart of Fire: a raw, barely controlled pyrokinetic. You will
     never gain a second school.
   * Challenge - Mindhunter: something huge and psychic hunts you, all game.
-  * Dimension-Lost: you are a stranded traveler from another Earth.
 
 AWAKENING MID-GAME
   Colored "matrix crystals" turn up in places touched by the Nether and on
@@ -127,6 +126,28 @@ INTELLIGENCE SCALES ALMOST EVERYTHING
   20% softer and costs 20% more. A few capstones cost MORE than a full
   Stamina bar at Int 8 (Crucible, Earthshaker), so you need extra Int, or
   levels, before you can cast them at all.
+
+POWER BOOSTS
+  Some conditions cast your powers as if they were a few levels higher (never
+  past their maximum). Boosts add together:
+    * wielding a matrix crystal of a school you have: +6 to that school,
+    * near a Nether-touched place (labs, portals, crystal fields): +2,
+    * inside the Nether itself (Nether glass, void spider lair): +4,
+    * a Nether Attunement power surge: +3.
+  The boost lasts for the cast only. It lowers the cost and casting time and
+  raises the power's strength, but it never counts toward learning new
+  powers.
+
+CHANNELING MODES
+  Two techniques you can discover through research, switched on and off
+  from the mutations menu (only one at a time):
+    * Extended Channeling: powers take 5x as long to cast (the spell list
+      still shows the normal time), but succeed more easily and build less
+      Nether Attunement. For when nothing is chasing you.
+    * Torrential Channeling: powers hit harder, much harder at high
+      Attunement, but are harder to control, build Attunement faster and
+      trigger its consequences sooner. A Cascade Stone forces it on until
+      the stone wears off.
 
 READING THE NUMBERS IN SECTION 8
   "20 -> 50 damage" means 20 at level 0 and 50 at level 15, at Int 8.
@@ -449,23 +470,28 @@ amount of food. Get ready to turn it on and off to eat.
   One Perfect Shot                   One guaranteed-quality ranged attack:
                                      your next shot does +50% damage and
                                      goes exactly where you aim.
-  Locate Item*                       Name an object ("rope", "9mm") and
-                                     learn the direction and distance of
-                                     the nearest one. Reaches 6 tiles, +2
-                                     per level (36 at 15), through walls;
-                                     one floor up and down from level 5,
-                                     two from 10. Finds more matches as it
-                                     levels. Can't feel inside bags and
-                                     boxes, or in vehicles.
-  Locate Items Thoroughly*           Search your MEMORY of everywhere
-                                     you've been. A clairsentient quietly
-                                     notes what's lying around wherever
-                                     they walk; this searches it, out to
-                                     20 map tiles +10 per level. Results
-                                     come nearest first, with how long
-                                     ago you sensed them (someone may
-                                     have taken it since). Pick one to put
-                                     a note on your map.
+  Locate Items*                      Name an object ("rope", "9mm") and
+                                     recall everywhere you've sensed one.
+                                     A clairsentient quietly notes what's
+                                     lying around within about 3 map tiles
+                                     wherever they go, on every floor from
+                                     basements to rooftops; this searches
+                                     that memory out to 20 map tiles +10
+                                     per level. It only knows places you've
+                                     been near: the game doesn't create a
+                                     town's items until you first get
+                                     close. Results come nearest first,
+                                     with how long ago you sensed them;
+                                     pick one to put a note on your map.
+                                     Takes the game's search shortcuts:
+                                     c:books, m:kevlar, q:hammering,
+                                     k:mechanics, b:m:steel;c:tools, commas
+                                     for "any of", -x to exclude. Not n:
+                                     (notes) or d: (disassembly). Categories
+                                     (c:) are learned as you sense items, so
+                                     an old character's memory fills them
+                                     in over time. Can't feel inside bags
+                                     and boxes, or in vehicles.
   Satellite View                     Reveal a large area of the map: 4
                                      map tiles in every direction at first,
                                      11 mastered. Takes about a minute.
@@ -720,7 +746,9 @@ of zombies will incinerate themselves below you.
   >> TIPS:
 Far Hand grabs all the loot on one tile and brings it to you. This can be a
 great way to get the best thing a crowd just dropped, and use it on the rest
-of the crowd.
+of the crowd. The loot has to fly to you, though: it can't come through walls,
+closed doors, glass or a solid floor, or out of a closed safe or crate. Open
+windows, fences, bars and holes in the floor are fine.
 
 Mindhammer, Wrecking Ball, and Earthshaker can break doors and walls so you
 can get into buildings.
@@ -731,20 +759,43 @@ Wrecking Ball hits a crowd like a grenade.
 -------------------------------------------------------------------------------
  TELEPATHY -- the mind
 -------------------------------------------------------------------------------
-  Control, stealth and support. NOTE: zombies, robots, plants, worms and
-  slimes have no mind, so they are IMMUNE to telepathic attacks. Play
-  telepaths against animals, ferals, humans and Nether things.
+  Control, stealth and support. Telepathy works on ANY living thing:
+  animals, humans, ferals, zombies, slimes, worms, plants, fungi and
+  Nether things. (In DDA the "mindless" were immune; this port drops that.)
+  It does NOT work on:
+    - robots and turrets, which have no mind at all;
+    - psi-null creatures (the anti-psi zombies such as the zombie null and
+      psi void, plus Dementia) and enemy telepaths (advanced feral
+      telepaths, the psychic scientist, the Mi-go telepath, fear deer),
+      which ward their minds.
+  Damage powers do 0 to those ("the shot reflects off its thick hide"),
+  Beastmaster and Beast Tamer bounce off, and Mind Sonar can't see them.
 
   Concentration Trance (C) [start]   Learn faster. Adds +2.5 focus per level
-                                     (+37 at level 15) whenever the game
-                                     works out how much you learn from
-                                     reading, practice or crafting. The
-                                     cost: you're nearsighted, walking takes
-                                     4x as long, and combat cancels it.
-                                     Cast it, then sit down with a book.
-  Mind Sonar (C) [start]*            Periodically sense every thinking mind
-                                     nearby: direction and distance, even
-                                     through walls.
+                                     (+25 at level 10, +37.5 at level 15)
+                                     to the focus the game uses to work out
+                                     skill XP. At 100 focus, level 15 means
+                                     137.5% XP. It works on ALL skill XP
+                                     except Driving and Swimming: reading,
+                                     crafting (main and secondary skills),
+                                     construction, disassembly, repair,
+                                     first aid, butchering, foraging,
+                                     hacking, Speech, Barter and the rest.
+                                     The bonus is a flat add, so it counts
+                                     for more when your focus is low: at 50
+                                     focus, level 15 takes you to 87.5% XP.
+                                     It doesn't refill your focus or slow
+                                     how fast it drains, and it doesn't
+                                     raise power-level XP. The cost: you're
+                                     nearsighted (glasses or contacts fix
+                                     that), walking takes 4x as long, and
+                                     combat cancels it. Cast it, then sit
+                                     down with a book or a crafting queue.
+  Mind Sonar (C) [start]*            Periodically sense every living mind
+                                     nearby (people, animals, zombies...):
+                                     direction, distance and how many are
+                                     hostile, even through walls. Names
+                                     lone NPCs from level 4.
   Telepathic Shield (C)              Protect your mind from psychic attacks.
   Mesmerize                          Put a target in a trance (damage breaks
                                      it). Range 3 -> 19; from mid levels it
@@ -752,9 +803,11 @@ Wrecking Ball hits a crowd like a grenade.
   Mood Stabilization (C)             Clear bad moods (yours); calm others.
   Synaptic Overload                  Massive brain damage to one target:
                                      5 -> 27 damage, range 3 -> 19.
-  Beastmaster                        Control an animal or feral human.
-                                     More pets give a compounding combat
-                                     bonus, up to 8.
+  Beastmaster                        Charm any living creature for a few
+                                     minutes: animal, feral human, even a
+                                     zombie or slime. Beast Tamer makes it
+                                     permanent. More pets give a
+                                     compounding combat bonus, up to 8.
                                      PACK LEADER, the details: knowing
                                      Beastmaster gives every pet +25% melee
                                      damage. Pets within 12 tiles of you
@@ -766,22 +819,24 @@ Wrecking Ball hits a crowd like a grenade.
                                      tiles away break off and return. Guns,
                                      powers and a few hard-wired monster
                                      abilities aren't boosted.
-  Sensory Deprivation                Blind and confuse a target for 2 -> 9
-                                     seconds.
+  Sensory Deprivation                Cut a target off from its senses. It
+                                     is stunned for a few seconds (2 -> 30),
+                                     then wanders blind and deaf (4 -> 20
+                                     seconds) and can't track you by smell.
   Primal Terror                      Paralyze a target with fear. Short,
                                      but total, and it leaves them shaken.
   Obscurity                          Become invisible to chosen minds.
   Psychic Scream                     Hit every mind nearby, friend or foe:
                                      3 -> 18 damage, radius 2 -> 20.
-  Beast Tamer                        Make an already-friendly animal stay
-                                     friendly far longer. Use it on pets
-                                     you got with Beastmaster. Casts in
+  Beast Tamer                        Make an already-friendly creature a
+                                     permanent pet. Use it on anything you
+                                     charmed with Beastmaster. Casts in
                                      about a second.
-  Mind Control      [capstone]       Make a target fight for you.
   Network Effect    [capstone]       Link you and your allies for faster
                                      reactions (needs an ally nearby).
-                                     "Nearby" means a friendly NPC within
-                                     60 tiles on your z-level. You get: +1
+                                     "Nearby" means a friendly NPC or pet
+                                     within 60 tiles on your z-level, so a
+                                     Beastmaster pack is enough. You get: +1
                                      Perception (+4 at level 15); +1 extra
                                      dodge per turn (+2 from level 11); +3
                                      tiles of gun range (+6 at 15); +5.5%
@@ -792,6 +847,9 @@ Wrecking Ball hits a crowd like a grenade.
                                      stamina each. Allies get the level-0
                                      version (+1 Per, +1 dodge, +3 range,
                                      +5% ranged damage, uncanny dodge).
+                                     Linked pets get +10 speed (+25 at
+                                     level 15), +1 dodge and +1 to hit,
+                                     on top of Psi Pack.
 
   >> TIPS:
 Beastmaster is your key to combat. The Dire Wolf is the premier attacker. Any
@@ -941,8 +999,9 @@ They welcome awakened psions; the rest are told to behave.
     nightly with Lua support.
   * "I updated the mod and nothing changed." Quit the game completely and
     relaunch. Loading a save again isn't enough.
-  * "A power did nothing." First check the target. Telepathy can't affect the
-    mindless; some powers need line of sight. If it really fizzled with no
+  * "A power did nothing." First check the target. Telepathy can't affect
+    robots, psi-null creatures or enemy telepaths; some powers need line of
+    sight. If it really fizzled with no
     message, that's a bug worth reporting.
   * "I haven't learned a new power in ages." Check the prerequisites in your
     powers' descriptions. At low Int/Metaphysics the average wait is about

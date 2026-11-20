@@ -802,10 +802,94 @@ return function(mod)
   -- is the binding's frozen copy — mutating the live stack mid-iteration is
   -- undefined.  add_item returns the detached item back on failure (tile
   -- can't take it) -> put those back where they came from.
+  -- Far Hand is a hand, not a teleport (user report 2026-11-19: it yanked
+  -- loot out of closed safes and up through the floor from a lab below).
+  -- The items have to be able to travel from the target to the caster:
+  --   * the target can't be SEALED furniture (closed/locked safe, crate,
+  --     coffin, display case);
+  --   * no terrain on the way that items can't occupy (NOITEM: walls, closed
+  --     doors, glass) unless it's a gap they fit through (SMALL_PASSAGE: open
+  --     windows, empty frames) or over/between (THIN_OBSTACLE: fences, bars);
+  --   * no solid vehicle part (OBSTACLE) on the way;
+  --   * a floor/ceiling is crossed only where there isn't one (NO_FLOOR).
+  -- The path is a 3D line; where it runs exactly between two tiles it is
+  -- tried both ways (halves rounded up, then down), so grazing a corner
+  -- isn't a wall.  Returns nil when clear, else a "what's in the way" phrase.
+  local function item_line(a, b, down)
+    local rnd = down and function(v) return math.ceil(v - 0.5) end or U.round
+    local pts = {}
+    local dx, dy, dz = b.x - a.x, b.y - a.y, b.z - a.z
+    local n = math.max(math.abs(dx), math.abs(dy), math.abs(dz))
+    for i = 0, n do
+      local t = (n == 0) and 0 or i / n
+      pts[#pts + 1] = {
+        x = a.x + rnd(dx * t), y = a.y + rnd(dy * t), z = a.z + rnd(dz * t) }
+    end
+    return pts
+  end
+
+  local function ter_name(map, p)
+    local ok, s = pcall(function() return map:get_ter_at(p):obj():name() end)
+    return ok and s or "something solid"
+  end
+
+  local function line_blocker(map, pts)
+    for i = 1, #pts do
+      local q = pts[i]
+      local p = TripointBubMs.new(q.x, q.y, q.z)
+      if i > 1 and i < #pts then
+        if map:has_ter_flag_at("NOITEM", p)
+            and not map:has_ter_flag_at("SMALL_PASSAGE", p)
+            and not map:has_ter_flag_at("THIN_OBSTACLE", p) then
+          return "the " .. ter_name(map, p)
+        end
+        if map:has_vehicle_part_with_feature_at(p, "OBSTACLE", true) then
+          return "the vehicle"
+        end
+      end
+      local r = pts[i + 1]
+      if r and r.z ~= q.z then
+        -- the gap between floors sits above the lower point
+        local lo = (q.z < r.z) and q or r
+        local up = math.max(q.z, r.z)
+        local hole = TripointBubMs.new(lo.x, lo.y, up)
+        if not map:has_ter_flag_at("NO_FLOOR", hole) then
+          return (q.z < r.z) and "the floor" or "the ceiling"  -- caster's view
+        end
+      end
+    end
+    return nil
+  end
+
+  function U.far_hand_blocker(who, from)
+    local map = gapi.get_map()
+    if map:has_furn_flag_at("SEALED", from) then
+      local ok, s = pcall(function() return map:get_furn_at(from):obj():name() end)
+      return "inside the closed " .. (ok and s or "container"), true
+    end
+    local here = who:get_pos_ms()
+    local a = { x = from.x, y = from.y, z = from.z }
+    local b = { x = here.x, y = here.y, z = here.z }
+    local why = line_blocker(map, item_line(a, b, false))
+    if not why then return nil end
+    if not line_blocker(map, item_line(a, b, true)) then return nil end
+    return why
+  end
+
   function U.pull_items_to(who, from)
     return guarded("pull_items_to", function()
       local map = gapi.get_map()
       local dest = who:get_pos_ms()
+      if map:has_items_at(from) then
+        local why, sealed = U.far_hand_blocker(who, from)
+        if why then
+          U.msg(who, sealed
+            and ("Your far hand can't get at what's " .. why .. ".")
+            or ("Your far hand can't drag anything through " .. why .. "."),
+            MsgType.bad)
+          return true
+        end
+      end
       local frozen = map:get_items_at(from):items()
       local moved = 0
       for _, it in ipairs(frozen) do
@@ -1510,7 +1594,9 @@ return function(mod)
   -- The first OM_SCAN_LOG scans of a session are bracketed in debug.log
   -- ("MoM-BN: om scan") so the log's millisecond timestamps time them; BN's
   -- Lua has no os.clock.
-  local OM_SCAN_LOG = 40
+  -- 0 since 2026-11-20: the freeze is long fixed and the begin/end pairs
+  -- flooded the Lua console (user report).  Raise it to time scans again.
+  local OM_SCAN_LOG = 0
   local om_scans = 0
   local function om_scan(omt, types, range)
     local r = math.floor(range or 0)

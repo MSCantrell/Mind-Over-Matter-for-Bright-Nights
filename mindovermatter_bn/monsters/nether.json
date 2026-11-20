@@ -78,8 +78,7 @@
       "PATH_AVOID_DANGER_1",
       "ACIDPROOF",
       "HARDTOSHOOT",
-      "NOGIB",
-      "PSIPROOF"
+      "NOGIB"
     ],
     "path_settings": {
       "avoid_traps": true

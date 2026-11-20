@@ -339,7 +339,7 @@
       "hostile"
     ],
     "description": {
-      "str": "Possibly stuns and blinds if the player is near the telepath when they die.",
+      "str": "Psychic damage and a brief stun to everything near the telepath when they die.",
       "//~": "NO_I18N"
     },
     "flags": [
@@ -356,6 +356,10 @@
     "min_aoe": 1,
     "max_aoe": 30,
     "aoe_increment": 1,
+    "effect_str": "psi_stunned",
+    "min_duration": 200,
+    "max_duration": 600,
+    "duration_increment": 20,
     "scale_int": true
   },
   {

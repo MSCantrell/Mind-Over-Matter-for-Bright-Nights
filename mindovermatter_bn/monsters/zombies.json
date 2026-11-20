@@ -43,7 +43,6 @@
     "extend": {
       "flags": [
         "FIREPROOF",
-        "PSIPROOF",
         "LIGHTPROOF"
       ]
     },
@@ -138,7 +137,6 @@
     "extend": {
       "flags": [
         "FIREPROOF",
-        "PSIPROOF",
         "LIGHTPROOF"
       ]
     },
@@ -219,7 +217,6 @@
     "extend": {
       "flags": [
         "FIREPROOF",
-        "PSIPROOF",
         "LIGHTPROOF"
       ]
     },
@@ -319,7 +316,6 @@
         "PUSH_MON",
         "PRIORITIZE_TARGETS",
         "FIREPROOF",
-        "PSIPROOF",
         "LIGHTPROOF"
       ]
     },
@@ -348,7 +344,6 @@
     "color": "dark_gray_white",
     "extend": {
       "flags": [
-        "PSIPROOF",
         "LIGHTPROOF"
       ]
     },

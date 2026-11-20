@@ -33,8 +33,7 @@
           "cooldown": 600,
           "monster_message": ""
         }
-      ],
-      "flags": []
+      ]
     },
     "vision_night": 25
   },
@@ -494,9 +493,6 @@
       "flags": [
         "HARDTOSHOOT"
       ]
-    },
-    "delete": {
-      "flags": []
     }
   },
   {

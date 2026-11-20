@@ -628,7 +628,7 @@
     "//": "power ID exists for legacy reasons",
     "type": "SPELL",
     "name": "[\u03a8]Far Hand",
-    "description": "Pick up items at a distance or push them away from you.",
+    "description": "Pick up items at a distance or push them away from you.  Pulled items travel to you through the air, so walls, closed doors, glass, solid floors and sealed containers like locked safes stop them; open windows, fences, bars and holes in the floor don't.",
     "message": "",
     "valid_targets": [
       "self"
@@ -801,7 +801,7 @@
   {
     "type": "SPELL",
     "name": "[\u03a8]Mind Sonar (C)",
-    "description": "You cast your mind outward like a sonar pulse, sweeping the area for the minds of others.  While maintained, you periodically sense every <color_light_green>sapient mind</color> around you \u2014 people and other thinking things \u2014 and learn their <color_light_green>direction and distance</color>, even through walls and in total darkness.  You cannot see them, but you know they are there.  The <color_light_green>range grows</color> as you master the power, and greater mastery <color_light_green>quickens the pulse</color> and lets you pick out <color_light_green>familiar minds by name</color>.\n\nThe walking dead, robots, and other <color_light_gray>mindless</color> things have no mind to sense.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
+    "description": "You cast your mind outward like a sonar pulse, sweeping the area for the minds of others.  While maintained, you periodically sense every <color_light_green>living mind</color> around you \u2014 people, animals, the walking dead, anything alive \u2014 and learn their <color_light_green>direction and distance</color>, even through walls and in total darkness.  You cannot see them, but you know they are there.  The <color_light_green>range grows</color> as you master the power, and greater mastery <color_light_green>quickens the pulse</color> and lets you pick out <color_light_green>familiar minds by name</color>.\n\nThe <color_light_gray>Robots</color> have no mind to sense, and <color_light_gray>psi-null</color> creatures and enemy telepaths stay hidden behind their wards.\n\nThis power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.",
     "message": "",
     "valid_targets": [
       "self"
@@ -905,7 +905,7 @@
   {
     "type": "SPELL",
     "name": "[\u03a8]Synaptic Overload",
-    "description": "Short-circuit and overwhelm a target's brain, causing extreme damage or death.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.",
+    "description": "Short-circuit and overwhelm a target's brain, causing extreme damage or death.\n\n<color_yellow>This power needs a living mind to seize hold of.</color>  Anything alive will do, even the walking dead, slimes, plants and things from the Nether, but <color_light_gray>robots</color> have none, and <color_light_gray>psi-null</color> creatures and enemy telepaths ward their minds against you.",
     "message": "You assault the mind of your target!",
     "valid_targets": [
       "hostile"
@@ -942,8 +942,8 @@
   {
     "type": "SPELL",
     "name": "[\u03a8]Beastmaster",
-    "description": "Take control of an animal's mind, forcing it to obey you.  This also works on feral humans.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.\n\n<color_light_green>Pack Leader:</color> once you know this power, every pet you have deals <color_light_green>25%</color> more melee damage.  Pets fighting within 12 tiles of you also gain a compounding <color_light_green>15%</color> for each packmate beyond the first, counting up to 8 pets (x3.33 at 8).  Pets near you also hold their nerve and will not flee until badly wounded.  Pets that wander off will find their way back to your side.  Pets that stray too far break off their hunt and return.  Guns, psionic powers and a few hard-wired abilities are not boosted.",
-    "message": "You reach out to the animal's mind and twist.",
+    "description": "Seize a creature's mind and bend it to your will.  For a few minutes it fights at your side and follows where you lead.\n\n<color_yellow>This power needs a living mind to seize hold of.</color>  Anything alive will do, even the walking dead, slimes, plants and things from the Nether, but <color_light_gray>robots</color> have none, and <color_light_gray>psi-null</color> creatures and enemy telepaths ward their minds against you.\n\n<color_light_green>Pack Leader:</color> once you know this power, every pet you have deals <color_light_green>25%</color> more melee damage.  Pets fighting within 12 tiles of you also gain a compounding <color_light_green>15%</color> for each packmate beyond the first, counting up to 8 pets (x3.33 at 8).  Pets near you also hold their nerve and will not flee until badly wounded.  Pets that wander off will find their way back to your side.  Pets that stray too far break off their hunt and return.  Guns, psionic powers and a few hard-wired abilities are not boosted.",
+    "message": "You reach out to the creature's mind and twist.",
     "valid_targets": [
       "hostile"
     ],
@@ -1021,7 +1021,7 @@
   {
     "type": "SPELL",
     "name": "[\u03a8]Psychic Scream",
-    "description": "Emit an uncontrolled psychic scream, attacking the mind of anyone nearby.  This power does not distinguish between friend and foe.\n\n<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.",
+    "description": "Emit an uncontrolled psychic scream, attacking the mind of anyone nearby.  This power does not distinguish between friend and foe.\n\n<color_yellow>This power needs a living mind to seize hold of.</color>  Anything alive will do, even the walking dead, slimes, plants and things from the Nether, but <color_light_gray>robots</color> have none, and <color_light_gray>psi-null</color> creatures and enemy telepaths ward their minds against you.",
     "message": "You unleash a mind-piercing psionic shriek!",
     "valid_targets": [
       "hostile",

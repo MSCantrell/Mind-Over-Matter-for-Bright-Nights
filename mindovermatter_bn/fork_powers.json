@@ -179,7 +179,7 @@
     "type": "SPELL",
     "name": "[\u03a8]See Mechanisms",
     "description": "Open your inner eye to the hidden workings of a lock: the pins of a deadbolt, the wards of a padlock, the tumblers turning behind a safe's dial.  Seeing the answer isn't the same as acting on it, though -- picking a lock still takes a lockpick in your hand and a few moments' work, guided so surely it can never fail or trip an alarm.  A dial safe is the one exception: once you've read the wheels inside, your hand alone can turn it the right way the first time -- no tool, no time at all.\n\nAffects one MECHANICAL lock at a time, right next to you: a keyed or deadbolt door, a barred door, a chain gate, a pickable metal door, a mechanical gun safe, or a locked display case -- all of these need a lockpick in hand.  A dial safe needs nothing but your hand.  It has no purchase on electronic locks and card readers -- a circuit has no moving mechanism to see.",
-    "//": "ORIGINAL Bright Nights fork power (NOT in upstream MoM).  Clairsentient utility: guaranteed-success mechanical lockpicking + safecracking, single-target, adjacent-only (2026-08-15 redesign -- the original area-sweep let 'seeing' a lock also silently open it with no tool and no distance limit, which is the exact telekinesis-flavored bug this rewrite removes).  Logic in lua/mom_hooks.lua (cast-marker handler 'mom_cast_clair_see_mechanisms' -> see_mechanisms_pick, which uses gapi.choose_adjacent_highlight to pick ONE target, then branches on the object's REAL BN mechanic, not on ter-vs-furn: anything carrying lockpick_result in the real terrain/furniture JSON -- doors, gates, AND f_gunsafe_ml/f_displaycase -- needs a real LOCKPICK-quality item and a timed ACT_LOCKPICK-typed Lua activity; f_safe_l is the one exception, the only furniture using the separate dial-cracking examine_action, and resolves instantly with no tool).  2026-08-17: added t_door_metal_pickable/t_door_metal_interior_locked (the military-outpost-style pickable metal doors were missing entirely) and moved f_gunsafe_ml/f_displaycase out of the no-tool branch into the lockpick branch, both corrections found by auditing every terrain/furniture lockpick_result in CBN/data/json against this table -- t_door_metal_locked was ALSO removed, despite the name, because it has no lockpick_result at all (electronic, already the MOM_HACK bridge's target).  BN can't run map terrain/furniture edits from spell JSON, so the locked->unlocked remap stays a hardcoded table mirroring each object's own lockpick_result (f_safe_l uses its pry/oxytorch result f_safe_o instead, since it has no lockpick_result).  Electronic locks are deliberately left to the Electrokinetic's MOM_HACK bridge -- clean path separation.  Single-level power: max_level 1, since neither branch has anything left for mastery to scale once learned.  Follows the circuit_sense/nogozone fork template otherwise: target_attack applies a mom_cast_* marker (EFFECT_LUA_ON_ADDED), STAMINA cost, scale_int, no magic_type.",
+    "//": "ORIGINAL Bright Nights fork power (NOT in upstream MoM).  Clairsentient utility: guaranteed-success mechanical lockpicking + safecracking, single-target, adjacent-only (2026-08-15 redesign -- the original area-sweep let 'seeing' a lock also silently open it with no tool and no distance limit, which is the exact telekinesis-flavored bug this rewrite removes).  Logic in lua/mom_hooks.lua (cast-marker handler 'mom_cast_clair_see_mechanisms' -> see_mechanisms_pick, which uses gapi.choose_adjacent_highlight to pick ONE target, then branches on the object's REAL BN mechanic, not on ter-vs-furn: anything carrying lockpick_result in the real terrain/furniture JSON -- doors, gates, AND f_gunsafe_ml/f_displaycase -- needs a real LOCKPICK-quality item and a timed ACT_LOCKPICK-typed Lua activity; f_safe_l is the one exception, the only furniture using the separate dial-cracking examine_action, and resolves instantly with no tool).  2026-08-17: added t_door_metal_pickable/t_door_metal_interior_locked (the military-outpost-style pickable metal doors were missing entirely) and moved f_gunsafe_ml/f_displaycase out of the no-tool branch into the lockpick branch, both corrections found by auditing every terrain/furniture lockpick_result in CBN/data/json against this table -- t_door_metal_locked was ALSO removed, despite the name, because it has no lockpick_result at all (electronic, already the MOM_HACK bridge's target).  BN can't run map terrain/furniture edits from spell JSON, so the locked->unlocked remap stays a hardcoded table mirroring each object's own lockpick_result (f_safe_l uses its pry/oxytorch result f_safe_o instead, since it has no lockpick_result).  Electronic locks are deliberately left to the Electrokinetic's MOM_HACK bridge -- clean path separation.  2026-11-19: the Lua table in mom_hooks.lua never received the 08-17 audit (only this text did), so pickable metal doors (Electronics Stores) failed with 'no mechanical lock'; the code now matches this roster (t_door_metal_locked dropped, gun safe/display case need a lockpick).  Single-level power: max_level 1, since neither branch has anything left for mastery to scale once learned.  Follows the circuit_sense/nogozone fork template otherwise: target_attack applies a mom_cast_* marker (EFFECT_LUA_ON_ADDED), STAMINA cost, scale_int, no magic_type.",
     "message": "",
     "valid_targets": [
       "self"
@@ -219,59 +219,11 @@
     ]
   },
   {
-    "id": "clair_locate_item",
-    "type": "SPELL",
-    "name": "[\u03a8]Locate Item",
-    "description": "Hold an object firmly in your mind -- a wrench, a can of beans, a coil of rope -- and feel for the nearest one.  Your senses ripple outward through walls and floors until they snag on it, and you know which way it lies and how far.\n\nName what you are looking for when you cast.  It matches the item's name the way your own search does, so \"rope\" finds any rope and \"9mm\" any 9mm ammunition.  Reaches <color_yellow>6 tiles, +2 per level</color> (36 at level 15); from level 5 it also reaches one floor up and down, and from level 10 two.  You learn the direction and distance of the nearest match, and of more matches as you improve.\n\nIt feels objects lying loose or stored in furniture, but not what is packed inside bags and boxes, nor anything stowed in a vehicle.\n\nLevel 8 leads to Locate Items Thoroughly.",
-    "//": "ORIGINAL Bright Nights fork power (2026-11-10), not upstream MoM.  Clairsentient tier-1 item finding: live scan of the reality bubble (Lua's map can't see past it -- the C++ mapbuffer isn't bound).  Logic in lua/mom_locate.lua (cast marker mom_cast_clair_locate_item -> prompt for a name, substring match on tname like the V-menu filter).  Learned via gen_learn_map FORK_LEARN_OVERRIDES.",
-    "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "spell_class": "CLAIRSENTIENT",
-    "skill": "metaphysics",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_EXPLOSION_VFX"
-    ],
-    "difficulty": 3,
-    "max_level": 15,
-    "effect": "target_attack",
-    "effect_str": "mom_cast_clair_locate_item",
-    "min_duration": 100,
-    "max_duration": 100,
-    "base_energy_cost": 2500,
-    "final_energy_cost": 1000,
-    "energy_increment": -100.0,
-    "base_casting_time": 200,
-    "final_casting_time": 100,
-    "casting_time_increment": -7.0,
-    "energy_source": "STAMINA",
-    "scale_int": true
-  },
-  {
-    "type": "effect_type",
-    "id": "mom_cast_clair_locate_item",
-    "//": "Cast marker: applied to the caster on cast; lua/mom_locate.lua's effect_added handler runs the live item sense, then consumes the marker.  Same shape as the other mom_cast_* markers.",
-    "name": [
-      ""
-    ],
-    "desc": [
-      ""
-    ],
-    "max_intensity": 1,
-    "flags": [
-      "EFFECT_LUA_ON_ADDED"
-    ]
-  },
-  {
     "id": "clair_locate_items_thoroughly",
     "type": "SPELL",
-    "name": "[\u03a8]Locate Items Thoroughly",
-    "description": "A Clairsentient's mind never really stops listening.  Every place you have passed through has left an impression of what was lying there, and with practice you can finally search that memory: name an object, and recall every place you have sensed one.\n\nCasting first sweeps everything around you (your floor and the floors above and below), then searches your memory of places up to <color_yellow>20 map tiles away, +10 per level</color>.  Results are listed nearest first, with how long ago you sensed each one -- someone may have taken it since.  Choose a result to mark it on your map.\n\nYour mind has been gathering these impressions since you awakened as a Clairsentient, from about one map tile around wherever you go.  Like Locate Item, it does not feel what is packed inside bags and boxes, nor anything stowed in a vehicle.",
-    "//": "ORIGINAL Bright Nights fork power (2026-11-10), not upstream MoM.  Clairsentient tier-2 item finding: queries the passive item memory lua/mom_locate.lua keeps for every CLAIRSENTIENT avatar (per-OMT interned itype lists in game.mod_storage, since Lua can't read unloaded submaps).  Cast marker mom_cast_clair_locate_items_thoroughly.  Learned via gen_learn_map FORK_LEARN_OVERRIDES.",
+    "name": "[\u03a8]Locate Items",
+    "description": "A Clairsentient's mind never really stops listening.  Everything that comes within reach of your senses leaves an impression of what was lying there, and with practice you can search that memory: name an object, and recall every place you have sensed one.\n\nName what you are looking for when you cast.  It matches the item's name the way your own search does, so \"rope\" finds any rope and \"9mm\" any 9mm ammunition, and it understands the same shortcuts: c: for category (\"c:books\"), m: for material (\"m:kevlar\"), q: for tool quality (\"q:hammering\"), k: for the skill a book teaches, b: for both of two terms (\"b:m:steel;c:tools\"), commas for any of several, and a leading - to exclude.  It can't search item notes (n:) or disassembly parts (d:).  Casting first sweeps everything around you, from the deepest basement to the rooftops, then searches your memory of places up to <color_yellow>20 map tiles away, +10 per level</color>.  Results are listed nearest first, with how long ago you sensed each one -- someone may have taken it since.  Choose a result to mark it on your map.\n\nYour mind has been gathering these impressions since you awakened as a Clairsentient, from about three map tiles around wherever you go, on every floor above and below you.  It can only remember places you have actually been near.  It does not feel what is packed inside bags and boxes, nor anything stowed in a vehicle.",
+    "//": "ORIGINAL Bright Nights fork power (2026-11-10), not upstream MoM.  The Clairsentient item finder: queries the passive item memory lua/mom_locate.lua keeps for every CLAIRSENTIENT avatar (per-OMT interned itype lists in game.mod_storage, since Lua can't read unloaded submaps).  Was 'Locate Items Thoroughly', tier 2 after the live-scan Locate Item; merged into one power 2026-11-18 (user: only the big one is worth training).  Id kept for save compatibility.  Cast marker mom_cast_clair_locate_items_thoroughly.",
     "message": "",
     "valid_targets": [
       "self"
@@ -284,7 +236,7 @@
       "NO_LEGS",
       "NO_EXPLOSION_VFX"
     ],
-    "difficulty": 6,
+    "difficulty": 4,
     "max_level": 15,
     "effect": "target_attack",
     "effect_str": "mom_cast_clair_locate_items_thoroughly",

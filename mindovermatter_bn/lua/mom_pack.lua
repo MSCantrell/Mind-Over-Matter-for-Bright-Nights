@@ -9,9 +9,11 @@
 --     near pets:  mult = 1.25 * 1.15^(min(n, 8) - 1)    (n = near pets; 8 pets = x3.33)
 --     other pets: mult = 1.25                            (still in the bubble)
 -- Applies to every pet however it was won (Beastmaster, Beast Tamer, vanilla
--- taming, a temporary charm), i.e. any monster with friendly ~= 0.  Mindless
--- things (PSIPROOF: robots, zombies, ...) and telepathy-immune monsters are
--- left out -- there is no mind there to guide, matching the rest of the school.
+-- taming, a temporary charm), i.e. any monster with friendly ~= 0.  PSIPROOF
+-- things (robots and psi-warded foes; since 2026-11-16 zombies, slimes and
+-- other living things no longer carry it) and telepathy-immune monsters are
+-- left out -- there is no reachable mind to guide, matching the rest of the
+-- school.
 --
 -- Mechanism: BN has no damage-multiplier hook for monster melee.  It DOES read
 -- effect bash_mod / cut_mod into Creature::bash_bonus / cut_bonus every turn
@@ -141,6 +143,7 @@ return function(mod)
     if mon:has_effect(IMMUNE_EID) then return false end
     return true
   end
+  P.is_pack_pet = is_pack_pet  -- also Network Effect's pet test (mom_eoc.lua)
 
   local function set_bonus(mon, eid, amount)
     local v = math.floor(amount + 0.5)

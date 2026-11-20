@@ -106,5 +106,37 @@
         1
       ]
     }
+  },
+  {
+    "type": "effect_type",
+    "id": "mom_network_pack",
+    "rating": "good",
+    "show_in_info": true,
+    "max_intensity": 16,
+    "max_duration": "10 minutes",
+    "//": "HAND-AUTHORED (2026-11-18). Network Effect on a pet (lua/mom_eoc.lua link_pets). Monsters can't hold the player's carrier traits, so pets get speed/dodge/hit instead. Intensity = caster's Network Effect level + 1: speed +10 at level 0, +1 per level (+25 at 15); dodge +1 and to-hit +1 flat.",
+    "name": [
+      "Telepathic Network"
+    ],
+    "desc": [
+      "This creature shares a telepathic link with its pack, reacting to danger before it arrives."
+    ],
+    "remove_message": "",
+    "base_mods": {
+      "speed_mod": [
+        10
+      ],
+      "dodge_mod": [
+        1
+      ],
+      "hit_mod": [
+        1
+      ]
+    },
+    "scaling_mods": {
+      "speed_mod": [
+        1
+      ]
+    }
   }
 ]

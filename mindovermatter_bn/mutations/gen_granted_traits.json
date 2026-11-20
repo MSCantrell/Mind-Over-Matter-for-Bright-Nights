@@ -249,33 +249,6 @@
   },
   {
     "type": "mutation",
-    "id": "FIFTH_SUN_CBM_INTERFACE",
-    "name": {
-      "str": "Tonallichicahualizmeya"
-    },
-    "points": 0,
-    "description": "You have a matrix in your central nervous system that acts as a universal control and installation bus for compact bionic modules.",
-    "valid": false,
-    "purifiable": false
-  },
-  {
-    "type": "mutation",
-    "id": "FIFTH_SUN_PEOPLE",
-    "name": {
-      "str": "Fifth Sun People"
-    },
-    "points": 0,
-    "description": "You were born in the \u0112xc\u0101n Tlaht\u014dl\u014dy\u0101n, maybe on Tlalticpactli, perhaps even in An\u00e1huac, or maybe on one of the colony worlds like Demeter or Yathrib or T\u00e0i Su\u00ec.  You enlisted in the Imperial Navy for your own reasons.  Perhaps you are a scion of the Huey Calpulli following in your ancestors' footsteps, or perhaps you are one of the m\u0101c\u0113hualtin seeking the social benefits of a completed tour of military service.  Regardless, now you are here, in the ashes of a dying world, and have to find a way to survive.",
-    "valid": false,
-    "purifiable": false,
-    "flags": [
-      "HERITAGE"
-    ],
-    "//": "Profession ~= to a marker trait like this",
-    "profession": true
-  },
-  {
-    "type": "mutation",
     "id": "FORGETFUL",
     "name": {
       "str": "Forgetful"
@@ -478,7 +451,7 @@
       "str": "Extended Channeling"
     },
     "points": 0,
-    "description": "You can take more time and care in channeling your powers.  It will take 5x as long to evoke them, but it will be much easier to activate them and you will be less likely to gain Nether Attunement while doing so.",
+    "description": "You can take more time and care in channeling your powers.  It will take 5x as long to evoke them, but it will be much easier to activate them and you will be less likely to gain Nether Attunement while doing so.  (The spell list still shows each power's normal casting time; the extra time passes before the power takes effect.)",
     "active": true,
     "valid": false,
     "purifiable": false

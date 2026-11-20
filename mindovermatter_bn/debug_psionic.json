@@ -564,10 +564,6 @@
         "level": 15
       },
       {
-        "id": "telepathic_mind_control",
-        "level": 15
-      },
-      {
         "id": "telepathic_mind_sense",
         "level": 15
       },
@@ -769,42 +765,6 @@
           },
           {
             "item": "alien_tree_1_fruit",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "bio_cameleoflage_fifth_sun",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "bio_dangersight_eyes_non_fifth_sun",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "bio_dangersight_eyes_standard",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "bio_metabolics_fifth_sun",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "bio_physical_buffs_fifth_sun",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "bio_power_storage_fifth_sun",
             "custom-flags": [
               "no_auto_equip"
             ]
@@ -1020,12 +980,6 @@
             ]
           },
           {
-            "item": "holy_symbol_fifth_sun",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
             "item": "id_science_visitor_phavian",
             "custom-flags": [
               "no_auto_equip"
@@ -1051,78 +1005,6 @@
           },
           {
             "item": "item_photokinetic_radio_on",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "itzcuauhtli_boots",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "itzcuauhtli_cape",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "itzcuauhtli_combat_shirt",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "itzcuauhtli_hat",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "itzcuauhtli_holster",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "itzcuauhtli_holster_m12",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "itzcuauhtli_jacket_army_modern",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "itzcuauhtli_pants",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "itzcuauhtli_pants_army",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "itzcuauhtli_tunic",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "itzcuauhtli_tunic_jaguar",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "itzcuauhtli_wrist_computer",
             "custom-flags": [
               "no_auto_equip"
             ]
@@ -1536,90 +1418,6 @@
             ]
           },
           {
-            "item": "mom_fifth_sun_eagle_tac_helmet",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_fifth_sun_eagle_tac_helmet_on",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_fifth_sun_standard_body_armor",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_fifth_sun_standard_body_armor_non_fifth_sun",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_fifth_sun_standard_body_armor_non_fifth_sun_on",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_fifth_sun_standard_body_armor_on",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_fifth_sun_stungun_ammo",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_fifth_sun_stungun_ammo_bootleg",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_fifth_sun_stungun_mag",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_fifth_sun_stungun_pistol",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_fusion_ammo",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_fusion_ammo_bootleg",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_fusion_mag",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_fusion_pistol",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
             "item": "mom_journal_biokinesis",
             "custom-flags": [
               "no_auto_equip"
@@ -1663,30 +1461,6 @@
           },
           {
             "item": "mom_journal_teleportation",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_lightning_rifle",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_lightning_rifle_ammo",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_lightning_rifle_ammo_bootleg",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "mom_lightning_rifle_mag",
             "custom-flags": [
               "no_auto_equip"
             ]
@@ -1945,12 +1719,6 @@
           },
           {
             "item": "pyrokinetic_torch_weld",
-            "custom-flags": [
-              "no_auto_equip"
-            ]
-          },
-          {
-            "item": "quest_starter_note_fifth_sun_cuachic",
             "custom-flags": [
               "no_auto_equip"
             ]

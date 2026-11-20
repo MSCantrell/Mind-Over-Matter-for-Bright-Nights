@@ -95,30 +95,5 @@
     "fire_resist": 4,
     "bullet_resist": 4,
     "elec_resist": 0
-  },
-  {
-    "type": "material",
-    "id": "fifth_sun_antiballistic_cloth",
-    "name": "ichcayolli",
-    "//": "meaning cotton seed",
-    "density": 1.2,
-    "specific_heat_liquid": 0.82,
-    "specific_heat_solid": 0.45,
-    "latent_heat": 273,
-    "chip_resist": 20,
-    "dmg_adj": [
-      "ripped",
-      "torn",
-      "shredded",
-      "tattered"
-    ],
-    "bash_dmg_verb": "ripped",
-    "cut_dmg_verb": "cut",
-    "bash_resist": 1.5,
-    "cut_resist": 2,
-    "acid_resist": 6,
-    "fire_resist": 2,
-    "bullet_resist": 5,
-    "elec_resist": 0
   }
 ]

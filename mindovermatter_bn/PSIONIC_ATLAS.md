@@ -29,7 +29,7 @@ Reading the trees:
 - [Electrokinesis](#electrokinesis) — 16 powers
 - [Photokinesis](#photokinesis) — 20 powers
 - [Clairsentience](#clairsentience) — 18 powers
-- [Telepathy](#telepathy) — 14 powers
+- [Telepathy](#telepathy) — 13 powers
 - [Teleportation](#teleportation) — 20 powers
 
 ---
@@ -468,7 +468,7 @@ graph TD
 
 *Reach into other minds — to read, soothe, deceive, or shatter them.*
 
-**14** powers · **2** known at start · **12** trainable
+**13** powers · **2** known at start · **11** trainable
 
 **Foundations:** Concentration Trance (C) · Mind Sonar (C)
 
@@ -483,7 +483,6 @@ graph TD
   n_telepathic_fear["Primal Terror"]:::power
   n_telepathic_invisibility["Obscurity"]:::power
   n_telepathic_mesmerize["Mesmerize"]:::power
-  n_telepathic_mind_control["Mind Control"]:::apex
   n_telepathic_mind_sense["Mind Sonar (C) ◆"]:::start
   n_telepathic_morale["Mood Stabilization (C)"]:::power
   n_telepathic_network["Network Effect"]:::apex
@@ -504,11 +503,6 @@ graph TD
   n_telepathic_blast -.->|L11| n_telepathic_invisibility
   n_telepathic_shield -.->|L8| n_telepathic_invisibility
   n_telepathic_mind_sense -->|L6| n_telepathic_mesmerize
-  n_telepathic_animal_mind_control -.->|L8| n_telepathic_mind_control
-  n_telepathic_confusion -.->|L7| n_telepathic_mind_control
-  n_telepathic_morale -.->|L12| n_telepathic_mind_control
-  n_telepathic_invisibility -.->|L6| n_telepathic_mind_control
-  n_telepathic_fear -.->|L5| n_telepathic_mind_control
   n_telepathic_mind_sense -->|L5| n_telepathic_morale
   n_telepathic_concentration -->|L6| n_telepathic_morale
   n_telepathic_mind_sense -->|L10| n_telepathic_network

@@ -183,22 +183,6 @@
   },
   {
     "type": "json_flag",
-    "id": "FIFTH_SUN_TECHNOLOGY",
-    "//": "DDA: XEDRA/Fifth Sun artifact classification. Inert marker.",
-    "context": [
-      "GENERIC",
-      "TOOL",
-      "ARMOR",
-      "TOOL_ARMOR",
-      "COMESTIBLE",
-      "AMMO",
-      "GUN",
-      "GUNMOD",
-      "MAGAZINE"
-    ]
-  },
-  {
-    "type": "json_flag",
     "id": "INTEGRATED",
     "//": "DDA: item integrated into another (e.g. mounted/bionic). Inert marker.",
     "context": [

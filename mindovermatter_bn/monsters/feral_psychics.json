@@ -1566,8 +1566,7 @@
       ],
       "flags": [
         "CLIMBS",
-        "HARDTOSHOOT",
-        "PSIPROOF"
+        "HARDTOSHOOT"
       ]
     }
   },
@@ -1680,8 +1679,7 @@
       ],
       "flags": [
         "CLIMBS",
-        "HARDTOSHOOT",
-        "PSIPROOF"
+        "HARDTOSHOOT"
       ]
     }
   },
@@ -1819,8 +1817,7 @@
       ],
       "flags": [
         "CLIMBS",
-        "HARDTOSHOOT",
-        "PSIPROOF"
+        "HARDTOSHOOT"
       ]
     }
   }

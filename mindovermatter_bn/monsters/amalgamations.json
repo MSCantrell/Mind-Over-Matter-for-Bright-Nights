@@ -116,10 +116,7 @@
         "monster_message": "%1$s waves its three appendages in the air."
       }
     ],
-    "tracking_distance": 8,
-    "extend": {
-      "flags": []
-    }
+    "tracking_distance": 8
   },
   {
     "type": "MONSTER",
@@ -153,9 +150,6 @@
     ],
     "vision_day": 45,
     "tracking_distance": 8,
-    "extend": {
-      "flags": []
-    },
     "vision_night": 45
   },
   {

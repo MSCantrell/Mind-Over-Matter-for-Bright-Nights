@@ -18,7 +18,6 @@
       "practice_telepathic_fear",
       "practice_telepathic_scream",
       "practice_telepathic_beast_taming",
-      "practice_telepathic_mind_control",
       "practice_telepathic_network"
     ],
     "subcategory": "CSC_PRACTICE_METAPHYSICS"
@@ -293,7 +292,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "description": "Contemplate your powers and improve your ability to overpower the minds of animals.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:telepathic_animal_mind_control>",
+    "description": "Contemplate your powers and improve your ability to overpower the minds of other creatures.\n\nPower Difficulty: 4\n\nCurrent Power Level: <u_spell_level:telepathic_animal_mind_control>",
     "difficulty": 0,
     "category": "CC_*",
     "skill_used": "metaphysics"
@@ -518,52 +517,7 @@
       "NO_BENCH",
       "NO_ENCHANTMENT"
     ],
-    "description": "Contemplate your powers and improve your ability to control animals over the long term.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:telepathic_beast_taming>",
-    "difficulty": 0,
-    "category": "CC_*",
-    "skill_used": "metaphysics"
-  },
-  {
-    "type": "recipe",
-    "result": "practice",
-    "id_suffix": "telepathic_mind_control",
-    "nested_name": "contemplation: mind control",
-    "time": "0 s",
-    "tools": [
-      [
-        [
-          "matrix_crystal_drained",
-          -1
-        ],
-        [
-          "black_nether_crystal_pseudo_tool",
-          -1
-        ],
-        [
-          "matrix_crystal_telepathy",
-          -1
-        ]
-      ]
-    ],
-    "autolearn": false,
-    "components": [
-      [
-        [
-          "matrix_crystal_telepath_dust",
-          1
-        ]
-      ]
-    ],
-    "subcategory": "CSC_*_NESTED",
-    "flags": [
-      "SECRET",
-      "BLIND_EASY",
-      "NO_MANIP",
-      "AFFECTED_BY_PAIN",
-      "NO_BENCH",
-      "NO_ENCHANTMENT"
-    ],
-    "description": "Contemplate your powers and improve your domination of others' minds.\n\nPower Difficulty: 8\n\nCurrent Power Level: <u_spell_level:telepathic_mind_control>",
+    "description": "Contemplate your powers and improve your ability to bind creatures to you for good.\n\nPower Difficulty: 7\n\nCurrent Power Level: <u_spell_level:telepathic_beast_taming>",
     "difficulty": 0,
     "category": "CC_*",
     "skill_used": "metaphysics"

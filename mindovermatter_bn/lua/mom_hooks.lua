@@ -2224,7 +2224,34 @@ return function(mod)
   end
 
   -- band: 1 = adjacent, 2 = close, 3 = nearby, 4 = distant
-  local SONAR_BANDWORD = { [2] = "close by", [3] = "nearby", [4] = "far off" }
+  local function sonar_distance(band)
+    if band == 1 then return locale.gettext("right beside you") end
+    if band == 2 then return locale.gettext("close by") end
+    if band == 4 then return locale.gettext("far off") end
+    return locale.gettext("nearby")
+  end
+
+  local function sonar_direction(dir, dz)
+    if dir == "right here" then
+      if dz < 0 then return locale.gettext("directly below you") end
+      if dz > 0 then return locale.gettext("directly above you") end
+      return locale.gettext("right here")
+    end
+    local directions = {
+      north = locale.pgettext("mind sonar direction", "north"),
+      south = locale.pgettext("mind sonar direction", "south"),
+      east = locale.pgettext("mind sonar direction", "east"),
+      west = locale.pgettext("mind sonar direction", "west"),
+      northeast = locale.pgettext("mind sonar direction", "northeast"),
+      northwest = locale.pgettext("mind sonar direction", "northwest"),
+      southeast = locale.pgettext("mind sonar direction", "southeast"),
+      southwest = locale.pgettext("mind sonar direction", "southwest"),
+    }
+    local label = directions[dir]
+    if dz < 0 then return string.format(locale.gettext("%s and below"), label) end
+    if dz > 0 then return string.format(locale.gettext("%s and above"), label) end
+    return label
+  end
   local function sonar_band(d)
     if d <= 1 then return 1 elseif d <= 5 then return 2
     elseif d <= 12 then return 3 else return 4 end
@@ -2268,13 +2295,12 @@ return function(mod)
           local d = U.dist(origin, p)
           if d <= R then
             local dir = sonar_compass(p.x - origin.x, p.y - origin.y)
-            if p.z < origin.z then dir = dir .. " and below"
-            elseif p.z > origin.z then dir = dir .. " and above" end
+            local dz = p.z < origin.z and -1 or (p.z > origin.z and 1 or 0)
             local bnd = sonar_band(d)
-            local key = dir .. "|" .. bnd
+            local key = dir .. "|" .. dz .. "|" .. bnd
             local g = groups[key]
             if not g then
-              g = { count = 0, hostile = 0, dir = dir, band = bnd,
+              g = { count = 0, hostile = 0, dir = dir, dz = dz, band = bnd,
                     name = nil, named = 0 }
               groups[key] = g
               order[#order + 1] = { key = key, d = d }
@@ -2295,36 +2321,35 @@ return function(mod)
       end
       if #order == 0 then
         gapi.add_msg(MsgType.info,
-          "You cast your mind outward, but sense no other minds nearby.")
+          locale.gettext("You cast your mind outward, but sense no other minds nearby."))
         return
       end
       table.sort(order, function(a, b) return a.d < b.d end)
       for _, e in ipairs(order) do
         local g = groups[e.key]
-        local who
-        if g.count == 1 and g.name and g.named == 1 then
-          who = g.name .. "'s mind"
-        elseif g.count == 1 then
-          who = "a mind"
-        else
-          who = tostring(g.count) .. " minds"
-        end
-        local where
-        if g.dir == "right here" then
-          where = " right beside you"
-        elseif g.band == 1 then
-          where = " right beside you, to the " .. g.dir
-        else
-          where = " to the " .. g.dir .. ", " .. (SONAR_BANDWORD[g.band] or "nearby")
-        end
         local qualifier = ""
         if g.hostile > 0 then
-          if g.count == 1 then qualifier = " (hostile)"
-          elseif g.hostile == g.count then qualifier = " (all hostile)"
-          else qualifier = " (" .. g.hostile .. " hostile)" end
+          if g.count == 1 then qualifier = locale.gettext(" It is hostile.")
+          elseif g.hostile == g.count then qualifier = locale.gettext(" All of them are hostile.")
+          else
+            qualifier = string.format(locale.vgettext(
+              " %d of them is hostile.", " %d of them are hostile.", g.hostile), g.hostile)
+          end
         end
-        gapi.add_msg(g.hostile > 0 and MsgType.warning or MsgType.info,
-          "You sense " .. who .. where .. qualifier .. ".")
+        local direction = sonar_direction(g.dir, g.dz)
+        local distance = sonar_distance(g.band)
+        local text
+        if g.count == 1 and g.name and g.named == 1 then
+          text = string.format(
+            locale.gettext("You sense a mind: %s. Direction: %s. Distance: %s.%s"),
+            g.name, direction, distance, qualifier)
+        else
+          text = string.format(locale.vgettext(
+            "You sense %d mind. Direction: %s. Distance: %s.%s",
+            "You sense %d minds. Direction: %s. Distance: %s.%s", g.count),
+            g.count, direction, distance, qualifier)
+        end
+        gapi.add_msg(g.hostile > 0 and MsgType.warning or MsgType.info, text)
       end
     end)
   end

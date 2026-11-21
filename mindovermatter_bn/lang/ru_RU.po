@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mindovermatter_bn\n"
-"POT-Creation-Date: 2026-10-31 17:41+0300\n"
+"POT-Creation-Date: 2026-11-13 21:31+0300\n"
 "Last-Translator: midgardormr <midgardormr@gmail.com>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -203,6 +203,10 @@ msgstr "монотонный гул"
 msgid "chill air"
 msgstr "прохладный воздух"
 
+#: fields.json
+msgid "settling force"
+msgstr "оседающая сила"
+
 #. ~ info for JSON flag 'SINGLE_USE'
 #: flags_psionic.json
 msgid "This item is consumed on use."
@@ -370,6 +374,48 @@ msgstr ""
 "За один раз способность действует на один МЕХАНИЧЕСКИЙ замок прямо рядом с вами: на двери с обычным замком или засовом, решётчатой двери, воротах из сетки-рабицы, металлической двери, замок которой можно вскрыть отмычкой, оружейном сейфе с механическим замком или запертой витрине. Во всех этих случаях нужна отмычка в руке. Для сейфа с кодовым дисковым замком достаточно одной руки. На электронные замки и считыватели карт способность не действует: в электрической схеме нет движущегося механизма, который можно было бы увидеть."
 
 #: fork_powers.json
+msgid "[Ψ]Locate Item"
+msgstr "[Ψ]Поиск предмета"
+
+#. ~ Description for [Ψ]Locate Item
+#: fork_powers.json
+msgid ""
+"Hold an object firmly in your mind -- a wrench, a can of beans, a coil of rope -- and feel for the nearest one.  Your senses ripple outward through walls and floors until they snag on it, and you know which way it lies and how far.\n"
+"\n"
+"Name what you are looking for when you cast.  It matches the item's name the way your own search does, so \"rope\" finds any rope and \"9mm\" any 9mm ammunition.  Reaches <color_yellow>6 tiles, +2 per level</color> (36 at level 15); from level 5 it also reaches one floor up and down, and from level 10 two.  You learn the direction and distance of the nearest match, and of more matches as you improve.\n"
+"\n"
+"It feels objects lying loose or stored in furniture, but not what is packed inside bags and boxes, nor anything stowed in a vehicle.\n"
+"\n"
+"Level 8 leads to Locate Items Thoroughly."
+msgstr ""
+"Сосредоточьтесь на образе предмета — гаечного ключа, банки фасоли, мотка верёвки — и почувствуйте ближайший такой предмет. Ваше восприятие расходится волнами сквозь стены и перекрытия, пока не зацепится за него, открывая направление и расстояние.\n"
+"\n"
+"При использовании способности укажите, что ищете. Название предмета сопоставляется с запросом так же, как при обычном поиске: «верёвка» найдёт любую верёвку, а «9 мм» — любые боеприпасы калибра 9 мм. Дальность — <color_yellow>6 клеток, +2 за уровень</color> (36 на 15-м уровне); с 5-го уровня поиск охватывает также один этаж сверху и снизу, а с 10-го — два. Вы узнаёте направление и расстояние до ближайшего совпадения, а с развитием способности — и до других.\n"
+"\n"
+"Способность ощущает предметы, лежащие отдельно или хранящиеся в мебели, но не содержимое сумок, коробок и транспорта.\n"
+"\n"
+"На 8-м уровне открывается «Углублённый поиск предметов»."
+
+#: fork_powers.json
+msgid "[Ψ]Locate Items Thoroughly"
+msgstr "[Ψ]Углублённый поиск предметов"
+
+#. ~ Description for [Ψ]Locate Items Thoroughly
+#: fork_powers.json
+msgid ""
+"A Clairsentient's mind never really stops listening.  Every place you have passed through has left an impression of what was lying there, and with practice you can finally search that memory: name an object, and recall every place you have sensed one.\n"
+"\n"
+"Casting first sweeps everything around you (your floor and the floors above and below), then searches your memory of places up to <color_yellow>20 map tiles away, +10 per level</color>.  Results are listed nearest first, with how long ago you sensed each one -- someone may have taken it since.  Choose a result to mark it on your map.\n"
+"\n"
+"Your mind has been gathering these impressions since you awakened as a Clairsentient, from about one map tile around wherever you go.  Like Locate Item, it does not feel what is packed inside bags and boxes, nor anything stowed in a vehicle."
+msgstr ""
+"Разум ясночувствующего никогда не перестаёт прислушиваться к миру. Каждое посещённое место оставляет впечатление о лежавших там вещах. С практикой вы наконец учитесь искать в этих воспоминаниях: назовите предмет — и вспомните все места, где ощущали его.\n"
+"\n"
+"При использовании способность сначала обследует всё вокруг вас на текущем этаже, а также этажом выше и ниже, затем ищет в воспоминаниях о местах на расстоянии до <color_yellow>20 клеток глобальной карты, +10 за уровень</color>. Результаты перечисляются от ближайших к самым далёким; для каждого указано, как давно вы ощущали предмет: за это время его уже могли забрать. Выберите результат, чтобы отметить место на карте.\n"
+"\n"
+"Ваш разум собирает эти впечатления с момента пробуждения ясночувствия, охватывая примерно одну клетку глобальной карты вокруг вас, куда бы вы ни пошли. Как и «Поиск предмета», эта способность не ощущает содержимое сумок, коробок и транспорта."
+
+#: fork_powers.json
 msgid "[Ψ]Mass Hydrothermosis"
 msgstr "[Ψ]Массовый гидротермоз"
 
@@ -403,6 +449,127 @@ msgid "You reach into every creature in sight and boil them from within!"
 msgstr ""
 "Силой мысли вы проникаете внутрь каждого существа в поле зрения и "
 "вскипячиваете его изнутри!"
+
+#: fork_powers.json
+#| msgid "[Ψ]telekinetic jack"
+#| msgid_plural "[Ψ]telekinetic jacks"
+msgid "[Ψ]Kinetic Trap"
+msgstr "[Ψ]Кинетическая ловушка"
+
+#. ~ Description for [Ψ]Kinetic Trap
+#: fork_powers.json
+msgid ""
+"Pour kinetic energy into a pile of scrap metal and wind it tighter and tighter, until the metal is holding far more force than it should and is only barely stable.  Telekinesis reaches past your arms: set it on any tile within range (3 tiles, +1 per level to 12), even through a wall.  The next enemy to disturb it gets the whole store at once: a hammer-blow of force and a spray of shredded metal.\n"
+"\n"
+"Consumes <color_yellow>4 scrap metal</color> each cast.  The trap is visible to you, and <color_yellow>you and your allies can walk over it safely</color>.  Below level 5 it leaves a Kinetic Trap (20 bash + 20 shrapnel); from level 5 a Strong Kinetic Trap (35 + 35, shrapnel hits enemies within 1 tile); from level 10 a Powerful Kinetic Trap (50 + 50, shrapnel within 2 tiles)."
+msgstr ""
+"Наполните кучу металлолома кинетической энергией и сжимайте её всё сильнее, пока металл не накопит неправдоподобно большую силу, едва сохраняя устойчивость. Телекинез позволяет действовать за пределами досягаемости рук: установите ловушку на любой клетке в пределах дальности (3 клетки, +1 за уровень, максимум 12), даже сквозь стену. Первый враг, потревоживший её, получит весь накопленный заряд разом: сокрушительный удар и град металлических осколков.\n"
+"\n"
+"Каждое применение расходует <color_yellow>4 куска металлолома</color>. Вы видите ловушку, а <color_yellow>вы и ваши союзники можете безопасно проходить по ней</color>. До 5-го уровня создаётся «Кинетическая ловушка» (20 дробящего урона + 20 урона осколками); с 5-го — «Усиленная кинетическая ловушка» (35 + 35, осколки поражают врагов в радиусе 1 клетки); с 10-го — «Мощная кинетическая ловушка» (50 + 50, осколки в радиусе 2 клеток)."
+
+#. ~ Message for SPELL '[Ψ]Kinetic Trap'
+#: fork_powers.json
+msgid ""
+"You wind up tension and strain in the terrain until it's barely stable, and "
+"you add some scrap metal for good measure."
+msgstr ""
+"Вы создаёте в земле напряжение, доводя её до грани устойчивости, и для "
+"верности добавляете немного металлолома."
+
+#: fork_powers.json
+#| msgid "[Ψ]Psychic Scream"
+msgid "[Ψ]Pyrolytic Trap"
+msgstr "[Ψ]Пиролитическая ловушка"
+
+#. ~ Description for [Ψ]Pyrolytic Trap
+#: fork_powers.json
+msgid ""
+"Soak a splash of fuel or oil with heat, far past the point where it should have ignited, and hold it there, a hair's breadth from bursting into flame.  Leave it on the ground beside you.  The next enemy to disturb it is caught in a flash of heat and left standing in the fire that follows.\n"
+"\n"
+"Consumes <color_yellow>50 mL of fuel, oil or alcohol fuel</color> each cast (gasoline, diesel, biodiesel, avgas, JP8, lamp oil, motor oil, ethanol, methanol, denatured alcohol, or vegetable or animal cooking oil).  The trap is visible to you, and <color_yellow>you and your allies can walk over it safely</color>.  Below level 5 it leaves a Pyrolytic Trap (20 heat, small fire); from level 5 a Strong Pyrolytic Trap (35 heat, fire); from level 10 a Powerful Pyrolytic Trap (50 heat, large fire)."
+msgstr ""
+"Нагрейте немного топлива или масла намного выше температуры воспламенения и удерживайте его на грани вспышки. Оставьте ловушку на земле рядом с собой. Первый враг, который её потревожит, попадёт под тепловой удар и окажется в разгоревшемся следом огне.\n"
+"\n"
+"Каждое применение расходует <color_yellow>50 мл топлива, масла или спиртового горючего</color> (бензина, дизельного топлива, биодизеля, авиационного бензина, JP8, лампадного или моторного масла, этанола, метанола, денатурата, пищевого растительного масла или животного жира). Вы видите ловушку, а <color_yellow>вы и ваши союзники можете безопасно проходить по ней</color>. До 5-го уровня создаётся пиролитическая ловушка (20 ед. теплового урона, слабый огонь); с 5-го — усиленная пиролитическая ловушка (35 ед. теплового урона, огонь); с 10-го — мощная пиролитическая ловушка (50 ед. теплового урона, сильный огонь)."
+
+#. ~ Message for SPELL '[Ψ]Pyrolytic Trap'
+#: fork_powers.json
+msgid "You pour heat into the fuel until it shimmers on the edge of igniting."
+msgstr ""
+"Вы наполняете топливо жаром, пока оно не начинает мерцать, готовое "
+"вспыхнуть."
+
+#. ~ Description for {'str': 'Kinetic trap trigger', '//~': 'NO_I18N'}
+#. ~ Description for {'str': 'Pyrolytic trap trigger', '//~': 'NO_I18N'}
+#: fork_powers.json
+msgid ""
+"Cast by a primed psionic trap on whatever set it off.  Applies "
+"mom_primed_trap_hit; mom_hooks' handler spares the caster and allies and "
+"detonates for everyone else."
+msgstr ""
+"Cast by a primed psionic trap on whatever set it off.  Applies "
+"mom_primed_trap_hit; mom_hooks' handler spares the caster and allies and "
+"detonates for everyone else."
+
+#. ~ Description for {'str': 'Kinetic trap shrapnel 2', '//~': 'NO_I18N'}
+#: fork_powers.json
+msgid ""
+"Shrapnel burst of a tier-2 Kinetic Trap; cast from Lua (mom_hooks primed-"
+"trap hit) with the AVATAR as caster so kills are credited and only hostiles "
+"are hit.  Blast area respects walls."
+msgstr ""
+"Shrapnel burst of a tier-2 Kinetic Trap; cast from Lua (mom_hooks primed-"
+"trap hit) with the AVATAR as caster so kills are credited and only hostiles "
+"are hit.  Blast area respects walls."
+
+#. ~ Description for {'str': 'Kinetic trap shrapnel 3', '//~': 'NO_I18N'}
+#: fork_powers.json
+msgid ""
+"Shrapnel burst of a tier-3 Kinetic Trap; cast from Lua (mom_hooks primed-"
+"trap hit) with the AVATAR as caster so kills are credited and only hostiles "
+"are hit.  Blast area respects walls."
+msgstr ""
+"Shrapnel burst of a tier-3 Kinetic Trap; cast from Lua (mom_hooks primed-"
+"trap hit) with the AVATAR as caster so kills are credited and only hostiles "
+"are hit.  Blast area respects walls."
+
+#. ~ Description for {'str': 'Molten Land marker', '//~': 'NO_I18N'}
+#: fork_powers.json
+msgid ""
+"Hidden companion of Molten Land (pyrokinetic_eruption + _knack, wired via "
+"extra_effects in strip_spell_math._rewrite_molten_land).  Drops an invisible"
+" fd_mom_trap_marker on the target tile so mom_hooks can find it "
+"(on_spell_cast target_pos is unreadable in BN) and report whether the tile "
+"actually melted.  It's a bug if you can cast it directly."
+msgstr ""
+"Hidden companion of Molten Land (pyrokinetic_eruption + _knack, wired via "
+"extra_effects in strip_spell_math._rewrite_molten_land).  Drops an invisible"
+" fd_mom_trap_marker on the target tile so mom_hooks can find it "
+"(on_spell_cast target_pos is unreadable in BN) and report whether the tile "
+"actually melted.  It's a bug if you can cast it directly."
+
+#. ~ Description for {'str': 'mom_kinetic_trap_noise', '//~': 'NO_I18N'}
+#. ~ Description for {'str': 'mom_pyrolytic_trap_noise', '//~': 'NO_I18N'}
+#: fork_powers.json
+msgid ""
+"Detonation noise for a primed psionic trap; cast from Lua with the victim as"
+" source."
+msgstr ""
+"Detonation noise for a primed psionic trap; cast from Lua with the victim as"
+" source."
+
+#. ~ Description for the sound of spell '{'str': 'mom_kinetic_trap_noise',
+#. '//~': 'NO_I18N'}'
+#: fork_powers.json
+msgid "a shriek of tearing metal!"
+msgstr "визг рвущегося металла!"
+
+#. ~ Description for the sound of spell '{'str': 'mom_pyrolytic_trap_noise',
+#. '//~': 'NO_I18N'}'
+#: fork_powers.json
+#| msgid "a deep, grinding roar!"
+msgid "a deep, roaring whoomph!"
+msgstr "глухой, ревущий хлопок!"
 
 #: gen_activities.json
 msgid "channeling"
@@ -538,18 +705,22 @@ msgstr "изорванный"
 
 #: modinfo.json
 msgid "Mind Over Matter (BN)"
-msgstr "Разум превыше материи (BN) "
+msgstr "Разум превыше материи"
 
 #. ~ Description for Mind Over Matter (BN)
 #: modinfo.json
+#| msgid ""
+#| "Psionics: eight psychic power paths, 141 powers that unlock through use.  A "
+#| "Lua-based port of the Mind Over Matter mod from Cataclysm: DDA.  Pinned "
+#| "upstream: CDDA master 69df2e4 (2026-07-04)."
 msgid ""
-"Psionics: eight psychic power paths, 141 powers that unlock through use.  A "
+"Psionics: eight psychic power paths, 139 powers that unlock through use.  A "
 "Lua-based port of the Mind Over Matter mod from Cataclysm: DDA.  Pinned "
 "upstream: CDDA master 69df2e4 (2026-07-04)."
 msgstr ""
-"Псионика: восемь направлений псионических способностей и 141 способность, "
-"открывающаяся по мере их применения. Перенос мода Mind Over Matter из "
-"Cataclysm: DDA на основе Lua. Зафиксированная исходная версия: CDDA master "
+"Псионика: восемь направлений и 139 способностей, открывающихся по мере "
+"использования. Перенос мода Mind Over Matter из Cataclysm: DDA на основе "
+"Lua. Зафиксированная версия исходного мода: ветка master CDDA, коммит "
 "69df2e4 (2026-07-04)."
 
 #: morale_types.json
@@ -1604,10 +1775,19 @@ msgstr "Восходящая электрокинетик"
 
 #. ~ Profession (male Arising Electrokinetic) description
 #: professions.json
+#| msgctxt "prof_desc_male"
+#| msgid ""
+#| "Something happened during the storms that raged during the Cataclysm, and "
+#| "now you can do things that would have once seemed impossible.  You an hurl "
+#| "lightning bolts from your hands, like some kind of superhero, and your "
+#| "smartphone still has a full charge even though you haven't plugged it in "
+#| "weeks.  Some kind of huge wasp attacked you in the woods and there was a "
+#| "crackle like thunder and it fell to the ground twitching.  You didn't stop "
+#| "to check if it would move again."
 msgctxt "prof_desc_male"
 msgid ""
 "Something happened during the storms that raged during the Cataclysm, and "
-"now you can do things that would have once seemed impossible.  You an hurl "
+"now you can do things that would have once seemed impossible.  You can hurl "
 "lightning bolts from your hands, like some kind of superhero, and your "
 "smartphone still has a full charge even though you haven't plugged it in "
 "weeks.  Some kind of huge wasp attacked you in the woods and there was a "
@@ -1624,10 +1804,19 @@ msgstr ""
 
 #. ~ Profession (female Arising Electrokinetic) description
 #: professions.json
+#| msgctxt "prof_desc_female"
+#| msgid ""
+#| "Something happened during the storms that raged during the Cataclysm, and "
+#| "now you can do things that would have once seemed impossible.  You an hurl "
+#| "lightning bolts from your hands, like some kind of superhero, and your "
+#| "smartphone still has a full charge even though you haven't plugged it in "
+#| "weeks.  Some kind of huge wasp attacked you in the woods and there was a "
+#| "crackle like thunder and it fell to the ground twitching.  You didn't stop "
+#| "to check if it would move again."
 msgctxt "prof_desc_female"
 msgid ""
 "Something happened during the storms that raged during the Cataclysm, and "
-"now you can do things that would have once seemed impossible.  You an hurl "
+"now you can do things that would have once seemed impossible.  You can hurl "
 "lightning bolts from your hands, like some kind of superhero, and your "
 "smartphone still has a full charge even though you haven't plugged it in "
 "weeks.  Some kind of huge wasp attacked you in the woods and there was a "
@@ -2292,11 +2481,19 @@ msgstr "Восходящая телепортер"
 
 #. ~ Profession (male Arising Teleporter) description
 #: professions.json
+#| msgctxt "prof_desc_male"
+#| msgid ""
+#| "Something happened during the storms that raged during the Cataclysm, and "
+#| "now you can do things that would have once seemed impossible.  You can step "
+#| "through walls, and once you were surrounded by a horde and looked up and a "
+#| "nearby rooftop and… there you were, safe and out of the zombies' line of "
+#| "sight.  The rule of the zombie apocalypse is \"keep moving\", and you're the"
+#| " best you've ever been at that."
 msgctxt "prof_desc_male"
 msgid ""
 "Something happened during the storms that raged during the Cataclysm, and "
 "now you can do things that would have once seemed impossible.  You can step "
-"through walls, and once you were surrounded by a horde and looked up and a "
+"through walls, and once you were surrounded by a horde and looked up at a "
 "nearby rooftop and… there you were, safe and out of the zombies' line of "
 "sight.  The rule of the zombie apocalypse is \"keep moving\", and you're the"
 " best you've ever been at that."
@@ -2310,11 +2507,19 @@ msgstr ""
 
 #. ~ Profession (female Arising Teleporter) description
 #: professions.json
+#| msgctxt "prof_desc_female"
+#| msgid ""
+#| "Something happened during the storms that raged during the Cataclysm, and "
+#| "now you can do things that would have once seemed impossible.  You can step "
+#| "through walls, and once you were surrounded by a horde and looked up and a "
+#| "nearby rooftop and… there you were, safe and out of the zombies' line of "
+#| "sight.  The rule of the zombie apocalypse is \"keep moving\", and you're the"
+#| " best you've ever been at that."
 msgctxt "prof_desc_female"
 msgid ""
 "Something happened during the storms that raged during the Cataclysm, and "
 "now you can do things that would have once seemed impossible.  You can step "
-"through walls, and once you were surrounded by a horde and looked up and a "
+"through walls, and once you were surrounded by a horde and looked up at a "
 "nearby rooftop and… there you were, safe and out of the zombies' line of "
 "sight.  The rule of the zombie apocalypse is \"keep moving\", and you're the"
 " best you've ever been at that."
@@ -2760,13 +2965,22 @@ msgstr "Испытание: Огненное сердце"
 
 #. ~ Scenario description for 'challenge_scen_firestarter'
 #: scenarios.json
+#| msgctxt "scen_desc_male"
+#| msgid ""
+#| "You always loved setting fires as a child, sometimes spending hours just "
+#| "watching the flames.  That fire awakened in you during the Cataclysm, "
+#| "powerful and almost uncontrollable.  You can call up flames from thin air, "
+#| "burn zombies to ash with a thought, surround yourself in a blazing inferno, "
+#| "but the fire demands release.  It's like a internal pressure, growing as "
+#| "long as you don't use your powers, until it flows out as the flames rise.  "
+#| "Can you survive in the new world without burning yourself to ash?"
 msgctxt "scen_desc_male"
 msgid ""
 "You always loved setting fires as a child, sometimes spending hours just "
 "watching the flames.  That fire awakened in you during the Cataclysm, "
 "powerful and almost uncontrollable.  You can call up flames from thin air, "
 "burn zombies to ash with a thought, surround yourself in a blazing inferno, "
-"but the fire demands release.  It's like a internal pressure, growing as "
+"but the fire demands release.  It's like an internal pressure, growing as "
 "long as you don't use your powers, until it flows out as the flames rise.  "
 "Can you survive in the new world without burning yourself to ash?"
 msgstr ""
@@ -2780,13 +2994,22 @@ msgstr ""
 
 #. ~ Scenario description for 'challenge_scen_firestarter'
 #: scenarios.json
+#| msgctxt "scen_desc_female"
+#| msgid ""
+#| "You always loved setting fires as a child, sometimes spending hours just "
+#| "watching the flames.  That fire awakened in you during the Cataclysm, "
+#| "powerful and almost uncontrollable.  You can call up flames from thin air, "
+#| "burn zombies to ash with a thought, surround yourself in a blazing inferno, "
+#| "but the fire demands release.  It's like a internal pressure, growing as "
+#| "long as you don't use your powers, until it flows out as the flames rise.  "
+#| "Can you survive in the new world without burning yourself to ash?"
 msgctxt "scen_desc_female"
 msgid ""
 "You always loved setting fires as a child, sometimes spending hours just "
 "watching the flames.  That fire awakened in you during the Cataclysm, "
 "powerful and almost uncontrollable.  You can call up flames from thin air, "
 "burn zombies to ash with a thought, surround yourself in a blazing inferno, "
-"but the fire demands release.  It's like a internal pressure, growing as "
+"but the fire demands release.  It's like an internal pressure, growing as "
 "long as you don't use your powers, until it flows out as the flames rise.  "
 "Can you survive in the new world without burning yourself to ash?"
 msgstr ""
@@ -2805,10 +3028,11 @@ msgid "Away from civilization"
 msgstr "Вдали от цивилизации"
 
 #: skills.json
-msgid "metaphysics"
-msgstr "метафизика"
+#| msgid "metaphysics"
+msgid "Metaphysics"
+msgstr "Метафизика"
 
-#. ~ Description for {'str': 'metaphysics'}
+#. ~ Description for {'str': 'Metaphysics'}
 #: skills.json
 msgid ""
 "Your ability to manipulate forces of energy often considered supernatural."
@@ -2818,6 +3042,30 @@ msgstr ""
 #: traps.json
 msgid "Dead Fifth Sun Achievement Trap"
 msgstr "Ловушка достижения «Мёртвое Пятое Солнце»"
+
+#: traps.json
+msgid "Kinetic Trap"
+msgstr "Кинетическая ловушка"
+
+#: traps.json
+msgid "Strong Kinetic Trap"
+msgstr "Усиленная кинетическая ловушка"
+
+#: traps.json
+msgid "Powerful Kinetic Trap"
+msgstr "Мощная кинетическая ловушка"
+
+#: traps.json
+msgid "Pyrolytic Trap"
+msgstr "Пиролитическая ловушка"
+
+#: traps.json
+msgid "Strong Pyrolytic Trap"
+msgstr "Усиленная пиролитическая ловушка"
+
+#: traps.json
+msgid "Powerful Pyrolytic Trap"
+msgstr "Мощная пиролитическая ловушка"
 
 #: effects/effects_psionic.json
 msgid "Personal Enhancement"
@@ -3514,7 +3762,7 @@ msgid "Omniscience"
 msgstr "Всеведение"
 
 #. ~ desc of effect 'effect_clair_omniscence'
-#. ~ Message for SPELL '[Ψ]Omniscence'
+#. ~ Message for SPELL '[Ψ]Omniscience'
 #: effects/gen_effects.json spells/clairsentience.json
 msgid "You can see forever."
 msgstr "Ваше зрение не знает границ."
@@ -4912,16 +5160,6 @@ msgstr ""
 msgid "Yellow Elixir Aftereffects"
 msgstr "Последствия жёлтого эликсира"
 
-#. ~ desc of effect 'effect_telekinetic_aegis'
-#: effects/gen_effects.json
-msgid "You are nearly invincible."
-msgstr "Вы почти неуязвимы."
-
-#. ~ Remove message for effect(s) 'Aegis'.
-#: effects/gen_effects.json
-msgid "The air loses its structure and you are vulnerable once again."
-msgstr "Воздух теряет упорядоченность, и вы снова уязвимы."
-
 #. ~ Remove message for effect(s) 'Inertial Barrier'.
 #: effects/gen_effects.json
 msgid "The barrier of force around you falls apart."
@@ -5853,6 +6091,29 @@ msgstr "между мирами"
 msgid "You have left your dying world behind."
 msgstr "Вы оставили свой умирающий мир позади."
 
+#: effects/mom_engine_effects.json
+#| msgid "Sensory Pain"
+msgid "Sensor scrambling"
+msgstr "Помехи сенсоров"
+
+#. ~ desc of effect 'sensor_stun'
+#: effects/mom_engine_effects.json
+msgid "Its sensors are scrambled and report false readings."
+msgstr "Его датчики работают со сбоями и выдают ложные показания."
+
+#: effects/mom_engine_effects.json
+msgid "Psi Pack"
+msgstr "Пси-стая"
+
+#. ~ desc of effect 'mom_pack_tactics_bash'
+#: effects/mom_engine_effects.json
+msgid ""
+"A psion's mind guides this creature's attacks, showing it where the dead are"
+" weakest."
+msgstr ""
+"Разум псионика направляет атаки этого существа, указывая на уязвимые места "
+"мертвецов."
+
 #: furniture_and_terrain/appliances_as_furniture.json
 msgid "standing matrix lamp (off)"
 msgstr "матричный торшер (выкл.)"
@@ -5922,7 +6183,7 @@ msgstr ""
 
 #: furniture_and_terrain/appliances_as_furniture.json
 #: furniture_and_terrain/bn_machine_shims.json
-#: furniture_and_terrain/furniture.json
+#: furniture_and_terrain/furniture.json furniture_and_terrain/psi_enclave.json
 #: furniture_and_terrain/terrain_alien.json
 #: furniture_and_terrain/terrain_flora.json
 msgid "crunch!"
@@ -6114,6 +6375,16 @@ msgstr "треск разбивающегося светящегося крис�
 msgid "a hard, ringing clonk as the crystal holds!"
 msgstr "громкий звонкий стук — кристалл выдержал!"
 
+#: furniture_and_terrain/mom_graffiti.json
+msgid "scrawled message"
+msgstr "нацарапанное послание"
+
+#. ~ Description for scrawled message
+#: furniture_and_terrain/mom_graffiti.json
+msgid "Words left behind by some earlier survivor.  Examine it to read them."
+msgstr ""
+"Слова, оставленные кем-то из прежних выживших. Осмотрите, чтобы прочесть."
+
 #: furniture_and_terrain/psi_enclave.json
 msgid "chalk circle"
 msgstr "меловой круг"
@@ -6150,6 +6421,30 @@ msgstr "грохот!"
 #: furniture_and_terrain/psi_enclave.json
 msgid "whump."
 msgstr "«бух»."
+
+#: furniture_and_terrain/psi_enclave.json
+msgid "pinned road map"
+msgstr "карта с отметками"
+
+#. ~ Description for pinned road map
+#: furniture_and_terrain/psi_enclave.json
+#| msgid ""
+#| "A road map of New England, gone soft from handling and shingled with sticky "
+#| "notes.  Red pins: hordes, each with a date.  Blue pins: crystals, most of "
+#| "them crossed out.  Green pins are rarer.  The newest green one has a note in"
+#| " careful block capitals: AWAKENED?  MOVING.  SEND SOMEONE."
+msgid ""
+"A road map of New England, gone soft from handling and shingled with sticky "
+"notes.  Red pins: hordes, each with a date.  Blue pins: crystals, most of "
+"them crossed out.  Green pins are rarer, and each one has an index card "
+"tacked beside it.  A few of the pins have been painted black.  Examine it to"
+" read the cards."
+msgstr ""
+"Дорожная карта Новой Англии, истрепавшаяся от частого использования и "
+"облепленная стикерами внахлёст. Красные булавки отмечают орды, у каждой "
+"указана дата. Синие — кристаллы; большинство этих отметок зачёркнуто. "
+"Зелёные встречаются реже, и рядом с каждой приколота карточка. Несколько "
+"булавок закрашены чёрным. Осмотрите карту, чтобы прочитать карточки."
 
 #: furniture_and_terrain/psi_enclave.json
 msgid "stack of granite blocks"
@@ -6380,17 +6675,23 @@ msgstr "дуб"
 
 #. ~ Description for oak tree
 #: furniture_and_terrain/terrain_flora.json
+#| msgid ""
+#| "A massive deciduous tree belonging to the 'Quercus' genus, commonly found "
+#| "throughout the New England region.  If you look closely, you can see some "
+#| "acorns the squirrels haven't gotten yet.  If you look near the top, you can "
+#| "see a gigantic birds nest.  There are large bones sticking out of the edges "
+#| "of the nest."
 msgid ""
 "A massive deciduous tree belonging to the 'Quercus' genus, commonly found "
 "throughout the New England region.  If you look closely, you can see some "
 "acorns the squirrels haven't gotten yet.  If you look near the top, you can "
-"see a gigantic birds nest.  There are large bones sticking out of the edges "
-"of the nest."
+"see a gigantic bird's nest.  There are large bones sticking out of the edges"
+" of the nest."
 msgstr ""
 "Огромное лиственное дерево из рода «Дуб» (Quercus), распространённое по всей"
-" Новой Англии. Если присмотреться, можно заметить несколько желудей, до "
-"которых ещё не добрались белки. А ближе к верхушке видно огромное птичье "
-"гнездо. Из его краёв торчат крупные кости."
+" Новой Англии. Если присмотреться, можно заметить жёлуди, до которых ещё не "
+"добрались белки. А ближе к верхушке видно огромное птичье гнездо. Из его "
+"краёв торчат крупные кости."
 
 #: furniture_and_terrain/terrain_tanks.json
 msgid "Osiris chamber"
@@ -6575,8 +6876,11 @@ msgstr[2] "КБМ: Система Икпитикайотеконтли"
 
 #. ~ Description for {'str': 'Ikpitikayotecontli System CBM'}
 #: items/bionics.json
+#| msgid ""
+#| "An extremely-efficent form of bionic power storage, using integral matrix "
+#| "dust to increase the efficiency of possible storage multiple times."
 msgid ""
-"An extremely-efficent form of bionic power storage, using integral matrix "
+"An extremely-efficient form of bionic power storage, using integral matrix "
 "dust to increase the efficiency of possible storage multiple times."
 msgstr ""
 "Чрезвычайно эффективный накопитель бионической энергии: встроенная матричная"
@@ -6704,9 +7008,16 @@ msgstr[2] "лабораторных журналов: Отомо"
 #. ~ Description for {'str': 'Lab Journal-Otomo', 'str_pl': 'copies of Lab
 #. Journal-Otomo'}
 #: items/books.json
+#| msgid ""
+#| "This notebook is mostly a series of fanciful speculations about something "
+#| "the author alternately calls \"Matrix Mechanics,\", \"Dimensional "
+#| "Metaphysics,\" or \"Netherium Mathematics,\" sometimes using more than one "
+#| "in the same sentence.  Most of it is incoherent, but there is some "
+#| "experimental data about \"Conscious redirection of nether energy\" that "
+#| "catches your eye."
 msgid ""
 "This notebook is mostly a series of fanciful speculations about something "
-"the author alternately calls \"Matrix Mechanics,\", \"Dimensional "
+"the author alternately calls \"Matrix Mechanics,\" \"Dimensional "
 "Metaphysics,\" or \"Netherium Mathematics,\" sometimes using more than one "
 "in the same sentence.  Most of it is incoherent, but there is some "
 "experimental data about \"Conscious redirection of nether energy\" that "
@@ -6795,7 +7106,7 @@ msgid ""
 msgstr ""
 "Официальный отчёт с почти пустой титульной страницей. Сверху стоит эмблема "
 "проекта PHAVIAN, а ниже по центру красным напечатано «ИЗУМРУДНАЯ ДЛАНЬ – "
-"ТОЛЬКО ДЛЯ ОЗНАКОМЛЕНИЯ». Вопреки первому впечатлению, это не пособие по "
+"ТОЛЬКО ДЛЯ ДОПУЩЕННЫХ ЛИЦ». Вопреки первому впечатлению, это не пособие по "
 "боевым искусствам. В нём описаны медитации и упражнения на визуализацию, "
 "призванные «впятеро повысить боевую эффективность испытуемого в безоружном "
 "бою». Несколько диаграмм показывают результаты бойца «ИЗУМРУДНОЙ ДЛАНИ» "
@@ -6825,7 +7136,7 @@ msgid ""
 msgstr ""
 "Официальный отчёт с почти пустой титульной страницей. Сверху стоит эмблема "
 "проекта PHAVIAN, а ниже по центру красным напечатано «ИЗУМРУДНЫЙ АВАНГАРД — "
-"ТОЛЬКО ДЛЯ ОЗНАКОМЛЕНИЯ». Судя по беглому просмотру, это отчёт о серии "
+"ТОЛЬКО ДЛЯ ДОПУЩЕННЫХ ЛИЦ». Судя по беглому просмотру, это отчёт о серии "
 "испытаний смеси «PE050» и «ВЫЖЖЕННОГО НОЯБРЯ». Ближе к концу приведены "
 "«ноэтические упражнения», позволяющие «математику» сознательно управлять "
 "«постепенными изменениями под воздействием XE037». Здесь много жаргона, но "
@@ -6859,7 +7170,7 @@ msgid ""
 msgstr ""
 "Официальный отчёт с почти пустой титульной страницей. Сверху стоит эмблема "
 "проекта PHAVIAN, а ниже по центру красным напечатано «БИРЮЗОВЫЙ КРАЕУГОЛЬНИК"
-" — ТОЛЬКО ДЛЯ ОЗНАКОМЛЕНИЯ». При беглом просмотре попадается немало фраз, "
+" — ТОЛЬКО ДЛЯ ДОПУЩЕННЫХ ЛИЦ». При беглом просмотре попадается немало фраз, "
 "тревожных в свете недавних событий: «…внезапный и пока необъяснимый рост "
 "способностей наших математиков…» или «…E71 теперь может проходить сквозь два"
 " метра твёрдого вещества». Основная тема документа — применение "
@@ -6881,18 +7192,26 @@ msgstr[2] "отчётов: процедура «ТЕРПЕЛИВАЯ МОЗАИ�
 #. ~ Description for {'str': 'Lab Report: PATIENT MOSAIC process', 'str_pl':
 #. 'copies of Lab Report: PATIENT MOSAIC process'}
 #: items/books.json
+#| msgid ""
+#| "A thick lab report with a mostly-blank cover page, stamped with the Project "
+#| "PHAVIAN logo at the top and a red \"PATIENT MOSAIC - EYES ONLY\" centered "
+#| "underneath.  According to the summary, the report details how a powerful "
+#| "GRAY DAWN participant may use a specifically attuned focusing tool to allow "
+#| "themselves to induce permanent changes in their personality and other "
+#| "segments of their brain.  The report details little success in GRAY DAWN "
+#| "participant applying this process to others."
 msgid ""
 "A thick lab report with a mostly-blank cover page, stamped with the Project "
 "PHAVIAN logo at the top and a red \"PATIENT MOSAIC - EYES ONLY\" centered "
 "underneath.  According to the summary, the report details how a powerful "
 "GRAY DAWN participant may use a specifically attuned focusing tool to allow "
 "themselves to induce permanent changes in their personality and other "
-"segments of their brain.  The report details little success in GRAY DAWN "
+"segments of their brain.  The report details little success in a GRAY DAWN "
 "participant applying this process to others."
 msgstr ""
 "Толстый лабораторный отчёт с почти пустой титульной страницей. Сверху стоит "
 "эмблема проекта PHAVIAN, а ниже по центру красным напечатано «ТЕРПЕЛИВАЯ "
-"МОЗАИКА — ТОЛЬКО ДЛЯ ОЗНАКОМЛЕНИЯ». В кратком изложении сказано, что "
+"МОЗАИКА — ТОЛЬКО ДЛЯ ДОПУЩЕННЫХ ЛИЦ». В кратком изложении сказано, что "
 "участник программы «СЕРЫЙ РАССВЕТ» с мощными способностями может "
 "использовать специально сонастроенный фокусирующий инструмент для "
 "постоянного изменения своей личности и других особенностей мозга. Попытки "
@@ -10189,8 +10508,11 @@ msgstr[2] "нуль-гранат (взведены)"
 
 #. ~ Description for {'str': 'active null grenade'}
 #: items/weapons.json
+#| msgid ""
+#| "This null grenade is activate and ready to unleash its pulse.  You'd better "
+#| "throw it!"
 msgid ""
-"This null grenade is activate and ready to unleash its pulse.  You'd better "
+"This null grenade is active and ready to unleash its pulse.  You'd better "
 "throw it!"
 msgstr ""
 "Эта нуль-граната активирована и готова испустить импульс. Лучше бросить "
@@ -10634,10 +10956,14 @@ msgstr[2] "кристаллических фокусирующих узлов"
 #. ~ Description for {'str': 'crystalline focusing assembly', 'str_pl':
 #. 'crystalline focusing assemblies'}
 #: items/tools/crafting_tools.json
+#| msgid ""
+#| "A precise arrangement of cut crystal pieces from the crystal outgrowths left"
+#| " by the portal storms.  The air in the center shimmers like a summer heat "
+#| "gaze when you look through the focal point of the apparatus."
 msgid ""
 "A precise arrangement of cut crystal pieces from the crystal outgrowths left"
 " by the portal storms.  The air in the center shimmers like a summer heat "
-"gaze when you look through the focal point of the apparatus."
+"haze when you look through the focal point of the apparatus."
 msgstr ""
 "Точно выверенная конструкция из огранённых частей кристаллических наростов, "
 "оставшихся после портальных штормов. Если смотреть сквозь фокус устройства, "
@@ -10776,24 +11102,6 @@ msgstr ""
 "технология значительно повысила его энергоэффективность."
 
 #: items/tools/nether_items.json
-msgid "compressed chaos"
-msgid_plural "compressed chaos"
-msgstr[0] "сжатый хаос"
-msgstr[1] "сжатый хаос"
-msgstr[2] "сжатый хаос"
-
-#. ~ Description for {'str_sp': 'compressed chaos'}
-#: items/tools/nether_items.json
-msgid ""
-"This defies easy description, it feels solid but the surface is yielding.  "
-"Looking at it you are reminded of the electric tingle in the air before a "
-"portal storm."
-msgstr ""
-"Это трудно описать: на ощупь твёрдое, но поверхность поддаётся нажатию. "
-"Глядя на него, вы вспоминаете электрическое покалывание в воздухе перед "
-"портальным штормом."
-
-#: items/tools/nether_items.json
 msgid "crystallized motion"
 msgid_plural "crystallized motion"
 msgstr[0] "кристаллизованное движение"
@@ -10912,9 +11220,13 @@ msgstr ""
 
 #. ~ Description for {'str': 'transporter remote'}
 #: items/tools/travel.json
+#| msgid ""
+#| "A blocky item, like an old feature cellphone crossed with a radio.  A matrix"
+#| " channeling array is stick out of the side like an antenna.  There is a "
+#| "small screen on the front, currently off."
 msgid ""
 "A blocky item, like an old feature cellphone crossed with a radio.  A matrix"
-" channeling array is stick out of the side like an antenna.  There is a "
+" channeling array is sticking out of the side like an antenna.  There is a "
 "small screen on the front, currently off."
 msgstr ""
 "Угловатый предмет, похожий на гибрид старого кнопочного телефона и рации. "
@@ -11058,20 +11370,6 @@ msgstr ""
 #. ~ Sign
 #: mapgen/psi_enclave/psi_enclave.json
 msgid ""
-"A road map of New England, gone soft from handling and shingled with sticky "
-"notes.  Red pins: hordes, each with a date.  Blue pins: crystals, most of "
-"them crossed out.  Green pins are rarer.  The newest green one has a note in"
-" careful block capitals: AWAKENED?  MOVING.  SEND SOMEONE."
-msgstr ""
-"Автодорожная карта Новой Англии, затёртая от частого использования и вся "
-"облепленная стикерами. Красные булавки отмечают орды, у каждой стоит дата. "
-"Синие — кристаллы, большинство отметок зачёркнуто. Зелёных булавок меньше. "
-"Возле самой новой аккуратная надпись печатными буквами: «ПСИОНИК? ДВИЖЕТСЯ. "
-"ПОШЛИТЕ КОГО-НИБУДЬ»."
-
-#. ~ Sign
-#: mapgen/psi_enclave/psi_enclave.json
-msgid ""
 "DAYS WITHOUT A DEATH: 11.  (Above it, someone has crossed out a 4, and then "
 "a 0.)"
 msgstr "ДНЕЙ БЕЗ СМЕРТЕЙ: 11. (Выше кто-то зачеркнул сначала 4, а затем 0.)"
@@ -11157,10 +11455,14 @@ msgstr[2] "лучистых амальгам"
 
 #. ~ Description for {'str': 'radiant amalgamation'}
 #: monsters/amalgamations.json
+#| msgid ""
+#| "A four-legged creature with bulbous body and a small head with a fanged maw,"
+#| " with three multi-jointed limbs waving above it in the air.  The limbs emit "
+#| "a soft glow, occasionally brightening into a eye-searing flare."
 msgid ""
 "A four-legged creature with bulbous body and a small head with a fanged maw,"
 " with three multi-jointed limbs waving above it in the air.  The limbs emit "
-"a soft glow, occasionally brightening into a eye-searing flare."
+"a soft glow, occasionally brightening into an eye-searing flare."
 msgstr ""
 "Четвероногое существо со вздутым телом и маленькой головой с клыкастой "
 "пастью. Над ним в воздухе покачиваются три многосуставчатые конечности. Они "
@@ -12691,9 +12993,13 @@ msgstr[2] "расщепителей атомов"
 
 #. ~ Description for atom splitter
 #: monsters/feral_psychics.json
+#| msgid ""
+#| "This feral glows brighter than streetlamp, casting their surroundings into "
+#| "sharp relief amid the glow.  They are clearly still lucid but their "
+#| "expression is blank and their eyes are unfocused."
 msgid ""
-"This feral glows brighter than streetlamp, casting their surroundings into "
-"sharp relief amid the glow.  They are clearly still lucid but their "
+"This feral glows brighter than a streetlamp, casting their surroundings into"
+" sharp relief amid the glow.  They are clearly still lucid but their "
 "expression is blank and their eyes are unfocused."
 msgstr ""
 "Этот одичавший светится ярче уличного фонаря, резко выделяя всё вокруг в "
@@ -12846,9 +13152,12 @@ msgstr[2] "одичавших телекинетиков"
 
 #. ~ Description for feral PKer
 #: monsters/feral_psychics.json
+#| msgid ""
+#| "Though they still have a maniacal expression, this feral human is "
+#| "distinguished by the rocks floating in the around around them."
 msgid ""
 "Though they still have a maniacal expression, this feral human is "
-"distinguished by the rocks floating in the around around them."
+"distinguished by the rocks floating in the air around them."
 msgstr ""
 "Несмотря на всё то же безумное выражение лица, этого одичавшего отличают "
 "парящие вокруг камни."
@@ -14435,9 +14744,12 @@ msgstr "Бурный поток"
 
 #. ~ Description for {'str': 'Torrential Channeling'}
 #: mutations/gen_granted_traits.json
+#| msgid ""
+#| "You can draw deeply on the Nether, increasing the strength of your powers "
+#| "but making making them harder to initiate and control."
 msgid ""
 "You can draw deeply on the Nether, increasing the strength of your powers "
-"but making making them harder to initiate and control."
+"but making them harder to initiate and control."
 msgstr ""
 "Вы можете черпать больше силы из Запределья, усиливая способности, но "
 "затрудняя их активацию и контроль."
@@ -15035,6 +15347,10 @@ msgstr "Можно мне здесь отдохнуть?"
 #: npcs/psi_alliance.json
 msgid "What's in the old magazine up on the rim?"
 msgstr "Что в старом складе взрывчатки наверху, на краю карьера?"
+
+#: npcs/psi_alliance.json
+msgid "Could you use your gift to help me with something?"
+msgstr "Можешь помочь мне своим даром?"
 
 #: npcs/psi_alliance.json
 msgid "I should be going."
@@ -15809,6 +16125,269 @@ msgstr ""
 #: npcs/psi_alliance.json
 msgid "I'm on it."
 msgstr "Я займусь этим."
+
+#: npcs/psi_alliance.json
+msgid ""
+"Mark it on your map first.  Put a note on the spot, any note, and I'll find "
+"it.  But I can't land you on a pin.  You'll come down somewhere within about"
+" three map squares of your mark, and I don't get to choose where.  So think "
+"about what's inside that circle.  Especially water."
+msgstr ""
+"Сначала отметь место на карте. Поставь там заметку, любую, и я его найду. Но"
+" точно на отметку я тебя не доставлю. Ты окажешься где-то в пределах "
+"примерно трёх клеток карты от неё, и выбрать точку я не могу. Так что "
+"подумай обо всём, что попадает в этот круг. Особенно о воде."
+
+#: npcs/psi_alliance.json
+msgid "I've marked it.  Send me."
+msgstr "Место отмечено. Отправляй меня."
+
+#: npcs/psi_alliance.json
+#| msgid "What's wrong with standing in the circles?"
+msgid "What's wrong with water?"
+msgstr "А что не так с водой?"
+
+#: npcs/psi_alliance.json
+msgid "I'll go mark it first."
+msgstr "Сначала пойду отмечу место."
+
+#: npcs/psi_alliance.json
+msgid ""
+"If there's a lake or a river inside three squares of your mark, you might "
+"come down in the middle of it, with everything you own on your back.  People"
+" don't swim out of that.  If you want to go somewhere near the coast or a "
+"river, put the mark inland, a few squares back from the shore, and walk the "
+"rest.  I'll warn you if I can feel water out there, but I'd rather you aimed"
+" right in the first place."
+msgstr ""
+"Если в пределах трёх клеток от отметки есть озеро или река, можешь оказаться"
+" посреди воды, со всем своим добром за спиной. Из такого не выплывают. Если "
+"хочешь попасть куда-то у моря или реки, поставь отметку подальше от берега, "
+"на несколько клеток вглубь суши, а остаток пути пройди пешком. Я предупрежу,"
+" если почувствую там воду, но лучше сразу выбрать правильное место."
+
+#: npcs/psi_alliance.json
+msgid "Understood.  I've marked it.  Send me."
+msgstr "Понятно. Место отмечено. Отправляй меня."
+
+#: npcs/psi_alliance.json
+msgid "I'd better move my mark."
+msgstr "Лучше перенесу отметку."
+
+#: npcs/psi_alliance.json
+msgid "Where does it hurt?  Show me."
+msgstr "Где болит? Покажи."
+
+#: npcs/psi_alliance.json
+msgid "*sparks crawl over their knuckles.*  What needs juice?"
+msgstr "*по костяшкам пальцев пробегают искры.* Что нужно подзарядить?"
+
+#: npcs/psi_alliance.json
+msgid "Broke something?  Let's see it."
+msgstr "Что-то сломалось? Давай посмотрим."
+
+#: npcs/psi_alliance.json
+msgid "You look cold.  Everyone always looks cold."
+msgstr "Ты, похоже, мёрзнешь. Все всегда мёрзнут."
+
+#: npcs/psi_alliance.json
+msgid "The basement's doing well.  Hungry?"
+msgstr "В подвале всё хорошо растёт. Есть хочешь?"
+
+#: npcs/psi_alliance.json
+msgid "Tell me what you're looking for."
+msgstr "Скажи, что ищешь."
+
+#: npcs/psi_alliance.json
+msgid "Going somewhere?"
+msgstr "Куда-то собираешься?"
+
+#: npcs/psi_alliance.json
+msgid "You're thinking very loudly.  Sit down."
+msgstr "Ты очень громко думаешь. Садись."
+
+#: npcs/psi_alliance.json
+#| msgid "What do I need to do?"
+msgid "What do you need?"
+msgstr "Что тебе нужно?"
+
+#: npcs/psi_alliance.json
+msgid "Can you patch me up?"
+msgstr "Можешь меня подлатать?"
+
+#: npcs/psi_alliance.json
+msgid "I have a bionic I need put in."
+msgstr "Мне нужно установить имплант."
+
+#: npcs/psi_alliance.json
+msgid "I want a bionic taken out."
+msgstr "Мне нужно удалить имплант."
+
+#: npcs/psi_alliance.json
+msgid "Can you charge my gear?"
+msgstr "Можешь зарядить моё снаряжение?"
+
+#: npcs/psi_alliance.json
+msgid "Could you fix up my gear?"
+msgstr "Можешь починить моё снаряжение?"
+
+#: npcs/psi_alliance.json
+msgid "I'm chilled through.  Can you warm me up?"
+msgstr "Мне ужасно холодно. Можешь меня согреть?"
+
+#: npcs/psi_alliance.json
+msgid "Anything growing in the basement?"
+msgstr "Что-нибудь растёт в подвале?"
+
+#: npcs/psi_alliance.json
+msgid "Could you look for a place for me?"
+msgstr "Можешь отыскать для меня одно место?"
+
+#: npcs/psi_alliance.json
+msgid "Can you send me somewhere?"
+msgstr "Можешь отправить меня кое-куда?"
+
+#: npcs/psi_alliance.json
+msgid "My head's a mess.  Can you help?"
+msgstr "В голове полный бардак. Поможешь?"
+
+#: npcs/psi_alliance.json
+#| msgid "passed through"
+msgid "Warmed Through"
+msgstr "Согревающее тепло"
+
+#. ~ desc of effect 'mom_psi_warmed'
+#: npcs/psi_alliance.json
+msgid "A pyrokinetic's heat is still in you, keeping the cold out."
+msgstr ""
+"В вас ещё сохраняется тепло пирокинетика, не давая холоду проникнуть внутрь."
+
+#. ~ Apply message for effect(s) 'Warmed Through'.
+#: npcs/psi_alliance.json
+msgid "Warmth spreads through you and stays."
+msgstr "Тепло разливается по телу и остаётся с вами."
+
+#. ~ Remove message for effect(s) 'Warmed Through'.
+#: npcs/psi_alliance.json
+#| msgid "The prowling forms finally fade away."
+msgid "The borrowed warmth finally fades."
+msgstr "Чужое тепло наконец рассеивается."
+
+#: npcs/psi_alliance.json
+#| msgid "Touched Mind"
+msgid "Quiet Mind"
+msgstr "Спокойствие разума"
+
+#: npcs/psi_alliance.json
+msgid ""
+"I'd love to.  But I'm one pair of hands for the whole camp, and they're "
+"already full.  If you ever find another one like me out there, bring them "
+"home.  Then I'd have time to patch you up too."
+msgstr ""
+"С радостью. Но на весь лагерь у меня всего две руки, и они уже заняты. Если "
+"найдёшь кого-то вроде меня, приводи сюда. Тогда будет время и тебя "
+"подлатать."
+
+#: npcs/psi_alliance.json
+msgid ""
+"Not yet.  All I can see right now is the next pin.  Bring home another "
+"clairsentient and the two of us can look a great deal farther.  Then I'll "
+"look for whatever you need."
+msgstr ""
+"Пока нет. Сейчас я вижу только следующую отметку. Приведи ещё одного "
+"ясночувствующего, и вдвоём мы сможем заглянуть гораздо дальше. Тогда я поищу"
+" всё, что тебе нужно."
+
+#: npcs/psi_alliance.json
+msgid ""
+"Every spark I've got goes into the battery bank.  Bring me someone else who "
+"can make a current, and I'll have charge to spare for your gear."
+msgstr ""
+"Все мои искры уходят на аккумуляторы. Приведи ещё кого-нибудь, кто умеет "
+"создавать ток, и тогда хватит заряда и на твоё снаряжение."
+
+#: npcs/psi_alliance.json
+msgid ""
+"The basement takes everything I have just to keep the tomatoes alive.  Bring"
+" home another photokinetic, and there'll be enough to send some with you."
+msgstr ""
+"Все силы уходят на то, чтобы помидоры в подвале не завяли. Приведи ещё "
+"одного фотокинетика, и урожая хватит, чтобы поделиться с тобой."
+
+#: npcs/psi_alliance.json
+msgid ""
+"The forge eats all the heat I can make.  Find me another fire-starter, and "
+"I'll have warmth to spare for you."
+msgstr ""
+"Кузница поглощает всё тепло, которое я могу дать. Найди ещё кого-нибудь, кто"
+" умеет разжигать огонь, и тогда тепла хватит и на тебя."
+
+#: npcs/psi_alliance.json
+msgid ""
+"I'm holding half this quarry up as it is.  Literally, some days.  Bring home"
+" another telekinetic, and I'll start fixing your things too."
+msgstr ""
+"Я и так удерживаю половину этого карьера. Иногда в буквальном смысле. "
+"Приведи ещё одного телекинетика, и я начну чинить и твои вещи."
+
+#: npcs/psi_alliance.json
+msgid ""
+"My head is full of everyone here already.  Bring home another telepath, "
+"someone to share the noise with, and I'll have room for yours."
+msgstr ""
+"У меня и так голова забита всеми, кто здесь живёт. Приведи ещё одного "
+"телепата, с кем можно разделить этот шум, и тогда найдётся место и для тебя."
+
+#: npcs/psi_alliance.json
+msgid ""
+"I'm running every supply run there is, alone.  Find another jumper and bring"
+" them home.  With help, I could send you places."
+msgstr ""
+"Все вылазки за припасами приходится делать мне в одиночку. Найди ещё одного "
+"прыгуна и приведи сюда. С помощником я смогу отправлять тебя куда нужно."
+
+#: npcs/psi_alliance.json
+msgid "Maybe someday."
+msgstr "Может быть, когда-нибудь."
+
+#: npcs/psi_alliance.json
+#| msgid "Where do I find Constance?"
+msgid "Where would I find one?"
+msgstr "Где мне такого найти?"
+
+#: npcs/psi_alliance.json
+#| msgid "I'll keep that in mind."
+msgid "I'll keep an eye out."
+msgstr "Буду смотреть в оба."
+
+#: npcs/psi_alliance.json
+msgid ""
+"That's my job.  Every time someone wakes up out there, I put a green pin on "
+"the map and ask somebody to go and get them.  Ask me for the next one.  I "
+"can't promise what they'll be, but sooner or later one will be like me."
+msgstr ""
+"Это моя работа. Каждый раз, когда где-то пробуждается кто-то из наших, я "
+"ставлю на карте зелёную булавку и прошу кого-нибудь за ним сходить. Попроси "
+"меня показать следующую. Не обещаю, какие у него будут способности, но рано "
+"или поздно найдётся кто-то вроде меня."
+
+#: npcs/psi_alliance.json
+msgid ""
+"Ask Wren.  Every time someone wakes up out there, she puts a green pin on "
+"the map.  You can't choose what they'll be when you find them, but sooner or"
+" later one of them will be like me."
+msgstr ""
+"Спроси Рен. Каждый раз, когда где-то пробуждается кто-то из наших, она "
+"ставит на карте зелёную булавку. Заранее не угадаешь, какие у него будут "
+"способности, но рано или поздно найдётся кто-то вроде меня."
+
+#: npcs/psi_alliance.json
+msgid "I'll talk to Wren."
+msgstr "Поговорю с Рен."
+
+#: npcs/psi_alliance.json
+msgid "Then give me a pin."
+msgstr "Тогда покажи следующую отметку."
 
 #: npcs/psi_civilians.json
 msgid "I am the heart of the storm!"
@@ -17008,8 +17587,11 @@ msgstr ""
 "самообладание."
 
 #: recipes/psionics_practice.json
+#| msgid ""
+#| "Focus on your inner metal strength, making it easy to call forth your "
+#| "psionic gifts."
 msgid ""
-"Focus on your inner metal strength, making it easy to call forth your "
+"Focus on your inner mental strength, making it easy to call forth your "
 "psionic gifts."
 msgstr ""
 "Сосредоточьтесь на внутренней силе духа, чтобы легче призывать свои "
@@ -18029,8 +18611,14 @@ msgstr ""
 "Текущий уровень способности: <u_spell_level:photokinetic_radio>"
 
 #: recipes/practice/photokinesis_practice.json
+#| msgid ""
+#| "Contemplate your powers and improve your ability use focused radiation to make food last longer.\n"
+#| "\n"
+#| "Power Difficulty: 5\n"
+#| "\n"
+#| "Current Power Level: <u_spell_level:photokinetic_sterilize_food>"
 msgid ""
-"Contemplate your powers and improve your ability use focused radiation to make food last longer.\n"
+"Contemplate your powers and improve your ability to use focused radiation to make food last longer.\n"
 "\n"
 "Power Difficulty: 5\n"
 "\n"
@@ -18291,8 +18879,14 @@ msgstr ""
 "Текущий уровень способности: <u_spell_level:pyrokinetic_flash_knack>"
 
 #: recipes/practice/psychic_knacks.json
+#| msgid ""
+#| "Contemplate your powers and improve your ability increase the strength of existing flames.\n"
+#| "\n"
+#| "Power Difficulty: 1\n"
+#| "\n"
+#| "Current Power Level: <u_spell_level:pyrokinetic_intensify_flames_knack>"
 msgid ""
-"Contemplate your powers and improve your ability increase the strength of existing flames.\n"
+"Contemplate your powers and improve your ability to increase the strength of existing flames.\n"
 "\n"
 "Power Difficulty: 1\n"
 "\n"
@@ -18619,8 +19213,14 @@ msgstr ""
 "Текущий уровень способности: <u_spell_level:pyrokinetic_flash>"
 
 #: recipes/practice/pyrokinesis_practice.json
+#| msgid ""
+#| "Contemplate your powers and improve your ability increase the strength of existing flames.\n"
+#| "\n"
+#| "Power Difficulty: 1\n"
+#| "\n"
+#| "Current Power Level: <u_spell_level:pyrokinetic_intensify_flames>"
 msgid ""
-"Contemplate your powers and improve your ability increase the strength of existing flames.\n"
+"Contemplate your powers and improve your ability to increase the strength of existing flames.\n"
 "\n"
 "Power Difficulty: 1\n"
 "\n"
@@ -18787,14 +19387,20 @@ msgstr ""
 "Текущий уровень способности: <u_spell_level:pyrokinetic_blast>"
 
 #: recipes/practice/pyrokinesis_practice.json
+#| msgid ""
+#| "Contemplate your powers and improve your ability to call down sheets of fire on everything around you.\n"
+#| "\n"
+#| "Power Difficulty: 9\n"
+#| "\n"
+#| "Current Power Level: <u_spell_level:pyrokinetic_aoe_blast>"
 msgid ""
-"Contemplate your powers and improve your ability to call down sheets of fire on everything around you.\n"
+"Contemplate your powers and improve your ability to boil the fluids inside every creature you can see.\n"
 "\n"
 "Power Difficulty: 9\n"
 "\n"
 "Current Power Level: <u_spell_level:pyrokinetic_aoe_blast>"
 msgstr ""
-"Созерцайте свои силы и совершенствуйте умение обрушивать потоки огня на всё вокруг.\n"
+"Созерцайте свои силы и совершенствуйте умение кипятить жидкости внутри всех существ в поле зрения.\n"
 "\n"
 "Сложность способности: 9\n"
 "\n"
@@ -19036,20 +19642,6 @@ msgstr ""
 
 #: recipes/practice/telekinesis_practice.json
 msgid ""
-"Contemplate your powers and improve your ability to shield yourself from all harm.\n"
-"\n"
-"Power Difficulty: 9\n"
-"\n"
-"Current Power Level: <u_spell_level:telekinetic_aegis>"
-msgstr ""
-"Созерцайте свои силы и совершенствуйте умение защищаться от любого вреда.\n"
-"\n"
-"Сложность способности: 9\n"
-"\n"
-"Текущий уровень способности: <u_spell_level:telekinetic_aegis>"
-
-#: recipes/practice/telekinesis_practice.json
-msgid ""
 "Contemplate your powers and improve your ability to grip the very earth and shake it.\n"
 "\n"
 "Power Difficulty: 10\n"
@@ -19171,8 +19763,14 @@ msgstr ""
 "Текущий уровень способности: <u_spell_level:telepathic_animal_mind_control>"
 
 #: recipes/practice/telepathy_practice.json
+#| msgid ""
+#| "Contemplate your powers and improve your ability to confound your enemies's senses.\n"
+#| "\n"
+#| "Power Difficulty: 5\n"
+#| "\n"
+#| "Current Power Level: <u_spell_level:telepathic_confusion>"
 msgid ""
-"Contemplate your powers and improve your ability to confound your enemies's senses.\n"
+"Contemplate your powers and improve your ability to confound your enemies' senses.\n"
 "\n"
 "Power Difficulty: 5\n"
 "\n"
@@ -19307,8 +19905,14 @@ msgstr ""
 "Текущий уровень способности: <u_spell_level:teleport_slow>"
 
 #: recipes/practice/teleportation_practice.json
+#| msgid ""
+#| "Contemplate your powers and improve your ability to travel short distances in a controlled matter without crossing the intervening space.\n"
+#| "\n"
+#| "Power Difficulty: 2\n"
+#| "\n"
+#| "Current Power Level: <u_spell_level:teleport_phase>"
 msgid ""
-"Contemplate your powers and improve your ability to travel short distances in a controlled matter without crossing the intervening space.\n"
+"Contemplate your powers and improve your ability to travel short distances in a controlled manner without crossing the intervening space.\n"
 "\n"
 "Power Difficulty: 2\n"
 "\n"
@@ -21696,12 +22300,22 @@ msgstr "[Ψ]Обострённые чувства (К)"
 
 #. ~ Description for [Ψ]Heightened Senses (C)
 #: spells/clairsentience.json
+#| msgid ""
+#| "All of your senses are heightened, allowing you to see further and hear better, and at higher levels even see in murky water or use minor vibrations and small sounds to determine moving creatures nearby.\n"
+#| "\n"
+#| "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
+#| "\n"
+#| "Level 5 leads to Aura Sight.\n"
+#| "Level 8 leads to Night Eyes.\n"
+#| "Level 6 leads to Premonition.\n"
+#| "Level 3 leads to See Mechanisms."
 msgid ""
 "All of your senses are heightened, allowing you to see further and hear better, and at higher levels even see in murky water or use minor vibrations and small sounds to determine moving creatures nearby.\n"
 "\n"
 "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
 "\n"
 "Level 5 leads to Aura Sight.\n"
+"Level 4 leads to Locate Item.\n"
 "Level 8 leads to Night Eyes.\n"
 "Level 6 leads to Premonition.\n"
 "Level 3 leads to See Mechanisms."
@@ -21710,6 +22324,7 @@ msgstr ""
 "\n"
 "Эта способность <color_yellow>поддерживается концентрацией</color> и <color_red>может перестать действовать</color>, если <color_yellow>концентрация будет нарушена</color>.\n"
 "\n"
+"На 4-м уровне открывается «Поиск предмета».\n"
 "На 5-м уровне открывается «Зрение аур».\n"
 "На 8-м уровне открывается «Ночное зрение».\n"
 "На 6-м уровне открывается «Предчувствие».\n"
@@ -21805,7 +22420,8 @@ msgstr "[Ψ]Чувство радиации"
 
 #. ~ Description for [Ψ]Radiation Sense
 #: spells/clairsentience.json
-msgid "You can open your tenses to the tell-tale glow of radiation."
+#| msgid "You can open your tenses to the tell-tale glow of radiation."
+msgid "You can open your senses to the tell-tale glow of radiation."
 msgstr "Вы можете настроить свои чувства на характерное свечение радиации."
 
 #: spells/clairsentience.json
@@ -21836,11 +22452,13 @@ msgstr "[Ψ]Психометрия"
 #. ~ Description for [Ψ]Psychometry
 #: spells/clairsentience.json spells/psychic_knacks.json
 msgid ""
-"You can examine an item and use your enhanced senses to determine its "
-"properties that may not be obvious to the eye."
+"Close your hand around an object and read the impressions left by whoever carried it before you.  At first you catch only a <color_light_green>feeling and a fragment</color> of what they lived through; with practice you learn <color_light_green>who they were</color>, and in time <color_light_green>what they feared and how it ended</color>.  The same object always tells the same story, and what you learn is written into its note.  Things you made, or have carried since the start, hold only you.\n"
+"\n"
+"Artifacts answer differently: you sense their hidden properties instead."
 msgstr ""
-"Осматривая предмет с помощью обострённых чувств, вы можете определить его "
-"свойства, неочевидные для обычного зрения."
+"Сожмите предмет в руке и прочтите отпечатки, оставленные тем, кто носил его до вас. Поначалу вы улавливаете лишь <color_light_green>чувство и обрывок</color> пережитого; с практикой научитесь понимать, <color_light_green>кем был этот человек</color>, а со временем — <color_light_green>чего он боялся и чем всё закончилось</color>. Один и тот же предмет всегда рассказывает одну и ту же историю, а узнанное записывается в его заметку. Вещи, которые вы сделали сами или носите с самого начала, хранят лишь ваш собственный след.\n"
+"\n"
+"Артефакты отвечают иначе: вы ощущаете их скрытые свойства."
 
 #: spells/clairsentience.json
 msgid "[Ψ]Clairvoyance"
@@ -21848,11 +22466,17 @@ msgstr "[Ψ]Ясновидение"
 
 #. ~ Description for [Ψ]Clairvoyance
 #: spells/clairsentience.json
+#| msgid ""
+#| "The classic example of a clairsentient's powers, you can see through walls and reveal everything nearby.\n"
+#| "\n"
+#| "Level 6 leads to Combat Sense with Premonition 10.\n"
+#| "Level 14 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\n"
+#| "Level 8 leads to Satellite View."
 msgid ""
 "The classic example of a clairsentient's powers, you can see through walls and reveal everything nearby.\n"
 "\n"
 "Level 6 leads to Combat Sense with Premonition 10.\n"
-"Level 14 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\n"
+"Level 14 leads to Omniscience with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\n"
 "Level 8 leads to Satellite View."
 msgstr ""
 "Классическое проявление ясночувствия: вы видите сквозь стены и обнаруживаете всё поблизости.\n"
@@ -21919,10 +22543,14 @@ msgstr "[Ψ]Вид со спутника"
 
 #. ~ Description for [Ψ]Satellite View
 #: spells/clairsentience.json
+#| msgid ""
+#| "You can extend your senses over the landscape, becoming aware of every hill, building, and valley within a large area.\n"
+#| "\n"
+#| "Level 8 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5."
 msgid ""
 "You can extend your senses over the landscape, becoming aware of every hill, building, and valley within a large area.\n"
 "\n"
-"Level 8 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5."
+"Level 8 leads to Omniscience with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5."
 msgstr ""
 "Вы можете распространить восприятие на местность, узнавая о каждом холме, здании и долине на обширной территории.\n"
 "\n"
@@ -21943,12 +22571,19 @@ msgstr "[Ψ]Ясность (К)"
 
 #. ~ Description for [Ψ]Clarity (C)
 #: spells/clairsentience.json
+#| msgid ""
+#| "Thanks to your powers, nothing can stop you from seeing the world as it is.\n"
+#| "\n"
+#| "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
+#| "\n"
+#| "Level 5 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\n"
+#| "Level 5 leads to Prescient Tactician with Combat Sense 8 + Marksman's Eye 7."
 msgid ""
 "Thanks to your powers, nothing can stop you from seeing the world as it is.\n"
 "\n"
 "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
 "\n"
-"Level 5 leads to Omniscence with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\n"
+"Level 5 leads to Omniscience with Clarity 5 + Satellite View 8 OR Clairvoyance 14 + Clarity 5.\n"
 "Level 5 leads to Prescient Tactician with Combat Sense 8 + Marksman's Eye 7."
 msgstr ""
 "Благодаря вашим силам ничто не помешает видеть мир таким, какой он есть.\n"
@@ -21974,10 +22609,11 @@ msgstr ""
 "Эта способность <color_yellow>поддерживается концентрацией</color> и <color_red>может перестать действовать</color>, если <color_yellow>концентрация будет нарушена</color>. Она требует <color_yellow>ещё большей концентрации</color>, чем обычно."
 
 #: spells/clairsentience.json
-msgid "[Ψ]Omniscence"
+#| msgid "[Ψ]Omniscence"
+msgid "[Ψ]Omniscience"
 msgstr "[Ψ]Всеведение"
 
-#. ~ Description for [Ψ]Omniscence
+#. ~ Description for [Ψ]Omniscience
 #: spells/clairsentience.json
 msgid ""
 "Extend your senses to a supernal degree, perceiving everything within the "
@@ -22390,8 +23026,13 @@ msgstr "[Ψ]Подсветка"
 
 #. ~ Description for [Ψ]Illuminate
 #: spells/photokinesis.json
+#| msgid ""
+#| "Surround a single target with a outline of line that follows them as they move, revealing their position at all times.\n"
+#| "\n"
+#| "Level 6 leads to Flashbang with Field of Light 9 + Illuminate 6 OR Illuminate 6 + Photon Beam 5.\n"
+#| "Level 9 leads to Gamma Sterilization with Chameleoflage 4 + Lucent Barrier 7 + Star Flash 3 OR Chameleoflage 4 + Illuminate 9 + Lucent Barrier 7 OR Chameleoflage 4 + Lucent Barrier 7 + Photon Beam 5."
 msgid ""
-"Surround a single target with a outline of line that follows them as they move, revealing their position at all times.\n"
+"Surround a single target with an outline of light that follows them as they move, revealing their position at all times.\n"
 "\n"
 "Level 6 leads to Flashbang with Field of Light 9 + Illuminate 6 OR Illuminate 6 + Photon Beam 5.\n"
 "Level 9 leads to Gamma Sterilization with Chameleoflage 4 + Lucent Barrier 7 + Star Flash 3 OR Chameleoflage 4 + Illuminate 9 + Lucent Barrier 7 OR Chameleoflage 4 + Lucent Barrier 7 + Photon Beam 5."
@@ -22434,10 +23075,18 @@ msgstr "[Ψ]Игра света (К)"
 
 #. ~ Description for [Ψ]Trick of the Light (C)
 #: spells/photokinesis.json
+#| msgid ""
+#| "Manipulate the light around your body, creating shifting illusions, blurring your outline and position, and becoming harder to hit.  An enemy successfully hitting you will pinpoint your location and <color_red>disrupt the power</color>.\n"
+#| "\n"
+#| "his power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
+#| "\n"
+#| "Level 6 leads to Chameleoflage.\n"
+#| "Level 9 leads to Lucent Barrier with Trick of the Light 9 OR Blackout 6 + Chameleoflage 5.\n"
+#| "Level 8 leads to Refracted Arms with Candle's Glow 6 + Chameleoflage 6."
 msgid ""
 "Manipulate the light around your body, creating shifting illusions, blurring your outline and position, and becoming harder to hit.  An enemy successfully hitting you will pinpoint your location and <color_red>disrupt the power</color>.\n"
 "\n"
-"his power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
+"This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
 "\n"
 "Level 6 leads to Chameleoflage.\n"
 "Level 9 leads to Lucent Barrier with Trick of the Light 9 OR Blackout 6 + Chameleoflage 5.\n"
@@ -22657,9 +23306,13 @@ msgstr "[Ψ]Гамма-стерилизация"
 
 #. ~ Description for [Ψ]Gamma Sterilization
 #: spells/photokinesis.json
+#| msgid ""
+#| "Use a focused emission of high-power radiation to eliminating microorganisms"
+#| " in food and allowing it to last much longer before rotting.  This power is "
+#| "<color_red>extremely taxing</color>."
 msgid ""
-"Use a focused emission of high-power radiation to eliminating microorganisms"
-" in food and allowing it to last much longer before rotting.  This power is "
+"Use a focused emission of high-power radiation to eliminate microorganisms "
+"in food and allow it to last much longer before rotting.  This power is "
 "<color_red>extremely taxing</color>."
 msgstr ""
 "Направленным мощным излучением уничтожьте микроорганизмы в пище, чтобы она "
@@ -22931,8 +23584,9 @@ msgstr "низкий скрежещущий рёв!"
 
 #. ~ Message for SPELL '[Ψ]Molten Land'
 #: spells/psychic_knacks.json spells/pyrokinesis.json
-msgid "The ground splits and runs molten!"
-msgstr "Земля раскалывается и течёт расплавом!"
+#| msgid "Your target is knocked to the ground."
+msgid "You pour your will into the ground."
+msgstr "Вы направляете силу своей воли в землю."
 
 #: spells/psychic_knacks.json spells/pyrokinesis.json
 msgid "[Ψ]Banked Flames (C)"
@@ -23027,7 +23681,8 @@ msgstr "[Ψ]Дальняя рука"
 
 #. ~ Description for [Ψ]Far Hand
 #: spells/psychic_knacks.json
-msgid "Pickup items at a distance or push them away from you."
+#| msgid "Pickup items at a distance or push them away from you."
+msgid "Pick up items at a distance or push them away from you."
 msgstr "Поднимайте предметы на расстоянии или отталкивайте их от себя."
 
 #: spells/psychic_knacks.json spells/telekinesis.json
@@ -23075,7 +23730,8 @@ msgid ""
 "Unleash a telekinetic wave around you that indiscriminately knocks "
 "everything back."
 msgstr ""
-"Выпустите вокруг себя телекинетическую волну, отбрасывающую всё без разбора."
+"Выпустите вокруг себя телекинетическую волну, которая отбрасывает всё без "
+"разбора."
 
 #. ~ Message for SPELL '[Ψ]Wave of Force'
 #: spells/psychic_knacks.json spells/telekinesis.json
@@ -23173,13 +23829,17 @@ msgstr "[Ψ]Повелитель зверей"
 #. ~ Description for [Ψ]Beastmaster
 #: spells/psychic_knacks.json
 msgid ""
-"Take control of an animal's mind, forcing it to obey you.  This power will not work on insects, spiders, or similar beings.  This also works on feral humans.\n"
+"Take control of an animal's mind, forcing it to obey you.  This also works on feral humans.\n"
 "\n"
-"<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>."
+"<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.\n"
+"\n"
+"<color_light_green>Pack Leader:</color> once you know this power, every pet you have deals <color_light_green>25%</color> more melee damage.  Pets fighting within 12 tiles of you also gain a compounding <color_light_green>15%</color> for each packmate beyond the first, counting up to 8 pets (x3.33 at 8).  Pets near you also hold their nerve and will not flee until badly wounded.  Pets that wander off will find their way back to your side.  Pets that stray too far break off their hunt and return.  Guns, psionic powers and a few hard-wired abilities are not boosted."
 msgstr ""
-"Подчините разум животного, заставив его повиноваться. Эта способность не действует на насекомых, пауков и подобных существ. Также действует на одичавших людей.\n"
+"Подчините разум животного своей воле. Действует и на одичавших людей.\n"
 "\n"
-"<color_yellow>Этой способности нужен разум, за который можно зацепиться.</color> У ходячих мертвецов, роботов и других <color_light_gray>неразумных</color> существ его нет, поэтому способность на них <color_light_gray>совершенно не действует</color>."
+"<color_yellow>Этой способности нужен разум, за который можно зацепиться.</color> У ходячих мертвецов, роботов и других <color_light_gray>неразумных</color> существ его нет, поэтому способность на них <color_light_gray>совершенно не действует</color>.\n"
+"\n"
+"<color_light_green>Вожак стаи:</color> освоив эту способность, вы увеличиваете урон всех своих питомцев в ближнем бою на <color_light_green>25%</color>. Питомцы, сражающиеся в пределах 12 клеток от вас, дополнительно увеличивают урон на <color_light_green>15%</color> за каждого участника стаи сверх первого. Бонусы перемножаются; учитывается до 8 питомцев (множитель x3.33 при 8). Рядом с вами питомцы сохраняют самообладание и не убегают, пока не получат тяжёлые ранения. Отбившиеся от стаи питомцы находят дорогу обратно к вам. Удалившись слишком далеко, питомцы прекращают преследование и возвращаются. Бонус не распространяется на огнестрельное оружие, псионические способности и некоторые встроенные способности."
 
 #. ~ Message for SPELL '[Ψ]Beastmaster'
 #: spells/psychic_knacks.json spells/telepathy.json
@@ -23232,10 +23892,14 @@ msgstr "[Ψ]Целебное сияние (К)"
 
 #. ~ Description for [Ψ]Healthy Glow (C)
 #: spells/psychic_knacks.json spells/vitakinesis.json
+#| msgid ""
+#| "Your powers can keep you in the bloom of health.  This can also stop or prevent an asthma attack.\n"
+#| "\n"
+#| "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  Healthy Glow <color_red>cannot be active</color> with Leucocyte Acculumation"
 msgid ""
 "Your powers can keep you in the bloom of health.  This can also stop or prevent an asthma attack.\n"
 "\n"
-"This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  Healthy Glow <color_red>cannot be active</color> with Leucocyte Acculumation"
+"This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  Healthy Glow <color_red>cannot be active</color> with Leucocyte Accumulation"
 msgstr ""
 "Ваши силы позволяют поддерживать отменное здоровье. Это также может остановить или предотвратить приступ астмы.\n"
 "\n"
@@ -23337,6 +24001,16 @@ msgstr ""
 
 #. ~ Description for [Ψ]Banked Flames (C)
 #: spells/pyrokinesis.json
+#| msgid ""
+#| "Call up flames over your outstretched hand.  You can use them to heat up food, boil water, start fires, or anything else fire can accomplish.\n"
+#| "\n"
+#| "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.\n"
+#| "\n"
+#| "Level 6 leads to Cloak of Warmth with Banked Flames 6 OR Molten Land 6.\n"
+#| "Level 7 leads to Flamethrower with Brilliant Flash 5.\n"
+#| "Level 6 leads to Incandescent Lance with Molten Land 9 + Quell Fire 6 OR Banked Flames 6.\n"
+#| "Level 5 leads to Quell Fire with Intensify Flames 6.\n"
+#| "Level 10 leads to Thermogenesis with Banked Flames 10 + Brilliant Flash 7 OR Banked Flames 10 + Intensify Flames 8 OR Brilliant Flash 7 + Cloak of Warmth 6 OR Cloak of Warmth 6 + Intensify Flames 8."
 msgid ""
 "Call up flames over your outstretched hand.  You can use them to heat up food, boil water, start fires, or anything else fire can accomplish.\n"
 "\n"
@@ -23345,6 +24019,7 @@ msgid ""
 "Level 6 leads to Cloak of Warmth with Banked Flames 6 OR Molten Land 6.\n"
 "Level 7 leads to Flamethrower with Brilliant Flash 5.\n"
 "Level 6 leads to Incandescent Lance with Molten Land 9 + Quell Fire 6 OR Banked Flames 6.\n"
+"Level 6 leads to Pyrolytic Trap.\n"
 "Level 5 leads to Quell Fire with Intensify Flames 6.\n"
 "Level 10 leads to Thermogenesis with Banked Flames 10 + Brilliant Flash 7 OR Banked Flames 10 + Intensify Flames 8 OR Brilliant Flash 7 + Cloak of Warmth 6 OR Cloak of Warmth 6 + Intensify Flames 8."
 msgstr ""
@@ -23355,6 +24030,7 @@ msgstr ""
 "На 6-м уровне открывается «Покров тепла»; условия: «Сдерживаемое пламя» 6-го уровня ИЛИ «Расплавленная земля» 6-го уровня.\n"
 "На 7-м уровне открывается «Огнемёт»; условия: «Блестящая вспышка» 5-го уровня.\n"
 "На 6-м уровне открывается «Раскалённое копьё»; условия: «Расплавленная земля» 9-го уровня + «Усмирение огня» 6-го уровня ИЛИ «Сдерживаемое пламя» 6-го уровня.\n"
+"На 6-м уровне открывается «Пиролитическая ловушка».\n"
 "На 5-м уровне открывается «Усмирение огня»; условия: «Усиление пламени» 6-го уровня.\n"
 "На 10-м уровне открывается «Термогенез»; условия: «Сдерживаемое пламя» 10-го уровня + «Блестящая вспышка» 7-го уровня ИЛИ «Сдерживаемое пламя» 10-го уровня + «Усиление пламени» 8-го уровня ИЛИ «Блестящая вспышка» 7-го уровня + «Покров тепла» 6-го уровня ИЛИ «Покров тепла» 6-го уровня + «Усиление пламени» 8-го уровня."
 
@@ -23529,10 +24205,20 @@ msgstr "Вы сосредоточиваете всю свою силу в одн
 
 #. ~ Description for [Ψ]Far Hand
 #: spells/telekinesis.json
+#| msgid ""
+#| "Pickup items at a distance or push them away from you.\n"
+#| "\n"
+#| "Level 6 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\n"
+#| "Level 8 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10.\n"
+#| "Level 7 leads to Lifting Field with Lift Vehicle 3 OR Far Hand 7 + Momentum Alteration 5.\n"
+#| "Level 15 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.\n"
+#| "Level 5 leads to Momentum Alteration with Force Shove 5.\n"
+#| "Level 10 leads to Wrecking Ball with Force Shove 10 + Knockdown 12 OR Far Hand 10 + Knockdown 12 OR Force Shove 10 + Mindhammer 7 OR Far Hand 10 + Mindhammer 7."
 msgid ""
-"Pickup items at a distance or push them away from you.\n"
+"Pick up items at a distance or push them away from you.\n"
 "\n"
 "Level 6 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\n"
+"Level 5 leads to Kinetic Trap with Force Shove 5.\n"
 "Level 8 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10.\n"
 "Level 7 leads to Lifting Field with Lift Vehicle 3 OR Far Hand 7 + Momentum Alteration 5.\n"
 "Level 15 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.\n"
@@ -23542,6 +24228,7 @@ msgstr ""
 "Поднимайте предметы на расстоянии или отталкивайте их от себя.\n"
 "\n"
 "На 6-м уровне открывается «Увеличение силы»; условия: «Дальняя рука» 6-го уровня + «Изменение импульса» 5-го уровня ИЛИ «Силовой толчок» 6-го уровня + «Изменение импульса» 5-го уровня.\n"
+"На 5-м уровне открывается «Кинетическая ловушка»; условия: «Силовой толчок» 5-го уровня.\n"
 "На 8-м уровне открывается «Подъём транспорта»; условия: «Дальняя рука» 8-го уровня + «Медленное падение» 8-го уровня ИЛИ «Увеличение силы» 10-го уровня.\n"
 "На 7-м уровне открывается «Подъёмное поле»; условия: «Подъём транспорта» 3-го уровня ИЛИ «Дальняя рука» 7-го уровня + «Изменение импульса» 5-го уровня.\n"
 "На 15-м уровне открывается «Мегакинез»; условия: «Силовой толчок» 15-го уровня + «Изменение импульса» 10-го уровня ИЛИ «Силовой толчок» 15-го уровня + «Подъём транспорта» 6-го уровня ИЛИ «Дальняя рука» 15-го уровня + «Изменение импульса» 10-го уровня ИЛИ «Дальняя рука» 15-го уровня + «Подъём транспорта» 6-го уровня.\n"
@@ -23550,10 +24237,22 @@ msgstr ""
 
 #. ~ Description for [Ψ]Force Shove
 #: spells/telekinesis.json
+#| msgid ""
+#| "Shove a target away or pull it towards you with a burst of psionic force.  The distance the target can be moved depends on its weight versus your power level; heavier things will not go as far, and if your target is too heavy, you may not be able to move it at all.\n"
+#| "\n"
+#| "Level 6 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\n"
+#| "Level 4 leads to Knockdown with Force Shove 4 OR Noisemaker 1.\n"
+#| "Level 15 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.\n"
+#| "Level 8 leads to Mindhammer with Knockdown 6 + Wave of Force 4 OR Force Shove 8 + Knockdown 6.\n"
+#| "Level 5 leads to Momentum Alteration with Far Hand 5.\n"
+#| "Level 3 leads to No Go Zone.\n"
+#| "Level 7 leads to Wave of Force with Knockdown 4.\n"
+#| "Level 10 leads to Wrecking Ball with Force Shove 10 + Knockdown 12 OR Far Hand 10 + Knockdown 12 OR Force Shove 10 + Mindhammer 7 OR Far Hand 10 + Mindhammer 7."
 msgid ""
 "Shove a target away or pull it towards you with a burst of psionic force.  The distance the target can be moved depends on its weight versus your power level; heavier things will not go as far, and if your target is too heavy, you may not be able to move it at all.\n"
 "\n"
 "Level 6 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\n"
+"Level 5 leads to Kinetic Trap with Far Hand 5.\n"
 "Level 4 leads to Knockdown with Force Shove 4 OR Noisemaker 1.\n"
 "Level 15 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.\n"
 "Level 8 leads to Mindhammer with Knockdown 6 + Wave of Force 4 OR Force Shove 8 + Knockdown 6.\n"
@@ -23565,6 +24264,7 @@ msgstr ""
 "Толкните цель прочь или притяните к себе выбросом псионической силы. Дальность перемещения зависит от соотношения веса цели и уровня вашей силы; тяжёлые цели перемещаются не так далеко, а слишком тяжёлые могут вовсе не сдвинуться.\n"
 "\n"
 "На 6-м уровне открывается «Увеличение силы»; условия: «Дальняя рука» 6-го уровня + «Изменение импульса» 5-го уровня ИЛИ «Силовой толчок» 6-го уровня + «Изменение импульса» 5-го уровня.\n"
+"На 5-м уровне открывается «Кинетическая ловушка»; условия: «Дальняя рука» 5-го уровня.\n"
 "На 4-м уровне открывается «Опрокидывание»; условия: «Силовой толчок» 4-го уровня ИЛИ «Шумогенератор» 1-го уровня.\n"
 "На 15-м уровне открывается «Мегакинез»; условия: «Силовой толчок» 15-го уровня + «Изменение импульса» 10-го уровня ИЛИ «Силовой толчок» 15-го уровня + «Подъём транспорта» 6-го уровня ИЛИ «Дальняя рука» 15-го уровня + «Изменение импульса» 10-го уровня ИЛИ «Дальняя рука» 15-го уровня + «Подъём транспорта» 6-го уровня.\n"
 "На 8-м уровне открывается «Молот разума»; условия: «Опрокидывание» 6-го уровня + «Силовая волна» 4-го уровня ИЛИ «Силовой толчок» 8-го уровня + «Опрокидывание» 6-го уровня.\n"
@@ -23619,23 +24319,32 @@ msgstr "[Ψ]Изменение импульса (К)"
 
 #. ~ Description for [Ψ]Momentum Alteration (C)
 #: spells/telekinesis.json
+#| msgid ""
+#| "Edit the momentum of yourself and nearby objects to your benefit, slowing damaging force and slightly increasing your speed.\n"
+#| "\n"
+#| "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
+#| "\n"
+#| "Level 12 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\n"
+#| "Level 5 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\n"
+#| "Level 10 leads to Inertial Barrier with Wave of Force 8.\n"
+#| "Level 5 leads to Lifting Field with Lift Vehicle 3 OR Far Hand 7 + Momentum Alteration 5.\n"
+#| "Level 10 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.\n"
+#| "Level 6 leads to Slowfall."
 msgid ""
 "Edit the momentum of yourself and nearby objects to your benefit, slowing damaging force and slightly increasing your speed.\n"
 "\n"
 "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
 "\n"
-"Level 12 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\n"
 "Level 5 leads to Enhance Strength with Far Hand 6 + Momentum Alteration 5 OR Force Shove 6 + Momentum Alteration 5.\n"
 "Level 10 leads to Inertial Barrier with Wave of Force 8.\n"
 "Level 5 leads to Lifting Field with Lift Vehicle 3 OR Far Hand 7 + Momentum Alteration 5.\n"
 "Level 10 leads to Megakinesis with Force Shove 15 + Momentum Alteration 10 OR Force Shove 15 + Lift Vehicle 6 OR Far Hand 15 + Momentum Alteration 10 OR Far Hand 15 + Lift Vehicle 6.\n"
 "Level 6 leads to Slowfall."
 msgstr ""
-"Меняйте импульс собственного движения и движения ближайших предметов в свою пользу, ослабляя силу опасных ударов и немного увеличивая свою скорость.\n"
+"Меняйте импульс своего тела и окружающих предметов себе на пользу, ослабляя силу ударов и немного повышая свою скорость.\n"
 "\n"
 "Эта способность <color_yellow>поддерживается концентрацией</color> и <color_red>может перестать действовать</color>, если <color_yellow>концентрация будет нарушена</color>.\n"
 "\n"
-"На 12-м уровне открывается «Эгида»; условия: «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Силовая волна» 8-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Силовая волна» 8-го уровня ИЛИ «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Медленное падение» 9-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Медленное падение» 9-го уровня.\n"
 "На 5-м уровне открывается «Увеличение силы»; условия: «Дальняя рука» 6-го уровня + «Изменение импульса» 5-го уровня ИЛИ «Силовой толчок» 6-го уровня + «Изменение импульса» 5-го уровня.\n"
 "На 10-м уровне открывается «Инерционный барьер»; условия: «Силовая волна» 8-го уровня.\n"
 "На 5-м уровне открывается «Подъёмное поле»; условия: «Подъём транспорта» 3-го уровня ИЛИ «Дальняя рука» 7-го уровня + «Изменение импульса» 5-го уровня.\n"
@@ -23648,17 +24357,21 @@ msgstr "[Ψ]Медленное падение"
 
 #. ~ Description for [Ψ]Slowfall
 #: spells/telekinesis.json
+#| msgid ""
+#| "Counteract the pull of gravity with telekinetic force, greatly reducing or even eliminating damage from falling and becoming much more buoyant.\n"
+#| "\n"
+#| "Level 9 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\n"
+#| "Level 9 leads to Levitation.\n"
+#| "Level 8 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10."
 msgid ""
 "Counteract the pull of gravity with telekinetic force, greatly reducing or even eliminating damage from falling and becoming much more buoyant.\n"
 "\n"
-"Level 9 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\n"
 "Level 9 leads to Levitation.\n"
 "Level 8 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10."
 msgstr ""
-"Противодействуйте гравитации телекинетической силой, значительно уменьшая или полностью устраняя урон от падений и заметно повышая плавучесть.\n"
+"Противодействуйте гравитации телекинетической силой, значительно уменьшая или даже полностью устраняя урон от падения и заметно повышая плавучесть.\n"
 "\n"
-"На 9-м уровне открывается «Эгида»; условия: «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Силовая волна» 8-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Силовая волна» 8-го уровня ИЛИ «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Медленное падение» 9-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Медленное падение» 9-го уровня.\n"
-"На 9-м уровне открывается «Левитация».\n"
+"На уровне 9 открывается «Левитация».\n"
 "На 8-м уровне открывается «Подъём транспорта»; условия: «Дальняя рука» 8-го уровня + «Медленное падение» 8-го уровня ИЛИ «Увеличение силы» 10-го уровня."
 
 #. ~ Message for SPELL '[Ψ]Slowfall'
@@ -23668,17 +24381,22 @@ msgstr "Вы чувствуете себя легче."
 
 #. ~ Description for [Ψ]Wave of Force
 #: spells/telekinesis.json
+#| msgid ""
+#| "Unleash a telekinetic wave around you that indiscriminately knocks everything back.\n"
+#| "\n"
+#| "Level 8 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\n"
+#| "Level 13 leads to Earthshaker with Megakinesis 5 + Wrecking Ball 8 OR Mindhammer 9 + Wrecking Ball 8 OR Megakinesis 5 + Wave of Force 13 OR Mindhammer 9 + Wave of Force 13.\n"
+#| "Level 8 leads to Inertial Barrier with Momentum Alteration 10.\n"
+#| "Level 4 leads to Mindhammer with Knockdown 6 + Wave of Force 4 OR Force Shove 8 + Knockdown 6."
 msgid ""
 "Unleash a telekinetic wave around you that indiscriminately knocks everything back.\n"
 "\n"
-"Level 8 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\n"
 "Level 13 leads to Earthshaker with Megakinesis 5 + Wrecking Ball 8 OR Mindhammer 9 + Wrecking Ball 8 OR Megakinesis 5 + Wave of Force 13 OR Mindhammer 9 + Wave of Force 13.\n"
 "Level 8 leads to Inertial Barrier with Momentum Alteration 10.\n"
 "Level 4 leads to Mindhammer with Knockdown 6 + Wave of Force 4 OR Force Shove 8 + Knockdown 6."
 msgstr ""
-"Выпустите вокруг себя телекинетическую волну, отбрасывающую всё без разбора.\n"
+"Выпустите вокруг себя телекинетическую волну, которая отбрасывает всё без разбора.\n"
 "\n"
-"На 8-м уровне открывается «Эгида»; условия: «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Силовая волна» 8-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Силовая волна» 8-го уровня ИЛИ «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Медленное падение» 9-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Медленное падение» 9-го уровня.\n"
 "На 13-м уровне открывается «Землетрясение»; условия: «Мегакинез» 5-го уровня + «Таранное ядро» 8-го уровня ИЛИ «Молот разума» 9-го уровня + «Таранное ядро» 8-го уровня ИЛИ «Мегакинез» 5-го уровня + «Силовая волна» 13-го уровня ИЛИ «Молот разума» 9-го уровня + «Силовая волна» 13-го уровня.\n"
 "На 8-м уровне открывается «Инерционный барьер»; условия: «Изменение импульса» 10-го уровня.\n"
 "На 4-м уровне открывается «Молот разума»; условия: «Опрокидывание» 6-го уровня + «Силовая волна» 4-го уровня ИЛИ «Силовой толчок» 8-го уровня + «Опрокидывание» 6-го уровня."
@@ -23708,20 +24426,24 @@ msgstr "[Ψ]Увеличение силы (К)"
 
 #. ~ Description for [Ψ]Enhance Strength (C)
 #: spells/telekinesis.json
+#| msgid ""
+#| "Attune your senses to radio waves, allowing you to listen to transmissions and send them yourself.\n"
+#| "\n"
+#| "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.\n"
+#| "\n"
+#| "Level 6 leads to Sensor Jamming with Star Flash 5 OR Photon Beam 4 + Radio Transception 6."
 msgid ""
 "Focus your powers to allow you to move much heavier objects and smash through walls.\n"
 "\n"
 "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.\n"
 "\n"
-"Level 8 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\n"
 "Level 10 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10."
 msgstr ""
 "Сосредоточьте свои силы, чтобы перемещать гораздо более тяжёлые предметы и проламывать стены.\n"
 "\n"
 "Эта способность <color_yellow>поддерживается концентрацией</color> и <color_red>может перестать действовать</color>, если <color_yellow>концентрация будет нарушена</color>. Она <color_red>прекращает действовать при вступлении в бой</color>.\n"
 "\n"
-"На 8-м уровне открывается «Эгида»; условия: «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Силовая волна» 8-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Силовая волна» 8-го уровня ИЛИ «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Медленное падение» 9-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Медленное падение» 9-го уровня.\n"
-"На 10-м уровне открывается «Подъём транспорта»; условия: «Дальняя рука» 8-го уровня + «Медленное падение» 8-го уровня ИЛИ «Увеличение силы» 10-го уровня."
+"На уровне 10 открывается «Подъём транспорта»; условия: «Дальняя рука» 8-го уровня + «Медленное падение» 8-го уровня ИЛИ «Увеличение силы» 10-го уровня."
 
 #: spells/telekinesis.json
 msgid "[Ψ]Mindhammer"
@@ -23777,18 +24499,18 @@ msgstr "[Ψ]Инерционный барьер (К)"
 
 #. ~ Description for [Ψ]Inertial Barrier (C)
 #: spells/telekinesis.json
+#| msgid ""
+#| "Control the temperature of the nearby air, warming you and protecting you against flames.\n"
+#| "\n"
+#| "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>."
 msgid ""
 "Create a telekinetic barrier around yourself to protect you from damage.\n"
 "\n"
-"This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
-"\n"
-"Level 7 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9."
+"This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>."
 msgstr ""
-"Создайте вокруг себя телекинетический барьер для защиты от повреждений.\n"
+"Создайте вокруг себя телекинетический барьер, защищающий от урона.\n"
 "\n"
-"Эта способность <color_yellow>поддерживается концентрацией</color> и <color_red>может перестать действовать</color>, если <color_yellow>концентрация будет нарушена</color>.\n"
-"\n"
-"На 7-м уровне открывается «Эгида»; условия: «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Силовая волна» 8-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Силовая волна» 8-го уровня ИЛИ «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Медленное падение» 9-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Медленное падение» 9-го уровня."
+"Эта способность <color_yellow>поддерживается концентрацией</color> и <color_red>может перестать действовать</color>, если <color_yellow>концентрация будет нарушена</color>."
 
 #: spells/telekinesis.json
 msgid "[Ψ]Wrecking Ball"
@@ -23839,26 +24561,6 @@ msgstr ""
 "Телекинез грандиозного масштаба: эта способность позволяет перемещать поистине огромные тяжести, метать цели размером с человека со смертельной скоростью или поднимать и бросать что-то чудовищно большое. Перемещаемый вес зависит от уровня способности.\n"
 "\n"
 "На 5-м уровне открывается «Землетрясение»; условия: «Мегакинез» 5-го уровня + «Таранное ядро» 8-го уровня ИЛИ «Молот разума» 9-го уровня + «Таранное ядро» 8-го уровня ИЛИ «Мегакинез» 5-го уровня + «Силовая волна» 13-го уровня ИЛИ «Молот разума» 9-го уровня + «Силовая волна» 13-го уровня."
-
-#: spells/telekinesis.json
-msgid "[Ψ]Aegis"
-msgstr "[Ψ]Эгида"
-
-#. ~ Description for [Ψ]Aegis
-#: spells/telekinesis.json
-msgid ""
-"Create a shield impenetrable to physical damage around yourself.  It will "
-"<color_yellow>only last a few moments</color>.  You will be "
-"<color_red>unable to move</color> while the power is in effect."
-msgstr ""
-"Создайте вокруг себя непроницаемый для физического урона щит. Он "
-"<color_yellow>просуществует лишь несколько мгновений</color>. Пока "
-"способность действует, вы <color_red>не сможете двигаться</color>."
-
-#. ~ Message for SPELL '[Ψ]Aegis'
-#: spells/telekinesis.json
-msgid "The air around you becomes as hard as adamant."
-msgstr "Воздух вокруг вас становится твёрдым, как адамант."
 
 #: spells/telekinesis.json
 msgid "[Ψ]Earthshaker"
@@ -23989,17 +24691,28 @@ msgstr ""
 
 #. ~ Description for [Ψ]Beastmaster
 #: spells/telepathy.json
+#| msgid ""
+#| "Take control of an animal's mind, forcing it to obey you.  This power will not work on insects, spiders, or similar beings.  This also works on feral humans.\n"
+#| "\n"
+#| "<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.\n"
+#| "\n"
+#| "Level 10 leads to Beast Tamer.\n"
+#| "Level 8 leads to Mind Control with Mood Stabilization 12 + Primal Terror 5 OR Beastmaster 8 + Mood Stabilization 12 OR Mood Stabilization 12 + Sensory Deprivation 7 OR Obscurity 6 + Primal Terror 5 OR Beastmaster 8 + Obscurity 6 OR Obscurity 6 + Sensory Deprivation 7."
 msgid ""
-"Take control of an animal's mind, forcing it to obey you.  This power will not work on insects, spiders, or similar beings.  This also works on feral humans.\n"
+"Take control of an animal's mind, forcing it to obey you.  This also works on feral humans.\n"
 "\n"
 "<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>.\n"
+"\n"
+"<color_light_green>Pack Leader:</color> once you know this power, every pet you have deals <color_light_green>25%</color> more melee damage.  Pets fighting within 12 tiles of you also gain a compounding <color_light_green>15%</color> for each packmate beyond the first, counting up to 8 pets (x3.33 at 8).  Pets near you also hold their nerve and will not flee until badly wounded.  Pets that wander off will find their way back to your side.  Pets that stray too far break off their hunt and return.  Guns, psionic powers and a few hard-wired abilities are not boosted.\n"
 "\n"
 "Level 10 leads to Beast Tamer.\n"
 "Level 8 leads to Mind Control with Mood Stabilization 12 + Primal Terror 5 OR Beastmaster 8 + Mood Stabilization 12 OR Mood Stabilization 12 + Sensory Deprivation 7 OR Obscurity 6 + Primal Terror 5 OR Beastmaster 8 + Obscurity 6 OR Obscurity 6 + Sensory Deprivation 7."
 msgstr ""
-"Подчините разум животного, заставив его повиноваться. Эта способность не действует на насекомых, пауков и подобных существ. Также действует на одичавших людей.\n"
+"Подчините разум животного своей воле. Действует и на одичавших людей.\n"
 "\n"
 "<color_yellow>Этой способности нужен разум, за который можно зацепиться.</color> У ходячих мертвецов, роботов и других <color_light_gray>неразумных</color> существ его нет, поэтому способность на них <color_light_gray>совершенно не действует</color>.\n"
+"\n"
+"<color_light_green>Вожак стаи:</color> освоив эту способность, вы увеличиваете урон всех своих питомцев в ближнем бою на <color_light_green>25%</color>. Питомцы, сражающиеся в пределах 12 клеток от вас, дополнительно увеличивают урон на <color_light_green>15%</color> за каждого участника стаи сверх первого. Бонусы перемножаются; учитывается до 8 питомцев (множитель x3.33 при 8). Рядом с вами питомцы сохраняют самообладание и не убегают, пока не получат тяжёлые ранения. Отбившиеся от стаи питомцы находят дорогу обратно к вам. Удалившись слишком далеко, питомцы прекращают преследование и возвращаются. Бонус не распространяется на огнестрельное оружие, псионические способности и некоторые встроенные способности.\n"
 "\n"
 "На 10-м уровне открывается «Укротитель зверей».\n"
 "На 8-м уровне открывается «Контроль разума»; условия: «Стабилизация настроения» 12-го уровня + «Первобытный ужас» 5-го уровня ИЛИ «Повелитель зверей» 8-го уровня + «Стабилизация настроения» 12-го уровня ИЛИ «Стабилизация настроения» 12-го уровня + «Сенсорная депривация» 7-го уровня ИЛИ «Незаметность» 6-го уровня + «Первобытный ужас» 5-го уровня ИЛИ «Повелитель зверей» 8-го уровня + «Незаметность» 6-го уровня ИЛИ «Незаметность» 6-го уровня + «Сенсорная депривация» 7-го уровня."
@@ -24512,8 +25225,12 @@ msgstr "[Ψ]Мерцающая стойка"
 
 #. ~ Description for [Ψ]Flickerflash Stance
 #: spells/teleportation.json
+#| msgid ""
+#| "Through constant contraction and expansion of nearby space, as well as near-constant micro-teleports less than decimeter in distance, you can increase the effective momentum behind your strikes, make your exact position nearly impossible to determine, and your blows nearly impossible to stop.\n"
+#| "\n"
+#| "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It requires <color_yellow>even more concentration</color> than usual."
 msgid ""
-"Through constant contraction and expansion of nearby space, as well as near-constant micro-teleports less than decimeter in distance, you can increase the effective momentum behind your strikes, make your exact position nearly impossible to determine, and your blows nearly impossible to stop.\n"
+"Through constant contraction and expansion of nearby space, as well as near-constant micro-teleports less than a decimeter in distance, you can increase the effective momentum behind your strikes, make your exact position nearly impossible to determine, and your blows nearly impossible to stop.\n"
 "\n"
 "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It requires <color_yellow>even more concentration</color> than usual."
 msgstr ""
@@ -24607,3 +25324,99 @@ msgstr "Вы тратите немного времени на запомина�
 #: vehicles/mom_vehicle_bridges.json
 msgid "Medical Cart"
 msgstr "медицинская тележка"
+
+#~ msgid "You are nearly invincible."
+#~ msgstr "Вы почти неуязвимы."
+
+#~ msgid "The air loses its structure and you are vulnerable once again."
+#~ msgstr "Воздух теряет упорядоченность, и вы снова уязвимы."
+
+#~ msgid "compressed chaos"
+#~ msgid_plural "compressed chaos"
+#~ msgstr[0] "сжатый хаос"
+#~ msgstr[1] "сжатый хаос"
+#~ msgstr[2] "сжатый хаос"
+
+#~ msgid ""
+#~ "This defies easy description, it feels solid but the surface is yielding.  "
+#~ "Looking at it you are reminded of the electric tingle in the air before a "
+#~ "portal storm."
+#~ msgstr ""
+#~ "Это трудно описать: на ощупь твёрдое, но поверхность поддаётся нажатию. "
+#~ "Глядя на него, вы вспоминаете электрическое покалывание в воздухе перед "
+#~ "портальным штормом."
+
+#~ msgid ""
+#~ "Contemplate your powers and improve your ability to shield yourself from all harm.\n"
+#~ "\n"
+#~ "Power Difficulty: 9\n"
+#~ "\n"
+#~ "Current Power Level: <u_spell_level:telekinetic_aegis>"
+#~ msgstr ""
+#~ "Созерцайте свои силы и совершенствуйте умение защищаться от любого вреда.\n"
+#~ "\n"
+#~ "Сложность способности: 9\n"
+#~ "\n"
+#~ "Текущий уровень способности: <u_spell_level:telekinetic_aegis>"
+
+#~ msgid ""
+#~ "You can examine an item and use your enhanced senses to determine its "
+#~ "properties that may not be obvious to the eye."
+#~ msgstr ""
+#~ "Осматривая предмет с помощью обострённых чувств, вы можете определить его "
+#~ "свойства, неочевидные для обычного зрения."
+
+#~ msgid "The ground splits and runs molten!"
+#~ msgstr "Земля раскалывается и течёт расплавом!"
+
+#~ msgid ""
+#~ "Take control of an animal's mind, forcing it to obey you.  This power will not work on insects, spiders, or similar beings.  This also works on feral humans.\n"
+#~ "\n"
+#~ "<color_yellow>This power needs a mind to seize hold of.</color>  The walking dead, robots, and other <color_light_gray>mindless</color> things have none, and are <color_light_gray>wholly unaffected</color>."
+#~ msgstr ""
+#~ "Подчините разум животного, заставив его повиноваться. Эта способность не действует на насекомых, пауков и подобных существ. Также действует на одичавших людей.\n"
+#~ "\n"
+#~ "<color_yellow>Этой способности нужен разум, за который можно зацепиться.</color> У ходячих мертвецов, роботов и других <color_light_gray>неразумных</color> существ его нет, поэтому способность на них <color_light_gray>совершенно не действует</color>."
+
+#~ msgid ""
+#~ "Focus your powers to allow you to move much heavier objects and smash through walls.\n"
+#~ "\n"
+#~ "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.  It is <color_red>canceled by engaging in combat</color>.\n"
+#~ "\n"
+#~ "Level 8 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9.\n"
+#~ "Level 10 leads to Lift Vehicle with Far Hand 8 + Slowfall 8 OR Enhance Strength 10."
+#~ msgstr ""
+#~ "Сосредоточьте свои силы, чтобы перемещать гораздо более тяжёлые предметы и проламывать стены.\n"
+#~ "\n"
+#~ "Эта способность <color_yellow>поддерживается концентрацией</color> и <color_red>может перестать действовать</color>, если <color_yellow>концентрация будет нарушена</color>. Она <color_red>прекращает действовать при вступлении в бой</color>.\n"
+#~ "\n"
+#~ "На 8-м уровне открывается «Эгида»; условия: «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Силовая волна» 8-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Силовая волна» 8-го уровня ИЛИ «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Медленное падение» 9-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Медленное падение» 9-го уровня.\n"
+#~ "На 10-м уровне открывается «Подъём транспорта»; условия: «Дальняя рука» 8-го уровня + «Медленное падение» 8-го уровня ИЛИ «Увеличение силы» 10-го уровня."
+
+#~ msgid ""
+#~ "Create a telekinetic barrier around yourself to protect you from damage.\n"
+#~ "\n"
+#~ "This power <color_yellow>is maintained by concentration</color> and <color_red>may fail</color> if <color_yellow>concentration is interrupted</color>.\n"
+#~ "\n"
+#~ "Level 7 leads to Aegis with Inertial Barrier 7 + Momentum Alteration 12 + Wave of Force 8 OR Enhance Strength 8 + Inertial Barrier 7 + Wave of Force 8 OR Inertial Barrier 7 + Momentum Alteration 12 + Slowfall 9 OR Enhance Strength 8 + Inertial Barrier 7 + Slowfall 9."
+#~ msgstr ""
+#~ "Создайте вокруг себя телекинетический барьер для защиты от повреждений.\n"
+#~ "\n"
+#~ "Эта способность <color_yellow>поддерживается концентрацией</color> и <color_red>может перестать действовать</color>, если <color_yellow>концентрация будет нарушена</color>.\n"
+#~ "\n"
+#~ "На 7-м уровне открывается «Эгида»; условия: «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Силовая волна» 8-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Силовая волна» 8-го уровня ИЛИ «Инерционный барьер» 7-го уровня + «Изменение импульса» 12-го уровня + «Медленное падение» 9-го уровня ИЛИ «Увеличение силы» 8-го уровня + «Инерционный барьер» 7-го уровня + «Медленное падение» 9-го уровня."
+
+#~ msgid "[Ψ]Aegis"
+#~ msgstr "[Ψ]Эгида"
+
+#~ msgid ""
+#~ "Create a shield impenetrable to physical damage around yourself.  It will "
+#~ "<color_yellow>only last a few moments</color>.  You will be "
+#~ "<color_red>unable to move</color> while the power is in effect."
+#~ msgstr ""
+#~ "Создайте вокруг себя непроницаемый для физического урона щит. Он "
+#~ "<color_yellow>просуществует лишь несколько мгновений</color>. Пока "
+#~ "способность действует, вы <color_red>не сможете двигаться</color>."
+
+#~ msgid "The air around you becomes as hard as adamant."
+#~ msgstr "Воздух вокруг вас становится твёрдым, как адамант."
